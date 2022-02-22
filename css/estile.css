@@ -15,7 +15,40 @@
     padding-left: 25px;
 }
 
-.ico {
+.img-hover{
+    width: 28px;
+    height: 28px;
+    margin: 8px;
+    background-image: url(../resources/user.png);
+    background-size: cover;
+}
+.img-hover:hover{
+    background-image: url(../resources/user2.png);
+}
+
+.img-hover2{
+    width: 28px;
+    height: 28px;
+    margin: 8px;
+    background-image: url(../resources/heart.png);
+    background-size: cover;
+}
+.img-hover2:hover{
+    background-image: url(../resources/herat2.png);
+}
+
+.img-hover3{
+    width: 28px;
+    height: 28px;
+    margin: 8px;
+    background-image: url(../resources/shopping-cart.png);
+    background-size: cover;
+}
+.img-hover3:hover{
+    background-image: url(../resources/shopping-cart2.png);
+}
+
+.ico2 {
     width: 28px !important;
 }
 
@@ -25,21 +58,21 @@ h1 {
 }
 
 .textcolor{
-    padding-right: 25px; 
+    padding-right: 20px; 
 }
 
 .textcolor2{
     padding-right: 50px;
-    border-radius: 15px;
 }
 
 .textcolor2 a {
     color: #75365a !important;
     font-size: 18px;
     font-family: 'Mohave', sans-serif;
+    border-radius: 15px;
 }
 
-.textcolor2 :hover{ 
+.textcolor2 a:hover{ 
     background-color: white ;
     text-align: center;
     border-radius: 15px;
@@ -115,3 +148,25 @@ h1 {
 
 
 
+#TextoC{
+    float: right;
+    padding-left: 450px;
+    padding-bottom: 130px;
+}
+
+.HCarusel{
+    font-size: 35px ;
+    color: #C34E8B;
+    font-family: 'Poppins', sans-serif;
+    text-align: right;
+
+
+}
+
+.pCarrusel{
+    font-size: 20px;
+    color: #75365a;
+    font-family: 'Mohave', sans-serif ;
+    font-weight: lighter;
+    text-align: right;
+}
