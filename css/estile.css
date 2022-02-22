@@ -1,6 +1,27 @@
+/* GLOBALES */
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+h1 {
+    font-family: 'Mohave', sans-serif;
+    text-align: center;
+}
+
+/* VARIABLES GLOBALES COLORES */
+:root {
+    --rosadopalido: #F7DADF;
+    --rosadoTitulos: #C34E8B;
+    --rosadoOscuro: #75365a;
+    --blanco: #fff;
+}
+
+/* NAVBAR */
 
 .menu{
-    background-color: #F7DADF;
+    background-color: var(--rosadopalido);
     height: 85px;
 }
 
@@ -43,10 +64,6 @@
     background-image: url(../resources/shopping-cart2.png);
 }
 
-.ico2 {
-    width: 28px !important;
-}
-
 .textcolor{
     padding-right: 20px; 
 }
@@ -56,16 +73,110 @@
 }
 
 .textcolor2 a {
-    color: #75365a !important;
+    color: var(--rosadoOscuro) !important;
     font-size: 18px;
     font-family: 'Mohave', sans-serif;
     border-radius: 15px;
 }
 
 .textcolor2 a:hover{ 
-    background-color: white ;
+    background-color: var(--blanco);
     text-align: center;
     border-radius: 15px;
+}
+
+/* CARRUSEL */
+
+#TextoC{
+    float: right;
+    padding-left: 450px;
+    padding-bottom: 130px;
+}
+
+.HCarusel{
+    font-size: 35px ;
+    color: var(--rosadoTitulos);
+    font-family: 'Poppins', sans-serif;
+    text-align: right;
+
+
+}
+
+.pCarrusel{
+    font-size: 20px;
+    color: var(--rosadoOscuro);
+    font-family: 'Mohave', sans-serif;
+    font-weight: lighter;
+    text-align: right;
+}
+
+/* CATEGORÍAS */
+
+.contenedor {
+    max-width: 1200px;
+    margin: 50px auto;
+}
+
+/* Grid categorías */ 
+
+.categorias {
+    background-color: var(--rosadopalido);
+    padding: 10px;
+}
+
+.card{
+    height: 500px;
+    background-color: var(--blanco);
+    margin: 0;
+    padding: 0;
+    text-align: left;
+    border: none;
+}
+
+.texto__categoria {
+    padding: 30px;
+}
+
+.texto__categoria > .titulo__categoria {
+    text-align: left;
+    color: var(--rosadoTitulos);
+}
+
+.texto__categoria > a {
+    font-family: 'Mohave', sans-serif;
+    text-decoration: none;
+    border-bottom: 3px solid var(--rosadoTitulos);
+    color: var(--rosadoOscuro);
+}
+
+.img-recetas {
+    width: 90%;
+    margin-left: 30px;
+}
+
+.img-utensilios {
+    width: 45%;
+}
+
+.img-electro {
+    width: 100%;
+}
+
+.dos{
+    height: 245px;
+    background-color: var(--blanco);
+    text-align: left;
+    display: flex;
+    align-items: center;
+}
+
+.arriba {
+    margin-bottom: 5px;
+}
+
+
+.abajo {
+    margin-top: 10px;
 }
 
 #TextoC{
@@ -76,11 +187,9 @@
 
 .HCarusel{
     font-size: 35px ;
-    color: #C34E8B;
+    color: var(--rosadoTitulos);
     font-family: 'Poppins', sans-serif;
     text-align: right;
-
-
 }
 
 .pCarrusel{
