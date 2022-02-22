@@ -1,3 +1,9 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
 .menu{
     background-color: #F7DADF;
     height: 85px;
@@ -11,6 +17,11 @@
 
 .ico {
     width: 28px !important;
+}
+
+h1 {
+    font-family: 'Mohave', sans-serif;
+    text-align: center;
 }
 
 .textcolor{
@@ -33,4 +44,74 @@
     text-align: center;
     border-radius: 15px;
 }
+
+.contenedor {
+    max-width: 1200px;
+    margin: 50px auto;
+}
+
+/* Grid categorías */ 
+
+.categorias {
+    background-color: #FCF2F3;
+    padding: 10px;
+}
+
+.card{
+    height: 500px;
+    background-color: #fff;
+    margin: 0;
+    padding: 0;
+    text-align: left;
+    border: none;
+}
+
+.texto__categoria {
+    padding: 30px;
+}
+
+.texto__categoria > .titulo__categoria {
+    text-align: left;
+    color: #C44E8B;
+}
+
+.texto__categoria > a {
+    font-family: 'Mohave', sans-serif;
+    text-decoration: none;
+    border-bottom: 3px solid #C44E8B;
+    color: #763659;
+}
+
+.img-recetas {
+    width: 90%;
+    margin-left: 30px;
+}
+
+.img-utensilios {
+    width: 45%;
+}
+
+.img-electro {
+    width: 100%;
+}
+
+.dos{
+    height: 245px;
+    background-color: #fff;
+    text-align: left;
+    display: flex;
+    align-items: center;
+}
+
+.arriba {
+    margin-bottom: 5px;
+}
+
+
+.abajo {
+    margin-top: 10px;
+}
+
+
+
 
