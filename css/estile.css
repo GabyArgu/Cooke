@@ -561,3 +561,96 @@ h1 {
     color: var(--rosadoTitulos);
 }
 /*------------------BLOG END------------------*/
+
+
+/*------------------RESEÑA START------------------*/
+.container-resena{
+    background-color: rgb(252, 242, 243);
+    display: flex;
+    flex-wrap: nowrap;
+}
+.resena-item{
+    background: #fff;
+    max-height: 300px;
+    flex-wrap: wrap;
+    transition: all 0.3s ease;
+}
+
+.scroll {
+    max-height: 300px;
+    overflow-y: scroll;
+    mask-image: linear-gradient(to top, transparent, black),
+      linear-gradient(to left, transparent 17px, black 17px);
+    mask-size: 100% 20000px;
+    mask-position: left bottom;
+    -webkit-mask-image: linear-gradient(to top, transparent, black),
+      linear-gradient(to left, transparent 17px, black 17px);
+    -webkit-mask-size: 100% 20000px;
+    -webkit-mask-position: left bottom;
+    transition: mask-position 0.3s, -webkit-mask-position 0.3s;
+}
+.scroll:hover{
+    -webkit-mask-position: left top;
+}
+.stars-title-resena{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.stars-title-resena i{
+    margin: 0 5px 0 5px;
+    font-size: 20px;
+
+}
+.numero-comentarios{
+    font-size: 20px;
+    color: var(--rosadoTitulos);
+}
+
+
+.img-resena img{
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+}
+.resena-header{
+    display: flex;
+    align-items: center;
+    justify-content:space-between;
+    padding: 5px;
+}
+.resena-user{
+    color: var(--rosadoOscuro);
+    font-size: 18px;
+    font-weight: 500;
+}
+.resena-name{
+    color: var(--rosadoTitulos);
+    font-size: 20px;
+    font-weight: 500;
+}
+.resena-info p{
+    color: var(--rosadoOscuro);
+}
+
+.resena-autor-fecha{
+    display: flex;
+    flex-direction: row;
+    justify-content:space-around;
+    margin-top: 2%;
+}
+.resena-autor-fecha span{
+    font-size: 12px;
+    font-weight: 400;
+    color: var(--rosadoTitulos);
+}
+.linea{
+    height: 2px;
+    border: none;
+    border-top: 5px solid var(--rosadoTitulos);
+    width: 40%;
+    background-color: var(--rosadoTitulos);
+    border-radius: 3px;
+}
+/*------------------RESEÑA END------------------*/
