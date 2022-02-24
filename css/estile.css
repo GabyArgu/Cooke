@@ -294,6 +294,36 @@ h1 {
     background-size: cover;
 } .card-cocina:hover{
     background-image:url(../resources/GridCategorias/bg-cocina-hover.png);
+
+}
+
+.card-utensilios {
+    background-image: url(../resources/GridCategorias/bg-utensilios.png);
+    background-position: left;
+    background-size: cover;
+} .card-utensilios:hover{
+    background-image: url(../resources/GridCategorias/bg-utensilios-hover.png);
+}
+
+.card-electro {
+    background-image: url(../resources/GridCategorias/bg-electro.png);
+    background-position: center right;
+    background-size: cover;
+    background-repeat: no-repeat;
+} .card-electro:hover {
+    background-image: url(../resources/GridCategorias/bg-electro-hover.png);
+}
+
+.card-recetas {
+    background-image: url(../resources/GridCategorias/bg-recetas.png);
+    background-position: center;
+    background-size: cover;
+} .card-recetas:hover{
+    background-image: url(../resources/GridCategorias/bg-recetas-hover.png);
+}
+
+
+
 }
 
 .card-utensilios {
@@ -505,7 +535,7 @@ h1 {
 }
 .owl-prev, .owl-next{
     position:absolute;
-    top: 40%;
+    top: 30%;
 }
 .owl-prev span, .owl-next span{
     font-size: 60px;
@@ -555,7 +585,7 @@ h1 {
 
 .blog-item:hover .blog-img::before,
 .blog-item:hover .blog-img::after{
-    height: 50%;
+    height: 50.01%;
 }
 
 .blog-img button{
@@ -694,7 +724,7 @@ h1 {
     height: 2px;
     border: none;
     border-top: 5px solid var(--rosadoTitulos);
-    width: 40%;
+    width: 500px;
     background-color: var(--rosadoTitulos);
     border-radius: 3px;
 }
