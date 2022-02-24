@@ -39,9 +39,11 @@ h1 {
     margin: 8px;
     background-image: url(../resources/user.png);
     background-size: cover;
+    transition: all 0.3s ease;
 }
 .img-hover:hover{
     background-image: url(../resources/user2.png);
+    transform: scale(1.2);
 }
 
 .img-hover2{
@@ -50,9 +52,11 @@ h1 {
     margin: 8px;
     background-image: url(../resources/heart.png);
     background-size: cover;
+    transition: all 0.3s ease;
 }
 .img-hover2:hover{
     background-image: url(../resources/herat2.png);
+    transform: scale(1.2);
 }
 
 .img-hover3{
@@ -61,9 +65,11 @@ h1 {
     margin: 8px;
     background-image: url(../resources/shopping-cart.png);
     background-size: cover;
+    transition: all 0.3s ease;
 }
 .img-hover3:hover{
     background-image: url(../resources/shopping-cart2.png);
+    transform: scale(1.2);
 }
 
 .textcolor{
@@ -79,12 +85,12 @@ h1 {
     font-size: 18px;
     font-family: 'Mohave', sans-serif;
     border-radius: 15px;
+    transition: all 0.3s ease;
 }
 
 .textcolor2 a:hover{ 
     background-color: var(--blanco);
-    text-align: center;
-    border-radius: 15px;
+    transform: scale(1.1);
 }
 
 /* CARRUSEL */
@@ -299,3 +305,179 @@ h1 {
 .abajo {
     margin-top: 10px;
 }
+
+/*------------------PRODUCTOS DESTACADOS START------------------*/
+
+.product-img{
+    position: relative;
+    overflow: hidden;
+    background-color: rgb(245, 245, 245);
+}
+.tags{
+    position: absolute;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    margin-left: 3%;
+    margin-top: 4%;
+}
+.tag-new{
+    background-color: rgb(210, 132, 174);
+    color: white;
+    font-weight: 500;
+    border-radius: 10px;
+    padding: 3% 10px 3% 10px;
+}
+.tag-discount{
+    color: rgb(118, 54, 89);
+    margin-left: 5px;
+}
+
+
+/* hover producto */
+.product-img::before,
+.product-img::after{
+    content: '';
+    position: absolute;
+    left: 0;
+    height: 0%;
+    width: 100%;
+    background-color: gray;
+    opacity: 0.5;
+    transition: height 0.3s ease;
+}
+.product-img::before{
+    top: 0;
+}
+.product-img::after{
+    bottom: 0;
+}
+
+.product-item:hover .product-img::before,
+.product-item:hover .product-img::after{
+    height: 50%;
+}
+
+/* product icons/buttons */
+
+.title{
+    color: var(--rosadoTitulos);
+    margin-top: 2%;
+}
+.product-img button{
+    position: absolute;
+    width: 150px;
+    height: 40px;
+    left: 50%;
+    bottom: 5%;
+    z-index: 1;
+    transform: translate(-50%, -50%) scale(0.5);
+    opacity: 0;
+    font-size: 14px;
+    font-weight: 500;
+    border: none;
+    border-radius: 25px;
+    background-color: #FFF;
+    color: rgb(117, 54, 90);;
+
+    transition: all 0.3s ease;
+}
+.product-img:hover button{
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+}
+.product-img button:hover{
+    color: rgb(210, 132, 174);
+    width: 155px;
+    font-size: 15px;
+}
+
+.product-icons{
+    box-sizing: inherit;
+    position: absolute;
+    right: 1%;
+    top: 10%;
+    display: flex;
+    flex-direction: column;
+}
+.product-icons .destacado-icon{
+    transform: translate(-50%, -50%) scale(0.5);
+    opacity: 0;
+    cursor: pointer;
+    font-size: 25px;
+    color: rgb(211, 132, 174);
+    transition: all 0.3s ease;
+}
+.product-icons i{
+    transition: all 0.5s ease;
+    border-radius: 50%;
+    margin-bottom: 1px;
+}
+.product-icons i:hover{
+    color: rgb(117, 54, 90);
+}
+
+.product-img:hover .destacado-icon{
+    transition-delay: 0.2s;
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+}
+.fa-star{
+    color: #D384AE;
+}
+.product-info .product-name{
+    cursor: pointer;
+    color:#75365a;
+    display: block;
+    font-weight: 600;
+    transition: all 0.5s ease;
+}
+.product-info .product-name:hover{
+    color:#D384AE;
+}
+
+
+.product-price{
+    color: rgb(210, 132, 174);
+}
+.rating{
+    font-size: 13px;
+}
+.product-item{
+    width: 300px;
+}
+.product-before{
+    text-decoration: line-through;
+    color:#75365a;
+    margin-left: 1.5%;
+}
+
+.owl-prev{
+    left: -2%;
+}
+.owl-next{
+    right: -2%;
+}
+.owl-prev, .owl-next{
+    position:absolute;
+    top: 40%;
+}
+.owl-prev span, .owl-next span{
+    font-size: 60px;
+    color: pink;
+}
+.owl-theme .owl-nav [class*="owl-"]:hover{
+    background-color: transparent;
+}
+
+.custom-tooltip.tooltip > .tooltip-inner
+{
+    background-color: #D384AE;
+}
+
+.custom-tooltip.tooltip > .tooltip-arrow
+{
+    opacity: 0;
+}
+
+/*------------------PRODUCTOS DESTACADOS END------------------*/
