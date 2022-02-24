@@ -10,22 +10,54 @@ h1 {
     text-align: center;
 }
 
+body {
+    overflow-x: hidden;
+    overflow-y: overlay;
+}
+
 /* VARIABLES GLOBALES COLORES */
 :root {
     --rosadoPalido: #F7DADF;
-    --rosadoPalido2: #FCF2F4;
-    --rosadoPastel: #D97789;
+    --rosadoPalido2: #fcf2f4;
+    --rosadoPastel: #d97789;
     --rosadoTitulos: #C34E8B;
     --rosadoOscuro: #75365a;
     --blanco: #fff;
+    --marfil: #f5f5f5;
 }
 
+
+/* CUSTOM SCROLL BAR */
+
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+    background: transparent;
+  }
+
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: var(--rosadoTitulos);
+    border-radius: 5px;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--rosadoOscuro);
+  }
+
+  ::-webkit-scrollbar-corner {
+      border-radius: 5px;
+  }
 
 /* NAVBAR */
 
 .menu{
-    background-color: var(--rosadoPalido);
     height: 85px;
+}
+
+.navbar-scroll {
+    background-color: var(--rosadoPalido);
 }
 
 #logo_inicio{
@@ -258,6 +290,7 @@ h1 {
     padding: 0;
     text-align: left;
     border: none;
+    transition: 0.3s;
 }
 
 .card-utensilios,
@@ -268,6 +301,7 @@ h1 {
     padding: 0;
     text-align: left;
     border: none;
+    transition: 0.3s;
 }
 
 .card-body {
@@ -286,6 +320,8 @@ h1 {
     text-decoration: none;
     border-bottom: 3px solid var(--rosadoTitulos);
     color: var(--rosadoOscuro);
+} .card-link:hover{
+    color: var(--rosadoTitulos);
 }
 
 .card-cocina {
@@ -356,7 +392,7 @@ h1 {
 .product-img{
     position: relative;
     overflow: hidden;
-    background-color: rgb(245, 245, 245);
+    background-color: var(--marfil);
 }
 .tags{
     position: absolute;
@@ -572,7 +608,7 @@ h1 {
     border: none;
     border-radius: 25px;
     background-color: #FFF;
-    color: rgb(117, 54, 90);;
+    color: rgb(117, 54, 90);
 
     transition: all 0.3s ease;
 }
@@ -610,7 +646,7 @@ h1 {
 
 /*------------------RESEÑA START------------------*/
 .container-resena{
-    background-color: rgb(252, 242, 243);
+    background-color: var(--rosadoPalido2);
     display: flex;
     flex-wrap: nowrap;
 }
