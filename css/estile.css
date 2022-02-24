@@ -235,18 +235,16 @@ h1 {
     text-align: center;
 }
 
-
-/* CATEGORÍAS */
-
-/* Grid categorías */ 
+/* GRID CATEGORÍAS */
 
 .categorias {
     background-color: var(--rosadopalido);
     padding: 50px;
 }
 
-.card{
-    height: 500px;
+.card-cocina,
+.card-recetas{
+    height: 238px;
     background-color: var(--blanco);
     margin: 0;
     padding: 0;
@@ -254,48 +252,93 @@ h1 {
     border: none;
 }
 
-.texto__categoria {
-    padding: 30px;
+.card-utensilios,
+.card-electro {
+    height: 238px;
+    background-color: var(--blanco);
+    margin: 0;
+    padding: 0;
+    text-align: left;
+    border: none;
 }
 
-.texto__categoria > .titulo__categoria {
-    text-align: left;
+.card-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.card-title {
     color: var(--rosadoTitulos);
 }
 
-.texto__categoria > a {
+.card-link {
     font-family: 'Mohave', sans-serif;
     text-decoration: none;
     border-bottom: 3px solid var(--rosadoTitulos);
     color: var(--rosadoOscuro);
 }
 
-.img-recetas {
-    width: 90%;
-    margin-left: 30px;
+.card-cocina {
+    background-image: url(../resources/bg-cocina.png);
+    background-position: center center;
+    background-size: cover;
+} .card-cocina:hover{
+    background-image:url(../resources/bg-cocina-hover.png);
 }
 
-.img-utensilios {
-    width: 45%;
+.card-utensilios {
+    background-image: url(../resources/bg-utensilios.png);
+    background-position: left;
+    background-size: cover;
+} .card-utensilios:hover{
+    background-image: url(../resources/bg-utensilios-hover.png);
 }
 
-.img-electro {
-    width: 100%;
+.card-electro {
+    background-image: url(../resources/bg-electro.png);
+    background-position: center right;
+    background-size: cover;
+    background-repeat: no-repeat;
+} .card-electro:hover {
+    background-image: url(../resources/bg-electro-hover.png);
 }
 
-.dos{
-    height: 245px;
-    background-color: var(--blanco);
-    text-align: left;
-    display: flex;
-    align-items: center;
-}
-
-.arriba {
-    margin-bottom: 5px;
+.card-recetas {
+    background-image: url(../resources/bg-recetas.png);
+    background-position: center;
+    background-size: cover;
+} .card-recetas:hover{
+    background-image: url(../resources/bg-recetas-hover.png);
 }
 
 
-.abajo {
-    margin-top: 10px;
+@media (min-width: 992px) {
+    .card-cocina,
+    .card-recetas {
+        height: 500px;
+    }
+
+    .card-cocina > .card-body {
+        align-items: flex-start;
+        justify-content: flex-start;
+        padding: 40px;
+    }
+
+    .card-utensilios > .card-body {
+        align-items: flex-end;
+        padding: 40px 100px;
+    }
+
+    .card-electro > .card-body {
+        align-items: flex-start;
+        padding: 40px;
+    }
+
+    .card-recetas > .card-body {
+        align-items: flex-start;
+        justify-content: flex-end;
+        padding: 40px;
+    }
 }
