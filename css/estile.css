@@ -1,29 +1,5 @@
-/* GLOBALES */
-*{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-}
-
-h1 {
-    font-family: 'Mohave', sans-serif;
-    text-align: center;
-}
-
-/* VARIABLES GLOBALES COLORES */
-:root {
-    --rosadopalido: #F7DADF;
-    --rosadoPastel: #D97789;
-    --rosadoTitulos: #C34E8B;
-    --rosadoOscuro: #75365a;
-    --blanco: #fff;
-}
-
-
-/* NAVBAR */
-
 .menu{
-    background-color: var(--rosadopalido);
+    background-color: #F7DADF;
     height: 85px;
 }
 
@@ -33,269 +9,108 @@ h1 {
     padding-left: 25px;
 }
 
-.img-hover{
-    width: 28px;
-    height: 28px;
-    margin: 8px;
-    background-image: url(../resources/user.png);
-    background-size: cover;
-}
-.img-hover:hover{
-    background-image: url(../resources/user2.png);
-}
-
-.img-hover2{
-    width: 28px;
-    height: 28px;
-    margin: 8px;
-    background-image: url(../resources/heart.png);
-    background-size: cover;
-}
-.img-hover2:hover{
-    background-image: url(../resources/herat2.png);
-}
-
-.img-hover3{
-    width: 28px;
-    height: 28px;
-    margin: 8px;
-    background-image: url(../resources/shopping-cart.png);
-    background-size: cover;
-}
-.img-hover3:hover{
-    background-image: url(../resources/shopping-cart2.png);
+.ico {
+    width: 28px !important;
 }
 
 .textcolor{
-    padding-right: 20px; 
+    padding-right: 25px; 
 }
 
 .textcolor2{
     padding-right: 50px;
+    border-radius: 15px;
 }
 
 .textcolor2 a {
-    color: var(--rosadoOscuro) !important;
+    color: #75365a !important;
     font-size: 18px;
     font-family: 'Mohave', sans-serif;
-    border-radius: 15px;
 }
 
-.textcolor2 a:hover{ 
-    background-color: var(--blanco);
+.textcolor2 :hover{ 
+    background-color: white ;
     text-align: center;
     border-radius: 15px;
 }
 
-/* CARRUSEL */
+/* Sobre nosotros */
 
-#TextoC{
-    padding-left: 35%;
-    padding-bottom: 11%;
-    display: flex;
-    flex-direction:row;
-    justify-content: flex-end;
-    transform: translateX(30px);
+.seccion{
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
-.HCarusel{
-    font-size: 35px ;
-    color: var(--rosadoTitulos);
-    font-family: 'Poppins', sans-serif;
-    text-align: right;
+.fw-300{
+    font-weight: 300;
 }
 
-.pCarrusel{
+.centrar-texto{
+    text-align: center;
+}
+
+.Btn{
+    background-color:#c34e8b ;
+    color: white;
+    text-align: center;
+    border-radius: 21px;
+    border: none;
+    font-family: 'Mohave', sans-serif ;
     font-size: 20px;
-    color: var(--rosadoOscuro);
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    align-content: center;
+    margin-left: 650px;
+
+}
+
+.section {
+    background-color: #FCF2F3 ;
+}
+
+.fw-300.centrar-texto{
     font-family: 'Mohave', sans-serif;
-    font-weight: lighter;
-    text-align: right;
+    text-align: center;
+    color: #75365a;
+    font-size: 50px;
+    padding-top: 50px;
 }
 
-.BCarrusel{
-    background-color: var(--rosadoTitulos);
+.fw-300.centrar-texto1{
+    font-family: 'Mohave', sans-serif;
     text-align: center;
-    border-radius: 15px;
-    border: none;
-    font-family: 'Mohave', sans-serif ;
+    color: #75365a;
     font-size: 20px;
-    color: var(--blanco);
-    padding-left: 20px;
-    padding-right: 20px;
-    padding-top: 3px;
-    padding-bottom: 3px;
 }
 
-#TextoC2{
-    padding-left: 38%;
-    padding-bottom: 13%;
-    display: flex;
-    flex-direction:row;
-    justify-content: flex-end;
-    transform: translateX(30px);
-}
-
-.HCarusel2{
-    font-size: 35px ;
-    color: var(--rosadoTitulos);
-    font-family: 'Poppins', sans-serif;
-    text-align: right;
-}
-
-.pCarrusel2{
-    font-size: 18px;
-    color: var(--rosadoOscuro);
-    font-family: 'Mohave', sans-serif ;
-    font-weight: lighter;
-    text-align: right;
-}
-
-.BCarrusel2{
-    background-color: var(--rosadoTitulos);
-    text-align: center;
-    border-radius: 15px;
-    border: none;
-    font-family: 'Mohave', sans-serif ;
-    font-size: 20px;
-    color: var(--blanco);
-    padding-left: 20px;
-    padding-right: 20px;
-    padding-top: 3px;
-    padding-bottom: 3px;
-
-}
-
-#icoC{
-    width: 28px;
-}
-
-#TextoC3{
-    padding-right: 38%;
-    padding-bottom: 13%;
-    display: flex;
-    flex-direction:row;
-    justify-content: start;
-    transform: translateX(-30px);
-
-}
-
-.HCarusel3{
-    font-size: 35px ;
-    color: var(--rosadoPastel);
-    font-family: 'Poppins', sans-serif;
-    text-align: left;
-}
-
-.pCarrusel3{
-    font-size: 18px;
-    color: var(--rosadoOscuro);
-    font-family: 'Mohave', sans-serif ;
-    font-weight: lighter;
-    text-align: left;
-}
-
-.BCarrusel3{
-    background-color: var(--rosadoPastel);
-    text-align: center;
-    border-radius: 15px;
-    border: none;
-    font-family: 'Mohave', sans-serif ;
-    font-size: 20px;
-    color: var(--blanco);
-    padding-left: 20px;
-    padding-right: 20px;
-    padding-top: 3px;
-    padding-bottom: 3px;
-
-}
-
-#TextoC4{
-    padding-bottom: 21%;
-    display: flex;
-    flex-direction:row;
-    justify-content: center;
-
-}
-
-.HCarusel4{
-    font-size: 55px ;
-    color: var(--rosadoPastel);
-    font-family: 'Poppins', sans-serif;
-    text-align: center;
-
-
-}
-
-.pCarrusel4{
-    font-size: 20px;
-    color: var(--rosadoOscuro);
-    font-family: 'Mohave', sans-serif ;
-    font-weight: lighter;
+.card-title{
+    font-family: 'Mohave', sans-serif;
+    color: #75365a;
     text-align: center;
 }
 
-
-/* CATEGORÍAS */
-
-/* Grid categorías */ 
-
-.categorias {
-    background-color: var(--rosadopalido);
-    padding: 50px;
+.card-text{
+    font-family: 'Mohave', sans-serif;
+    color: #75365a;
+    text-align: center;
 }
 
 .card{
-    height: 500px;
-    background-color: var(--blanco);
-    margin: 0;
-    padding: 0;
-    text-align: left;
-    border: none;
+    width: 250px;
+   margin-left: auto;
+   margin-right: auto;
 }
 
-.texto__categoria {
+.card-deck{
     padding: 30px;
 }
 
-.texto__categoria > .titulo__categoria {
-    text-align: left;
-    color: var(--rosadoTitulos);
+.card-img-top{
+    width: 125px;
+    padding: 20px;
+    margin: -1px;
+    margin-left: 50px;
 }
 
-.texto__categoria > a {
-    font-family: 'Mohave', sans-serif;
-    text-decoration: none;
-    border-bottom: 3px solid var(--rosadoTitulos);
-    color: var(--rosadoOscuro);
-}
-
-.img-recetas {
-    width: 90%;
-    margin-left: 30px;
-}
-
-.img-utensilios {
-    width: 45%;
-}
-
-.img-electro {
-    width: 100%;
-}
-
-.dos{
-    height: 245px;
-    background-color: var(--blanco);
-    text-align: left;
-    display: flex;
-    align-items: center;
-}
-
-.arriba {
-    margin-bottom: 5px;
-}
-
-
-.abajo {
-    margin-top: 10px;
-}
