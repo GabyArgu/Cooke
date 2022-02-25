@@ -1,38 +1,4 @@
-.menu{
-    background-color: #F7DADF;
-    height: 85px;
-}
 
-#logo_inicio{
-    width: 170px;
-    border: 2px;
-    padding-left: 25px;
-}
-
-.ico {
-    width: 28px !important;
-}
-
-.textcolor{
-    padding-right: 25px; 
-}
-
-.textcolor2{
-    padding-right: 50px;
-    border-radius: 15px;
-}
-
-.textcolor2 a {
-    color: #75365a !important;
-    font-size: 18px;
-    font-family: 'Mohave', sans-serif;
-}
-
-.textcolor2 :hover{ 
-    background-color: white ;
-    text-align: center;
-    border-radius: 15px;
-}
 
 /* Sobre nosotros */
 
