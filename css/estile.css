@@ -53,6 +53,13 @@ body {
 /* NAVBAR */
 
 .menu{
+
+    height: 85px;
+    transition: all 0.4s ease-in-out;
+}
+
+.navbar-scroll {
+    background-color: var(--rosadoPalido);
     height: 85px;
 }
 
@@ -113,7 +120,7 @@ body {
     padding-right: 50px;
 }
 
-.textcolor2 a {
+ .textcolor2 a {
     color: var(--rosadoOscuro) !important;
     font-size: 18px;
     font-family: 'Mohave', sans-serif;
@@ -123,8 +130,8 @@ body {
 
 .textcolor2 a:hover{ 
     background-color: var(--blanco);
-    transform: scale(1.1);
-}
+} 
+
 
 /* CARRUSEL */
 
@@ -358,9 +365,6 @@ body {
     background-image: url(../resources/GridCategorias/bg-recetas-hover.png);
 }
 
-
-
-}
 
 .card-utensilios {
     background-image: url(../resources/GridCategorias/bg-utensilios.png);
