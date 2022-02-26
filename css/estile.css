@@ -175,8 +175,16 @@ body {
     padding-right: 20px;
     padding-top: 3px;
     padding-bottom: 3px;
-}
 
+}
+/*BOTONES VER MAS global*/
+.Bmore{
+    transition: all 0.3s ease;
+}
+.Bmore:hover{
+    background-color: var(--blanco);
+    color: var(--rosadoOscuro);
+}
 #TextoC2{
     padding-left: 38%;
     padding-bottom: 13%;
@@ -697,6 +705,7 @@ body {
     padding: 20px 20px 5px 20px;
     margin-right: auto;
     margin-left: auto;
+    cursor: pointer;
     transition: all 0.3s ease;
 }
 
