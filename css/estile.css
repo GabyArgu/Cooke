@@ -371,7 +371,7 @@ body {
     background-image: url(../resources/GridCategorias/bg-recetas-hover.png);
 }
 
-} .card-recetas:hover{
+.card-recetas:hover{
     background-image: url(../resources/GridCategorias/bg-recetas-hover.png);
 }
 
@@ -432,6 +432,16 @@ body {
 }
 
 /*------------------PRODUCTOS DESTACADOS START------------------*/
+.lineaP{
+    height: 2px;
+    border: none;
+    border-top: 5px solid var(--rosadoTitulos);
+    width: 460px;
+    background-color: var(--rosadoTitulos);
+    border-radius: 3px;
+    margin-right: auto;
+    margin-left: auto;
+}
 
 .product-img{
     position: relative;
@@ -487,7 +497,7 @@ body {
 
 .title{
     color: var(--rosadoTitulos);
-    margin-top: 2%;
+    margin-top: 30px;
 }
 .product-img button{
     position: absolute;
@@ -609,88 +619,110 @@ body {
 
 /*------------------SOBRE NOSOTROS STAR------------------*/
 
-.seccion{
+.section-Sobre{
     margin-top: 20px;
     margin-bottom: 20px;
-}
-
-.fw-300{
-    font-weight: 300;
-}
-
-.centrar-texto{
     text-align: center;
+    align-items: center;
+}
+
+.Cont-Sobre{
+    padding-bottom: 30px;
+    justify-content: center;
+}
+
+.pSobre{
+    font-size: 18px;
+    font-family: 'Mohave', sans-serif ;
+    color: var(--rosadoOscuro);
 }
 
 .Btn{
-    background-color:#c34e8b ;
-    color: white;
+    width: 120px;
+    background-color: var(--rosadoTitulos);
     text-align: center;
-    border-radius: 21px;
+    border-radius: 15px;
     border: none;
     font-family: 'Mohave', sans-serif ;
     font-size: 20px;
-    padding-left: 50px;
-    padding-right: 50px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    align-content: center;
-    margin-left: 650px;
+    color: var(--blanco);
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 3px;
+    padding-bottom: 3px;
 
 }
 
-.section {
+.section-Sobre {
     background-color: #FCF2F3 ;
 }
 
-.fw-300.centrar-texto{
+.lineaN{
+    height: 2px;
+    border: none;
+    border-top: 5px solid var(--rosadoTitulos);
+    width: 310px;
+    background-color: var(--rosadoTitulos);
+    border-radius: 3px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.Condicion{
+   width: 250px;
+   height: 250px;
+   border: none;
+   margin-right: 20px;
+   margin-bottom: 20px;
+}
+
+.Condicion h5{
+   color: var(--rosadoTitulos);
+   font-family: 'Mohave', sans-serif;
+   font-size: bold 20px !important;
+}
+
+.Condicion p{
+    color: var(--rosadoOscuro);
     font-family: 'Mohave', sans-serif;
-    text-align: center;
-    color: #75365a;
-    font-size: 50px;
-    padding-top: 50px;
+    font-size: bold 15px !important;
+ }
+
+.InfoSobre{
+    padding-bottom: 30px;
 }
 
-.fw-300.centrar-texto1{
-    font-family: 'Mohave', sans-serif;
-    text-align: center;
-    color: #75365a;
-    font-size: 20px;
+.imgC{
+    width: 155px !important;
+    padding: 20px 20px 5px 20px;
+    margin-right: auto;
+    margin-left: auto;
+    transition: all 0.3s ease;
 }
 
-.about .card-title {
-    font-family: 'Mohave', sans-serif;
-    color: #75365a;
-    text-align: center;
+.imgC:hover{
+    transform: scale(1.2);
 }
 
-.about .card-text{
-    font-family: 'Mohave', sans-serif;
-    color: #75365a;
-    text-align: center;
-}
 
-.about .card{
-    width: 250px;
-   margin-left: auto;
-   margin-right: auto;
+.Condicion .card-body{
+    padding-top: 0px !important;
 }
-
-.about .card-deck{
-    padding: 30px;
-}
-
-.about .card-img-top{
-    width: 125px;
-    padding: 20px;
-    margin: -1px;
-    margin-left: 50px;
-}
-
 
 /*------------------SOBRE NOSOTROS END------------------*/
 
 /*------------------BLOG START------------------*/
+.lineaB{
+    height: 2px;
+    border: none;
+    border-top: 5px solid var(--rosadoTitulos);
+    width: 160px;
+    background-color: var(--rosadoTitulos);
+    border-radius: 3px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
 .blog-img{
     position: relative;
     overflow: hidden;
@@ -853,15 +885,28 @@ body {
     font-weight: 400;
     color: var(--rosadoTitulos);
 }
+
 .linea{
     height: 2px;
     border: none;
     border-top: 5px solid var(--rosadoTitulos);
-    width: 500px;
+    width: 560px;
     background-color: var(--rosadoTitulos);
     border-radius: 3px;
+    margin-right: auto;
+    margin-left: auto;
 }
 /*------------------RESEÑA END------------------*/
+
+.Fon-Marcas{
+    width: 100%;
+    height: 570px;
+    background-image: url(../resources/Marcas/marca.png);
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
 
 /*------------------FOODER START------------------*/
 #Fo-rosa{
@@ -956,8 +1001,15 @@ body {
 /*------------------RESPONSIVE------------------*/
 @media (max-width: 575.98px) { 
 
+    .Fon-Marcas{
+        width: 100%;
+        height: 450px;
+        background-image: url(../resources/Marcas/muñeca2.png);
+    }
+    
+
     #TextoC{
-        padding-left: 109px;
+        padding-left: 90px;
         padding-bottom: 8px;
         display: flex;
         flex-direction:row;
@@ -965,15 +1017,15 @@ body {
     }
     
     .HCarusel{
-        font-size: 25px ;
+        font-size: 22px ;
     }
     
     .pCarrusel{
-        font-size: 10px;
+        font-size: 8px;
     }
     
     .BCarrusel{
-        font-size: 10px;
+        font-size: 8px;
         
     }
     
@@ -1025,7 +1077,7 @@ body {
     }
     
     #TextoC4{
-        padding-bottom: 75px;
+        padding-bottom: 65px;
         display: flex;
         flex-direction:row;
         justify-content: center;
@@ -1059,6 +1111,11 @@ body {
 }
 
 @media (min-width: 576px) and (max-width: 767.98px) { 
+
+    .Fon-Marcas{
+        width: 100%;
+        height: 350px;
+    }
 
     #TextoC{
         padding-left: 159px;
@@ -1161,6 +1218,11 @@ body {
  }
 
 @media (min-width: 768px) and (max-width: 991.98px) { 
+
+    .Fon-Marcas{
+        width: 100%;
+        height: 470px;
+    }
 
     #TextoC{
         padding-left: 175px;
