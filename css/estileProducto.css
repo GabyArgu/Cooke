@@ -308,7 +308,9 @@ body {
 {
     opacity: 0;
 }
-
+.pagination{
+    padding-bottom: 5%;
+}
 
 .pagination > li > a
 {
@@ -337,3 +339,105 @@ body {
 {
     background-color: var(--rosadoTitulos) !Important;
 }
+
+
+
+
+
+/*------------------FOODER START------------------*/
+#Fo-rosa{
+    background-color: var(--rosadoPalido) !important;
+    font-family: 'Mohave', sans-serif;
+    text-align: center;
+    
+}
+
+#Fo-rosa p{
+    margin-bottom: 10px;
+    color: var(--rosadoOscuro);
+}
+#Fo-rosa a{
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+#Fo-rosa a:hover{
+    color: var(--blanco) !important;
+}
+
+#Fo-rosa h6{
+    margin-bottom: 15px !important;
+    color: var(--rosadoTitulos);
+}
+
+.h6Red{
+    text-align: center;
+}
+
+.Redes-Div{
+    margin-right: 10px;
+}
+
+.redes-hover{
+    width: 28px;
+    height: 28px;
+    padding-bottom: 10px;
+    background-image: url(../resources/Fooder/fac.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    transition: all 0.3s ease;
+}
+
+.redes-hover:hover{
+    background-image: url(../resources/Fooder/fp.png);
+    transform: scale(1.2);
+}
+
+.redes-hover2{
+    width: 28px;
+    height: 28px;
+    padding-bottom: 10px;
+    background-image: url(../resources/Fooder/ij.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    transition: all 0.3s ease;
+}
+
+.redes-hover2:hover{
+    background-image: url(../resources/Fooder/ip.png);
+    transform: scale(1.2);
+}
+
+.redes-hover3{
+    width: 28px;
+    height: 28px;
+    padding-bottom: 10px;
+    background-image: url(../resources/Fooder/234.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    transition: all 0.3s ease;
+}
+
+.redes-hover3:hover{
+    background-image: url(../resources/Fooder/tp.png);
+    transform: scale(1.2);
+}
+
+#logo_final{
+    width: 370px;
+    border: 2px;
+    margin-bottom: 1rem;
+}
+
+.container-Fo{
+    margin-bottom: 30px;
+}
+#partefooter{
+    justify-content: center;
+}
+
+.CopCo{
+    color: white;
+    background-color: #FF80C3 !important;
+}
+/*------------------FOODER END------------------*/
