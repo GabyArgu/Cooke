@@ -57,6 +57,13 @@ body {
 /* NAVBAR */
 
 .menu{
+
+    height: 85px;
+    transition: all 0.4s ease-in-out;
+}
+
+.navbar-scroll {
+    background-color: var(--rosadoPalido);
     height: 85px;
 }
 
@@ -117,7 +124,7 @@ body {
     padding-right: 50px;
 }
 
-.textcolor2 a {
+ .textcolor2 a {
     color: var(--rosadoOscuro) !important;
     font-size: 18px;
     font-family: 'Mohave', sans-serif;
@@ -127,8 +134,8 @@ body {
 
 .textcolor2 a:hover{ 
     background-color: var(--blanco);
-    transform: scale(1.1);
-}
+} 
+
 
 /* CARRUSEL */
 
@@ -364,6 +371,11 @@ body {
     background-image: url(../resources/GridCategorias/bg-recetas-hover.png);
 }
 
+} .card-recetas:hover{
+    background-image: url(../resources/GridCategorias/bg-recetas-hover.png);
+}
+
+
 .card-utensilios {
     background-image: url(../resources/GridCategorias/bg-utensilios.png);
     background-position: left;
@@ -594,6 +606,89 @@ body {
 }
 
 /*------------------PRODUCTOS DESTACADOS END------------------*/
+
+/*------------------SOBRE NOSOTROS STAR------------------*/
+
+.seccion{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.fw-300{
+    font-weight: 300;
+}
+
+.centrar-texto{
+    text-align: center;
+}
+
+.Btn{
+    background-color:#c34e8b ;
+    color: white;
+    text-align: center;
+    border-radius: 21px;
+    border: none;
+    font-family: 'Mohave', sans-serif ;
+    font-size: 20px;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    align-content: center;
+    margin-left: 650px;
+
+}
+
+.section {
+    background-color: #FCF2F3 ;
+}
+
+.fw-300.centrar-texto{
+    font-family: 'Mohave', sans-serif;
+    text-align: center;
+    color: #75365a;
+    font-size: 50px;
+    padding-top: 50px;
+}
+
+.fw-300.centrar-texto1{
+    font-family: 'Mohave', sans-serif;
+    text-align: center;
+    color: #75365a;
+    font-size: 20px;
+}
+
+.about .card-title {
+    font-family: 'Mohave', sans-serif;
+    color: #75365a;
+    text-align: center;
+}
+
+.about .card-text{
+    font-family: 'Mohave', sans-serif;
+    color: #75365a;
+    text-align: center;
+}
+
+.about .card{
+    width: 250px;
+   margin-left: auto;
+   margin-right: auto;
+}
+
+.about .card-deck{
+    padding: 30px;
+}
+
+.about .card-img-top{
+    width: 125px;
+    padding: 20px;
+    margin: -1px;
+    margin-left: 50px;
+}
+
+
+/*------------------SOBRE NOSOTROS END------------------*/
 
 /*------------------BLOG START------------------*/
 .blog-img{
