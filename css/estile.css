@@ -10,6 +10,10 @@ h1 {
     text-align: center;
 }
 
+a{
+    text-decoration: none !important;
+}
+
 body {
     overflow-x: hidden;
     overflow-y: overlay;
@@ -53,13 +57,6 @@ body {
 /* NAVBAR */
 
 .menu{
-
-    height: 85px;
-    transition: all 0.4s ease-in-out;
-}
-
-.navbar-scroll {
-    background-color: var(--rosadoPalido);
     height: 85px;
 }
 
@@ -120,18 +117,18 @@ body {
     padding-right: 50px;
 }
 
- .textcolor2 a {
+.textcolor2 a {
     color: var(--rosadoOscuro) !important;
     font-size: 18px;
     font-family: 'Mohave', sans-serif;
     border-radius: 15px;
-    transition: all 0.3s ease;
+    transition: background-color 0.3s;
 }
 
 .textcolor2 a:hover{ 
     background-color: var(--blanco);
-} 
-
+    transform: scale(1.1);
+}
 
 /* CARRUSEL */
 
@@ -361,10 +358,11 @@ body {
     background-image: url(../resources/GridCategorias/bg-recetas.png);
     background-position: center;
     background-size: cover;
-} .card-recetas:hover{
+} 
+
+.card-recetas:hover{
     background-image: url(../resources/GridCategorias/bg-recetas-hover.png);
 }
-
 
 .card-utensilios {
     background-image: url(../resources/GridCategorias/bg-utensilios.png);
@@ -597,89 +595,6 @@ body {
 
 /*------------------PRODUCTOS DESTACADOS END------------------*/
 
-/*------------------SOBRE NOSOTROS STAR------------------*/
-
-.seccion{
-    margin-top: 20px;
-    margin-bottom: 20px;
-}
-
-.fw-300{
-    font-weight: 300;
-}
-
-.centrar-texto{
-    text-align: center;
-}
-
-.Btn{
-    background-color:#c34e8b ;
-    color: white;
-    text-align: center;
-    border-radius: 21px;
-    border: none;
-    font-family: 'Mohave', sans-serif ;
-    font-size: 20px;
-    padding-left: 50px;
-    padding-right: 50px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    align-content: center;
-    margin-left: 650px;
-
-}
-
-.section {
-    background-color: #FCF2F3 ;
-}
-
-.fw-300.centrar-texto{
-    font-family: 'Mohave', sans-serif;
-    text-align: center;
-    color: #75365a;
-    font-size: 50px;
-    padding-top: 50px;
-}
-
-.fw-300.centrar-texto1{
-    font-family: 'Mohave', sans-serif;
-    text-align: center;
-    color: #75365a;
-    font-size: 20px;
-}
-
-.about .card-title {
-    font-family: 'Mohave', sans-serif;
-    color: #75365a;
-    text-align: center;
-}
-
-.about .card-text{
-    font-family: 'Mohave', sans-serif;
-    color: #75365a;
-    text-align: center;
-}
-
-.about .card{
-    width: 250px;
-   margin-left: auto;
-   margin-right: auto;
-}
-
-.about .card-deck{
-    padding: 30px;
-}
-
-.about .card-img-top{
-    width: 125px;
-    padding: 20px;
-    margin: -1px;
-    margin-left: 50px;
-}
-
-
-/*------------------SOBRE NOSOTROS END------------------*/
-
 /*------------------BLOG START------------------*/
 .blog-img{
     position: relative;
@@ -852,3 +767,404 @@ body {
     border-radius: 3px;
 }
 /*------------------RESEÑA END------------------*/
+
+/*------------------FOODER START------------------*/
+#Fo-rosa{
+    background-color: var(--rosadoPalido) !important;
+    font-family: 'Mohave', sans-serif;
+    text-align: center;
+    
+}
+
+#Fo-rosa p{
+    margin-bottom: 10px;
+    color: var(--rosadoOscuro);
+
+}
+
+#Fo-rosa h6{
+    margin-bottom: 15px !important;
+    color: var(--rosadoTitulos);
+
+}
+
+.h6Red{
+    text-align: center;
+}
+
+.Redes-Div{
+    margin-right: 10px;
+}
+
+.redes-hover{
+    width: 28px;
+    height: 28px;
+    padding-bottom: 10px;
+    background-image: url(../resources/Fooder/fac.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    transition: all 0.3s ease;
+}
+
+.redes-hover:hover{
+    background-image: url(../resources/Fooder/fp.png);
+    transform: scale(1.2);
+}
+
+.redes-hover2{
+    width: 28px;
+    height: 28px;
+    padding-bottom: 10px;
+    background-image: url(../resources/Fooder/ij.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    transition: all 0.3s ease;
+}
+
+.redes-hover2:hover{
+    background-image: url(../resources/Fooder/ip.png);
+    transform: scale(1.2);
+}
+
+.redes-hover3{
+    width: 28px;
+    height: 28px;
+    padding-bottom: 10px;
+    background-image: url(../resources/Fooder/234.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    transition: all 0.3s ease;
+}
+
+.redes-hover3:hover{
+    background-image: url(../resources/Fooder/tp.png);
+    transform: scale(1.2);
+}
+
+#logo_final{
+    width: 370px;
+    border: 2px;
+    margin-bottom: 1rem;
+}
+
+.container-Fo{
+    margin-bottom: 30px;
+}
+
+.CopCo{
+    color: white;
+    background-color: #FF80C3 !important;
+}
+
+/*------------------FOODER END------------------*/
+
+/*------------------RESPONSIVE------------------*/
+@media (max-width: 575.98px) { 
+
+    #TextoC{
+        padding-left: 109px;
+        padding-bottom: 8px;
+        display: flex;
+        flex-direction:row;
+        justify-content: flex-end;
+    }
+    
+    .HCarusel{
+        font-size: 25px ;
+    }
+    
+    .pCarrusel{
+        font-size: 10px;
+    }
+    
+    .BCarrusel{
+        font-size: 10px;
+        
+    }
+    
+    #TextoC2{
+        padding-left: 141px;
+        padding-bottom: 20px;
+        display: flex;
+        flex-direction:row;
+        justify-content: flex-end;
+    }
+    
+    .HCarusel2{
+        font-size: 25px ;
+    }
+    
+    .pCarrusel2{
+        font-size: 10px;
+    }
+    
+    .BCarrusel2{
+        font-size: 10px;
+        
+    }
+    
+    #icoC{
+        width: 28px;
+    }
+    
+    #TextoC3{
+        padding-right: 133px;
+        padding-bottom: 15px;
+        display: flex;
+        flex-direction:row;
+        justify-content: start;
+    
+    }
+    
+    .HCarusel3{
+        font-size: 25px ;
+    }
+    
+    .pCarrusel3{
+        font-size: 10px;
+    }
+    
+    .BCarrusel3{
+        font-size: 10px;
+        
+    }
+    
+    #TextoC4{
+        padding-bottom: 75px;
+        display: flex;
+        flex-direction:row;
+        justify-content: center;
+    
+    }
+    
+    .HCarusel4{
+        font-size: 40px ;
+    }
+    
+    .pCarrusel4{
+        font-size: 15px;
+    }
+    
+
+    #logo_final{
+        width: 170px !important;
+        border: 2px;
+    }
+
+    .container-Fo{
+        margin: 24px !important;
+        
+    }
+    .logopart{
+        padding-left: 22px;
+        padding-bottom: 35px !important;
+    }
+
+    
+}
+
+@media (min-width: 576px) and (max-width: 767.98px) { 
+
+    #TextoC{
+        padding-left: 159px;
+        padding-bottom: 8px;
+        display: flex;
+        flex-direction:row;
+        justify-content: flex-end;
+    }
+    
+    .HCarusel{
+        font-size: 30px ;
+    }
+    
+    .pCarrusel{
+        font-size: 15px;
+    }
+    
+    .BCarrusel{
+        font-size: 15px;
+        
+    }
+    
+    #TextoC2{
+        padding-left: 171px;
+        padding-bottom: 20px;
+        display: flex;
+        flex-direction:row;
+        justify-content: flex-end;
+    }
+    
+    .HCarusel2{
+        font-size: 30px ;
+    }
+    
+    .pCarrusel2{
+        font-size: 15px;
+    }
+    
+    .BCarrusel2{
+        font-size: 15px;
+        
+    }
+    
+    #icoC{
+        width: 28px;
+    }
+    
+    #TextoC3{
+        padding-right: 133px;
+        padding-bottom: 15px;
+        display: flex;
+        flex-direction:row;
+        justify-content: start;
+    
+    }
+    
+    .HCarusel3{
+        font-size: 35px ;
+    }
+    
+    .pCarrusel3{
+        font-size: 15px;
+    }
+    
+    .BCarrusel3{
+        font-size: 15px;
+        
+    }
+    
+    #TextoC4{
+        padding-bottom: 115px;
+        display: flex;
+        flex-direction:row;
+        justify-content: center;
+    
+    }
+    
+    .HCarusel4{
+        font-size: 40px ;
+    }
+    
+    .pCarrusel4{
+        font-size: 15px;
+    }
+
+    #logo_final{
+        width: 270px !important;
+        border: 2px;
+    }
+
+    .container-Fo{
+        margin: 24px !important;
+        
+    }
+
+    .logopart{
+        padding-left: 22px;
+        padding-bottom: 35px !important;
+    }
+ }
+
+@media (min-width: 768px) and (max-width: 991.98px) { 
+
+    #TextoC{
+        padding-left: 175px;
+        padding-bottom: 38px;
+        display: flex;
+        flex-direction:row;
+        justify-content: flex-end;
+    }
+    
+    .HCarusel{
+        font-size: 32px ;
+    }
+    
+    .pCarrusel{
+        font-size: 15px;
+    }
+    
+    .BCarrusel{
+        font-size: 15px;
+        
+    }
+    
+    #TextoC2{
+        padding-left: 230px;
+        padding-bottom: 50px;
+        display: flex;
+        flex-direction:row;
+        justify-content: flex-end;
+    }
+    
+    .HCarusel2{
+        font-size: 32px ;
+    }
+    
+    .pCarrusel2{
+        font-size: 15px;
+    }
+    
+    .BCarrusel2{
+        font-size: 15px;
+        
+    }
+    
+    #icoC{
+        width: 28px;
+    }
+    
+    #TextoC3{
+        padding-right: 179px;
+        padding-bottom: 20px;
+        display: flex;
+        flex-direction:row;
+        justify-content: start;
+    
+    }
+    
+    .HCarusel3{
+        font-size: 35px ;
+    }
+    
+    .pCarrusel3{
+        font-size: 15px;
+    }
+    
+    .BCarrusel3{
+        font-size: 15px; 
+    }
+
+    #TextoC4{
+        padding-bottom: 165px;    
+    }
+    
+    
+    #logo_final{
+        width: 270px !important;
+        border: 2px;
+    }
+    .container-Fo{
+        margin: 24px !important;
+        
+    }
+
+    .logopart{
+        padding-left: 22px;
+    }
+ }
+
+@media (min-width: 992px) and (max-width: 1199.98px) { 
+    #logo_final{
+        width: 370px !important;
+        border: 2px;
+    }
+ }
+
+@media (min-width: 1200px) { 
+    #logo_final{
+        width: 370px !important;
+        border: 2px;
+    }
+ }
+
+/*------------------RESPONSIVE------------------*/
