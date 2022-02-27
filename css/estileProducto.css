@@ -1,24 +1,7 @@
-/* GLOBALES */
-*{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-}
-
-h1 {
-    font-family: 'Mohave', sans-serif;
-    text-align: center;
-}
-
-body {
-    overflow-x: hidden;
-    overflow-y: overlay;
-}
-
 /* VARIABLES GLOBALES COLORES */
 :root {
     --rosadoPalido: #F7DADF;
-    --rosadoFondos: #fcf2f4;
+    --rosadoPalido2: #fcf2f4;
     --rosadoPastel: #d97789;
     --rosadoTitulos: #C34E8B;
     --rosadoOscuro: #75365a;
@@ -51,10 +34,9 @@ body {
   }
 
 /*NAVBAR*/
-.navbar-page{
+.menu{
     height: 85px;
     transition: all 0.4s ease-in-out;
-    background-color: var(--rosadoPalido);
 }
 
 .navbar-scroll {
@@ -136,18 +118,11 @@ body {
     justify-content: center;
 }
 
-.nav2 {
-    background-color: var(--rosadoFondos);
-}
-
-.nav2 a{
+.breadcumb a{
     text-decoration: none;
     color: var(--rosadoTitulos);
 }
 
-.filtro-grid span{
-    margin-right: 5px;
-}
 .linea{
     height: 2px;
     border: none;
@@ -158,151 +133,74 @@ body {
 }
 .productos-opciones{
     justify-content: space-between;
+    align-items: center;
+}
+.linea-opciones{
+    height: 2px;
+    border: none;
+    border-top: 5px solid var(--rosadoTitulos);
+    background-color: var(--rosadoTitulos);
+    border-radius: 3px;
 }
 
-/*Product item*/
-.product-img{
+.filtro-grid a{
+    text-decoration: none;
+    margin-right: 10px;
+    margin-top: 5px;
+    width: 28px;
+    height: 28px;
+}
+.grid-filter{
     position: relative;
-    overflow: hidden;
-    background-color: var(--marfil);
+    background-image: url(../resources/PaginaGridProductos/gridp.png);
+    background-size: cover;
+    transition: all 0.3s ease;
 }
-.tags{
-    position: absolute;
-    top: 0;
-    display: flex;
-    flex-direction: column;
-    margin-left: 3%;
-    margin-top: 4%;
+.column-filter{
+    position: relative;
+    background-image: url(../resources/PaginaGridProductos/listg.png);
+    background-size: cover;
+    transition: all 0.3s ease;
 }
-.tag-new{
-    background-color: rgb(210, 132, 174);
-    color: white;
+
+.grid-filter:hover{
+    background-image: url(../resources/PaginaGridProductos/gridg.png);
+}
+.column-filter:hover{
+    background-image: url(../resources/PaginaGridProductos/listp.png);
+}
+.productos-opciones span{
+    color: var(--rosadoOscuro);
+    font-weight: 450;
+    font-size: 20px;
+}
+.productos-opciones .dropdown button{
+    color: var(--rosadoOscuro);
+    font-weight: 450;
+    font-size: 20px;
+}
+.productos-opciones .dropdown a{
+    color: var(--rosadoOscuro);
+    font-weight: 450;
+    font-size: 20px;
+}
+.filtros h4{
+    color: var(--rosadoOscuro);
+    font-family: 'Mohave', sans-serif;
     font-weight: 500;
-    border-radius: 10px;
-    padding: 3% 10px 3% 10px;
 }
-.tag-discount{
-    color: rgb(118, 54, 89);
-    margin-left: 5px;
-}
-
-
-/* hover producto */
-.product-img::before,
-.product-img::after{
-    content: '';
-    position: absolute;
-    left: 0;
-    height: 0%;
-    width: 100%;
-    background-color: gray;
-    opacity: 0.5;
-    transition: height 0.3s ease;
-}
-.product-img::before{
-    top: 0;
-}
-.product-img::after{
-    bottom: 0;
+.form-check-label{
+    color: var(--rosadoOscuro);
+    font-size: 16px;
+    margin-bottom: 10px;
 }
 
-.product-item:hover .product-img::before,
-.product-item:hover .product-img::after{
-    height: 50%;
-}
 
 /* product icons/buttons */
 
 .title{
     color: var(--rosadoTitulos);
     margin-top: 2%;
-}
-.product-img button{
-    position: absolute;
-    width: 150px;
-    height: 40px;
-    left: 50%;
-    bottom: 5%;
-    z-index: 1;
-    transform: translate(-50%, -50%) scale(0.5);
-    opacity: 0;
-    font-size: 14px;
-    font-weight: 500;
-    border: none;
-    border-radius: 25px;
-    background-color: #FFF;
-    color: rgb(117, 54, 90);;
-
-    transition: all 0.3s ease;
-}
-.product-img:hover button{
-    opacity: 1;
-    transform: translate(-50%, -50%) scale(1);
-}
-.product-img button:hover{
-    color: rgb(210, 132, 174);
-    width: 155px;
-    font-size: 15px;
-}
-
-.product-icons{
-    box-sizing: inherit;
-    position: absolute;
-    right: 1%;
-    top: 10%;
-    display: flex;
-    flex-direction: column;
-}
-.product-icons .destacado-icon{
-    transform: translate(-50%, -50%) scale(0.5);
-    opacity: 0;
-    cursor: pointer;
-    font-size: 25px;
-    color: rgb(211, 132, 174);
-    transition: all 0.3s ease;
-}
-.product-icons i{
-    transition: all 0.5s ease;
-    border-radius: 50%;
-    margin-bottom: 1px;
-}
-.product-icons i:hover{
-    color: rgb(117, 54, 90);
-}
-
-.product-img:hover .destacado-icon{
-    transition-delay: 0.2s;
-    opacity: 1;
-    transform: translate(-50%, -50%) scale(1);
-}
-.fa-star{
-    color: #D384AE;
-}
-.product-info .product-name{
-    cursor: pointer;
-    color:#75365a;
-    display: block;
-    font-weight: 600;
-    transition: all 0.5s ease;
-}
-.product-info .product-name:hover{
-    color:#D384AE;
-}
-
-
-.product-price{
-    color: rgb(210, 132, 174);
-}
-.rating{
-    font-size: 13px;
-}
-.product-item{
-    width: 300px;
-}
-.product-before{
-    text-decoration: line-through;
-    color:#75365a;
-    margin-left: 1.5%;
 }
 
 .custom-tooltip.tooltip > .tooltip-inner
@@ -346,104 +244,3 @@ body {
     background-color: var(--rosadoTitulos) !Important;
 }
 
-
-
-
-
-/*------------------FOODER START------------------*/
-#Fo-rosa{
-    background-color: var(--rosadoPalido) !important;
-    font-family: 'Mohave', sans-serif;
-    text-align: center;
-    
-}
-
-#Fo-rosa p{
-    margin-bottom: 10px;
-    color: var(--rosadoOscuro);
-}
-#Fo-rosa a{
-    text-decoration: none;
-    transition: all 0.3s ease;
-}
-
-#Fo-rosa a:hover{
-    color: var(--blanco) !important;
-}
-
-#Fo-rosa h6{
-    margin-bottom: 15px !important;
-    color: var(--rosadoTitulos);
-}
-
-.h6Red{
-    text-align: center;
-}
-
-.Redes-Div{
-    margin-right: 10px;
-}
-
-.redes-hover{
-    width: 28px;
-    height: 28px;
-    padding-bottom: 10px;
-    background-image: url(../resources/Fooder/fac.png);
-    background-size: contain;
-    background-repeat: no-repeat;
-    transition: all 0.3s ease;
-}
-
-.redes-hover:hover{
-    background-image: url(../resources/Fooder/fp.png);
-    transform: scale(1.2);
-}
-
-.redes-hover2{
-    width: 28px;
-    height: 28px;
-    padding-bottom: 10px;
-    background-image: url(../resources/Fooder/ij.png);
-    background-size: contain;
-    background-repeat: no-repeat;
-    transition: all 0.3s ease;
-}
-
-.redes-hover2:hover{
-    background-image: url(../resources/Fooder/ip.png);
-    transform: scale(1.2);
-}
-
-.redes-hover3{
-    width: 28px;
-    height: 28px;
-    padding-bottom: 10px;
-    background-image: url(../resources/Fooder/234.png);
-    background-size: contain;
-    background-repeat: no-repeat;
-    transition: all 0.3s ease;
-}
-
-.redes-hover3:hover{
-    background-image: url(../resources/Fooder/tp.png);
-    transform: scale(1.2);
-}
-
-#logo_final{
-    width: 370px;
-    border: 2px;
-    margin-bottom: 1rem;
-}
-
-.container-Fo{
-    margin-bottom: 30px;
-}
-#partefooter{
-    justify-content: center;
-}
-
-.CopCo{
-    color: white;
-    background-color: #FF80C3 !important;
-}
-/*------------------FOODER END------------------*/
