@@ -1,0 +1,107 @@
+/* VARIABLES GLOBALES COLORES */
+:root {
+    --rosadoPalido: #F7DADF;
+    --rosadoPalido2: #fcf2f4;
+    --rosadoPastel: #d97789;
+    --rosadoTitulos: #C34E8B;
+    --rosadoOscuro: #75365a;
+    --blanco: #fff;
+    --marfil: #f5f5f5;
+}
+
+
+.section-Sobre2{
+    background-color: var(--rosadoPalido2);
+    text-align: center;
+    align-items: center;
+}
+
+.title-container{
+    background-color: #F7DAE0;
+    margin-top: 85px;
+    display: flex;
+    justify-content: center;
+}
+
+.fondo-title{
+    padding-bottom: 50px;
+}
+
+.fondo-title img{
+    padding-top: 25px;
+    padding-left: 125px;
+    padding-right: 125px;
+}
+
+.MVV1{
+    width: 260px;
+    height: auto;
+    text-align: center;
+    margin: 50px;
+}
+
+.MVV1 h3{
+    font-size: 40px;
+    font-family: 'Mohave', sans-serif ;
+    color: var(--rosadoOscuro);
+}
+
+.MVV1 p{
+    font-size: 15px;
+    font-family: 'Mohave', sans-serif ;
+    color: var(--rosadoOscuro);
+    text-align: justify;
+}
+
+.MVV1 img{
+    width: 130px;
+    padding-bottom: 15px;
+    transition: all 0.3s ease;
+}
+
+.MVV1 img:hover{
+    transform: scale(1.2);
+}
+
+.breadcumb a{
+    text-decoration: none;
+    color: var(--rosadoTitulos);
+}
+
+.Cont-Sobre2{
+    padding-bottom: 30px;
+    justify-content: center;
+}
+
+.section-Sobre2 {
+    background-color: #FCF2F3 ;
+}
+
+.pSobre2{
+    padding-top: 8px;
+    font-size: 18px;
+    font-family: 'Mohave', sans-serif ;
+    color: var(--rosadoTitulos);
+}
+
+.lineaN2{
+    height: 2px;
+    border: none;
+    border-top: 5px solid var(--rosadoTitulos);
+    width: 380px;
+    background-color: var(--rosadoTitulos);
+    border-radius: 3px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.Fon-Marcas2{
+    background-color: white;
+}
+
+.InfoSobre2{
+    padding-bottom: 30px;
+}
+
+
+
