@@ -34,15 +34,6 @@
   }
 
 /*NAVBAR*/
-.menu{
-    height: 85px;
-    transition: all 0.4s ease-in-out;
-}
-
-.navbar-scroll {
-    background-color: var(--rosadoPalido);
-}
-
 #logo_inicio{
     width: 170px;
     border: 2px;
