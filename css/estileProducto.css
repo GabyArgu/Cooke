@@ -344,6 +344,449 @@ body {
 
 
 
+/*------------------FOODER START------------------*/
+#Fo-rosa{
+    background-color: var(--rosadoPalido) !important;
+    font-family: 'Mohave', sans-serif;
+    text-align: center;
+    
+}
+
+#Fo-rosa p{
+    margin-bottom: 10px;
+    color: var(--rosadoOscuro);
+}
+#Fo-rosa a{
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+#Fo-rosa a:hover{
+    color: var(--blanco) !important;
+}
+
+#Fo-rosa h6{
+    margin-bottom: 15px !important;
+    color: var(--rosadoTitulos);
+}
+
+.h6Red{
+    text-align: center;
+}
+
+.Redes-Div{
+    margin-right: 10px;
+}
+
+.redes-hover{
+    width: 28px;
+    height: 28px;
+    padding-bottom: 10px;
+    background-image: url(../resources/Fooder/fac.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    transition: all 0.3s ease;
+}
+
+.redes-hover:hover{
+    background-image: url(../resources/Fooder/fp.png);
+    transform: scale(1.2);
+}
+
+.redes-hover2{
+    width: 28px;
+    height: 28px;
+    padding-bottom: 10px;
+    background-image: url(../resources/Fooder/ij.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    transition: all 0.3s ease;
+}
+
+.redes-hover2:hover{
+    background-image: url(../resources/Fooder/ip.png);
+    transform: scale(1.2);
+}
+
+.redes-hover3{
+    width: 28px;
+    height: 28px;
+    padding-bottom: 10px;
+    background-image: url(../resources/Fooder/234.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    transition: all 0.3s ease;
+}
+
+.redes-hover3:hover{
+    background-image: url(../resources/Fooder/tp.png);
+    transform: scale(1.2);
+}
+
+#logo_final{
+    width: 370px;
+    border: 2px;
+    margin-bottom: 1rem;
+}
+
+.container-Fo{
+    margin-bottom: 30px;
+}
+#partefooter{
+    justify-content: center;
+}
+
+.CopCo{
+    color: white;
+    background-color: #FF80C3 !important;
+}
+=======
+/* GLOBALES */
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+h1 {
+    font-family: 'Mohave', sans-serif;
+    text-align: center;
+}
+
+body {
+    overflow-x: hidden;
+    overflow-y: overlay;
+}
+
+/* VARIABLES GLOBALES COLORES */
+:root {
+    --rosadoPalido: #F7DADF;
+    --rosadoPalido2: #fcf2f4;
+    --rosadoPastel: #d97789;
+    --rosadoTitulos: #C34E8B;
+    --rosadoOscuro: #75365a;
+    --blanco: #fff;
+    --marfil: #f5f5f5;
+}
+
+
+/* CUSTOM SCROLL BAR */
+
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+    background: transparent;
+  }
+
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: var(--rosadoTitulos);
+    border-radius: 5px;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--rosadoOscuro);
+  }
+
+  ::-webkit-scrollbar-corner {
+      border-radius: 5px;
+  }
+
+/*NAVBAR*/
+.menu{
+    height: 85px;
+    transition: all 0.4s ease-in-out;
+}
+
+.navbar-scroll {
+    background-color: var(--rosadoPalido);
+}
+
+#logo_inicio{
+    width: 170px;
+    border: 2px;
+    padding-left: 25px;
+}
+
+.img-hover{
+    width: 28px;
+    height: 28px;
+    margin: 8px;
+    background-image: url(../resources/user.png);
+    background-size: cover;
+    transition: all 0.3s ease;
+}
+.img-hover:hover{
+    background-image: url(../resources/user2.png);
+    transform: scale(1.2);
+}
+
+.img-hover2{
+    width: 28px;
+    height: 28px;
+    margin: 8px;
+    background-image: url(../resources/heart.png);
+    background-size: cover;
+    transition: all 0.3s ease;
+}
+.img-hover2:hover{
+    background-image: url(../resources/herat2.png);
+    transform: scale(1.2);
+}
+
+.img-hover3{
+    width: 28px;
+    height: 28px;
+    margin: 8px;
+    background-image: url(../resources/shopping-cart.png);
+    background-size: cover;
+    transition: all 0.3s ease;
+}
+.img-hover3:hover{
+    background-image: url(../resources/shopping-cart2.png);
+    transform: scale(1.2);
+}
+
+.textcolor{
+    padding-right: 20px; 
+}
+
+.textcolor2{
+    padding-right: 50px;
+}
+
+ .textcolor2 a {
+    color: var(--rosadoOscuro) !important;
+    font-size: 18px;
+    font-family: 'Mohave', sans-serif;
+    border-radius: 15px;
+    transition: all 0.3s ease;
+}
+
+.textcolor2 a:hover{ 
+    background-color: var(--blanco);
+} 
+
+.contenido{
+    margin-top: 85px;
+}
+.title-container{
+    background-color: var(--rosadoPalido2);
+    margin-top: 85px;
+    display: flex;
+    justify-content: center;
+}
+
+.breadcumb a{
+    text-decoration: none;
+    color: var(--rosadoTitulos);
+}
+.filtro-grid span{
+    margin-right: 5px;
+}
+.linea{
+    height: 2px;
+    border: none;
+    border-top: 5px solid var(--rosadoTitulos);
+    width: 400px;
+    background-color: var(--rosadoTitulos);
+    border-radius: 3px;
+}
+.productos-opciones{
+    justify-content: space-between;
+}
+
+/*Product item*/
+.product-img{
+    position: relative;
+    overflow: hidden;
+    background-color: var(--marfil);
+}
+.tags{
+    position: absolute;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    margin-left: 3%;
+    margin-top: 4%;
+}
+.tag-new{
+    background-color: rgb(210, 132, 174);
+    color: white;
+    font-weight: 500;
+    border-radius: 10px;
+    padding: 3% 10px 3% 10px;
+}
+.tag-discount{
+    color: rgb(118, 54, 89);
+    margin-left: 5px;
+}
+
+
+/* hover producto */
+.product-img::before,
+.product-img::after{
+    content: '';
+    position: absolute;
+    left: 0;
+    height: 0%;
+    width: 100%;
+    background-color: gray;
+    opacity: 0.5;
+    transition: height 0.3s ease;
+}
+.product-img::before{
+    top: 0;
+}
+.product-img::after{
+    bottom: 0;
+}
+
+.product-item:hover .product-img::before,
+.product-item:hover .product-img::after{
+    height: 50%;
+}
+
+/* product icons/buttons */
+
+.title{
+    color: var(--rosadoTitulos);
+    margin-top: 2%;
+}
+.product-img button{
+    position: absolute;
+    width: 150px;
+    height: 40px;
+    left: 50%;
+    bottom: 5%;
+    z-index: 1;
+    transform: translate(-50%, -50%) scale(0.5);
+    opacity: 0;
+    font-size: 14px;
+    font-weight: 500;
+    border: none;
+    border-radius: 25px;
+    background-color: #FFF;
+    color: rgb(117, 54, 90);;
+
+    transition: all 0.3s ease;
+}
+.product-img:hover button{
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+}
+.product-img button:hover{
+    color: rgb(210, 132, 174);
+    width: 155px;
+    font-size: 15px;
+}
+
+.product-icons{
+    box-sizing: inherit;
+    position: absolute;
+    right: 1%;
+    top: 10%;
+    display: flex;
+    flex-direction: column;
+}
+.product-icons .destacado-icon{
+    transform: translate(-50%, -50%) scale(0.5);
+    opacity: 0;
+    cursor: pointer;
+    font-size: 25px;
+    color: rgb(211, 132, 174);
+    transition: all 0.3s ease;
+}
+.product-icons i{
+    transition: all 0.5s ease;
+    border-radius: 50%;
+    margin-bottom: 1px;
+}
+.product-icons i:hover{
+    color: rgb(117, 54, 90);
+}
+
+.product-img:hover .destacado-icon{
+    transition-delay: 0.2s;
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+}
+.fa-star{
+    color: #D384AE;
+}
+.product-info .product-name{
+    cursor: pointer;
+    color:#75365a;
+    display: block;
+    font-weight: 600;
+    transition: all 0.5s ease;
+}
+.product-info .product-name:hover{
+    color:#D384AE;
+}
+
+
+.product-price{
+    color: rgb(210, 132, 174);
+}
+.rating{
+    font-size: 13px;
+}
+.product-item{
+    width: 300px;
+}
+.product-before{
+    text-decoration: line-through;
+    color:#75365a;
+    margin-left: 1.5%;
+}
+
+.custom-tooltip.tooltip > .tooltip-inner
+{
+    background-color: #D384AE;
+}
+
+.custom-tooltip.tooltip > .tooltip-arrow
+{
+    opacity: 0;
+}
+.pagination{
+    padding-bottom: 5%;
+}
+
+.pagination > li > a
+{
+    background-color: white;
+    color:var(--rosadoOscuro);
+    transition: all 0.3s ease;
+}
+
+.pagination > li > a:focus,
+.pagination > li > a:hover,
+.pagination > li > span:focus,
+.pagination > li > span:hover
+{
+    color: white;
+    background-color: var(--rosadoTitulos);
+    
+}
+
+.pagination > .active > a
+{
+    color: white;
+    background-color: var(--rosadoTitulos) !Important;
+}
+
+.pagination > .active > a:hover
+{
+    background-color: var(--rosadoTitulos) !Important;
+}
+
+
+
+
+
 
 
 /*------------------FOODER START------------------*/
