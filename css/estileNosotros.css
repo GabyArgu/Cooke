@@ -64,7 +64,7 @@
 }
 
 .nav2 {
-    background-color: var(--rosadoFondos);
+    background-color: var(--blanco);
 }
 
 .nav2 a{
@@ -107,5 +107,53 @@
     padding-bottom: 30px;
 }
 
+
+.ClientesT{
+    width: 470px;
+    height: 470px;
+}
+
+.Clientes-img{
+    position: relative;
+    overflow: hidden;
+    background-color: var(--marfil);
+    width: 370px;
+    padding: 35px;
+
+}
+
+.Clientes-img-content{
+    width: 370px;
+}
+
+.tagsN{
+    background-image: url(../resources/Nosotros/bandera.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    margin-left: -35px;
+}
+.tag-newN{
+    color: white;
+    font-weight: 500;
+    font-size: 15px;
+    padding-top: 5px;
+}
+
+.C-name{
+    cursor: pointer;
+    color:#75365a;
+    display: block;
+    font-weight: 600;
+    transition: all 0.5s ease;
+}
+.C-name:hover{
+    color:#D384AE;
+}
 
 
