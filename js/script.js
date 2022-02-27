@@ -79,7 +79,7 @@ document.addEventListener('DOMContentLoaded', function() {
     })
   });
 
-navbar = document.getElementById('navbarsticky');
+navbar = document.getElementById('navbar-home');
 
 window.addEventListener('scroll', function () {
      if (window.pageYOffset > 100) {

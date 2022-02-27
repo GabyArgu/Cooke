@@ -1,7 +1,7 @@
 /* VARIABLES GLOBALES COLORES */
 :root {
     --rosadoPalido: #F7DADF;
-    --rosadoPalido2: #fcf2f4;
+    --rosadoFondos: #fcf2f4;
     --rosadoPastel: #d97789;
     --rosadoTitulos: #C34E8B;
     --rosadoOscuro: #75365a;
@@ -11,7 +11,7 @@
 
 
 .section-Sobre2{
-    background-color: var(--rosadoPalido2);
+    background-color: var(--rosadoFondos);
     text-align: center;
     align-items: center;
 }
@@ -63,7 +63,11 @@
     transform: scale(1.2);
 }
 
-.breadcumb a{
+.nav2 {
+    background-color: var(--rosadoFondos);
+}
+
+.nav2 a{
     text-decoration: none;
     color: var(--rosadoTitulos);
 }

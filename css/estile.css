@@ -22,7 +22,7 @@ body {
 /* VARIABLES GLOBALES COLORES */
 :root {
     --rosadoPalido: #F7DADF;
-    --rosadoPalido2: #fcf2f4;
+    --rosadoFondos: #fcf2f4;
     --rosadoPastel: #d97789;
     --rosadoTitulos: #C34E8B;
     --rosadoOscuro: #75365a;
@@ -56,10 +56,15 @@ body {
 
 /* NAVBAR */
 
-.menu{
-
+#navbar-home {
     height: 85px;
     transition: all 0.4s ease-in-out;
+}
+
+.navbar-page {
+    height: 85px;
+    transition: all 0.4s ease-in-out;
+    background-color: var(--rosadoPalido);
 }
 
 .navbar-scroll {
@@ -289,7 +294,7 @@ body {
 /* GRID CATEGORÍAS */
 
 .categorias {
-    background-color: var(--rosadoPalido2);
+    background-color: var(--rosadoFondos);
     padding: 50px;
 }
 
@@ -650,7 +655,10 @@ body {
     padding-right: 20px;
     padding-top: 3px;
     padding-bottom: 3px;
+}
 
+.Btn:hover{
+    color: var(--blanco);
 }
 
 .section-Sobre {
@@ -805,7 +813,7 @@ body {
 
 /*------------------RESEÑA START------------------*/
 .container-resena{
-    background-color: var(--rosadoPalido2);
+    background-color: var(--rosadoFondos);
     display: flex;
     flex-wrap: nowrap;
 }
