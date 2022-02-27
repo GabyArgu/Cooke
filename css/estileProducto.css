@@ -18,7 +18,7 @@ body {
 /* VARIABLES GLOBALES COLORES */
 :root {
     --rosadoPalido: #F7DADF;
-    --rosadoPalido2: #fcf2f4;
+    --rosadoFondos: #fcf2f4;
     --rosadoPastel: #d97789;
     --rosadoTitulos: #C34E8B;
     --rosadoOscuro: #75365a;
@@ -51,9 +51,10 @@ body {
   }
 
 /*NAVBAR*/
-.menu{
+.navbar-page{
     height: 85px;
     transition: all 0.4s ease-in-out;
+    background-color: var(--rosadoPalido);
 }
 
 .navbar-scroll {
@@ -135,10 +136,15 @@ body {
     justify-content: center;
 }
 
-.breadcumb a{
+.nav2 {
+    background-color: var(--rosadoFondos);
+}
+
+.nav2 a{
     text-decoration: none;
     color: var(--rosadoTitulos);
 }
+
 .filtro-grid span{
     margin-right: 5px;
 }
