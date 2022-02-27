@@ -194,7 +194,23 @@
     font-size: 16px;
     margin-bottom: 10px;
 }
-
+.precio label{
+    color: var(--rosadoOscuro);
+}
+.etiquetas button{
+    width: 75px;
+    height: 30px;
+    color: var(--rosadoOscuro);
+    border: none;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    transition: all 0.2s ease;
+}
+.etiquetas button:hover{
+    color: var(--marfil);
+    background-color: var(--rosadoTitulos);
+    opacity: 0.75;
+}
 
 /* product icons/buttons */
 
