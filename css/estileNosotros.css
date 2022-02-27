@@ -1,3 +1,5 @@
+
+
 /* VARIABLES GLOBALES COLORES */
 :root {
     --rosadoPalido: #F7DADF;
@@ -29,8 +31,7 @@
 
 .fondo-title img{
     padding-top: 25px;
-    padding-left: 125px;
-    padding-right: 125px;
+    
 }
 
 .MVV1{
@@ -107,23 +108,33 @@
     padding-bottom: 30px;
 }
 
-
-.ClientesT{
-    width: 470px;
-    height: 470px;
+.owl-carousel.owl-drag .owl-item{
+    height: 410px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 !important;
 }
 
 .Clientes-img{
     position: relative;
     overflow: hidden;
     background-color: var(--marfil);
-    width: 370px;
+    width: 300px;
     padding: 35px;
 
 }
 
+.ClientesT{
+    width: 350px ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 !important;
+}
+
 .Clientes-img-content{
-    width: 370px;
+    width: 300px ;
 }
 
 .tagsN{
@@ -157,3 +168,16 @@
 }
 
 
+@media (min-width: 476px) and (max-width: 767.98px) { 
+    .N-img{
+        content: url(../resources/Nosotros/3.png);
+    }
+ }
+
+@media (min-width: 768px) and (max-width: 991.98px) { 
+
+    .N-img{
+        content: url(../resources/Nosotros/3.png);
+    }
+
+ }

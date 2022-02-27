@@ -1,4 +1,4 @@
-$('#owl1').owlCarousel({
+$('#owl3').owlCarousel({
     loop:true,
     margin: 5,
     responsiveClass: true,
