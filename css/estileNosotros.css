@@ -113,7 +113,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 0 !important;
+
 }
 
 .Clientes-img{
@@ -128,7 +128,7 @@
 .ClientesT{
     width: 350px ;
     display: flex;
-    justify-content: center;
+    justify-content: center !important;
     align-items: center;
     margin: 0 !important;
 }
@@ -136,6 +136,7 @@
 .Clientes-img-content{
     width: 300px ;
 }
+
 
 .tagsN{
     background-image: url(../resources/Nosotros/bandera.png);
@@ -167,11 +168,31 @@
     color:#D384AE;
 }
 
+.owl-prev{
+    left: 15px;
+}
+.owl-next{
+    right: -10px;
+}
+.owl-prev, .owl-next{
+    position:absolute;
+    top: 30%;
+}
+.owl-prev span, .owl-next span{
+    font-size: 60px;
+    color: pink;
+}
+.owl-theme .owl-nav [class*="owl-"]:hover{
+    background-color: transparent;
+}
+
 
 @media (min-width: 476px) and (max-width: 767.98px) { 
     .N-img{
         content: url(../resources/Nosotros/3.png);
     }
+
+
  }
 
 @media (min-width: 768px) and (max-width: 991.98px) { 
