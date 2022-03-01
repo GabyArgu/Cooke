@@ -1,8 +1,14 @@
+/* -----------------------------------------------------------------INICIO DE INDEX------------------------------------------------------------*/
+
 /* GLOBALES */
 *{
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+}
+
+hr{
+    opacity: 1 !important;
 }
 
 h1 {
@@ -29,7 +35,6 @@ body {
     --blanco: #fff;
     --marfil: #f5f5f5;
 }
-
 
 /* CUSTOM SCROLL BAR */
 
@@ -136,7 +141,6 @@ body {
 .textcolor2 a:hover{ 
     background-color: var(--blanco);
 } 
-
 
 /* CARRUSEL */
 
@@ -402,36 +406,6 @@ body {
     background-image: url(../resources/GridCategorias/bg-recetas-hover.png);
 }
 
-
-@media (min-width: 992px) {
-    .card-cocina,
-    .card-recetas {
-        height: 500px;
-    }
-
-    .card-cocina > .card-body {
-        align-items: flex-start;
-        justify-content: flex-start;
-        padding: 40px;
-    }
-
-    .card-utensilios > .card-body {
-        align-items: flex-end;
-        padding: 40px 100px;
-    }
-
-    .card-electro > .card-body {
-        align-items: flex-start;
-        padding: 40px;
-    }
-
-    .card-recetas > .card-body {
-        align-items: flex-start;
-        justify-content: flex-end;
-        padding: 40px;
-    }
-}
-
 /*------------------PRODUCTOS DESTACADOS START------------------*/
 .lineaP{
     height: 2px;
@@ -571,7 +545,6 @@ body {
 .product-info .product-name:hover{
     color:#D384AE;
 }
-
 
 .product-price{
     color: rgb(210, 132, 174);
@@ -1010,7 +983,562 @@ body {
 
 /*------------------FOODER END------------------*/
 
-/*------------------RESPONSIVE------------------*/
+/* -----------------------------------------------------------------FIN DE INDEX------------------------------------------------------------*/
+
+
+/* ---------------------------------------------------------------INICIO DE CANTEGORIA------------------------------------------------------*/
+
+.title-container{
+    background-color: var(--rosadoFondos);
+    margin-top: 85px;
+    display: flex;
+    justify-content: center;
+}
+.categoria-img{
+    position: relative;
+    overflow: hidden;
+    background-color: rgb(245, 245, 245);
+}
+.categoria-img img{
+    height: 250px;
+    width: 500px;
+    object-fit: cover;
+}
+.categoria-img::before,
+.categoria-img::after{
+    content: '';
+    position: absolute;
+    left: 0;
+    height: 0%;
+    width: 100%;
+    background-color: gray;
+    opacity: 0.5;
+    transition: height 0.3s ease;
+}
+.categoria-img::before{
+    top: 0;
+}
+.categoria-img::after{
+    bottom: 0;
+}
+
+.categoria-item:hover .categoria-img::before,
+.categoria-item:hover .categoria-img::after{
+    height: 50.01%;
+}
+
+.categoria-img button{
+    position: absolute;
+    width: 160px;
+    height: 50px;
+    left: 50%;
+    bottom: 25%;
+    z-index: 1;
+    transform: translate(-50%, -50%) scale(0.5);
+    opacity: 0;
+    font-size: 16px;
+    font-weight: 500;
+    border: none;
+    border-radius: 25px;
+    background-color: #FFF;
+    color: rgb(117, 54, 90);
+
+    transition: all 0.3s ease;
+}
+.categoria-img:hover button{
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+}
+.categoria-img button:hover{
+    color: rgb(210, 132, 174);
+    width: 165px;
+    font-size: 17px;
+}
+.categoria-info{
+    background-color:var(--rosadoFondos);
+    height: 120px;
+}
+.categoria-name{
+    color: var(--rosadoOscuro);
+    font-size: 22px;
+    font-weight: 500;
+    cursor: pointer;
+}
+.categoria-name:hover{
+    color: var(--rosadoTitulos);
+}
+.categoria-description{
+    color: var(--rosadoOscuro);
+    font-size: 18px;
+}
+.categoria-autor-fecha{
+    display: flex;
+    flex-direction: row;
+    justify-content:space-around;
+    margin-top: 2%;
+}
+.categoria-autor-fecha span{
+    font-size: 12px;
+    font-weight: 400;
+    color: var(--rosadoTitulos);
+}
+.categoria-item{
+    margin-bottom: 25px;
+}
+
+/* ----------------------------------------------------------------FIN DE CANTEGORIA--------------------------------------------------------*/
+
+
+/* --------------------------------------------------------------INICIO DE GRIDPRODUCTO-----------------------------------------------------*/
+
+.contenido{
+    margin-top: 85px;
+}
+.title-container{
+    background-color: var(--rosadoPalido2);
+    margin-top: 85px;
+    display: flex;
+    justify-content: center;
+}
+
+.breadcumb a{
+    text-decoration: none;
+    color: var(--rosadoTitulos);
+}
+
+.linea{
+    height: 2px;
+    border: none;
+    border-top: 5px solid var(--rosadoTitulos);
+    width: 400px;
+    background-color: var(--rosadoTitulos);
+    border-radius: 3px;
+}
+.productos-opciones{
+    justify-content: space-between;
+    align-items: center;
+}
+.linea-opciones{
+    height: 2px;
+    border: none;
+    border-top: 5px solid var(--rosadoTitulos);
+    background-color: var(--rosadoTitulos);
+    border-radius: 3px;
+}
+
+.filtro-grid a{
+    text-decoration: none;
+    margin-right: 10px;
+    margin-top: 5px;
+    width: 28px;
+    height: 28px;
+}
+.grid-filter{
+    position: relative;
+    background-image: url(../resources/PaginaGridProductos/gridp.png);
+    background-size: cover;
+    transition: all 0.3s ease;
+}
+.column-filter{
+    position: relative;
+    background-image: url(../resources/PaginaGridProductos/listg.png);
+    background-size: cover;
+    transition: all 0.3s ease;
+}
+
+.grid-filter:hover{
+    background-image: url(../resources/PaginaGridProductos/gridg.png);
+}
+.column-filter:hover{
+    background-image: url(../resources/PaginaGridProductos/listp.png);
+}
+.productos-opciones span{
+    color: var(--rosadoOscuro);
+    font-weight: 450;
+    font-size: 20px;
+}
+.productos-opciones .dropdown button{
+    color: var(--rosadoOscuro);
+    font-weight: 450;
+    font-size: 20px;
+}
+.productos-opciones .dropdown a{
+    color: var(--rosadoOscuro);
+    font-weight: 450;
+    font-size: 20px;
+}
+.filtros h4{
+    color: var(--rosadoOscuro);
+    font-family: 'Mohave', sans-serif;
+    font-weight: 500;
+}
+.form-check-label{
+    color: var(--rosadoOscuro);
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+.precio label{
+    color: var(--rosadoOscuro);
+}
+.etiquetas button{
+    width: 75px;
+    height: 30px;
+    color: var(--rosadoOscuro);
+    border: none;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    transition: all 0.2s ease;
+}
+.etiquetas button:hover{
+    color: var(--marfil);
+    background-color: var(--rosadoTitulos);
+    opacity: 0.75;
+}
+
+/* product icons/buttons */
+
+.title{
+    color: var(--rosadoTitulos);
+    margin-top: 2%;
+}
+
+.custom-tooltip.tooltip > .tooltip-inner
+{
+    background-color: #D384AE;
+}
+
+.custom-tooltip.tooltip > .tooltip-arrow
+{
+    opacity: 0;
+}
+.pagination{
+    padding-bottom: 5%;
+}
+
+.pagination > li > a
+{
+    background-color: white;
+    color:var(--rosadoOscuro);
+    transition: all 0.3s ease;
+}
+
+.pagination > li > a:focus,
+.pagination > li > a:hover,
+.pagination > li > span:focus,
+.pagination > li > span:hover
+{
+    color: white;
+    background-color: var(--rosadoTitulos);
+    
+}
+
+.pagination > .active > a
+{
+    color: white;
+    background-color: var(--rosadoTitulos) !Important;
+}
+
+.pagination > .active > a:hover
+{
+    background-color: var(--rosadoTitulos) !Important;
+}
+
+/* -----------------------------------------------------------------FIN DE GRIDPRODUCTO------------------------------------------------------*/
+
+
+/* -----------------------------------------------------------------INICIO DE NOSOTROS-------------------------------------------------------*/
+
+
+.section-Sobre2{
+    background-color: var(--rosadoFondos);
+    text-align: center;
+    align-items: center;
+}
+
+.title-container{
+    background-color: #F7DAE0;
+    margin-top: 85px;
+    display: flex;
+    justify-content: center;
+}
+
+.fondo-title{
+    padding-bottom: 50px;
+}
+
+.fondo-title img{
+    padding-top: 25px;
+    
+}
+
+.MVV1{
+    width: 260px;
+    height: auto;
+    text-align: center;
+    margin: 50px;
+}
+
+.MVV1 h3{
+    font-size: 40px;
+    font-family: 'Mohave', sans-serif ;
+    color: var(--rosadoOscuro);
+}
+
+.MVV1 p{
+    font-size: 15px;
+    font-family: 'Mohave', sans-serif ;
+    color: var(--rosadoOscuro);
+    text-align: justify;
+}
+
+.MVV1 img{
+    width: 130px;
+    padding-bottom: 15px;
+    transition: all 0.3s ease;
+}
+
+.MVV1 img:hover{
+    transform: scale(1.2);
+}
+
+.nav2 {
+    background-color: var(--blanco);
+}
+
+.nav2 a{
+    text-decoration: none;
+    color: var(--rosadoTitulos);
+}
+
+.Cont-Sobre2{
+    padding-bottom: 30px;
+    justify-content: center;
+}
+
+.section-Sobre2 {
+    background-color: #FCF2F3 ;
+}
+
+.pSobre2{
+    padding-top: 8px;
+    font-size: 18px;
+    font-family: 'Mohave', sans-serif ;
+    color: var(--rosadoTitulos);
+}
+
+.lineaN2{
+    height: 2px;
+    border: none;
+    border-top: 5px solid var(--rosadoTitulos);
+    width: 380px;
+    background-color: var(--rosadoTitulos);
+    border-radius: 3px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.Fon-Marcas2{
+    background-color: white;
+}
+
+.InfoSobre2{
+    padding-bottom: 30px;
+}
+
+.owl-carousel.owl-drag .owl-item{
+    height: 410px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.Clientes-img{
+    position: relative;
+    overflow: hidden;
+    background-color: var(--marfil);
+    width: 300px;
+    padding: 35px;
+
+}
+
+.ClientesT{
+    width: 350px ;
+    display: flex;
+    justify-content: center !important;
+    align-items: center;
+    margin: 0 !important;
+}
+
+.Clientes-img-content{
+    width: 300px ;
+}
+
+
+.tagsN{
+    background-image: url(../resources/Nosotros/bandera.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    margin-left: -35px;
+}
+.tag-newN{
+    color: white;
+    font-weight: 500;
+    font-size: 15px;
+    padding-top: 5px;
+}
+
+.C-name{
+    cursor: pointer;
+    color:#75365a;
+    display: block;
+    font-weight: 600;
+    transition: all 0.5s ease;
+}
+.C-name:hover{
+    color:#D384AE;
+}
+
+.owl-prev{
+    left: 15px;
+}
+.owl-next{
+    right: -10px;
+}
+.owl-prev, .owl-next{
+    position:absolute;
+    top: 30%;
+}
+.owl-prev span, .owl-next span{
+    font-size: 60px;
+    color: pink;
+}
+.owl-theme .owl-nav [class*="owl-"]:hover{
+    background-color: transparent;
+}
+
+
+/* -------------------------------------------------------------------FIN DE NOSOTROS-------------------------------------------------------*/
+
+
+/* -----------------------------------------------------------------INICO DE PRODUCTOS------------------------------------------------------*/
+
+
+.title-container{
+    background-color: var(--rosadoFondos);
+    margin-top: 85px;
+    display: flex;
+    justify-content: center;
+}
+.detalle-producto-name{
+    color: var(--rosadoOscuro);
+}
+.secondary-img img{
+    border: 1px solid var(--rosadoOscuro);
+    cursor: pointer;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+.sec-img2:hover {
+    background-color: red;
+}
+.sec-img2:hover .main-img img{
+    background-color: #75365a;
+    background-image: url(../resources/detalleProducto/detalle2.jpg);
+}   
+
+.space{
+    background-color: #75365a;
+}
+.disponibilidad-group{
+    font-size: 18px;
+    margin: 15px 0 15px 0;
+}
+.disponibilidad-group .disponibilidad{
+    color: var(--rosadoOscuro);
+    font-weight: 500;
+}
+.stock{
+    color: green;
+}
+.colores i{
+    cursor: pointer;
+}
+.fa-square{
+    font-size: 25px;
+    padding: 5px;
+}
+
+.precios span{
+    font-size: 24px;
+    color: var(--rosadoTitulos);
+    margin-right: 5px;
+}
+.precio-before{
+    text-decoration: line-through;
+    color: rgb(181, 181, 181)!important;
+}
+.info-detalle-producto{
+    font-family: 'Mohave', sans-serif;
+}
+.info-detalle-producto h5{
+    color: var(--rosadoOscuro);
+}
+
+.info-detalle-producto .form-control{
+    border-color: var(--rosadoTitulos);
+}
+.cantidad-row{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 5px;
+}
+.heart-icon{
+    padding-left: 24px;
+}
+.wish{
+    
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--rosadoTitulos);
+    background-color: #F5F5F5;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.botones-detalles{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+
+}
+
+.left-stock{
+    margin-top: 10px
+}
+
+/* ------------------------------------------------------------------FIN DE PRODUCTOS-------------------------------------------------------*/
+
+/*------------------RESPONSIVE GLOBAL------------------*/
+@media (min-width: 476px) and (max-width: 767.98px) { 
+    .N-img{
+        content: url(../resources/Nosotros/3.png);
+    }
+ }
+
 @media (max-width: 575.98px) { 
 
     .Fon-Marcas{
@@ -1320,14 +1848,40 @@ body {
     .logopart{
         padding-left: 22px;
     }
- }
 
-@media (min-width: 992px) and (max-width: 1199.98px) { 
-    #logo_final{
-        width: 370px !important;
-        border: 2px;
+    .N-img{
+        content: url(../resources/Nosotros/3.png);
     }
  }
+
+ @media (min-width: 992px) {
+    .card-cocina,
+    .card-recetas {
+        height: 500px;
+    }
+
+    .card-cocina > .card-body {
+        align-items: flex-start;
+        justify-content: flex-start;
+        padding: 40px;
+    }
+
+    .card-utensilios > .card-body {
+        align-items: flex-end;
+        padding: 40px 100px;
+    }
+
+    .card-electro > .card-body {
+        align-items: flex-start;
+        padding: 40px;
+    }
+
+    .card-recetas > .card-body {
+        align-items: flex-start;
+        justify-content: flex-end;
+        padding: 40px;
+    }
+}
 
 @media (min-width: 1200px) { 
     #logo_final{
