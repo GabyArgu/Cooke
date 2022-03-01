@@ -142,6 +142,134 @@ body {
     background-color: var(--blanco);
 } 
 
+/* SIDEBAR CARRITO */
+
+.offcanvas-body {
+    padding: 30px;
+}
+
+.btn-close{
+    color: var(--rosadoOscuro);
+}
+
+  #cd-cart > * {
+    padding: 0 10px;
+    font-family: 'Mohave', sans-serif;
+    color: var(--rosadoOscuro);
+  }
+  
+  #cd-cart h2 {
+    font-size: 24px;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin: 10px 0;
+  }
+
+  #cd-cart .cd-cart-items {
+    padding: 0px;
+    width: 100%;
+    list-style: none;
+  }
+
+  #cd-cart .cd-cart-items li {
+    padding: 20px 0;
+    border-top: 1px solid var(--rosadoPalido);
+  }
+
+  #cd-cart .cd-cart-items li:last-of-type {
+    border-bottom: 1px solid var(--rosadoPalido);
+  }
+  
+  #cd-cart .cd-qty, 
+  #cd-cart .cd-price {
+    font-weight: bold;
+  }
+
+  #cd-cart .cd-price {
+    margin-top: .4em;
+  }
+
+  #cd-cart .cd-cart-total {
+    font-family: 'Mohave', sans-serifs;
+    font-size: 18px;
+    color: var(--rosadoOscuro);
+    border-bottom: 1px solid var(--rosadoPalido);
+  }
+  
+  #cd-cart .cd-cart-total .card-total-line {
+      display: flex;
+      justify-content: space-between;
+  }
+
+  .cd-cart-total .total {
+    font-size: 24px;
+    font-weight: bold;
+  }
+
+  #cd-cart .checkout-btn {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    background: var(--rosadoTitulos);
+    color: #FFF;
+    text-align: center;
+    margin-top: 20px;
+    text-decoration: none;
+    font-family: 'Mohave', sans-serif;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+  }
+ 
+  #cd-cart .checkout-btn:hover {
+    background: var(--rosadoOscuro);
+  }
+
+  .product-item-cart {
+      display: grid;
+      grid-template-columns: 35% 55% 10%;
+      align-items: left;
+  }
+
+  .item {
+    position:relative;
+    display: block;
+    background-color: var(--rosadoPalido2);
+    width: 100px;
+    height: 100px;
+}
+
+  .cart-img {
+      width: 100px;
+      height: 100px;
+      object-fit: contain;
+      padding: 10px;
+  }
+
+  .detail-box {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+  }
+
+  .cart-price {
+      font-weight: bold;
+  }
+
+  .cd-item-remove {
+      display: flex;
+      align-items: flex-end;
+  }
+
+  .quantity-badge{
+    position: absolute;
+    background:var(--rosadoOscuro);
+    text-align: center;
+    border-radius: 50px;
+    color:white;
+    padding:5px 10px;
+    font-size: 16px;
+  }
+
 /* CARRUSEL */
 
 #TextoC{
