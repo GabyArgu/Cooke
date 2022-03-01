@@ -1,0 +1,116 @@
+/* VARIABLES GLOBALES COLORES */
+:root {
+    --rosadoPalido: #F7DADF;
+    --rosadoFondos: #fcf2f4;
+    --rosadoPastel: #d97789;
+    --rosadoTitulos: #C34E8B;
+    --rosadoOscuro: #75365a;
+    --blanco: #fff;
+    --marfil: #f5f5f5;
+}
+
+
+.section-Login{
+    margin-top: 85px;
+    background-color: var(--rosadoFondos);
+    align-items: center;
+    text-align: center;
+}
+
+.Login-img img{
+    padding-top: 30px;
+    padding-bottom: 30px;
+    height: 500px;
+}
+
+.Login-text{
+    background-color: var(--blanco);
+    margin-top: 50px;
+    margin-bottom: 50px;
+    width: 500px;
+    height: 500px;
+    border: solid 5px;
+    border-color: #E6BAD1 ;
+}
+
+.lineaLo{
+    height: 2px;
+    border: none;
+    border-top: 5px solid var(--rosadoTitulos);
+    width: 120px;
+    background-color: var(--rosadoTitulos);
+    opacity: 1;
+    border-radius: 3px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.titleL{
+    color: var(--rosadoOscuro);
+    margin-top: 30px;
+}
+
+.Lcorreo{
+    height: 50px;
+    background-color: #F8F9F8;
+    border: none;
+    font-style: italic;
+}
+
+.SLcorreo{
+    background-color: var(--rosadoPalido);
+    height: 50px;
+    width: 50px;
+    border: none;
+}
+
+
+.SLimg{
+    height: 50px;
+    width: 50px;
+    background-image: url(../resources/Login/correo.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.SLimg2{
+    height: 50px;
+    width: 50px;
+    background-image: url(../resources/Login/contrasena.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 5px;
+}
+
+.RecuperarA{
+    color: var(--rosadoTitulos);
+    font-size: 14px;
+    font-family: 'Mohave', sans-serif;
+}
+
+.AAceptar{
+    width: 500px;
+    height: 20px;
+    font-size: 18px;
+    font-family: 'Mohave', sans-serif;
+    color: white;
+    background-color: var(--rosadoTitulos);
+    padding-right: 150px;
+    padding-left: 150px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+
+@media (min-width: 768px) and (max-width:1008.98px) { 
+
+    .Login-img img{
+        height: 450px;
+    }
+    
+    .Login-text{
+        width: 450px;
+        height: 450px;
+    }
+
+ }
