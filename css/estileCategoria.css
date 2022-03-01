@@ -8,6 +8,12 @@
     --blanco: #fff;
     --marfil: #f5f5f5;
 }
+.title-container{
+    background-color: var(--rosadoFondos);
+    margin-top: 85px;
+    display: flex;
+    justify-content: center;
+}
 .categoria-img{
     position: relative;
     overflow: hidden;
