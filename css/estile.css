@@ -2531,11 +2531,20 @@ body {
     font-size: 18px;
 }
 
+.table-carrito tr:hover{
+    background-color: var(--marfil);
+}
+
 .table-carrito td img{
     width: 100px;
     height: 100px;
     display: flex;
     margin: 0 auto;
+}
+
+.table-carrito .input-group {
+    width: 40%;
+    margin: auto;
 }
 
 .fa-trash-can{
@@ -2636,5 +2645,43 @@ body {
         width: 50%;
         height: 100%;
         justify-content: space-between;
+    }
+}
+
+@media only screen and (max-width: 992px){
+    #no-more-tables tbody,
+    #no-more-tables tr,
+    #no-more-tables td{
+        display: block;
+    }
+
+    #no-more-tables tr{
+        padding: 20px;
+        border-right: transparent;
+        border-left: transparent;
+    }
+    #no-more-tables thead tr {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+    }
+    #no-more-tables td {
+        position: relative;
+        padding-left: 40%;
+    }
+    #no-more-tables td:before{
+        content: attr(data-title);
+        position: absolute;
+        left: 6px;
+        font-weight: bold;
+    }
+
+    #no-more-tables .fa-trash-can {
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    #no-more-tables .input-group {
+        margin: auto;
     }
 }
