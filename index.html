@@ -6,8 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <!-- Owl carousel -->
-  <link rel="stylesheet" href="owlcarousel/owl.carousel.min.css">
-  <link rel="stylesheet" href="owlcarousel/owl.theme.default.min.css">
+  <link rel="stylesheet" href="plugins/owlcarousel/owl.carousel.min.css">
+  <link rel="stylesheet" href="plugins/owlcarousel/owl.theme.default.min.css">
 
 
   <link href="assets/css/bootstrap.css" rel="stylesheet">
@@ -30,13 +30,11 @@
   <title>Cooké</title>
 </head>
 
-<body>
+<body class="inicio">
   <div id="content-wrapper">
 
-    <header>
-      <!-- INICIA NAVBAR -->
-
-      <nav class="navbar fixed-top navbar-expand-lg navbar-light" id="navbar-home">
+    <header> <!-- INICIA NAVBAR -->
+      <nav class="navbar fixed-top navbar-expand-lg navbar-light menu" id="navbar-home">
         <div class=" container-fluid" id="logo-contenedor">
           <a class="navbar-brand me-auto" href="#"><img src="resources/logo2.png" alt="" id="logo_inicio"
               class="mx-auto d-block"></a>
@@ -52,7 +50,7 @@
                   Categorías
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                  <li><a class="dropdown-item" href="#">Cocina</a></li>
+                  <li><a class="dropdown-item" href="html/categoria.html">Cocina</a></li>
                   <li><a class="dropdown-item" href="#">Utensilios</a></li>
                   <li><a class="dropdown-item" href="#">Eléctrodomesticos</a></li>
                   <li><a class="dropdown-item" href="#">Recetas</a></li>
@@ -72,19 +70,80 @@
               </li>
 
               <li class="nav-item textcolor">
-                <a class="nav-link active img-hover" aria-current="page" href="#"></a>
+                <a class="nav-link active img-hover" aria-current="page" href="html/login.html"></a>
               </li>
               <li class="nav-item textcolor">
                 <a class="nav-link active img-hover2" aria-current="page" href="#"></a>
               </li>
               <li class="nav-item textcolor">
-                <a class="nav-link active img-hover3" aria-current="page" href="#"></a>
+                <a class="nav-link active img-hover3" aria-current="page" data-bs-toggle="offcanvas" data-bs-target="#sidebarCarrito" aria-controls="offcanvasRight">
+                </a>
               </li>
             </ul>
           </div>
         </div>
       </nav>
     </header> <!-- FIN NAVBAR-->
+
+    <div class="offcanvas offcanvas-end" id="sidebarCarrito" aria-labelledby="offcanvasRightLabel"> <!-- INICIA CARRITO -->
+
+      <div class="offcanvas-body">
+
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+
+        <div id="cd-cart">
+          <h2>CARRITO DE COMPRAS</h2>
+          <ul class="cd-cart-items">
+
+            <li class="product-item-cart">
+              <div class="item">
+                <span class="top-0 start-100 translate-middle badge quantity-badge">1</span>
+                <img src="resources/Olla.png" alt="" class="cart-img">
+              </div>
+              <div class="detail-box">
+                <div class="cart-product-title">Cacerola Steel Co Healthy</div>
+                <div class="cart-price">$29.74</div>
+              </div> 
+              <i class="fa-solid fa-xmark cd-item-remove"></i>
+            </li>
+      
+            <li class="product-item-cart">
+              <div class="item">
+                <span class="top-0 start-100 translate-middle badge quantity-badge">2</span>
+                <img src="resources/cuchara.png" alt="" class="cart-img">
+              </div>
+              <div class="detail-box">
+                <div class="cart-product-title">Cucharón de madera</div>
+                <div class="cart-price">$19.80</div>
+              </div> 
+              <i class="fa-solid fa-xmark cd-item-remove"></i>
+            </li>
+
+          </ul>
+      
+          <div class="cd-cart-total">
+            <p class="card-total-line">Subtotal<span>$49.54</span></p>
+            <p class="card-total-line">Envío<span>$0.00</span></p>
+            <p class="total card-total-line">Total<span class="total">$49.54</span></p>
+          </div> <!-- cd-cart-total -->
+      
+          <a href="html/carrito.html" class="checkout-btn">
+            <span>
+              <i class="fa-solid fa-cart-shopping"></i>
+            </span> VER CARRITO
+          </a>
+
+          <a href="#0" class="checkout-btn">
+            <span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </span> IR A PAGAR
+          </a>
+
+        </div> <!-- cd-cart -->
+
+      </div>
+
+    </div> <!-- FIN CARRITO -->
 
     <section>
       <!-- INICIA CARRUSEL -->
@@ -482,7 +541,7 @@
           <p class="pSobre">Cooké es una tienda online de utensilios de cocina de las mejores marcas para
             food lovers, o entusiastas de la buena mesa y la buena cocina.
             Más de 2.000 productos que cambiarán para siempre tu forma de cocinar.</p>
-          <a class="Btn Bmore"" href="html/nosotros.html">Ver más</a>
+          <a class="Btn Bmore" href="html/nosotros.html">Ver más</a>
         </div>
         <div class="col-10 row justify-content-center">
           <div class="card Condicion">
@@ -843,16 +902,16 @@
                 <div class="col Redes-Div">
                   <h6 class="text-uppercase fw-bold h6Red ">Redes</h6>
                   <p class="d-flex justify-content-center "><a class="nav-link active redes-hover  " aria-current="page"
-                      href="#"></a></p>
+                      href="https://es-la.facebook.com/"></a></p>
                   <p class="d-flex justify-content-center "><a class="nav-link active redes-hover2 " aria-current="page"
                       href="#"></a></p>
                   <p class="d-flex justify-content-center "><a class="nav-link active redes-hover3" aria-current="page"
-                      href="#"></a></p>
+                      href="https://twitter.com/?lang=es"></a></p>
                 </div>
                 <div class="col">
                   <h6 class="text-uppercase fw-bold mb-4">Contacto</h6>
-                  <p><a href="#!" class="text-reset link">Correo</a></p>
-                  <p><a href="#!" class="text-reset link">Teléfono</a></p>
+                  <p><a href="mailto:20170573@ricaldone.edu.sv" class="text-reset link">Correo</a></p>
+                  <p><a href="tel:61949493" class="text-reset link">Teléfono</a></p>
                   <p><a href="#!" class="text-reset link">Contáctanos</a></p>
                 </div>
                 <div class="col">
@@ -866,7 +925,7 @@
                 <div class="col">
                   <h6 class="text-uppercase fw-bold mb-4">Extras</h6>
                   <p><a href="#!" class="text-reset link">Mi cuenta</a></p>
-                  <p><a href="#!" class="text-reset link">Sobre nosotros</a></p>
+                  <p><a href="html/nosotros.html" class="text-reset link">Sobre nosotros</a></p>
                   <p><a href="#!" class="text-reset link">Lista de deseos</a></p>
                   <p><a href="#!" class="text-reset link">Centro de compras</a></p>
                 </div>
@@ -887,7 +946,7 @@
   </div>
   <!-- OwlCarousel -->
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script src="owlCarousel/owl.carousel.min.js"></script>
+  <script src="plugins/owlCarousel/owl.carousel.min.js"></script>
   <script src="js/script.js"></script>
 
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
