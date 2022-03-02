@@ -8,7 +8,6 @@
 
     <link href="../assets/css/bootstrap.css" rel="stylesheet">
     <link rel="stylesheet" href="../css/estile.css">
-    <link rel="stylesheet" href="../css/estileProducto.css">
     <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -27,7 +26,7 @@
     <title>Cooké</title>
 </head>
 
-<body>
+<body class="detalle-producto-content">
     <div id="container-fluid content-wrapper">
 
         <header>
@@ -82,8 +81,9 @@
             </nav>
         </header> <!-- FIN NAVBAR-->
 
+
         <section>
-            <div class="container-fluid title-container">
+            <div class="container-fluid title-container-palido">
                 <div class="row mt-3 fondo-breadcumb">
                     <nav class="breadcumb" aria-label="breadcrumb">
                         <ol class="breadcrumb">
@@ -102,7 +102,7 @@
             </div>
 
             <!-- INICIO CONTENIDO -->
-            <div class="container">
+            <div class="container mt-5">
                 <div class="row">
                     <div class="col-5 img-detalle-producto mx-auto">
                         <div class="main-img">
@@ -151,57 +151,283 @@
                         <div class="precio-disponibilidad d-block">
                             <div class="precios">
                                 <span class="precio">$29.99</span>
-                            <span class="precio-before">$52.99</span>
+                                <span class="precio-before">$52.99</span>
                             </div>
                             <div class="disponibilidad-group">
                                 <span class="disponibilidad ">Disponibilidad:</span> <span class="stock">En Stock</span>
                             </div>
                         </div>
                         <hr>
-                        <span class="about-producto">Sobre este artículo</span>
-                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quod minima optio magni officia
-                            blanditiis culpa illo vitae? Possimus quod, provident ullam facere necessitatibus expedita
-                            quaerat! Cupiditate dolore aut repudiandae asperiores.</p>
+                        <div class="about-producto">
+                            <span class="title-about-producto">Sobre este artículo</span>
+                            <p class="mt-2">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quod minima optio
+                                magni officia
+                                blanditiis culpa illo vitae? Possimus quod, provident ullam facere necessitatibus
+                                expedita
+                                quaerat! Cupiditate dolore aut repudiandae asperiores.</p>
+                        </div>
                         <hr>
-                        <span>Cantidad</span>
                         <div class="row cantidad-row justify-content-start">
-                            <div class="col-4 añadir-boton">
-                                <div class="input-group">
-                                    <button class="btn btn-outline-primary" type="button" id="button-addon1">-</button>
+                            <span class="mb-2">Cantidad</span>
+                            <div class="col-8 añadir-boton">
+                                <div class="input-group ">
+                                    <button class="btn btn-outline-warning" type="button" id="button-addon1">-</button>
                                     <input type="text" class="form-control text-center" placeholder="1"
                                         aria-label="Example text with button addon" aria-describedby="button-addon1">
-                                    <button class="btn btn-outline-primary" type="button" id="button-addon1">+</button>
+                                    <button class="btn btn-outline-warning" type="button" id="button-addon1">+</button>
                                 </div>
-                            </div>
-                            <div class="col-4 botones-detalles">
-                                <button>Añadir al carrito</button>
+                                <button class="carrito-button mx">Añadir al carrito</button>
                                 <span class="destacado-icon heart-icon" data-bs-customClass="custom-tooltip"
-                                data-bs-toggle="tooltip" data-bs-placement="right" title="Añadir a WishList">
-                                <i class="far fa-heart wish"></i>
+                                    data-bs-toggle="tooltip" data-bs-placement="right" title="Añadir a WishList">
+                                    <i class="far fa-heart wish"></i></span>
                             </div>
+                        </div>
+                        <div class="row mt-1">
+                            <span class="left-stock">Queda(n) 10 en stock</span>
+                        </div>
+
+                        <div class="colores mt-2">
+                            <i class="fa-solid fa-square color1"></i>
+                            <i class="fa-solid fa-square color2"></i>
+                            <i class="fa-solid fa-square color3"></i>
+                            <i class="fa-solid fa-square color4"></i>
+                        </div>
+                        <div class="cat">
+                            <h5>Categorías</h5>
+                            <span>Utensilios, cucharas, espátulas</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mt-5 contenedor-descripcion-review">
+                    <div class="col descripcion-review">
+
+                        <nav>
+                            <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                                <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab"
+                                    data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home"
+                                    aria-selected="true">Descripción</button>
+                                <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab"
+                                    data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile"
+                                    aria-selected="false">Reseñas</button>
                             </div>
-                            <div class="row mt-1">
-                                <span class="left-stock">Queda(n) 10 en stock</span>
+                        </nav>
+                        <div class="tab-content mt-3">
+                            <div class="tab-pane fade show active " id="nav-home" role="tabpanel"
+                                aria-labelledby="nav-home-tab">
+                                <div class="div detalle-producto-resena-container mb-4"><span
+                                        class="descripcion-detalle-producto-title d-block my-2">Especificaciones:
+                                    </span>
+                                    <span class="descripcion-detalle-producto-content">
+                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea fugiat, molestias,
+                                        eligendi totam, magni officiis obcaecati nulla accusantium aliquid odit veniam
+                                        ipsa sapiente explicabo maiores sunt repellendus unde? Nobis, et. Lorem ipsum
+                                        dolor sit amet consectetur adipisicing elit. Modi architecto laudantium
+                                        necessitatibus repellendus accusamus animi? Rem recusandae, fugiat nostrum totam
+                                        quibusdam maxime doloremque obcaecati quaerat laudantium dolores sapiente
+                                        reiciendis delectus.
+                                    </span>
+                                </div>
+
                             </div>
-                            
-                            <div class="colores mt-2">
-                                <i class="fa-solid fa-square color"></i>
-                                <i class="fa-solid fa-square color"></i>
-                                <i class="fa-solid fa-square color"></i>
-                                <i class="fa-solid fa-square color"></i>
-                            </div>
-                            <div class="cat">
-                                <h5 class="mt-5">Categorías</h5>
-                                <span>Utensilios, cucharas, espátulas</span>
+                            <div class="tab-pane fade resena-pane" id="nav-profile" role="tabpanel"
+                                aria-labelledby="nav-profile-tab">
+
+                                <div class="detalle-review-title d-flex justify-content-between">
+                                    <span class="opiniones-clientes">Opiniones de clientes:</span>
+                                <button class="d-inline flex-end escribir-resena">Escribir reseña</button>
+                                </div>
+                                
+                                <div class="rating-detalle d-inline">
+                                    <span>
+                                        <i class="fa fa-star"></i>
+                                    </span>
+                                    <span>
+                                        <i class="fa fa-star"></i>
+                                    </span>
+                                    <span>
+                                        <i class="fa fa-star"></i>
+                                    </span>
+                                    <span>
+                                        <i class="fa fa-star"></i>
+                                    </span>
+                                    <span>
+                                        <i class="fa fa-star"></i>
+                                    </span>
+                                </div>
+                                <span>4.8 de 5 (200 reviews)</span>
+                                
+                                
+
+                                    <!-- RESEÑA ITEM -->
+                                    <div class="detalle-resena-item">
+                                        <div class="resena-img-content">
+                                            <div class="resena-info p-3">
+                                              <div class="resena-header">
+                                                <div class="img-resena">
+                                                  <img src="../resources/Reseña/resena4.jpg" alt="" class="img d-inline">
+                                                </div>
+                                                <span class="resena-user mx-4">Eli_Cat UwU</span>
+                                                <div class="stars-resena">
+                                                  <span>
+                                                    <i class="fa fa-star"></i>
+                                                  </span>
+                                                  <span>
+                                                    <i class="fa fa-star"></i>
+                                                  </span>
+                                                  <span>
+                                                    <i class="fa fa-star"></i>
+                                                  </span>
+                                                  <span>
+                                                    <i class="fa fa-star"></i>
+                                                  </span>
+                                                  <span>
+                                                    <i class="fa fa-star"></i>
+                                                  </span>
+                                                </div>
+                                              </div>
+                                              <span href="#" class="resena-name d-block mt-3">¡Amo esta waflera rosa!</span>
+                                              <span class="d-block mt-3">
+                                                <p>Es preciosa, amo el color rosado y me encato que tuvieran la waflera en este color,
+                                                  es super eficiente, la uso todos los dias para cerle el desayuno a mis 11 hijos, sin esto no
+                                                  tendrian nada para comer, la super recomiendo!</p>
+                                              </span>
+                                              <div class="resena-autor-fecha">
+                                                <span class="resena-fecha"><i class="fa-solid fa-calendar-days"></i>10/02/2022</span>
+                                              </div>
+                                            </div>
+                                          </div>
+                                    </div>
+                                    <hr>
+                                 <!-- RESEÑA ITEM -->
+                                 <div class="detalle-resena-item">
+                                    <div class="resena-img-content">
+                                        <div class="resena-info p-3">
+                                          <div class="resena-header">
+                                            <div class="img-resena">
+                                              <img src="../resources/Reseña/resena3.jpg" alt="" class="img d-inline">
+                                            </div>
+                                            <span class="resena-user mx-4">Paquito123</span>
+                                            <div class="stars-resena">
+                                              <span>
+                                                <i class="fa fa-star"></i>
+                                              </span>
+                                              <span>
+                                                <i class="fa fa-star"></i>
+                                              </span>
+                                              <span>
+                                                <i class="fa fa-star"></i>
+                                              </span>
+                                              <span>
+                                                <i class="fa fa-star"></i>
+                                              </span>
+                                              <span>
+                                                <i class="fa fa-star"></i>
+                                              </span>
+                                            </div>
+                                          </div>
+                                          <span href="#" class="resena-name d-block mt-3">¡Me encantó este molde de silicon!</span>
+                                          <span class="d-block mt-3">
+                                            <p>Se hornean bien en un horno tostador, en el microondas e incluso en una freidora (solo uno de
+                                                estas es probable que quepa). No podría ser más fácil de usar y limpiar. También congelo porciones
+                                                de sopas en ellas</p>
+                                          </span>
+                                          <div class="resena-autor-fecha">
+                                            <span class="resena-fecha"><i class="fa-solid fa-calendar-days"></i>10/02/2022</span>
+                                          </div>
+                                        </div>
+                                      </div>
+                                </div>
+                                <hr>
+                                 <!-- RESEÑA ITEM -->
+                                 <div class="detalle-resena-item">
+                                    <div class="resena-img-content">
+                                        <div class="resena-info p-3">
+                                          <div class="resena-header">
+                                            <div class="img-resena">
+                                              <img src="../resources/Reseña/resena4.jpg" alt="" class="img d-inline">
+                                            </div>
+                                            <span class="resena-user mx-4">Vargas :)</span>
+                                            <div class="stars-resena">
+                                              <span>
+                                                <i class="fa fa-star"></i>
+                                              </span>
+                                              <span>
+                                                <i class="fa fa-star"></i>
+                                              </span>
+                                              <span>
+                                                <i class="fa fa-star"></i>
+                                              </span>
+                                              <span>
+                                                <i class="fa fa-star"></i>
+                                              </span>
+                                              <span>
+                                                <i class="fa fa-star"></i>
+                                              </span>
+                                            </div>
+                                          </div>
+                                          <span href="#" class="resena-name d-block mt-3">¡Quiero que me batan la vida!</span>
+                                          <span class="d-block mt-3">
+                                            <p>Las batidoras de esta marca me cambiaron la vida, gracias a ellas ahora tengo espasa e hijos y
+                                                pude comprar mi primer auto, les agradezco por las batidoras.</p>
+                                          </span>
+                                          <div class="resena-autor-fecha">
+                                            <span class="resena-fecha"><i class="fa-solid fa-calendar-days"></i>10/02/2022</span>
+                                          </div>
+                                        </div>
+                                      </div>
+                                </div>
+                                <hr>
+                                 <!-- RESEÑA ITEM -->
+                                 <div class="detalle-resena-item">
+                                    <div class="resena-img-content">
+                                        <div class="resena-info p-3">
+                                          <div class="resena-header">
+                                            <div class="img-resena">
+                                              <img src="../resources/Reseña/resena4.jpg" alt="" class="img d-inline">
+                                            </div>
+                                            <span class="resena-user mx-4">Armangot</span>
+                                            <div class="stars-resena">
+                                              <span>
+                                                <i class="fa fa-star"></i>
+                                              </span>
+                                              <span>
+                                                <i class="fa fa-star"></i>
+                                              </span>
+                                              <span>
+                                                <i class="fa fa-star"></i>
+                                              </span>
+                                              <span>
+                                                <i class="fa fa-star"></i>
+                                              </span>
+                                              <span>
+                                                <i class="fa fa-star"></i>
+                                              </span>
+                                            </div>
+                                          </div>
+                                          <span href="#" class="resena-name d-block mt-3">¡La espátula definitiva!</span>
+                                          <span class="d-block mt-3">
+                                            <p>Me enamoré de esta espátula, es increíble no raya ninguno de mis sartenes, me compraré otras 5
+                                                más por si se me arruina en algún momento, excelente servicio</p>
+                                          </span>
+                                          <div class="resena-autor-fecha">
+                                            <span class="resena-fecha"><i class="fa-solid fa-calendar-days"></i>10/02/2022</span>
+                                          </div>
+                                        </div>
+                                      </div>
+                                </div>
+                                <hr>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <!-- FIN CONTENIDO -->
+
+
+                <!-- FIN CONTENIDO -->
 
 
         </section>
+
     </div>
     <footer class="text-center text-lg-start bg-light text-muted" id="Fo-rosa">
         <section class="d-flex align-items-center flex-column">
