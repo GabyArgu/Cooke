@@ -33,10 +33,8 @@
 <body>
   <div id="content-wrapper">
 
-    <header>
-      <!-- INICIA NAVBAR -->
-
-      <nav class="navbar fixed-top navbar-expand-lg navbar-light" id="navbar-home">
+    <header> <!-- INICIA NAVBAR -->
+      <nav class="navbar fixed-top navbar-expand-lg navbar-light menu" id="navbar-home">
         <div class=" container-fluid" id="logo-contenedor">
           <a class="navbar-brand me-auto" href="#"><img src="resources/logo2.png" alt="" id="logo_inicio"
               class="mx-auto d-block"></a>
@@ -52,7 +50,7 @@
                   Categorías
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                  <li><a class="dropdown-item" href="#">Cocina</a></li>
+                  <li><a class="dropdown-item" href="html/categoria.html">Cocina</a></li>
                   <li><a class="dropdown-item" href="#">Utensilios</a></li>
                   <li><a class="dropdown-item" href="#">Eléctrodomesticos</a></li>
                   <li><a class="dropdown-item" href="#">Recetas</a></li>
@@ -72,19 +70,80 @@
               </li>
 
               <li class="nav-item textcolor">
-                <a class="nav-link active img-hover" aria-current="page" href="html/login.html"></a>
+                <a class="nav-link active img-hover" aria-current="page" href="#"></a>
               </li>
               <li class="nav-item textcolor">
                 <a class="nav-link active img-hover2" aria-current="page" href="#"></a>
               </li>
               <li class="nav-item textcolor">
-                <a class="nav-link active img-hover3" aria-current="page" href="#"></a>
+                <a class="nav-link active img-hover3" aria-current="page" data-bs-toggle="offcanvas" data-bs-target="#sidebarCarrito" aria-controls="offcanvasRight">
+                </a>
               </li>
             </ul>
           </div>
         </div>
       </nav>
     </header> <!-- FIN NAVBAR-->
+
+    <div class="offcanvas offcanvas-end" id="sidebarCarrito" aria-labelledby="offcanvasRightLabel"> <!-- INICIA CARRITO -->
+
+      <div class="offcanvas-body">
+
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+
+        <div id="cd-cart">
+          <h2>CARRITO DE COMPRAS</h2>
+          <ul class="cd-cart-items">
+
+            <li class="product-item-cart">
+              <div class="item">
+                <span class="top-0 start-100 translate-middle badge quantity-badge">1</span>
+                <img src="resources/Olla.png" alt="" class="cart-img">
+              </div>
+              <div class="detail-box">
+                <div class="cart-product-title">Cacerola Steel Co Healthy</div>
+                <div class="cart-price">$29.74</div>
+              </div> 
+              <i class="fa-solid fa-xmark cd-item-remove"></i>
+            </li>
+      
+            <li class="product-item-cart">
+              <div class="item">
+                <span class="top-0 start-100 translate-middle badge quantity-badge">2</span>
+                <img src="resources/cuchara.png" alt="" class="cart-img">
+              </div>
+              <div class="detail-box">
+                <div class="cart-product-title">Cucharón de madera</div>
+                <div class="cart-price">$19.80</div>
+              </div> 
+              <i class="fa-solid fa-xmark cd-item-remove"></i>
+            </li>
+
+          </ul>
+      
+          <div class="cd-cart-total">
+            <p class="card-total-line">Subtotal<span>$49.54</span></p>
+            <p class="card-total-line">Envío<span>$0.00</span></p>
+            <p class="total card-total-line">Total<span class="total">$49.54</span></p>
+          </div> <!-- cd-cart-total -->
+      
+          <a href="html/carrito.html" class="checkout-btn">
+            <span>
+              <i class="fa-solid fa-cart-shopping"></i>
+            </span> VER CARRITO
+          </a>
+
+          <a href="#0" class="checkout-btn">
+            <span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </span> IR A PAGAR
+          </a>
+
+        </div> <!-- cd-cart -->
+
+      </div>
+
+    </div> <!-- FIN CARRITO -->
 
     <section>
       <!-- INICIA CARRUSEL -->
