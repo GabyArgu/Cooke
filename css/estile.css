@@ -1234,7 +1234,7 @@ body {
 }
 
 
-.breadcumb a{
+.breadcrumb a{
     text-decoration: none;
     color: var(--rosadoTitulos);
     font-family: 'Mohave', sans-serif;
@@ -2503,26 +2503,35 @@ body {
 
 /* --------------------------------------------------------------INICIO DE PÁGINA CARRITO-----------------------------------------------------*/
 
-th {
+.table {
+    margin: 0;
+}
+
+.table-carrito {
+    border: 1px solid var(--rosadoPalido);
+    color: var(--rosadoOscuro);
+}
+
+.table-carrito th {
     text-align: center;
     font-family: 'Mohave', sans-serif;
     color: var(--blanco);
     font-size: 20px;
 }
 
-thead {
+.table-carrito thead {
     background-color: var(--rosadoTitulos);
     padding: 10px;
 }
 
-td {
+.table-carrito td {
     vertical-align: middle;
     text-align: center;
     font-family: 'Mohave', sans-serif;
     font-size: 18px;
 }
 
-td img{
+.table-carrito td img{
     width: 100px;
     height: 100px;
     display: flex;
@@ -2534,11 +2543,11 @@ td img{
 }
 
 .cart-btns {
-    display: block;
     gap: 30px;
+    margin-top: 20px;
 }
 
-.checkout-btn {
+.btn-pag-carrito {
     display: block;
     width: 100%;
     padding: 10px;
@@ -2553,13 +2562,13 @@ td img{
     margin: 10px 0;
 }
 
-.checkout-btn:hover {
+.btn-pag-carrito:hover {
     background: var(--rosadoOscuro);
     color: var(--blanco);
   }
 
 .monto-total {
-    margin-top: 10px;
+    margin-top: 20px;
 }
 
 .monto-total h1 {
@@ -2567,16 +2576,9 @@ td img{
     text-align: left;
 }
 
-.tbmonto-izquierda {
-    text-align: left;
-}
-
-.tbmonto-derecha {
-    text-align: right;
-}
-
 .table-monto {
     color: var(--rosadoOscuro);
+    font-family: 'Mohave', sans-serif;
 }
 
 .table-monto tbody {
@@ -2589,6 +2591,18 @@ td img{
     padding-right:20px;
 }
 
+.table-monto tr{
+    border-bottom: 1px solid var(--rosadoTitulos);
+}
+
+.table-monto tr:last-child{
+    border-bottom: 1px solid var(--rosadoFondos)
+}
+
+.align-right {
+    text-align: right;
+}
+
 .td-total{
     font-weight: bold;
     font-size: 20px;
@@ -2596,20 +2610,31 @@ td img{
 
 .table-monto td:first-child{
     padding-left:20px;
-  padding-right:0;
+    padding-right:0;
 }
 
 .confirm-btn {
+    display: inline-block;
     width: 100%;
-    background-color: var(--rosadoTitulos);
-    height: 100%;
+    padding: 10px;
+    background: var(--rosadoTitulos);
+    color: var(--blanco);
+    text-align: center;
+    text-decoration: none;
+    font-family: 'Mohave', sans-serif;
+    transition: all 0.3s ease;
+    font-size: 18px;
+    margin-bottom: 20px;
+} .confirm-btn:hover{
+    background-color: var(--rosadoOscuro);
+    color: var(--blanco);
 }
 
 @media (min-width: 992px) {
     .cart-btns {
         display: flex;
         width: 50%;
-        height: 20%;
+        height: 100%;
         justify-content: space-between;
     }
 }
