@@ -1232,6 +1232,7 @@ body {
 .breadcumb a{
     text-decoration: none;
     color: var(--rosadoTitulos);
+    font-family: 'Mohave', sans-serif;
 }
 
 .linea{
@@ -2019,3 +2020,116 @@ body {
  }
 
 /*------------------RESPONSIVE------------------*/
+
+/* --------------------------------------------------------------INICIO DE PÁGINA CARRITO-----------------------------------------------------*/
+
+th {
+    text-align: center;
+    font-family: 'Mohave', sans-serif;
+    color: var(--blanco);
+    font-size: 20px;
+}
+
+thead {
+    background-color: var(--rosadoTitulos);
+    padding: 10px;
+}
+
+td {
+    vertical-align: middle;
+    text-align: center;
+    font-family: 'Mohave', sans-serif;
+    font-size: 18px;
+}
+
+td img{
+    width: 100px;
+    height: 100px;
+    display: flex;
+    margin: 0 auto;
+}
+
+.fa-trash-can{
+    color: var(--rosadoTitulos);
+}
+
+.cart-btns {
+    display: block;
+    gap: 30px;
+}
+
+.checkout-btn {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background: var(--rosadoTitulos);
+    color: var(--blanco);
+    text-align: center;
+    text-decoration: none;
+    font-family: 'Mohave', sans-serif;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+.checkout-btn:hover {
+    background: var(--rosadoOscuro);
+    color: var(--blanco);
+  }
+
+.monto-total {
+    margin-top: 10px;
+}
+
+.monto-total h1 {
+    color: var(--rosadoOscuro);
+    text-align: left;
+}
+
+.tbmonto-izquierda {
+    text-align: left;
+}
+
+.tbmonto-derecha {
+    text-align: right;
+}
+
+.table-monto {
+    color: var(--rosadoOscuro);
+}
+
+.table-monto tbody {
+    background-color: var(--rosadoFondos);
+}
+
+.table-monto td {
+    padding-top:20px;
+    padding-bottom:20px;
+    padding-right:20px;
+}
+
+.td-total{
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.table-monto td:first-child{
+    padding-left:20px;
+  padding-right:0;
+}
+
+.confirm-btn {
+    width: 100%;
+    background-color: var(--rosadoTitulos);
+    height: 100%;
+}
+
+@media (min-width: 992px) {
+    .cart-btns {
+        display: flex;
+        width: 50%;
+        height: 20%;
+        justify-content: space-between;
+    }
+}
