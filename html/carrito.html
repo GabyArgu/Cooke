@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="en">
 
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -91,7 +92,8 @@
 
         <section>
 
-            <div class="container-fluid title-container">
+
+            <div class="container-fluid title-container-palido">
                 <div class="row mt-3 fondo-breadcumb">
                   <nav class="breadcumb" aria-label="breadcrumb">
                     <ol class="breadcrumb">
@@ -110,8 +112,8 @@
             <div class="container">
 
                 <div class="row">
-                    <div class="table-responsive">
-                    <table class="table table-bordered bordered" style="width:100%">
+                    <div class="table-responsive" id="no-more-tables">
+                    <table class="table table-bordered bordered table-carrito" style="width:100%">
                         <thead>
                             <tr>
                                 <th>IMAGEN</th>
@@ -125,18 +127,33 @@
                         <tbody>
                             <tr>
                                 <td><img src="../resources/Olla.png" alt=""></td>
-                                <td>Cacerola Steel Co Healthy</td>
-                                <td>$29.74</td>
-                                <td></td>
-                                <td>$29.74</td>
-                                <td><i class="fa-solid fa-trash-can fa-lg"></i></td>
+                                <td data-title="PRODUCTO">Cacerola Steel Co Healthy</td>
+                                <td data-title="PRECIO">$29.74</td>
+                                <td data-title="CANTIDAD">
+                                    <div class="input-group">
+                                        <button class="btn btn-outline-warning" type="button" id="button-addon1">-</button>
+                                        <input type="text" class="form-control text-center" placeholder="1"
+                                          aria-label="Example text with button addon" aria-describedby="button-addon1">
+                                        <button class="btn btn-outline-warning" type="button" id="button-addon1">+</button>
+                                    </div>
+                                </td>
+                                <td data-title="TOTAL">$29.74</td>
+                 <td><i class="fa-solid fa-trash-can fa-lg"></i></td>
                             </tr>
                             <tr>
                                 <td><img src="../resources/cuchara.png" alt=""></td>
-                                <td>Cucharón de madera</td>
-                                <td>$9.90</td>
-                                <td></td>
-                                <td>$19.80</td>
+                                <td data-title="PRODUCTO">Cucharón de madera</td>
+                                <td data-title="PRECIO">$9.90</td>
+                                <td data-title="CANTIDAD">
+                                    <div class="input-group">
+                                        <button class="btn btn-outline-warning" type="button" id="button-addon1">-</button>
+                                        <input type="text" class="form-control text-center" placeholder="1"
+                                          aria-label="Example text with button addon" aria-describedby="button-addon1">
+                                        <button class="btn btn-outline-warning" type="button" id="button-addon1">+</button>
+                                    </div>
+                                </td>
+                                <td data-title="TOTAL">$19.80</td>
+
                                 <td><i class="fa-solid fa-trash-can fa-lg"></i></td>
                             </tr>
                         </tbody>
@@ -145,35 +162,39 @@
                 </div>
 
                 <div class="row">
+
                     <div class="col-lg-6 cart-btns">
-                        <a href="html/carrito.html" class="checkout-btn">
+                        <a href="html/carrito.html" class="btn-pag-carrito">
                             LIMPIAR CARRITO
                         </a>
 
-                        <a href="html/carrito.html" class="checkout-btn">
+                        <a href="html/carrito.html" class="btn-pag-carrito">
                             CONTINUAR COMPRANDO
                         </a>
                     </div>
-                    <div class="col-lg-6">
+
+                    <div class="col-lg-6 container">
                         <div class="monto-total">
                             <h1>MONTO TOTAL</h1>
-                            <table class="table table-monto" style="width:100%">
+                            <table class="table table-monto">
                                 <tbody>
-                                    <tr class="table-monto-tr">
-                                        <td class="tbmonto-izquierda">Subtotal</td>
-                                        <td class="tbmonto-derecha">$49.54</td>
+                                    <tr>
+                                        <td>Subtotal</td>
+                                        <td class="align-right">$49.54</td>
                                     </tr>
                                     <tr>
-                                        <td class="tbmonto-izquierda">Envío</td>
-                                        <td  class="tbmonto-derecha">$0.00</td>
+                                        <td>Envío</td>
+                                        <td class="align-right">$0.00</td>
                                     </tr>
                                     <tr>
-                                        <td class="tbmonto-izquierda td-total">Monto Total</td>
-                                        <td class="td-total tbmonto-derecha">$49.54</td>
+                                        <td class="td-total">Total</td>
+                                        <td class="td-total align-right">$49.54</td>
                                     </tr>
                                 </tbody>
                             </table>
-                        </div>
+
+                        <a href="" class="confirm-btn">CONFIRMAR COMPRA</a>
+
                     </div>
                 </div>
 
@@ -240,7 +261,8 @@
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="../owlCarousel/owl.carousel.min.js"></script>
-    <script src="../js/gridclientes.js"></script>
+
+    <script src="../js/carrito.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
         integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
