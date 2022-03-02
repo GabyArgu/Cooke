@@ -2531,7 +2531,7 @@ body {
     font-size: 18px;
 }
 
-.table-carrito tr:hover{
+.table-carrito tbody tr:hover{
     background-color: var(--marfil);
 }
 
