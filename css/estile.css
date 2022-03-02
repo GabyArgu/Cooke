@@ -1234,6 +1234,8 @@ body {
 }
 
 
+
+
 .breadcrumb a{
     text-decoration: none;
     color: var(--rosadoTitulos);
@@ -2024,7 +2026,6 @@ body {
     background-color: var(--rosadoTitulos);
 }
 
-
 /*DETALLE PRODUCTO RESPONSIVE*/
 @media (max-width: 1000px) {
     .info-detalle-content{
@@ -2041,6 +2042,7 @@ body {
         margin: auto;
     }
 }
+
 .detalle-producto-content .owl-prev{
     left: -2%;
 }
@@ -2122,6 +2124,418 @@ body {
     color: var(--marfil);
     background-color: var(--rosadoTitulos);
 }
+
+
+/* ------------------------------------------------------------------FIN CONTACTANOS-------------------------------------------------------*/
+
+
+/* --------------------------------------------------------------------INICIO LOGIN--------------------------------------------------------*/
+
+.section-Login{
+    padding-top: 85px;
+    padding-bottom: 65px;
+    background-color: var(--rosadoFondos);
+    align-items: center;
+    text-align: center;
+}
+
+.Login-img img{
+    padding-top: 30px;
+    padding-bottom: 30px;
+    height: 475px;
+}
+
+.Login-text{
+    background-color: var(--blanco);
+    margin-top: 50px;
+    margin-bottom: 50px;
+    width: 470px;
+    height: 475px;
+    border: solid 5px;
+    border-color: #E6BAD1 ;
+}
+
+.lineaLo{
+    height: 2px;
+    border: none;
+    border-top: 5px solid var(--rosadoTitulos);
+    width: 120px;
+    background-color: var(--rosadoTitulos);
+    opacity: 1;
+    border-radius: 3px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.titleL{
+    color: var(--rosadoOscuro);
+    margin-top: 30px;
+}
+
+.Lcorreo{
+    height: 50px;
+    background-color: #F8F9F8;
+    border: none;
+    font-style: italic;
+}
+
+.SLcorreo{
+    background-color: var(--rosadoPalido);
+    height: 50px;
+    width: 50px;
+    border: none;
+}
+
+
+.SLimg{
+    height: 50px;
+    width: 50px;
+    background-image: url(../resources/Login/correo.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.SLimg2{
+    height: 50px;
+    width: 50px;
+    background-image: url(../resources/Login/contrasena.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 5px;
+}
+
+.RecuperarA{
+    color: var(--rosadoTitulos);
+    font-size: 14px;
+    font-family: 'Mohave', sans-serif;
+}
+
+.RecuperarA:hover{
+    color: var(--rosadoOscuro);
+}
+
+.Recu{
+    align-items: flex-end;
+    text-align: right;
+}
+
+.AAceptar{
+    border: none;
+    width: 100%;
+    font-size: 28px;
+    font-family: 'Mohave', sans-serif;
+    color: white;
+    background-color: var(--rosadoTitulos);
+}
+
+.AAceptar:hover{
+    color: var(--rosadoTitulos);
+    background-color: var(--rosadoPalido);
+}
+
+.TerminosP{
+    font-size: 15px;
+    font-family: 'Mohave', sans-serif;
+    color: #707070;
+    font-style: italic;
+}
+
+.NuevoP{
+    font-size: 18px;
+    font-family: 'Mohave', sans-serif;
+    color: #707070;
+    padding-top: 8px;
+}
+
+.lineaL{
+    height: 2px;
+    border: none;
+    border-top: 5px solid #E6BAD1;
+    width: 120px;
+    background-color: #E6BAD1;
+    opacity: 1;
+    border-radius: 3px;
+}
+
+.Crear{
+    color: var(--rosadoTitulos);
+    font-size: 17px;
+    font-family: 'Mohave', sans-serif;
+}
+
+.Crear:hover{
+    color: var(--rosadoOscuro);
+}
+
+.EresN{
+    padding-top: 35px;
+}
+
+/* ---------------------------------------------------------------------FIN LOGIN----------------------------------------------------------*/
+
+
+
+/* --------------------------------------------------------------------INICIO CREAR--------------------------------------------------------*/
+
+.section-Login2{
+    background-color: var(--rosadoFondos);
+    padding-top: 55px;
+}
+
+.head{
+    position: relative;
+    height: 300px;
+    transform: translateY(55px);
+    z-index: 0;
+}
+
+.manitos{
+    position: relative;
+    height: 35px;
+    transform: translateY(26px);
+    z-index: 2;
+
+}
+
+.login{
+    position: relative;
+    z-index: 1;
+    padding-bottom: 120px !important;
+    text-align: center;
+    align-items: center;
+}
+
+.Login-text2{
+    background-color: var(--blanco);
+    width: 670px;
+    height: 545px;
+    border: solid 5px;
+    border-color: #E6BAD1 ;
+}
+
+.LlenarIG{
+    padding-right: 25px;
+}
+
+.lineaRe{
+    height: 2px;
+    border: none;
+    border-top: 5px solid var(--rosadoTitulos);
+    width: 190px;
+    background-color: var(--rosadoTitulos);
+    opacity: 1;
+    border-radius: 3px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.SCimg{
+    height: 50px;
+    width: 50px;
+    background-image: url(../resources/Login/usuario.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.SCimg2{
+    height: 50px;
+    width: 50px;
+    background-image: url(../resources/Login/telefono.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 5px;
+}
+
+.SCimg4{
+    height: 50px;
+    width: 50px;
+    background-image: url(../resources/Login/calendario.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 5px;
+}
+
+.SCimg5{
+    height: 50px;
+    width: 50px;
+    background-image: url(../resources/Login/carne.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 5px;
+}
+
+.SCimg6{
+    height: 50px;
+    width: 50px;
+    background-image: url(../resources/Login/mapa.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 5px;
+}
+
+.SCimg8{
+    height: 50px;
+    width: 50px;
+    background-image: url(../resources/Login/contrasena.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 5px;
+}
+
+.SCimg7{
+    height: 50px;
+    width: 50px;
+    background-image: url(../resources/Login/correo.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 5px;
+}
+
+
+.TerminosP2{
+    font-size: 15px;
+    font-family: 'Mohave', sans-serif;
+    color: #707070;
+    font-style: italic;
+}
+
+.NuevoP2{
+    font-size: 18px;
+    font-family: 'Mohave', sans-serif;
+    color: #707070;
+    padding-top: 8px;
+    text-align: center;
+    align-items: center;
+}
+
+.Crear2{
+    color: var(--rosadoTitulos);
+    font-size: 17px;
+    font-family: 'Mohave', sans-serif;
+    text-align: center !important;
+}
+
+.Crear2:hover{
+    color: var(--rosadoOscuro);
+}
+
+
+/* ---------------------------------------------------------------------FIN CREAR----------------------------------------------------------*/
+
+
+
+/* ------------------------------------------------------------------INICIO RECUPERAR------------------------------------------------------*/
+
+/*------------------RECUPERAR------------------*/
+
+.section-Recu{
+    padding-top: 85px;
+    padding-bottom: 15px;
+    background-color: var(--rosadoFondos);
+    align-items: center;
+    text-align: center;
+}
+
+.Recu-img img{
+    padding-top: 30px;
+    padding-bottom: 30px;
+    height: 475px;
+}
+
+.Recu-text{
+    background-color: var(--blanco);
+    margin-top: 50px;
+    margin-bottom: 30px;
+    width: 470px;
+    height: 350px;
+    border: solid 5px;
+    border-color: #E6BAD1 ;
+}
+
+.lineaRe{
+    height: 2px;
+    border: none;
+    border-top: 5px solid var(--rosadoTitulos);
+    width: 280px !important;
+    background-color: var(--rosadoTitulos);
+    opacity: 1;
+    border-radius: 3px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.RecuperarA{
+    color: var(--rosadoTitulos);
+    font-size: 14px;
+    font-family: 'Mohave', sans-serif;
+}
+
+
+.PRecu{
+    font-size: 17px;
+    font-family: 'Mohave', sans-serif;
+    color: #707070;
+    text-align: center;
+    align-items: center;
+}
+
+/*------------------CODIGO------------------*/
+.lineaCo{
+    height: 2px;
+    border: none;
+    border-top: 5px solid var(--rosadoTitulos);
+    width: 140px !important;
+    background-color: var(--rosadoTitulos);
+    opacity: 1;
+    border-radius: 3px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.SLimgCo{
+    height: 50px;
+    width: 50px;
+    background-image: url(../resources/Login/candado.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 5px;
+}
+
+/*------------------CONTRASEÑA------------------*/
+
+
+.Contra-Img{
+    padding-top: 50px;
+    width: 300px;
+}
+
+.lineaTr{
+    height: 2px;
+    border: none;
+    border-top: 5px solid var(--rosadoTitulos);
+    width: 210px !important;
+    background-color: var(--rosadoTitulos);
+    opacity: 1;
+    border-radius: 3px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+
+.Contra-text{
+    background-color: var(--blanco);
+    margin-top: 50px;
+    margin-bottom: 30px;
+    width: 470px;
+    height: 350px;
+    border: solid 5px;
+    border-color: #E6BAD1 ;
+    transform: translateY(-50px);
+}
+
+
+
+/* -------------------------------------------------------------------FIN RECUPERAR--------------------------------------------------------*/
 
 
 /*CONTACTANOS RESPONSIVE*/
@@ -2366,6 +2780,21 @@ body {
     }
  }
 
+/*CONTACTANOS RESPONSIVE*/
+@media (max-width: 900px) {
+    .contactanos .container-content{
+        display: flex;
+        flex-direction: column-reverse;
+    }
+    .contactanos .container-content .col{
+        width: 100%;
+    }
+    .contacto-redes{
+        width: 50% !important;
+        margin: auto;
+    }
+}
+
 @media (min-width: 768px) and (max-width: 991.98px) { 
 
     .Fon-Marcas{
@@ -2492,6 +2921,25 @@ body {
     }
 }
 
+
+/*DETALLE PRODUCTO RESPONSIVE*/
+@media (max-width: 1000px) {
+    .info-detalle-content{
+        flex-direction: column-reverse;
+    }
+    .info-detalle-content .col{
+        width: 100%;
+        text-align: center;
+    }
+    .cantidad-row{
+        justify-content: space-around;
+    }
+    .cantidad-row .añadir-boton{
+        margin: auto;
+    }
+}
+
+
 @media (min-width: 1200px) { 
     #logo_final{
         width: 370px !important;
@@ -2502,6 +2950,9 @@ body {
 /*------------------RESPONSIVE------------------*/
 
 /* --------------------------------------------------------------INICIO DE PÁGINA CARRITO-----------------------------------------------------*/
+
+
+th {
 
 .table {
     margin: 0;
@@ -2519,10 +2970,15 @@ body {
     font-size: 20px;
 }
 
+
+thead {
 .table-carrito thead {
     background-color: var(--rosadoTitulos);
     padding: 10px;
 }
+
+
+td {
 
 .table-carrito td {
     vertical-align: middle;
@@ -2531,32 +2987,46 @@ body {
     font-size: 18px;
 }
 
+td img{
+
 .table-carrito tbody tr:hover{
     background-color: var(--marfil);
 }
 
 .table-carrito td img{
+
     width: 100px;
     height: 100px;
     display: flex;
     margin: 0 auto;
 }
 
+
+
 .table-carrito .input-group {
     width: 40%;
     margin: auto;
 }
+
 
 .fa-trash-can{
     color: var(--rosadoTitulos);
 }
 
 .cart-btns {
+
+    display: block;
+    gap: 30px;
+}
+
+.checkout-btn {
+
     gap: 30px;
     margin-top: 20px;
 }
 
 .btn-pag-carrito {
+
     display: block;
     width: 100%;
     padding: 10px;
@@ -2570,6 +3040,9 @@ body {
     font-size: 18px;
     margin: 10px 0;
 }
+
+
+.checkout-btn:hover {
 
 .btn-pag-carrito:hover {
     background: var(--rosadoOscuro);
@@ -2585,6 +3058,15 @@ body {
     text-align: left;
 }
 
+.tbmonto-izquierda {
+    text-align: left;
+}
+
+.tbmonto-derecha {
+    text-align: right;
+}
+
+
 .table-monto {
     color: var(--rosadoOscuro);
     font-family: 'Mohave', sans-serif;
@@ -2599,6 +3081,7 @@ body {
     padding-bottom:20px;
     padding-right:20px;
 }
+
 
 .table-monto tr{
     border-bottom: 1px solid var(--rosadoTitulos);
@@ -2619,6 +3102,13 @@ body {
 
 .table-monto td:first-child{
     padding-left:20px;
+  padding-right:0;
+}
+
+.confirm-btn {
+    width: 100%;
+    background-color: var(--rosadoTitulos);
+    height: 100%;
     padding-right:0;
 }
 
@@ -2643,6 +3133,9 @@ body {
     .cart-btns {
         display: flex;
         width: 50%;
+        height: 20%;
+        justify-content: space-between;
+    }
         height: 100%;
         justify-content: space-between;
     }
