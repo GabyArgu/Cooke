@@ -2709,7 +2709,7 @@ body {
 }
 
 .confirm-btn {
-    display: inline-block;
+    display: block;
     width: 100%;
     padding: 10px;
     background: var(--rosadoTitulos);
@@ -2835,6 +2835,77 @@ body {
 
 /* --------------------------------------------------------------FIN DE PÁGINA LISTA DE DESEOS -----------------------------------------------------*/
 
+/* --------------------------------------------------------------INICIO DE PÁGINA CONFIRMAR COMPRA -----------------------------------------------------*/
+
+
+.navbar-checkout {
+    height: 100px !important;
+    background-image: url(../resources/navbar-checkout.jpg);
+    position: relative;
+}
+
+.navbar-checkout #logo-contenedor {
+    z-index: 1;
+}
+
+.color-overlay {
+    width: 100%;
+    height: 100px;
+    background-color: var(--rosadoPalido);
+    opacity: .7;
+    position: absolute;
+}
+
+.container-checkout {
+    min-height: 450px;
+    margin-top: 75px;
+}
+
+.form-title {
+    display: flex;
+    justify-content: flex-start;
+    color: var(--rosadoOscuro);
+} .form-title span a {
+    color: var(--rosadoOscuro) !important;
+    font-weight: bold;
+    transition: .3s;
+} .form-title span a:hover {
+    color: var(--rosadoTitulos) !important;
+}
+
+.title-contacto {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+} 
+
+.detalle-checkout #cd-cart .cd-cart-items li {
+    padding: 20px 0;
+    border-bottom: 1px solid var(--rosadoPalido) !important; 
+    border-top: none;
+ }
+
+.carrito-back{
+    color: var(--rosadoOscuro);
+    font-family: 'Mohave', sans-serif;
+    font-size: 20px;
+    display: block;
+} .carrito-back::after {
+    content: '';
+    height: 2px;
+    width: 0%;
+    background-color: var(--rosadoOscuro);
+    transition: .3s ease-in-out;
+    display: block;
+} .carrito-back:hover::after {
+    content: '';
+    height: 2px;
+    width: 20%;
+    background-color: var(--rosadoOscuro);
+    display: block;
+}
+
+/* --------------------------------------------------------------FIN DE PÁGINA CONFIRMAR COMPRA -----------------------------------------------------*/
 
 
 /*------------------RESPONSIVE GLOBAL------------------*/
