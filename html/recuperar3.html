@@ -5,8 +5,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <!-- Owl carousel -->
+    <link rel="stylesheet" href="../owlcarousel/owl.carousel.min.css">
+    <link rel="stylesheet" href="../owlcarousel/owl.theme.default.min.css">
 
-    <link href="../assets/css/bootstrap.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="../css/estile.css">
     <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
 
@@ -18,9 +22,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap" rel="stylesheet">
 
-
-    <link rel="icon" type="icon/png" href="../resources/logo.png">
     <!-- libreria iconos FONTAWESOME-->
+    <link rel="icon" type="icon/png" href="../resources/logo.png" />
     <script src="https://kit.fontawesome.com/479a6c23da.js" crossorigin="anonymous"></script>
     <script src="https://use.fontawesome.com/releases/v5.0.8/js/brands.js" crossorigin="anonymous"></script>
     <title>Cooké</title>
@@ -57,13 +60,13 @@
                                 <a class="nav-link active " aria-current="page" href="#">Destacados</a>
                             </li>
                             <li class="nav-item textcolor2">
-                                <a class="nav-link active" aria-current="page" href="nosotros.html">Nosotros</a>
+                                <a class="nav-link active" aria-current="page" href="#">Nosotros</a>
                             </li>
                             <li class="nav-item textcolor2">
                                 <a class="nav-link active" aria-current="page" href="#">Blog</a>
                             </li>
                             <li class="nav-item textcolor2">
-                                <a class="nav-link active" aria-current="page" href="contactanos.html">Contacto</a>
+                                <a class="nav-link active" aria-current="page" href="#">Contacto</a>
                             </li>
 
                             <li class="nav-item textcolor">
@@ -80,124 +83,40 @@
                 </div>
             </nav>
         </header> <!-- FIN NAVBAR-->
-        <!-- INICIO CONTENIDO -->
-        <section>
-            <div class="container-fluid title-container-palido">
-                <div class="row mt-3 fondo-breadcumb">
-                    <nav class="breadcumb" aria-label="breadcrumb">
-                        <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="../index.html">Inicio</a></li>
-                            <li class="breadcrumb-item"><a href="#">Categoría</a></li>
-                        </ol>
-                    </nav>
-                </div>
+
+        <section class="row section-Login2 justify-content-center">
+            <div class="col-4 d-flex flex-column align-items-center">
+                <img class="Contra-Img" src="../resources/Login/asd.png" alt="">
             </div>
-            <div class="row fondo-title mt-4 justify-content-center">
-                <h1 class="text-center title">Categoría</h1>
-                <hr class="linea">
-            </div>
-            <div class="container"></div>
-
-        </section>
-        <section>
-            <div class="container">
-                <div class="row align-items-start my-3 mx-auto">
-                    <!--------------Item categoria---------------->
-                    <div class="col-4 categoria-item">
-                        <div class="categoria-img-content">
-                            <div class="categoria-img">
-
-                                <img src="../resources/GridCategorias/categoria1.jpg" alt=""
-                                    class="img-fluid d-block mx-auto">
-                                <button type="button" class="col-6 text-center"><a href="gridproductos.html">Ver
-                                        categoría</a>
-                                </button>
+            <div class=" col-lg-12 d-flex justify-content-center ">
+                <div class="Contra-text">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <h1 class="text-center titleL">CONTRASEÑA</h1>
+                            <hr class="lineaTr">
+                        </div>
+                        <div class="row justify-content-center">
+                            <div class="col-10 mt-3 ">
+                                <p class="PRecu">Ingresa a continuación tu contraseña, procura no perderla de nuevo</p>
                             </div>
-
-                            <div class="categoria-info p-2">
-                                <span href="" class="categoria-name d-block "><a href="gridproductos.html">Sartenes</a></span>
-                                <span href="#" class="categoria-description d-block mt-1">Sartenes de acero, de hierro,
-                                    de cerámica y antiadherente.</span>
+                            <div class="col-10 mt-2 ">
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text SLcorreo SLimg2" id="inputGroupPrepend2"></span>
+                                    </div>
+                                    <input type="text" class="form-control Lcorreo" id="validationDefaultUsername"
+                                        placeholder="Escribe tu nueva contraseña" aria-describedby="inputGroupPrepend2" required>
+                                </div>
+                            </div>
+                            <div class="col-10 mt-4 ">
+                                <a href="login.html"><button class="AAceptar"> Continuar</button></a>
                             </div>
                         </div>
                     </div>
-                    <!--------------Item categoria---------------->
-                    <div class="col-4 categoria-item">
-                        <div class="categoria-img-content">
-                            <div class="categoria-img">
-                                <img src="../resources/GridCategorias/categoria2.jpg" alt=""
-                                    class="img-fluid d-block mx-auto">
-                                <button type="button" class="col-6 text-center">
-                                    Ver categoría
-                                </button>
-                            </div>
-
-                            <div class="categoria-info p-2">
-                                <span href="#" class="categoria-name d-block "><a href="gridproductos.html">Cocottes, cacerolas y cazos</a></span>
-                                <span href="#" class="categoria-description d-block mt-1">Cocottes de hierro, aluminio,
-                                    cacerolas de aluminio y acero.</span>
-                            </div>
-                        </div>
-                    </div>
-                    <!--------------Item categoria---------------->
-                    <div class="col-4 categoria-item ">
-                        <div class="categoria-img-content">
-                            <div class="categoria-img">
-                                <img src="../resources/GridCategorias/categoria3.jpeg" alt=""
-                                    class="img-fluid d-block mx-auto">
-                                <button type="button" class="col-6 text-center">
-                                    Ver categoría
-                                </button>
-                            </div>
-
-                            <div class="categoria-info p-2">
-                                <span href="#" class="categoria-name d-block "><a href="gridproductos.html">Ollas</a></span>
-                                <span href="#" class="categoria-description d-block mt-1">Ollas, juego de ollas y ollas
-                                    rápidas.</span>
-                            </div>
-                        </div>
-                    </div>
-                    <!--------------Item categoria---------------->
-                    <div class="col-4 categoria-item">
-                        <div class="categoria-img-content">
-                            <div class="categoria-img">
-                                <img src="../resources/GridCategorias/categoria4.jpg" alt=""
-                                    class="img-fluid d-block mx-auto">
-                                <button type="button" class="col-6 text-center">
-                                    Ver categoría
-                                </button>
-                            </div>
-
-                            <div class="categoria-info p-2">
-                                <span href="#" class="categoria-name d-block "><a href="gridproductos.html">Creperas y gofres</a></span>
-                                <span href="#" class="categoria-description d-block mt-1">Creperas de hierro mineral, y
-                                    sartenes para gofres variados.</span>
-                            </div>
-                        </div>
-                    </div>
-                    <!--------------Item categoria---------------->
-                    <div class="col-4 categoria-item">
-                        <div class="categoria-img-content">
-                            <div class="categoria-img">
-                                <img src="../resources/GridCategorias/categoria5.jpg" alt=""
-                                    class="img-fluid d-block mx-auto">
-                                <button type="button" class="col-6 text-center">
-                                    Ver categoría
-                                </button>
-                            </div>
-
-                            <div class="categoria-info p-2">
-                                <span href="#" class="categoria-name d-block "><a href="gridproductos.html">Cocina vapor</a></span>
-                                <span href="#" class="categoria-description d-block mt-1">Vaporeras, recipientes y
-                                    moldes para cocina saludable al vapor.</span>
-                            </div>
-                        </div>
-                    </div>
-
                 </div>
             </div>
         </section>
-        <!-- FIN CONTENIDO -->
+
         <footer class="text-center text-lg-start bg-light text-muted" id="Fo-rosa">
             <section class="d-flex align-items-center flex-column">
                 <div class="container-fluid text-center text-md-start mt-4">
@@ -224,15 +143,15 @@
                                     <h6 class="text-uppercase fw-bold mb-4">Contacto</h6>
                                     <p><a href="mailto:20170573@ricaldone.edu.sv" class="text-reset link">Correo</a></p>
                                     <p><a href="tel:61949493" class="text-reset link">Teléfono</a></p>
-                                    <p><a href="contactanos.html" class="text-reset link">Contáctanos</a></p>
+                                    <p><a href="#!" class="text-reset link">Contáctanos</a></p>
                                 </div>
                                 <div class="col">
                                     <h6 class="text-uppercase fw-bold mb-4">Categorías</h6>
-                                    <p><a href="categoria.html" class="text-reset link">Cocina</a></p>
-                                    <p><a href="categoria.html" class="text-reset link">Ofertas</a></p>
-                                    <p><a href="categoria.html" class="text-reset link">Recetas</a></p>
-                                    <p><a href="categoria.html" class="text-reset link">Utencilios</a></p>
-                                    <p><a href="categoria.html" class="text-reset link">Electrodomésticos</a></p>
+                                    <p><a href="#!" class="text-reset link">Cocina</a></p>
+                                    <p><a href="#!" class="text-reset link">Ofertas</a></p>
+                                    <p><a href="#!" class="text-reset link">Recetas</a></p>
+                                    <p><a href="#!" class="text-reset link">Utencilios</a></p>
+                                    <p><a href="#!" class="text-reset link">Electrodomésticos</a></p>
                                 </div>
                                 <div class="col">
                                     <h6 class="text-uppercase fw-bold mb-4">Extras</h6>
@@ -253,12 +172,7 @@
             </div>
             <!-- Copyright -->
         </footer>
-
     </div>
-
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="../js/gridproductos.js"></script>
-
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
         integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
         crossorigin="anonymous"></script>

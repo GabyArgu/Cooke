@@ -83,6 +83,10 @@ body {
     padding-left: 25px;
 }
 
+.nav-carrito {
+    cursor: pointer;
+}
+
 .img-hover{
     width: 28px;
     height: 28px;
@@ -141,6 +145,134 @@ body {
 .textcolor2 a:hover{ 
     background-color: var(--blanco);
 } 
+
+/* SIDEBAR CARRITO */
+
+.offcanvas-body {
+    padding: 30px;
+}
+
+.btn-close{
+    color: var(--rosadoOscuro);
+}
+
+  #cd-cart > * {
+    padding: 0 10px;
+    font-family: 'Mohave', sans-serif;
+    color: var(--rosadoOscuro);
+  }
+  
+  #cd-cart h2 {
+    font-size: 24px;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin: 10px 0;
+  }
+
+  #cd-cart .cd-cart-items {
+    padding: 0px;
+    width: 100%;
+    list-style: none;
+  }
+
+  #cd-cart .cd-cart-items li {
+    padding: 20px 0;
+    border-top: 1px solid var(--rosadoPalido);
+  }
+
+  #cd-cart .cd-cart-items li:last-of-type {
+    border-bottom: 1px solid var(--rosadoPalido);
+  }
+  
+  #cd-cart .cd-qty, 
+  #cd-cart .cd-price {
+    font-weight: bold;
+  }
+
+  #cd-cart .cd-price {
+    margin-top: .4em;
+  }
+
+  #cd-cart .cd-cart-total {
+    font-family: 'Mohave', sans-serifs;
+    font-size: 18px;
+    color: var(--rosadoOscuro);
+    border-bottom: 1px solid var(--rosadoPalido);
+  }
+  
+  #cd-cart .cd-cart-total .card-total-line {
+      display: flex;
+      justify-content: space-between;
+  }
+
+  .cd-cart-total .total {
+    font-size: 24px;
+    font-weight: bold;
+  }
+
+  #cd-cart .checkout-btn {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    background: var(--rosadoTitulos);
+    color: #FFF;
+    text-align: center;
+    margin-top: 20px;
+    text-decoration: none;
+    font-family: 'Mohave', sans-serif;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+  }
+ 
+  #cd-cart .checkout-btn:hover {
+    background: var(--rosadoOscuro);
+  }
+
+  .product-item-cart {
+      display: grid;
+      grid-template-columns: 35% 55% 10%;
+      align-items: left;
+  }
+
+  .item {
+    position:relative;
+    display: block;
+    background-color: var(--rosadoPalido2);
+    width: 100px;
+    height: 100px;
+}
+
+  .cart-img {
+      width: 100px;
+      height: 100px;
+      object-fit: contain;
+      padding: 10px;
+  }
+
+  .detail-box {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+  }
+
+  .cart-price {
+      font-weight: bold;
+  }
+
+  .cd-item-remove {
+      display: flex;
+      align-items: flex-end;
+  }
+
+  .quantity-badge{
+    position: absolute;
+    background:var(--rosadoOscuro);
+    text-align: center;
+    border-radius: 50px;
+    color:white;
+    padding:5px 10px;
+    font-size: 16px;
+  }
 
 /* CARRUSEL */
 
@@ -1119,6 +1251,7 @@ body {
 .breadcumb a{
     text-decoration: none;
     color: var(--rosadoTitulos);
+    font-family: 'Mohave', sans-serif;
 }
 
 .linea{
@@ -1957,6 +2090,7 @@ body {
         
     }
 }
+
 .detalle-producto-content .owl-prev{
     left: -2%;
 }
@@ -2039,22 +2173,668 @@ body {
     background-color: var(--rosadoTitulos);
 }
 
+/* ------------------------------------------------------------------FIN CONTACTANOS-------------------------------------------------------*/
 
-/*CONTACTANOS RESPONSIVE*/
-@media (max-width: 900px) {
-    .contactanos .container-content{
+
+/* --------------------------------------------------------------------INICIO LOGIN--------------------------------------------------------*/
+
+.section-Login{
+    padding-top: 85px;
+    padding-bottom: 65px;
+    background-color: var(--rosadoFondos);
+    align-items: center;
+    text-align: center;
+}
+
+.Login-img img{
+    padding-top: 30px;
+    padding-bottom: 30px;
+    height: 475px;
+}
+
+.Login-text{
+    background-color: var(--blanco);
+    margin-top: 50px;
+    margin-bottom: 50px;
+    width: 470px;
+    height: 475px;
+    border: solid 5px;
+    border-color: #E6BAD1 ;
+}
+
+.lineaLo{
+    height: 2px;
+    border: none;
+    border-top: 5px solid var(--rosadoTitulos);
+    width: 120px;
+    background-color: var(--rosadoTitulos);
+    opacity: 1;
+    border-radius: 3px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.titleL{
+    color: var(--rosadoOscuro);
+    margin-top: 30px;
+}
+
+.Lcorreo{
+    height: 50px;
+    background-color: #F8F9F8;
+    border: none;
+    font-style: italic;
+}
+
+.SLcorreo{
+    background-color: var(--rosadoPalido);
+    height: 50px;
+    width: 50px;
+    border: none;
+}
+
+
+.SLimg{
+    height: 50px;
+    width: 50px;
+    background-image: url(../resources/Login/correo.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.SLimg2{
+    height: 50px;
+    width: 50px;
+    background-image: url(../resources/Login/contrasena.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 5px;
+}
+
+.RecuperarA{
+    color: var(--rosadoTitulos);
+    font-size: 14px;
+    font-family: 'Mohave', sans-serif;
+}
+
+.RecuperarA:hover{
+    color: var(--rosadoOscuro);
+}
+
+.Recu{
+    align-items: flex-end;
+    text-align: right;
+}
+
+.AAceptar{
+    border: none;
+    width: 100%;
+    font-size: 28px;
+    font-family: 'Mohave', sans-serif;
+    color: white;
+    background-color: var(--rosadoTitulos);
+}
+
+.AAceptar:hover{
+    color: var(--rosadoTitulos);
+    background-color: var(--rosadoPalido);
+}
+
+.TerminosP{
+    font-size: 15px;
+    font-family: 'Mohave', sans-serif;
+    color: #707070;
+    font-style: italic;
+}
+
+.NuevoP{
+    font-size: 18px;
+    font-family: 'Mohave', sans-serif;
+    color: #707070;
+    padding-top: 8px;
+}
+
+.lineaL{
+    height: 2px;
+    border: none;
+    border-top: 5px solid #E6BAD1;
+    width: 120px;
+    background-color: #E6BAD1;
+    opacity: 1;
+    border-radius: 3px;
+}
+
+.Crear{
+    color: var(--rosadoTitulos);
+    font-size: 17px;
+    font-family: 'Mohave', sans-serif;
+}
+
+.Crear:hover{
+    color: var(--rosadoOscuro);
+}
+
+.EresN{
+    padding-top: 35px;
+}
+
+/* ---------------------------------------------------------------------FIN LOGIN----------------------------------------------------------*/
+
+
+
+/* --------------------------------------------------------------------INICIO CREAR--------------------------------------------------------*/
+
+.section-Login2{
+    background-color: var(--rosadoFondos);
+    padding-top: 55px;
+}
+
+.head{
+    position: relative;
+    height: 300px;
+    transform: translateY(55px);
+    z-index: 0;
+}
+
+.manitos{
+    position: relative;
+    height: 35px;
+    transform: translateY(26px);
+    z-index: 2;
+
+}
+
+.login{
+    position: relative;
+    z-index: 1;
+    padding-bottom: 120px !important;
+    text-align: center;
+    align-items: center;
+}
+
+.Login-text2{
+    background-color: var(--blanco);
+    width: 670px;
+    height: 545px;
+    border: solid 5px;
+    border-color: #E6BAD1 ;
+}
+
+.LlenarIG{
+    padding-right: 25px;
+}
+
+.lineaRe{
+    height: 2px;
+    border: none;
+    border-top: 5px solid var(--rosadoTitulos);
+    width: 190px;
+    background-color: var(--rosadoTitulos);
+    opacity: 1;
+    border-radius: 3px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.SCimg{
+    height: 50px;
+    width: 50px;
+    background-image: url(../resources/Login/usuario.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.SCimg2{
+    height: 50px;
+    width: 50px;
+    background-image: url(../resources/Login/telefono.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 5px;
+}
+
+.SCimg4{
+    height: 50px;
+    width: 50px;
+    background-image: url(../resources/Login/calendario.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 5px;
+}
+
+.SCimg5{
+    height: 50px;
+    width: 50px;
+    background-image: url(../resources/Login/carne.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 5px;
+}
+
+.SCimg6{
+    height: 50px;
+    width: 50px;
+    background-image: url(../resources/Login/mapa.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 5px;
+}
+
+.SCimg8{
+    height: 50px;
+    width: 50px;
+    background-image: url(../resources/Login/contrasena.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 5px;
+}
+
+.SCimg7{
+    height: 50px;
+    width: 50px;
+    background-image: url(../resources/Login/correo.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 5px;
+}
+
+
+.TerminosP2{
+    font-size: 15px;
+    font-family: 'Mohave', sans-serif;
+    color: #707070;
+    font-style: italic;
+}
+
+.NuevoP2{
+    font-size: 18px;
+    font-family: 'Mohave', sans-serif;
+    color: #707070;
+    padding-top: 8px;
+    text-align: center;
+    align-items: center;
+}
+
+.Crear2{
+    color: var(--rosadoTitulos);
+    font-size: 17px;
+    font-family: 'Mohave', sans-serif;
+    text-align: center !important;
+}
+
+.Crear2:hover{
+    color: var(--rosadoOscuro);
+}
+
+
+/* ---------------------------------------------------------------------FIN CREAR----------------------------------------------------------*/
+
+
+
+/* ------------------------------------------------------------------INICIO RECUPERAR------------------------------------------------------*/
+
+/*------------------RECUPERAR------------------*/
+
+.section-Recu{
+    padding-top: 85px;
+    padding-bottom: 15px;
+    background-color: var(--rosadoFondos);
+    align-items: center;
+    text-align: center;
+}
+
+.Recu-img img{
+    padding-top: 30px;
+    padding-bottom: 30px;
+    height: 475px;
+}
+
+.Recu-text{
+    background-color: var(--blanco);
+    margin-top: 50px;
+    margin-bottom: 30px;
+    width: 470px;
+    height: 350px;
+    border: solid 5px;
+    border-color: #E6BAD1 ;
+}
+
+.lineaRe{
+    height: 2px;
+    border: none;
+    border-top: 5px solid var(--rosadoTitulos);
+    width: 280px !important;
+    background-color: var(--rosadoTitulos);
+    opacity: 1;
+    border-radius: 3px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.RecuperarA{
+    color: var(--rosadoTitulos);
+    font-size: 14px;
+    font-family: 'Mohave', sans-serif;
+}
+
+
+.PRecu{
+    font-size: 17px;
+    font-family: 'Mohave', sans-serif;
+    color: #707070;
+    text-align: center;
+    align-items: center;
+}
+
+/*------------------CODIGO------------------*/
+.lineaCo{
+    height: 2px;
+    border: none;
+    border-top: 5px solid var(--rosadoTitulos);
+    width: 140px !important;
+    background-color: var(--rosadoTitulos);
+    opacity: 1;
+    border-radius: 3px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.SLimgCo{
+    height: 50px;
+    width: 50px;
+    background-image: url(../resources/Login/candado.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 5px;
+}
+
+/*------------------CONTRASEÑA------------------*/
+
+
+.Contra-Img{
+    padding-top: 50px;
+    width: 300px;
+}
+
+.lineaTr{
+    height: 2px;
+    border: none;
+    border-top: 5px solid var(--rosadoTitulos);
+    width: 210px !important;
+    background-color: var(--rosadoTitulos);
+    opacity: 1;
+    border-radius: 3px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+
+.Contra-text{
+    background-color: var(--blanco);
+    margin-top: 50px;
+    margin-bottom: 30px;
+    width: 470px;
+    height: 350px;
+    border: solid 5px;
+    border-color: #E6BAD1 ;
+    transform: translateY(-50px);
+}
+
+
+
+/* -------------------------------------------------------------------FIN RECUPERAR--------------------------------------------------------*/
+
+/* --------------------------------------------------------------INICIO DE PÁGINA CARRITO-----------------------------------------------------*/
+
+.table {
+    margin: 0;
+}
+
+.table-carrito {
+    border: 1px solid var(--rosadoPalido);
+    color: var(--rosadoOscuro);
+}
+
+.table-carrito th {
+    text-align: center;
+    font-family: 'Mohave', sans-serif;
+    color: var(--blanco);
+    font-size: 20px;
+}
+
+.table-carrito thead {
+    background-color: var(--rosadoTitulos);
+    padding: 10px;
+}
+
+.table-carrito td {
+    vertical-align: middle;
+    text-align: center;
+    font-family: 'Mohave', sans-serif;
+    font-size: 18px;
+}
+
+.table-carrito tbody tr:hover{
+    background-color: var(--marfil);
+}
+
+.table-carrito td img{
+    width: 100px;
+    height: 100px;
+    display: flex;
+    margin: 0 auto;
+}
+
+.table-carrito .input-group {
+    width: 40%;
+    margin: auto;
+}
+
+.fa-trash-can{
+    color: var(--rosadoTitulos);
+    cursor: pointer;
+} .fa-trash-can:hover{
+    color: var(--rosadoOscuro);
+}
+
+.cart-btns {
+    gap: 30px;
+    margin-top: 20px;
+}
+
+.btn-pag-carrito {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background: var(--rosadoTitulos);
+    color: var(--blanco);
+    text-align: center;
+    text-decoration: none;
+    font-family: 'Mohave', sans-serif;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+.btn-pag-carrito:hover {
+    background: var(--rosadoOscuro);
+    color: var(--blanco);
+  }
+
+.monto-total {
+    margin-top: 20px;
+}
+
+.monto-total h1 {
+    color: var(--rosadoOscuro);
+    text-align: left;
+}
+
+.table-monto {
+    color: var(--rosadoOscuro);
+    font-family: 'Mohave', sans-serif;
+}
+
+.table-monto tbody {
+    background-color: var(--rosadoFondos);
+}
+
+.table-monto td {
+    padding-top:20px;
+    padding-bottom:20px;
+    padding-right:20px;
+}
+
+.table-monto tr{
+    border-bottom: 1px solid var(--rosadoTitulos);
+}
+
+.table-monto tr:last-child{
+    border-bottom: 1px solid var(--rosadoFondos)
+}
+
+.align-right {
+    text-align: right;
+}
+
+.td-total{
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.table-monto td:first-child{
+    padding-left:20px;
+    padding-right:0;
+}
+
+.confirm-btn {
+    display: inline-block;
+    width: 100%;
+    padding: 10px;
+    background: var(--rosadoTitulos);
+    color: var(--blanco);
+    text-align: center;
+    text-decoration: none;
+    font-family: 'Mohave', sans-serif;
+    transition: all 0.3s ease;
+    font-size: 18px;
+    margin-bottom: 20px;
+} .confirm-btn:hover{
+    background-color: var(--rosadoOscuro);
+    color: var(--blanco);
+}
+
+@media (min-width: 992px) {
+    .cart-btns {
         display: flex;
-        flex-direction: column-reverse;
+        width: 50%;
+        height: 100%;
+        justify-content: space-between;
     }
-    .contactanos .container-content .col{
-        width: 100%;
+}
+
+@media only screen and (max-width: 992px){
+    #no-more-tables tbody,
+    #no-more-tables tr,
+    #no-more-tables td{
+        display: block;
     }
-    .contacto-redes{
-        width: 50% !important;
+
+    #no-more-tables tr{
+        padding: 20px;
+        border-right: transparent;
+        border-left: transparent;
+    }
+    #no-more-tables thead tr {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+    }
+    #no-more-tables td {
+        position: relative;
+        padding-left: 40%;
+    }
+    #no-more-tables td:before{
+        content: attr(data-title);
+        position: absolute;
+        left: 6px;
+        font-weight: bold;
+    }
+
+    #no-more-tables .fa-trash-can {
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    #no-more-tables .input-group {
         margin: auto;
     }
 }
-/* ------------------------------------------------------------------FIN CONTACTANOS-------------------------------------------------------*/
+
+/* --------------------------------------------------------------FIN DE PÁGINA CARRITO-----------------------------------------------------*/
+
+/* --------------------------------------------------------------INICIO DE PÁGINA LISTA DE DESEOS -----------------------------------------------------*/
+
+.container-deseos {
+    min-height: 380px;
+}
+
+.table-deseos {
+    border: 1px solid var(--rosadoPalido);
+    color: var(--rosadoOscuro);
+}
+
+.table-deseos th {
+    text-align: center;
+    font-family: 'Mohave', sans-serif;
+    color: var(--blanco);
+    font-size: 20px;
+}
+
+.table-deseos thead {
+    background-color: var(--rosadoTitulos);
+    padding: 10px;
+}
+
+.table-deseos td {
+    vertical-align: middle;
+    text-align: center;
+    font-family: 'Mohave', sans-serif;
+    font-size: 18px;
+}
+
+.table-deseos tbody tr:hover{
+    background-color: var(--marfil);
+}
+
+.table-deseos td img{
+    width: 100px;
+    height: 100px;
+    display: flex;
+    margin: 0 auto;
+}
+
+.deseos-agregar {
+    display: block;
+    width: 50%;
+    padding: 10px;
+    background: var(--rosadoTitulos);
+    color: var(--blanco);
+    text-align: center;
+    text-decoration: none;
+    font-family: 'Mohave', sans-serif;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+    font-size: 18px;
+    margin: 0 auto
+} .deseos-agregar:hover{
+    background: var(--rosadoOscuro);
+    color: var(--blanco);
+}
+
+/* --------------------------------------------------------------FIN DE PÁGINA LISTA DE DESEOS -----------------------------------------------------*/
+
 
 
 /*------------------RESPONSIVE GLOBAL------------------*/
@@ -2282,6 +3062,21 @@ body {
     }
  }
 
+/*CONTACTANOS RESPONSIVE*/
+@media (max-width: 900px) {
+    .contactanos .container-content{
+        display: flex;
+        flex-direction: column-reverse;
+    }
+    .contactanos .container-content .col{
+        width: 100%;
+    }
+    .contacto-redes{
+        width: 50% !important;
+        margin: auto;
+    }
+}
+
 @media (min-width: 768px) and (max-width: 991.98px) { 
 
     .Fon-Marcas{
@@ -2408,6 +3203,22 @@ body {
     }
 }
 
+/*DETALLE PRODUCTO RESPONSIVE*/
+@media (max-width: 1000px) {
+    .info-detalle-content{
+        flex-direction: column-reverse;
+    }
+    .info-detalle-content .col{
+        width: 100%;
+        text-align: center;
+    }
+    .cantidad-row{
+        justify-content: space-around;
+    }
+    .cantidad-row .añadir-boton{
+        margin: auto;
+    }
+}
 @media (min-width: 1200px) { 
     #logo_final{
         width: 370px !important;
@@ -2416,3 +3227,4 @@ body {
  }
 
 /*------------------RESPONSIVE------------------*/
+
