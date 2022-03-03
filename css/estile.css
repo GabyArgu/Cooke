@@ -83,6 +83,10 @@ body {
     padding-left: 25px;
 }
 
+.nav-carrito{
+    cursor: pointer;
+}
+
 .img-hover{
     width: 28px;
     height: 28px;
@@ -1018,7 +1022,6 @@ body {
     background-color: var(--rosadoPalido) !important;
     font-family: 'Mohave', sans-serif;
     text-align: center;
-    
 }
 
 #Fo-rosa p{
@@ -2503,10 +2506,6 @@ body {
 
 /* --------------------------------------------------------------INICIO DE PÁGINA CARRITO-----------------------------------------------------*/
 
-.table {
-    margin: 0;
-}
-
 .table-carrito {
     border: 1px solid var(--rosadoPalido);
     color: var(--rosadoOscuro);
@@ -2549,6 +2548,10 @@ body {
 
 .fa-trash-can{
     color: var(--rosadoTitulos);
+    cursor: pointer;
+    transition: 0.3s;
+} .fa-trash-can:hover{
+    color: var(--rosadoOscuro);
 }
 
 .cart-btns {
@@ -2588,6 +2591,7 @@ body {
 .table-monto {
     color: var(--rosadoOscuro);
     font-family: 'Mohave', sans-serif;
+    margin: 0;
 }
 
 .table-monto tbody {
@@ -2684,4 +2688,63 @@ body {
     #no-more-tables .input-group {
         margin: auto;
     }
+}
+
+/* --------------------------------------------------------------INICIO DE PÁGINA LISTA DE DESEOS -----------------------------------------------------*/
+
+.container-deseos {
+    min-height: 380px;
+}
+
+.table-deseos {
+    border: 1px solid var(--rosadoPalido);
+    color: var(--rosadoOscuro);
+}
+
+.table-deseos th {
+    text-align: center;
+    font-family: 'Mohave', sans-serif;
+    color: var(--blanco);
+    font-size: 20px;
+}
+
+.table-deseos thead {
+    background-color: var(--rosadoTitulos);
+    padding: 10px;
+}
+
+.table-deseos td {
+    vertical-align: middle;
+    text-align: center;
+    font-family: 'Mohave', sans-serif;
+    font-size: 18px;
+}
+
+.table-deseos tbody tr:hover{
+    background-color: var(--marfil);
+}
+
+.table-deseos td img{
+    width: 100px;
+    height: 100px;
+    display: flex;
+    margin: 0 auto;
+}
+
+.deseos-agregar {
+    display: block;
+    width: 50%;
+    padding: 10px;
+    background: var(--rosadoTitulos);
+    color: var(--blanco);
+    text-align: center;
+    text-decoration: none;
+    font-family: 'Mohave', sans-serif;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+    font-size: 18px;
+    margin: 0 auto
+} .deseos-agregar:hover{
+    background: var(--rosadoOscuro);
+    color: var(--blanco);
 }
