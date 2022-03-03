@@ -6,8 +6,8 @@
   feather.replace({ 'aria-hidden': 'true' })
 
   // Graphs
-  var ctx = document.getElementById('myChart')
-  // eslint-disable-next-line no-unused-vars
+var ctx = document.getElementById('myChart')
+
   var myChart = new Chart(ctx, {
     type: 'line',
     data: {
@@ -50,4 +50,43 @@
       }
     }
   })
+
+  var data = {
+    labels: [
+      "Cocina",
+      "Utensilios",
+      "Recetas",
+      "Electrodomestidos"
+    ],
+    datasets: [
+      {
+        data: [170, 50, 70, 90],
+        backgroundColor: [
+          "#F0B2D0",
+          "#F7BFD8",
+          "#FBD5E5",
+          "#FDEAF2"
+        ],
+        hoverBackgroundColor: [
+          "#DF92B2",
+          "#E2AFC5",
+          "#FABEC0",
+          "#FBC5FF"
+        ]
+      }]
+  };
+  var promisedDeliveryChart = new Chart(document.getElementById('myChart2'), {
+    type: 'doughnut',
+    data: data,
+    options: {
+       responsive: true,
+      legend: {
+        display: false
+      }
+    }
+    
+  });
+  
 })()
+
+
