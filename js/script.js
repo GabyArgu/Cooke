@@ -115,6 +115,7 @@ window.addEventListener('scroll', function () {
      }
  });
  
-
-
-
+ function hoverImagen(ruta){
+    document.getElementById("main-img").src=ruta;
+  }
+ 

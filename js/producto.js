@@ -48,3 +48,11 @@ document.addEventListener('DOMContentLoaded', function() {
       return new bootstrap.Tooltip(tooltipTriggerEl, {'customClass': 'custom-tooltip'})
     })
   });
+
+  function hoverImagen(ruta){
+    document.getElementById("main-img").src=ruta;
+  }
+
+  function hoverImagenC(ruta){
+    document.getElementById("main-imgC").src=ruta;
+  }

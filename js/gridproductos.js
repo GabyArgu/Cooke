@@ -15,3 +15,7 @@ window.addEventListener('scroll', function () {
       navPage.classList.remove('shadow');
     }
 });
+
+function hoverImagen(ruta){
+  document.getElementById("main-img").src=ruta;
+}
