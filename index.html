@@ -35,13 +35,14 @@
 
     <header> <!-- INICIA NAVBAR -->
       <nav class="navbar fixed-top navbar-expand-lg navbar-light menu" id="navbar-home">
-        <div class=" container-fluid" id="logo-contenedor">
+        <div class=" container-fluid">
           <a class="navbar-brand me-auto" href="#"><img src="resources/logo2.png" alt="" id="logo_inicio"
               class="mx-auto d-block"></a>
-          <button class="navbar-toggler" type="buton" data-bs-toggle="collapse" aria-controls="navbarNavDropdown"
-            aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
+            <button class="navbar-toggler collapsed d-flex d-lg-none flex-column justify-content-around" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="toggler-icon top-bar"></span>
+                <span class="toggler-icon middle-bar"></span>
+                <span class="toggler-icon bottom-bar"></span>
+            </button>
           <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0 textcolor">
               <li class="nav-item dropdown textcolor2">
@@ -49,11 +50,11 @@
                   data-bs-toggle="dropdown" aria-expanded="false">
                   Categorías
                 </a>
-                <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <ul class="dropdown-menu dropdown-categorias" aria-labelledby="navbarDropdownMenuLink">
                   <li><a class="dropdown-item" href="html/categoria.html">Cocina</a></li>
-                  <li><a class="dropdown-item" href="#">Utensilios</a></li>
-                  <li><a class="dropdown-item" href="#">Eléctrodomesticos</a></li>
-                  <li><a class="dropdown-item" href="#">Recetas</a></li>
+                  <li><a class="dropdown-item" href="html/categoria.html">Utensilios</a></li>
+                  <li><a class="dropdown-item" href="html/categoria.html">Eléctrodomesticos</a></li>
+                  <li><a class="dropdown-item" href="html/categoria.html">Recetas</a></li>
                 </ul>
               </li>
               <li class="nav-item textcolor2">
@@ -69,16 +70,21 @@
                 <a class="nav-link active" aria-current="page" href="html/contactanos.html">Contacto</a>
               </li>
 
-              <li class="nav-item textcolor">
-                <a class="nav-link active img-hover" aria-current="page" href="html/login.html"></a>
-              </li>
-              <li class="nav-item textcolor">
-                <a class="nav-link active img-hover2" aria-current="page" href="html/deseos.html"></a>
-              </li>
-              <li class="nav-item textcolor nav-carrito">
-                <a class="nav-link active img-hover3" aria-current="page" data-bs-toggle="offcanvas" data-bs-target="#sidebarCarrito" aria-controls="offcanvasRight">
-                </a>
-              </li>
+              <div class="iconos-navbar">
+
+                <li class="nav-item textcolor">
+                  <a class="nav-link active img-hover" aria-current="page" href="html/login.html"></a>
+                </li>
+
+                <li class="nav-item textcolor">
+                  <a class="nav-link active img-hover2" aria-current="page" href="html/deseos.html"></a>
+                </li>
+
+                <li class="nav-item textcolor nav-carrito">
+                  <a class="nav-link active img-hover3 nav-carrito" aria-current="page" data-bs-toggle="offcanvas" data-bs-target="#sidebarCarrito" aria-controls="offcanvasRight"></a>
+                </li>
+              </div>
+
             </ul>
           </div>
         </div>
@@ -1037,7 +1043,7 @@
                 </div>
                 <div class="col">
                   <h6 class="text-uppercase fw-bold mb-4">Extras</h6>
-                  <p><a href="#!" class="text-reset link">Mi cuenta</a></p>
+                  <p><a href="html/MiCuenta.html" class="text-reset link">Mi cuenta</a></p>
                   <p><a href="html/nosotros.html" class="text-reset link">Sobre nosotros</a></p>
                   <p><a href="#!" class="text-reset link">Lista de deseos</a></p>
                   <p><a href="#!" class="text-reset link">Centro de compras</a></p>
@@ -1061,6 +1067,7 @@
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="plugins/owlCarousel/owl.carousel.min.js"></script>
   <script src="js/script.js"></script>
+  <script src="js/stickynavs.js"></script>
 
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
     integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"

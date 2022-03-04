@@ -33,57 +33,123 @@
 <body class="nosotros">
     <div id="container-fluid content-wrapper">
 
-        <header>
-            <!-- INICIA NAVBAR -->
-            <nav class="navbar fixed-top navbar-expand-lg navbar-light" id="navbar-page">
-                <div class="container-fluid" id="logo-contenedor">
-                    <a class="navbar-brand me-auto" href="../index.html"><img src="../resources/logo2.png" alt=""
-                            id="logo_inicio" class="mx-auto d-block"></a>
-                    <button class="navbar-toggler" type="buton" data-bs-toggle="collapse"
-                        aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 textcolor">
-                            <li class="nav-item dropdown textcolor2">
-                                <a class="nav-link dropdown" href="#" id="navbarDropdownMenuLink" role="button"
-                                    data-bs-toggle="dropdown" aria-expanded="false">
-                                    Categorías
-                                </a>
-                                <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                    <li><a class="dropdown-item" href="#">Cocina</a></li>
-                                    <li><a class="dropdown-item" href="#">Utensilios</a></li>
-                                    <li><a class="dropdown-item" href="#">Eléctrodomesticos</a></li>
-                                    <li><a class="dropdown-item" href="#">Recetas</a></li>
-                                </ul>
-                            </li>
-                            <li class="nav-item textcolor2">
-                                <a class="nav-link active " aria-current="page" href="#">Destacados</a>
-                            </li>
-                            <li class="nav-item textcolor2">
-                                <a class="nav-link active" aria-current="page" href="#">Nosotros</a>
-                            </li>
-                            <li class="nav-item textcolor2">
-                                <a class="nav-link active" aria-current="page" href="#">Blog</a>
-                            </li>
-                            <li class="nav-item textcolor2">
-                                <a class="nav-link active" aria-current="page" href="#">Contacto</a>
-                            </li>
-
-                            <li class="nav-item textcolor">
-                                <a class="nav-link active img-hover" aria-current="page" href="login.html"></a>
-                            </li>
-                            <li class="nav-item textcolor">
-                                <a class="nav-link active img-hover2" aria-current="page" href="#"></a>
-                            </li>
-                            <li class="nav-item textcolor">
-                                <a class="nav-link active img-hover3" aria-current="page" href="#"></a>
-                            </li>
-                        </ul>
+        <header> <!-- INICIA NAVBAR -->
+            <nav class="navbar fixed-top navbar-expand-lg navbar-light menu" id="navbar-page">
+              <div class=" container-fluid">
+                <a class="navbar-brand me-auto" href="../index.html"><img src="../resources/logo2.png" alt="" id="logo_inicio"
+                    class="mx-auto d-block"></a>
+                  <button class="navbar-toggler collapsed d-flex d-lg-none flex-column justify-content-around" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                      <span class="toggler-icon top-bar"></span>
+                      <span class="toggler-icon middle-bar"></span>
+                      <span class="toggler-icon bottom-bar"></span>
+                  </button>
+                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                  <ul class="navbar-nav ms-auto mb-2 mb-lg-0 textcolor">
+                    <li class="nav-item dropdown textcolor2">
+                      <a class="nav-link dropdown" href="html/categoria.html" id="navbarDropdownMenuLink" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        Categorías
+                      </a>
+                      <ul class="dropdown-menu dropdown-categorias" aria-labelledby="navbarDropdownMenuLink">
+                        <li><a class="dropdown-item" href="categoria.html">Cocina</a></li>
+                        <li><a class="dropdown-item" href="categoria.html">Utensilios</a></li>
+                        <li><a class="dropdown-item" href="categoria.html">Eléctrodomesticos</a></li>
+                        <li><a class="dropdown-item" href="categoria.html">Recetas</a></li>
+                      </ul>
+                    </li>
+                    <li class="nav-item textcolor2">
+                      <a class="nav-link active " aria-current="page" href="gridproductos.html">Destacados</a>
+                    </li>
+                    <li class="nav-item textcolor2">
+                      <a class="nav-link active" aria-current="page" href="nosotros.html">Nosotros</a>
+                    </li>
+                    <li class="nav-item textcolor2">
+                      <a class="nav-link active" aria-current="page" href="blog.html">Blog</a>
+                    </li>
+                    <li class="nav-item textcolor2">
+                      <a class="nav-link active" aria-current="page" href="contactanos.html">Contacto</a>
+                    </li>
+      
+                    <div class="iconos-navbar">
+      
+                      <li class="nav-item textcolor">
+                        <a class="nav-link active img-hover" aria-current="page" href="login.html"></a>
+                      </li>
+      
+                      <li class="nav-item textcolor">
+                        <a class="nav-link active img-hover2" aria-current="page" href="deseos.html"></a>
+                      </li>
+      
+                      <li class="nav-item textcolor nav-carrito">
+                        <a class="nav-link active img-hover3 nav-carrito" aria-current="page" data-bs-toggle="offcanvas" data-bs-target="#sidebarCarrito" aria-controls="offcanvasRight"></a>
+                      </li>
                     </div>
+      
+                  </ul>
                 </div>
+              </div>
             </nav>
         </header> <!-- FIN NAVBAR-->
+
+        <div class="offcanvas offcanvas-end" id="sidebarCarrito" aria-labelledby="offcanvasRightLabel"> <!-- INICIA CARRITO -->
+
+            <div class="offcanvas-body">
+      
+              <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      
+              <div id="cd-cart">
+                <h2>CARRITO DE COMPRAS</h2>
+                <ul class="cd-cart-items">
+      
+                  <li class="product-item-cart">
+                    <div class="item">
+                      <span class="top-0 start-100 translate-middle badge quantity-badge">1</span>
+                      <img src="../resources/Olla.png" alt="" class="cart-img">
+                    </div>
+                    <div class="detail-box">
+                      <div class="cart-product-title">Cacerola Steel Co Healthy</div>
+                      <div class="cart-price">$29.74</div>
+                    </div> 
+                    <i class="fa-solid fa-xmark cd-item-remove"></i>
+                  </li>
+            
+                  <li class="product-item-cart">
+                    <div class="item">
+                      <span class="top-0 start-100 translate-middle badge quantity-badge">2</span>
+                      <img src="../resources/cuchara.png" alt="" class="cart-img">
+                    </div>
+                    <div class="detail-box">
+                      <div class="cart-product-title">Cucharón de madera</div>
+                      <div class="cart-price">$19.80</div>
+                    </div> 
+                    <i class="fa-solid fa-xmark cd-item-remove"></i>
+                  </li>
+      
+                </ul>
+            
+                <div class="cd-cart-total">
+                  <p class="card-total-line">Subtotal<span>$49.54</span></p>
+                  <p class="card-total-line">Envío<span>$0.00</span></p>
+                  <p class="total card-total-line">Total<span class="total">$49.54</span></p>
+                </div> <!-- cd-cart-total -->
+            
+                <a href="carrito.html" class="checkout-btn">
+                  <span>
+                    <i class="fa-solid fa-cart-shopping"></i>
+                  </span> VER CARRITO
+                </a>
+      
+                <a href="checkout.html" class="checkout-btn">
+                  <span>
+                    <i class="fa-solid fa-arrow-right"></i>
+                  </span> IR A PAGAR
+                </a>
+      
+              </div> <!-- cd-cart -->
+      
+            </div>
+      
+          </div> <!-- FIN CARRITO -->
 
         <section class="row section-Sobre2">
             <div class="container-fluid title-container nav2">
@@ -324,66 +390,68 @@
                 </div>
             </div>
         </section>
+
         <footer class="text-center text-lg-start bg-light text-muted" id="Fo-rosa">
-            <section class="d-flex align-items-center flex-column">
-                <div class="container-fluid text-center text-md-start mt-4">
-                    <div class="row d-flex justify-content-center">
-                        <div class="col-sm-9 col-md-6 col-lg-5 logopart">
-                            <img src="../resources/logo2.png" alt="" id="logo_final">
-                            <p>
-                                Cooké es una tienda online de utensilios de cocina de las mejores
-                                marcas para food lovers, o entusiastas de la buena mesa y la buena cocina.
-                            </p>
-                        </div>
-                        <div class="col-sm-9 col-md-6 col-lg-6" id="partefooter">
-                            <div class="row justify-content-center">
-                                <div class="col Redes-Div">
-                                    <h6 class="text-uppercase fw-bold h6Red ">Redes</h6>
-                                    <p class="d-flex justify-content-center "><a class="nav-link active redes-hover  "
-                                            aria-current="page" href="https://es-la.facebook.com/"></a></p>
-                                    <p class="d-flex justify-content-center "><a class="nav-link active redes-hover2 "
-                                            aria-current="page" href="#"></a></p>
-                                    <p class="d-flex justify-content-center "><a class="nav-link active redes-hover3"
-                                            aria-current="page" href="https://twitter.com/?lang=es"></a></p>
-                                </div>
-                                <div class="col">
-                                    <h6 class="text-uppercase fw-bold mb-4">Contacto</h6>
-                                    <p><a href="mailto:20170573@ricaldone.edu.sv" class="text-reset link">Correo</a></p>
-                                    <p><a href="tel:61949493" class="text-reset link">Teléfono</a></p>
-                                    <p><a href="#!" class="text-reset link">Contáctanos</a></p>
-                                </div>
-                                <div class="col">
-                                    <h6 class="text-uppercase fw-bold mb-4">Categorías</h6>
-                                    <p><a href="#!" class="text-reset link">Cocina</a></p>
-                                    <p><a href="#!" class="text-reset link">Ofertas</a></p>
-                                    <p><a href="#!" class="text-reset link">Recetas</a></p>
-                                    <p><a href="#!" class="text-reset link">Utencilios</a></p>
-                                    <p><a href="#!" class="text-reset link">Electrodomésticos</a></p>
-                                </div>
-                                <div class="col">
-                                    <h6 class="text-uppercase fw-bold mb-4">Extras</h6>
-                                    <p><a href="#!" class="text-reset link">Mi cuenta</a></p>
-                                    <p><a href="nosotros.html" class="text-reset link">Sobre nosotros</a></p>
-                                    <p><a href="#!" class="text-reset link">Lista de deseos</a></p>
-                                    <p><a href="#!" class="text-reset link">Centro de compras</a></p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+          <section class="d-flex align-items-center flex-column">
+            <div class="container-fluid text-center text-md-start mt-4">
+              <div class="row d-flex justify-content-center">
+                <div class="col-sm-9 col-md-6 col-lg-5 logopart">
+                  <img src="../resources/logo2.png" alt="" id="logo_final">
+                  <p>
+                    Cooké es una tienda online de utensilios de cocina de las mejores
+                    marcas para food lovers, o entusiastas de la buena mesa y la buena cocina.
+                  </p>
                 </div>
-            </section>
-            <!-- Copyright -->
-            <div class="text-center p-3 CopCo">
-                © 2021 Copyright:
-                <a class="text-reset fw-bold" href="https://github.com/GabyArgu/Cooke/tree/ROscar">Cooké.com</a>
+                <div class="col-sm-9 col-md-6 col-lg-6" id="partefooter">
+                  <div class="row justify-content-center">
+                    <div class="col Redes-Div">
+                      <h6 class="text-uppercase fw-bold h6Red ">Redes</h6>
+                      <p class="d-flex justify-content-center "><a class="nav-link active redes-hover  " aria-current="page"
+                          href="https://es-la.facebook.com/"></a></p>
+                      <p class="d-flex justify-content-center "><a class="nav-link active redes-hover2 " aria-current="page"
+                          href="https://www.instagram.com/?hl=es-la"></a></p>
+                      <p class="d-flex justify-content-center "><a class="nav-link active redes-hover3" aria-current="page"
+                          href="https://twitter.com/?lang=es"></a></p>
+                    </div>
+                    <div class="col">
+                      <h6 class="text-uppercase fw-bold mb-4">Contacto</h6>
+                      <p><a href="mailto:20170573@ricaldone.edu.sv" class="text-reset link">Correo</a></p>
+                      <p><a href="https://api.whatsapp.com/send?phone=76901760&text=Hola,%20%C2%BFen%20que%20puede%20ayudarte%20Cook%C3%A9%20el%20dia%20de%20hoy?" class="text-reset link">Teléfono</a></p>
+                      <p><a href="contactanos.html" class="text-reset link">Contáctanos</a></p>
+                    </div>
+                    <div class="col">
+                      <h6 class="text-uppercase fw-bold mb-4">Categorías</h6>
+                      <p><a href="categorgia.html" class="text-reset link">Cocina</a></p>
+                      <p><a href="categoria.html" class="text-reset link">Ofertas</a></p>
+                      <p><a href="categoria.html" class="text-reset link">Recetas</a></p>
+                      <p><a href="categoria.html" class="text-reset link">Utencilios</a></p>
+                      <p><a href="categoria.html" class="text-reset link">Electrodomésticos</a></p>
+                    </div>
+                    <div class="col">
+                      <h6 class="text-uppercase fw-bold mb-4">Extras</h6>
+                      <p><a href="MiCuenta.html" class="text-reset link">Mi cuenta</a></p>
+                      <p><a href="nosotros.html" class="text-reset link">Sobre nosotros</a></p>
+                      <p><a href="deseos.html" class="text-reset link">Lista de deseos</a></p>
+                      <p><a href="categoria.html" class="text-reset link">Centro de compras</a></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
-            <!-- Copyright -->
+          </section>
+          <!-- Copyright -->
+          <div class="text-center p-3 CopCo">
+            © 2021 Copyright:
+            <a class="text-reset fw-bold" href="https://github.com/GabyArgu/Cooke/tree/ROscar">Cooké.com</a>
+          </div>
+          <!-- Copyright -->
         </footer>
+        <!-- Footer -->
     </div>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="../plugins/owlCarousel/owl.carousel.min.js"></script>
-    <script src="../js/gridclientes.js"></script>
+    <script src="../js/stickynavs.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
         integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
