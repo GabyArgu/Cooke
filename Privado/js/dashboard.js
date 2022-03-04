@@ -51,3 +51,6 @@
     }
   })
 })()
+function hoverImagen(ruta){
+  document.getElementById("main-img").src=ruta;
+}
