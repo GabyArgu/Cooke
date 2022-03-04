@@ -89,4 +89,7 @@ var ctx = document.getElementById('myChart')
   
 })()
 
+function hoverImagen(ruta){
+  document.getElementById("main-img").src=ruta;
+}
 
