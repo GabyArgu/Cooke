@@ -104,18 +104,7 @@ document.addEventListener('DOMContentLoaded', function() {
       return new bootstrap.Tooltip(tooltipTriggerEl, {'customClass': 'custom-tooltip'})
     })
   });
-
-navbar = document.getElementById('navbar-home');
-
-window.addEventListener('scroll', function () {
-     if (window.pageYOffset > 100) {
-       navbar.classList.add('navbar-scroll', 'shadow');
-     } else {
-       navbar.classList.remove('navbar-scroll', 'shadow');
-     }
- });
  
  function hoverImagen(ruta){
     document.getElementById("main-img").src=ruta;
   }
- 
