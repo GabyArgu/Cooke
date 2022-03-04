@@ -1739,7 +1739,105 @@ body {
 
 /* -------------------------------------------------------------------FIN DE NOSOTROS-------------------------------------------------------*/
 
+----------------Inicio Ordenes----------------*/
 
+
+.table1{
+    margin-top: 70px;
+    margin-left: 500px;
+    margin-bottom: 70px;
+    
+
+}
+
+
+.usuario-top{
+    margin-top: 90px;
+    margin-left: 1px;
+    margin-bottom: 0px;
+    margin-top: 100px;
+    
+}
+
+.tr,th{
+    background-color: #75365a;
+    color: #fff;
+    text-align: center;
+    
+}
+
+
+.td,tr,td{
+    border: 1px solid #d97789;;
+    padding-top: 20px;
+    padding-left: 20px;
+    padding-right: 70px;
+    padding-bottom: 90px;
+    font-family: 'Mohave', sans-serif ;
+    color: #75365a;
+    margin-top: 100px;
+    
+}
+
+
+.myaccount-tab-menu a {
+    border: 1px solid #d97789;;
+    border-bottom: none;
+    background-color: var(--rosadoFondos);
+    font-weight: 500;
+    font-size: 15px;
+    display: block;
+    padding: 10px 15px;
+    text-transform: uppercase;
+    color: #75365a;
+}
+
+.form-control{
+    font-family: 'Mohave', sans-serif ;
+   
+}
+
+.myaccount-tab-menu {
+    
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    margin-top: 7px;
+    padding-top: 10px;
+    padding-left: 90px;
+    padding-right: 1080px;
+    padding-bottom: 10px;
+    display: flex;
+    margin-top: -400px;
+    
+}
+
+.myaccount-tab-menu a:hover, .myaccount-tab-menu a.active {
+    background-color: #75365a;
+    border-color:  #75365a;
+    color: #fff;
+}
+.td.tr{
+    text-align: center;
+}
+
+.img-c{
+    width: 70px !important;
+    padding: 20px 20px 20px 20px;
+    margin-right: auto;
+    margin-left: auto;
+  
+}
+
+.img2{
+    width: 70px !important;
+    padding: 20px 20px 20px 20px;
+    margin-right: auto;
+    margin-left: auto;
+    
+}
+/*----------------Fin Ordenes--------------*/
 
 /*  ---------Inicio Mi Cuenta------------- */
 
