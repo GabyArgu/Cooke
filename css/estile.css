@@ -959,7 +959,6 @@ body {
     color: var(--rosadoTitulos);
 }
 
-
 .inicio .img-resena img{
     width: 75px;
     height: 75px;
@@ -2907,6 +2906,215 @@ body {
 
 /* --------------------------------------------------------------FIN DE PÁGINA CONFIRMAR COMPRA -----------------------------------------------------*/
 
+/* --------------------------------------------------------------INICIO DE PÁGINA BLOG -----------------------------------------------------*/
+
+.container-blog {
+    min-height: 450px;
+}
+
+.entrada-blog {
+    margin: 0 auto;
+}
+
+.fit-image {
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+    height: 300px;
+    margin: 0 auto;
+}
+
+.blog-titulo {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.blog-titulo h1{
+    color: var(--rosadoOscuro) !important;
+}
+
+.blog-titulo h3 {
+    font-family: 'Mohave', sans-serif;
+    color: var(--rosadoOscuro);
+    opacity: .5;
+}
+
+.blog-autor-fecha {
+    margin: 0px !important;
+    gap: 30px;  
+}
+
+.fa-user, .fa-calendar-days {
+    margin-right: 10px;
+}
+
+.lineaBlog {
+    height: 1px;
+    border: none;
+    border-top: 2px solid var(--rosadoTitulos);
+    width: 100%;
+    background-color: var(--rosadoTitulos);
+    border-radius: 3px;
+}
+
+.blog-descrip {
+    font-family: 'Mohave', sans-serif;
+    color: var(--rosadoOscuro);
+}
+
+.leer-mas {
+    display: block;
+    padding: 10px 30px;
+    background: var(--rosadoTitulos);
+    color: #FFF;
+    text-align: center;
+    text-decoration: none;
+    font-family: 'Mohave', sans-serif;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+} .leer-mas:hover {
+    color: var(--blanco);
+    background-color: var(--rosadoOscuro);
+}
+
+/* --------------------------------------------------------------FIN DE PÁGINA BLOG -----------------------------------------------------*/
+
+/* --------------------------------------------------------------INICIO DE PÁGINA ENTRADA BLOG -----------------------------------------------------*/
+
+.container-entrada {
+    min-height: 450px;
+}
+
+.texto-entrada {
+    font-family: 'Mohave', sans-serif;
+    color: var(--rosadoOscuro);
+    font-size: 18px;
+}
+
+.container-comment h1 {
+    color: var(--rosadoOscuro);
+}
+
+.container-entrada hr {
+    background: rgba(195, 78, 139, 0.2);
+}
+
+.escribir-comment {
+    width: 150px;
+    height: 40px;
+    font-size: 16px;
+    font-weight: 550;
+    border: none;
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    background-color: var(--marfil);
+    color: var(--rosadoTitulos);
+    transition: all 0.2s ease;
+} .escribir-comment:hover {
+    color: var(--marfil);
+    background-color: var(--rosadoTitulos);
+    transform: scale(1.05);
+}
+
+.container-comment .resena-item {
+    background: #fff;
+    max-height: 300px;
+    flex-wrap: wrap;
+    transition: all 0.3s ease;
+}
+
+.comment-header {
+    display: flex;
+    align-items: center;
+    padding: 5px;
+}
+
+.comment-header .img-comment img {
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+}
+
+.comment-header .comment-user {
+    color: var(--rosadoOscuro);
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.comment-info .comment-name{
+    color: var(--rosadoTitulos);
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.comment-info p{
+    color: var(--rosadoOscuro);
+}
+
+.comment-autor-fecha{
+    display: flex;
+    flex-direction: row;
+    justify-content:space-around;
+    margin-top: 2%;
+}
+.comment-autor-fecha span{
+    font-size: 12px;
+    font-weight: 400;
+    color: var(--rosadoTitulos);
+}
+
+.last-posts {
+    margin-top: 100px;
+}
+
+.last-posts h1 {
+    color: var(--rosadoOscuro);
+    text-align: left !important;
+}
+
+.last-posts .image-fit {
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+    height: 150px;
+    margin: 0 auto;
+}
+
+.last-posts .post {
+    display: flex;
+    gap: 20px;
+}
+
+.last-posts .text-post {
+    font-family: 'Mohave', sans-serif;
+} .last-posts .text-post h4 a {
+    color: var(--rosadoOscuro);
+    font-weight: bold;
+    transition: .3s;
+} .last-posts .text-post h4 a:hover {
+    color: var(--rosadoTitulos);
+} .last-posts .text-post p {
+    color: var(--rosadoOscuro);
+    opacity: .7;
+}  
+
+
+.categorias-blog h1 {
+    color: var(--rosadoOscuro);
+    text-align: left;
+}
+
+.categorias-blog .categoria span {
+    color: var(--rosadoOscuro);
+    font-family: 'Mohave', sans-serif;
+    font-size: 20px;
+}
+
+.categorias-blog .fa-folder {
+    color: var(--rosadoOscuro);
+    opacity: .5;
+}
 
 /*------------------RESPONSIVE GLOBAL------------------*/
 @media (min-width: 476px) and (max-width: 767.98px) { 
@@ -3271,6 +3479,11 @@ body {
         align-items: flex-start;
         justify-content: flex-end;
         padding: 40px;
+    }
+    .leer-mas {
+        display: inline-block;
+    } .container-entrada .col-lateral {
+        padding-left: 30px;
     }
 }
 
