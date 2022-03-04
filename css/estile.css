@@ -80,3 +80,78 @@
     margin-left: 50px;
 }
 
+
+
+/*  ---------Inicio Mi Cuenta------------- */
+
+.myaccount-tab-menu a {
+    border: 1px solid #d97789;;
+    border-bottom: none;
+    background-color: var(--rosadoFondos);
+    font-weight: 500;
+    font-size: 15px;
+    display: block;
+    padding: 10px 15px;
+    text-transform: uppercase;
+    font-family: 'Mohave', sans-serif ;
+    color: #75365a;
+}
+
+
+.myaccount-tab-menu {
+    
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    margin-top: 7px;
+    padding-top: 550px;
+    padding-left: 90px;
+    padding-right: 1080px;
+    padding-bottom: 10px;
+    display: flex;
+    margin-top: -500px;
+    
+}
+
+.myaccount-tab-menu a:hover, .myaccount-tab-menu a.active {
+    background-color: #75365a;
+    border-color:  #75365a;
+    color: #fff;
+}
+
+
+.img2{
+    width: 70px !important;
+    padding: 20px 20px 20px 20px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.userI{
+    width: 200px !important;
+    padding: 20px 20px 20px 20px;
+    margin-right: auto;
+    margin-left: 700px;
+    display: flex;
+    
+}
+
+.center-user{
+    margin-top: -300px;
+}
+
+.imgl{
+    height: 50px;
+    width: 50px;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.input-group-text{
+    background-color:var(--rosadoPalido);;
+}
+
+
+
+/*----------------- Fin Mi cuenta------------ */
