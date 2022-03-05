@@ -498,9 +498,10 @@
                                             </select>
                                         </div>
                                         <div class="col-4 mb-4">
-                                            <label for="validationDefault01" class="form-label">Tags</label>
-                                            <input type="text" class="form-control" id="validationDefault01" value=""
-                                                required>
+                                            <label for="validationDefault01" class="form-label ">Tags</label>
+                                            <fieldset>
+                                                <input placeholder="" class="tagify">
+                                            </fieldset>
                                         </div>
                                         <div class="col-4 mb-4">
                                             <label for="validationDefault01" class="form-label">Cantidad en
@@ -605,7 +606,7 @@
                                 <div class="col">
                                     <div class="row">
                                         <div class="col">
-                                            <form action="/file-upload" class="dropzone" id="my-awesome-dropzone" >
+                                            <form action="/file-upload" class="dropzone" id="agregar-dropzone" >
                                             </form>
                                         </div>
                                     </div>
@@ -694,9 +695,10 @@
                                         </select>
                                     </div>
                                     <div class="col-4 mb-4">
-                                        <label for="validationDefault01" class="form-label">Tags</label>
-                                        <input type="text" class="form-control" id="validationDefault01" value=""
-                                            required>
+                                        <label for="validationDefault01" class="form-label ">Tags</label>
+                                            <fieldset>
+                                                <input placeholder="" class="tagify1">
+                                            </fieldset>
                                     </div>
                                     <div class="col-4 mb-4">
                                         <label for="validationDefault01" class="form-label">Cantidad en
@@ -854,7 +856,6 @@
     </div>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="js/dashboard.js"></script>
     <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
         integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
@@ -870,7 +871,12 @@
         integrity="sha384-zNy6FEbO50N+Cg5wap8IKA4M/ZnLJgzc6w2NqACZaK0u0FXfOWRRJOnQtpZun8ha"
         crossorigin="anonymous"></script>
 
-
+        <!-- TAGIFY RESOURCE -->
+        <script src="https://unpkg.com/@yaireo/tagify"></script>
+        <script src="https://unpkg.com/@yaireo/tagify/dist/tagify.polyfills.min.js"></script>
+        <link href="https://unpkg.com/@yaireo/tagify/dist/tagify.css" rel="stylesheet" type="text/css" />
+        <script src="js/dashboard.js"></script>
+        
 </body>
 
 </html>
