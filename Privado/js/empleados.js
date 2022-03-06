@@ -1,0 +1,4 @@
+
+
+
+$('[data-toggle="datepicker"]').datepicker();

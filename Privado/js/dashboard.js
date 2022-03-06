@@ -1,3 +1,15 @@
+
+sidebar = document.getElementById('sidebarMenu');
+function sidebarToggle ()
+{
+  if (window.pageXOffset = 250) {
+    sidebar.classList.add('toggled');
+  } else {
+    sidebar.classList.remove('toggled');
+  }
+  
+}
+
 /* globals Chart:false, feather:false */
 
 (function () {
@@ -88,5 +100,6 @@ var ctx = document.getElementById('myChart')
   });
   
 })()
+
 
 
