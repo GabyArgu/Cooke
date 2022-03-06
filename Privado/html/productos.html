@@ -5,10 +5,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-
-
     <link href="../../assets/css/bootstrap.css" rel="stylesheet">
-    <link rel="stylesheet" href="../css/estile.css">
+    <link rel="stylesheet" href="../css/style.css">
     <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -28,83 +26,106 @@
     <!-- Libreria dropzone -->
     <script src="https://unpkg.com/dropzone@5/dist/min/dropzone.min.js"></script>
     <link rel="stylesheet" href="https://unpkg.com/dropzone@5/dist/min/dropzone.min.css" type="text/css" />
+    <!-- Datepicker -->
+    <link href="../../plugins/datepicker/dist/datepicker.css" rel="stylesheet">
     <title>Cooké</title>
 </head>
 
 <body>
 
-    <header class="navbar navbar-dark sticky-top flex-md-nowrap p-0 shadow MenuF">
-        <div class=" container-fluid">
-            <a class=" me-auto" href="#"><img src="../resources/dashboard/logo2.png" alt="" id="logo_inicio"
-                    class="mx-auto d-block"></a>
+    <div class="wrapper">
+        <nav id="sidebarMenu" class="sidebar ">
+            <a href="#" class="sidebar-conent-header d-flex"><img src="../resources/dashboard/logo2.png" alt=""
+              id="logo_inicio" class="mx-auto d-block"></a>
+            
+          <div class="sidebar-content">
+              <ul class="sidebar-nav">
+                  
+                  <li class="sidebar-item">
+                      <a data-bs-target="#dashboards" data-bs-toggle="collapse" class="sidebar-link collapsed">
+                          <i class="align-middle me-2 fas fa-fw fa-home"></i> <span class="align-middle">Principal</span>
+                      </a>
+                      <ul id="dashboards" class="sidebar-dropdown list-unstyled collapse " data-bs-parent="#sidebar">
+                          <li class="sidebar-item"><a class="sidebar-link" href="">Dashboard</a></li>
+                          
+                      </ul>
+                  </li>
+                  <li class="sidebar-item">
+                      <a data-bs-target="#Tienda" data-bs-toggle="collapse" class="sidebar-link collapsed">
+                          <i class="fa-solid fa-shop"></i> <span class="align-middle">Tienda</span>
+                      </a>
+                      <ul id="Tienda" class="sidebar-dropdown list-unstyled collapse " data-bs-parent="#sidebar">
+                          <li class="sidebar-item"><a class="sidebar-link" href="">crud
+                                  In</a></li>
+                          <li class="sidebar-item"><a class="sidebar-link" href="">crud
+                                  Up</a></li>
+                          <li class="sidebar-item"><a class="sidebar-link" href="">crud
+                                  Page</a></li>
+                          <li class="sidebar-item"><a class="sidebar-link" href="">crud
+                                  Page</a></li>
+                      </ul>
+                  </li>
+                  <li class="sidebar-item">
+                      <a data-bs-target="#blog" data-bs-toggle="collapse" class="sidebar-link collapsed">
+                        <i class="fa-solid fa-file-pen"></i><span class="align-middle">Blog</span>
+                      </a>
+                      <ul id="blog" class="sidebar-dropdown list-unstyled collapse " data-bs-parent="#sidebar">
+                          <li class="sidebar-item"><a class="sidebar-link" href="">Sign
+                                  In</a></li>
+                          <li class="sidebar-item"><a class="sidebar-link" href="">Sign
+                                  Up</a></li>
+                          
+                      </ul>
+                  </li>
 
-            <div class="Lupa"><img src="../resources/dashboard/lupa.png" alt="" id="Lu-Logo"
-                    class="mx-auto d-none d-md-block"></a></div>
-            <input class="form-control form-control-dark w-60 d-none d-md-block Buscador-Imp" type="text"
-                placeholder="Buscar en el sitio" aria-label="Search">
-            <div class="navbar-nav">
-                <div class="nav-item text-nowrap">
-                    <a class="nav-link px-3" href="#"><img src="../resources/dashboard/configuraciones.png" alt=""
-                            id="Confi-Logo" class="mx-auto d-block"></a>
+                  <li class="sidebar-item">
+                      <a data-bs-target="#forms" data-bs-toggle="collapse" class="sidebar-link collapsed">
+                        <i class="fa-solid fa-database"></i><span class="align-middle">Administración</span>
+                      </a>
+                      <ul id="forms" class="sidebar-dropdown list-unstyled collapse " data-bs-parent="#sidebar">
+                          <li class="sidebar-item"><a class="sidebar-link" href="">admon</a></li>
+                          <li class="sidebar-item"><a class="sidebar-link" href="">admon</a></li>
+                      </ul>
+                  </li>
+
+                  
+              </ul>
+          </div>  
+      </nav>
+        <div class="main productos">
+            <nav class="navbar navbar-expand navbar-theme">
+				<a class="sidebar-toggle d-flex me-2">
+					<i class="fa-solid fa-bars" onclick="sidebarToggle()"></i>
+				</a>
+
+				<form class="d-none d-sm-inline-block">
+					<input class="form-control form-control-lite" type="text" placeholder="Buscar en el sitio">
+				</form>
+
+				<div class="opciones-nav d-flex justify-content-center align-items-center">
+                    <div class=" Lun"><img src="../resources/dashboard/lunas.png" alt="" id="Confi-Logo"
+                        class="mx-auto d-md-block"></div>
+                <ul class="navbar-nav ms-auto mb-2">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown" href="#" id="navbarDropdownMenuLink" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            <img src="../resources/dashboard/configuraciones.png" alt="" id="Confi-Logo"
+                                class="mx-auto d-block">
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
+                            <li><a class="dropdown-item" href="#">Perfil</a></li>
+                            <li><a class="dropdown-item" href="#">Cerrar Sesión</a></li>
+                        </ul>
+                    </li>
+                </ul>
                 </div>
-            </div>
-        </div>
-
-    </header>
-
-    <div class="container-fluid">
-        <div class="row">
-            <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block  sidebar collapse">
-                <div class="position-sticky pt-3">
-                    <ul class="nav flex-column justify-content-center align-items-center">
-                        <img src="../resources/dashboard/Usuario.png" class="Usua-Ico" alt="">
-                        <h5 class="Nombre-Usu">Gabriela Méndez</h5>
-                        <a class="Adm" href="#">Administrar</a>
-                    </ul>
-                    <ul class="nav flex-column Botones-Sider">
-                        <li class="nav-item ">
-                            <a class="nav-link" aria-current="page" href="#">
-                                <img src="../resources/dashboard/home.png" alt="">
-                                PRINCIPAL
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">
-                                <img src="../resources/dashboard/tienda.png" alt="">
-                                TIENDA
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">
-                                <img src="../resources/dashboard/cuaderno.png" alt="">
-                                BLOG
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">
-                                <img src="../resources/dashboard/al.png" alt="">
-                                ADMINISTRACIÓN
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
-
-            <main class="col-md-9 ms-sm-auto col-lg-10 Mensa">
-
-                <div class=" Mensa d-flex flex-column align-items-start justify-content-start pt-3 pb-2 mb-3 px-md-5">
-                    <h1 class="Bien">Administrar productos</h1>
-                </div>
-
-                <div class="Fondo-Main px-md-5">
-                    <div class=" Te d-flex justify-content-between flex-wrap  align-items-center pt-3 pb-2 ">
-
-
+			</nav>
+            <main class="content">
+                <div class="container-fluid">
+                    <div class="header">
+                        <h1>Administrar Productos</h1>
                     </div>
-
-
-
-                    <div class="container-fluid container-tabla scroll mt-3 mb-3">
+                    <div class="row contenido">
                         <div class="row pt-3 mx-auto header-table">
                             <div class="col">
                                 <button class="btn-agregar" type="button" data-bs-toggle="modal"
@@ -116,191 +137,188 @@
                                 <button class="btn-refresh"><i class="fa-solid fa-arrows-rotate"></i></button>
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="table-responsive mt-3" id="no-more-tables">
-                                <table class="table table-bordered table-productos" style="width:100%">
-                                    <thead>
-                                        <tr>
-                                            <th>Imagen</th>
-                                            <th>Nombre</th>
-                                            <th>Descripción</th>
-                                            <th>Precio</th>
-                                            <th>Estado</th>
-                                            <th>Acciones</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td><img src="../../resources/Olla.png" alt=""></td>
-                                            <td data-title="PRODUCTO">Cacerola Steel Co Healthy</td>
-                                            <td data-title="DESCRIPCION" class="descripcion">Lorem ipsum dolor sit amet
-                                                consectetur
-                                                adipisicing elit. Voluptatem voluptatum praesentium a temporibus ut
-                                                dolorum optio magni nesciunt vitae aliquam! Soluta voluptatibus
-                                                repellendus sint accusamus rerum quas voluptatum ea laudantium.</td>
-                                            <td data-title="PRECIO">$29.74</td>
-                                            <td data-title="ESTADO">Disponible</td>
-                                            <td class="botones-table">
-                                                <div class="acciones d-flex mx-auto">
-                                                    <span href="" class="accion-btn" type="button"
-                                                    data-bs-toggle="modal" data-bs-target="#modal-actualizar">
-                                                        <i class="fa-solid fa-pen-to-square"></i>
-                                                    </span>
-                                                    <span href="" class="accion-btn" type="button"
-                                                    data-bs-toggle="modal" data-bs-target="#modal-eliminar">
-                                                        <i class="fa-solid fa-trash-can fa-lg"></i>
-                                                    </span>
-                                                    <span href="" class="accion-btn" type="button"
-                                                        data-bs-toggle="modal" data-bs-target="#modal-ver">
-                                                        <i class="fa-solid fa-eye"></i>
-                                                    </span>
-                                                </div>
-                                            </td>
+                        <div class="table-responsive mt-3 scroll" id="no-more-tables">
+                            <table class="table table-bordered table-productos" style="width:100%">
+                                <thead>
+                                    <tr>
+                                        <th>Imagen</th>
+                                        <th>Nombre</th>
+                                        <th>Descripción</th>
+                                        <th>Precio</th>
+                                        <th>Estado</th>
+                                        <th>Acciones</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><img src="../../resources/Olla.png" alt=""></td>
+                                        <td data-title="PRODUCTO">Cacerola Steel Co Healthy</td>
+                                        <td data-title="DESCRIPCION" class="descripcion">Lorem ipsum dolor sit amet
+                                            consectetur
+                                            adipisicing elit. Voluptatem voluptatum praesentium a temporibus ut
+                                            dolorum optio magni nesciunt vitae aliquam! Soluta voluptatibus
+                                            repellendus sint accusamus rerum quas voluptatum ea laudantium.</td>
+                                        <td data-title="PRECIO">$29.74</td>
+                                        <td data-title="ESTADO">Disponible</td>
+                                        <td class="botones-table">
+                                            <div class="acciones d-flex mx-auto">
+                                                <span href="" class="accion-btn" type="button"
+                                                data-bs-toggle="modal" data-bs-target="#modal-actualizar">
+                                                    <i class="fa-solid fa-pen-to-square"></i>
+                                                </span>
+                                                <span href="" class="accion-btn" type="button"
+                                                data-bs-toggle="modal" data-bs-target="#modal-eliminar">
+                                                    <i class="fa-solid fa-trash-can fa-lg"></i>
+                                                </span>
+                                                <span href="" class="accion-btn" type="button"
+                                                    data-bs-toggle="modal" data-bs-target="#modal-ver">
+                                                    <i class="fa-solid fa-eye"></i>
+                                                </span>
+                                            </div>
+                                        </td>
 
-                                        </tr>
-                                        <tr>
-                                            <td><img src="../../resources/cuchara.png" alt=""></td>
-                                            <td data-title="PRODUCTO" class="nombre">Cucharón de madera</td>
-                                            <td data-title="DESCRIPCION" class="descripcion">Lorem ipsum dolor, sit amet
-                                                consectetur adipisicing elit. Accusantium delectus amet in magni eos
-                                                voluptatibus quam voluptatem enim. Nisi explicabo natus facilis
-                                                recusandae, sapiente molestias libero incidunt tenetur iste voluptatem!
-                                            </td>
-                                            <td data-title="PRECIO">$29.74</td>
-                                            <td data-title="ESTADO">Disponible</td>
-                                            <td class="botones-table">
-                                                <div class="acciones d-flex mx-auto">
-                                                    <span href="" class="accion-btn" type="button"
-                                                    data-bs-toggle="modal" data-bs-target="#modal-actualizar">
-                                                        <i class="fa-solid fa-pen-to-square"></i>
-                                                    </span>
-                                                    <span href="" class="accion-btn" type="button"
-                                                    data-bs-toggle="modal" data-bs-target="#modal-eliminar">
-                                                        <i class="fa-solid fa-trash-can fa-lg"></i>
-                                                    </span>
-                                                    <span href="" class="accion-btn" type="button"
-                                                        data-bs-toggle="modal" data-bs-target="#modal-ver">
-                                                        <i class="fa-solid fa-eye"></i>
-                                                    </span>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td><img src="../../resources/Olla.png" alt=""></td>
-                                            <td data-title="PRODUCTO">Cacerola Steel Co Healthy</td>
-                                            <td data-title="DESCRIPCION" class="descripcion">Lorem ipsum dolor sit amet
-                                                consectetur
-                                                adipisicing elit. Voluptatem voluptatum praesentium a temporibus ut
-                                                dolorum optio magni nesciunt vitae aliquam! Soluta voluptatibus
-                                                repellendus sint accusamus rerum quas voluptatum ea laudantium.</td>
-                                            <td data-title="PRECIO">$29.74</td>
-                                            <td data-title="ESTADO">Disponible</td>
-                                            <td class="botones-table">
-                                                <div class="acciones d-flex mx-auto">
-                                                    <span href="" class="accion-btn" type="button"
-                                                    data-bs-toggle="modal" data-bs-target="#modal-actualizar">
-                                                        <i class="fa-solid fa-pen-to-square"></i>
-                                                    </span>
-                                                    <span href="" class="accion-btn" type="button"
-                                                    data-bs-toggle="modal" data-bs-target="#modal-eliminar">
-                                                        <i class="fa-solid fa-trash-can fa-lg"></i>
-                                                    </span>
-                                                    <span href="" class="accion-btn" type="button"
-                                                        data-bs-toggle="modal" data-bs-target="#modal-ver">
-                                                        <i class="fa-solid fa-eye"></i>
-                                                    </span>
-                                                </div>
-                                            </td>
+                                    </tr>
+                                    <tr>
+                                        <td><img src="../../resources/cuchara.png" alt=""></td>
+                                        <td data-title="PRODUCTO" class="nombre">Cucharón de madera</td>
+                                        <td data-title="DESCRIPCION" class="descripcion">Lorem ipsum dolor, sit amet
+                                            consectetur adipisicing elit. Accusantium delectus amet in magni eos
+                                            voluptatibus quam voluptatem enim. Nisi explicabo natus facilis
+                                            recusandae, sapiente molestias libero incidunt tenetur iste voluptatem!
+                                        </td>
+                                        <td data-title="PRECIO">$29.74</td>
+                                        <td data-title="ESTADO">Disponible</td>
+                                        <td class="botones-table">
+                                            <div class="acciones d-flex mx-auto">
+                                                <span href="" class="accion-btn" type="button"
+                                                data-bs-toggle="modal" data-bs-target="#modal-actualizar">
+                                                    <i class="fa-solid fa-pen-to-square"></i>
+                                                </span>
+                                                <span href="" class="accion-btn" type="button"
+                                                data-bs-toggle="modal" data-bs-target="#modal-eliminar">
+                                                    <i class="fa-solid fa-trash-can fa-lg"></i>
+                                                </span>
+                                                <span href="" class="accion-btn" type="button"
+                                                    data-bs-toggle="modal" data-bs-target="#modal-ver">
+                                                    <i class="fa-solid fa-eye"></i>
+                                                </span>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><img src="../../resources/Olla.png" alt=""></td>
+                                        <td data-title="PRODUCTO">Cacerola Steel Co Healthy</td>
+                                        <td data-title="DESCRIPCION" class="descripcion">Lorem ipsum dolor sit amet
+                                            consectetur
+                                            adipisicing elit. Voluptatem voluptatum praesentium a temporibus ut
+                                            dolorum optio magni nesciunt vitae aliquam! Soluta voluptatibus
+                                            repellendus sint accusamus rerum quas voluptatum ea laudantium.</td>
+                                        <td data-title="PRECIO">$29.74</td>
+                                        <td data-title="ESTADO">Disponible</td>
+                                        <td class="botones-table">
+                                            <div class="acciones d-flex mx-auto">
+                                                <span href="" class="accion-btn" type="button"
+                                                data-bs-toggle="modal" data-bs-target="#modal-actualizar">
+                                                    <i class="fa-solid fa-pen-to-square"></i>
+                                                </span>
+                                                <span href="" class="accion-btn" type="button"
+                                                data-bs-toggle="modal" data-bs-target="#modal-eliminar">
+                                                    <i class="fa-solid fa-trash-can fa-lg"></i>
+                                                </span>
+                                                <span href="" class="accion-btn" type="button"
+                                                    data-bs-toggle="modal" data-bs-target="#modal-ver">
+                                                    <i class="fa-solid fa-eye"></i>
+                                                </span>
+                                            </div>
+                                        </td>
 
-                                        </tr>
-                                        <tr>
-                                            <td><img src="../../resources/cuchara.png" alt=""></td>
-                                            <td data-title="PRODUCTO" class="nombre">Cucharón de madera</td>
-                                            <td data-title="DESCRIPCION" class="descripcion">Lorem ipsum dolor, sit amet
-                                                consectetur adipisicing elit. Accusantium delectus amet in magni eos
-                                                voluptatibus quam voluptatem enim. Nisi explicabo natus facilis
-                                                recusandae, sapiente molestias libero incidunt tenetur iste voluptatem!
-                                            </td>
-                                            <td data-title="PRECIO">$29.74</td>
-                                            <td data-title="ESTADO">Disponible</td>
-                                            <td class="botones-table">
-                                                <div class="acciones d-flex mx-auto">
-                                                    <span href="" class="accion-btn" type="button"
-                                                    data-bs-toggle="modal" data-bs-target="#modal-actualizar">
-                                                        <i class="fa-solid fa-pen-to-square"></i>
-                                                    </span>
-                                                    <span href="" class="accion-btn" type="button"
-                                                    data-bs-toggle="modal" data-bs-target="#modal-eliminar">
-                                                        <i class="fa-solid fa-trash-can fa-lg"></i>
-                                                    </span>
-                                                    <span href="" class="accion-btn" type="button"
-                                                        data-bs-toggle="modal" data-bs-target="#modal-ver">
-                                                        <i class="fa-solid fa-eye"></i>
-                                                    </span>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td><img src="../../resources/Olla.png" alt=""></td>
-                                            <td data-title="PRODUCTO">Cacerola Steel Co Healthy</td>
-                                            <td data-title="DESCRIPCION" class="descripcion">Lorem ipsum dolor sit amet
-                                                consectetur
-                                                adipisicing elit. Voluptatem voluptatum praesentium a temporibus ut
-                                                dolorum optio magni nesciunt vitae aliquam! Soluta voluptatibus
-                                                repellendus sint accusamus rerum quas voluptatum ea laudantium.</td>
-                                            <td data-title="PRECIO">$29.74</td>
-                                            <td data-title="ESTADO">Disponible</td>
-                                            <td class="botones-table">
-                                                <div class="acciones d-flex mx-auto">
-                                                    <span href="" class="accion-btn" type="button"
-                                                    data-bs-toggle="modal" data-bs-target="#modal-actualizar">
-                                                        <i class="fa-solid fa-pen-to-square"></i>
-                                                    </span>
-                                                    <span href="" class="accion-btn" type="button"
-                                                    data-bs-toggle="modal" data-bs-target="#modal-eliminar">
-                                                        <i class="fa-solid fa-trash-can fa-lg"></i>
-                                                    </span>
-                                                    <span href="" class="accion-btn" type="button"
-                                                        data-bs-toggle="modal" data-bs-target="#modal-ver">
-                                                        <i class="fa-solid fa-eye"></i>
-                                                    </span>
-                                                </div>
-                                            </td>
+                                    </tr>
+                                    <tr>
+                                        <td><img src="../../resources/cuchara.png" alt=""></td>
+                                        <td data-title="PRODUCTO" class="nombre">Cucharón de madera</td>
+                                        <td data-title="DESCRIPCION" class="descripcion">Lorem ipsum dolor, sit amet
+                                            consectetur adipisicing elit. Accusantium delectus amet in magni eos
+                                            voluptatibus quam voluptatem enim. Nisi explicabo natus facilis
+                                            recusandae, sapiente molestias libero incidunt tenetur iste voluptatem!
+                                        </td>
+                                        <td data-title="PRECIO">$29.74</td>
+                                        <td data-title="ESTADO">Disponible</td>
+                                        <td class="botones-table">
+                                            <div class="acciones d-flex mx-auto">
+                                                <span href="" class="accion-btn" type="button"
+                                                data-bs-toggle="modal" data-bs-target="#modal-actualizar">
+                                                    <i class="fa-solid fa-pen-to-square"></i>
+                                                </span>
+                                                <span href="" class="accion-btn" type="button"
+                                                data-bs-toggle="modal" data-bs-target="#modal-eliminar">
+                                                    <i class="fa-solid fa-trash-can fa-lg"></i>
+                                                </span>
+                                                <span href="" class="accion-btn" type="button"
+                                                    data-bs-toggle="modal" data-bs-target="#modal-ver">
+                                                    <i class="fa-solid fa-eye"></i>
+                                                </span>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><img src="../../resources/Olla.png" alt=""></td>
+                                        <td data-title="PRODUCTO">Cacerola Steel Co Healthy</td>
+                                        <td data-title="DESCRIPCION" class="descripcion">Lorem ipsum dolor sit amet
+                                            consectetur
+                                            adipisicing elit. Voluptatem voluptatum praesentium a temporibus ut
+                                            dolorum optio magni nesciunt vitae aliquam! Soluta voluptatibus
+                                            repellendus sint accusamus rerum quas voluptatum ea laudantium.</td>
+                                        <td data-title="PRECIO">$29.74</td>
+                                        <td data-title="ESTADO">Disponible</td>
+                                        <td class="botones-table">
+                                            <div class="acciones d-flex mx-auto">
+                                                <span href="" class="accion-btn" type="button"
+                                                data-bs-toggle="modal" data-bs-target="#modal-actualizar">
+                                                    <i class="fa-solid fa-pen-to-square"></i>
+                                                </span>
+                                                <span href="" class="accion-btn" type="button"
+                                                data-bs-toggle="modal" data-bs-target="#modal-eliminar">
+                                                    <i class="fa-solid fa-trash-can fa-lg"></i>
+                                                </span>
+                                                <span href="" class="accion-btn" type="button"
+                                                    data-bs-toggle="modal" data-bs-target="#modal-ver">
+                                                    <i class="fa-solid fa-eye"></i>
+                                                </span>
+                                            </div>
+                                        </td>
 
-                                        </tr>
-                                        <tr>
-                                            <td><img src="../../resources/cuchara.png" alt=""></td>
-                                            <td data-title="PRODUCTO" class="nombre">Cucharón de madera</td>
-                                            <td data-title="DESCRIPCION" class="descripcion">Lorem ipsum dolor, sit amet
-                                                consectetur adipisicing elit. Accusantium delectus amet in magni eos
-                                                voluptatibus quam voluptatem enim. Nisi explicabo natus facilis
-                                                recusandae, sapiente molestias libero incidunt tenetur iste voluptatem!
-                                            </td>
-                                            <td data-title="PRECIO">$29.74</td>
-                                            <td data-title="ESTADO">Disponible</td>
-                                            <td class="botones-table">
-                                                <div class="acciones d-flex mx-auto">
-                                                    <span href="" class="accion-btn" type="button"
-                                                    data-bs-toggle="modal" data-bs-target="#modal-actualizar">
-                                                        <i class="fa-solid fa-pen-to-square"></i>
-                                                    </span>
-                                                    <span href="" class="accion-btn" type="button"
-                                                    data-bs-toggle="modal" data-bs-target="#modal-eliminar">
-                                                        <i class="fa-solid fa-trash-can fa-lg"></i>
-                                                    </span>
-                                                    <span href="" class="accion-btn" type="button"
-                                                        data-bs-toggle="modal" data-bs-target="#modal-ver">
-                                                        <i class="fa-solid fa-eye"></i>
-                                                    </span>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
+                                    </tr>
+                                    <tr>
+                                        <td><img src="../../resources/cuchara.png" alt=""></td>
+                                        <td data-title="PRODUCTO" class="nombre">Cucharón de madera</td>
+                                        <td data-title="DESCRIPCION" class="descripcion">Lorem ipsum dolor, sit amet
+                                            consectetur adipisicing elit. Accusantium delectus amet in magni eos
+                                            voluptatibus quam voluptatem enim. Nisi explicabo natus facilis
+                                            recusandae, sapiente molestias libero incidunt tenetur iste voluptatem!
+                                        </td>
+                                        <td data-title="PRECIO">$29.74</td>
+                                        <td data-title="ESTADO">Disponible</td>
+                                        <td class="botones-table">
+                                            <div class="acciones d-flex mx-auto">
+                                                <span href="" class="accion-btn" type="button"
+                                                data-bs-toggle="modal" data-bs-target="#modal-actualizar">
+                                                    <i class="fa-solid fa-pen-to-square"></i>
+                                                </span>
+                                                <span href="" class="accion-btn" type="button"
+                                                data-bs-toggle="modal" data-bs-target="#modal-eliminar">
+                                                    <i class="fa-solid fa-trash-can fa-lg"></i>
+                                                </span>
+                                                <span href="" class="accion-btn" type="button"
+                                                    data-bs-toggle="modal" data-bs-target="#modal-ver">
+                                                    <i class="fa-solid fa-eye"></i>
+                                                </span>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
-
-                        <div class="row">
+                        <div class="row footer-table">
                             <nav aria-label="page-navigation">
                                 <ul class="pagination justify-content-center">
                                     <li class="page-item">
@@ -321,105 +339,106 @@
                         </div>
                     </div>
                 </div>
-
             </main>
         </div>
+    </div>
 
-        <!-- INICIO MODAL VISUALIZAR-->
-        <div class="modal modal-ver fade" id="modal-ver" tabindex="-1" aria-labelledby="exampleModalLabel"
-            aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered modal-xl">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <div class="container">
-                            <div class="row info-detalle-content">
-                                <div class="col col-5 img-detalle-producto mx-auto">
-                                    <div class="main-img">
-                                        <img src="../../resources/detalleProducto/detalle1.jpg" alt=""
-                                            class="img-fluid d-block mx-auto img0" id="main-img">
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-3 secondary-img sec-img1">
+                <!-- INICIO MODAL VISUALIZAR-->
+                <div class="modal modal-ver fade" id="modal-ver" tabindex="-1" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered modal-xl">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="container">
+                                <div class="row info-detalle-content">
+                                    <div class="col col-5 img-detalle-producto mx-auto">
+                                        <div class="main-img">
                                             <img src="../../resources/detalleProducto/detalle1.jpg" alt=""
-                                                class="img-fluid mx-auto" id="img1" onmouseover="hoverImagen(src)">
+                                                class="img-fluid d-block mx-auto img0" id="main-img">
                                         </div>
-                                        <div class="col-3 secondary-img sec-img2">
-                                            <img src="../../resources/detalleProducto/detalle2.jpg" alt=""
-                                                class="img-fluid mx-auto" id="img2" onmouseover="hoverImagen(src)">
-                                        </div>
-                                        <div class="col-3 secondary-img sec-img3">
-                                            <img src="../../resources/detalleProducto/detalle3.jpg" alt=""
-                                                class="img-fluid mx-auto" id="img3" onmouseover="hoverImagen(src)">
-                                        </div>
-                                        <div class="col-3 secondary-img sec-img4">
-                                            <img src="../../resources/detalleProducto/detalle4.jpg" alt=""
-                                                class="img-fluid mx-auto" id="img4" onmouseover="hoverImagen(src)">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col col-6 info-detalle-producto mx-auto">
-                                    <div class="row">
-                                        <span class="detalle-producto-name">
-                                            <h3>Plancha eléctrica Crepe Maker Cooktop</h3>
-                                        </span>
-                                    </div>
-                                    <div class="rating-detalle">
-                                        <span>
-                                            <i class="fa fa-star"></i>
-                                        </span>
-                                        <span>
-                                            <i class="fa fa-star"></i>
-                                        </span>
-                                        <span>
-                                            <i class="fa fa-star"></i>
-                                        </span>
-                                        <span>
-                                            <i class="fa fa-star"></i>
-                                        </span>
-                                        <span>
-                                            <i class="fa fa-star"></i>
-                                        </span>
-                                    </div>
-                                    <hr>
-                                    <div class="precio-disponibilidad d-block">
-                                        <div class="precios">
-                                            <span class="precio">$29.99</span>
-                                            <span class="precio-before">$52.99</span>
-                                        </div>
-                                        <div class="disponibilidad-group">
-                                            <span class="disponibilidad ">Disponibilidad:</span> <span class="stock">En
-                                                Stock</span>
+                                        <div class="row">
+                                            <div class="col-3 secondary-img sec-img1">
+                                                <img src="../../resources/detalleProducto/detalle1.jpg" alt=""
+                                                    class="img-fluid mx-auto" id="img1" onmouseover="hoverImagen(src)">
+                                            </div>
+                                            <div class="col-3 secondary-img sec-img2">
+                                                <img src="../../resources/detalleProducto/detalle2.jpg" alt=""
+                                                    class="img-fluid mx-auto" id="img2" onmouseover="hoverImagen(src)">
+                                            </div>
+                                            <div class="col-3 secondary-img sec-img3">
+                                                <img src="../../resources/detalleProducto/detalle3.jpg" alt=""
+                                                    class="img-fluid mx-auto" id="img3" onmouseover="hoverImagen(src)">
+                                            </div>
+                                            <div class="col-3 secondary-img sec-img4">
+                                                <img src="../../resources/detalleProducto/detalle4.jpg" alt=""
+                                                    class="img-fluid mx-auto" id="img4" onmouseover="hoverImagen(src)">
+                                            </div>
                                         </div>
                                     </div>
-                                    <hr>
-                                    <div class="about-producto">
-                                        <span class="title-about-producto">Sobre este artículo</span>
-                                        <p class="mt-2">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quod
-                                            minima optio
-                                            magni officia
-                                            blanditiis culpa illo vitae? Possimus quod, provident ullam facere
-                                            necessitatibus
-                                            expedita
-                                            quaerat! Cupiditate dolore aut repudiandae asperiores.</p>
-                                    </div>
-                                    <hr>
-
-                                    <div class="row">
-                                        <span class="left-stock">Queda(n) 10 en stock</span>
-                                    </div>
-
-                                    <div class="colores mt-2">
-                                        <i class="fa-solid fa-square color1"></i>
-                                        <i class="fa-solid fa-square color2"></i>
-                                        <i class="fa-solid fa-square color3"></i>
-                                        <i class="fa-solid fa-square color4"></i>
-                                    </div>
-                                    <div class="cat">
-                                        <h5>Categorías</h5>
-                                        <span>Utensilios, cucharas, espátulas</span>
+                                    <div class="col col-6 info-detalle-producto mx-auto">
+                                        <div class="row">
+                                            <span class="detalle-producto-name">
+                                                <h3>Plancha eléctrica Crepe Maker Cooktop</h3>
+                                            </span>
+                                        </div>
+                                        <div class="rating-detalle">
+                                            <span>
+                                                <i class="fa fa-star"></i>
+                                            </span>
+                                            <span>
+                                                <i class="fa fa-star"></i>
+                                            </span>
+                                            <span>
+                                                <i class="fa fa-star"></i>
+                                            </span>
+                                            <span>
+                                                <i class="fa fa-star"></i>
+                                            </span>
+                                            <span>
+                                                <i class="fa fa-star"></i>
+                                            </span>
+                                        </div>
+                                        <hr>
+                                        <div class="precio-disponibilidad d-block">
+                                            <div class="precios">
+                                                <span class="precio">$29.99</span>
+                                                <span class="precio-before">$52.99</span>
+                                            </div>
+                                            <div class="disponibilidad-group">
+                                                <span class="disponibilidad ">Disponibilidad:</span> <span class="stock">En
+                                                    Stock</span>
+                                            </div>
+                                        </div>
+                                        <hr>
+                                        <div class="about-producto">
+                                            <span class="title-about-producto">Sobre este artículo</span>
+                                            <p class="mt-2">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quod
+                                                minima optio
+                                                magni officia
+                                                blanditiis culpa illo vitae? Possimus quod, provident ullam facere
+                                                necessitatibus
+                                                expedita
+                                                quaerat! Cupiditate dolore aut repudiandae asperiores.</p>
+                                        </div>
+                                        <hr>
+    
+                                        <div class="row">
+                                            <span class="left-stock">Queda(n) 10 en stock</span>
+                                        </div>
+    
+                                        <div class="colores mt-2">
+                                            <i class="fa-solid fa-square color1"></i>
+                                            <i class="fa-solid fa-square color2"></i>
+                                            <i class="fa-solid fa-square color3"></i>
+                                            <i class="fa-solid fa-square color4"></i>
+                                        </div>
+                                        <div class="cat">
+                                            <h5>Categorías</h5>
+                                            <span>Utensilios, cucharas, espátulas</span>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -427,26 +446,222 @@
                     </div>
                 </div>
             </div>
-        </div>
-        <!-- FIN MODAL -->
-
-        <!-- INICIO MODALS AGREGAR-->
-        <div class="modal modal-agregar fade" id="modal-agregar" tabindex="-1" aria-labelledby="exampleModalLabel"
+            <!-- FIN MODAL -->
+    
+            <!-- INICIO MODALS AGREGAR-->
+            <div class="modal modal-agregar fade" id="modal-agregar" tabindex="-1" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered modal-xl">
+                    <div class="modal-content">
+                        <div class="modal-header">
+    
+                            <h3 class="mt-2">Agregar producto</h3>
+    
+                            <button type="button" class="btn-close my" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="container">
+                                <div class="row agregar-content">
+                                    <div class="col">
+    
+                                        <div class="row agregar-content-flex">
+                                            <div class="col-4 mb-4">
+                                                <label for="validationDefault01" class="form-label">Nombre</label>
+                                                <input type="text" class="form-control" id="validationDefault01" value=""
+                                                    required>
+                                            </div>
+                                            <div class="col-4 mb-4">
+                                                <label for="validationDefault01" class="form-label">Categoría</label>
+                                                <select class="form-select custom-form-select"
+                                                    aria-label="Default select example">
+                                                    <option selected>Open this select menu</option>
+                                                    <option value="1">One</option>
+                                                    <option value="2">Two</option>
+                                                    <option value="3">Three</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-4 mb-4">
+                                                <label for="validationDefault02" class="form-label">Subcategoría</label>
+                                                <select class="form-select custom-form-select"
+                                                    aria-label="Default select example">
+                                                    <option selected>Open this select menu</option>
+                                                    <option value="1">One</option>
+                                                    <option value="2">Two</option>
+                                                    <option value="3">Three</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-4 mb-4">
+                                                <label for="validationDefault01" class="form-label">Precio</label>
+                                                <input type="text" class="form-control" id="validationDefault01" value=""
+                                                    required>
+                                            </div>
+                                            <div class="col-4 mb-4">
+                                                <label for="validationDefault03" class="form-label">Marca</label>
+                                                <select class="form-select custom-form-select"
+                                                    aria-label="Default select example">
+                                                    <option selected>Open this select menu</option>
+                                                    <option value="1">One</option>
+                                                    <option value="2">Two</option>
+                                                    <option value="3">Three</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-4 mb-4">
+                                                <label for="validationDefault03" class="form-label">Proveedor</label>
+                                                <select class="form-select custom-form-select"
+                                                    aria-label="Default select example">
+                                                    <option selected>Open this select menu</option>
+                                                    <option value="1">One</option>
+                                                    <option value="2">Two</option>
+                                                    <option value="3">Three</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-4 mb-4">
+                                                <label for="validationDefault01" class="form-label ">Tags</label>
+                                                <fieldset>
+                                                    <input placeholder="" class="tagify">
+                                                </fieldset>
+                                            </div>
+                                            <div class="col-4 mb-4">
+                                                <label for="validationDefault01" class="form-label">Cantidad en
+                                                    stock</label>
+                                                <input type="text" class="form-control" id="validationDefault01" value=""
+                                                    required>
+                                            </div>
+                                            <div class="col-4 mb-4">
+                                                <label for="validationDefault03" class="form-label">Estado</label>
+                                                <select class="form-select custom-form-select"
+                                                    aria-label="Default select example">
+                                                    <option selected>Open this select menu</option>
+                                                    <option value="1">One</option>
+                                                    <option value="2">Two</option>
+                                                    <option value="3">Three</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col color-producto">
+                                                <label for="">Color del producto</label>
+                                                <div class="colores mt-1 mx-1">
+                                                    <i class="fa-solid fa-square color1"></i>
+                                                    <i class="fa-solid fa-square color2"></i>
+                                                    <i class="fa-solid fa-square color3"></i>
+                                                    <i class="fa-solid fa-square color4"></i>
+                                                    <i class="fa-solid fa-square color5"></i>
+                                                    <i class="fa-solid fa-square color6"></i>
+                                                    <i class="fa-solid fa-square color7"></i>
+                                                    <i class="fa-solid fa-square color8"></i>
+                                                    <i class="fa-solid fa-square color9"></i>
+                                                    <i class="fa-solid fa-square color10"></i>
+                                                </div>
+                                            </div>
+    
+                                        </div>
+                                    </div>
+    
+    
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer d-flex justify-content-end">
+                            <button class="btn btn-siguiente" type="button" data-bs-target="#modal-agregar2"
+                                data-bs-toggle="modal" data-bs-dismiss="modal">Siguiente</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal modal-agregar2 fade" id="modal-agregar2" aria-hidden="true"
+                aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
+                <div class="modal-dialog modal-dialog-centered modal-xl">
+                    <div class="modal-content">
+                        <div class="modal-header">
+    
+                            <h3 class="mt-2">Agregar producto</h3>
+    
+                            <button type="button" class="btn-close my" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="container my-5">
+                                <div class="row agregar-content">
+                                    <div class="col">
+                                        <div class="row">
+                                            <div class="col">
+                                                <label for="exampleFormControlTextarea1"
+                                                    class="form-label">Descripción</label>
+                                                <textarea class="form-control" id="exampleFormControlTextarea1"
+                                                    rows="6"></textarea>
+                                            </div>
+                                        </div>
+    
+                                    </div>
+    
+    
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer d-flex justify-content-between">
+                            <button class="btn btn-regresar" type="button" data-bs-target="#modal-agregar"
+                                data-bs-toggle="modal" data-bs-dismiss="modal">Regresar</button>
+                            <button class="btn btn-siguiente" type="button" data-bs-target="#modal-agregar3"
+                                data-bs-toggle="modal" data-bs-dismiss="modal">Siguiente</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="modal modal-agregar3 fade" id="modal-agregar3" aria-hidden="true"
+                aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
+                <div class="modal-dialog modal-dialog-centered modal-xl">
+                    <div class="modal-content">
+                        <div class="modal-header">
+    
+                            <h3 class="mt-2">Agregar producto</h3>
+    
+                            <button type="button" class="btn-close my" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="container my-5">
+                                <div class="row agregar-content">
+                                    <div class="col">
+                                        <div class="row">
+                                            <div class="col">
+                                                <form action="/file-upload" class="dropzone" id="agregar-dropzone" >
+                                                </form>
+                                            </div>
+                                        </div>
+    
+                                    </div>
+    
+    
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer d-flex justify-content-between">
+                            <button class="btn btn-regresar" type="button" data-bs-target="#modal-agregar2"
+                                data-bs-toggle="modal" data-bs-dismiss="modal">Regresar</button>
+                            <button class="btn-guardar" type="button">Guardar<i class="fa-solid fa-floppy-disk"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- FIN MODAL -->
+    
+            <!-- INICIO MODALS ACTUALIZAR -->
+            <div class="modal modal-agregar fade" id="modal-actualizar" tabindex="-1" aria-labelledby="exampleModalLabel"
             aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered modal-xl">
                 <div class="modal-content">
                     <div class="modal-header">
-
-                        <h3 class="mt-2">Agregar producto</h3>
-
+    
+                        <h3 class="mt-2">Actualizar producto</h3>
+    
                         <button type="button" class="btn-close my" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
                         <div class="container">
                             <div class="row agregar-content">
                                 <div class="col">
-
-                                    <div class="row agregar-content-flex">
+    
+                                    <div class="row">
                                         <div class="col-4 mb-4">
                                             <label for="validationDefault01" class="form-label">Nombre</label>
                                             <input type="text" class="form-control" id="validationDefault01" value=""
@@ -499,9 +714,9 @@
                                         </div>
                                         <div class="col-4 mb-4">
                                             <label for="validationDefault01" class="form-label ">Tags</label>
-                                            <fieldset>
-                                                <input placeholder="" class="tagify">
-                                            </fieldset>
+                                                <fieldset>
+                                                    <input placeholder="" class="tagify1">
+                                                </fieldset>
                                         </div>
                                         <div class="col-4 mb-4">
                                             <label for="validationDefault01" class="form-label">Cantidad en
@@ -536,29 +751,29 @@
                                                 <i class="fa-solid fa-square color10"></i>
                                             </div>
                                         </div>
-
+    
                                     </div>
                                 </div>
-
-
+    
+    
                             </div>
                         </div>
                     </div>
                     <div class="modal-footer d-flex justify-content-end">
-                        <button class="btn btn-siguiente" type="button" data-bs-target="#modal-agregar2"
+                        <button class="btn btn-siguiente" type="button" data-bs-target="#modal-actualizar2"
                             data-bs-toggle="modal" data-bs-dismiss="modal">Siguiente</button>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="modal modal-agregar2 fade" id="modal-agregar2" aria-hidden="true"
+        <div class="modal modal-agregar2 fade" id="modal-actualizar2" aria-hidden="true"
             aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
             <div class="modal-dialog modal-dialog-centered modal-xl">
                 <div class="modal-content">
                     <div class="modal-header">
-
-                        <h3 class="mt-2">Agregar producto</h3>
-
+    
+                        <h3 class="mt-2">Actualizar producto</h3>
+    
                         <button type="button" class="btn-close my" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
@@ -573,31 +788,31 @@
                                                 rows="6"></textarea>
                                         </div>
                                     </div>
-
+    
                                 </div>
-
-
+    
+    
                             </div>
                         </div>
                     </div>
                     <div class="modal-footer d-flex justify-content-between">
-                        <button class="btn btn-regresar" type="button" data-bs-target="#modal-agregar"
+                        <button class="btn btn-regresar" type="button" data-bs-target="#modal-actualizar"
                             data-bs-toggle="modal" data-bs-dismiss="modal">Regresar</button>
-                        <button class="btn btn-siguiente" type="button" data-bs-target="#modal-agregar3"
+                        <button class="btn btn-siguiente" type="button" data-bs-target="#modal-actualizar3"
                             data-bs-toggle="modal" data-bs-dismiss="modal">Siguiente</button>
                     </div>
                 </div>
             </div>
         </div>
-
-        <div class="modal modal-agregar3 fade" id="modal-agregar3" aria-hidden="true"
+    
+        <div class="modal modal-agregar3 fade" id="modal-actualizar3" aria-hidden="true"
             aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
             <div class="modal-dialog modal-dialog-centered modal-xl">
                 <div class="modal-content">
                     <div class="modal-header">
-
-                        <h3 class="mt-2">Agregar producto</h3>
-
+    
+                        <h3 class="mt-2">Actualizar producto</h3>
+    
                         <button type="button" class="btn-close my" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
@@ -606,277 +821,80 @@
                                 <div class="col">
                                     <div class="row">
                                         <div class="col">
-                                            <form action="/file-upload" class="dropzone" id="agregar-dropzone" >
+                                            <form action="/file-upload" class="dropzone" id="my-awesome-dropzone" >
                                             </form>
                                         </div>
                                     </div>
-
+    
                                 </div>
-
-
+    
+    
                             </div>
                         </div>
                     </div>
                     <div class="modal-footer d-flex justify-content-between">
-                        <button class="btn btn-regresar" type="button" data-bs-target="#modal-agregar2"
+                        <button class="btn btn-regresar" type="button" data-bs-target="#modal-actualizar2"
                             data-bs-toggle="modal" data-bs-dismiss="modal">Regresar</button>
                         <button class="btn-guardar" type="button">Guardar<i class="fa-solid fa-floppy-disk"></i></button>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- FIN MODAL -->
-
-        <!-- INICIO MODALS ACTUALIZAR -->
-        <div class="modal modal-agregar fade" id="modal-actualizar" tabindex="-1" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered modal-xl">
-            <div class="modal-content">
-                <div class="modal-header">
-
-                    <h3 class="mt-2">Actualizar producto</h3>
-
-                    <button type="button" class="btn-close my" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="container">
-                        <div class="row agregar-content">
-                            <div class="col">
-
-                                <div class="row">
-                                    <div class="col-4 mb-4">
-                                        <label for="validationDefault01" class="form-label">Nombre</label>
-                                        <input type="text" class="form-control" id="validationDefault01" value=""
-                                            required>
-                                    </div>
-                                    <div class="col-4 mb-4">
-                                        <label for="validationDefault01" class="form-label">Categoría</label>
-                                        <select class="form-select custom-form-select"
-                                            aria-label="Default select example">
-                                            <option selected>Open this select menu</option>
-                                            <option value="1">One</option>
-                                            <option value="2">Two</option>
-                                            <option value="3">Three</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-4 mb-4">
-                                        <label for="validationDefault02" class="form-label">Subcategoría</label>
-                                        <select class="form-select custom-form-select"
-                                            aria-label="Default select example">
-                                            <option selected>Open this select menu</option>
-                                            <option value="1">One</option>
-                                            <option value="2">Two</option>
-                                            <option value="3">Three</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-4 mb-4">
-                                        <label for="validationDefault01" class="form-label">Precio</label>
-                                        <input type="text" class="form-control" id="validationDefault01" value=""
-                                            required>
-                                    </div>
-                                    <div class="col-4 mb-4">
-                                        <label for="validationDefault03" class="form-label">Marca</label>
-                                        <select class="form-select custom-form-select"
-                                            aria-label="Default select example">
-                                            <option selected>Open this select menu</option>
-                                            <option value="1">One</option>
-                                            <option value="2">Two</option>
-                                            <option value="3">Three</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-4 mb-4">
-                                        <label for="validationDefault03" class="form-label">Proveedor</label>
-                                        <select class="form-select custom-form-select"
-                                            aria-label="Default select example">
-                                            <option selected>Open this select menu</option>
-                                            <option value="1">One</option>
-                                            <option value="2">Two</option>
-                                            <option value="3">Three</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-4 mb-4">
-                                        <label for="validationDefault01" class="form-label ">Tags</label>
-                                            <fieldset>
-                                                <input placeholder="" class="tagify1">
-                                            </fieldset>
-                                    </div>
-                                    <div class="col-4 mb-4">
-                                        <label for="validationDefault01" class="form-label">Cantidad en
-                                            stock</label>
-                                        <input type="text" class="form-control" id="validationDefault01" value=""
-                                            required>
-                                    </div>
-                                    <div class="col-4 mb-4">
-                                        <label for="validationDefault03" class="form-label">Estado</label>
-                                        <select class="form-select custom-form-select"
-                                            aria-label="Default select example">
-                                            <option selected>Open this select menu</option>
-                                            <option value="1">One</option>
-                                            <option value="2">Two</option>
-                                            <option value="3">Three</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col color-producto">
-                                        <label for="">Color del producto</label>
-                                        <div class="colores mt-1 mx-1">
-                                            <i class="fa-solid fa-square color1"></i>
-                                            <i class="fa-solid fa-square color2"></i>
-                                            <i class="fa-solid fa-square color3"></i>
-                                            <i class="fa-solid fa-square color4"></i>
-                                            <i class="fa-solid fa-square color5"></i>
-                                            <i class="fa-solid fa-square color6"></i>
-                                            <i class="fa-solid fa-square color7"></i>
-                                            <i class="fa-solid fa-square color8"></i>
-                                            <i class="fa-solid fa-square color9"></i>
-                                            <i class="fa-solid fa-square color10"></i>
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </div>
-
-
+            <!-- FIN MODALS ACTUALIZAR -->
+    
+            <!-- INICIO MODAL DELETE -->
+            <div class="modal modal-eliminar fade" id="modal-eliminar" aria-hidden="true"
+                aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
+                <div class="modal-dialog modal-dialog-centered modal-xl">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
-                    </div>
-                </div>
-                <div class="modal-footer d-flex justify-content-end">
-                    <button class="btn btn-siguiente" type="button" data-bs-target="#modal-actualizar2"
-                        data-bs-toggle="modal" data-bs-dismiss="modal">Siguiente</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="modal modal-agregar2 fade" id="modal-actualizar2" aria-hidden="true"
-        aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
-        <div class="modal-dialog modal-dialog-centered modal-xl">
-            <div class="modal-content">
-                <div class="modal-header">
-
-                    <h3 class="mt-2">Actualizar producto</h3>
-
-                    <button type="button" class="btn-close my" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="container my-5">
-                        <div class="row agregar-content">
-                            <div class="col">
+                        <div class="modal-body">
+                            <div class="container my-5">
                                 <div class="row">
-                                    <div class="col">
-                                        <label for="exampleFormControlTextarea1"
-                                            class="form-label">Descripción</label>
-                                        <textarea class="form-control" id="exampleFormControlTextarea1"
-                                            rows="6"></textarea>
+                                    <div class="col eliminar-content">
+                                        <i class="fa-solid fa-circle-exclamation mb-4"></i>
+                                        <h2>¿Estás seguro?</h2>
+                                        <span>El elemento se borrará de manera permanente</span>
                                     </div>
-                                </div>
-
-                            </div>
-
-
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-footer d-flex justify-content-between">
-                    <button class="btn btn-regresar" type="button" data-bs-target="#modal-actualizar"
-                        data-bs-toggle="modal" data-bs-dismiss="modal">Regresar</button>
-                    <button class="btn btn-siguiente" type="button" data-bs-target="#modal-actualizar3"
-                        data-bs-toggle="modal" data-bs-dismiss="modal">Siguiente</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="modal modal-agregar3 fade" id="modal-actualizar3" aria-hidden="true"
-        aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
-        <div class="modal-dialog modal-dialog-centered modal-xl">
-            <div class="modal-content">
-                <div class="modal-header">
-
-                    <h3 class="mt-2">Actualizar producto</h3>
-
-                    <button type="button" class="btn-close my" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="container my-5">
-                        <div class="row agregar-content">
-                            <div class="col">
-                                <div class="row">
-                                    <div class="col">
-                                        <form action="/file-upload" class="dropzone" id="my-awesome-dropzone" >
-                                        </form>
-                                    </div>
-                                </div>
-
-                            </div>
-
-
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-footer d-flex justify-content-between">
-                    <button class="btn btn-regresar" type="button" data-bs-target="#modal-actualizar2"
-                        data-bs-toggle="modal" data-bs-dismiss="modal">Regresar</button>
-                    <button class="btn-guardar" type="button">Guardar<i class="fa-solid fa-floppy-disk"></i></button>
-                </div>
-            </div>
-        </div>
-    </div>
-        <!-- FIN MODALS ACTUALIZAR -->
-
-        <!-- INICIO MODAL DELETE -->
-        <div class="modal modal-eliminar fade" id="modal-eliminar" aria-hidden="true"
-            aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
-            <div class="modal-dialog modal-dialog-centered modal-xl">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <div class="container my-5">
-                            <div class="row">
-                                <div class="col eliminar-content">
-                                    <i class="fa-solid fa-circle-exclamation mb-4"></i>
-                                    <h2>¿Estás seguro?</h2>
-                                    <span>El elemento se borrará de manera permanente</span>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="modal-footer d-flex mx-2 justify-content-between">
-                        <button class="btn btn-cancel" type="button" data-bs-target=""
-                            data-bs-toggle="modal" data-bs-dismiss="modal">Cancelar</button>
-                        <button class="btn btn-siguiente" type="button" data-bs-target=""
-                            data-bs-toggle="modal" data-bs-dismiss="modal">Continuar</button>
+                        <div class="modal-footer d-flex mx-2 justify-content-between">
+                            <button class="btn btn-cancel" type="button" data-bs-target=""
+                                data-bs-toggle="modal" data-bs-dismiss="modal">Cancelar</button>
+                            <button class="btn btn-siguiente" type="button" data-bs-target=""
+                                data-bs-toggle="modal" data-bs-dismiss="modal">Continuar</button>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <!-- FIN MODAL DELETE -->   
-    </div>
-
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="../../assets/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
-        integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
-        integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
-        crossorigin="anonymous"></script>
-
-    <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js"
-        integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"
-        integrity="sha384-zNy6FEbO50N+Cg5wap8IKA4M/ZnLJgzc6w2NqACZaK0u0FXfOWRRJOnQtpZun8ha"
-        crossorigin="anonymous"></script>
-
-        <!-- TAGIFY RESOURCE -->
-        <script src="https://unpkg.com/@yaireo/tagify"></script>
-        <script src="https://unpkg.com/@yaireo/tagify/dist/tagify.polyfills.min.js"></script>
-        <link href="https://unpkg.com/@yaireo/tagify/dist/tagify.css" rel="stylesheet" type="text/css" />
-        <script src="../js/productos.js"></script>
+            <!-- FIN MODAL DELETE -->  
+    
+            <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+            <script src="../../assets/dist/js/bootstrap.bundle.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+                integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+                crossorigin="anonymous"></script>
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+                integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+                crossorigin="anonymous"></script>
         
+            <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js"
+                integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE"
+                crossorigin="anonymous"></script>
+            <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"
+                integrity="sha384-zNy6FEbO50N+Cg5wap8IKA4M/ZnLJgzc6w2NqACZaK0u0FXfOWRRJOnQtpZun8ha"
+                crossorigin="anonymous"></script>
+        
+                <!-- TAGIFY RESOURCE -->
+                <script src="https://unpkg.com/@yaireo/tagify"></script>
+                <script src="https://unpkg.com/@yaireo/tagify/dist/tagify.polyfills.min.js"></script>
+                <link href="https://unpkg.com/@yaireo/tagify/dist/tagify.css" rel="stylesheet" type="text/css" />
+                <script src="../js/productos.js"></script>
+                <script src="../js/dashboard.js"></script>
+
 </body>
 
 </html>

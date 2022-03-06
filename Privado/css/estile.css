@@ -100,6 +100,7 @@ width: 75% !important;
 
 .Fondo-Main{
     background-color: #F2F5FA;
+    height: 100%;
 }
 
 .Color-gra{
@@ -152,6 +153,14 @@ width: 75% !important;
   padding-right: 0px !important;
   height: 350px;
   align-items: center;
+}
+main{
+  position: fixed;
+  top: 70px;
+  bottom: 0;
+  left: 15%;
+  right: 0;
+  z-index: 100; 
 }
 
 .grafi2{
@@ -317,7 +326,9 @@ body {
   /*-------------------------------------------INICIO PRODUCTOS-------------------------------------------*/
   .container-tabla{
     background-color: var(--blanco);
-    max-height: 700px;
+    top: 0;
+    max-height: 85%;
+    border-radius: 20px;
   }
   main .scroll { 
     overflow-y: scroll;
