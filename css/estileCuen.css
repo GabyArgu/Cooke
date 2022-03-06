@@ -81,7 +81,27 @@ b{
     width: 150px !important;
 }    
 
+.Spa-in{
+    display: flex;
+    flex-direction: row !important;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
 
+.I-guar{
+    color: white;
+    font-family: 'Mohave', sans-serif;
+}
+
+.I-guar:hover{
+    color: white;
+    font-family: 'Mohave', sans-serif;
+}
+
+.usu-img input{
+    visibility: hidden;
+    height: 0px;
+}
 
 
 @media (min-width: 476px) and (max-width: 767.98px) {
