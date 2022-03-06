@@ -62,19 +62,32 @@ body {
 /* NAVBAR */
 
 #navbar-home {
-    height: 85px;
-    transition: all 0.4s ease-in-out;
+    transition: 0.3s;
+    padding: 15px;
 }
-
 #navbar-page {
-    height: 85px;
-    transition: all 0.4s ease-in-out;
     background-color: var(--rosadoPalido);
+    transition: 0.3s;
+    padding: 15px;
 }
 
-.navbar-scroll {
-    background-color: var(--rosadoPalido);
-    height: 85px;
+.shrink {
+    background-color: var(--rosadoPalido) !important;
+}
+
+.toggler-icon {
+    width: 30px;
+    height: 3px;
+    background-color: var(--rosadoTitulos);
+    display: block;
+    transition: all 0.2s;
+}
+
+.dropdown-categorias {
+    border: 0;
+    border-radius: 15px;
+} .dropdown-categorias li a:hover{
+    color: var(--rosadoTitulos) !important;
 }
 
 #logo_inicio{
@@ -83,8 +96,9 @@ body {
     padding-left: 25px;
 }
 
-.nav-carrito {
-    cursor: pointer;
+.iconos-navbar {
+    display: flex;
+    flex-direction: row;
 }
 
 .img-hover{
@@ -145,6 +159,11 @@ body {
 .textcolor2 a:hover{ 
     background-color: var(--blanco);
 } 
+
+.nav-carrito {
+    cursor: pointer;
+}
+
 
 /* SIDEBAR CARRITO */
 
@@ -223,6 +242,10 @@ body {
     border-radius: 50px;
     transition: all 0.3s ease;
   }
+
+  #cd-cart .checkout-btn .fa-solid {
+      color: var(--blanco);
+  }
  
   #cd-cart .checkout-btn:hover {
     background: var(--rosadoOscuro);
@@ -264,14 +287,14 @@ body {
       align-items: flex-end;
   }
 
-  .quantity-badge{
+  #cd-cart .quantity-badge{
     position: absolute;
     background:var(--rosadoOscuro);
     text-align: center;
     border-radius: 50px;
-    color:white;
+    color:white ;
     padding:5px 10px;
-    font-size: 16px;
+    font-size: 16px; 
   }
 
 /* CARRUSEL */
@@ -1746,8 +1769,6 @@ body {
     margin-top: 70px;
     margin-left: 500px;
     margin-bottom: 70px;
-    
-
 }
 
 
@@ -1759,7 +1780,7 @@ body {
     
 }
 
-.tr,th{
+.table1 th{
     background-color: #75365a;
     color: #fff;
     text-align: center;
@@ -1767,7 +1788,7 @@ body {
 }
 
 
-.td,tr,td{
+.table1 .td tr{
     border: 1px solid #d97789;;
     padding-top: 20px;
     padding-left: 20px;
@@ -1776,7 +1797,6 @@ body {
     font-family: 'Mohave', sans-serif ;
     color: #75365a;
     margin-top: 100px;
-    
 }
 
 
@@ -2653,6 +2673,7 @@ body {
     background-color: var(--rosadoFondos);
     align-items: center;
     text-align: center;
+    min-height: 700px;
 }
 
 .Recu-img img{
@@ -2941,6 +2962,19 @@ body {
 
     #no-more-tables .input-group {
         margin: auto;
+    }
+    .textcolor,
+    .textcolor2 {
+        padding: 0px;
+        text-align: center;
+    } 
+    .navbar-collapse {
+        margin-top: 20px !important;
+    }
+    .iconos-navbar {
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 }
 
