@@ -967,21 +967,7 @@ width: 20%;
     height: 125px;
     width: 125px;
   }
-  .modal-agregar-empleado2 .btn-guardar{
-    display: flex;
-    justify-content:space-evenly;
-    align-items: center;
-    color: var(--marfil);
-    background-color: var(--rosadoTitulos);
-    width: 120px;
-    height: 40px;
-    border-radius: 15px ;
-    font-size: 18px;
-    font-weight: 500;
-    border: none;
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-    transition: all 0.3s ease;
-  }
+
   /*ADMINISTRAR EMPLEADOS FIN*/
 
 /*MODAL VISUALIZAR*/
@@ -1205,21 +1191,7 @@ width: 20%;
     padding: 2px;
     cursor: pointer;
   }
-  .modal-agregar3 .btn-guardar{
-    display: flex;
-    justify-content:space-evenly;
-    align-items: center;
-    color: var(--marfil);
-    background-color: var(--rosadoTitulos);
-    width: 120px;
-    height: 40px;
-    border-radius: 15px ;
-    font-size: 18px;
-    font-weight: 500;
-    border: none;
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-    transition: all 0.3s ease;
-  }
+
   /*MODAL AGREGAR FIN*/
   
   /*MODAL ELIMINAR INICIO*/
@@ -1320,21 +1292,6 @@ width: 20%;
   justify-content: center;
 }
 
-.modal-agregar-categoria .btn-guardar {
-  display: flex;
-  justify-content:space-evenly;
-  align-items: center;
-  color: var(--marfil);
-  background-color: var(--rosadoTitulos);
-  width: 120px;
-  height: 40px;
-  border-radius: 15px ;
-  font-size: 18px;
-  font-weight: 500;
-  border: none;
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-  transition: all 0.3s ease;
-}
 
 /* --------------------------------------------------------------FIN CATEGORÍAS Y SUBCATEGORÍAS-----------------------------------------------------------*/
 
@@ -1508,7 +1465,58 @@ width: 20%;
 
 /* ----------------------------------------------------------------FIN CUENTA-------------------------------------------------------------*/
 
+/* ----------------------------------------------------------------INICIO MARCA PROVEEDOR-------------------------------------------------------------*/
+.modal .btn-guardar{
+  display: flex;
+  justify-content:space-evenly;
+  align-items: center;
+  color: var(--marfil);
+  background-color: var(--rosadoTitulos);
+  width: 120px;
+  height: 40px;
+  border-radius: 15px ;
+  font-size: 18px;
+  font-weight: 500;
+  border: none;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  transition: all 0.3s ease;
+}
+.target-mp{
+  width: 49%;
+}
+.table-marcas .accion-btn{
+  height: 50px;
+  width: 90px;
+  margin: 0 5px;
+}
+.table-proveedores .accion-btn{
+  height: 50px;
+  width: 85px;
+  margin: 0 2px;
+}
+.modal-agregar-marca .modal-dialog{
+  width: 500px;
+}
 
+/* ----------------------------------------------------------------FIN MARCA PROVEEDOR-------------------------------------------------------------*/
+.drop-zone input{
+  visibility: hidden;
+}
+.drop-zone img{
+  width: 150px;
+  height: 150px;
+}
+.drop-zone{
+  display: flex;
+}
+@media (max-width: 1100px) {
+  .target-mp{
+    width: 100%;
+  }
+
+  
+
+}
 /* --------------------------------------------------------------RESPONSIVE------------------------------------------------------------*/
 
 @media (min-width: 476px) and (max-width: 991.98px) {
