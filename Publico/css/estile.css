@@ -1867,21 +1867,21 @@ body {
     color:#D384AE;
 }
 
-.owl-prev{
+.nosotros .owl-prev{
     left: 15px;
 }
-.owl-next{
+.nosotros .owl-next{
     right: -10px;
 }
-.owl-prev, .owl-next{
+.nosotros .owl-prev, .owl-next{
     position:absolute;
     top: 30%;
 }
-.owl-prev span, .owl-next span{
+.nosotros .owl-prev span, .owl-next span{
     font-size: 60px;
     color: pink;
 }
-.owl-theme .owl-nav [class*="owl-"]:hover{
+.nosotros .owl-theme .owl-nav [class*="owl-"]:hover{
     background-color: transparent;
 }
 
