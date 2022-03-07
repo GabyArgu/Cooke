@@ -30,6 +30,71 @@ body {
     --marfil: #f5f5f5;
 }
 
+/* CUSTOM SCROLL BAR */
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+  background: transparent;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--rosadoTitulos);
+  border-radius: 5px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: var(--rosadoOscuro);
+}
+
+::-webkit-scrollbar-corner {
+    border-radius: 5px;
+}
+
+#Lu-Logo{
+  width: 30px;
+}
+
+.Lupa{
+  margin-left: 20px !important;
+}
+
+.Usua-Ico{
+  width: 90px;
+  margin-top: 50px;
+  margin-bottom: 5px;
+}
+
+.Nombre-Usu{
+  font-size: 18px;
+  font-family: 'Mohave', sans-serif;
+  color: var(--rosadoOscuro);
+  padding-top: 5px;
+  margin: 0px;
+}
+
+.Adm{
+  font-size: 15px;
+  font-family: 'Mohave', sans-serif;
+  color: var(--rosadoTitulos);
+  padding-bottom: 20px;
+}
+
+.Bien{
+  font-size: 26px;
+  font-family: 'Mohave', sans-serif;
+  color: var(--rosadoOscuro);
+  font-weight: 300;
+}
+
+.N-Usuar{
+  font-size: 26px;
+  font-family: 'Mohave', sans-serif;
+  color: var(--rosadoOscuro);
+  font-weight: 600;
+}
 
 .MenuF{
     background-color: var(--rosadoFondos) ;
@@ -52,19 +117,6 @@ body {
     width: 38px;
 }
 
-#Lu-Logo{
-    width: 30px;
-}
-
-.Lupa{
-    margin-left: 80px;
-    margin-right: 5px;
-}
-
-.Lun{
-  padding: 8px;
-  padding-top: 0px !important;
-}
 
 .Buscador-Imp{
     font-size: 18px;
@@ -74,6 +126,92 @@ body {
     margin-right: 30px;
     
 }
+
+.Botones-Sider {
+  font-size: 22px;
+  font-family: 'Mohave', sans-serif;
+  color: var(--rosadoTitulos);
+
+  list-style-type: none;
+}
+
+.grafi{
+  background-color: #fff;
+  background-clip: border-box;
+  border-radius: 1rem;
+  padding-right: 0px !important;
+  height: 350px;
+  width: 90%;
+  }
+  
+  .grafi3{
+  background-color: #fff;
+  background-clip: border-box;
+  border-radius: 1rem;
+  padding-right: 0px !important;
+  height: 350px;
+  align-items: center;
+  }
+  
+  .grafi2{
+  background-color: #fff;
+  background-clip: border-box;
+  border-radius: 1rem;
+  padding-top: 10px;
+  align-items: center;
+  }
+
+  .card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 280px;
+    height: 150px;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 0 solid rgba(0, 0, 0, 0.125);
+    border-radius: 1rem;
+  }
+  
+  .card-body {
+    flex: 1 1 auto;
+    padding: 1rem 1rem;
+  }
+  
+  .Title-Cart{
+  font-size: 22px;
+    font-family: 'Mohave', sans-serif;
+    color: #D889B2;
+    font-weight: 600;
+    margin-bottom: 6px;
+  }
+  
+  .Monto{
+  font-size: 22px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--rosadoOscuro);
+    font-weight: 600;
+  }
+  
+  
+  .icon-shape {
+  background-position: center;
+  border-radius: 0.75rem;
+  }
+  
+  .icon-shape img {
+  width: 65px;
+  color: #fff;
+  opacity: 0.8;
+  top: -14px;
+  right: -8px;
+  position: relative;
+  }
+
+
+/* -------------------------------------------------------------FIN DASHBOARD CREO XD-----------------------------------------------------------*/
+
 body{
     opacity: 1!important;
     overflow-x: hidden;
@@ -113,12 +251,6 @@ font-size: 18px;
 .sidebar.toggled{
     margin-left:-250px;
   }
-  
-@media (min-width: 1px) and (max-width: 991.98px){
-    .sidebar{
-        margin-left: -250px;
-    }
-}
 
 .main{
     display: flex;
@@ -128,13 +260,7 @@ font-size: 18px;
     transition: margin-left .3s ease-in-out,left .3s ease-in-out,margin-right .3s ease-in-out,right .3s ease-in-out;
     width: 100%;
 }
-@media (max-width: 767.98px){
-    .main {
-        min-width: 100vw;
-        overflow-y: hidden;
-        width: 100vw;
-    }
-}
+
 .header h1{
     color: var(--rosadoOscuro);
     font-family: 'Mohave', sans-serif;
@@ -145,7 +271,6 @@ main .container-fluid{
     margin-right: auto;
     width: 95%;
 }
-
 
 
 main .container-fluid .contenido{
@@ -167,6 +292,9 @@ main .container-fluid .contenido{
     display: flex;
     margin-bottom: 3rem;
     position: relative;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
 }
 .content{
     overflow-y: auto;
@@ -405,17 +533,6 @@ width: 20%;
   }
   /*ADMINISTRAR EMPLEADOS FIN*/
 
-
-
-
-
-
-
-
-
-
-
-
 /*MODAL VISUALIZAR*/
 .modal-ver{
     font-family: 'Mohave', sans-serif;
@@ -570,36 +687,6 @@ width: 20%;
     width: 100%;
   } 
   
-  @media (max-width: 1000px) {
-    .modal-ver .main-img img{
-        margin-bottom: 20px;
-        height: 100%;
-        width: 100%;
-        
-    }
-    .info-detalle-content{
-        flex-direction: column-reverse;
-    }
-    .info-detalle-content .col{
-        width: 100%;
-        text-align: center;
-    }
-    .cantidad-row{
-        justify-content: space-around;
-    }
-    .cantidad-row .añadir-boton{
-        margin: auto;
-    }
-  }
-  @media (min-width: 1000px) {
-    .detalle-producto-content .main-img img{
-        margin-bottom: 20px;
-        max-height: 95%;
-        width: 100%;
-        
-    }
-  }
-  
   /*MODAL AGREGAR INICIO*/
   .modal .modal-header h3{
     color: var(--rosadoOscuro);
@@ -729,3 +816,605 @@ width: 20%;
   .modal-ver-cliente .modal-dialog{
     max-width: 350px;
   }
+
+  /* ---------------------------------------------------------FIN DE WEAS DE JEFRY CREO XD-----------------------------------------------------*/
+    /* --------------------------------------------------------------INICIO LOGIN-----------------------------------------------------------*/
+
+.FondoL{
+  background-image: url(../resources/Login/FONDA.png);
+  background-size: cover;
+
+}
+
+.Contra-Img{
+    padding-top: 35px;
+    width: 300px;
+    transform: translateY(20px);
+}
+
+.section-Login{
+  padding-top: 85px;
+  padding-bottom: 65px;
+  align-items: center;
+  text-align: center;
+}
+
+.Login-img img{
+  padding-top: 30px;
+  padding-bottom: 30px;
+  height: 475px;
+}
+
+.Login-text{
+  background-color: var(--blanco);
+  margin-bottom: 120px;
+  width: 470px;
+  height: 475px;
+  border-radius: 2rem;
+  text-align: center;
+  align-items: center;
+}
+
+.lineaLo{
+  height: 2px;
+  border: none;
+  border-top: 5px solid #F7DAE0;
+  width: 120px;
+  background-color: #F7DAE0;
+  opacity: 1;
+  border-radius: 3px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.titleL{
+  padding-top: 25px;
+  color: var(--rosadoOscuro);
+  margin-top: 30px;
+}
+
+.Lcorreo{
+  height: 50px;
+  background-color: #F8F9F8;
+  border: none;
+  font-style: italic;
+}
+
+.SLcorreo{
+  background-color: var(--rosadoPalido);
+  height: 50px;
+  width: 50px;
+  border: none;
+}
+
+
+.SLimg{
+  height: 50px;
+  width: 50px;
+  background-image: url(../resources/Login/correo.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.SLimg2{
+  height: 50px;
+  width: 50px;
+  background-image: url(../resources/Login/contrasena.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding: 5px;
+}
+
+.RecuperarA{
+  color: var(--rosadoTitulos);
+  font-size: 14px;
+  font-family: 'Mohave', sans-serif;
+}
+
+.RecuperarA:hover{
+  color: var(--rosadoOscuro);
+}
+
+.Recu{
+  align-items: flex-end;
+  text-align: right;
+}
+
+.AAceptar{
+  border: none;
+  width: 100%;
+  font-size: 28px;
+  font-family: 'Mohave', sans-serif;
+  color: white;
+  background-color: #F7DAE0;
+}
+
+.AAceptar:hover{
+  color: var(--rosadoTitulos);
+  background-color: #FFCFE9;
+}
+
+.TerminosP{
+  font-size: 15px;
+  font-family: 'Mohave', sans-serif;
+  color: #707070;
+  font-style: italic;
+}
+
+.NuevoP{
+  font-size: 18px;
+  font-family: 'Mohave', sans-serif;
+  color: #707070;
+  padding-top: 8px;
+}
+
+.lineaL{
+  height: 2px;
+  border: none;
+  border-top: 5px solid #E5B7CF;
+  width: 120px;
+  background-color: #E5B7CF;
+  opacity: 1;
+  border-radius: 3px;
+}
+
+.Crear{
+  color: var(--rosadoTitulos);
+  font-size: 17px;
+  font-family: 'Mohave', sans-serif;
+}
+
+.Crear:hover{
+  color: var(--rosadoOscuro);
+}
+
+.EresN{
+  padding-top: 15px;
+}
+
+/* ---------------------------------------------------------------FIN LOGIN------------------------------------------------------------*/
+
+
+/* --------------------------------------------------------------------INICIO CREAR--------------------------------------------------------*/
+
+.section-Login2{
+  padding-top: 35px;
+  padding-bottom: 35px;
+  align-items: center;
+  text-align: center;
+}
+
+.Login-text2{
+  background-color: var(--blanco);
+  margin-bottom: 120px;
+  border-radius: 2rem;
+  text-align: center;
+  align-items: center;
+  width: 670px;
+  height: 560px;
+}
+
+.LlenarIG{
+  padding-right: 25px;
+}
+
+.lineaRe{
+  height: 2px;
+  border: none;
+  border-top: 5px solid #F7DAE0;
+  width: 190px;
+  background-color: #F7DAE0;
+  opacity: 1;
+  border-radius: 3px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.SCimg{
+  height: 50px;
+  width: 50px;
+  background-image: url(../resources/Login/usuario.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.SCimg2{
+  height: 50px;
+  width: 50px;
+  background-image: url(../resources/Login/telefono.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding: 5px;
+}
+
+.SCimg4{
+  height: 50px;
+  width: 50px;
+  background-image: url(../resources/Login/calendario.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding: 5px;
+}
+
+.SCimg5{
+  height: 50px;
+  width: 50px;
+  background-image: url(../resources/Login/carne.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding: 5px;
+}
+
+.SCimg6{
+  height: 50px;
+  width: 50px;
+  background-image: url(../resources/Login/mapa.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding: 5px;
+}
+
+.SCimg8{
+  height: 50px;
+  width: 50px;
+  background-image: url(../resources/Login/contrasena.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding: 5px;
+}
+
+.SCimg7{
+  height: 50px;
+  width: 50px;
+  background-image: url(../resources/Login/correo.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding: 5px;
+}
+
+
+.TerminosP2{
+  font-size: 15px;
+  font-family: 'Mohave', sans-serif;
+  color: #707070;
+  font-style: italic;
+  margin-bottom: 15px;
+}
+
+.NuevoP2{
+  font-size: 18px;
+  font-family: 'Mohave', sans-serif;
+  color: #707070;
+  padding-top: 8px;
+  text-align: center;
+  align-items: center;
+}
+
+.Crear2{
+  color: var(--rosadoTitulos);
+  font-size: 17px;
+  font-family: 'Mohave', sans-serif;
+  text-align: center !important;
+}
+
+.Crear2:hover{
+  color: var(--rosadoOscuro);
+}
+
+
+/* ---------------------------------------------------------------------FIN CREAR----------------------------------------------------------*/
+
+
+/* ------------------------------------------------------------------INICIO RECUPERAR------------------------------------------------------*/
+
+/*------------------RECUPERAR------------------*/
+
+.section-Recu{
+  padding-top: 65px;
+  padding-bottom: 15px;
+  background-color: var(--rosadoFondos);
+  align-items: center;
+  text-align: center;
+}
+
+.Recu-img img{
+  padding-top: 30px;
+  padding-bottom: 30px;
+  height: 475px;
+}
+
+.Recu-text{
+  background-color: var(--blanco);
+  margin-bottom: 30px;
+  width: 470px;
+  height: 380px;
+  border-radius: 2rem;
+  text-align: center;
+  align-items: center;
+}
+
+.lineaRe{
+  height: 2px;
+  border: none;
+  border-top: 5px solid #F7DAE0;
+  width: 280px !important;
+  background-color: #F7DAE0;
+  opacity: 1;
+  border-radius: 3px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.RecuperarA{
+  color: var(--rosadoTitulos);
+  font-size: 14px;
+  font-family: 'Mohave', sans-serif;
+}
+
+
+.PRecu{
+  font-size: 17px;
+  font-family: 'Mohave', sans-serif;
+  color: #707070;
+  text-align: center;
+  align-items: center;
+}
+
+/*------------------CODIGO------------------*/
+.lineaCo{
+  height: 2px;
+  border: none;
+  border-top: 5px solid #F7DAE0;
+  width: 140px !important;
+  background-color: #F7DAE0;
+  opacity: 1;
+  border-radius: 3px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.SLimgCo{
+  height: 50px;
+  width: 50px;
+  background-image: url(../resources/Login/candado.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding: 5px;
+}
+
+/*------------------CONTRASEÑA------------------*/
+
+
+.Contra-Img{
+  padding-top: 50px;
+  width: 300px;
+}
+
+.lineaTr{
+  height: 2px;
+  border: none;
+  border-top: 5px solid #F7DAE0;
+  width: 210px !important;
+  background-color: #F7DAE0;
+  opacity: 1;
+  border-radius: 3px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.Contra-Img2{
+  padding-top: 35px;
+  width: 300px;
+  transform: translateY(20px);
+}
+
+/* -------------------------------------------------------------------FIN RECUPERAR--------------------------------------------------------*/
+
+/* --------------------------------------------------------------INICIO CATEGORÍAS Y SUBCATEGORÍAS-----------------------------------------------------------*/
+
+.table-responsive .table-categorias {
+  border: transparent;  
+  border-bottom: 1px solid var(--rosadoPalido);
+  color: var(--rosadoOscuro);
+ 
+}
+
+.table-categorias th {
+  text-align: center;
+  font-family: 'Mohave', sans-serif;
+  color: var(--rosadoOscuro);
+  font-size: 20px;
+ 
+}
+
+.table-categorias td {
+  vertical-align: middle;
+  text-align: center;
+  font-family: 'Mohave', sans-serif;
+  font-size: 16px;
+}
+
+.table-categorias tbody tr:hover{
+  background-color: var(--marfil);
+}
+
+.table-categorias .descripcion {
+  width: 50% !important;
+  text-align: center !important;
+}
+
+.table-categorias .botones-table {
+  width: 20% !important;
+  margin: 0 auto;
+}
+
+.table-categorias .accion-btn {
+  width: 150px !important;
+}
+
+.modal-agregar-categoria .agregar-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+} 
+
+/* --------------------------------------------------------------FIN CATEGORÍAS Y SUBCATEGORÍAS-----------------------------------------------------------*/
+
+
+/* --------------------------------------------------------------INICIO PEDIDOS-----------------------------------------------------------*/
+
+
+.table-responsive .table-pedidos {
+  border: transparent;  
+  border-bottom: 1px solid var(--rosadoPalido);
+  color: var(--rosadoOscuro);
+}
+
+.table-pedidos th {
+  text-align: center;
+  font-family: 'Mohave', sans-serif;
+  color: var(--rosadoOscuro);
+  font-size: 20px;
+ 
+}
+
+.table-pedidos td {
+  vertical-align: middle;
+  text-align: center;
+  font-family: 'Mohave', sans-serif;
+  font-size: 16px;
+}
+
+.table-pedidos td img {
+  width: 60px;
+  height: 60px;
+  margin: 0 auto;
+}
+
+.table-pedidos tbody tr:hover{
+  background-color: var(--marfil);
+}
+
+.table-pedidos .descripcion {
+  width: 50% !important;
+  text-align: center !important;
+}
+
+.table-pedidos .botones-table {
+  width: 20% !important;
+  margin: 0 auto;
+}
+
+.table-pedidos .accion-btn {
+  width: 150px !important;
+  margin: 0 auto !important;
+}
+
+.hijo-detallepedido {
+  background-color: var(--marfil);
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.row-bottom-pedido h4 {
+  color: var(--rosadoOscuro);
+}
+
+.row-bottom-pedido .cd-cart-total {
+  font-family: 'Mohave', sans-serifs;
+  font-size: 18px;
+  color: var(--rosadoOscuro);
+}
+
+.row-bottom-pedido .cd-cart-total .card-total-line {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--rosadoPalido);
+} .row-bottom-pedido .cd-cart-total .card-total-line:last-child{
+  border-bottom: transparent;
+}
+
+.row-bottom-pedido .cd-cart-total .total {
+  font-size: 24px;
+  font-weight: bold;
+}
+ 
+
+
+/* --------------------------------------------------------------RESPONSIVE------------------------------------------------------------*/
+@media (max-width: 767.98px) {
+
+  .main {
+    min-width: 100vw;
+    overflow-y: hidden;
+    width: 100vw;
+  }
+
+  .grafi{
+    width: 100%;
+    height: 300px;
+  }
+
+  .grafi3{
+    width: 97%;
+    height: 400px;
+  }
+
+  .Te{
+      align-items: center;
+      justify-content: center !important;
+      flex-wrap: nowrap;
+  }
+
+  .sidebar {
+    top: 5rem;
+
+  }
+}
+
+@media (min-width: 992px) {
+  .row-bottom-pedido {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .row-bottom-pedido .col-lg-4 {
+    width: 30% !important;
+  }
+}
+
+@media (min-width: 1px) and (max-width: 991.98px){
+  .sidebar{
+      margin-left: -250px;
+  }
+}
+
+@media (max-width: 1000px) {
+  .modal-ver .main-img img{
+      margin-bottom: 20px;
+      height: 100%;
+      width: 100%;
+      
+  }
+  .info-detalle-content{
+      flex-direction: column-reverse;
+  }
+  .info-detalle-content .col{
+      width: 100%;
+      text-align: center;
+  }
+  .cantidad-row{
+      justify-content: space-around;
+  }
+  .cantidad-row .añadir-boton{
+      margin: auto;
+  }
+}
+@media (min-width: 1000px) {
+  .detalle-producto-content .main-img img{
+      margin-bottom: 20px;
+      max-height: 95%;
+      width: 100%;
+      
+  }
+}
