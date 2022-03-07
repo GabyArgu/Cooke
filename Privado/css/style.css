@@ -1,33 +1,33 @@
+/* GLOBALES */
 *{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 
 h1 {
-    font-family: 'Mohave', sans-serif;
-    text-align: center;
+  font-family: 'Mohave', sans-serif;
+  text-align: center;
 }
 
 a{
-    text-decoration: none !important;
+  text-decoration: none !important;
 }
 
 body {
-    margin: 0;
-    overflow-x: hidden;
-    overflow-y: hidden;
+  overflow-x: hidden;
+  overflow-y: overlay;
 }
 
 /* VARIABLES GLOBALES COLORES */
 :root {
-    --rosadoPalido: #F7DADF;
-    --rosadoFondos: #FCF1F3;
-    --rosadoPastel: #d97789;
-    --rosadoTitulos: #c34e8b;
-    --rosadoOscuro: #75365a;
-    --blanco: #fff;
-    --marfil: #f5f5f5;
+  --rosadoPalido: #F7DADF;
+  --rosadoFondos: #FCF1F3;
+  --rosadoPastel: #d97789;
+  --rosadoTitulos: #c34e8b;
+  --rosadoOscuro: #75365a;
+  --blanco: #fff;
+  --marfil: #f5f5f5;
 }
 
 /* CUSTOM SCROLL BAR */
@@ -52,6 +52,405 @@ body {
 ::-webkit-scrollbar-corner {
     border-radius: 5px;
 }
+
+/* NAVBAR */
+
+
+
+/* --------------------------------------------------------------INICIO LOGIN-----------------------------------------------------------*/
+
+.FondoL{
+background-image: url(../resources/Login/FONDA.png);
+background-size: cover;
+
+}
+
+.Contra-Img{
+  padding-top: 35px;
+  width: 300px;
+  transform: translateY(20px);
+}
+
+.section-Login{
+padding-top: 85px;
+padding-bottom: 65px;
+align-items: center;
+text-align: center;
+}
+
+.Login-img img{
+padding-top: 30px;
+padding-bottom: 30px;
+height: 475px;
+}
+
+.Login-text{
+background-color: var(--blanco);
+margin-bottom: 120px;
+width: 470px;
+height: 475px;
+border-radius: 2rem;
+text-align: center;
+align-items: center;
+}
+
+.lineaLo{
+height: 2px;
+border: none;
+border-top: 5px solid #F7DAE0;
+width: 120px;
+background-color: #F7DAE0;
+opacity: 1;
+border-radius: 3px;
+margin-right: auto;
+margin-left: auto;
+}
+
+.titleL{
+padding-top: 25px;
+color: var(--rosadoOscuro);
+margin-top: 30px;
+}
+
+.Lcorreo{
+height: 50px;
+background-color: #F8F9F8;
+border: none;
+font-style: italic;
+}
+
+.SLcorreo{
+background-color: var(--rosadoPalido);
+height: 50px;
+width: 50px;
+border: none;
+}
+
+
+.SLimg{
+height: 50px;
+width: 50px;
+background-image: url(../resources/Login/correo.png);
+background-size: cover;
+background-repeat: no-repeat;
+}
+
+.SLimg2{
+height: 50px;
+width: 50px;
+background-image: url(../resources/Login/contrasena.png);
+background-size: cover;
+background-repeat: no-repeat;
+padding: 5px;
+}
+
+.RecuperarA{
+color: var(--rosadoTitulos);
+font-size: 14px;
+font-family: 'Mohave', sans-serif;
+}
+
+.RecuperarA:hover{
+color: var(--rosadoOscuro);
+}
+
+.Recu{
+align-items: flex-end;
+text-align: right;
+}
+
+.AAceptar{
+border: none;
+width: 100%;
+font-size: 28px;
+font-family: 'Mohave', sans-serif;
+color: white;
+background-color: #F7DAE0;
+}
+
+.AAceptar:hover{
+color: var(--rosadoTitulos);
+background-color: #FFCFE9;
+}
+
+.TerminosP{
+font-size: 15px;
+font-family: 'Mohave', sans-serif;
+color: #707070;
+font-style: italic;
+}
+
+.NuevoP{
+font-size: 18px;
+font-family: 'Mohave', sans-serif;
+color: #707070;
+padding-top: 8px;
+}
+
+.lineaL{
+height: 2px;
+border: none;
+border-top: 5px solid #E5B7CF;
+width: 120px;
+background-color: #E5B7CF;
+opacity: 1;
+border-radius: 3px;
+}
+
+.Crear{
+color: var(--rosadoTitulos);
+font-size: 17px;
+font-family: 'Mohave', sans-serif;
+}
+
+.Crear:hover{
+color: var(--rosadoOscuro);
+}
+
+.EresN{
+padding-top: 15px;
+}
+
+/* ---------------------------------------------------------------FIN LOGIN------------------------------------------------------------*/
+
+
+/* --------------------------------------------------------------------INICIO CREAR--------------------------------------------------------*/
+
+.section-Login2{
+padding-top: 35px;
+padding-bottom: 35px;
+align-items: center;
+text-align: center;
+}
+
+.Login-text2{
+background-color: var(--blanco);
+margin-bottom: 120px;
+border-radius: 2rem;
+text-align: center;
+align-items: center;
+width: 670px;
+height: 560px;
+}
+
+.LlenarIG{
+padding-right: 25px;
+}
+
+.lineaRe{
+height: 2px;
+border: none;
+border-top: 5px solid #F7DAE0;
+width: 190px;
+background-color: #F7DAE0;
+opacity: 1;
+border-radius: 3px;
+margin-right: auto;
+margin-left: auto;
+}
+
+.SCimg{
+height: 50px;
+width: 50px;
+background-image: url(../resources/Login/usuario.png);
+background-size: cover;
+background-repeat: no-repeat;
+}
+
+.SCimg2{
+height: 50px;
+width: 50px;
+background-image: url(../resources/Login/telefono.png);
+background-size: cover;
+background-repeat: no-repeat;
+padding: 5px;
+}
+
+.SCimg4{
+height: 50px;
+width: 50px;
+background-image: url(../resources/Login/calendario.png);
+background-size: cover;
+background-repeat: no-repeat;
+padding: 5px;
+}
+
+.SCimg5{
+height: 50px;
+width: 50px;
+background-image: url(../resources/Login/carne.png);
+background-size: cover;
+background-repeat: no-repeat;
+padding: 5px;
+}
+
+.SCimg6{
+height: 50px;
+width: 50px;
+background-image: url(../resources/Login/mapa.png);
+background-size: cover;
+background-repeat: no-repeat;
+padding: 5px;
+}
+
+.SCimg8{
+height: 50px;
+width: 50px;
+background-image: url(../resources/Login/contrasena.png);
+background-size: cover;
+background-repeat: no-repeat;
+padding: 5px;
+}
+
+.SCimg7{
+height: 50px;
+width: 50px;
+background-image: url(../resources/Login/correo.png);
+background-size: cover;
+background-repeat: no-repeat;
+padding: 5px;
+}
+
+
+.TerminosP2{
+font-size: 15px;
+font-family: 'Mohave', sans-serif;
+color: #707070;
+font-style: italic;
+margin-bottom: 15px;
+}
+
+.NuevoP2{
+font-size: 18px;
+font-family: 'Mohave', sans-serif;
+color: #707070;
+padding-top: 8px;
+text-align: center;
+align-items: center;
+}
+
+.Crear2{
+color: var(--rosadoTitulos);
+font-size: 17px;
+font-family: 'Mohave', sans-serif;
+text-align: center !important;
+}
+
+.Crear2:hover{
+color: var(--rosadoOscuro);
+}
+
+
+/* ---------------------------------------------------------------------FIN CREAR----------------------------------------------------------*/
+
+
+/* ------------------------------------------------------------------INICIO RECUPERAR------------------------------------------------------*/
+
+/*------------------RECUPERAR------------------*/
+
+.section-Recu{
+padding-top: 65px;
+padding-bottom: 15px;
+background-color: var(--rosadoFondos);
+align-items: center;
+text-align: center;
+}
+
+.Recu-img img{
+padding-top: 30px;
+padding-bottom: 30px;
+height: 475px;
+}
+
+.Recu-text{
+background-color: var(--blanco);
+margin-bottom: 30px;
+width: 470px;
+height: 380px;
+border-radius: 2rem;
+text-align: center;
+align-items: center;
+}
+
+.lineaRe{
+height: 2px;
+border: none;
+border-top: 5px solid #F7DAE0;
+width: 280px !important;
+background-color: #F7DAE0;
+opacity: 1;
+border-radius: 3px;
+margin-right: auto;
+margin-left: auto;
+}
+
+.RecuperarA{
+color: var(--rosadoTitulos);
+font-size: 14px;
+font-family: 'Mohave', sans-serif;
+}
+
+
+.PRecu{
+font-size: 17px;
+font-family: 'Mohave', sans-serif;
+color: #707070;
+text-align: center;
+align-items: center;
+}
+
+/*------------------CODIGO------------------*/
+.lineaCo{
+height: 2px;
+border: none;
+border-top: 5px solid #F7DAE0;
+width: 140px !important;
+background-color: #F7DAE0;
+opacity: 1;
+border-radius: 3px;
+margin-right: auto;
+margin-left: auto;
+}
+
+.SLimgCo{
+height: 50px;
+width: 50px;
+background-image: url(../resources/Login/candado.png);
+background-size: cover;
+background-repeat: no-repeat;
+padding: 5px;
+}
+
+/*------------------CONTRASEÑA------------------*/
+
+
+.Contra-Img{
+padding-top: 50px;
+width: 300px;
+}
+
+.lineaTr{
+height: 2px;
+border: none;
+border-top: 5px solid #F7DAE0;
+width: 210px !important;
+background-color: #F7DAE0;
+opacity: 1;
+border-radius: 3px;
+margin-right: auto;
+margin-left: auto;
+}
+
+.Contra-Img2{
+padding-top: 35px;
+width: 300px;
+transform: translateY(20px);
+}
+
+/* -------------------------------------------------------------------FIN RECUPERAR--------------------------------------------------------*/
+
+
+/* NAVBAR */
 
 #Lu-Logo{
   width: 30px;
@@ -870,397 +1269,7 @@ width: 20%;
   }
 
   /* ---------------------------------------------------------FIN DE WEAS DE JEFRY CREO XD-----------------------------------------------------*/
-    /* --------------------------------------------------------------INICIO LOGIN-----------------------------------------------------------*/
 
-.FondoL{
-  background-image: url(../resources/Login/FONDA.png);
-  background-size: cover;
-
-}
-
-.Contra-Img{
-    padding-top: 35px;
-    width: 300px;
-    transform: translateY(20px);
-}
-
-.section-Login{
-  padding-top: 85px;
-  padding-bottom: 65px;
-  align-items: center;
-  text-align: center;
-}
-
-.Login-img img{
-  padding-top: 30px;
-  padding-bottom: 30px;
-  height: 475px;
-}
-
-.Login-text{
-  background-color: var(--blanco);
-  margin-bottom: 120px;
-  width: 470px;
-  height: 475px;
-  border-radius: 2rem;
-  text-align: center;
-  align-items: center;
-}
-
-.lineaLo{
-  height: 2px;
-  border: none;
-  border-top: 5px solid #F7DAE0;
-  width: 120px;
-  background-color: #F7DAE0;
-  opacity: 1;
-  border-radius: 3px;
-  margin-right: auto;
-  margin-left: auto;
-}
-
-.titleL{
-  padding-top: 25px;
-  color: var(--rosadoOscuro);
-  margin-top: 30px;
-}
-
-.Lcorreo{
-  height: 50px;
-  background-color: #F8F9F8;
-  border: none;
-  font-style: italic;
-}
-
-.SLcorreo{
-  background-color: var(--rosadoPalido);
-  height: 50px;
-  width: 50px;
-  border: none;
-}
-
-
-.SLimg{
-  height: 50px;
-  width: 50px;
-  background-image: url(../resources/Login/correo.png);
-  background-size: cover;
-  background-repeat: no-repeat;
-}
-
-.SLimg2{
-  height: 50px;
-  width: 50px;
-  background-image: url(../resources/Login/contrasena.png);
-  background-size: cover;
-  background-repeat: no-repeat;
-  padding: 5px;
-}
-
-.RecuperarA{
-  color: var(--rosadoTitulos);
-  font-size: 14px;
-  font-family: 'Mohave', sans-serif;
-}
-
-.RecuperarA:hover{
-  color: var(--rosadoOscuro);
-}
-
-.Recu{
-  align-items: flex-end;
-  text-align: right;
-}
-
-.AAceptar{
-  border: none;
-  width: 100%;
-  font-size: 28px;
-  font-family: 'Mohave', sans-serif;
-  color: white;
-  background-color: #F7DAE0;
-}
-
-.AAceptar:hover{
-  color: var(--rosadoTitulos);
-  background-color: #FFCFE9;
-}
-
-.TerminosP{
-  font-size: 15px;
-  font-family: 'Mohave', sans-serif;
-  color: #707070;
-  font-style: italic;
-}
-
-.NuevoP{
-  font-size: 18px;
-  font-family: 'Mohave', sans-serif;
-  color: #707070;
-  padding-top: 8px;
-}
-
-.lineaL{
-  height: 2px;
-  border: none;
-  border-top: 5px solid #E5B7CF;
-  width: 120px;
-  background-color: #E5B7CF;
-  opacity: 1;
-  border-radius: 3px;
-}
-
-.Crear{
-  color: var(--rosadoTitulos);
-  font-size: 17px;
-  font-family: 'Mohave', sans-serif;
-}
-
-.Crear:hover{
-  color: var(--rosadoOscuro);
-}
-
-.EresN{
-  padding-top: 15px;
-}
-
-/* ---------------------------------------------------------------FIN LOGIN------------------------------------------------------------*/
-
-
-/* --------------------------------------------------------------------INICIO CREAR--------------------------------------------------------*/
-
-.section-Login2{
-  padding-top: 35px;
-  padding-bottom: 35px;
-  align-items: center;
-  text-align: center;
-}
-
-.Login-text2{
-  background-color: var(--blanco);
-  margin-bottom: 120px;
-  border-radius: 2rem;
-  text-align: center;
-  align-items: center;
-  width: 670px;
-  height: 560px;
-}
-
-.LlenarIG{
-  padding-right: 25px;
-}
-
-.lineaRe{
-  height: 2px;
-  border: none;
-  border-top: 5px solid #F7DAE0;
-  width: 190px;
-  background-color: #F7DAE0;
-  opacity: 1;
-  border-radius: 3px;
-  margin-right: auto;
-  margin-left: auto;
-}
-
-.SCimg{
-  height: 50px;
-  width: 50px;
-  background-image: url(../resources/Login/usuario.png);
-  background-size: cover;
-  background-repeat: no-repeat;
-}
-
-.SCimg2{
-  height: 50px;
-  width: 50px;
-  background-image: url(../resources/Login/telefono.png);
-  background-size: cover;
-  background-repeat: no-repeat;
-  padding: 5px;
-}
-
-.SCimg4{
-  height: 50px;
-  width: 50px;
-  background-image: url(../resources/Login/calendario.png);
-  background-size: cover;
-  background-repeat: no-repeat;
-  padding: 5px;
-}
-
-.SCimg5{
-  height: 50px;
-  width: 50px;
-  background-image: url(../resources/Login/carne.png);
-  background-size: cover;
-  background-repeat: no-repeat;
-  padding: 5px;
-}
-
-.SCimg6{
-  height: 50px;
-  width: 50px;
-  background-image: url(../resources/Login/mapa.png);
-  background-size: cover;
-  background-repeat: no-repeat;
-  padding: 5px;
-}
-
-.SCimg8{
-  height: 50px;
-  width: 50px;
-  background-image: url(../resources/Login/contrasena.png);
-  background-size: cover;
-  background-repeat: no-repeat;
-  padding: 5px;
-}
-
-.SCimg7{
-  height: 50px;
-  width: 50px;
-  background-image: url(../resources/Login/correo.png);
-  background-size: cover;
-  background-repeat: no-repeat;
-  padding: 5px;
-}
-
-
-.TerminosP2{
-  font-size: 15px;
-  font-family: 'Mohave', sans-serif;
-  color: #707070;
-  font-style: italic;
-  margin-bottom: 15px;
-}
-
-.NuevoP2{
-  font-size: 18px;
-  font-family: 'Mohave', sans-serif;
-  color: #707070;
-  padding-top: 8px;
-  text-align: center;
-  align-items: center;
-}
-
-.Crear2{
-  color: var(--rosadoTitulos);
-  font-size: 17px;
-  font-family: 'Mohave', sans-serif;
-  text-align: center !important;
-}
-
-.Crear2:hover{
-  color: var(--rosadoOscuro);
-}
-
-
-/* ---------------------------------------------------------------------FIN CREAR----------------------------------------------------------*/
-
-
-/* ------------------------------------------------------------------INICIO RECUPERAR------------------------------------------------------*/
-
-/*------------------RECUPERAR------------------*/
-
-.section-Recu{
-  padding-top: 65px;
-  padding-bottom: 15px;
-  background-color: var(--rosadoFondos);
-  align-items: center;
-  text-align: center;
-}
-
-.Recu-img img{
-  padding-top: 30px;
-  padding-bottom: 30px;
-  height: 475px;
-}
-
-.Recu-text{
-  background-color: var(--blanco);
-  margin-bottom: 30px;
-  width: 470px;
-  height: 380px;
-  border-radius: 2rem;
-  text-align: center;
-  align-items: center;
-}
-
-.lineaRe{
-  height: 2px;
-  border: none;
-  border-top: 5px solid #F7DAE0;
-  width: 280px !important;
-  background-color: #F7DAE0;
-  opacity: 1;
-  border-radius: 3px;
-  margin-right: auto;
-  margin-left: auto;
-}
-
-.RecuperarA{
-  color: var(--rosadoTitulos);
-  font-size: 14px;
-  font-family: 'Mohave', sans-serif;
-}
-
-
-.PRecu{
-  font-size: 17px;
-  font-family: 'Mohave', sans-serif;
-  color: #707070;
-  text-align: center;
-  align-items: center;
-}
-
-/*------------------CODIGO------------------*/
-.lineaCo{
-  height: 2px;
-  border: none;
-  border-top: 5px solid #F7DAE0;
-  width: 140px !important;
-  background-color: #F7DAE0;
-  opacity: 1;
-  border-radius: 3px;
-  margin-right: auto;
-  margin-left: auto;
-}
-
-.SLimgCo{
-  height: 50px;
-  width: 50px;
-  background-image: url(../resources/Login/candado.png);
-  background-size: cover;
-  background-repeat: no-repeat;
-  padding: 5px;
-}
-
-/*------------------CONTRASEÑA------------------*/
-
-
-.Contra-Img{
-  padding-top: 50px;
-  width: 300px;
-}
-
-.lineaTr{
-  height: 2px;
-  border: none;
-  border-top: 5px solid #F7DAE0;
-  width: 210px !important;
-  background-color: #F7DAE0;
-  opacity: 1;
-  border-radius: 3px;
-  margin-right: auto;
-  margin-left: auto;
-}
-
-.Contra-Img2{
-  padding-top: 35px;
-  width: 300px;
-  transform: translateY(20px);
-}
-
-/* -------------------------------------------------------------------FIN RECUPERAR--------------------------------------------------------*/
 
 /* --------------------------------------------------------------INICIO CATEGORÍAS Y SUBCATEGORÍAS-----------------------------------------------------------*/
 
