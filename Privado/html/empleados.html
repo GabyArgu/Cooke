@@ -35,8 +35,8 @@
 
     <div class="wrapper">
         <nav id="sidebarMenu" class="sidebar ">
-            <a href="../index.html" class="sidebar-conent-header d-flex"><img src="../resources/dashboard/logo2.png" alt=""
-                    id="logo_inicio" class="mx-auto d-block"></a>
+            <a href="../index.html" class="sidebar-conent-header d-flex"><img src="../resources/dashboard/logo2.png"
+                    alt="" id="logo_inicio" class="mx-auto d-block"></a>
 
             <div class="sidebar-content">
 
@@ -53,17 +53,17 @@
                             <i class="align-middle me-2 fas fa-fw fa-home"></i> <span
                                 class="align-middle">PRINCIPAL</span>
                         </a>
-                        <ul id="dashboards" class="sidebar-dropdown list-unstyled collapse " data-bs-parent="#sidebar">
+                        <ul id="dashboards" class="list-unstyled collapse submenu" data-bs-parent="#sidebar">
                             <li class="sidebar-item"><a class="sidebar-link" href="">Dashboard</a></li>
 
                         </ul>
                     </li>
-                    <li class="sidebar-item mt-5">
-                        <a data-bs-target="#Tienda" data-bs-toggle="collapse" class="sidebar-link collapsed mt-4">
+                    <li class="sidebar-item has-submenu  mt-5">
+                        <a href="#" class="sidebar-link collapsed mt-4">
                             <i class="fa-solid fa-shop"></i> <span class="align-middle">TIENDA</span>
                         </a>
-                        <ul id="Tienda" class="sidebar-dropdown list-unstyled collapse " data-bs-parent="#sidebar">
-                            <li class="sidebar-item"><a class="sidebar-link" href="">crud
+                        <ul id="Tienda" class="list-unstyled submenu collapse">
+                            <li class="sidebar-item"><a class="sidebar-link" href="#">crud
                                     In</a></li>
                             <li class="sidebar-item"><a class="sidebar-link" href="">crud
                                     Up</a></li>
@@ -77,7 +77,7 @@
                         <a data-bs-target="#blog" data-bs-toggle="collapse" class="sidebar-link collapsed">
                             <i class="fa-solid fa-book me-2"></i><span class="align-middle">BLOG</span>
                         </a>
-                        <ul id="blog" class="sidebar-dropdown list-unstyled collapse " data-bs-parent="#sidebar">
+                        <ul id="blog" class="list-unstyled collapse submenu" data-bs-parent="#sidebar">
                             <li class="sidebar-item"><a class="sidebar-link" href="">Sign
                                     In</a></li>
                             <li class="sidebar-item"><a class="sidebar-link" href="">Sign
@@ -90,7 +90,7 @@
                         <a data-bs-target="#forms" data-bs-toggle="collapse" class="sidebar-link collapsed">
                             <i class="fa-solid me-2 fa-database"></i><span class="align-middle">ADMINISTRACIÓN</span>
                         </a>
-                        <ul id="forms" class="sidebar-dropdown list-unstyled collapse " data-bs-parent="#sidebar">
+                        <ul id="forms" class=" list-unstyled collapse submenu" data-bs-parent="#sidebar">
                             <li class="sidebar-item"><a class="sidebar-link" href="">admon</a></li>
                             <li class="sidebar-item"><a class="sidebar-link" href="">admon</a></li>
                         </ul>
@@ -102,7 +102,7 @@
         </nav>
         <div class="main empleados">
             <nav class="navbar navbar-expand navbar-theme">
-                <a class="sidebar-toggle d-flex me-2">
+                <a type="button" class="toggled" data-toggle="collapse" data-target="#sidebarMenu"> <!-- class="sidebar-toggle d-flex me-2" -->
                     <i class="fa-solid fa-bars" onclick="sidebarToggle()"></i>
                 </a>
 
@@ -169,16 +169,16 @@
                                         <td data-title="ESTADO">Disponible</td>
                                         <td class="botones-table">
                                             <div class="acciones d-flex mx-auto">
-                                                <span href="" class="accion-btn" type="button"
-                                                    data-bs-toggle="modal" data-bs-target="#modal-actualizar">
+                                                <span href="" class="accion-btn" type="button" data-bs-toggle="modal"
+                                                    data-bs-target="#modal-actualizar">
                                                     <i class="fa-solid fa-pen-to-square"></i>
                                                 </span>
-                                                <span href="" class="accion-btn" type="button"
-                                                    data-bs-toggle="modal" data-bs-target="#modal-eliminar">
+                                                <span href="" class="accion-btn" type="button" data-bs-toggle="modal"
+                                                    data-bs-target="#modal-eliminar">
                                                     <i class="fa-solid fa-trash-can fa-lg"></i>
                                                 </span>
-                                                <span href="" class="accion-btn" type="button"
-                                                    data-bs-toggle="modal" data-bs-target="#modal-ver">
+                                                <span href="" class="accion-btn" type="button" data-bs-toggle="modal"
+                                                    data-bs-target="#modal-ver">
                                                     <i class="fa-solid fa-eye"></i>
                                                 </span>
                                             </div>
@@ -192,16 +192,16 @@
                                         <td data-title="ESTADO">Disponible</td>
                                         <td class="botones-table">
                                             <div class="acciones d-flex mx-auto">
-                                                <span href="" class="accion-btn" type="button"
-                                                    data-bs-toggle="modal" data-bs-target="#modal-actualizar">
+                                                <span href="" class="accion-btn" type="button" data-bs-toggle="modal"
+                                                    data-bs-target="#modal-actualizar">
                                                     <i class="fa-solid fa-pen-to-square"></i>
                                                 </span>
-                                                <span href="" class="accion-btn" type="button"
-                                                    data-bs-toggle="modal" data-bs-target="#modal-eliminar">
+                                                <span href="" class="accion-btn" type="button" data-bs-toggle="modal"
+                                                    data-bs-target="#modal-eliminar">
                                                     <i class="fa-solid fa-trash-can fa-lg"></i>
                                                 </span>
-                                                <span href="" class="accion-btn" type="button"
-                                                    data-bs-toggle="modal" data-bs-target="#modal-ver">
+                                                <span href="" class="accion-btn" type="button" data-bs-toggle="modal"
+                                                    data-bs-target="#modal-ver">
                                                     <i class="fa-solid fa-eye"></i>
                                                 </span>
                                             </div>
@@ -215,16 +215,16 @@
                                         <td data-title="ESTADO">Disponible</td>
                                         <td class="botones-table">
                                             <div class="acciones d-flex mx-auto">
-                                                <span href="" class="accion-btn" type="button"
-                                                    data-bs-toggle="modal" data-bs-target="#modal-actualizar">
+                                                <span href="" class="accion-btn" type="button" data-bs-toggle="modal"
+                                                    data-bs-target="#modal-actualizar">
                                                     <i class="fa-solid fa-pen-to-square"></i>
                                                 </span>
-                                                <span href="" class="accion-btn" type="button"
-                                                    data-bs-toggle="modal" data-bs-target="#modal-eliminar">
+                                                <span href="" class="accion-btn" type="button" data-bs-toggle="modal"
+                                                    data-bs-target="#modal-eliminar">
                                                     <i class="fa-solid fa-trash-can fa-lg"></i>
                                                 </span>
-                                                <span href="" class="accion-btn" type="button"
-                                                    data-bs-toggle="modal" data-bs-target="#modal-ver">
+                                                <span href="" class="accion-btn" type="button" data-bs-toggle="modal"
+                                                    data-bs-target="#modal-ver">
                                                     <i class="fa-solid fa-eye"></i>
                                                 </span>
                                             </div>
@@ -238,16 +238,16 @@
                                         <td data-title="ESTADO">Disponible</td>
                                         <td class="botones-table">
                                             <div class="acciones d-flex mx-auto">
-                                                <span href="" class="accion-btn" type="button"
-                                                    data-bs-toggle="modal" data-bs-target="#modal-actualizar">
+                                                <span href="" class="accion-btn" type="button" data-bs-toggle="modal"
+                                                    data-bs-target="#modal-actualizar">
                                                     <i class="fa-solid fa-pen-to-square"></i>
                                                 </span>
-                                                <span href="" class="accion-btn" type="button"
-                                                    data-bs-toggle="modal" data-bs-target="#modal-eliminar">
+                                                <span href="" class="accion-btn" type="button" data-bs-toggle="modal"
+                                                    data-bs-target="#modal-eliminar">
                                                     <i class="fa-solid fa-trash-can fa-lg"></i>
                                                 </span>
-                                                <span href="" class="accion-btn" type="button"
-                                                    data-bs-toggle="modal" data-bs-target="#modal-ver">
+                                                <span href="" class="accion-btn" type="button" data-bs-toggle="modal"
+                                                    data-bs-target="#modal-ver">
                                                     <i class="fa-solid fa-eye"></i>
                                                 </span>
                                             </div>
@@ -261,16 +261,16 @@
                                         <td data-title="ESTADO">Disponible</td>
                                         <td class="botones-table">
                                             <div class="acciones d-flex mx-auto">
-                                                <span href="" class="accion-btn" type="button"
-                                                    data-bs-toggle="modal" data-bs-target="#modal-actualizar">
+                                                <span href="" class="accion-btn" type="button" data-bs-toggle="modal"
+                                                    data-bs-target="#modal-actualizar">
                                                     <i class="fa-solid fa-pen-to-square"></i>
                                                 </span>
-                                                <span href="" class="accion-btn" type="button"
-                                                    data-bs-toggle="modal" data-bs-target="#modal-eliminar">
+                                                <span href="" class="accion-btn" type="button" data-bs-toggle="modal"
+                                                    data-bs-target="#modal-eliminar">
                                                     <i class="fa-solid fa-trash-can fa-lg"></i>
                                                 </span>
-                                                <span href="" class="accion-btn" type="button"
-                                                    data-bs-toggle="modal" data-bs-target="#modal-ver">
+                                                <span href="" class="accion-btn" type="button" data-bs-toggle="modal"
+                                                    data-bs-target="#modal-ver">
                                                     <i class="fa-solid fa-eye"></i>
                                                 </span>
                                             </div>
@@ -284,16 +284,16 @@
                                         <td data-title="ESTADO">Disponible</td>
                                         <td class="botones-table">
                                             <div class="acciones d-flex mx-auto">
-                                                <span href="" class="accion-btn" type="button"
-                                                    data-bs-toggle="modal" data-bs-target="#modal-actualizar">
+                                                <span href="" class="accion-btn" type="button" data-bs-toggle="modal"
+                                                    data-bs-target="#modal-actualizar">
                                                     <i class="fa-solid fa-pen-to-square"></i>
                                                 </span>
-                                                <span href="" class="accion-btn" type="button"
-                                                    data-bs-toggle="modal" data-bs-target="#modal-eliminar">
+                                                <span href="" class="accion-btn" type="button" data-bs-toggle="modal"
+                                                    data-bs-target="#modal-eliminar">
                                                     <i class="fa-solid fa-trash-can fa-lg"></i>
                                                 </span>
-                                                <span href="" class="accion-btn" type="button"
-                                                    data-bs-toggle="modal" data-bs-target="#modal-ver">
+                                                <span href="" class="accion-btn" type="button" data-bs-toggle="modal"
+                                                    data-bs-target="#modal-ver">
                                                     <i class="fa-solid fa-eye"></i>
                                                 </span>
                                             </div>
@@ -307,16 +307,16 @@
                                         <td data-title="ESTADO">Disponible</td>
                                         <td class="botones-table">
                                             <div class="acciones d-flex mx-auto">
-                                                <span href="" class="accion-btn" type="button"
-                                                    data-bs-toggle="modal" data-bs-target="#modal-actualizar">
+                                                <span href="" class="accion-btn" type="button" data-bs-toggle="modal"
+                                                    data-bs-target="#modal-actualizar">
                                                     <i class="fa-solid fa-pen-to-square"></i>
                                                 </span>
-                                                <span href="" class="accion-btn" type="button"
-                                                    data-bs-toggle="modal" data-bs-target="#modal-eliminar">
+                                                <span href="" class="accion-btn" type="button" data-bs-toggle="modal"
+                                                    data-bs-target="#modal-eliminar">
                                                     <i class="fa-solid fa-trash-can fa-lg"></i>
                                                 </span>
-                                                <span href="" class="accion-btn" type="button"
-                                                    data-bs-toggle="modal" data-bs-target="#modal-ver">
+                                                <span href="" class="accion-btn" type="button" data-bs-toggle="modal"
+                                                    data-bs-target="#modal-ver">
                                                     <i class="fa-solid fa-eye"></i>
                                                 </span>
                                             </div>
@@ -330,16 +330,16 @@
                                         <td data-title="ESTADO">Disponible</td>
                                         <td class="botones-table">
                                             <div class="acciones d-flex mx-auto">
-                                                <span href="" class="accion-btn" type="button"
-                                                    data-bs-toggle="modal" data-bs-target="#modal-actualizar">
+                                                <span href="" class="accion-btn" type="button" data-bs-toggle="modal"
+                                                    data-bs-target="#modal-actualizar">
                                                     <i class="fa-solid fa-pen-to-square"></i>
                                                 </span>
-                                                <span href="" class="accion-btn" type="button"
-                                                    data-bs-toggle="modal" data-bs-target="#modal-eliminar">
+                                                <span href="" class="accion-btn" type="button" data-bs-toggle="modal"
+                                                    data-bs-target="#modal-eliminar">
                                                     <i class="fa-solid fa-trash-can fa-lg"></i>
                                                 </span>
-                                                <span href="" class="accion-btn" type="button"
-                                                    data-bs-toggle="modal" data-bs-target="#modal-ver">
+                                                <span href="" class="accion-btn" type="button" data-bs-toggle="modal"
+                                                    data-bs-target="#modal-ver">
                                                     <i class="fa-solid fa-eye"></i>
                                                 </span>
                                             </div>
@@ -353,16 +353,16 @@
                                         <td data-title="ESTADO">Disponible</td>
                                         <td class="botones-table">
                                             <div class="acciones d-flex mx-auto">
-                                                <span href="" class="accion-btn" type="button"
-                                                    data-bs-toggle="modal" data-bs-target="#modal-actualizar">
+                                                <span href="" class="accion-btn" type="button" data-bs-toggle="modal"
+                                                    data-bs-target="#modal-actualizar">
                                                     <i class="fa-solid fa-pen-to-square"></i>
                                                 </span>
-                                                <span href="" class="accion-btn" type="button"
-                                                    data-bs-toggle="modal" data-bs-target="#modal-eliminar">
+                                                <span href="" class="accion-btn" type="button" data-bs-toggle="modal"
+                                                    data-bs-target="#modal-eliminar">
                                                     <i class="fa-solid fa-trash-can fa-lg"></i>
                                                 </span>
-                                                <span href="" class="accion-btn" type="button"
-                                                    data-bs-toggle="modal" data-bs-target="#modal-ver">
+                                                <span href="" class="accion-btn" type="button" data-bs-toggle="modal"
+                                                    data-bs-target="#modal-ver">
                                                     <i class="fa-solid fa-eye"></i>
                                                 </span>
                                             </div>
@@ -376,16 +376,16 @@
                                         <td data-title="ESTADO">Disponible</td>
                                         <td class="botones-table">
                                             <div class="acciones d-flex mx-auto">
-                                                <span href="" class="accion-btn" type="button"
-                                                    data-bs-toggle="modal" data-bs-target="#modal-actualizar">
+                                                <span href="" class="accion-btn" type="button" data-bs-toggle="modal"
+                                                    data-bs-target="#modal-actualizar">
                                                     <i class="fa-solid fa-pen-to-square"></i>
                                                 </span>
-                                                <span href="" class="accion-btn" type="button"
-                                                    data-bs-toggle="modal" data-bs-target="#modal-eliminar">
+                                                <span href="" class="accion-btn" type="button" data-bs-toggle="modal"
+                                                    data-bs-target="#modal-eliminar">
                                                     <i class="fa-solid fa-trash-can fa-lg"></i>
                                                 </span>
-                                                <span href="" class="accion-btn" type="button"
-                                                    data-bs-toggle="modal" data-bs-target="#modal-ver">
+                                                <span href="" class="accion-btn" type="button" data-bs-toggle="modal"
+                                                    data-bs-target="#modal-ver">
                                                     <i class="fa-solid fa-eye"></i>
                                                 </span>
                                             </div>
@@ -399,16 +399,16 @@
                                         <td data-title="ESTADO">Disponible</td>
                                         <td class="botones-table">
                                             <div class="acciones d-flex mx-auto">
-                                                <span href="" class="accion-btn" type="button"
-                                                    data-bs-toggle="modal" data-bs-target="#modal-actualizar">
+                                                <span href="" class="accion-btn" type="button" data-bs-toggle="modal"
+                                                    data-bs-target="#modal-actualizar">
                                                     <i class="fa-solid fa-pen-to-square"></i>
                                                 </span>
-                                                <span href="" class="accion-btn" type="button"
-                                                    data-bs-toggle="modal" data-bs-target="#modal-eliminar">
+                                                <span href="" class="accion-btn" type="button" data-bs-toggle="modal"
+                                                    data-bs-target="#modal-eliminar">
                                                     <i class="fa-solid fa-trash-can fa-lg"></i>
                                                 </span>
-                                                <span href="" class="accion-btn" type="button"
-                                                    data-bs-toggle="modal" data-bs-target="#modal-ver">
+                                                <span href="" class="accion-btn" type="button" data-bs-toggle="modal"
+                                                    data-bs-target="#modal-ver">
                                                     <i class="fa-solid fa-eye"></i>
                                                 </span>
                                             </div>
@@ -422,16 +422,16 @@
                                         <td data-title="ESTADO">Disponible</td>
                                         <td class="botones-table">
                                             <div class="acciones d-flex mx-auto">
-                                                <span href="" class="accion-btn" type="button"
-                                                    data-bs-toggle="modal" data-bs-target="#modal-actualizar">
+                                                <span href="" class="accion-btn" type="button" data-bs-toggle="modal"
+                                                    data-bs-target="#modal-actualizar">
                                                     <i class="fa-solid fa-pen-to-square"></i>
                                                 </span>
-                                                <span href="" class="accion-btn" type="button"
-                                                    data-bs-toggle="modal" data-bs-target="#modal-eliminar">
+                                                <span href="" class="accion-btn" type="button" data-bs-toggle="modal"
+                                                    data-bs-target="#modal-eliminar">
                                                     <i class="fa-solid fa-trash-can fa-lg"></i>
                                                 </span>
-                                                <span href="" class="accion-btn" type="button"
-                                                    data-bs-toggle="modal" data-bs-target="#modal-ver">
+                                                <span href="" class="accion-btn" type="button" data-bs-toggle="modal"
+                                                    data-bs-target="#modal-ver">
                                                     <i class="fa-solid fa-eye"></i>
                                                 </span>
                                             </div>
@@ -445,16 +445,16 @@
                                         <td data-title="ESTADO">Disponible</td>
                                         <td class="botones-table">
                                             <div class="acciones d-flex mx-auto">
-                                                <span href="" class="accion-btn" type="button"
-                                                    data-bs-toggle="modal" data-bs-target="#modal-actualizar">
+                                                <span href="" class="accion-btn" type="button" data-bs-toggle="modal"
+                                                    data-bs-target="#modal-actualizar">
                                                     <i class="fa-solid fa-pen-to-square"></i>
                                                 </span>
-                                                <span href="" class="accion-btn" type="button"
-                                                    data-bs-toggle="modal" data-bs-target="#modal-eliminar">
+                                                <span href="" class="accion-btn" type="button" data-bs-toggle="modal"
+                                                    data-bs-target="#modal-eliminar">
                                                     <i class="fa-solid fa-trash-can fa-lg"></i>
                                                 </span>
-                                                <span href="" class="accion-btn" type="button"
-                                                    data-bs-toggle="modal" data-bs-target="#modal-ver">
+                                                <span href="" class="accion-btn" type="button" data-bs-toggle="modal"
+                                                    data-bs-target="#modal-ver">
                                                     <i class="fa-solid fa-eye"></i>
                                                 </span>
                                             </div>
@@ -468,16 +468,16 @@
                                         <td data-title="ESTADO">Disponible</td>
                                         <td class="botones-table">
                                             <div class="acciones d-flex mx-auto">
-                                                <span href="" class="accion-btn" type="button"
-                                                    data-bs-toggle="modal" data-bs-target="#modal-actualizar">
+                                                <span href="" class="accion-btn" type="button" data-bs-toggle="modal"
+                                                    data-bs-target="#modal-actualizar">
                                                     <i class="fa-solid fa-pen-to-square"></i>
                                                 </span>
-                                                <span href="" class="accion-btn" type="button"
-                                                    data-bs-toggle="modal" data-bs-target="#modal-eliminar">
+                                                <span href="" class="accion-btn" type="button" data-bs-toggle="modal"
+                                                    data-bs-target="#modal-eliminar">
                                                     <i class="fa-solid fa-trash-can fa-lg"></i>
                                                 </span>
-                                                <span href="" class="accion-btn" type="button"
-                                                    data-bs-toggle="modal" data-bs-target="#modal-ver">
+                                                <span href="" class="accion-btn" type="button" data-bs-toggle="modal"
+                                                    data-bs-target="#modal-ver">
                                                     <i class="fa-solid fa-eye"></i>
                                                 </span>
                                             </div>
@@ -491,16 +491,16 @@
                                         <td data-title="ESTADO">Disponible</td>
                                         <td class="botones-table">
                                             <div class="acciones d-flex mx-auto">
-                                                <span href="" class="accion-btn" type="button"
-                                                    data-bs-toggle="modal" data-bs-target="#modal-actualizar">
+                                                <span href="" class="accion-btn" type="button" data-bs-toggle="modal"
+                                                    data-bs-target="#modal-actualizar">
                                                     <i class="fa-solid fa-pen-to-square"></i>
                                                 </span>
-                                                <span href="" class="accion-btn" type="button"
-                                                    data-bs-toggle="modal" data-bs-target="#modal-eliminar">
+                                                <span href="" class="accion-btn" type="button" data-bs-toggle="modal"
+                                                    data-bs-target="#modal-eliminar">
                                                     <i class="fa-solid fa-trash-can fa-lg"></i>
                                                 </span>
-                                                <span href="" class="accion-btn" type="button"
-                                                    data-bs-toggle="modal" data-bs-target="#modal-ver">
+                                                <span href="" class="accion-btn" type="button" data-bs-toggle="modal"
+                                                    data-bs-target="#modal-ver">
                                                     <i class="fa-solid fa-eye"></i>
                                                 </span>
                                             </div>
@@ -514,16 +514,16 @@
                                         <td data-title="ESTADO">Disponible</td>
                                         <td class="botones-table">
                                             <div class="acciones d-flex mx-auto">
-                                                <span href="" class="accion-btn" type="button"
-                                                    data-bs-toggle="modal" data-bs-target="#modal-actualizar">
+                                                <span href="" class="accion-btn" type="button" data-bs-toggle="modal"
+                                                    data-bs-target="#modal-actualizar">
                                                     <i class="fa-solid fa-pen-to-square"></i>
                                                 </span>
-                                                <span href="" class="accion-btn" type="button"
-                                                    data-bs-toggle="modal" data-bs-target="#modal-eliminar">
+                                                <span href="" class="accion-btn" type="button" data-bs-toggle="modal"
+                                                    data-bs-target="#modal-eliminar">
                                                     <i class="fa-solid fa-trash-can fa-lg"></i>
                                                 </span>
-                                                <span href="" class="accion-btn" type="button"
-                                                    data-bs-toggle="modal" data-bs-target="#modal-ver">
+                                                <span href="" class="accion-btn" type="button" data-bs-toggle="modal"
+                                                    data-bs-target="#modal-ver">
                                                     <i class="fa-solid fa-eye"></i>
                                                 </span>
                                             </div>
@@ -557,383 +557,379 @@
         </div>
     </div>
 
-        
-            
 
 
-        
 
-        <!-- INICIO MODAL VISUALIZAR-->
-        <div class="modal modal-ver modal-ver-empleado fade" id="modal-ver" tabindex="-1"
-            aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
-                    <div class="modal-header">
 
-                        <h3 class="mt-2">Detalles</h3>
 
-                        <button type="button" class="btn-close my" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <div class="container ver-empleado-content">
-                            <div class="row">
-                                <div class="col">
-                                    <h4>Nombres</h4>
-                                </div>
-                                <div class="col col-8"><span>Raúl Fernando</span> </div>
+
+    <!-- INICIO MODAL VISUALIZAR-->
+    <div class="modal modal-ver modal-ver-empleado fade" id="modal-ver" tabindex="-1"
+        aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+
+                    <h3 class="mt-2">Detalles</h3>
+
+                    <button type="button" class="btn-close my" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="container ver-empleado-content">
+                        <div class="row">
+                            <div class="col">
+                                <h4>Nombres</h4>
                             </div>
-                            <hr>
-                            <div class="row">
-                                <div class="col">
-                                    <h4>Apellidos</h4>
-                                </div>
-                                <div class="col col-8"><span>Salinas Castro</span></div>
+                            <div class="col col-8"><span>Raúl Fernando</span> </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col">
+                                <h4>Apellidos</h4>
                             </div>
-                            <hr>
-                            <div class="row ">
-                                <div class="col">
-                                    <h4>Cargo</h4>
-                                </div>
-                                <div class="col col-8"><span>Administrador</span></div>
+                            <div class="col col-8"><span>Salinas Castro</span></div>
+                        </div>
+                        <hr>
+                        <div class="row ">
+                            <div class="col">
+                                <h4>Cargo</h4>
                             </div>
-                            <hr>
-                            <div class="row ">
-                                <div class="col">
-                                    <h4>Correo</h4>
-                                </div>
-                                <div class="col col-8"><span>Raulito@gmail.com</span></div>
+                            <div class="col col-8"><span>Administrador</span></div>
+                        </div>
+                        <hr>
+                        <div class="row ">
+                            <div class="col">
+                                <h4>Correo</h4>
                             </div>
-                            <hr>
-                            <div class="row ">
-                                <div class="col">
-                                    <h4>Teléfono</h4>
-                                </div>
-                                <div class="col col-8"><span>7777-7777</span></div>
+                            <div class="col col-8"><span>Raulito@gmail.com</span></div>
+                        </div>
+                        <hr>
+                        <div class="row ">
+                            <div class="col">
+                                <h4>Teléfono</h4>
                             </div>
-                            <hr>
-                            <div class="row ">
-                                <div class="col">
-                                    <h4>Alias</h4>
-                                </div>
-                                <div class="col col-8"><span>Raul_F</span></div>
+                            <div class="col col-8"><span>7777-7777</span></div>
+                        </div>
+                        <hr>
+                        <div class="row ">
+                            <div class="col">
+                                <h4>Alias</h4>
                             </div>
-                            <hr>
-                            <div class="row ">
-                                <div class="col">
-                                    <h4>Dirección</h4>
-                                </div>
-                                <div class="col col-8"><span>Mejicanos, San Salvador</span></div>
+                            <div class="col col-8"><span>Raul_F</span></div>
+                        </div>
+                        <hr>
+                        <div class="row ">
+                            <div class="col">
+                                <h4>Dirección</h4>
                             </div>
-                            <hr>
-                            <div class="row ">
-                                <div class="col">
-                                    <h4>Estado</h4>
-                                </div>
-                                <div class="col col-8"><span>Activo</span></div>
+                            <div class="col col-8"><span>Mejicanos, San Salvador</span></div>
+                        </div>
+                        <hr>
+                        <div class="row ">
+                            <div class="col">
+                                <h4>Estado</h4>
                             </div>
-                            <div class="row">
-                                <div class="col d-flex justify-content-center mt-2"><img
-                                        src="../resources/dashboard/Usuario.png" class="Usua-Ico" alt=""></div>
-                            </div>
+                            <div class="col col-8"><span>Activo</span></div>
+                        </div>
+                        <div class="row">
+                            <div class="col d-flex justify-content-center mt-2"><img
+                                    src="../resources/dashboard/Usuario.png" class="Usua-Ico" alt=""></div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- FIN MODAL -->
+    </div>
+    <!-- FIN MODAL -->
 
-        <!-- INICIO MODALS AGREGAR-->
-        <div class="modal modal-agregar modal-agregar-empleado fade" id="modal-agregar" tabindex="-1"
-            aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered modal-xl">
-                <div class="modal-content">
-                    <div class="modal-header">
+    <!-- INICIO MODALS AGREGAR-->
+    <div class="modal modal-agregar modal-agregar-empleado fade" id="modal-agregar" tabindex="-1"
+        aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
 
-                        <h3 class="mt-2">Agregar empleado</h3>
+                    <h3 class="mt-2">Agregar empleado</h3>
 
-                        <button type="button" class="btn-close my" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <div class="container">
-                            <div class="row agregar-content">
-                                <div class="col">
+                    <button type="button" class="btn-close my" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="container">
+                        <div class="row agregar-content">
+                            <div class="col">
 
-                                    <div class="row agregar-content-flex">
-                                        <div class="col-4 mb-4">
-                                            <label for="validationDefault0" class="form-label">Nombres</label>
-                                            <input type="text" class="form-control" id="validationDefault01" value=""
-                                                required>
-                                        </div>
-                                        <div class="col-4 mb-4">
-                                            <label for="validationDefault02" class="form-label">Apellidos</label>
-                                            <input type="text" class="form-control" id="validationDefault01" value=""
-                                                required>
-                                        </div>
-                                        <div class="col-4 mb-4">
-                                            <label for="validationDefault03" class="form-label">Fecha de
-                                                nacimiento</label>
-                                                <input type="text" class="form-control" data-toggle="datepicker">
-                                        </div>
-                                        <div class="col-4 mb-4">
-                                            <label for="validationDefault04" class="form-label">Correo electrónico</label>
-                                            <input type="text" class="form-control" id="validationDefault01" value=""
-                                                required>
-                                        </div>
-                                        <div class="col-4 mb-4">
-                                            <label for="validationDefault05" class="form-label">Teléfono</label>
-                                            <input type="text" class="form-control" id="validationDefault01" value=""
-                                                required>
-                                        </div>
-                                        <div class="col-4 mb-4">
-                                            <label for="validationDefault06" class="form-label">Dirección</label>
-                                            <input type="text" class="form-control" id="validationDefault01" value=""
-                                                required>
-                                        </div>
-                                        <div class="col-4 mb-4">
-                                            <label for="validationDefault07" class="form-label">Nombre de usuario</label>
-                                            <input type="text" class="form-control" id="validationDefault01" value=""
-                                                required>
-                                        </div>
-                                        <div class="col-4 mb-4">
-                                            <label for="validationDefault08" class="form-label">Contraseña</label>
-                                            <input type="text" class="form-control" id="validationDefault01" value=""
-                                                required>
-                                        </div>
-                                        <div class="col-4 mb-4">
-                                            <label for="validationDefault03" class="form-label">Cargo</label>
-                                            <select class="form-select custom-form-select"
-                                                aria-label="Default select example">
-                                                <option selected>Open this select menu</option>
-                                                <option value="1">One</option>
-                                                <option value="2">Two</option>
-                                                <option value="3">Three</option>
-                                            </select>
-                                        </div>
-                                        <div class="col-4 mb-4">
-                                            <label for="validationDefault03" class="form-label">Estado</label>
-                                            <select class="form-select custom-form-select"
-                                                aria-label="Default select example">
-                                                <option selected>Open this select menu</option>
-                                                <option value="1">One</option>
-                                                <option value="2">Two</option>
-                                                <option value="3">Three</option>
-                                            </select>
-                                        </div>
+                                <div class="row agregar-content-flex">
+                                    <div class="col-4 mb-4">
+                                        <label for="validationDefault0" class="form-label">Nombres</label>
+                                        <input type="text" class="form-control" id="validationDefault01" value=""
+                                            required>
                                     </div>
-                                    
-                                </div>
-
-
-                            </div>
-                        </div>
-                    </div>
-                    <div class="modal-footer d-flex justify-content-end">
-                        <button class="btn btn-siguiente" type="button" data-bs-target="#modal-agregar2"
-                            data-bs-toggle="modal" data-bs-dismiss="modal">Siguiente</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="modal modal-agregar2 modal-agregar-empleado2 fade" id="modal-agregar2" aria-hidden="true"
-            aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
-            <div class="modal-dialog modal-dialog-centered modal-xl">
-                <div class="modal-content">
-                    <div class="modal-header">
-
-                        <h3 class="mt-2">Agregar Empleado</h3>
-
-                        <button type="button" class="btn-close my" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <div class="container my-5">
-                            <div class="row agregar-content">
-                                <div class="col">
-                                    <div class="row">
-                                        <div class="col">
-                                            <form action="/file-upload" class="dropzone" id="agregar-dropzone">
-                                            </form>
-                                        </div>
+                                    <div class="col-4 mb-4">
+                                        <label for="validationDefault02" class="form-label">Apellidos</label>
+                                        <input type="text" class="form-control" id="validationDefault01" value=""
+                                            required>
                                     </div>
-
-                                </div>
-
-
-                            </div>
-                        </div>
-                    </div>
-                    <div class="modal-footer d-flex justify-content-between">
-                        <button class="btn btn-regresar" type="button" data-bs-target="#modal-agregar"
-                            data-bs-toggle="modal" data-bs-dismiss="modal">Regresar</button>
-                        <button class="btn-guardar" type="button">Guardar<i
-                                class="fa-solid fa-floppy-disk"></i></button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- FIN MODAL -->
-
-        <!-- INICIO MODALS ACTUALIZAR -->
-        <div class="modal modal-agregar fade" id="modal-actualizar" tabindex="-1" aria-labelledby="exampleModalLabel"
-            aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered modal-xl">
-                <div class="modal-content">
-                    <div class="modal-header">
-
-                        <h3 class="mt-2">Actualizar empleado</h3>
-
-                        <button type="button" class="btn-close my" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <div class="container">
-                            <div class="row agregar-content">
-                                <div class="col">
-
-                                    <div class="row agregar-content-flex">
-                                        <div class="col-4 mb-4">
-                                            <label for="validationDefault0" class="form-label">Nombres</label>
-                                            <input type="text" class="form-control" id="validationDefault01" value=""
-                                                required>
-                                        </div>
-                                        <div class="col-4 mb-4">
-                                            <label for="validationDefault02" class="form-label">Apellidos</label>
-                                            <input type="text" class="form-control" id="validationDefault01" value=""
-                                                required>
-                                        </div>
-                                        <div class="col-4 mb-4">
-                                            <label for="validationDefault03" class="form-label">Fecha de
-                                                nacimiento</label>
-                                                <input type="text" class="form-control" data-toggle="datepicker">
-                                        </div>
-                                        <div class="col-4 mb-4">
-                                            <label for="validationDefault04" class="form-label">Correo electrónico</label>
-                                            <input type="text" class="form-control" id="validationDefault01" value=""
-                                                required>
-                                        </div>
-                                        <div class="col-4 mb-4">
-                                            <label for="validationDefault05" class="form-label">Teléfono</label>
-                                            <input type="text" class="form-control" id="validationDefault01" value=""
-                                                required>
-                                        </div>
-                                        <div class="col-4 mb-4">
-                                            <label for="validationDefault06" class="form-label">Dirección</label>
-                                            <input type="text" class="form-control" id="validationDefault01" value=""
-                                                required>
-                                        </div>
-                                        <div class="col-4 mb-4">
-                                            <label for="validationDefault07" class="form-label">Nombre de usuario</label>
-                                            <input type="text" class="form-control" id="validationDefault01" value=""
-                                                required>
-                                        </div>
-                                        <div class="col-4 mb-4">
-                                            <label for="validationDefault08" class="form-label">Contraseña</label>
-                                            <input type="text" class="form-control" id="validationDefault01" value=""
-                                                required>
-                                        </div>
-                                        <div class="col-4 mb-4">
-                                            <label for="validationDefault03" class="form-label">Cargo</label>
-                                            <select class="form-select custom-form-select"
-                                                aria-label="Default select example">
-                                                <option selected>Open this select menu</option>
-                                                <option value="1">One</option>
-                                                <option value="2">Two</option>
-                                                <option value="3">Three</option>
-                                            </select>
-                                        </div>
-                                        <div class="col-4 mb-4">
-                                            <label for="validationDefault03" class="form-label">Estado</label>
-                                            <select class="form-select custom-form-select"
-                                                aria-label="Default select example">
-                                                <option selected>Open this select menu</option>
-                                                <option value="1">One</option>
-                                                <option value="2">Two</option>
-                                                <option value="3">Three</option>
-                                            </select>
-                                        </div>
+                                    <div class="col-4 mb-4">
+                                        <label for="validationDefault03" class="form-label">Fecha de
+                                            nacimiento</label>
+                                        <input type="text" class="form-control" data-toggle="datepicker">
                                     </div>
-                                    
-                                </div>
-
-
-                            </div>
-                        </div>
-                    </div>
-                    <div class="modal-footer d-flex justify-content-end">
-                        <button class="btn btn-siguiente" type="button" data-bs-target="#modal-actualizar2"
-                            data-bs-toggle="modal" data-bs-dismiss="modal">Siguiente</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="modal modal-agregar2 modal-agregar-empleado2 fade" id="modal-actualizar2" aria-hidden="true"
-            aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
-            <div class="modal-dialog modal-dialog-centered modal-xl">
-                <div class="modal-content">
-                    <div class="modal-header">
-
-                        <h3 class="mt-2">Actualizar empleado</h3>
-
-                        <button type="button" class="btn-close my" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <div class="container my-5">
-                            <div class="row agregar-content">
-                                <div class="col">
-                                    <div class="row">
-                                        <div class="col">
-                                            <form action="/file-upload" class="dropzone" id="my-awesome-dropzone">
-                                            </form>
-                                        </div>
+                                    <div class="col-4 mb-4">
+                                        <label for="validationDefault04" class="form-label">Correo electrónico</label>
+                                        <input type="text" class="form-control" id="validationDefault01" value=""
+                                            required>
                                     </div>
-
+                                    <div class="col-4 mb-4">
+                                        <label for="validationDefault05" class="form-label">Teléfono</label>
+                                        <input type="text" class="form-control" id="validationDefault01" value=""
+                                            required>
+                                    </div>
+                                    <div class="col-4 mb-4">
+                                        <label for="validationDefault06" class="form-label">Dirección</label>
+                                        <input type="text" class="form-control" id="validationDefault01" value=""
+                                            required>
+                                    </div>
+                                    <div class="col-4 mb-4">
+                                        <label for="validationDefault07" class="form-label">Nombre de usuario</label>
+                                        <input type="text" class="form-control" id="validationDefault01" value=""
+                                            required>
+                                    </div>
+                                    <div class="col-4 mb-4">
+                                        <label for="validationDefault08" class="form-label">Contraseña</label>
+                                        <input type="text" class="form-control" id="validationDefault01" value=""
+                                            required>
+                                    </div>
+                                    <div class="col-4 mb-4">
+                                        <label for="validationDefault03" class="form-label">Cargo</label>
+                                        <select class="form-select custom-form-select"
+                                            aria-label="Default select example">
+                                            <option selected disabled>Seleccione una opción</option>
+                                            <option value="1">Administrador</option>
+                                            <option value="2">Ventas</option>
+                                            <option value="3">Inventario</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-4 mb-4">
+                                        <label for="validationDefault03" class="form-label">Estado</label>
+                                        <select class="form-select custom-form-select"
+                                            aria-label="Default select example">
+                                            <option selected disabled>Seleccione una opción</option>
+                                            <option value="1">Activo</option>
+                                            <option value="2">Inactivo</option>
+                                            <option value="3">Deshabilitado</option>
+                                        </select>
+                                    </div>
                                 </div>
-
 
                             </div>
                         </div>
                     </div>
-                    <div class="modal-footer d-flex justify-content-between">
-                        <button class="btn btn-regresar" type="button" data-bs-target="#modal-actualizar"
-                            data-bs-toggle="modal" data-bs-dismiss="modal">Regresar</button>
-                        <button class="btn-guardar" type="button">Guardar<i
-                                class="fa-solid fa-floppy-disk"></i></button>
-                    </div>
+                </div>
+                <div class="modal-footer d-flex justify-content-end">
+                    <button class="btn btn-siguiente" type="button" data-bs-target="#modal-agregar2"
+                        data-bs-toggle="modal" data-bs-dismiss="modal">Siguiente</button>
                 </div>
             </div>
         </div>
-        <!-- FIN MODALS ACTUALIZAR -->
+    </div>
 
-        <!-- INICIO MODAL DELETE -->
-        <div class="modal modal-eliminar fade" id="modal-eliminar" aria-hidden="true"
-            aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
-            <div class="modal-dialog modal-dialog-centered modal-xl">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <div class="container my-5">
-                            <div class="row">
-                                <div class="col eliminar-content">
-                                    <i class="fa-solid fa-circle-exclamation mb-4"></i>
-                                    <h2>¿Estás seguro?</h2>
-                                    <span>El elemento se borrará de manera permanente</span>
+    <div class="modal modal-agregar2 modal-agregar-empleado2 fade" id="modal-agregar2" aria-hidden="true"
+        aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+
+                    <h3 class="mt-2">Agregar Empleado</h3>
+
+                    <button type="button" class="btn-close my" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="container my-5">
+                        <div class="row agregar-content">
+                            <div class="col">
+                                <div class="row">
+                                    <div class="col">
+                                        <form action="/file-upload" class="dropzone" id="agregar-dropzone">
+                                        </form>
+                                    </div>
                                 </div>
+
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer d-flex justify-content-between">
+                    <button class="btn btn-regresar" type="button" data-bs-target="#modal-agregar"
+                        data-bs-toggle="modal" data-bs-dismiss="modal">Regresar</button>
+                    <button class="btn-guardar" type="button">Guardar<i class="fa-solid fa-floppy-disk"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- FIN MODAL -->
+
+    <!-- INICIO MODALS ACTUALIZAR -->
+    <div class="modal modal-agregar fade" id="modal-actualizar" tabindex="-1" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+
+                    <h3 class="mt-2">Actualizar empleado</h3>
+
+                    <button type="button" class="btn-close my" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="container">
+                        <div class="row agregar-content">
+                            <div class="col">
+
+                                <div class="row agregar-content-flex">
+                                    <div class="col-4 mb-4">
+                                        <label for="validationDefault0" class="form-label">Nombres</label>
+                                        <input type="text" class="form-control" id="validationDefault01" value=""
+                                            required>
+                                    </div>
+                                    <div class="col-4 mb-4">
+                                        <label for="validationDefault02" class="form-label">Apellidos</label>
+                                        <input type="text" class="form-control" id="validationDefault01" value=""
+                                            required>
+                                    </div>
+                                    <div class="col-4 mb-4">
+                                        <label for="validationDefault03" class="form-label">Fecha de
+                                            nacimiento</label>
+                                        <input type="text" class="form-control" data-toggle="datepicker">
+                                    </div>
+                                    <div class="col-4 mb-4">
+                                        <label for="validationDefault04" class="form-label">Correo electrónico</label>
+                                        <input type="text" class="form-control" id="validationDefault01" value=""
+                                            required>
+                                    </div>
+                                    <div class="col-4 mb-4">
+                                        <label for="validationDefault05" class="form-label">Teléfono</label>
+                                        <input type="text" class="form-control" id="validationDefault01" value=""
+                                            required>
+                                    </div>
+                                    <div class="col-4 mb-4">
+                                        <label for="validationDefault06" class="form-label">Dirección</label>
+                                        <input type="text" class="form-control" id="validationDefault01" value=""
+                                            required>
+                                    </div>
+                                    <div class="col-4 mb-4">
+                                        <label for="validationDefault07" class="form-label">Nombre de usuario</label>
+                                        <input type="text" class="form-control" id="validationDefault01" value=""
+                                            required>
+                                    </div>
+                                    <div class="col-4 mb-4">
+                                        <label for="validationDefault08" class="form-label">Contraseña</label>
+                                        <input type="text" class="form-control" id="validationDefault01" value=""
+                                            required>
+                                    </div>
+                                    <div class="col-4 mb-4">
+                                        <label for="validationDefault03" class="form-label">Cargo</label>
+                                        <select class="form-select custom-form-select"
+                                            aria-label="Default select example">
+                                            <option selected disabled>Seleccione una opción</option>
+                                            <option value="1">Administrador</option>
+                                            <option value="2">Ventas</option>
+                                            <option value="3">Inventario</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-4 mb-4">
+                                        <label for="validationDefault03" class="form-label">Estado</label>
+                                        <select class="form-select custom-form-select"
+                                            aria-label="Default select example">
+                                            <option selected disabled>Seleccione una opción</option>
+                                            <option value="1">Activo</option>
+                                            <option value="2">Inactivo</option>
+                                            <option value="3">Deshabilitado</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer d-flex justify-content-end">
+                    <button class="btn btn-siguiente" type="button" data-bs-target="#modal-actualizar2"
+                        data-bs-toggle="modal" data-bs-dismiss="modal">Siguiente</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal modal-agregar2 modal-agregar-empleado2 fade" id="modal-actualizar2" aria-hidden="true"
+        aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+
+                    <h3 class="mt-2">Actualizar empleado</h3>
+
+                    <button type="button" class="btn-close my" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="container my-5">
+                        <div class="row agregar-content">
+                            <div class="col">
+                                <div class="row">
+                                    <div class="col">
+                                        <form action="/file-upload" class="dropzone" id="my-awesome-dropzone">
+                                        </form>
+                                    </div>
+                                </div>
+
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer d-flex justify-content-between">
+                    <button class="btn btn-regresar" type="button" data-bs-target="#modal-actualizar"
+                        data-bs-toggle="modal" data-bs-dismiss="modal">Regresar</button>
+                    <button class="btn-guardar" type="button">Guardar<i class="fa-solid fa-floppy-disk"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- FIN MODALS ACTUALIZAR -->
+
+    <!-- INICIO MODAL DELETE -->
+    <div class="modal modal-eliminar fade" id="modal-eliminar" aria-hidden="true"
+        aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="container my-5">
+                        <div class="row">
+                            <div class="col eliminar-content">
+                                <i class="fa-solid fa-circle-exclamation mb-4"></i>
+                                <h2>¿Estás seguro?</h2>
+                                <span>El elemento se borrará de manera permanente</span>
                             </div>
                         </div>
                     </div>
-                    <div class="modal-footer d-flex mx-2 justify-content-between">
-                        <button class="btn btn-cancel" type="button" data-bs-target="" data-bs-toggle="modal"
-                            data-bs-dismiss="modal">Cancelar</button>
-                        <button class="btn btn-siguiente" type="button" data-bs-target="" data-bs-toggle="modal"
-                            data-bs-dismiss="modal">Continuar</button>
-                    </div>
+                </div>
+                <div class="modal-footer d-flex mx-2 justify-content-between">
+                    <button class="btn btn-cancel" type="button" data-bs-target="" data-bs-toggle="modal"
+                        data-bs-dismiss="modal">Cancelar</button>
+                    <button class="btn btn-siguiente" type="button" data-bs-target="" data-bs-toggle="modal"
+                        data-bs-dismiss="modal">Continuar</button>
                 </div>
             </div>
         </div>
-        <!-- FIN MODAL DELETE -->
-    
+    </div>
+    <!-- FIN MODAL DELETE -->
+
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <!-- DATEPICKER RESOURCE -->
     <script src="../js/empleados.js"></script>
@@ -953,14 +949,14 @@
         integrity="sha384-zNy6FEbO50N+Cg5wap8IKA4M/ZnLJgzc6w2NqACZaK0u0FXfOWRRJOnQtpZun8ha"
         crossorigin="anonymous"></script>
 
-        <script>
-            $(function() {
-              $('[data-toggle="datepicker"]').datepicker({
+    <script>
+        $(function () {
+            $('[data-toggle="datepicker"]').datepicker({
                 autoHide: true,
                 zIndex: 2048,
-              });
             });
-          </script>
+        });
+    </script>
 
 </body>
 

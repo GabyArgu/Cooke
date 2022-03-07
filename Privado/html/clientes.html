@@ -30,7 +30,7 @@
     <script src="https://unpkg.com/dropzone@5/dist/min/dropzone.min.js"></script>
     <link rel="stylesheet" href="https://unpkg.com/dropzone@5/dist/min/dropzone.min.css" type="text/css" />
     <!-- Datepicker -->
-    <link href="../../plugins/datepicker/dist/datepicker.css" rel="stylesheet">
+    <!-- <link href="../../plugins/datepicker/dist/datepicker.css" rel="stylesheet"> -->
     <title>Cooké</title>
 </head>
 
@@ -485,10 +485,10 @@
                                         <label for="validationDefault03" class="form-label">Estado</label>
                                         <select class="form-select custom-form-select"
                                             aria-label="Default select example">
-                                            <option selected>Open this select menu</option>
-                                            <option value="1">One</option>
-                                            <option value="2">Two</option>
-                                            <option value="3">Three</option>
+                                            <option selected disabled>Seleccione una opción</option>
+                                            <option value="1">Activo</option>
+                                            <option value="2">Inactivo</option>
+                                            <option value="3">Deshabilitado</option>
                                         </select>
                                     </div>
                                 </div>
@@ -606,16 +606,13 @@
                                         <input type="text" class="form-control" id="validationDefault01" value=""
                                             required>
                                     </div>
-                                    <div class="col-4 mb-4">
-                                        <label for="validationDefault03" class="form-label">Estado</label>
-                                        <select class="form-select custom-form-select"
+                                    <select class="form-select custom-form-select"
                                             aria-label="Default select example">
-                                            <option selected>Open this select menu</option>
-                                            <option value="1">One</option>
-                                            <option value="2">Two</option>
-                                            <option value="3">Three</option>
+                                            <option selected disabled>Seleccione una opción</option>
+                                            <option value="1">Activo</option>
+                                            <option value="2">Inactivo</option>
+                                            <option value="3">Deshabilitado</option>
                                         </select>
-                                    </div>
                                 </div>
 
                             </div>
@@ -701,7 +698,6 @@
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <!-- DATEPICKER RESOURCE -->
-    <script src="../js/clientes.js"></script>
     <script src="../js/dashboard.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
         integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
@@ -717,14 +713,14 @@
         integrity="sha384-zNy6FEbO50N+Cg5wap8IKA4M/ZnLJgzc6w2NqACZaK0u0FXfOWRRJOnQtpZun8ha"
         crossorigin="anonymous"></script>
 
-    <script>
+    <!-- <script>
         $(function () {
             $('[data-toggle="datepicker"]').datepicker({
                 autoHide: true,
                 zIndex: 2048,
             });
         });
-    </script>
+    </script> -->
 
 </body>
 

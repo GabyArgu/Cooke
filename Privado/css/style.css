@@ -248,10 +248,12 @@ body{
 cursor: pointer;
 font-size: 18px;
 }
-.sidebar.toggled{
+.sidebar.hide{
     margin-left:-250px;
   }
-
+.sidebar a{
+  cursor: pointer;
+}
 .main{
     display: flex;
     flex-direction: column;
@@ -393,6 +395,9 @@ main .container-fluid .contenido{
   margin: 0 auto;
 }
 
+.colores i:hover{
+  opacity: 0.5;
+}
 .colores .color1{
   color: #F8D7E8;
 }
@@ -1521,7 +1526,6 @@ width: 20%;
 
   .sidebar {
     top: 5rem;
-
   }
 }
 
@@ -1540,6 +1544,11 @@ width: 20%;
   .sidebar{
       margin-left: -250px;
   }
+
+  .sidebar.show{
+    margin-left: 0;
+  }
+  
 }
 
 @media (max-width: 1000px) {
