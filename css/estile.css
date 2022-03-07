@@ -838,10 +838,52 @@ body {
     transform: scale(1.2);
 }
 
-
 .Condicion .card-body{
     padding-top: 0px !important;
 }
+
+.modal-terminos {
+    font-family: 'Mohave', sans-serif;
+    color: var(--rosadoOscuro);
+}
+
+.modal-terminos .modal-header {
+    background-color: var(--rosadoFondos);
+    color: var(--rosadoOscuro);
+}
+
+.modal-terminos .subtitulo {
+    color: var(--rosadoOscuro);
+    background-color: var(--rosadoFondos);
+    padding: 15px;
+}
+
+.modal-terminos p {
+    margin-bottom: 0 !important;
+    padding: 5px;
+    border-bottom: 1px solid rgba(195, 78, 139, 0.5);
+}
+
+.modal-terminos p:first-of-type{
+    border-top: 1px solid rgba(195, 78, 139, 0.5);
+}
+
+.modal-terminos .collapse-terminos {
+    display: block;
+    width: 100%;
+    text-align: left;
+    color: var(--rosadoOscuro);
+}
+
+.collapse-terminos {
+    background-color: transparent !important;
+    border: transparent !important;
+}
+
+.modal-terminos .card-body {
+    border: transparent;
+}
+
 
 /*------------------SOBRE NOSOTROS END------------------*/
 
@@ -1421,7 +1463,7 @@ body {
     transition: all 0.5s ease;
 }
 .modal-header{
-    border-color: rgba(195, 78, 139, 0.2) ;
+    border-color: rgba(195, 78, 139, 0.2);
 }
 .modal .secondary-img img {
     cursor: pointer;
