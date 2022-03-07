@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="../../assets/css/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mohave&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap" rel="stylesheet">
+
+
+    <link rel="icon" type="icon/png" href="../resources/dashboard/logo.png">
+    <!-- libreria iconos FONTAWESOME-->
+    <link rel="icon" type="icon/png" href="../resources/dashboard/logo.png" />
+    <script src="https://kit.fontawesome.com/479a6c23da.js" crossorigin="anonymous"></script>
+
+    <!-- Libreria dropzone -->
+    <script src="https://unpkg.com/dropzone@5/dist/min/dropzone.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/dropzone@5/dist/min/dropzone.min.css" type="text/css" />
+    <!-- Datepicker -->
+    <title>Cooké</title>
+</head>
+
+<body>
+
+    <div class="wrapper">
+        <nav id="sidebarMenu" class="sidebar ">
+            <a href="../index.html" class="sidebar-conent-header d-flex"><img src="../resources/dashboard/logo2.png"
+                    alt="" id="logo_inicio" class="mx-auto d-block"></a>
+
+            <div class="sidebar-content">
+
+                <ul class="nav flex-column justify-content-center align-items-center">
+                    <img src="../resources/dashboard/Usuario.png" class="Usua-Ico" alt="">
+                    <h5 class="Nombre-Usu">Gabriela Méndez</h5>
+                    <a class="Adm" href="#">Administrar</a>
+                </ul>
+
+                <ul class="sidebar-nav Botones-Sider">
+
+                    <li class="sidebar-item mt-2">
+                        <a data-bs-target="#dashboards" data-bs-toggle="collapse" class="sidebar-link collapsed">
+                            <i class="align-middle me-2 fas fa-fw fa-home"></i> <span
+                                class="align-middle">PRINCIPAL</span>
+                        </a>
+                        <ul id="dashboards" class="sidebar-dropdown list-unstyled collapse " data-bs-parent="#sidebar">
+                            <li class="sidebar-item"><a class="sidebar-link" href="../index.html">Dashboard</a></li>
+
+                        </ul>
+                    </li>
+                    <li class="sidebar-item mt-5">
+                        <a data-bs-target="#Tienda" data-bs-toggle="collapse" class="sidebar-link collapsed mt-4">
+                            <i class="fa-solid fa-shop"></i> <span class="align-middle">TIENDA</span>
+                        </a>
+                        <ul id="Tienda" class="sidebar-dropdown list-unstyled collapse " data-bs-parent="#sidebar">
+                            <li class="sidebar-item"><a class="sidebar-link" href="">crud
+                                    In</a></li>
+                            <li class="sidebar-item"><a class="sidebar-link" href="">crud
+                                    Up</a></li>
+                            <li class="sidebar-item"><a class="sidebar-link" href="">crud
+                                    Page</a></li>
+                            <li class="sidebar-item"><a class="sidebar-link" href="">crud
+                                    Page</a></li>
+                        </ul>
+                    </li>
+                    <li class="sidebar-item mt-5">
+                        <a data-bs-target="#blog" data-bs-toggle="collapse" class="sidebar-link collapsed">
+                            <i class="fa-solid fa-book me-2"></i><span class="align-middle">BLOG</span>
+                        </a>
+                        <ul id="blog" class="sidebar-dropdown list-unstyled collapse " data-bs-parent="#sidebar">
+                            <li class="sidebar-item"><a class="sidebar-link" href="">Sign
+                                    In</a></li>
+                            <li class="sidebar-item"><a class="sidebar-link" href="">Sign
+                                    Up</a></li>
+
+                        </ul>
+                    </li>
+
+                    <li class="sidebar-item mt-5">
+                        <a data-bs-target="#forms" data-bs-toggle="collapse" class="sidebar-link collapsed">
+                            <i class="fa-solid me-2 fa-database"></i><span class="align-middle">ADMINISTRACIÓN</span>
+                        </a>
+                        <ul id="forms" class="sidebar-dropdown list-unstyled collapse " data-bs-parent="#sidebar">
+                            <li class="sidebar-item"><a class="sidebar-link" href="">admon</a></li>
+                            <li class="sidebar-item"><a class="sidebar-link" href="">admon</a></li>
+                        </ul>
+                    </li>
+
+
+                </ul>
+            </div>
+        </nav>
+        <div class="main productos">
+            <nav class="navbar navbar-expand navbar-theme">
+                <a class="sidebar-toggle d-flex me-2">
+                    <i class="fa-solid fa-bars" onclick="sidebarToggle()"></i>
+                </a>
+
+                <div class="Lupa"><img src="../resources/dashboard/lupa.png" alt="" id="Lu-Logo"
+                        class="mx-auto d-none d-md-block"></div>
+
+                <form class="d-none d-sm-inline-block me-auto ">
+                    <input class=" form-control form-control-lite" type="text" placeholder="Buscar en el sitio">
+                </form>
+
+                <div class="opciones-nav d-flex justify-content-center align-items-center">
+                    <div class=" Lun"><img src="../resources/dashboard/lunas.png" alt="" id="Confi-Logo"
+                            class="mx-auto d-md-block"></div>
+                    <ul class="navbar-nav ms-auto mb-2">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown" href="#" id="navbarDropdownMenuLink" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                <img src="../resources/dashboard/configuraciones.png" alt="" id="Confi-Logo"
+                                    class="mx-auto d-block">
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
+                                <li><a class="dropdown-item" href="#">Perfil</a></li>
+                                <li><a class="dropdown-item" href="#">Cerrar Sesión</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+            <main class="content">
+                <div class="container-fluid">
+                    <div class="header">
+                        <h1>Perfil de usuario</h1>
+                    </div>
+                    <div class="row contenido">
+                        <div class="container-fluid container-tabla scroll mt-3 mb-3">
+                            <div class="row pt-3 mx-auto header-table">
+                                <div class="col d-flex justify-content-start mx-auto">
+                                    <h2 class="H-infor">INFORMACIÓN GENERAL</h2>
+                                </div>
+                            </div>
+                            <div class="row Infor-H5">
+                                <div
+                                    class="col-sm-10 col-md-6 col-lg-3 d-flex flex-column justify-content-center align-items-start Div-Inf">
+                                    <h5 class="mt-3"> <b>Alias:</b> Gabriela Méndez</h5>
+                                    <h5 class="mt-3"> <b>Nombres:</b> Gabriela Susana</h5>
+                                    <h5 class="mt-3"> <b>Apellidos:</b> Méndez Barrera</h5>
+                                </div>
+                                <div
+                                    class="col-sm-10 col-md-6 col-lg-3 d-flex flex-column justify-content-center align-items-start Div-Inf">
+                                    <h5 class="mt-3"> <b>Correo:</b> Gab@ricaldone.edu.sv</h5>
+                                    <h5 class="mt-3"> <b>Cargo:</b> Administrador</h5>
+                                    <h5 class="mt-3"> <b>Dirección:</b> Colonia Quenedy #3B</h5>
+                                </div>
+                                <div
+                                    class="col-sm-10 col-md-6 col-lg-3 d-flex flex-column justify-content-center align-items-start Div-Inf">
+                                    <h5 class="mt-3"> <b>Telefono:</b> 7690-1760</h5>
+                                    <button type="button" class="btn btn-primary mt-3 "> <a class=" Edit-but"
+                                            data-bs-toggle="modal" data-bs-target="#staticBackdrop"
+                                            href="#staticBackdrop">EDITAR INFORMACIÓN</a> </button>
+                                </div>
+                                <div
+                                    class="col-sm-10 col-md-6 col-lg-3 d-flex flex-column justify-content-center align-items-start Div-Inf">
+                                    <img src="../resources/dashboard/Usuario.png" alt="" class="usu-img">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row contenido mt-4">
+                        <div class="container-fluid container-tabla scroll mt-3 mb-3">
+                            <div class="row pt-3 mx-auto header-table">
+                                <div class="col d-flex justify-content-start mx-auto">
+                                    <h2 class="H-infor">ACCIONES REALIZAS</h2>
+                                </div>
+                            </div>
+                            <div class="row Infor-H3">
+                                <div class="col-sm-6 col-md-6 col-lg-3 d-flex flex-column justify-content-center align-items-center Div-Inf">
+                                    <h3 class="mt-3">50</h3>
+                                    <h5 class="mt-3">BLOG POSTEADOS</h5>
+                                </div>
+                                <div class="col-sm-6 col-md-6 col-lg-3 d-flex flex-column justify-content-center align-items-center Div-Inf">
+                                    <h3 class="mt-3">70</h3>
+                                    <h5 class="mt-3">PRODUCTOS INGRESADOS</h5>
+                                </div>
+                                <div class="col-sm-6 col-md-6 col-lg-3 d-flex flex-column justify-content-center align-items-center Div-Inf">
+                                    <h3 class="mt-3">92</h3>
+                                    <h5 class="mt-3">PEDIDOS PROCESADOS</h5>
+                                </div>
+                                <div class="col-sm-6 col-md-6 col-lg-3 d-flex flex-column justify-content-center align-items-center Div-Inf">
+                                    <h3 class="mt-3">75</h3>
+                                    <h5 class="mt-3">PROVEEDORES AGREGADOS</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade " id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
+    tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title M-edi" id="staticBackdropLabel">Editar información</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="container-fluid">
+                    <div class="row align-items-center d-flex justify-content-center">
+                        <div class="col-6 Spa-in">
+                            <span class="input-group-text">Alias</span>
+                            <input type="text" class="form-control  " placeholder="Escribe tu alias"
+                                aria-label="Username">
+                        </div>
+                        <div class="col-6 Spa-in">
+                            <span class="input-group-text">Correo</span>
+                            <input type="text" class="form-control  " placeholder="Escribe tu correo"
+                                aria-label="Username">
+                        </div>
+                    </div>
+                    <div class="row align-items-center d-flex justify-content-center">
+                        <div class="col-6 Spa-in">
+                            <span class="input-group-text">Nombres</span>
+                            <input type="text" class="form-control  " placeholder="Escribe tu nombres"
+                                aria-label="Username">
+                        </div>
+                        <div class="col-6 Spa-in">
+                            <span class="input-group-text">Apellidos</span>
+                            <input type="text" class="form-control  " placeholder="Escribe tu apellidos"
+                                aria-label="Username">
+                        </div>
+                    </div>
+                    <div class="row align-items-center d-flex justify-content-center">
+                        <div class="col-6 Spa-in">
+                            <span class="input-group-text">Cargo</span>
+                            <input type="text" class="form-control  " placeholder="Escribe tu cumpleaños"
+                                aria-label="Username">
+                        </div>
+                        <div class="col-6 Spa-in">
+                            <span class="input-group-text">Dirección</span>
+                            <input type="text" class="form-control  " placeholder="Escribe tu dirección"
+                                aria-label="Username">
+                        </div>
+                    </div>
+                    <div class="row align-items-center d-flex justify-content-center">
+                        
+                        <div class="col-7 Spa-in">
+                            <span class="input-group-text">Télefono</span>
+                            <input type="text" class="form-control  " placeholder="Escribe tu teléfono"
+                                aria-label="Username">
+                        </div>
+                    </div>
+                    <div class="row align-items-center d-flex justify-content-center">
+                        <div
+                            class="col-sm-12 col-md-6 col-lg-4 usu-img align-items-center d-flex justify-content-center flex-column">
+                            <input type="file" class="form-control" id="inputGroupFile01">
+                            <label class="" for="inputGroupFile01"><img
+                                    src="../resources/Cuenta/Usuario2.png" class="usu-img"> </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary I-guar" data-bs-dismiss="modal"><i
+                        class="fa-solid fa-floppy-disk I-guar"></i> Guardar </button>
+            </div>
+        </div>
+    </div>
+</div>>
+    <!-- FIN MODAL -->
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+        integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+        integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+        crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js"
+        integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"
+        integrity="sha384-zNy6FEbO50N+Cg5wap8IKA4M/ZnLJgzc6w2NqACZaK0u0FXfOWRRJOnQtpZun8ha"
+        crossorigin="anonymous"></script>
+
+    <!-- TAGIFY RESOURCE -->
+    <script src="https://unpkg.com/@yaireo/tagify"></script>
+    <script src="https://unpkg.com/@yaireo/tagify/dist/tagify.polyfills.min.js"></script>
+    <link href="https://unpkg.com/@yaireo/tagify/dist/tagify.css" rel="stylesheet" type="text/css" />
+    <script src="../js/productos.js"></script>
+
+</body>
+
+</html>

@@ -1368,7 +1368,7 @@ width: 20%;
 }
 
 .row-bottom-pedido .cd-cart-total {
-  font-family: 'Mohave', sans-serifs;
+  font-family: 'Mohave', sans-serif;
   font-size: 18px;
   color: var(--rosadoOscuro);
 }
@@ -1385,10 +1385,116 @@ width: 20%;
   font-size: 24px;
   font-weight: bold;
 }
- 
+
+
+/* ---------------------------------------------------------------INICIO CUENTA------------------------------------------------------------*/
+
+.H-infor{
+  font-family: 'Mohave', sans-serif;
+  font-size: 25px;
+  color: #D683AE;
+  font-weight: 600;
+}
+
+.Infor-H5 h5{
+  font-family: 'Mohave', sans-serif;
+  font-size: 17px !important;
+  color: var(--rosadoOscuro);
+  font-weight: 300;
+}
+
+.Infor-H5 b{
+  font-family: 'Mohave', sans-serif;
+  color: var(--rosadoOscuro);
+  font-weight: 600;
+}
+
+.Edit-but{
+  font-family: 'Mohave', sans-serif;
+  font-size: 17px !important;
+  color: white;
+}
+
+.Edit-but:hover{
+  font-family: 'Mohave', sans-serif;
+  font-size: 17px !important;
+  color: white;
+}
+
+.usu-img {
+  text-align: center;
+  align-items: center;
+  width: 180px;
+}
+
+.Spa-in{
+  display: flex;
+  flex-direction: row !important;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.I-guar{
+  color: white;
+  font-family: 'Mohave', sans-serif;
+}
+
+.I-guar:hover{
+  color: white;
+  font-family: 'Mohave', sans-serif;
+}
+
+.usu-img input{
+  visibility: hidden;
+  height: 0px;
+}
+
+.Spa-in span{
+  color: var(--rosadoOscuro);
+  font-weight: 600;
+  background-color: #F7DADF !important;
+
+}
+
+.M-edi{
+  font-family: 'Mohave', sans-serif;
+  color: var(--rosadoTitulos);
+}
+
+
+.Infor-H3 h5{
+  font-family: 'Mohave', sans-serif;
+  font-size: 17px !important;
+  color: var(--rosadoTitulos);
+  font-weight: 300;
+}
+
+.Infor-H3 h3{
+  font-family: 'Mohave', sans-serif;
+  color: var(--rosadoPastel);
+  font-weight: 600;
+}
+
+
+/* ----------------------------------------------------------------FIN CUENTA-------------------------------------------------------------*/
 
 
 /* --------------------------------------------------------------RESPONSIVE------------------------------------------------------------*/
+
+@media (min-width: 476px) and (max-width: 991.98px) {
+  .Div-Inf {
+    display: flex;
+    flex-direction: column;
+    align-items: center !important;
+    text-align: center;
+  }
+
+  .usu-img {
+    margin-top: 20px;
+  }
+
+}
+
 @media (max-width: 767.98px) {
 
   .main {
