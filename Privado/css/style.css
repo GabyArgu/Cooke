@@ -393,6 +393,53 @@ main .container-fluid .contenido{
   margin: 0 auto;
 }
 
+.colores .color1{
+  color: #F8D7E8;
+}
+
+.colores .color2{
+  color: #F2AEA9;
+}
+
+.colores .color3{
+  color: #D6E4C1;
+}
+.colores .color4{
+  color: #FDF3B8;
+}
+
+.colores .color5{
+  color: #FBD7B7;
+}
+
+.colores .color6{
+  color: #BAD5F0;
+}
+
+.colores .color7{
+  color: #B0ABCB;
+}
+
+.colores .color8{
+  color: #D3BCF6;
+}
+
+.colores .color9{
+  color: #F9FAFC;
+}
+.colores .color10{
+  color: #F0D5BA;
+}
+
+.colores .color11{
+  color: #444351;
+}
+
+.colores .color12{
+  color: #F8D7E8;
+}
+
+
 .accion-btn {
   display: flex;
   justify-content: center;
