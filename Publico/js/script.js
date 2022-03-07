@@ -108,3 +108,13 @@ document.addEventListener('DOMContentLoaded', function() {
  function hoverImagen(ruta){
     document.getElementById("main-img").src=ruta;
   }
+
+  navbar = document.getElementById('navbar-home');
+
+window.addEventListener('scroll', function () {
+    if (window.pageYOffset > 86) {
+      navbar.classList.add('shrink', 'shadow');
+    } else {
+      navbar.classList.remove('shrink', 'shadow');
+    }
+});
