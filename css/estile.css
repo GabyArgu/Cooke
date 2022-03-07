@@ -757,6 +757,10 @@ body {
     align-items: center;
 }
 
+.section-Sobre .card-img-top {
+    cursor: pointer;
+}
+
 .Cont-Sobre{
     padding-bottom: 30px;
     justify-content: center;
