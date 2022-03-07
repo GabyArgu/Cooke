@@ -1318,7 +1318,23 @@ width: 20%;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-} 
+}
+
+.modal-agregar-categoria .btn-guardar {
+  display: flex;
+  justify-content:space-evenly;
+  align-items: center;
+  color: var(--marfil);
+  background-color: var(--rosadoTitulos);
+  width: 120px;
+  height: 40px;
+  border-radius: 15px ;
+  font-size: 18px;
+  font-weight: 500;
+  border: none;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  transition: all 0.3s ease;
+}
 
 /* --------------------------------------------------------------FIN CATEGORÍAS Y SUBCATEGORÍAS-----------------------------------------------------------*/
 
