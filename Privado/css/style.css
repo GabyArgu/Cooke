@@ -992,7 +992,7 @@ width: 20%;
     color: var(--rosadoOscuro);
   }
   .modal-ver .modal-header{
-    border-color: rgba(195, 78, 139, 0.2) ;
+    border: none;
   }
   .modal-ver h5{
     color: var(--rosadoOscuro);
