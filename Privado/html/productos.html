@@ -35,91 +35,102 @@
 
     <div class="wrapper">
         <nav id="sidebarMenu" class="sidebar ">
-            <a href="#" class="sidebar-conent-header d-flex"><img src="../resources/dashboard/logo2.png" alt=""
-              id="logo_inicio" class="mx-auto d-block"></a>
-            
-          <div class="sidebar-content">
-              <ul class="sidebar-nav">
-                  
-                  <li class="sidebar-item">
-                      <a data-bs-target="#dashboards" data-bs-toggle="collapse" class="sidebar-link collapsed">
-                          <i class="align-middle me-2 fas fa-fw fa-home"></i> <span class="align-middle">Principal</span>
-                      </a>
-                      <ul id="dashboards" class="sidebar-dropdown list-unstyled collapse " data-bs-parent="#sidebar">
-                          <li class="sidebar-item"><a class="sidebar-link" href="">Dashboard</a></li>
-                          
-                      </ul>
-                  </li>
-                  <li class="sidebar-item">
-                      <a data-bs-target="#Tienda" data-bs-toggle="collapse" class="sidebar-link collapsed">
-                          <i class="fa-solid fa-shop"></i> <span class="align-middle">Tienda</span>
-                      </a>
-                      <ul id="Tienda" class="sidebar-dropdown list-unstyled collapse " data-bs-parent="#sidebar">
-                          <li class="sidebar-item"><a class="sidebar-link" href="">crud
-                                  In</a></li>
-                          <li class="sidebar-item"><a class="sidebar-link" href="">crud
-                                  Up</a></li>
-                          <li class="sidebar-item"><a class="sidebar-link" href="">crud
-                                  Page</a></li>
-                          <li class="sidebar-item"><a class="sidebar-link" href="">crud
-                                  Page</a></li>
-                      </ul>
-                  </li>
-                  <li class="sidebar-item">
-                      <a data-bs-target="#blog" data-bs-toggle="collapse" class="sidebar-link collapsed">
-                        <i class="fa-solid fa-file-pen"></i><span class="align-middle">Blog</span>
-                      </a>
-                      <ul id="blog" class="sidebar-dropdown list-unstyled collapse " data-bs-parent="#sidebar">
-                          <li class="sidebar-item"><a class="sidebar-link" href="">Sign
-                                  In</a></li>
-                          <li class="sidebar-item"><a class="sidebar-link" href="">Sign
-                                  Up</a></li>
-                          
-                      </ul>
-                  </li>
+            <a href="../index.html" class="sidebar-conent-header d-flex"><img src="../resources/dashboard/logo2.png"
+                    alt="" id="logo_inicio" class="mx-auto d-block"></a>
 
-                  <li class="sidebar-item">
-                      <a data-bs-target="#forms" data-bs-toggle="collapse" class="sidebar-link collapsed">
-                        <i class="fa-solid fa-database"></i><span class="align-middle">Administración</span>
-                      </a>
-                      <ul id="forms" class="sidebar-dropdown list-unstyled collapse " data-bs-parent="#sidebar">
-                          <li class="sidebar-item"><a class="sidebar-link" href="">admon</a></li>
-                          <li class="sidebar-item"><a class="sidebar-link" href="">admon</a></li>
-                      </ul>
-                  </li>
+            <div class="sidebar-content">
 
-                  
-              </ul>
-          </div>  
-      </nav>
-        <div class="main productos">
-            <nav class="navbar navbar-expand navbar-theme">
-				<a class="sidebar-toggle d-flex me-2">
-					<i class="fa-solid fa-bars" onclick="sidebarToggle()"></i>
-				</a>
+                <ul class="nav flex-column justify-content-center align-items-center">
+                    <img src="../resources/dashboard/Usuario.png" class="Usua-Ico" alt="">
+                    <h5 class="Nombre-Usu">Gabriela Méndez</h5>
+                    <a class="Adm" href="#">Administrar</a>
+                </ul>
 
-				<form class="d-none d-sm-inline-block">
-					<input class="form-control form-control-lite" type="text" placeholder="Buscar en el sitio">
-				</form>
+                <ul class="sidebar-nav Botones-Sider">
 
-				<div class="opciones-nav d-flex justify-content-center align-items-center">
-                    <div class=" Lun"><img src="../resources/dashboard/lunas.png" alt="" id="Confi-Logo"
-                        class="mx-auto d-md-block"></div>
-                <ul class="navbar-nav ms-auto mb-2">
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown" href="#" id="navbarDropdownMenuLink" role="button"
-                            data-bs-toggle="dropdown" aria-expanded="false">
-                            <img src="../resources/dashboard/configuraciones.png" alt="" id="Confi-Logo"
-                                class="mx-auto d-block">
+                    <li class="sidebar-item mt-2">
+                        <a data-bs-target="#dashboards" data-bs-toggle="collapse" class="sidebar-link collapsed">
+                            <i class="align-middle me-2 fas fa-fw fa-home"></i> <span
+                                class="align-middle">PRINCIPAL</span>
                         </a>
-                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
-                            <li><a class="dropdown-item" href="#">Perfil</a></li>
-                            <li><a class="dropdown-item" href="#">Cerrar Sesión</a></li>
+                        <ul id="dashboards" class="sidebar-dropdown list-unstyled collapse " data-bs-parent="#sidebar">
+                            <li class="sidebar-item"><a class="sidebar-link" href="../index.html">Dashboard</a></li>
+
                         </ul>
                     </li>
+                    <li class="sidebar-item mt-5">
+                        <a data-bs-target="#Tienda" data-bs-toggle="collapse" class="sidebar-link collapsed mt-4">
+                            <i class="fa-solid fa-shop"></i> <span class="align-middle">TIENDA</span>
+                        </a>
+                        <ul id="Tienda" class="sidebar-dropdown list-unstyled collapse " data-bs-parent="#sidebar">
+                            <li class="sidebar-item"><a class="sidebar-link" href="">crud
+                                    In</a></li>
+                            <li class="sidebar-item"><a class="sidebar-link" href="">crud
+                                    Up</a></li>
+                            <li class="sidebar-item"><a class="sidebar-link" href="">crud
+                                    Page</a></li>
+                            <li class="sidebar-item"><a class="sidebar-link" href="">crud
+                                    Page</a></li>
+                        </ul>
+                    </li>
+                    <li class="sidebar-item mt-5">
+                        <a data-bs-target="#blog" data-bs-toggle="collapse" class="sidebar-link collapsed">
+                            <i class="fa-solid fa-book me-2"></i><span class="align-middle">BLOG</span>
+                        </a>
+                        <ul id="blog" class="sidebar-dropdown list-unstyled collapse " data-bs-parent="#sidebar">
+                            <li class="sidebar-item"><a class="sidebar-link" href="">Sign
+                                    In</a></li>
+                            <li class="sidebar-item"><a class="sidebar-link" href="">Sign
+                                    Up</a></li>
+
+                        </ul>
+                    </li>
+
+                    <li class="sidebar-item mt-5">
+                        <a data-bs-target="#forms" data-bs-toggle="collapse" class="sidebar-link collapsed">
+                            <i class="fa-solid me-2 fa-database"></i><span class="align-middle">ADMINISTRACIÓN</span>
+                        </a>
+                        <ul id="forms" class="sidebar-dropdown list-unstyled collapse " data-bs-parent="#sidebar">
+                            <li class="sidebar-item"><a class="sidebar-link" href="">admon</a></li>
+                            <li class="sidebar-item"><a class="sidebar-link" href="">admon</a></li>
+                        </ul>
+                    </li>
+
+
                 </ul>
+            </div>
+        </nav>
+        <div class="main productos">
+            <nav class="navbar navbar-expand navbar-theme">
+                <a class="sidebar-toggle d-flex me-2">
+                    <i class="fa-solid fa-bars" onclick="sidebarToggle()"></i>
+                </a>
+
+                <div class="Lupa"><img src="../resources/dashboard/lupa.png" alt="" id="Lu-Logo"
+                        class="mx-auto d-none d-md-block"></div>
+
+                <form class="d-none d-sm-inline-block me-auto ">
+                    <input class=" form-control form-control-lite" type="text" placeholder="Buscar en el sitio">
+                </form>
+
+                <div class="opciones-nav d-flex justify-content-center align-items-center">
+                    <div class=" Lun"><img src="../resources/dashboard/lunas.png" alt="" id="Confi-Logo"
+                            class="mx-auto d-md-block"></div>
+                    <ul class="navbar-nav ms-auto mb-2">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown" href="#" id="navbarDropdownMenuLink" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                <img src="../resources/dashboard/configuraciones.png" alt="" id="Confi-Logo"
+                                    class="mx-auto d-block">
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
+                                <li><a class="dropdown-item" href="#">Perfil</a></li>
+                                <li><a class="dropdown-item" href="#">Cerrar Sesión</a></li>
+                            </ul>
+                        </li>
+                    </ul>
                 </div>
-			</nav>
+            </nav>
             <main class="content">
                 <div class="container-fluid">
                     <div class="header">
