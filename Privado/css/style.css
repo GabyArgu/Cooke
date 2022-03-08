@@ -1510,7 +1510,10 @@ width: 3%;
 .ver-articulo-content span{
   color: var(--rosadoOscuro);
   font-size: 18px;
+}
 
+.table-articulos td img{
+  width: 200  px !important;
 }
 /* --------------------------------------------------------------FIN ARTICULOS BLOG-------------------------------------------------------------*/
 
