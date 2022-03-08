@@ -1465,6 +1465,55 @@ width: 20%;
 
 /* ----------------------------------------------------------------FIN CUENTA-------------------------------------------------------------*/
 
+/* ----------------------------------------------------------------ARTICULOS BLOG-------------------------------------------------------------*/
+.modal-ver-articulo-blog .modal-header{
+  border: none;
+}
+.modal-ver-articulo-blog .modal-header h3{
+  margin-left: auto;
+}
+.modal-ver-articulo-blog .modal-dialog{
+  max-width: 900px;
+}
+.imgb{
+width: 3%;
+}
+.img-b{
+  width: 50%;
+}
+.Lorem{ 
+ margin-left: 10px;
+ margin-right: 115px;
+}
+.modal-ver-articulo .modal-header{
+  border: none;
+}
+.modal-ver-articulo .modal-dialog{
+  max-width: 350px;
+}
+.ver-articulo-content .col{
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.ver-articulo-content .row{
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.ver-articulo-content hr{
+  margin: 0;
+  margin-bottom: 10px;
+  color: var(--rosadoTitulos);
+  opacity: 0.2;
+}
+.ver-articulo-content span{
+  color: var(--rosadoOscuro);
+  font-size: 18px;
+
+}
+/* --------------------------------------------------------------FIN ARTICULOS BLOG-------------------------------------------------------------*/
+
 /* ----------------------------------------------------------------INICIO MARCA PROVEEDOR-------------------------------------------------------------*/
 .modal .btn-guardar{
   display: flex;
@@ -1497,6 +1546,7 @@ width: 20%;
 .modal-agregar-marca .modal-dialog{
   width: 500px;
 }
+
 
 /* ----------------------------------------------------------------FIN MARCA PROVEEDOR-------------------------------------------------------------*/
 .drop-zone input{
