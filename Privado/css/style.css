@@ -6,7 +6,7 @@
 }
 
 h1 {
-  font-family: 'Mohave', sans-serif;
+  
   text-align: center;
 }
 
@@ -1553,6 +1553,28 @@ width: 3%;
   width: 500px;
 }
 
+.drop-container{
+  width: 100%;
+  height: 100px;
+  border-radius: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: #E6E6E6;
+}
+.drop-container span{
+  color: var(--rosadoOscuro);
+  font-family: 'Mohave', sans-serif;
+  font-weight: 600;
+}
+.drop-container.perfil{
+  height: 200px;
+}
+.fa-cloud-arrow-up{
+  font-size: 50px;
+  color: var(--rosadoOscuro);
+}
 
 /* ----------------------------------------------------------------FIN MARCA PROVEEDOR-------------------------------------------------------------*/
 .drop-zone input{
