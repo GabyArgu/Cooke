@@ -55,7 +55,10 @@ body {
 
 /* NAVBAR */
 
-
+.barra-buscar {
+  background-color: transparent !important;
+  border-color: transparent !important;
+}
 
 /* --------------------------------------------------------------INICIO LOGIN-----------------------------------------------------------*/
 
