@@ -34,8 +34,8 @@
 
     <div class="wrapper">
         <nav id="sidebarMenu" class="sidebar ">
-            <a href="../index.html" class="sidebar-conent-header d-flex"><img src="../resources/dashboard/logo2.png" alt=""
-                    id="logo_inicio" class="mx-auto d-block"></a>
+            <a href="dashboard.html" class="sidebar-conent-header d-flex"><img src="../resources/dashboard/logo2.png"
+                    alt="" id="logo_inicio" class="mx-auto d-block"></a>
 
             <div class="sidebar-content">
 
@@ -53,7 +53,7 @@
                                 class="align-middle">PRINCIPAL</span>
                         </a>
                         <ul id="dashboards" class="list-unstyled collapse submenu mt-2" data-bs-parent="#sidebar">
-                            <li class="sidebar-item"><a class="sidebar-link" href="../index.html">Dashboard</a></li>
+                            <li class="sidebar-item"><a class="sidebar-link" href="dashboard.html">Dashboard</a></li>
 
                         </ul>
                     </li>
@@ -62,10 +62,13 @@
                             <i class="fa-solid fa-shop"></i> <span class="align-middle">TIENDA</span>
                         </a>
                         <ul id="Tienda" class="list-unstyled submenu collapse">
-                            <li class="sidebar-item"><a class="sidebar-link" href="../html/productos.html">Productos</a></li>
-                            <li class="sidebar-item"><a class="sidebar-link" href="../html/categoriasProductos.html">Categoría</a></li>
-                            <li class="sidebar-item"><a class="sidebar-link" href="../html/subcategoriasProductos.html">Subcategoria</a></li>
-                            <li class="sidebar-item"><a class="sidebar-link" href="../html/pedidos.html">Pedidos</a></li>
+                            <li class="sidebar-item"><a class="sidebar-link" href="productos.html">Productos</a>
+                            </li>
+                            <li class="sidebar-item"><a class="sidebar-link"
+                                    href="categoriasProductos.html">Categoría</a></li>
+                            <li class="sidebar-item"><a class="sidebar-link"
+                                    href="subcategoriasProductos.html">Subcategoria</a></li>
+                            <li class="sidebar-item"><a class="sidebar-link" href="pedidos.html">Pedidos</a></li>
                         </ul>
                     </li>
                     <li class="sidebar-item mt-5">
@@ -73,8 +76,9 @@
                             <i class="fa-solid fa-book me-2"></i><span class="align-middle">BLOG</span>
                         </a>
                         <ul id="blog" class="list-unstyled collapse submenu" data-bs-parent="#sidebar">
-                            <li class="sidebar-item"><a class="sidebar-link" href="../html/articulo.html">Artículo</a></li>
-                            <li class="sidebar-item"><a class="sidebar-link" href="../html/categoriasBlog.html">Categoría</a></li>
+                            <li class="sidebar-item"><a class="sidebar-link" href="articulo.html">Artículo</a></li>
+                            <li class="sidebar-item"><a class="sidebar-link" href="categoriasBlog.html">Categoría</a>
+                            </li>
 
                         </ul>
                     </li>
@@ -84,9 +88,11 @@
                             <i class="fa-solid me-2 fa-database"></i><span class="align-middle">ADMINISTRACIÓN</span>
                         </a>
                         <ul id="forms" class=" list-unstyled collapse submenu" data-bs-parent="#sidebar">
-                            <li class="sidebar-item"><a class="sidebar-link" href="../html/clientes.html">Usuarios</a></li>
-                            <li class="sidebar-item"><a class="sidebar-link" href="../html/empleados.html">Empleados</a></li>
-                            <li class="sidebar-item"><a class="sidebar-link" href="../html/marcasProveedores.html">Marcas y proveedores</a></li>
+                            <li class="sidebar-item"><a class="sidebar-link" href="clientes.html">Clientes</a></li>
+                            <li class="sidebar-item"><a class="sidebar-link" href="empleados.html">Empleados</a>
+                            </li>
+                            <li class="sidebar-item"><a class="sidebar-link" href="marcasProveedores.html">Marcas y
+                                    proveedores</a></li>
                         </ul>
                     </li>
 
@@ -95,36 +101,39 @@
             </div>
         </nav>
         <div class="main productos">
-            <nav class="navbar navbar-expand navbar-theme">
-                <a class="sidebar-toggle d-flex me-2">
-                    <i class="fa-solid fa-bars" onclick="sidebarToggle()"></i>
-                </a>
+            <header>
+                <nav class="navbar navbar-expand navbar-theme">
+                    <a class="sidebar-toggle d-flex me-2">
+                        <i class="fa-solid fa-bars" onclick="sidebarToggle()"></i>
+                    </a>
 
-                <div class="Lupa"><img src="../resources/dashboard/lupa.png" alt="" id="Lu-Logo"
-                        class="mx-auto d-none d-md-block"></div>
+                    <div class="Lupa"><img src="../resources/dashboard/lupa.png" alt="" id="Lu-Logo"
+                            class="mx-auto d-none d-md-block"></div>
 
-                <form class="d-none d-sm-inline-block me-auto ">
-                    <input class=" form-control form-control-lite barra-buscar" type="text" placeholder="Buscar en el sitio">
-                </form>
+                    <form class="d-none d-sm-inline-block me-auto ">
+                        <input class=" form-control form-control-lite barra-buscar" type="text"
+                            placeholder="Buscar en el sitio">
+                    </form>
 
-                <div class="opciones-nav d-flex justify-content-center align-items-center">
-                    <div class=" Lun"><img src="../resources/dashboard/lunas.png" alt="" id="Confi-Logo"
-                            class="mx-auto d-md-block"></div>
-                    <ul class="navbar-nav ms-auto">
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown" href="#" id="navbarDropdownMenuLink" role="button"
-                                data-bs-toggle="dropdown" aria-expanded="false">
-                                <img src="../resources/dashboard/configuraciones.png" alt="" id="Confi-Logo"
-                                    class="mx-auto d-block">
-                            </a>
-                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
-                                <li><a class="dropdown-item" href="../html/cuenta.html">Perfil</a></li>
-                                <li><a class="dropdown-item" href="../html/login.html">Cerrar Sesión</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
+                    <div class="opciones-nav d-flex justify-content-center align-items-center">
+                        <div class=" Lun"><img src="../resources/dashboard/lunas.png" alt="" id="Confi-Logo"
+                                class="mx-auto d-md-block"></div>
+                        <ul class="navbar-nav ms-auto">
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown" href="#" id="navbarDropdownMenuLink" role="button"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    <img src="../resources/dashboard/configuraciones.png" alt="" id="Confi-Logo"
+                                        class="mx-auto d-block">
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
+                                    <li><a class="dropdown-item" href="../html/cuenta.html">Perfil</a></li>
+                                    <li><a class="dropdown-item" href="../html/login.html">Cerrar Sesión</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </header>
             <main class="content">
                 <div class="container-fluid">
                     <div class="header">
@@ -143,7 +152,7 @@
                             </div>
                         </div>
                         <div class="table-responsive mt-3 scroll" id="no-more-tables">
-                            <table class="table table-bordered table-productos" style="width:100%">
+                            <table class="table table-bordered table-productos">
                                 <thead>
                                     <tr>
                                         <th>Imagen</th>
@@ -344,6 +353,14 @@
                         </div>
                     </div>
                 </div>
+
+                <footer>
+                    <div class="text-center p-1 mt-4 CopCo">
+                        © 2021 Copyright:
+                        <a class="text-reset fw-bold" href="https://github.com/GabyArgu/Cooke/tree/ROscar">Cooké.com</a>
+                    </div>
+                </footer>
+
             </main>
         </div>
     </div>
@@ -491,41 +508,41 @@
                                         <select class="form-select custom-form-select"
                                             aria-label="Default select example">
                                             <option selected disabled>Seleccione una opción</option>
-                                        <option value="1">Ollas</option>
-                                        <option value="2">Cuchillos</option>
-                                        <option value="3">Hornos</option>
+                                            <option value="1">Ollas</option>
+                                            <option value="2">Cuchillos</option>
+                                            <option value="3">Hornos</option>
                                         </select>
                                     </div>
                                     <div class="col-4 mb-4">
                                         <label for="validationDefault03" class="form-label">Marca</label>
                                         <select class="form-select custom-form-select"
-                                        aria-label="Default select example">
-                                        <option selected disabled>Seleccione una opción</option>
-                                        <option value="1">Oneida</option>
-                                        <option value="2">All-Clad</option>
-                                        <option value="3">GreenLife</option>
-                                        <option value="4">Hiware</option>
-                                        <option value="5">Panasonic</option>
-                                    </select>
+                                            aria-label="Default select example">
+                                            <option selected disabled>Seleccione una opción</option>
+                                            <option value="1">Oneida</option>
+                                            <option value="2">All-Clad</option>
+                                            <option value="3">GreenLife</option>
+                                            <option value="4">Hiware</option>
+                                            <option value="5">Panasonic</option>
+                                        </select>
                                     </div>
                                     <div class="col-4 mb-4">
                                         <label for="validationDefault03" class="form-label">Proveedor</label>
                                         <select class="form-select custom-form-select"
-                                        aria-label="Default select example">
-                                        <option selected disabled>Seleccione una opción</option>
-                                        <option value="1">Almacenes Siman</option>
-                                        <option value="2">Walmart</option>
-                                        <option value="3">PriceMart</option>
-                                    </select>
+                                            aria-label="Default select example">
+                                            <option selected disabled>Seleccione una opción</option>
+                                            <option value="1">Almacenes Siman</option>
+                                            <option value="2">Walmart</option>
+                                            <option value="3">PriceMart</option>
+                                        </select>
                                     </div>
                                     <div class="col-4 mb-4">
                                         <label for="validationDefault03" class="form-label">Estado</label>
                                         <select class="form-select custom-form-select"
                                             aria-label="Default select example">
                                             <option selected disabled>Seleccione una opción</option>
-                                        <option value="1">En stock</option>
-                                        <option value="2">Fuera de stock</option>
-                                        <option value="3">Deshabilitado</option>
+                                            <option value="1">En stock</option>
+                                            <option value="2">Fuera de stock</option>
+                                            <option value="3">Deshabilitado</option>
                                         </select>
                                     </div>
                                     <div class="col-4 mb-4">
@@ -679,41 +696,41 @@
                                         <select class="form-select custom-form-select"
                                             aria-label="Default select example">
                                             <option selected disabled>Seleccione una opción</option>
-                                        <option value="1">Ollas</option>
-                                        <option value="2">Cuchillos</option>
-                                        <option value="3">Hornos</option>
+                                            <option value="1">Ollas</option>
+                                            <option value="2">Cuchillos</option>
+                                            <option value="3">Hornos</option>
                                         </select>
                                     </div>
                                     <div class="col-4 mb-4">
                                         <label for="validationDefault03" class="form-label">Marca</label>
                                         <select class="form-select custom-form-select"
-                                        aria-label="Default select example">
-                                        <option selected disabled>Seleccione una opción</option>
-                                        <option value="1">Oneida</option>
-                                        <option value="2">All-Clad</option>
-                                        <option value="3">GreenLife</option>
-                                        <option value="4">Hiware</option>
-                                        <option value="5">Panasonic</option>
-                                    </select>
+                                            aria-label="Default select example">
+                                            <option selected disabled>Seleccione una opción</option>
+                                            <option value="1">Oneida</option>
+                                            <option value="2">All-Clad</option>
+                                            <option value="3">GreenLife</option>
+                                            <option value="4">Hiware</option>
+                                            <option value="5">Panasonic</option>
+                                        </select>
                                     </div>
                                     <div class="col-4 mb-4">
                                         <label for="validationDefault03" class="form-label">Proveedor</label>
                                         <select class="form-select custom-form-select"
-                                        aria-label="Default select example">
-                                        <option selected disabled>Seleccione una opción</option>
-                                        <option value="1">Almacenes Siman</option>
-                                        <option value="2">Walmart</option>
-                                        <option value="3">PriceMart</option>
-                                    </select>
+                                            aria-label="Default select example">
+                                            <option selected disabled>Seleccione una opción</option>
+                                            <option value="1">Almacenes Siman</option>
+                                            <option value="2">Walmart</option>
+                                            <option value="3">PriceMart</option>
+                                        </select>
                                     </div>
                                     <div class="col-4 mb-4">
                                         <label for="validationDefault03" class="form-label">Estado</label>
                                         <select class="form-select custom-form-select"
                                             aria-label="Default select example">
                                             <option selected disabled>Seleccione una opción</option>
-                                        <option value="1">En stock</option>
-                                        <option value="2">Fuera de stock</option>
-                                        <option value="3">Deshabilitado</option>
+                                            <option value="1">En stock</option>
+                                            <option value="2">Fuera de stock</option>
+                                            <option value="3">Deshabilitado</option>
                                         </select>
                                     </div>
                                     <div class="col-4 mb-4">

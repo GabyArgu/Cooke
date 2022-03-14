@@ -4,10 +4,6 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
-
-
-
     <link href="../../Publico/assets/css/bootstrap.css" rel="stylesheet">
     <link rel="stylesheet" href="../css/style.css">
     <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
@@ -38,8 +34,8 @@
 
     <div class="wrapper">
         <nav id="sidebarMenu" class="sidebar ">
-            <a href="../index.html" class="sidebar-conent-header d-flex"><img src="../resources/dashboard/logo2.png" alt=""
-                    id="logo_inicio" class="mx-auto d-block"></a>
+            <a href="dashboard.html" class="sidebar-conent-header d-flex"><img src="../resources/dashboard/logo2.png"
+                    alt="" id="logo_inicio" class="mx-auto d-block"></a>
 
             <div class="sidebar-content">
 
@@ -57,7 +53,7 @@
                                 class="align-middle">PRINCIPAL</span>
                         </a>
                         <ul id="dashboards" class="list-unstyled collapse submenu mt-2" data-bs-parent="#sidebar">
-                            <li class="sidebar-item"><a class="sidebar-link" href="../index.html">Dashboard</a></li>
+                            <li class="sidebar-item"><a class="sidebar-link" href="dashboard.html">Dashboard</a></li>
 
                         </ul>
                     </li>
@@ -66,10 +62,13 @@
                             <i class="fa-solid fa-shop"></i> <span class="align-middle">TIENDA</span>
                         </a>
                         <ul id="Tienda" class="list-unstyled submenu collapse">
-                            <li class="sidebar-item"><a class="sidebar-link" href="../html/productos.html">Productos</a></li>
-                            <li class="sidebar-item"><a class="sidebar-link" href="../html/categoriasProductos.html">Categoría</a></li>
-                            <li class="sidebar-item"><a class="sidebar-link" href="../html/subcategoriasProductos.html">Subcategoria</a></li>
-                            <li class="sidebar-item"><a class="sidebar-link" href="../html/pedidos.html">Pedidos</a></li>
+                            <li class="sidebar-item"><a class="sidebar-link" href="productos.html">Productos</a>
+                            </li>
+                            <li class="sidebar-item"><a class="sidebar-link"
+                                    href="categoriasProductos.html">Categoría</a></li>
+                            <li class="sidebar-item"><a class="sidebar-link"
+                                    href="subcategoriasProductos.html">Subcategoria</a></li>
+                            <li class="sidebar-item"><a class="sidebar-link" href="pedidos.html">Pedidos</a></li>
                         </ul>
                     </li>
                     <li class="sidebar-item mt-5">
@@ -77,8 +76,9 @@
                             <i class="fa-solid fa-book me-2"></i><span class="align-middle">BLOG</span>
                         </a>
                         <ul id="blog" class="list-unstyled collapse submenu" data-bs-parent="#sidebar">
-                            <li class="sidebar-item"><a class="sidebar-link" href="../html/articulo.html">Artículo</a></li>
-                            <li class="sidebar-item"><a class="sidebar-link" href="../html/categoriasBlog.html">Categoría</a></li>
+                            <li class="sidebar-item"><a class="sidebar-link" href="articulo.html">Artículo</a></li>
+                            <li class="sidebar-item"><a class="sidebar-link" href="categoriasBlog.html">Categoría</a>
+                            </li>
 
                         </ul>
                     </li>
@@ -88,9 +88,11 @@
                             <i class="fa-solid me-2 fa-database"></i><span class="align-middle">ADMINISTRACIÓN</span>
                         </a>
                         <ul id="forms" class=" list-unstyled collapse submenu" data-bs-parent="#sidebar">
-                            <li class="sidebar-item"><a class="sidebar-link" href="../html/clientes.html">Usuarios</a></li>
-                            <li class="sidebar-item"><a class="sidebar-link" href="../html/empleados.html">Empleados</a></li>
-                            <li class="sidebar-item"><a class="sidebar-link" href="../html/marcasProveedores.html">Marcas y proveedores</a></li>
+                            <li class="sidebar-item"><a class="sidebar-link" href="clientes.html">Clientes</a></li>
+                            <li class="sidebar-item"><a class="sidebar-link" href="empleados.html">Empleados</a>
+                            </li>
+                            <li class="sidebar-item"><a class="sidebar-link" href="marcasProveedores.html">Marcas y
+                                    proveedores</a></li>
                         </ul>
                     </li>
 
@@ -99,36 +101,39 @@
             </div>
         </nav>
         <div class="main marcas-proveedor">
-            <nav class="navbar navbar-expand navbar-theme">
-                <a class="sidebar-toggle d-flex me-2">
-                    <i class="fa-solid fa-bars" onclick="sidebarToggle()"></i>
-                </a>
+            <header>
+                <nav class="navbar navbar-expand navbar-theme">
+                    <a class="sidebar-toggle d-flex me-2">
+                        <i class="fa-solid fa-bars" onclick="sidebarToggle()"></i>
+                    </a>
 
-                <div class="Lupa"><img src="../resources/dashboard/lupa.png" alt="" id="Lu-Logo"
-                        class="mx-auto d-none d-md-block"></div>
+                    <div class="Lupa"><img src="../resources/dashboard/lupa.png" alt="" id="Lu-Logo"
+                            class="mx-auto d-none d-md-block"></div>
 
-                <form class="d-none d-sm-inline-block me-auto ">
-                    <input class=" form-control form-control-lite barra-buscar" type="text" placeholder="Buscar en el sitio">
-                </form>
+                    <form class="d-none d-sm-inline-block me-auto ">
+                        <input class=" form-control form-control-lite barra-buscar" type="text"
+                            placeholder="Buscar en el sitio">
+                    </form>
 
-                <div class="opciones-nav d-flex justify-content-center align-items-center">
-                    <div class=" Lun"><img src="../resources/dashboard/lunas.png" alt="" id="Confi-Logo"
-                            class="mx-auto d-md-block"></div>
-                    <ul class="navbar-nav ms-auto">
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown" href="#" id="navbarDropdownMenuLink" role="button"
-                                data-bs-toggle="dropdown" aria-expanded="false">
-                                <img src="../resources/dashboard/configuraciones.png" alt="" id="Confi-Logo"
-                                    class="mx-auto d-block">
-                            </a>
-                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
-                                <li><a class="dropdown-item" href="../html/cuenta.html">Perfil</a></li>
-                                <li><a class="dropdown-item" href="../html/login.html">Cerrar Sesión</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
+                    <div class="opciones-nav d-flex justify-content-center align-items-center">
+                        <div class=" Lun"><img src="../resources/dashboard/lunas.png" alt="" id="Confi-Logo"
+                                class="mx-auto d-md-block"></div>
+                        <ul class="navbar-nav ms-auto">
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown" href="#" id="navbarDropdownMenuLink" role="button"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    <img src="../resources/dashboard/configuraciones.png" alt="" id="Confi-Logo"
+                                        class="mx-auto d-block">
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
+                                    <li><a class="dropdown-item" href="../html/cuenta.html">Perfil</a></li>
+                                    <li><a class="dropdown-item" href="../html/login.html">Cerrar Sesión</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </header>
             <main class="content">
                 <div class="container-fluid">
                     <div class="header">
@@ -140,16 +145,18 @@
                                 <div class="row pt-3 mx-auto header-table">
                                     <div class="col-4">
                                         <button class="btn-agregar" type="button" data-bs-toggle="modal"
-                                            data-bs-target="#modal-agregar">Agregar<i class="fa-solid fa-plus"></i></button>
+                                            data-bs-target="#modal-agregar">Agregar<i
+                                                class="fa-solid fa-plus"></i></button>
                                     </div>
                                     <div class="col-8 d-flex justify-content-end mx-auto">
-                                        <input class="form-control form-control-dark w-60 d-none d-md-block Buscador-Imp"
+                                        <input
+                                            class="form-control form-control-dark w-60 d-none d-md-block Buscador-Imp"
                                             type="text" placeholder="Buscar" aria-label="Search">
                                         <button class="btn-refresh"><i class="fa-solid fa-arrows-rotate"></i></button>
                                     </div>
                                 </div>
                                 <div class="table-responsive table-marcas mt-3 scroll" id="no-more-tables">
-                                    <table class="table table-bordered table-productos " style="width:100%">
+                                    <table class="table table-bordered table-productos">
                                         <thead>
                                             <tr>
                                                 <th>Imagen</th>
@@ -163,12 +170,12 @@
                                                 <td data-title="PROVEEDOR">Steel Co Healthy</td>
                                                 <td class="botones-table">
                                                     <div class="acciones d-flex mx-auto">
-                                                        <span href="" class="accion-btn" type="button" data-bs-toggle="modal"
-                                                            data-bs-target="#modal-actualizar">
+                                                        <span href="" class="accion-btn" type="button"
+                                                            data-bs-toggle="modal" data-bs-target="#modal-actualizar">
                                                             <i class="fa-solid fa-pen-to-square"></i>
                                                         </span>
-                                                        <span href="" class="accion-btn" type="button" data-bs-toggle="modal"
-                                                            data-bs-target="#modal-eliminar">
+                                                        <span href="" class="accion-btn" type="button"
+                                                            data-bs-toggle="modal" data-bs-target="#modal-eliminar">
                                                             <i class="fa-solid fa-trash-can fa-lg"></i>
                                                         </span>
                                                     </div>
@@ -179,12 +186,12 @@
                                                 <td data-title="PROVEEDOR">Steel Co Healthy</td>
                                                 <td class="botones-table">
                                                     <div class="acciones d-flex mx-auto">
-                                                        <span href="" class="accion-btn" type="button" data-bs-toggle="modal"
-                                                            data-bs-target="#modal-actualizar">
+                                                        <span href="" class="accion-btn" type="button"
+                                                            data-bs-toggle="modal" data-bs-target="#modal-actualizar">
                                                             <i class="fa-solid fa-pen-to-square"></i>
                                                         </span>
-                                                        <span href="" class="accion-btn" type="button" data-bs-toggle="modal"
-                                                            data-bs-target="#modal-eliminar">
+                                                        <span href="" class="accion-btn" type="button"
+                                                            data-bs-toggle="modal" data-bs-target="#modal-eliminar">
                                                             <i class="fa-solid fa-trash-can fa-lg"></i>
                                                         </span>
                                                     </div>
@@ -195,12 +202,12 @@
                                                 <td data-title="PROVEEDOR">Steel Co Healthy</td>
                                                 <td class="botones-table">
                                                     <div class="acciones d-flex mx-auto">
-                                                        <span href="" class="accion-btn" type="button" data-bs-toggle="modal"
-                                                            data-bs-target="#modal-actualizar">
+                                                        <span href="" class="accion-btn" type="button"
+                                                            data-bs-toggle="modal" data-bs-target="#modal-actualizar">
                                                             <i class="fa-solid fa-pen-to-square"></i>
                                                         </span>
-                                                        <span href="" class="accion-btn" type="button" data-bs-toggle="modal"
-                                                            data-bs-target="#modal-eliminar">
+                                                        <span href="" class="accion-btn" type="button"
+                                                            data-bs-toggle="modal" data-bs-target="#modal-eliminar">
                                                             <i class="fa-solid fa-trash-can fa-lg"></i>
                                                         </span>
                                                     </div>
@@ -211,12 +218,12 @@
                                                 <td data-title="PROVEEDOR">Steel Co Healthy</td>
                                                 <td class="botones-table">
                                                     <div class="acciones d-flex mx-auto">
-                                                        <span href="" class="accion-btn" type="button" data-bs-toggle="modal"
-                                                            data-bs-target="#modal-actualizar">
+                                                        <span href="" class="accion-btn" type="button"
+                                                            data-bs-toggle="modal" data-bs-target="#modal-actualizar">
                                                             <i class="fa-solid fa-pen-to-square"></i>
                                                         </span>
-                                                        <span href="" class="accion-btn" type="button" data-bs-toggle="modal"
-                                                            data-bs-target="#modal-eliminar">
+                                                        <span href="" class="accion-btn" type="button"
+                                                            data-bs-toggle="modal" data-bs-target="#modal-eliminar">
                                                             <i class="fa-solid fa-trash-can fa-lg"></i>
                                                         </span>
                                                 </td>
@@ -226,12 +233,12 @@
                                                 <td data-title="PROVEEDOR">Steel Co Healthy</td>
                                                 <td class="botones-table">
                                                     <div class="acciones d-flex mx-auto">
-                                                        <span href="" class="accion-btn" type="button" data-bs-toggle="modal"
-                                                            data-bs-target="#modal-actualizar">
+                                                        <span href="" class="accion-btn" type="button"
+                                                            data-bs-toggle="modal" data-bs-target="#modal-actualizar">
                                                             <i class="fa-solid fa-pen-to-square"></i>
                                                         </span>
-                                                        <span href="" class="accion-btn" type="button" data-bs-toggle="modal"
-                                                            data-bs-target="#modal-eliminar">
+                                                        <span href="" class="accion-btn" type="button"
+                                                            data-bs-toggle="modal" data-bs-target="#modal-eliminar">
                                                             <i class="fa-solid fa-trash-can fa-lg"></i>
                                                         </span>
                                                     </div>
@@ -242,18 +249,18 @@
                                                 <td data-title="PROVEEDOR">Steel Co Healthy</td>
                                                 <td class="botones-table">
                                                     <div class="acciones d-flex mx-auto">
-                                                        <span href="" class="accion-btn" type="button" data-bs-toggle="modal"
-                                                            data-bs-target="#modal-actualizar">
+                                                        <span href="" class="accion-btn" type="button"
+                                                            data-bs-toggle="modal" data-bs-target="#modal-actualizar">
                                                             <i class="fa-solid fa-pen-to-square"></i>
                                                         </span>
-                                                        <span href="" class="accion-btn" type="button" data-bs-toggle="modal"
-                                                            data-bs-target="#modal-eliminar">
+                                                        <span href="" class="accion-btn" type="button"
+                                                            data-bs-toggle="modal" data-bs-target="#modal-eliminar">
                                                             <i class="fa-solid fa-trash-can fa-lg"></i>
                                                         </span>
                                                     </div>
                                                 </td>
                                             </tr>
-                                        
+
                                         </tbody>
                                     </table>
                                 </div>
@@ -283,16 +290,18 @@
                                 <div class="row pt-3 mx-auto header-table">
                                     <div class="col-4">
                                         <button class="btn-agregar" type="button" data-bs-toggle="modal"
-                                            data-bs-target="#modal-agregar2">Agregar<i class="fa-solid fa-plus"></i></button>
+                                            data-bs-target="#modal-agregar2">Agregar<i
+                                                class="fa-solid fa-plus"></i></button>
                                     </div>
                                     <div class="col-8 d-flex justify-content-end mx-auto">
-                                        <input class="form-control form-control-dark w-60 d-none d-md-block Buscador-Imp"
+                                        <input
+                                            class="form-control form-control-dark w-60 d-none d-md-block Buscador-Imp"
                                             type="text" placeholder="Buscar" aria-label="Search">
                                         <button class="btn-refresh"><i class="fa-solid fa-arrows-rotate"></i></button>
                                     </div>
                                 </div>
                                 <div class="table-responsive table-proveedores mt-3 scroll" id="no-more-tables">
-                                    <table class="table table-bordered table-productos " style="width:100%">
+                                    <table class="table table-bordered table-productos">
                                         <thead>
                                             <tr>
                                                 <th>Nombre proveedor</th>
@@ -301,167 +310,167 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>                                               
+                                            <tr>
                                                 <td data-title="PROVEEDOR">Steel Co Healthy</td>
                                                 <td data-title="ESTADO-PROVEEDOR">Activo</td>
                                                 <td class="botones-table">
                                                     <div class="acciones d-flex mx-auto">
-                                                        <span href="" class="accion-btn" type="button" data-bs-toggle="modal"
-                                                            data-bs-target="#modal-actualizar2">
+                                                        <span href="" class="accion-btn" type="button"
+                                                            data-bs-toggle="modal" data-bs-target="#modal-actualizar2">
                                                             <i class="fa-solid fa-pen-to-square"></i>
                                                         </span>
-                                                        <span href="" class="accion-btn" type="button" data-bs-toggle="modal"
-                                                            data-bs-target="#modal-eliminar">
+                                                        <span href="" class="accion-btn" type="button"
+                                                            data-bs-toggle="modal" data-bs-target="#modal-eliminar">
                                                             <i class="fa-solid fa-trash-can fa-lg"></i>
                                                         </span>
-                                                        <span href="" class="accion-btn" type="button" data-bs-toggle="modal"
-                                                            data-bs-target="#modal-ver">
+                                                        <span href="" class="accion-btn" type="button"
+                                                            data-bs-toggle="modal" data-bs-target="#modal-ver">
                                                             <i class="fa-solid fa-eye"></i>
                                                         </span>
                                                     </div>
                                                 </td>
                                             </tr>
-                                            <tr>                                               
+                                            <tr>
                                                 <td data-title="PROVEEDOR">Steel Co Healthy</td>
                                                 <td data-title="ESTADO-PROVEEDOR">Activo</td>
                                                 <td class="botones-table">
                                                     <div class="acciones d-flex mx-auto">
-                                                        <span href="" class="accion-btn" type="button" data-bs-toggle="modal"
-                                                            data-bs-target="#modal-actualizar2">
+                                                        <span href="" class="accion-btn" type="button"
+                                                            data-bs-toggle="modal" data-bs-target="#modal-actualizar2">
                                                             <i class="fa-solid fa-pen-to-square"></i>
                                                         </span>
-                                                        <span href="" class="accion-btn" type="button" data-bs-toggle="modal"
-                                                            data-bs-target="#modal-eliminar">
+                                                        <span href="" class="accion-btn" type="button"
+                                                            data-bs-toggle="modal" data-bs-target="#modal-eliminar">
                                                             <i class="fa-solid fa-trash-can fa-lg"></i>
                                                         </span>
-                                                        <span href="" class="accion-btn" type="button" data-bs-toggle="modal"
-                                                            data-bs-target="#modal-ver">
+                                                        <span href="" class="accion-btn" type="button"
+                                                            data-bs-toggle="modal" data-bs-target="#modal-ver">
                                                             <i class="fa-solid fa-eye"></i>
                                                         </span>
                                                     </div>
                                                 </td>
                                             </tr>
-                                            <tr>                                               
+                                            <tr>
                                                 <td data-title="PROVEEDOR">Steel Co Healthy</td>
                                                 <td data-title="ESTADO-PROVEEDOR">Activo</td>
                                                 <td class="botones-table">
                                                     <div class="acciones d-flex mx-auto">
-                                                        <span href="" class="accion-btn" type="button" data-bs-toggle="modal"
-                                                            data-bs-target="#modal-actualizar2">
+                                                        <span href="" class="accion-btn" type="button"
+                                                            data-bs-toggle="modal" data-bs-target="#modal-actualizar2">
                                                             <i class="fa-solid fa-pen-to-square"></i>
                                                         </span>
-                                                        <span href="" class="accion-btn" type="button" data-bs-toggle="modal"
-                                                            data-bs-target="#modal-eliminar">
+                                                        <span href="" class="accion-btn" type="button"
+                                                            data-bs-toggle="modal" data-bs-target="#modal-eliminar">
                                                             <i class="fa-solid fa-trash-can fa-lg"></i>
                                                         </span>
-                                                        <span href="" class="accion-btn" type="button" data-bs-toggle="modal"
-                                                            data-bs-target="#modal-ver">
+                                                        <span href="" class="accion-btn" type="button"
+                                                            data-bs-toggle="modal" data-bs-target="#modal-ver">
                                                             <i class="fa-solid fa-eye"></i>
                                                         </span>
                                                     </div>
                                                 </td>
                                             </tr>
-                                            <tr>                                               
+                                            <tr>
                                                 <td data-title="PROVEEDOR">Steel Co Healthy</td>
                                                 <td data-title="ESTADO-PROVEEDOR">Activo</td>
                                                 <td class="botones-table">
                                                     <div class="acciones d-flex mx-auto">
-                                                        <span href="" class="accion-btn" type="button" data-bs-toggle="modal"
-                                                            data-bs-target="#modal-actualizar2">
+                                                        <span href="" class="accion-btn" type="button"
+                                                            data-bs-toggle="modal" data-bs-target="#modal-actualizar2">
                                                             <i class="fa-solid fa-pen-to-square"></i>
                                                         </span>
-                                                        <span href="" class="accion-btn" type="button" data-bs-toggle="modal"
-                                                            data-bs-target="#modal-eliminar">
+                                                        <span href="" class="accion-btn" type="button"
+                                                            data-bs-toggle="modal" data-bs-target="#modal-eliminar">
                                                             <i class="fa-solid fa-trash-can fa-lg"></i>
                                                         </span>
-                                                        <span href="" class="accion-btn" type="button" data-bs-toggle="modal"
-                                                            data-bs-target="#modal-ver">
+                                                        <span href="" class="accion-btn" type="button"
+                                                            data-bs-toggle="modal" data-bs-target="#modal-ver">
                                                             <i class="fa-solid fa-eye"></i>
                                                         </span>
                                                     </div>
                                                 </td>
                                             </tr>
-                                            <tr>                                               
+                                            <tr>
                                                 <td data-title="PROVEEDOR">Steel Co Healthy</td>
                                                 <td data-title="ESTADO-PROVEEDOR">Activo</td>
                                                 <td class="botones-table">
                                                     <div class="acciones d-flex mx-auto">
-                                                        <span href="" class="accion-btn" type="button" data-bs-toggle="modal"
-                                                            data-bs-target="#modal-actualizar2">
+                                                        <span href="" class="accion-btn" type="button"
+                                                            data-bs-toggle="modal" data-bs-target="#modal-actualizar2">
                                                             <i class="fa-solid fa-pen-to-square"></i>
                                                         </span>
-                                                        <span href="" class="accion-btn" type="button" data-bs-toggle="modal"
-                                                            data-bs-target="#modal-eliminar">
+                                                        <span href="" class="accion-btn" type="button"
+                                                            data-bs-toggle="modal" data-bs-target="#modal-eliminar">
                                                             <i class="fa-solid fa-trash-can fa-lg"></i>
                                                         </span>
-                                                        <span href="" class="accion-btn" type="button" data-bs-toggle="modal"
-                                                            data-bs-target="#modal-ver">
+                                                        <span href="" class="accion-btn" type="button"
+                                                            data-bs-toggle="modal" data-bs-target="#modal-ver">
                                                             <i class="fa-solid fa-eye"></i>
                                                         </span>
                                                     </div>
                                                 </td>
                                             </tr>
-                                            <tr>                                               
+                                            <tr>
                                                 <td data-title="PROVEEDOR">Steel Co Healthy</td>
                                                 <td data-title="ESTADO-PROVEEDOR">Activo</td>
                                                 <td class="botones-table">
                                                     <div class="acciones d-flex mx-auto">
-                                                        <span href="" class="accion-btn" type="button" data-bs-toggle="modal"
-                                                            data-bs-target="#modal-actualizar2">
+                                                        <span href="" class="accion-btn" type="button"
+                                                            data-bs-toggle="modal" data-bs-target="#modal-actualizar2">
                                                             <i class="fa-solid fa-pen-to-square"></i>
                                                         </span>
-                                                        <span href="" class="accion-btn" type="button" data-bs-toggle="modal"
-                                                            data-bs-target="#modal-eliminar">
+                                                        <span href="" class="accion-btn" type="button"
+                                                            data-bs-toggle="modal" data-bs-target="#modal-eliminar">
                                                             <i class="fa-solid fa-trash-can fa-lg"></i>
                                                         </span>
-                                                        <span href="" class="accion-btn" type="button" data-bs-toggle="modal"
-                                                            data-bs-target="#modal-ver">
+                                                        <span href="" class="accion-btn" type="button"
+                                                            data-bs-toggle="modal" data-bs-target="#modal-ver">
                                                             <i class="fa-solid fa-eye"></i>
                                                         </span>
                                                     </div>
                                                 </td>
                                             </tr>
-                                            <tr>                                               
+                                            <tr>
                                                 <td data-title="PROVEEDOR">Steel Co Healthy</td>
                                                 <td data-title="ESTADO-PROVEEDOR">Activo</td>
                                                 <td class="botones-table">
                                                     <div class="acciones d-flex mx-auto">
-                                                        <span href="" class="accion-btn" type="button" data-bs-toggle="modal"
-                                                            data-bs-target="#modal-actualizar2">
+                                                        <span href="" class="accion-btn" type="button"
+                                                            data-bs-toggle="modal" data-bs-target="#modal-actualizar2">
                                                             <i class="fa-solid fa-pen-to-square"></i>
                                                         </span>
-                                                        <span href="" class="accion-btn" type="button" data-bs-toggle="modal"
-                                                            data-bs-target="#modal-eliminar">
+                                                        <span href="" class="accion-btn" type="button"
+                                                            data-bs-toggle="modal" data-bs-target="#modal-eliminar">
                                                             <i class="fa-solid fa-trash-can fa-lg"></i>
                                                         </span>
-                                                        <span href="" class="accion-btn" type="button" data-bs-toggle="modal"
-                                                            data-bs-target="#modal-ver">
+                                                        <span href="" class="accion-btn" type="button"
+                                                            data-bs-toggle="modal" data-bs-target="#modal-ver">
                                                             <i class="fa-solid fa-eye"></i>
                                                         </span>
                                                     </div>
                                                 </td>
                                             </tr>
-                                            <tr>                                               
+                                            <tr>
                                                 <td data-title="PROVEEDOR">Steel Co Healthy</td>
                                                 <td data-title="ESTADO-PROVEEDOR">Activo</td>
                                                 <td class="botones-table">
                                                     <div class="acciones d-flex mx-auto">
-                                                        <span href="" class="accion-btn" type="button" data-bs-toggle="modal"
-                                                            data-bs-target="#modal-actualizar2">
+                                                        <span href="" class="accion-btn" type="button"
+                                                            data-bs-toggle="modal" data-bs-target="#modal-actualizar2">
                                                             <i class="fa-solid fa-pen-to-square"></i>
                                                         </span>
-                                                        <span href="" class="accion-btn" type="button" data-bs-toggle="modal"
-                                                            data-bs-target="#modal-eliminar">
+                                                        <span href="" class="accion-btn" type="button"
+                                                            data-bs-toggle="modal" data-bs-target="#modal-eliminar">
                                                             <i class="fa-solid fa-trash-can fa-lg"></i>
                                                         </span>
-                                                        <span href="" class="accion-btn" type="button" data-bs-toggle="modal"
-                                                            data-bs-target="#modal-ver">
+                                                        <span href="" class="accion-btn" type="button"
+                                                            data-bs-toggle="modal" data-bs-target="#modal-ver">
                                                             <i class="fa-solid fa-eye"></i>
                                                         </span>
                                                     </div>
                                                 </td>
                                             </tr>
-                                        
+
                                         </tbody>
                                     </table>
                                 </div>
@@ -484,12 +493,18 @@
                                         </ul>
                                     </nav>
                                 </div>
-                            </div>  
+                            </div>
                         </div>
                     </div>
-                    
-                    
                 </div>
+
+                <footer>
+                    <div class="text-center p-1 mt-4 CopCo">
+                        © 2021 Copyright:
+                        <a class="text-reset fw-bold" href="https://github.com/GabyArgu/Cooke/tree/ROscar">Cooké.com</a>
+                    </div>
+                </footer>
+
             </main>
         </div>
     </div>
@@ -535,7 +550,7 @@
                             </div>
                             <div class="col col-8"><span>Activo</span></div>
                         </div>
-                        
+
                     </div>
                 </div>
             </div>
@@ -559,11 +574,12 @@
                         <div class="row agregar-content">
                             <div class="col">
 
-                                <div class="row agregar-content-flex d-flex justify-content-center align-items-center my-4">
+                                <div
+                                    class="row agregar-content-flex d-flex justify-content-center align-items-center my-4">
                                     <div class="col-6 drop-zone">
                                         <div class="drop-container">
                                             <i class="fa-solid fa-cloud-arrow-up"></i>
-                                            <span>Adjunte foto de marca</span> 
+                                            <span>Adjunte foto de marca</span>
                                         </div>
                                         <!-- <label class="mx-auto" for="inputGroupFile01"><img
                                                 src="../resources/Cuenta/Usuario2.png" class=""> </label> -->
@@ -573,7 +589,7 @@
                                         <input type="text" class="form-control" id="validationDefault01" value=""
                                             required>
                                     </div>
-                    
+
                                 </div>
 
                             </div>
@@ -589,39 +605,40 @@
         </div>
     </div>
 
-    <div class="modal modal-agregar modal-agregar-proveedor fade" id="modal-agregar2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    
-    <div class="modal-dialog modal-dialog-centered modal-lg">
-        <div class="modal-content">
-            <div class="modal-header">
+    <div class="modal modal-agregar modal-agregar-proveedor fade" id="modal-agregar2" tabindex="-1"
+        aria-labelledby="exampleModalLabel" aria-hidden="true">
 
-                <h3 class="mt-2">Agregar Proveedor</h3>
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
 
-                <button type="button" class="btn-close my" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <div class="container">
-                    <div class="row agregar-content">
-                        <div class="col">
+                    <h3 class="mt-2">Agregar Proveedor</h3>
 
-                            <div class="row agregar-content-flex d-flex justify-content-center align-items-center">
-                                <div class="col-6 mb-4">
-                                    <label for="validationDefault0" class="form-label">Nombre</label>
+                    <button type="button" class="btn-close my" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="container">
+                        <div class="row agregar-content">
+                            <div class="col">
+
+                                <div class="row agregar-content-flex d-flex justify-content-center align-items-center">
+                                    <div class="col-6 mb-4">
+                                        <label for="validationDefault0" class="form-label">Nombre</label>
                                         <input type="text" class="form-control" id="validationDefault01" value=""
                                             required>
-                                </div>
-                                <div class="col-6 mb-4">
-                                    <label for="validationDefault02" class="form-label">Teléfono</label>
-                                    <input type="text" class="form-control" id="validationDefault01" value=""
-                                        required>
-                                </div>
-                                <div class="col-6 mb-4">
-                                    <label for="validationDefault02" class="form-label">Dirección</label>
-                                    <input type="text" class="form-control" id="validationDefault01" value=""
-                                        required>
-                                </div>
-                                <div class="col-6 mb-4">
-                                    <label for="validationDefault03" class="form-label">Estado</label>
+                                    </div>
+                                    <div class="col-6 mb-4">
+                                        <label for="validationDefault02" class="form-label">Teléfono</label>
+                                        <input type="text" class="form-control" id="validationDefault01" value=""
+                                            required>
+                                    </div>
+                                    <div class="col-6 mb-4">
+                                        <label for="validationDefault02" class="form-label">Dirección</label>
+                                        <input type="text" class="form-control" id="validationDefault01" value=""
+                                            required>
+                                    </div>
+                                    <div class="col-6 mb-4">
+                                        <label for="validationDefault03" class="form-label">Estado</label>
                                         <select class="form-select custom-form-select"
                                             aria-label="Default select example">
                                             <option selected disabled>Seleccione una opción</option>
@@ -629,23 +646,23 @@
                                             <option value="2">Inactivo</option>
                                             <option value="3">Deshabilitado</option>
                                         </select>
-                                </div>               
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="modal-footer d-flex justify-content-end">
-                <button class="btn-guardar" type="button">Guardar<i class="fa-solid fa-floppy-disk"></i></button>
+                <div class="modal-footer d-flex justify-content-end">
+                    <button class="btn-guardar" type="button">Guardar<i class="fa-solid fa-floppy-disk"></i></button>
+                </div>
             </div>
         </div>
     </div>
-</div>
     <!-- FIN MODAL -->
 
     <!-- INICIO MODALS ACTUALIZAR -->
-    <div class="modal modal-agregar modal-agregar-marca fade" id="modal-actualizar" tabindex="-1" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
+    <div class="modal modal-agregar modal-agregar-marca fade" id="modal-actualizar" tabindex="-1"
+        aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-xl">
             <div class="modal-content">
                 <div class="modal-header">
@@ -669,7 +686,7 @@
                                         <input type="text" class="form-control" id="validationDefault01" value=""
                                             required>
                                     </div>
-                    
+
                                 </div>
 
                             </div>
@@ -697,12 +714,12 @@
                     <div class="container">
                         <div class="row agregar-content">
                             <div class="col">
-    
+
                                 <div class="row agregar-content-flex d-flex justify-content-center align-items-center">
                                     <div class="col-6 mb-4">
                                         <label for="validationDefault0" class="form-label">Nombre</label>
-                                            <input type="text" class="form-control" id="validationDefault01" value=""
-                                                required>
+                                        <input type="text" class="form-control" id="validationDefault01" value=""
+                                            required>
                                     </div>
                                     <div class="col-6 mb-4">
                                         <label for="validationDefault02" class="form-label">Teléfono</label>
@@ -716,14 +733,14 @@
                                     </div>
                                     <div class="col-6 mb-4">
                                         <label for="validationDefault03" class="form-label">Estado</label>
-                                            <select class="form-select custom-form-select"
-                                                aria-label="Default select example">
-                                                <option selected disabled>Seleccione una opción</option>
-                                                <option value="1">Activo</option>
-                                                <option value="2">Inactivo</option>
-                                                <option value="3">Deshabilitado</option>
-                                            </select>
-                                    </div>               
+                                        <select class="form-select custom-form-select"
+                                            aria-label="Default select example">
+                                            <option selected disabled>Seleccione una opción</option>
+                                            <option value="1">Activo</option>
+                                            <option value="2">Inactivo</option>
+                                            <option value="3">Deshabilitado</option>
+                                        </select>
+                                    </div>
                                 </div>
                             </div>
                         </div>

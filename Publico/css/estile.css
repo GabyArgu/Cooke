@@ -1763,10 +1763,6 @@ body {
     transform: scale(1.2);
 }
 
-.nav2 {
-    background-color: var(--blanco);
-}
-
 .nav2 a{
     text-decoration: none;
     color: var(--rosadoTitulos);

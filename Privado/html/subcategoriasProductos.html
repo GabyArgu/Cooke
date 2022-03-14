@@ -34,8 +34,8 @@
 
     <div class="wrapper">
         <nav id="sidebarMenu" class="sidebar ">
-            <a href="../index.html" class="sidebar-conent-header d-flex"><img src="../resources/dashboard/logo2.png" alt=""
-                    id="logo_inicio" class="mx-auto d-block"></a>
+            <a href="dashboard.html" class="sidebar-conent-header d-flex"><img src="../resources/dashboard/logo2.png"
+                    alt="" id="logo_inicio" class="mx-auto d-block"></a>
 
             <div class="sidebar-content">
 
@@ -53,7 +53,7 @@
                                 class="align-middle">PRINCIPAL</span>
                         </a>
                         <ul id="dashboards" class="list-unstyled collapse submenu mt-2" data-bs-parent="#sidebar">
-                            <li class="sidebar-item"><a class="sidebar-link" href="../index.html">Dashboard</a></li>
+                            <li class="sidebar-item"><a class="sidebar-link" href="dashboard.html">Dashboard</a></li>
 
                         </ul>
                     </li>
@@ -62,10 +62,13 @@
                             <i class="fa-solid fa-shop"></i> <span class="align-middle">TIENDA</span>
                         </a>
                         <ul id="Tienda" class="list-unstyled submenu collapse">
-                            <li class="sidebar-item"><a class="sidebar-link" href="../html/productos.html">Productos</a></li>
-                            <li class="sidebar-item"><a class="sidebar-link" href="../html/categoriasProductos.html">Categoría</a></li>
-                            <li class="sidebar-item"><a class="sidebar-link" href="../html/subcategoriasProductos.html">Subcategoria</a></li>
-                            <li class="sidebar-item"><a class="sidebar-link" href="../html/pedidos.html">Pedidos</a></li>
+                            <li class="sidebar-item"><a class="sidebar-link" href="productos.html">Productos</a>
+                            </li>
+                            <li class="sidebar-item"><a class="sidebar-link"
+                                    href="categoriasProductos.html">Categoría</a></li>
+                            <li class="sidebar-item"><a class="sidebar-link"
+                                    href="subcategoriasProductos.html">Subcategoria</a></li>
+                            <li class="sidebar-item"><a class="sidebar-link" href="pedidos.html">Pedidos</a></li>
                         </ul>
                     </li>
                     <li class="sidebar-item mt-5">
@@ -73,8 +76,9 @@
                             <i class="fa-solid fa-book me-2"></i><span class="align-middle">BLOG</span>
                         </a>
                         <ul id="blog" class="list-unstyled collapse submenu" data-bs-parent="#sidebar">
-                            <li class="sidebar-item"><a class="sidebar-link" href="../html/articulo.html">Artículo</a></li>
-                            <li class="sidebar-item"><a class="sidebar-link" href="../html/categoriasBlog.html">Categoría</a></li>
+                            <li class="sidebar-item"><a class="sidebar-link" href="articulo.html">Artículo</a></li>
+                            <li class="sidebar-item"><a class="sidebar-link" href="categoriasBlog.html">Categoría</a>
+                            </li>
 
                         </ul>
                     </li>
@@ -84,9 +88,11 @@
                             <i class="fa-solid me-2 fa-database"></i><span class="align-middle">ADMINISTRACIÓN</span>
                         </a>
                         <ul id="forms" class=" list-unstyled collapse submenu" data-bs-parent="#sidebar">
-                            <li class="sidebar-item"><a class="sidebar-link" href="../html/clientes.html">Usuarios</a></li>
-                            <li class="sidebar-item"><a class="sidebar-link" href="../html/empleados.html">Empleados</a></li>
-                            <li class="sidebar-item"><a class="sidebar-link" href="../html/marcasProveedores.html">Marcas y proveedores</a></li>
+                            <li class="sidebar-item"><a class="sidebar-link" href="clientes.html">Clientes</a></li>
+                            <li class="sidebar-item"><a class="sidebar-link" href="empleados.html">Empleados</a>
+                            </li>
+                            <li class="sidebar-item"><a class="sidebar-link" href="marcasProveedores.html">Marcas y
+                                    proveedores</a></li>
                         </ul>
                     </li>
 
@@ -95,36 +101,39 @@
             </div>
         </nav>
         <div class="main productos">
-            <nav class="navbar navbar-expand navbar-theme">
-                <a class="sidebar-toggle d-flex me-2">
-                    <i class="fa-solid fa-bars" onclick="sidebarToggle()"></i>
-                </a>
+            <header>
+                <nav class="navbar navbar-expand navbar-theme">
+                    <a class="sidebar-toggle d-flex me-2">
+                        <i class="fa-solid fa-bars" onclick="sidebarToggle()"></i>
+                    </a>
 
-                <div class="Lupa"><img src="../resources/dashboard/lupa.png" alt="" id="Lu-Logo"
-                        class="mx-auto d-none d-md-block"></div>
+                    <div class="Lupa"><img src="../resources/dashboard/lupa.png" alt="" id="Lu-Logo"
+                            class="mx-auto d-none d-md-block"></div>
 
-                <form class="d-none d-sm-inline-block me-auto ">
-                    <input class=" form-control form-control-lite barra-buscar" type="text" placeholder="Buscar en el sitio">
-                </form>
+                    <form class="d-none d-sm-inline-block me-auto ">
+                        <input class=" form-control form-control-lite barra-buscar" type="text"
+                            placeholder="Buscar en el sitio">
+                    </form>
 
-                <div class="opciones-nav d-flex justify-content-center align-items-center">
-                    <div class=" Lun"><img src="../resources/dashboard/lunas.png" alt="" id="Confi-Logo"
-                            class="mx-auto d-md-block"></div>
-                    <ul class="navbar-nav ms-auto">
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown" href="#" id="navbarDropdownMenuLink" role="button"
-                                data-bs-toggle="dropdown" aria-expanded="false">
-                                <img src="../resources/dashboard/configuraciones.png" alt="" id="Confi-Logo"
-                                    class="mx-auto d-block">
-                            </a>
-                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
-                                <li><a class="dropdown-item" href="../html/cuenta.html">Perfil</a></li>
-                                <li><a class="dropdown-item" href="../html/login.html">Cerrar Sesión</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
+                    <div class="opciones-nav d-flex justify-content-center align-items-center">
+                        <div class=" Lun"><img src="../resources/dashboard/lunas.png" alt="" id="Confi-Logo"
+                                class="mx-auto d-md-block"></div>
+                        <ul class="navbar-nav ms-auto">
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown" href="#" id="navbarDropdownMenuLink" role="button"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    <img src="../resources/dashboard/configuraciones.png" alt="" id="Confi-Logo"
+                                        class="mx-auto d-block">
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
+                                    <li><a class="dropdown-item" href="../html/cuenta.html">Perfil</a></li>
+                                    <li><a class="dropdown-item" href="../html/login.html">Cerrar Sesión</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </header>
             <main class="content">
                 <div class="container-fluid">
                     <div class="header">
@@ -145,7 +154,7 @@
                             </div>
                             <div class="row">
                                 <div class="table-responsive mt-3" id="no-more-tables">
-                                    <table class="table table-bordered table-categorias" style="width:100%">
+                                    <table class="table table-bordered table-categorias">
                                         <thead>
                                             <tr>
                                                 <th>Nombre</th>
@@ -157,39 +166,42 @@
                                         <tbody>
                                             <tr>
                                                 <td data-title="PRODUCTO" class="nombre-categoria">Sartenes</td>
-                                                <td data-title="DESCRIPCION">Sartenes de acero, de hierro, de cerámica y antiadherente.</td>
+                                                <td data-title="DESCRIPCION">Sartenes de acero, de hierro, de cerámica y
+                                                    antiadherente.</td>
                                                 <td data-title="CATEGORÍA">Cocina</td>
                                                 <td class="botones-table">
                                                     <div class="acciones d-flex mx-auto">
                                                         <span href="" class="accion-btn" type="button"
-                                                        data-bs-toggle="modal" data-bs-target="#modal-actualizar">
+                                                            data-bs-toggle="modal" data-bs-target="#modal-actualizar">
                                                             <i class="fa-solid fa-pen-to-square"></i>
                                                         </span>
                                                         <span href="" class="accion-btn" type="button"
-                                                        data-bs-toggle="modal" data-bs-target="#modal-eliminar">
+                                                            data-bs-toggle="modal" data-bs-target="#modal-eliminar">
                                                             <i class="fa-solid fa-trash-can fa-lg"></i>
                                                         </span>
                                                     </div>
                                                 </td>
-    
+
                                             </tr>
                                             <tr>
-                                                <td data-title="PRODUCTO" class="nombre-categoria">Cocottes, cacerolas y cazos</td>
-                                                <td data-title="DESCRIPCION">Cocottes de hierro, aluminio, cacerolas de aluminio y acero.</td>
+                                                <td data-title="PRODUCTO" class="nombre-categoria">Cocottes, cacerolas y
+                                                    cazos</td>
+                                                <td data-title="DESCRIPCION">Cocottes de hierro, aluminio, cacerolas de
+                                                    aluminio y acero.</td>
                                                 <td data-title="CATEGORÍA">Cocina</td>
                                                 <td class="botones-table">
                                                     <div class="acciones d-flex mx-auto">
                                                         <span href="" class="accion-btn" type="button"
-                                                        data-bs-toggle="modal" data-bs-target="#modal-actualizar">
+                                                            data-bs-toggle="modal" data-bs-target="#modal-actualizar">
                                                             <i class="fa-solid fa-pen-to-square"></i>
                                                         </span>
                                                         <span href="" class="accion-btn" type="button"
-                                                        data-bs-toggle="modal" data-bs-target="#modal-eliminar">
+                                                            data-bs-toggle="modal" data-bs-target="#modal-eliminar">
                                                             <i class="fa-solid fa-trash-can fa-lg"></i>
                                                         </span>
                                                     </div>
                                                 </td>
-    
+
                                             </tr>
                                             <tr>
                                                 <td data-title="PRODUCTO" class="nombre-categoria">Ollas</td>
@@ -198,58 +210,61 @@
                                                 <td class="botones-table">
                                                     <div class="acciones d-flex mx-auto">
                                                         <span href="" class="accion-btn" type="button"
-                                                        data-bs-toggle="modal" data-bs-target="#modal-actualizar">
+                                                            data-bs-toggle="modal" data-bs-target="#modal-actualizar">
                                                             <i class="fa-solid fa-pen-to-square"></i>
                                                         </span>
                                                         <span href="" class="accion-btn" type="button"
-                                                        data-bs-toggle="modal" data-bs-target="#modal-eliminar">
+                                                            data-bs-toggle="modal" data-bs-target="#modal-eliminar">
                                                             <i class="fa-solid fa-trash-can fa-lg"></i>
                                                         </span>
                                                     </div>
                                                 </td>
-    
+
                                             </tr>
                                             <tr>
-                                                <td data-title="PRODUCTO" class="nombre-categoria">Creperas y gofres</td>
-                                                <td data-title="DESCRIPCION">Creperas de hierro mineral, y sartenes para gofres variados.</td>
+                                                <td data-title="PRODUCTO" class="nombre-categoria">Creperas y gofres
+                                                </td>
+                                                <td data-title="DESCRIPCION">Creperas de hierro mineral, y sartenes para
+                                                    gofres variados.</td>
                                                 <td data-title="CATEGORÍA">Cocina</td>
                                                 <td class="botones-table">
                                                     <div class="acciones d-flex mx-auto">
                                                         <span href="" class="accion-btn" type="button"
-                                                        data-bs-toggle="modal" data-bs-target="#modal-actualizar">
+                                                            data-bs-toggle="modal" data-bs-target="#modal-actualizar">
                                                             <i class="fa-solid fa-pen-to-square"></i>
                                                         </span>
                                                         <span href="" class="accion-btn" type="button"
-                                                        data-bs-toggle="modal" data-bs-target="#modal-eliminar">
+                                                            data-bs-toggle="modal" data-bs-target="#modal-eliminar">
                                                             <i class="fa-solid fa-trash-can fa-lg"></i>
                                                         </span>
                                                     </div>
                                                 </td>
-    
+
                                             </tr>
                                             <tr>
                                                 <td data-title="PRODUCTO" class="nombre-categoria">Cocina vapor</td>
-                                                <td data-title="DESCRIPCION">Vaporeras, recipientes y moldes para cocina saludable al vapor.</td>
+                                                <td data-title="DESCRIPCION">Vaporeras, recipientes y moldes para cocina
+                                                    saludable al vapor.</td>
                                                 <td data-title="CATEGORÍA">Cocina</td>
                                                 <td class="botones-table">
                                                     <div class="acciones d-flex mx-auto">
                                                         <span href="" class="accion-btn" type="button"
-                                                        data-bs-toggle="modal" data-bs-target="#modal-actualizar">
+                                                            data-bs-toggle="modal" data-bs-target="#modal-actualizar">
                                                             <i class="fa-solid fa-pen-to-square"></i>
                                                         </span>
                                                         <span href="" class="accion-btn" type="button"
-                                                        data-bs-toggle="modal" data-bs-target="#modal-eliminar">
+                                                            data-bs-toggle="modal" data-bs-target="#modal-eliminar">
                                                             <i class="fa-solid fa-trash-can fa-lg"></i>
                                                         </span>
                                                     </div>
                                                 </td>
-    
+
                                             </tr>
                                         </tbody>
                                     </table>
                                 </div>
                             </div>
-    
+
                             <div class="row">
                                 <nav aria-label="page-navigation">
                                     <ul class="pagination justify-content-center">
@@ -272,143 +287,153 @@
                         </div>
                     </div>
                 </div>
+
+                <footer>
+                    <div class="text-center p-1 mt-4 CopCo">
+                        © 2021 Copyright:
+                        <a class="text-reset fw-bold" href="https://github.com/GabyArgu/Cooke/tree/ROscar">Cooké.com</a>
+                    </div>
+                </footer>
+
             </main>
         </div>
     </div>
 
     <!-- INICIO MODALS AGREGAR-->
-    <div class="modal modal-agregar modal-agregar-categoria fade" id="modal-agregar" tabindex="-1" aria-labelledby="exampleModalLabel"
-    aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-md">
-        <div class="modal-content">
-            <div class="modal-header">
+    <div class="modal modal-agregar modal-agregar-categoria fade" id="modal-agregar" tabindex="-1"
+        aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-md">
+            <div class="modal-content">
+                <div class="modal-header">
 
-                <h3 class="mt-2">Agregar subcategoría</h3>
+                    <h3 class="mt-2">Agregar subcategoría</h3>
 
-                <button type="button" class="btn-close my" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <div class="container">
-                    <div class="row">
-                        <div class="col">
-                            <div class="row agregar-content agregar-content-flex">
-                                <div class="col-12 mb-4">
-                                    <label for="validationDefault01" class="form-label">Nombre</label>
-                                    <input type="text" class="form-control" id="validationDefault01" value=""
-                                        required>
-                                </div>
-                                <div class="col-12 mb-4">
-                                    <label for="validationDefault01" class="form-label">Descripción</label>
-                                    <textarea class="form-control" id="exampleFormControlTextarea1"
-                                        rows="6"></textarea>
-                                </div>
-                                <div class="col-12 mb-4">
-                                    <label for="validationDefault01" class="form-label">Categoría</label>
-                                    <select class="form-select custom-form-select"
-                                        aria-label="Default select example">
-                                        <option selected disabled>Seleccione una opción</option>
-                                        <option value="1">Cocina</option>
-                                        <option value="2">Electrodomésticos</option>
-                                        <option value="3">Utensilios</option>
-                                        <option value="4">Recetas</option>
-                                    </select>
+                    <button type="button" class="btn-close my" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col">
+                                <div class="row agregar-content agregar-content-flex">
+                                    <div class="col-12 mb-4">
+                                        <label for="validationDefault01" class="form-label">Nombre</label>
+                                        <input type="text" class="form-control" id="validationDefault01" value=""
+                                            required>
+                                    </div>
+                                    <div class="col-12 mb-4">
+                                        <label for="validationDefault01" class="form-label">Descripción</label>
+                                        <textarea class="form-control" id="exampleFormControlTextarea1"
+                                            rows="6"></textarea>
+                                    </div>
+                                    <div class="col-12 mb-4">
+                                        <label for="validationDefault01" class="form-label">Categoría</label>
+                                        <select class="form-select custom-form-select"
+                                            aria-label="Default select example">
+                                            <option selected disabled>Seleccione una opción</option>
+                                            <option value="1">Cocina</option>
+                                            <option value="2">Electrodomésticos</option>
+                                            <option value="3">Utensilios</option>
+                                            <option value="4">Recetas</option>
+                                        </select>
+                                    </div>
                                 </div>
                             </div>
+
+
                         </div>
-
-
                     </div>
                 </div>
-            </div>
-            <div class="modal-footer d-flex justify-content-end">
-                <button class="btn-guardar" type="button" data-bs-dismiss="modal">Guardar<i class="fa-solid fa-floppy-disk"></i></button>
+                <div class="modal-footer d-flex justify-content-end">
+                    <button class="btn-guardar" type="button" data-bs-dismiss="modal">Guardar<i
+                            class="fa-solid fa-floppy-disk"></i></button>
+                </div>
             </div>
         </div>
     </div>
-</div>
 
-<!-- INICIO MODALS ACTUALIZAR -->
-<div class="modal modal-agregar modal-agregar-categoria fade" id="modal-actualizar" tabindex="-1" aria-labelledby="exampleModalLabel"
-    aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-md">
-        <div class="modal-content">
-            <div class="modal-header">
+    <!-- INICIO MODALS ACTUALIZAR -->
+    <div class="modal modal-agregar modal-agregar-categoria fade" id="modal-actualizar" tabindex="-1"
+        aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-md">
+            <div class="modal-content">
+                <div class="modal-header">
 
-                <h3 class="mt-2">Editar categoría</h3>
+                    <h3 class="mt-2">Editar subcategoría</h3>
 
-                <button type="button" class="btn-close my" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <div class="container">
-                    <div class="row">
-                        <div class="col">
-                            <div class="row agregar-content agregar-content-flex">
-                                <div class="col-12 mb-4">
-                                    <label for="validationDefault01" class="form-label">Nombre</label>
-                                    <input type="text" class="form-control" id="validationDefault01" value=""
-                                        required>
-                                </div>
-                                <div class="col-12 mb-4">
-                                    <label for="validationDefault01" class="form-label">Descripción</label>
-                                    <textarea class="form-control" id="exampleFormControlTextarea1"
-                                        rows="6"></textarea>
-                                </div>
-                                <div class="col-12 mb-4">
-                                    <label for="validationDefault01" class="form-label">Categoría</label>
-                                    <select class="form-select custom-form-select"
-                                        aria-label="Default select example">
-                                        <option selected disabled>Seleccione una opción</option>
-                                        <option value="1">Cocina</option>
-                                        <option value="2">Electrodomésticos</option>
-                                        <option value="3">Utensilios</option>
-                                        <option value="4">Recetas</option>
-                                    </select>
+                    <button type="button" class="btn-close my" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col">
+                                <div class="row agregar-content agregar-content-flex">
+                                    <div class="col-12 mb-4">
+                                        <label for="validationDefault01" class="form-label">Nombre</label>
+                                        <input type="text" class="form-control" id="validationDefault01" value=""
+                                            required>
+                                    </div>
+                                    <div class="col-12 mb-4">
+                                        <label for="validationDefault01" class="form-label">Descripción</label>
+                                        <textarea class="form-control" id="exampleFormControlTextarea1"
+                                            rows="6"></textarea>
+                                    </div>
+                                    <div class="col-12 mb-4">
+                                        <label for="validationDefault01" class="form-label">Categoría</label>
+                                        <select class="form-select custom-form-select"
+                                            aria-label="Default select example">
+                                            <option selected disabled>Seleccione una opción</option>
+                                            <option value="1">Cocina</option>
+                                            <option value="2">Electrodomésticos</option>
+                                            <option value="3">Utensilios</option>
+                                            <option value="4">Recetas</option>
+                                        </select>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
 
 
-                    </div>
-                </div>
-            </div>
-            <div class="modal-footer d-flex justify-content-end">
-                <button class="btn-guardar" type="button" data-bs-dismiss="modal">Guardar<i class="fa-solid fa-floppy-disk"></i></button>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- FIN MODALS ACTUALIZAR -->
-
-<!-- INICIO MODAL DELETE -->
-<div class="modal modal-eliminar fade" id="modal-eliminar" aria-hidden="true"
-    aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
-    <div class="modal-dialog modal-dialog-centered modal-xl">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <div class="container my-5">
-                    <div class="row">
-                        <div class="col eliminar-content">
-                            <i class="fa-solid fa-circle-exclamation mb-4"></i>
-                            <h2>¿Estás seguro?</h2>
-                            <span>El elemento se borrará de manera permanente</span>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="modal-footer d-flex mx-2 justify-content-between">
-                <button class="btn btn-cancel" type="button" data-bs-target=""
-                    data-bs-toggle="modal" data-bs-dismiss="modal">Cancelar</button>
-                <button class="btn btn-siguiente" type="button" data-bs-target=""
-                    data-bs-toggle="modal" data-bs-dismiss="modal">Continuar</button>
+                <div class="modal-footer d-flex justify-content-end">
+                    <button class="btn-guardar" type="button" data-bs-dismiss="modal">Guardar<i
+                            class="fa-solid fa-floppy-disk"></i></button>
+                </div>
             </div>
         </div>
     </div>
-</div>
-<!-- FIN MODAL DELETE -->   
+
+    <!-- FIN MODALS ACTUALIZAR -->
+
+    <!-- INICIO MODAL DELETE -->
+    <div class="modal modal-eliminar fade" id="modal-eliminar" aria-hidden="true"
+        aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="container my-5">
+                        <div class="row">
+                            <div class="col eliminar-content">
+                                <i class="fa-solid fa-circle-exclamation mb-4"></i>
+                                <h2>¿Estás seguro?</h2>
+                                <span>El elemento se borrará de manera permanente</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer d-flex mx-2 justify-content-between">
+                    <button class="btn btn-cancel" type="button" data-bs-target="" data-bs-toggle="modal"
+                        data-bs-dismiss="modal">Cancelar</button>
+                    <button class="btn btn-siguiente" type="button" data-bs-target="" data-bs-toggle="modal"
+                        data-bs-dismiss="modal">Continuar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- FIN MODAL DELETE -->
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
@@ -423,7 +448,7 @@
         crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"
         integrity="sha384-zNy6FEbO50N+Cg5wap8IKA4M/ZnLJgzc6w2NqACZaK0u0FXfOWRRJOnQtpZun8ha"
-        crossorigin="anonymous"></script> 
+        crossorigin="anonymous"></script>
     <script src="../js/dashboard.js"></script>
 
 </body>

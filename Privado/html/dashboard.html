@@ -5,8 +5,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link href="../Publico/assets/css/bootstrap.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
+    <link href="../../Publico/assets/css/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
     <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -18,9 +18,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap" rel="stylesheet">
 
 
-    <link rel="icon" type="icon/png" href="resources/dashboard/logo.png">
+    <link rel="icon" type="icon/png" href="../resources/dashboard/logo.png">
     <!-- libreria iconos FONTAWESOME-->
-    <link rel="icon" type="icon/png" href="resources/dashboard/logo.png" />
+    <link rel="icon" type="icon/png" href="../resources/dashboard/logo.png" />
     <script src="https://kit.fontawesome.com/479a6c23da.js" crossorigin="anonymous"></script>
 
     <!-- Libreria dropzone -->
@@ -33,14 +33,14 @@
 <body>
 
     <div class="wrapper">
-        <nav id="sidebarMenu" class="sidebar ">
-            <a href="../index.html" class="sidebar-conent-header d-flex"><img src="resources/dashboard/logo2.png" alt=""
-                    id="logo_inicio" class="mx-auto d-block"></a>
+        <nav id="sidebarMenu" class="sidebar">
+            <a href="dashboard.html" class="sidebar-conent-header d-flex"><img src="../resources/dashboard/logo2.png"
+                    alt="" id="logo_inicio" class="mx-auto d-block"></a>
 
             <div class="sidebar-content">
 
                 <ul class="nav flex-column justify-content-center align-items-center">
-                    <img src="resources/dashboard/Usuario.png" class="Usua-Ico" alt="">
+                    <img src="../resources/dashboard/Usuario.png" class="Usua-Ico" alt="">
                     <h5 class="Nombre-Usu">Gabriela Méndez</h5>
                     <a class="Adm" href="#">Administrar</a>
                 </ul>
@@ -53,7 +53,7 @@
                                 class="align-middle">PRINCIPAL</span>
                         </a>
                         <ul id="dashboards" class="list-unstyled collapse submenu mt-2" data-bs-parent="#sidebar">
-                            <li class="sidebar-item"><a class="sidebar-link" href="index.html">Dashboard</a></li>
+                            <li class="sidebar-item"><a class="sidebar-link" href="dashboard.html">Dashboard</a></li>
 
                         </ul>
                     </li>
@@ -62,10 +62,13 @@
                             <i class="fa-solid fa-shop"></i> <span class="align-middle">TIENDA</span>
                         </a>
                         <ul id="Tienda" class="list-unstyled submenu collapse">
-                            <li class="sidebar-item"><a class="sidebar-link" href="html/productos.html">Productos</a></li>
-                            <li class="sidebar-item"><a class="sidebar-link" href="html/categoriasProductos.html">Categoría</a></li>
-                            <li class="sidebar-item"><a class="sidebar-link" href="html/subcategoriasProductos.html">Subcategoria</a></li>
-                            <li class="sidebar-item"><a class="sidebar-link" href="html/pedidos.html">Pedidos</a></li>
+                            <li class="sidebar-item"><a class="sidebar-link" href="productos.html">Productos</a>
+                            </li>
+                            <li class="sidebar-item"><a class="sidebar-link"
+                                    href="categoriasProductos.html">Categoría</a></li>
+                            <li class="sidebar-item"><a class="sidebar-link"
+                                    href="subcategoriasProductos.html">Subcategoria</a></li>
+                            <li class="sidebar-item"><a class="sidebar-link" href="pedidos.html">Pedidos</a></li>
                         </ul>
                     </li>
                     <li class="sidebar-item mt-5">
@@ -73,8 +76,9 @@
                             <i class="fa-solid fa-book me-2"></i><span class="align-middle">BLOG</span>
                         </a>
                         <ul id="blog" class="list-unstyled collapse submenu" data-bs-parent="#sidebar">
-                            <li class="sidebar-item"><a class="sidebar-link" href="html/articulo.html">Artículo</a></li>
-                            <li class="sidebar-item"><a class="sidebar-link" href="html/categoriasBlog.html">Categoría</a></li>
+                            <li class="sidebar-item"><a class="sidebar-link" href="articulo.html">Artículo</a></li>
+                            <li class="sidebar-item"><a class="sidebar-link" href="categoriasBlog.html">Categoría</a>
+                            </li>
 
                         </ul>
                     </li>
@@ -84,9 +88,11 @@
                             <i class="fa-solid me-2 fa-database"></i><span class="align-middle">ADMINISTRACIÓN</span>
                         </a>
                         <ul id="forms" class=" list-unstyled collapse submenu" data-bs-parent="#sidebar">
-                            <li class="sidebar-item"><a class="sidebar-link" href="html/clientes.html">Usuarios</a></li>
-                            <li class="sidebar-item"><a class="sidebar-link" href="html/empleados.html">Empleados</a></li>
-                            <li class="sidebar-item"><a class="sidebar-link" href="html/marcasProveedores.html">Marcas y proveedores</a></li>
+                            <li class="sidebar-item"><a class="sidebar-link" href="clientes.html">Clientes</a></li>
+                            <li class="sidebar-item"><a class="sidebar-link" href="empleados.html">Empleados</a>
+                            </li>
+                            <li class="sidebar-item"><a class="sidebar-link" href="marcasProveedores.html">Marcas y
+                                    proveedores</a></li>
                         </ul>
                     </li>
 
@@ -94,37 +100,42 @@
                 </ul>
             </div>
         </nav>
+
         <div class="main productos">
-            <nav class="navbar navbar-expand navbar-theme">
-                <a class="sidebar-toggle d-flex me-2">
-                    <i class="fa-solid fa-bars" onclick="sidebarToggle()"></i>
-                </a>
+            <header>
+                <nav class="navbar navbar-expand navbar-theme">
+                    <a class="sidebar-toggle d-flex me-2">
+                        <i class="fa-solid fa-bars" onclick="sidebarToggle()"></i>
+                    </a>
 
-                <div class="Lupa"><img src="resources/dashboard/lupa.png" alt="" id="Lu-Logo"
-                        class="mx-auto d-none d-md-block"></div>
+                    <div class="Lupa"><img src="../resources/dashboard/lupa.png" alt="" id="Lu-Logo"
+                            class="mx-auto d-none d-md-block"></div>
 
-                <form class="d-none d-sm-inline-block me-auto ">
-                    <input class=" form-control form-control-lite barra-buscar" type="text" placeholder="Buscar en el sitio">
-                </form>
+                    <form class="d-none d-sm-inline-block me-auto ">
+                        <input class=" form-control form-control-lite barra-buscar" type="text"
+                            placeholder="Buscar en el sitio">
+                    </form>
 
-                <div class="opciones-nav d-flex justify-content-center align-items-center">
-                    <div class=" Lun"><img src="resources/dashboard/lunas.png" alt="" id="Confi-Logo"
-                            class="mx-auto d-md-block"></div>
-                    <ul class="navbar-nav ms-auto">
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown" href="#" id="navbarDropdownMenuLink" role="button"
-                                data-bs-toggle="dropdown" aria-expanded="false">
-                                <img src="resources/dashboard/configuraciones.png" alt="" id="Confi-Logo"
-                                    class="mx-auto d-block">
-                            </a>
-                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
-                                <li><a class="dropdown-item" href="html/cuenta.html">Perfil</a></li>
-                                <li><a class="dropdown-item" href="html/login.html">Cerrar Sesión</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
+                    <div class="opciones-nav d-flex justify-content-center align-items-center">
+                        <div class=" Lun"><img src="../resources/dashboard/lunas.png" alt="" id="Confi-Logo"
+                                class="mx-auto d-md-block"></div>
+                        <ul class="navbar-nav ms-auto">
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown" href="#" id="navbarDropdownMenuLink" role="button"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    <img src="../resources/dashboard/configuraciones.png" alt="" id="Confi-Logo"
+                                        class="mx-auto d-block">
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
+                                    <li><a class="dropdown-item" href="cuenta.html">Perfil</a></li>
+                                    <li><a class="dropdown-item" href="index.html">Cerrar Sesión</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </header>
+
             <main class="content">
                 <div class="container-fluid">
                     <div class="header">
@@ -153,7 +164,7 @@
                                             </div>
                                             <div class="col-4 text-end">
                                                 <div class=" icon icon-shape ">
-                                                    <img src="resources/dashboard/acumulaciones.png" alt="">
+                                                    <img src="../resources/dashboard/acumulaciones.png" alt="">
                                                 </div>
                                             </div>
                                         </div>
@@ -180,7 +191,7 @@
                                             </div>
                                             <div class="col-4 text-end">
                                                 <div class=" icon icon-shape ">
-                                                    <img src="resources/dashboard/comprador.png" alt="">
+                                                    <img src="../resources/dashboard/comprador.png" alt="">
                                                 </div>
                                             </div>
                                         </div>
@@ -208,7 +219,7 @@
                                             </div>
                                             <div class="col-4 text-end">
                                                 <div class=" icon icon-shape ">
-                                                    <img src="resources/dashboard/presupuesto.png" alt="">
+                                                    <img src="../resources/dashboard/presupuesto.png" alt="">
                                                 </div>
                                             </div>
                                         </div>
@@ -377,8 +388,16 @@
                         </div>
                     </div>
                 </div>
+
+                <footer>
+                    <div class="text-center p-1 mt-4 CopCo">
+                        © 2021 Copyright:
+                        <a class="text-reset fw-bold" href="https://github.com/GabyArgu/Cooke/tree/ROscar">Cooké.com</a>
+                    </div>
+                </footer>
+
+            </main>
         </div>
-        </main>
     </div>
     </div>
 
@@ -401,8 +420,8 @@
     <script src="https://unpkg.com/@yaireo/tagify"></script>
     <script src="https://unpkg.com/@yaireo/tagify/dist/tagify.polyfills.min.js"></script>
     <link href="https://unpkg.com/@yaireo/tagify/dist/tagify.css" rel="stylesheet" type="text/css" />
-    <script src="js/charts.js"></script>
-    <script src="js/dashboard.js"></script>
+    <script src="../js/charts.js"></script>
+    <script src="../js/dashboard.js"></script>
 
 </body>
 
