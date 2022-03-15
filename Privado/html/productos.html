@@ -658,7 +658,7 @@
     </div>
     <!-- FIN MODAL -->
 
-    <!-- INICIO MODALS ACTUALIZAR -->
+    <!-- INICIO MODAL ACTUALIZAR -->
     <div class="modal modal-agregar fade" id="modal-actualizar" tabindex="-1" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-xl">
@@ -673,7 +673,6 @@
                     <div class="container">
                         <div class="row agregar-content">
                             <div class="col">
-
                                 <div class="row">
                                     <div class="col-4 mb-4">
                                         <label for="validationDefault01" class="form-label">Nombre</label>
@@ -688,8 +687,21 @@
                                     <div class="col-4 mb-4">
                                         <label for="validationDefault01" class="form-label">Cantidad en
                                             stock</label>
-                                        <input type="text" class="form-control" id="validationDefault01" value=""
+                                            <div class="stock-container">
+                                                <div class="col col-lg-4  input-stock">
+                                                    <input type="text" class="form-control" id="stock-actul" value=""
+                                            placeholder="10" disabled>
+                                                </div>
+                                                <div class="col col-lg-4  input-stock">
+                                                    <input type="text" class="form-control " id="stock-nuevo" value=""
                                             required>
+                                                </div>
+                                                <div class="col col-lg-4 d-flex">
+                                                    <button class="btn btn-stock" type="button"><i class="fa-solid fa-minus"></i></button>
+                                            <button class="btn btn-stock" type="button"><i class="fa-solid fa-plus"></i></button>
+                                                </div>
+                                            
+                                            </div>
                                     </div>
                                     <div class="col-4 mb-4">
                                         <label for="validationDefault02" class="form-label">Subcategoría</label>
@@ -875,6 +887,36 @@
         </div>
     </div>
     <!-- FIN MODAL DELETE -->
+
+    <!-- INICIO MODAL AÑADIR STOCK-->
+    <div class="modal modal-stock fade" id="modal-stock" aria-hidden="true"
+        aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="mt-2">Añadir stock</h3>
+                </div>
+                <div class="modal-body">
+                    <div class="container my-5">
+                        <div class="row">
+                            <div class="col eliminar-content">
+                                <i class="fa-solid fa-circle-exclamation mb-4"></i>
+                                <h2>¿Estás seguro?</h2>
+                                <span>El elemento se borrará de manera permanente</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer d-flex mx-2 justify-content-between">
+                    <button class="btn btn-cancel" type="button" data-bs-target="#modal-agregar" data-bs-toggle="modal"
+                        data-bs-dismiss="modal">Cancelar</button>
+                    <button class="btn btn-siguiente" type="button" data-bs-target="" data-bs-toggle="modal"
+                        data-bs-dismiss="modal">Continuar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- FIN MODAL STOCK-->
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"

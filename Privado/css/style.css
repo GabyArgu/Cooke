@@ -1230,7 +1230,26 @@ width: 20%;
     background-color: var(--rosadoTitulos);
   }
   /*MODAL ELIMINAR FIN*/
-  
+
+  /*INICIO MODAL STOCK*/
+
+.btn-stock{
+  width: 50%;
+  background-color: var(--rosadoTitulos);
+  color: var(--marfil);
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  transition: all 0.3s ease;
+  margin-left: 2px;
+}
+.btn-stock:hover{
+  color: var(--rosadoTitulos);
+  background-color: var(--marfil);
+}
+.modal-stock .modal-header{
+  border: none;
+}
+
+  /*FIN MODAL STOCK*/
 
   .modal-ver-cliente .modal-header{
     border: none;
@@ -1241,6 +1260,20 @@ width: 20%;
   .modal-ver-cliente .modal-dialog{
     max-width: 350px;
   }
+.input-stock{
+  margin: 0 2px;
+}
+.stock-container{
+  display: flex;
+}
+@media (max-width: 992px) {
+  .stock-container .col{
+    margin: 5px 0;
+  }
+  .stock-container{
+    flex-direction: column;
+  }
+}
 
   /* ---------------------------------------------------------FIN DE WEAS DE JEFRY CREO XD-----------------------------------------------------*/
 
