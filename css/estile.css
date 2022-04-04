@@ -105,12 +105,12 @@ body {
     width: 28px;
     height: 28px;
     margin: 8px;
-    background-image: url(../resources/user.png);
+    background-image: url(../resources/index/user.png);
     background-size: cover;
     transition: all 0.3s ease;
 }
 .img-hover:hover{
-    background-image: url(../resources/user2.png);
+    background-image: url(../resources/index/user2.png);
     transform: scale(1.2);
 }
 
@@ -118,12 +118,12 @@ body {
     width: 28px;
     height: 28px;
     margin: 8px;
-    background-image: url(../resources/heart.png);
+    background-image: url(../resources/index/heart.png);
     background-size: cover;
     transition: all 0.3s ease;
 }
 .img-hover2:hover{
-    background-image: url(../resources/herat2.png);
+    background-image: url(../resources/index/herat2.png);
     transform: scale(1.2);
 }
 
@@ -131,12 +131,12 @@ body {
     width: 28px;
     height: 28px;
     margin: 8px;
-    background-image: url(../resources/shopping-cart.png);
+    background-image: url(../resources/index/shopping-cart.png);
     background-size: cover;
     transition: all 0.3s ease;
 }
 .img-hover3:hover{
-    background-image: url(../resources/shopping-cart2.png);
+    background-image: url(../resources/index/shopping-cart2.png);
     transform: scale(1.2);
 }
 
@@ -576,69 +576,69 @@ body {
 }
 
 .card-cocina {
-    background-image: url(../resources/GridCategorias/bg-cocina.png);
+    background-image: url(../resources/gridcategorias/bg-cocina.png);
     background-position: center center;
     background-size: cover;
 } .card-cocina:hover{
-    background-image:url(../resources/GridCategorias/bg-cocina-hover.png);
+    background-image:url(../resources/gridcategorias/bg-cocina-hover.png);
 
 }
 
 .card-utensilios {
-    background-image: url(../resources/GridCategorias/bg-utensilios.png);
+    background-image: url(../resources/gridcategorias/bg-utensilios.png);
     background-position: left;
     background-size: cover;
 } .card-utensilios:hover{
-    background-image: url(../resources/GridCategorias/bg-utensilios-hover.png);
+    background-image: url(../resources/gridcategorias/bg-utensilios-hover.png);
 }
 
 .card-electro {
-    background-image: url(../resources/GridCategorias/bg-electro.png);
+    background-image: url(../resources/gridcategorias/bg-electro.png);
     background-position: center right;
     background-size: cover;
     background-repeat: no-repeat;
 } .card-electro:hover {
-    background-image: url(../resources/GridCategorias/bg-electro-hover.png);
+    background-image: url(../resources/gridcategorias/bg-electro-hover.png);
 }
 
 .card-recetas {
-    background-image: url(../resources/GridCategorias/bg-recetas.png);
+    background-image: url(../resources/gridcategorias/bg-recetas.png);
     background-position: center;
     background-size: cover;
 } 
 
 .card-recetas:hover{
-    background-image: url(../resources/GridCategorias/bg-recetas-hover.png);
+    background-image: url(../resources/gridcategorias/bg-recetas-hover.png);
 }
 
 .card-recetas:hover{
-    background-image: url(../resources/GridCategorias/bg-recetas-hover.png);
+    background-image: url(../resources/gridcategorias/bg-recetas-hover.png);
 }
 
 
 .card-utensilios {
-    background-image: url(../resources/GridCategorias/bg-utensilios.png);
+    background-image: url(../resources/gridcategorias/bg-utensilios.png);
     background-position: left;
     background-size: cover;
 } .card-utensilios:hover{
-    background-image: url(../resources/GridCategorias/bg-utensilios-hover.png);
+    background-image: url(../resources/gridcategorias/bg-utensilios-hover.png);
 }
 
 .card-electro {
-    background-image: url(../resources/GridCategorias/bg-electro.png);
+    background-image: url(../resources/gridcategorias/bg-electro.png);
     background-position: center right;
     background-size: cover;
     background-repeat: no-repeat;
 } .card-electro:hover {
-    background-image: url(../resources/GridCategorias/bg-electro-hover.png);
+    background-image: url(../resources/gridcategorias/bg-electro-hover.png);
 }
 
 .card-recetas {
-    background-image: url(../resources/GridCategorias/bg-recetas.png);
+    background-image: url(../resources/gridcategorias/bg-recetas.png);
     background-position: center;
     background-size: cover;
 } .card-recetas:hover{
-    background-image: url(../resources/GridCategorias/bg-recetas-hover.png);
+    background-image: url(../resources/gridcategorias/bg-recetas-hover.png);
 }
 
 /*------------------PRODUCTOS DESTACADOS START------------------*/
@@ -1160,7 +1160,7 @@ body {
 .Fon-Marcas{
     width: 100%;
     height: 570px;
-    background-image: url(../resources/Marcas/marca.png);
+    background-image: url(../resources/marcas/marca.png);
     background-position: center;
     background-size: contain;
     background-repeat: no-repeat;
@@ -1204,14 +1204,14 @@ body {
     width: 28px;
     height: 28px;
     padding-bottom: 10px;
-    background-image: url(../resources/Fooder/fac.png);
+    background-image: url(../resources/fooder/fac.png);
     background-size: contain;
     background-repeat: no-repeat;
     transition: all 0.3s ease;
 }
 
 .redes-hover:hover{
-    background-image: url(../resources/Fooder/fp.png);
+    background-image: url(../resources/fooder/fp.png);
     transform: scale(1.2);
 }
 
@@ -1219,14 +1219,14 @@ body {
     width: 28px;
     height: 28px;
     padding-bottom: 10px;
-    background-image: url(../resources/Fooder/ij.png);
+    background-image: url(../resources/fooder/ij.png);
     background-size: contain;
     background-repeat: no-repeat;
     transition: all 0.3s ease;
 }
 
 .redes-hover2:hover{
-    background-image: url(../resources/Fooder/ip.png);
+    background-image: url(../resources/fooder/ip.png);
     transform: scale(1.2);
 }
 
@@ -1234,14 +1234,14 @@ body {
     width: 28px;
     height: 28px;
     padding-bottom: 10px;
-    background-image: url(../resources/Fooder/234.png);
+    background-image: url(../resources/fooder/234.png);
     background-size: contain;
     background-repeat: no-repeat;
     transition: all 0.3s ease;
 }
 
 .redes-hover3:hover{
-    background-image: url(../resources/Fooder/tp.png);
+    background-image: url(../resources/fooder/tp.png);
     transform: scale(1.2);
 }
 
@@ -1434,22 +1434,22 @@ body {
 }
 .grid-filter{
     position: relative;
-    background-image: url(../resources/PaginaGridProductos/gridp.png);
+    background-image: url(../resources/paginagrid/gridp.png);
     background-size: cover;
     transition: all 0.3s ease;
 }
 .column-filter{
     position: relative;
-    background-image: url(../resources/PaginaGridProductos/listg.png);
+    background-image: url(../resources/paginagrid/listg.png);
     background-size: cover;
     transition: all 0.3s ease;
 }
 
 .grid-filter:hover{
-    background-image: url(../resources/PaginaGridProductos/gridg.png);
+    background-image: url(../resources/paginagrid/gridg.png);
 }
 .column-filter:hover{
-    background-image: url(../resources/PaginaGridProductos/listp.png);
+    background-image: url(../resources/paginagrid/listp.png);
 }
 .productos-opciones span{
     color: var(--rosadoOscuro);
@@ -1834,7 +1834,7 @@ body {
 
 
 .tagsN{
-    background-image: url(../resources/Nosotros/bandera.png);
+    background-image: url(../resources/nosotros/bandera.png);
     background-size: contain;
     background-repeat: no-repeat;
     width: 40px;
@@ -2551,7 +2551,7 @@ body {
 .SLimg{
     height: 50px;
     width: 50px;
-    background-image: url(../resources/Login/correo.png);
+    background-image: url(../resources/login/correo.png);
     background-size: cover;
     background-repeat: no-repeat;
 }
@@ -2559,7 +2559,7 @@ body {
 .SLimg2{
     height: 50px;
     width: 50px;
-    background-image: url(../resources/Login/contrasena.png);
+    background-image: url(../resources/login/contrasena.png);
     background-size: cover;
     background-repeat: no-repeat;
     padding: 5px;
@@ -2693,7 +2693,7 @@ body {
 .SCimg{
     height: 50px;
     width: 50px;
-    background-image: url(../resources/Login/usuario.png);
+    background-image: url(../resources/login/usuario.png);
     background-size: cover;
     background-repeat: no-repeat;
 }
@@ -2701,7 +2701,7 @@ body {
 .SCimg2{
     height: 50px;
     width: 50px;
-    background-image: url(../resources/Login/telefono.png);
+    background-image: url(../resources/login/telefono.png);
     background-size: cover;
     background-repeat: no-repeat;
     padding: 5px;
@@ -2710,7 +2710,7 @@ body {
 .SCimg4{
     height: 50px;
     width: 50px;
-    background-image: url(../resources/Login/calendario.png);
+    background-image: url(../resources/login/calendario.png);
     background-size: cover;
     background-repeat: no-repeat;
     padding: 5px;
@@ -2719,7 +2719,7 @@ body {
 .SCimg5{
     height: 50px;
     width: 50px;
-    background-image: url(../resources/Login/carne.png);
+    background-image: url(../resources/login/carne.png);
     background-size: cover;
     background-repeat: no-repeat;
     padding: 5px;
@@ -2728,7 +2728,7 @@ body {
 .SCimg6{
     height: 50px;
     width: 50px;
-    background-image: url(../resources/Login/mapa.png);
+    background-image: url(../resources/login/mapa.png);
     background-size: cover;
     background-repeat: no-repeat;
     padding: 5px;
@@ -2737,7 +2737,7 @@ body {
 .SCimg8{
     height: 50px;
     width: 50px;
-    background-image: url(../resources/Login/contrasena.png);
+    background-image: url(../resources/login/contrasena.png);
     background-size: cover;
     background-repeat: no-repeat;
     padding: 5px;
@@ -2746,7 +2746,7 @@ body {
 .SCimg7{
     height: 50px;
     width: 50px;
-    background-image: url(../resources/Login/correo.png);
+    background-image: url(../resources/login/correo.png);
     background-size: cover;
     background-repeat: no-repeat;
     padding: 5px;
@@ -2857,7 +2857,7 @@ body {
 .SLimgCo{
     height: 50px;
     width: 50px;
-    background-image: url(../resources/Login/candado.png);
+    background-image: url(../resources/login/candado.png);
     background-size: cover;
     background-repeat: no-repeat;
     padding: 5px;
@@ -3168,7 +3168,7 @@ body {
 
 .navbar-checkout {
     height: 100px !important;
-    background-image: url(../resources/navbar-checkout.jpg);
+    background-image: url(../resources/index/navbar-checkout.jpg);
     position: relative;
 }
 
@@ -3575,7 +3575,7 @@ b{
     }
 
     .N-img{
-        content: url(../resources/Nosotros/3.png);
+        content: url(../resources/nosotros/3.png);
     }
  }
 
@@ -3584,7 +3584,7 @@ b{
     .Fon-Marcas{
         width: 100%;
         height: 450px;
-        background-image: url(../resources/Marcas/muñeca2.png);
+        background-image: url(../resources/marcas/muñeca2.png);
     }
     
 
@@ -3922,7 +3922,7 @@ b{
     }
 
     .N-img{
-        content: url(../resources/Nosotros/3.png);
+        content: url(../resources/nosotros/3.png);
     }
  }
 
