@@ -37,18 +37,15 @@
             <a href="dashboard.html" class="sidebar-conent-header d-flex"><img src="../resources/dashboard/logo2.png"
                     alt="" id="logo_inicio" class="mx-auto d-block"></a>
             <div class="sidebar-content">
-
                 <ul class="nav flex-column justify-content-center align-items-center">
                     <img src="../resources/dashboard/Usuario.png" class="Usua-Ico" alt="">
                     <h5 class="Nombre-Usu">Gabriela Méndez</h5>
                     <a class="Adm" href="#">Administrar</a>
                 </ul>
-
                 <ul class="sidebar-nav Botones-Sider">
-
                     <li class="sidebar-item has-submenu mt-2">
-                        <a href="#" class="sidebar-link collapsed mt-4">
-                            <i class="align-middle mb-2 fas fa-fw fa-home"></i> <span
+                        <a id="main-link1" href="#" class="sidebar-link collapsed mt-4 d-flex main-link" onclick="mostrarIdFlecha()">
+                            <i class="align-middle mb-2 fas fa-fw fa-home me-2 my-1"></i> <span
                                 class="align-middle">PRINCIPAL</span>
                         </a>
                         <ul id="dashboards" class="list-unstyled collapse submenu mt-2" data-bs-parent="#sidebar">
@@ -57,8 +54,8 @@
                         </ul>
                     </li>
                     <li class="sidebar-item has-submenu mt-5">
-                        <a href="#" class="sidebar-link collapsed mt-4">
-                            <i class="fa-solid fa-shop"></i> <span class="align-middle">TIENDA</span>
+                        <a href="#" class="sidebar-link collapsed mt-4 d-flex main-link">
+                            <i class="fa-solid fa-shop me-2 my-1"></i> <span class="align-middle">TIENDA</span>
                         </a>
                         <ul id="Tienda" class="list-unstyled submenu collapse">
                             <li class="sidebar-item"><a class="sidebar-link" href="productos.html">Productos</a>
@@ -71,8 +68,8 @@
                         </ul>
                     </li>
                     <li class="sidebar-item mt-5">
-                        <a href="#" class="sidebar-link collapsed mt-4">
-                            <i class="fa-solid fa-book me-2"></i><span class="align-middle">BLOG</span>
+                        <a href="#" class="sidebar-link collapsed mt-4 d-flex main-link" aria-expanded="false">
+                            <i class="fa-solid fa-book me-2 my-1"></i><span class="align-middle">BLOG</span>
                         </a>
                         <ul id="blog" class="list-unstyled collapse submenu" data-bs-parent="#sidebar">
                             <li class="sidebar-item"><a class="sidebar-link" href="articulo.html">Artículo</a></li>
@@ -83,8 +80,8 @@
                     </li>
 
                     <li class="sidebar-item mt-5">
-                        <a href="#" class="sidebar-link collapsed mt-4">
-                            <i class="fa-solid me-2 fa-database"></i><span class="align-middle">ADMINISTRACIÓN</span>
+                        <a href="#" class="sidebar-link collapsed mt-4 d-flex main-link">
+                            <i class="fa-solid fa-database me-2 my-1"></i><span class="align-middle">ADMINISTRACIÓN</span>
                         </a>
                         <ul id="forms" class=" list-unstyled collapse submenu" data-bs-parent="#sidebar">
                             <li class="sidebar-item"><a class="sidebar-link" href="clientes.html">Clientes</a></li>
@@ -94,8 +91,6 @@
                                     proveedores</a></li>
                         </ul>
                     </li>
-
-
                 </ul>
             </div>
         </nav>
