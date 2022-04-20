@@ -1,15 +1,17 @@
-<html lang="en">
+<!doctype html>
+<html lang="es">
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Owl carousel -->
-    <link rel="stylesheet" href="../plugins/owlcarousel/owl.carousel.min.css">
-    <link rel="stylesheet" href="../plugins/owlcarousel/owl.theme.default.min.css">
+    <link rel="stylesheet" href="../../plugins/owlcarousel/owl.carousel.min.css">
+    <link rel="stylesheet" href="../../plugins/owlcarousel/owl.theme.default.min.css">
 
-    <link href="../assets/css/bootstrap.css" rel="stylesheet">
-    <link rel="stylesheet" href="../css/estile.css">
+
+    <link href="../../assets/css/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/estile.css">
     <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -20,10 +22,11 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap" rel="stylesheet">
 
-    <link rel="icon" type="icon/png" href="../resources/logo.png">
+
+    <link rel="icon" type="icon/png" href="../../resources/index/logo.png">
     <!-- libreria iconos FONTAWESOME-->
+    <link rel="icon" type="icon/png" href="../../resources/index/logo.png">
     <script src="https://kit.fontawesome.com/479a6c23da.js" crossorigin="anonymous"></script>
-    <script src="https://use.fontawesome.com/releases/v5.0.8/js/brands.js" crossorigin="anonymous"></script>
     <title>Cooké</title>
 </head>
 
@@ -32,9 +35,9 @@
 
         <header>
             <!-- INICIA NAVBAR -->
-            <nav class="navbar fixed-top navbar-expand-lg navbar-light menu" id="navbar-page">
+            <nav class="navbar fixed-top navbar-expand-lg navbar-light menu" id="navbar-home">
                 <div class=" container-fluid">
-                    <a class="navbar-brand me-auto" href="../index.html"><img src="../resources/logo2.png" alt=""
+                    <a class="navbar-brand me-auto" href="#"><img src="../../resources/index/logo2.png" alt=""
                             id="logo_inicio" class="mx-auto d-block"></a>
                     <button class="navbar-toggler collapsed d-flex d-lg-none flex-column justify-content-around"
                         type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
@@ -46,7 +49,7 @@
                     <div class="collapse navbar-collapse" id="navbarNavDropdown">
                         <ul class="navbar-nav ms-auto mb-2 mb-lg-0 textcolor">
                             <li class="nav-item dropdown textcolor2">
-                                <a class="nav-link dropdown" href="html/categoria.html" id="navbarDropdownMenuLink"
+                                <a class="nav-link dropdown" href="categoria.html" id="navbarDropdownMenuLink"
                                     role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     Categorías
                                 </a>
@@ -107,7 +110,7 @@
                         <li class="product-item-cart">
                             <div class="item">
                                 <span class="top-0 start-100 translate-middle badge quantity-badge">1</span>
-                                <img src="../resources/Olla.png" alt="" class="cart-img">
+                                <img src="../../resources/index/Olla.png" alt="" class="cart-img">
                             </div>
                             <div class="detail-box">
                                 <div class="cart-product-title">Cacerola Steel Co Healthy</div>
@@ -119,7 +122,7 @@
                         <li class="product-item-cart">
                             <div class="item">
                                 <span class="top-0 start-100 translate-middle badge quantity-badge">2</span>
-                                <img src="../resources/cuchara.png" alt="" class="cart-img">
+                                <img src="../../resources/index/cuchara.png" alt="" class="cart-img">
                             </div>
                             <div class="detail-box">
                                 <div class="cart-product-title">Cucharón de madera</div>
@@ -154,151 +157,121 @@
 
         </div> <!-- FIN CARRITO -->
 
+
         <main>
             <div class="container-fluid title-container-palido">
                 <div class="row mt-3 fondo-breadcumb">
                     <nav class="breadcumb" aria-label="breadcrumb">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="#">INICIO</a></li>
-                            <li class="breadcrumb-item"><a href="#">BLOG</a></li>
+                            <li class="breadcrumb-item"><a href="#">CARRITO</a></li>
                         </ol>
                     </nav>
                 </div>
             </div> <!-- NAV 2 -->
 
             <div class="row fondo-title mt-4 justify-content-center">
-                <h1 class="text-center title">BLOG</h1>
+                <h1 class="text-center title">CARRITO DE COMPRAS</h1>
                 <hr class="linea">
             </div> <!-- TÍTULO -->
 
-            <div class="container container-blog">
+            <div class="container">
 
-                <div class="row mt-5">
+                <div class="row">
+                    <div class="table-responsive" id="no-more-tables">
+                        <table class="table table-bordered bordered table-carrito">
+                            <thead>
+                                <tr>
+                                    <th>IMAGEN</th>
+                                    <th>PRODUCTO</th>
+                                    <th>PRECIO</th>
+                                    <th>CANTIDAD</th>
+                                    <th>SUBTOTAL</th>
+                                    <th>ELIMINAR</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><img src="../resources/Olla.png" alt=""></td>
+                                    <td data-title="PRODUCTO">Cacerola Steel Co Healthy</td>
+                                    <td data-title="PRECIO">$29.74</td>
+                                    <td data-title="CANTIDAD">
+                                        <div class="input-group">
+                                            <button class="btn btn-outline-warning" type="button"
+                                                id="button-addon1">-</button>
+                                            <input type="text" class="form-control text-center" placeholder="1"
+                                                aria-label="Example text with button addon"
+                                                aria-describedby="button-addon1">
+                                            <button class="btn btn-outline-warning" type="button"
+                                                id="button-addon1">+</button>
+                                        </div>
+                                    </td>
+                                    <td data-title="SUBTOTAL">$29.74</td>
+                                    <td><i class="fa-solid fa-trash-can fa-lg"></i></td>
+                                </tr>
+                                <tr>
+                                    <td><img src="../resources/cuchara.png" alt=""></td>
+                                    <td data-title="PRODUCTO">Cucharón de madera</td>
+                                    <td data-title="PRECIO">$9.90</td>
+                                    <td data-title="CANTIDAD">
+                                        <div class="input-group">
+                                            <button class="btn btn-outline-warning" type="button"
+                                                id="button-addon1">-</button>
+                                            <input type="text" class="form-control text-center" placeholder="1"
+                                                aria-label="Example text with button addon"
+                                                aria-describedby="button-addon1">
+                                            <button class="btn btn-outline-warning" type="button"
+                                                id="button-addon1">+</button>
+                                        </div>
+                                    </td>
+                                    <td data-title="SUBTOTAL">$19.80</td>
+                                    <td><i class="fa-solid fa-trash-can fa-lg"></i></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
 
-                    <article class="entrada-blog row mb-6">
+                <div class="row">
 
-                        <div class="imagen-entrada col-lg-4 mb-4">
-                            <img src="../resources/Blog/blog2.jpg" alt="" class="fit-image">
+                    <div class="col-lg-6 cart-btns">
+                        <a href="html/carrito.html" class="btn-pag-carrito">
+                            LIMPIAR CARRITO
+                        </a>
+
+                        <a href="../index.html" class="btn-pag-carrito">
+                            CONTINUAR COMPRANDO
+                        </a>
+                    </div>
+
+                    <div class="col-lg-6 container">
+                        <div class="monto-total">
+                            <h1>MONTO TOTAL</h1>
+                            <table class="table table-monto">
+                                <tbody>
+                                    <tr>
+                                        <td>Subtotal</td>
+                                        <td class="align-right">$49.54</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Envío</td>
+                                        <td class="align-right">$0.00</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="td-total">Total</td>
+                                        <td class="td-total align-right">$49.54</td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
-
-                        <div class="contenido-entrada col-lg-8">
-
-                            <div class="row">
-
-                                <div class="blog-titulo">
-                                    <h3 class="categoria-blog">OFERTAS</h3>
-                                    <h1 class="titulo-entrada">¡Llegan las ofertas de San Valentín!</h1>
-                                    <div class="blog-autor-fecha">
-                                        <span class="blog-autor"><i class="fa-regular fa-user"></i>Oscar Orellana</span>
-                                        <span class="blog-fecha"><i
-                                                class="fa-solid fa-calendar-days"></i>10/02/2022</span>
-                                    </div>
-                                    <hr class="lineaBlog">
-                                </div>
-
-                                <div class="blog-descrip">
-                                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tempora quibusdam cum
-                                        porro veniam
-                                        dolorum numquam, aperiam fuga velit earum ab, corrupti cumque, aspernatur minima
-                                        est animi
-                                        recusandae temporibus dolor ex.
-                                        Sapiente sint animi exercitationem asperiores est eveniet commodi, accusamus, at
-                                        neque consectetur
-                                        laborum incidunt ducimus.
-                                    </p>
-                                    <a href="entrada.html" class="leer-mas">Leer más</a>
-                                </div>
-
-                            </div>
-                        </div>
-
-                    </article>
-
-                    <article class="entrada-blog row mb-6">
-
-                        <div class="imagen-entrada col-lg-4 mb-4">
-                            <img src="../resources/Blog/blog1.jpg" alt="" class="fit-image">
-                        </div>
-
-                        <div class="contenido-entrada col-lg-8">
-
-                            <div class="row">
-
-                                <div class="blog-titulo">
-                                    <h3 class="categoria-blog">RECETAS</h3>
-                                    <h1 class="titulo-entrada">Cocina saludable con tu familia</h1>
-                                    <div class="blog-autor-fecha">
-                                        <span class="blog-autor"><i class="fa-regular fa-user"></i>Oscar Orellana</span>
-                                        <span class="blog-fecha"><i
-                                                class="fa-solid fa-calendar-days"></i>10/02/2022</span>
-                                    </div>
-                                    <hr class="lineaBlog">
-                                </div>
-
-                                <div class="blog-descrip">
-                                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tempora quibusdam cum
-                                        porro veniam
-                                        dolorum numquam, aperiam fuga velit earum ab, corrupti cumque, aspernatur minima
-                                        est animi
-                                        recusandae temporibus dolor ex.
-                                        Sapiente sint animi exercitationem asperiores est eveniet commodi, accusamus, at
-                                        neque consectetur
-                                        laborum incidunt ducimus.
-                                    </p>
-                                    <a href="entrada.html" class="leer-mas">Leer más</a>
-                                </div>
-
-                            </div>
-                        </div>
-
-                    </article>
-
-                    <article class="entrada-blog row mb-6">
-
-                        <div class="imagen-entrada col-lg-4 mb-4">
-                            <img src="../resources/Blog/blog3.jpg" alt="" class="fit-image">
-                        </div>
-
-                        <div class="contenido-entrada col-lg-8">
-
-                            <div class="row">
-
-                                <div class="blog-titulo">
-                                    <h3 class="categoria-blog">RECETAS</h3>
-                                    <h1 class="titulo-entrada">Delicioso pie de queso para compartir</h1>
-                                    <div class="blog-autor-fecha">
-                                        <span class="blog-autor"><i class="fa-regular fa-user"></i>Oscar Orellana</span>
-                                        <span class="blog-fecha"><i
-                                                class="fa-solid fa-calendar-days"></i>10/02/2022</span>
-                                    </div>
-                                    <hr class="lineaBlog">
-                                </div>
-
-                                <div class="blog-descrip">
-                                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tempora quibusdam cum
-                                        porro veniam
-                                        dolorum numquam, aperiam fuga velit earum ab, corrupti cumque, aspernatur minima
-                                        est animi
-                                        recusandae temporibus dolor ex.
-                                        Sapiente sint animi exercitationem asperiores est eveniet commodi, accusamus, at
-                                        neque consectetur
-                                        laborum incidunt ducimus.
-                                    </p>
-                                    <a href="entrada.html" class="leer-mas">Leer más</a>
-                                </div>
-
-                            </div>
-                        </div>
-
-                    </article>
-
+                        <a href="checkout.html" class="confirm-btn">CONFIRMAR COMPRA</a>
+                    </div>
                 </div>
 
             </div>
 
         </main>
 
-        <!-- Footer -->
         <footer class="text-center text-lg-start bg-light text-muted" id="Fo-rosa">
             <section class="d-flex align-items-center flex-column">
                 <div class="container-fluid text-center text-md-start mt-4">
@@ -359,7 +332,6 @@
             </div>
             <!-- Copyright -->
         </footer>
-        <!-- Footer -->
         <!-- Footer -->
     </div>
 
