@@ -1,2 +1,0 @@
-# Cooke
- Tienda en linea

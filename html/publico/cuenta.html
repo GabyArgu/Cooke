@@ -1,12 +1,12 @@
 <!doctype html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link href="../assets/css/bootstrap.css" rel="stylesheet">
-    <link rel="stylesheet" href="../css/estile.css">
+    <link href="../../assets/css/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/estile.css">
     <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -17,10 +17,11 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap" rel="stylesheet">
 
-    <link rel="icon" type="icon/png" href="../resources/logo.png">
+
+    <link rel="icon" type="icon/png" href="../../resources/index/logo.png">
     <!-- libreria iconos FONTAWESOME-->
+    <link rel="icon" type="icon/png" href="../../resources/index/logo.png">
     <script src="https://kit.fontawesome.com/479a6c23da.js" crossorigin="anonymous"></script>
-    <script src="https://use.fontawesome.com/releases/v5.0.8/js/brands.js" crossorigin="anonymous"></script>
     <title>Cooké</title>
 </head>
 
@@ -31,8 +32,8 @@
             <!-- INICIA NAVBAR -->
             <nav class="navbar fixed-top navbar-expand-lg navbar-light menu" id="navbar-page">
                 <div class=" container-fluid">
-                    <a class="navbar-brand me-auto" href="../index.html"><img src="../resources/logo2.png" alt=""
-                            id="logo_inicio" class="mx-auto d-block"></a>
+                    <a class="navbar-brand me-auto" href="../index.html"><img src="../../resources/index/logo2.png"
+                            alt="" id="logo_inicio" class="mx-auto d-block"></a>
                     <button class="navbar-toggler collapsed d-flex d-lg-none flex-column justify-content-around"
                         type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
                         aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
@@ -43,7 +44,7 @@
                     <div class="collapse navbar-collapse" id="navbarNavDropdown">
                         <ul class="navbar-nav ms-auto mb-2 mb-lg-0 textcolor">
                             <li class="nav-item dropdown textcolor2">
-                                <a class="nav-link dropdown" href="html/categoria.html" id="navbarDropdownMenuLink"
+                                <a class="nav-link dropdown" href="categoria.html" id="navbarDropdownMenuLink"
                                     role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     Categorías
                                 </a>
@@ -89,6 +90,67 @@
                 </div>
             </nav>
         </header> <!-- FIN NAVBAR-->
+
+        <div class="offcanvas offcanvas-end" id="sidebarCarrito" aria-labelledby="offcanvasRightLabel">
+            <!-- INICIA CARRITO -->
+
+            <div class="offcanvas-body">
+
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+
+                <div id="cd-cart">
+                    <h2>CARRITO DE COMPRAS</h2>
+                    <ul class="cd-cart-items">
+
+                        <li class="product-item-cart">
+                            <div class="item">
+                                <span class="top-0 start-100 translate-middle badge quantity-badge">1</span>
+                                <img src="../../resources/index/olla.png" alt="" class="cart-img">
+                            </div>
+                            <div class="detail-box">
+                                <div class="cart-product-title">Cacerola Steel Co Healthy</div>
+                                <div class="cart-price">$29.74</div>
+                            </div>
+                            <i class="fa-solid fa-xmark cd-item-remove"></i>
+                        </li>
+
+                        <li class="product-item-cart">
+                            <div class="item">
+                                <span class="top-0 start-100 translate-middle badge quantity-badge">2</span>
+                                <img src="../../resources/index/cuchara.png" alt="" class="cart-img">
+                            </div>
+                            <div class="detail-box">
+                                <div class="cart-product-title">Cucharón de madera</div>
+                                <div class="cart-price">$19.80</div>
+                            </div>
+                            <i class="fa-solid fa-xmark cd-item-remove"></i>
+                        </li>
+
+                    </ul>
+
+                    <div class="cd-cart-total">
+                        <p class="card-total-line">Subtotal<span>$49.54</span></p>
+                        <p class="card-total-line">Envío<span>$0.00</span></p>
+                        <p class="total card-total-line">Total<span class="total">$49.54</span></p>
+                    </div> <!-- cd-cart-total -->
+
+                    <a href="carrito.html" class="checkout-btn">
+                        <span>
+                            <i class="fa-solid fa-cart-shopping"></i>
+                        </span> VER CARRITO
+                    </a>
+
+                    <a href="checkout.html" class="checkout-btn">
+                        <span>
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </span> IR A PAGAR
+                    </a>
+
+                </div> <!-- cd-cart -->
+
+            </div>
+
+        </div> <!-- FIN CARRITO -->
 
         <main>
             <div class="container-fluid title-container-palido">
@@ -143,8 +205,8 @@
                                             <td data-title="ESTADO">Completado</td>
                                             <td data-title="TOTAL">$06.23</td>
                                             <td>
-                                                <a href="../html/carrito.html" class="ver-img">
-                                                    <img src="../resources/Usuarios/eye.png" alt="">
+                                                <a href="carrito.html" class="ver-img">
+                                                    <img src="../../resources/usuario/eye.png" alt="">
                                                 </a>
                                             </td>
                                         </tr>
@@ -154,8 +216,8 @@
                                             <td data-title="ESTADO">En espera</td>
                                             <td data-title="TOTAL">$29.74</td>
                                             <td>
-                                                <a href="../html/carrito.html" class="ver-img">
-                                                    <img src="../resources/Usuarios/eye.png" alt="">
+                                                <a href="carrito.html" class="ver-img">
+                                                    <img src="../../resources/usuario/eye.png" alt="">
                                                 </a>
                                             </td>
                                         </tr>
@@ -165,8 +227,8 @@
                                             <td data-title="ESTADO">Completado</td>
                                             <td data-title="TOTAL">$12.99</td>
                                             <td>
-                                                <a href="../html/carrito.html" class="ver-img">
-                                                    <img src="../resources/Usuarios/eye.png" alt="">
+                                                <a href="carrito.html" class="ver-img">
+                                                    <img src="../../resources/usuario/eye.png" alt="">
                                                 </a>
                                             </td>
                                         </tr>
@@ -176,8 +238,8 @@
                                             <td data-title="ESTADO">En espera</td>
                                             <td data-title="TOTAL">$49.24</td>
                                             <td>
-                                                <a href="../html/carrito.html" class="ver-img">
-                                                    <img src="../resources/Usuarios/eye.png" alt="">
+                                                <a href="carrito.html" class="ver-img">
+                                                    <img src="../../resources/usuario/eye.png" alt="">
                                                 </a>
                                             </td>
                                         </tr>
@@ -187,8 +249,8 @@
                                             <td data-title="ESTADO">Completado</td>
                                             <td data-title="TOTAL">$62.99</td>
                                             <td>
-                                                <a href="../html/carrito.html" class="ver-img">
-                                                    <img src="../resources/Usuarios/eye.png" alt="">
+                                                <a href="carrito.html" class="ver-img">
+                                                    <img src="../../resources/usuario/eye.png" alt="">
                                                 </a>
                                             </td>
                                         </tr>
@@ -198,8 +260,8 @@
                                             <td data-title="ESTADO">En espera</td>
                                             <td data-title="TOTAL">$32.54</td>
                                             <td>
-                                                <a href="../html/carrito.html" class="ver-img">
-                                                    <img src="../resources/Usuarios/eye.png" alt="">
+                                                <a href="carrito.html" class="ver-img">
+                                                    <img src="../../resources/usuario/eye.png" alt="">
                                                 </a>
                                             </td>
                                         </tr>
@@ -212,7 +274,7 @@
                             <div class="container-fluid justify-content-center align-items-center" id="Cuenta-table">
                                 <div class="row">
                                     <div class="col-sm-12 col-md-6 col-lg-4 usu-img">
-                                        <img src="../resources/Usuarios/Usuario.png" alt="">
+                                        <img src="../../resources/usuario/usuario.png" alt="">
                                     </div>
                                     <div
                                         class="col-sm-12 col-md-6 col-lg-8 mt-4 usu-d d-flex align-items-start justify-content-center flex-column">
@@ -242,7 +304,7 @@
                                     </div>
                                     <div class="col-sm-12 col-md-6 col-lg-4 mt-0">
                                         <a class="a-edi" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
-                                            href="#staticBackdrop"><img src="../resources/Usuarios/editar.png" alt="">
+                                            href="#staticBackdrop"><img src="../../resources/usuario/editar.png" alt="">
                                             Editar</a>
                                     </div>
                                 </div>
@@ -319,7 +381,7 @@
                                         class="col-sm-12 col-md-6 col-lg-4 usu-img align-items-center d-flex justify-content-center flex-column">
                                         <input type="file" class="form-control" id="inputGroupFile01">
                                         <label class=" mb-3" for="inputGroupFile01"><img
-                                                src="../resources/Usuarios/Usuario2.png"> </label>
+                                                src="../../resources/usuario/usuario2.png"> </label>
                                     </div>
                                 </div>
                             </div>
@@ -338,7 +400,7 @@
                 <div class="container-fluid text-center text-md-start mt-4">
                     <div class="row d-flex justify-content-center">
                         <div class="col-sm-9 col-md-6 col-lg-5 logopart">
-                            <img src="../resources/logo2.png" alt="" id="logo_final">
+                            <img src="../../resources/index/logo2.png" alt="" id="logo_final">
                             <p>
                                 Cooké es una tienda online de utensilios de cocina de las mejores
                                 marcas para food lovers, o entusiastas de la buena mesa y la buena cocina.
@@ -393,9 +455,11 @@
             </div>
             <!-- Copyright -->
         </footer>
+        <!-- Footer -->
     </div>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="../../js/publico/stickynavs.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
         integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
