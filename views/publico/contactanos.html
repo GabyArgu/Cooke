@@ -1,0 +1,305 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Librerias de Owl carousel -->
+    <link rel="stylesheet" href="../../resources/plugins/owlcarousel/owl.carousel.min.css">
+    <link rel="stylesheet" href="../../resources/plugins/owlcarousel/owl.theme.default.min.css">
+
+    <link href="../../resources/css/assets/css/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../resources/css/estile.css">
+    <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mohave&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap" rel="stylesheet">
+
+    <link rel="icon" type="icon/png" href="../../resources/img/index/logo.png">
+    <!-- libreria iconos FONTAWESOME-->
+    <link rel="icon" type="icon/png" href="../../resources/img/index/logo.png">
+    <script src="https://kit.fontawesome.com/479a6c23da.js" crossorigin="anonymous"></script>
+    <title>Cooké</title>
+</head>
+
+<body>
+    <div id="container-fluid content-wrapper">
+
+        <!-- INICIO NAVBAR DE LA PÁGINA-->
+        <header>
+            <!-- INICIA NAVBAR -->
+            <nav class="navbar fixed-top navbar-expand-lg navbar-light menu" id="navbar-page">
+                <div class=" container-fluid">
+                    <a class="navbar-brand me-auto" href="index.html"><img src="../../resources/img/index/logo2.png"
+                            alt="" id="logo_inicio" class="mx-auto d-block"></a>
+                    <button class="navbar-toggler collapsed d-flex d-lg-none flex-column justify-content-around"
+                        type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+                        aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="toggler-icon top-bar"></span>
+                        <span class="toggler-icon middle-bar"></span>
+                        <span class="toggler-icon bottom-bar"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 textcolor">
+                            <li class="nav-item dropdown textcolor2">
+                                <a class="nav-link dropdown" href="categoria.html" id="navbarDropdownMenuLink"
+                                    role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Categorías
+                                </a>
+                                <ul class="dropdown-menu dropdown-categorias" aria-labelledby="navbarDropdownMenuLink">
+                                    <li><a class="dropdown-item" href="categoria.html">Cocina</a></li>
+                                    <li><a class="dropdown-item" href="categoria.html">Utensilios</a></li>
+                                    <li><a class="dropdown-item" href="categoria.html">Eléctrodomesticos</a></li>
+                                    <li><a class="dropdown-item" href="categoria.html">Recetas</a></li>
+                                </ul>
+                            </li>
+                            <li class="nav-item textcolor2">
+                                <a class="nav-link active " aria-current="page" href="gridproductos.html">Destacados</a>
+                            </li>
+                            <li class="nav-item textcolor2">
+                                <a class="nav-link active" aria-current="page" href="nosotros.html">Nosotros</a>
+                            </li>
+                            <li class="nav-item textcolor2">
+                                <a class="nav-link active" aria-current="page" href="blog.html">Blog</a>
+                            </li>
+                            <li class="nav-item textcolor2">
+                                <a class="nav-link active" aria-current="page" href="contactanos.html">Contacto</a>
+                            </li>
+
+                            <div class="iconos-navbar">
+
+                                <li class="nav-item textcolor">
+                                    <a class="nav-link active img-hover" aria-current="page" href="login.html"></a>
+                                </li>
+
+                                <li class="nav-item textcolor">
+                                    <a class="nav-link active img-hover2" aria-current="page" href="deseos.html"></a>
+                                </li>
+
+                                <li class="nav-item textcolor nav-carrito">
+                                    <a class="nav-link active img-hover3 nav-carrito" aria-current="page"
+                                        data-bs-toggle="offcanvas" data-bs-target="#sidebarCarrito"
+                                        aria-controls="offcanvasRight"></a>
+                                </li>
+                            </div>
+
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </header>
+        <!-- FIN NAVBAR DE LA PÁGINA-->
+
+        <!-- INICIO CARRITO DE LA PÁGINA-->
+        <div class="offcanvas offcanvas-end" id="sidebarCarrito" aria-labelledby="offcanvasRightLabel">
+            <!-- INICIA CARRITO -->
+
+            <div class="offcanvas-body">
+
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+
+                <div id="cd-cart">
+                    <h2>CARRITO DE COMPRAS</h2>
+                    <ul class="cd-cart-items">
+
+                        <li class="product-item-cart">
+                            <div class="item">
+                                <span class="top-0 start-100 translate-middle badge quantity-badge">1</span>
+                                <img src="../../resources/img/index/olla.png" alt="" class="cart-img">
+                            </div>
+                            <div class="detail-box">
+                                <div class="cart-product-title">Cacerola Steel Co Healthy</div>
+                                <div class="cart-price">$29.74</div>
+                            </div>
+                            <i class="fa-solid fa-xmark cd-item-remove"></i>
+                        </li>
+
+                        <li class="product-item-cart">
+                            <div class="item">
+                                <span class="top-0 start-100 translate-middle badge quantity-badge">2</span>
+                                <img src="../../resources/img/index/cuchara.png" alt="" class="cart-img">
+                            </div>
+                            <div class="detail-box">
+                                <div class="cart-product-title">Cucharón de madera</div>
+                                <div class="cart-price">$19.80</div>
+                            </div>
+                            <i class="fa-solid fa-xmark cd-item-remove"></i>
+                        </li>
+
+                    </ul>
+
+                    <div class="cd-cart-total">
+                        <p class="card-total-line">Subtotal<span>$49.54</span></p>
+                        <p class="card-total-line">Envío<span>$0.00</span></p>
+                        <p class="total card-total-line">Total<span class="total">$49.54</span></p>
+                    </div> <!-- cd-cart-total -->
+
+                    <a href="carrito.html" class="checkout-btn">
+                        <span>
+                            <i class="fa-solid fa-cart-shopping"></i>
+                        </span> VER CARRITO
+                    </a>
+
+                    <a href="checkout.html" class="checkout-btn">
+                        <span>
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </span> IR A PAGAR
+                    </a>
+
+                </div> <!-- cd-cart -->
+
+            </div>
+
+        </div>
+        <!-- FIN CARRITO DE LA PÁGINA-->
+
+        <!-- INICIO  DEL MAIN DE LA PÁGINA -->
+        <main>
+            <div class="container-fluid title-container-palido">
+                <div class="row mt-3 fondo-breadcumb">
+                    <nav class="breadcumb" aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="index.html">Inicio</a></li>
+                            <li class="breadcrumb-item"><a href="contactanos.html">Contáctanos</a></li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+            <div class="row fondo-title my-4 justify-content-center">
+                <h1 class="text-center title">Contáctanos</h1>
+                <hr class="linea">
+            </div>
+            <div class="container mb-5">
+                <div class="row mx-auto">
+                    <div class="col mx-auto text-center subtitle-contactanos">
+                        <span>Si necesitas contactarnos, por favor completa el siguiente formulario</span>
+                    </div>
+
+                </div>
+                <div class="row container-content mt-5">
+                    <div class="col col-4 mt-3 d-flex justify-content-center contacto-redes">
+                        <span><i class="fa-regular fa-envelope"></i>cookéSV@gmail.com</span>
+                        <span><i class="fa-solid fa-phone"></i>+503 1234-5678</span>
+                        <span><i class="fa-brands fa-whatsapp"
+                                href="https://api.whatsapp.com/send?phone=50312345678&text=Atención%20al%20cliente%20Cooké"></i>+503
+                            1234-5678</span>
+                        <span><i class="fa-brands fa-facebook-f"></i>@Cooké</span>
+                        <span><i class="fa-brands fa-instagram"></i>@Cooké</span>
+                        <span><i class="fa-brands fa-twitter"></i>@Cooké</span>
+
+                    </div>
+                    <div class="col col-8 mt-2 formulario-contacto">
+                        <form class="row g-3">
+                            <div class="col-6">
+                                <label for="validationDefault01" class="form-label">Nombre</label>
+                                <input type="text" class="form-control" id="validationDefault01" value="" required>
+                            </div>
+                            <div class="col-6">
+                                <label for="validationDefault02" class="form-label">Email</label>
+                                <input type="text" class="form-control" id="validationDefault02" value="" required>
+                            </div>
+                            <div class="col-12">
+                                <label for="validationDefault01" class="form-label">Asunto</label>
+                                <input type="text" class="form-control" id="validationDefault03" value="" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="exampleFormControlTextarea1" class="form-label">Mensaje</label>
+                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="4"
+                                    required></textarea>
+                            </div>
+
+                            <div class="col-12 d-flex justify-content-end">
+                                <button class="btn btn-primary enviar-buton" type="submit">Submit form</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </main>
+        <!-- FIN  DEL MAIN DE LA PÁGINA -->
+
+        <!-- INICIO DEL FOOTER DE LA PÁGINA -->
+        <footer class="text-center text-lg-start bg-light text-muted" id="Fo-rosa">
+            <section class="d-flex align-items-center flex-column">
+                <div class="container-fluid text-center text-md-start mt-4">
+                    <div class="row d-flex justify-content-center">
+                        <div class="col-sm-9 col-md-6 col-lg-5 logopart">
+                            <img src="../../resources/img/index/logo2.png" alt="" id="logo_final">
+                            <p>
+                                Cooké es una tienda online de utensilios de cocina de las mejores
+                                marcas para food lovers, o entusiastas de la buena mesa y la buena cocina.
+                            </p>
+                        </div>
+                        <div class="col-sm-9 col-md-6 col-lg-6" id="partefooter">
+                            <div class="row justify-content-center">
+                                <div class="col Redes-Div">
+                                    <h6 class="text-uppercase fw-bold h6Red ">Redes</h6>
+                                    <p class="d-flex justify-content-center "><a class="nav-link active redes-hover  "
+                                            aria-current="page" href="https://es-la.facebook.com/" target="_blank"></a>
+                                    </p>
+                                    <p class="d-flex justify-content-center "><a class="nav-link active redes-hover2 "
+                                            aria-current="page" href="https://www.instagram.com/?hl=es-la"
+                                            target="_blank"></a></p>
+                                    <p class="d-flex justify-content-center "><a class="nav-link active redes-hover3"
+                                            aria-current="page" href="https://twitter.com/?lang=es" target="_blank"></a>
+                                    </p>
+                                </div>
+                                <div class="col">
+                                    <h6 class="text-uppercase fw-bold mb-4">Contacto</h6>
+                                    <p><a href="mailto:20170573@ricaldone.edu.sv" class="text-reset link"
+                                            target="_blank">Correo</a></p>
+                                    <p><a href="https://api.whatsapp.com/send?phone=76901760&text=Hola,%20%C2%BFen%20que%20puede%20ayudarte%20Cook%C3%A9%20el%20dia%20de%20hoy?"
+                                            class="text-reset link" target="_blank">Teléfono</a></p>
+                                    <p><a href="contactanos.html" class="text-reset link">Contáctanos</a></p>
+                                </div>
+                                <div class="col">
+                                    <h6 class="text-uppercase fw-bold mb-4">Categorías</h6>
+                                    <p><a href="categoria.html" class="text-reset link">Cocina</a></p>
+                                    <p><a href="categoria.html" class="text-reset link">Ofertas</a></p>
+                                    <p><a href="categoria.html" class="text-reset link">Recetas</a></p>
+                                    <p><a href="categoria.html" class="text-reset link">Utensilios</a></p>
+                                    <p><a href="categoria.html" class="text-reset link">Electrodomésticos</a></p>
+                                </div>
+                                <div class="col">
+                                    <h6 class="text-uppercase fw-bold mb-4">Extras</h6>
+                                    <p><a href="cuenta.html" class="text-reset link">Mi cuenta</a></p>
+                                    <p><a href="nosotros.html" class="text-reset link">Sobre nosotros</a></p>
+                                    <p><a href="deseos.html" class="text-reset link">Lista de deseos</a></p>
+                                    <p><a href="gridproductos.html" class="text-reset link">Centro de compras</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- Copyright -->
+            <div class="text-center p-3 CopCo">
+                © 2021 Copyright:
+                <a class="text-reset fw-bold" href="https://github.com/GabyArgu/Cooke/tree/ROscar">Cooké.com</a>
+            </div>
+            <!-- Copyright -->
+        </footer>
+        <!-- FIN DEL FOOTER DE LA PÁGINA -->
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="../../resources/js/publico/gridproductos.js"></script>
+    <script src="../../resources/js/publico/stickynavs.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+        integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+        integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
