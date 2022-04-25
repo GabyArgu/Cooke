@@ -3,7 +3,7 @@ var tagify = new Tagify(input, {
   dropdown: {
     enabled: 0
   },
-  whitelist: ["Oferta", "Nuevo", "Marzo", "Limitado", "Especial", "Descuento"]
+  whitelist: ["Oferta", "Nuevo", "Abril", "Limitado", "Especial", "Descuento"]
 })
 input = document.querySelector('.tagify1')
 var tagify = new Tagify(input, {

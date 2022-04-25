@@ -40,7 +40,7 @@
                             alt="" id="logo_inicio" class="mx-auto d-block"></a>
                     <button class="navbar-toggler collapsed d-flex d-lg-none flex-column justify-content-around"
                         type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
-                        aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                        aria-controls="navbarText"  onclick="navbarResponsive()">
                         <span class="toggler-icon top-bar"></span>
                         <span class="toggler-icon middle-bar"></span>
                         <span class="toggler-icon bottom-bar"></span>
@@ -161,11 +161,10 @@
 
         <!-- INICIO DEL MAIN DE LA PÁGINA-->
         <main>
-
             <section>
                 <!-- INICIA CARRUSEL -->
                 <div class="row">
-                    <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+                    <div id="carouselExampleCaptions" class="carousel slide carousel-fade" data-bs-ride="carousel">
                         <div class="carousel-inner">
                             <div class="carousel-item active">
                                 <img src="../../resources/img/index/5.png" class="d-block w-100" alt="...">
@@ -175,7 +174,7 @@
                                         <p class="pCarrusel">Cooké es una tienda online de utensilios de cocina de
                                             las mejores marcas del mercado para food lovers o entusiastas de la
                                             buena mesa y sobre todo de la buena cocina.</p>
-                                        <button class="BCarrusel">Ver más</button>
+                                        <button class="BCarrusel btn-banner">Ver más</button>
                                     </div>
                                 </div>
                             </div>
@@ -190,7 +189,7 @@
                                             sorprenderan a tus
                                             amigos.
                                         </p>
-                                        <button class="BCarrusel2">Ver más</button>
+                                        <button class="BCarrusel2 btn-banner">Ver más</button>
                                     </div>
                                 </div>
                             </div>
@@ -206,7 +205,7 @@
                                             , no pierdas la oportunidad de descubrir lo que hemos preparado para ti este
                                             mes.
                                         </p>
-                                        <button class="BCarrusel3">Ver más</button>
+                                        <button class="BCarrusel3 btn-banner">Ver más</button>
                                     </div>
                                 </div>
                             </div>
@@ -216,11 +215,9 @@
                                     <div class="d-flex align-items-center flex-column">
                                         <h5 class="HCarusel4">Blogs</h5>
                                         <p class="pCarrusel4">Revisa nuestras ultimas publicaciones.</p>
-
                                     </div>
                                 </div>
                             </div>
-
                         </div>
                         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
                             data-bs-slide="prev">
@@ -1319,7 +1316,6 @@
             <!-- Copyright -->
         </footer>
         <!-- FIN DEL FOOTER DE LA PÁGINA -->
-
     </div>
     <!-- OwlCarousel -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
