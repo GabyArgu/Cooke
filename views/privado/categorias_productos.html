@@ -5,8 +5,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link href="../../assets/css/bootstrap.css" rel="stylesheet">
-    <link rel="stylesheet" href="../../css/style.css">
+    <link href="../../resources/css/assets/css/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../resources/css/style.css">
     <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -17,10 +17,16 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap" rel="stylesheet">
 
-    <link rel="icon" type="icon/png" href="../../resources/index/logo.png">
+
+    <link rel="icon" type="icon/png" href="../../resources/img/index/logo.png">
     <!-- libreria iconos FONTAWESOME-->
-    <link rel="icon" type="icon/png" href="../../resources/index/logo.png">
+    <link rel="icon" type="icon/png" href="../../resources/img/index/logo.png">
     <script src="https://kit.fontawesome.com/479a6c23da.js" crossorigin="anonymous"></script>
+
+    <!-- Libreria dropzone -->
+    <script src="https://unpkg.com/dropzone@5/dist/min/dropzone.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/dropzone@5/dist/min/dropzone.min.css" type="text/css" />
+    <!-- Datepicker -->
     <title>Cooké</title>
 </head>
 
@@ -28,12 +34,12 @@
 
     <div class="wrapper">
         <nav id="sidebarMenu" class="sidebar">
-            <a href="dashboard.html" class="sidebar-conent-header d-flex"><img src="../../resources/index/logo2.png"
+            <a href="dashboard.html" class="sidebar-conent-header d-flex"><img src="../../resources/img/index/logo2.png"
                     alt="" id="logo_inicio" class="mx-auto d-block"></a>
             <div class="sidebar-content">
 
                 <ul class="nav flex-column justify-content-center align-items-center">
-                    <img src="../../resources/dashboard/usuario.png" class="Usua-Ico" alt="">
+                    <img src="../../resources/img/dashboard/usuario.png" class="Usua-Ico" alt="">
                     <h5 class="Nombre-Usu">Gabriela Méndez</h5>
                     <a class="Adm" href="#">Administrar</a>
                 </ul>
@@ -60,7 +66,7 @@
                             <li class="sidebar-item"><a class="sidebar-link"
                                     href="categoriasProductos.html">Categoría</a></li>
                             <li class="sidebar-item"><a class="sidebar-link"
-                                    href="subcategoriasProductos.html">Subcategoria</a></li>
+                                    href="subcategorias_productos.html">Subcategoria</a></li>
                             <li class="sidebar-item"><a class="sidebar-link" href="pedidos.html">Pedidos</a></li>
                         </ul>
                     </li>
@@ -70,7 +76,7 @@
                         </a>
                         <ul id="blog" class="list-unstyled collapse submenu" data-bs-parent="#sidebar">
                             <li class="sidebar-item"><a class="sidebar-link" href="articulo.html">Artículo</a></li>
-                            <li class="sidebar-item"><a class="sidebar-link" href="categoriasBlog.html">Categoría</a>
+                            <li class="sidebar-item"><a class="sidebar-link" href="categorias_blog.html">Categoría</a>
                             </li>
 
                         </ul>
@@ -84,7 +90,7 @@
                             <li class="sidebar-item"><a class="sidebar-link" href="clientes.html">Clientes</a></li>
                             <li class="sidebar-item"><a class="sidebar-link" href="empleados.html">Empleados</a>
                             </li>
-                            <li class="sidebar-item"><a class="sidebar-link" href="marcasProveedores.html">Marcas y
+                            <li class="sidebar-item"><a class="sidebar-link" href="marcas_proveedores.html">Marcas y
                                     proveedores</a></li>
                         </ul>
                     </li>
@@ -93,14 +99,15 @@
                 </ul>
             </div>
         </nav>
-        <div class="main categorias-b">
+
+        <div class="main productos">
             <header>
                 <nav class="navbar navbar-expand navbar-theme">
                     <a class="sidebar-toggle d-flex me-2">
                         <i class="fa-solid fa-bars" onclick="sidebarToggle()"></i>
                     </a>
 
-                    <div class="Lupa"><img src="../../resources/dashboard/lupa.png" alt="" id="Lu-Logo"
+                    <div class="Lupa"><img src="../../resources/img/dashboard/lupa.png" alt="" id="Lu-Logo"
                             class="mx-auto d-none d-md-block"></div>
 
                     <form class="d-none d-sm-inline-block me-auto ">
@@ -109,13 +116,13 @@
                     </form>
 
                     <div class="opciones-nav d-flex justify-content-center align-items-center">
-                        <div class=" Lun"><img src="../../resources/dashboard/lunas.png" alt="" id="Confi-Logo"
+                        <div class=" Lun"><img src="../../resources/img/dashboard/lunas.png" alt="" id="Confi-Logo"
                                 class="mx-auto d-md-block"></div>
                         <ul class="navbar-nav ms-auto">
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown" href="#" id="navbarDropdownMenuLink" role="button"
                                     data-bs-toggle="dropdown" aria-expanded="false">
-                                    <img src="../../resources/dashboard/configuraciones.png" alt="" id="Confi-Logo"
+                                    <img src="../../resources/img/dashboard/configuraciones.png" alt="" id="Confi-Logo"
                                         class="mx-auto d-block">
                                 </a>
                                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
@@ -127,10 +134,11 @@
                     </div>
                 </nav>
             </header>
+
             <main class="content">
                 <div class="container-fluid">
                     <div class="header">
-                        <h1>Administrar categorías de artículos</h1>
+                        <h1>Administrar categorías de productos</h1>
                     </div>
                     <div class="row contenido">
                         <div class="container-fluid container-tabla scroll mt-3 mb-3">
@@ -157,65 +165,87 @@
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                <td data-title="NOMBRE" class="nombre-categorias">Ofertas</td>
-                                                <td data-title="DESCRIPCION" class="descripcion">Lorem ipsum dolor sit amet
+                                                <td data-title="PRODUCTO" class="nombre-categoria">Cocina</td>
+                                                <td data-title="DESCRIPCION" class="descripcion">Lorem ipsum dolor sit
+                                                    amet
                                                     consectetur adipisicing elit. </td>
                                                 <td class="botones-table">
                                                     <div class="acciones d-flex mx-auto">
                                                         <span href="" class="accion-btn" type="button"
-                                                        data-bs-toggle="modal" data-bs-target="#modal-actualizar">
+                                                            data-bs-toggle="modal" data-bs-target="#modal-actualizar">
                                                             <i class="fa-solid fa-pen-to-square"></i>
                                                         </span>
                                                         <span href="" class="accion-btn" type="button"
-                                                        data-bs-toggle="modal" data-bs-target="#modal-eliminar">
+                                                            data-bs-toggle="modal" data-bs-target="#modal-eliminar">
                                                             <i class="fa-solid fa-trash-can fa-lg"></i>
                                                         </span>
                                                     </div>
                                                 </td>
-        
+
                                             </tr>
                                             <tr>
-                                                <td data-title="NOMBRE" class="nombre-categoria">Recetas</td>
-                                                <td data-title="DESCRIPCION" class="descripcion">Lorem ipsum dolor sit amet
+                                                <td data-title="PRODUCTO" class="nombre-categoria">Utensilios</td>
+                                                <td data-title="DESCRIPCION" class="descripcion">Lorem ipsum dolor sit
+                                                    amet
                                                     consectetur adipisicing elit. </td>
                                                 <td class="botones-table">
                                                     <div class="acciones d-flex mx-auto">
                                                         <span href="" class="accion-btn" type="button"
-                                                        data-bs-toggle="modal" data-bs-target="#modal-actualizar">
+                                                            data-bs-toggle="modal" data-bs-target="#modal-actualizar">
                                                             <i class="fa-solid fa-pen-to-square"></i>
                                                         </span>
                                                         <span href="" class="accion-btn" type="button"
-                                                        data-bs-toggle="modal" data-bs-target="#modal-eliminar">
+                                                            data-bs-toggle="modal" data-bs-target="#modal-eliminar">
                                                             <i class="fa-solid fa-trash-can fa-lg"></i>
                                                         </span>
                                                     </div>
                                                 </td>
-        
+
                                             </tr>
                                             <tr>
-                                                <td data-title="NOMBRE" class="nombre-categoria">Nuevos productos</td>
-                                                <td data-title="DESCRIPCION" class="descripcion">Lorem ipsum dolor sit amet
+                                                <td data-title="PRODUCTO" class="nombre-categoria">Electrodomésticos
+                                                </td>
+                                                <td data-title="DESCRIPCION" class="descripcion">Lorem ipsum dolor sit
+                                                    amet
                                                     consectetur adipisicing elit. </td>
                                                 <td class="botones-table">
                                                     <div class="acciones d-flex mx-auto">
                                                         <span href="" class="accion-btn" type="button"
-                                                        data-bs-toggle="modal" data-bs-target="#modal-actualizar">
+                                                            data-bs-toggle="modal" data-bs-target="#modal-actualizar">
                                                             <i class="fa-solid fa-pen-to-square"></i>
                                                         </span>
                                                         <span href="" class="accion-btn" type="button"
-                                                        data-bs-toggle="modal" data-bs-target="#modal-eliminar">
+                                                            data-bs-toggle="modal" data-bs-target="#modal-eliminar">
                                                             <i class="fa-solid fa-trash-can fa-lg"></i>
                                                         </span>
                                                     </div>
                                                 </td>
-        
+
                                             </tr>
-                                           
+                                            <tr>
+                                                <td data-title="PRODUCTO" class="nombre-categoria">Recetas</td>
+                                                <td data-title="DESCRIPCION" class="descripcion">Lorem ipsum dolor sit
+                                                    amet
+                                                    consectetur adipisicing elit. </td>
+                                                <td class="botones-table">
+                                                    <div class="acciones d-flex mx-auto">
+                                                        <span href="" class="accion-btn" type="button"
+                                                            data-bs-toggle="modal" data-bs-target="#modal-actualizar">
+                                                            <i class="fa-solid fa-pen-to-square"></i>
+                                                        </span>
+                                                        <span href="" class="accion-btn" type="button"
+                                                            data-bs-toggle="modal" data-bs-target="#modal-eliminar">
+                                                            <i class="fa-solid fa-trash-can fa-lg"></i>
+                                                        </span>
+                                                    </div>
+                                                </td>
+
+                                            </tr>
                                         </tbody>
                                     </table>
                                 </div>
                             </div>
-        
+
                             <div class="row">
                                 <nav aria-label="page-navigation">
                                     <ul class="pagination justify-content-center">
@@ -249,10 +279,10 @@
             </main>
         </div>
     </div>
-   
+
     <!-- INICIO MODALS AGREGAR-->
-    <div class="modal modal-agregar modal-agregar-categorias fade" id="modal-agregar" tabindex="-1" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
+    <div class="modal modal-agregar modal-agregar-categoria fade" id="modal-agregar" tabindex="-1"
+        aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-md">
             <div class="modal-content">
                 <div class="modal-header">
@@ -284,15 +314,16 @@
                     </div>
                 </div>
                 <div class="modal-footer d-flex justify-content-end">
-                    <button class="btn-guardar" type="button" data-bs-dismiss="modal">Guardar<i class="fa-solid fa-floppy-disk"></i></button>
+                    <button class="btn-guardar" type="button" data-bs-dismiss="modal">Guardar<i
+                            class="fa-solid fa-floppy-disk"></i></button>
                 </div>
             </div>
         </div>
     </div>
 
     <!-- INICIO MODALS ACTUALIZAR -->
-    <div class="modal modal-agregar modal-agregar-categorias fade" id="modal-actualizar" tabindex="-1" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
+    <div class="modal modal-agregar modal-agregar-categoria fade" id="modal-actualizar" tabindex="-1"
+        aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-md">
             <div class="modal-content">
                 <div class="modal-header">
@@ -324,7 +355,8 @@
                     </div>
                 </div>
                 <div class="modal-footer d-flex justify-content-end">
-                    <button class="btn-guardar" type="button" data-bs-dismiss="modal">Guardar<i class="fa-solid fa-floppy-disk"></i></button>
+                    <button class="btn-guardar" type="button" data-bs-dismiss="modal">Guardar<i
+                            class="fa-solid fa-floppy-disk"></i></button>
                 </div>
             </div>
         </div>
@@ -352,15 +384,15 @@
                     </div>
                 </div>
                 <div class="modal-footer d-flex mx-2 justify-content-between">
-                    <button class="btn btn-cancel" type="button" data-bs-target=""
-                        data-bs-toggle="modal" data-bs-dismiss="modal">Cancelar</button>
-                    <button class="btn btn-siguiente" type="button" data-bs-target=""
-                        data-bs-toggle="modal" data-bs-dismiss="modal">Continuar</button>
+                    <button class="btn btn-cancel" type="button" data-bs-target="" data-bs-toggle="modal"
+                        data-bs-dismiss="modal">Cancelar</button>
+                    <button class="btn btn-siguiente" type="button" data-bs-target="" data-bs-toggle="modal"
+                        data-bs-dismiss="modal">Continuar</button>
                 </div>
             </div>
         </div>
     </div>
-    <!-- FIN MODAL DELETE -->   
+    <!-- FIN MODAL DELETE -->
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
@@ -377,7 +409,9 @@
         integrity="sha384-zNy6FEbO50N+Cg5wap8IKA4M/ZnLJgzc6w2NqACZaK0u0FXfOWRRJOnQtpZun8ha"
         crossorigin="anonymous"></script>
 
-    <script src="../../js/privado/dashboard.js"></script>
+
+    <link href="https://unpkg.com/@yaireo/tagify/dist/tagify.css" rel="stylesheet" type="text/css" />
+    <script src="../../resources/js/privado/dashboard.js"></script>
 
 </body>
 
