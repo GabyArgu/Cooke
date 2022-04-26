@@ -3218,8 +3218,7 @@ body {
     padding-left: 20px;
     padding-right: 0;
 }
-
-.confirm-btn {
+firm-btn {
     display: block;
     width: 100%;
     padding: 10px;

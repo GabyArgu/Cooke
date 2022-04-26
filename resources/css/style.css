@@ -743,7 +743,16 @@ main .container-fluid .contenido{
 .table-responsive::-webkit-scrollbar {
     display: none;
   }
-
+  div.dataTables_wrapper div.dataTables_length label{
+    display: flex;
+    font-weight: normal;
+    text-align: left;
+    white-space: nowrap;
+  }
+  div.dataTables_wrapper div.dataTables_length select{
+    width: 18%;
+    margin: 0 3px;
+  }
 /*TABLAS*/
   .header-table .btn-agregar{
     display: flex;
