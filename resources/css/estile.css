@@ -66,9 +66,6 @@ body {
     padding: 15px;
 }
 
-@media only screen and (max-width: 992px){
-    
-}
 #navbar-page {
     background-color: var(--rosadoPalido);
     transition: 0.3s;
@@ -580,6 +577,7 @@ body {
 
 .card-title {
     color: var(--rosadoTitulos);
+    z-index: 100;
 }
 
 .card-link {
@@ -587,6 +585,7 @@ body {
     text-decoration: none;
     border-bottom: 3px solid var(--rosadoTitulos);
     color: var(--rosadoOscuro);
+    z-index: 100;
 }
 
 .card-link:hover {
@@ -594,37 +593,41 @@ body {
 }
 
 .card-cocina {
-    background-image: url(../../resources/img/gridcategorias/bg-cocina.png);
-    background-position: center center;
-    background-size: cover;
+    overflow: hidden;
+    position: relative;
 }
-
-.card-cocina:hover {
-    background-image: url(../../resources/img/gridcategorias/bg-cocina-hover.png);
+.categorias .card{
+    position: relative;
     cursor: pointer;
-
+    overflow: hidden;
 }
 
-.card-utensilios {
-    background-image: url(../../resources/img/gridcategorias/bg-utensilios.png);
-    background-position: left;
-    background-size: cover;
-}
-
-.card-utensilios:hover {
-    background-image: url(../../resources/img/gridcategorias/bg-utensilios-hover.png);
+.card-body:hover img{
+    filter: opacity(0.8);
     cursor: pointer;
 }
 
-.card-electro {
-    background-image: url(../../resources/img/gridcategorias/bg-electro.png);
-    background-position: center right;
-    background-size: cover;
-    background-repeat: no-repeat;
+.card-cocina img{
+    width: 600px;
+    height: 350px;
+    position:absolute;
+    left: -90%;
+    bottom: 0;
+    transition: all .3s ease;
 }
+
+.card-utensilios img{
+    position: absolute;
+    top: -10%;
+    left: 0;
+    width: 400px;
+    height: 400px;
+}
+
+
 
 .card-electro:hover {
-    background-image: url(../../resources/img/gridcategorias/bg-electro-hover.png);
+    background-image: url();
     cursor: pointer;
 }
 
@@ -645,16 +648,6 @@ body {
 }
 
 
-.card-utensilios {
-    background-image: url(../../resources/img/gridcategorias/bg-utensilios.png);
-    background-position: left;
-    background-size: cover;
-}
-
-.card-utensilios:hover {
-    background-image: url(../../resources/img/gridcategorias/bg-utensilios-hover.png);
-    cursor: pointer;
-}
 
 .card-electro {
     background-image: url(../../resources/img/gridcategorias/bg-electro.png);
@@ -3279,7 +3272,24 @@ body {
 }
 
 @media only screen and (max-width: 992px) {
-
+    .card-cocina img{
+        width: 600px;
+        height: 350px;
+        position:absolute;
+        left: 50%;
+        bottom: -40%;
+        transition: all .3s ease;
+    }
+    .card-cocina>.card-body {
+        align-items: flex-start;
+        justify-content: center;
+        padding: 40px;
+    }
+    .card-utensilios>.card-body {
+        align-items: flex-end;
+        justify-content: center;
+        padding: 40px;
+    }
     #no-more-tables tbody,
     #no-more-tables tr,
     #no-more-tables td {
