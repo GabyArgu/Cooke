@@ -568,7 +568,7 @@ body {
     transition: 0.3s;
 }
 
-.card-body {
+.categorias .card-body {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -602,8 +602,9 @@ body {
     overflow: hidden;
 }
 
-.card-body:hover img{
-    filter: opacity(0.8);
+.categorias .card-body:hover img{
+    filter: opacity(0.6);
+    transform: scale(1.1);
     cursor: pointer;
 }
 
@@ -613,7 +614,7 @@ body {
     position:absolute;
     left: -90%;
     bottom: 0;
-    transition: all .3s ease;
+    transition: all .6s ease;
 }
 
 .card-utensilios img{
@@ -622,53 +623,28 @@ body {
     left: 0;
     width: 400px;
     height: 400px;
+    transition: all .6s ease;
+}
+
+.card-electro img{
+    position: absolute;
+    top: 9%;
+    left: 50%;
+    width: 450px;
+    height: 200px;
+    transition: all .6s ease;
 }
 
 
-
-.card-electro:hover {
-    background-image: url();
-    cursor: pointer;
+.card-recetas img{
+    position: absolute;
+    top: 0;
+    left: 21%;
+    width: 350px;
+    height: 450px;
+    transition: all .6s ease;
 }
 
-.card-recetas {
-    background-image: url(../../resources/img/gridcategorias/bg-recetas.png);
-    background-position: center;
-    background-size: cover;
-}
-
-.card-recetas:hover {
-    background-image: url(../../resources/img/gridcategorias/bg-recetas-hover.png);
-    cursor: pointer;
-}
-
-.card-recetas:hover {
-    background-image: url(../../resources/img/gridcategorias/bg-recetas-hover.png);
-    cursor: pointer;
-}
-
-
-
-.card-electro {
-    background-image: url(../../resources/img/gridcategorias/bg-electro.png);
-    background-position: center right;
-    background-size: cover;
-    background-repeat: no-repeat;
-}
-
-.card-electro:hover {
-    background-image: url(../../resources/img/gridcategorias/bg-electro-hover.png);
-}
-
-.card-recetas {
-    background-image: url(../../resources/img/gridcategorias/bg-recetas.png);
-    background-position: center;
-    background-size: cover;
-}
-
-.card-recetas:hover {
-    background-image: url(../../resources/img/gridcategorias/bg-recetas-hover.png);
-}
 
 /*------------------PRODUCTOS DESTACADOS START------------------*/
 .lineaP {
@@ -3289,6 +3265,21 @@ body {
         align-items: flex-end;
         justify-content: center;
         padding: 40px;
+    }
+    .card-electro>.card-body {
+        align-items: flex-start;
+        justify-content: center;
+        padding: 40px;
+    }
+    .card-recetas>.card-body {
+        align-items: flex-start;
+        justify-content: center;
+        padding: 40px;
+    }
+    .card-recetas img{
+        left: 66%;
+        width: 300px;
+        height: 375px;
     }
     #no-more-tables tbody,
     #no-more-tables tr,
