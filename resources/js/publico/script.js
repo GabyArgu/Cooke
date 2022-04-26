@@ -1,3 +1,13 @@
+document.addEventListener('DOMContentLoaded', function () {
+    var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+    var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+        return new bootstrap.Tooltip(tooltipTriggerEl, { 'customClass': 'custom-tooltip' })
+    })
+
+    var carousel = document.querySelector('#carouselExampleCaptions');
+    var bootstrapCarousel = new bootstrap.Carousel(carousel, {interval:3000});
+});
+
 $('#owl0').owlCarousel({
     loop: true,
     margin: 5,
@@ -98,17 +108,10 @@ $('#owl3').owlCarousel({
     }
 });
 
-document.addEventListener('DOMContentLoaded', function () {
-    var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
-    var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
-        return new bootstrap.Tooltip(tooltipTriggerEl, { 'customClass': 'custom-tooltip' })
-    })
 
-    var carousel = document.querySelector('#carouselExampleCaptions');
-    var bootstrapCarousel = new bootstrap.Carousel(carousel, {interval:3000});
-});
 
 function hoverImagen(ruta) {
+    
     document.getElementById("main-img").src = ruta;
 }
 
