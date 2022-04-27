@@ -3,6 +3,7 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  font-family: 'Mohave', sans-serif;
 }
 
 h1 {
@@ -576,12 +577,11 @@ textarea.form-control:focus {
   position: relative;
   display: flex;
   flex-direction: column;
-  height: 150px;
   word-wrap: break-word;
   background-color: #fff;
   background-clip: border-box;
   border: 0 solid rgba(0, 0, 0, 0.125);
-  border-radius: 1rem;
+  border-radius: 1rem !important;
 }
 
 .card-body {
@@ -598,10 +598,10 @@ textarea.form-control:focus {
 }
 
 .Monto {
-  font-size: 22px;
-  font-family: Arial, Helvetica, sans-serif;
+  font-size: 26px;
+  font-family: 'Mohave', sans-serif;
   color: var(--rosadoOscuro);
-  font-weight: 600;
+  font-weight: 500;
 }
 
 
@@ -610,13 +610,10 @@ textarea.form-control:focus {
   border-radius: 0.75rem;
 }
 
-.icon-shape img {
-  width: 65px;
-  color: #fff;
-  opacity: 0.8;
-  top: -14px;
-  right: -8px;
+.icon-shape i {
+  color: #D889B2;
   position: relative;
+  right: 10px;
 }
 
 
