@@ -474,12 +474,9 @@ textarea.form-control:focus {
 
 /* NAVBAR */
 
-#Lu-Logo {
-  width: 30px;
-}
-
-.Lupa {
+.Lupa i {
   margin-left: 20px !important;
+  color: var(--rosadoTitulos);
 }
 
 .Usua-Ico {
@@ -536,8 +533,8 @@ textarea.form-control:focus {
   padding-bottom: 10px;
 }
 
-#Confi-Logo {
-  width: 38px;
+.Confi-Logo {
+  color: var(--rosadoTitulos);
 }
 
 
