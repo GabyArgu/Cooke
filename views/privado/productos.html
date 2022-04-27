@@ -155,7 +155,7 @@
                         <div class="row">
                             <div class="col">
                                 <div class="table-responsive mt-3 scroll" id="no-more-tables">
-                                    <table class="table table-bordered table-productos" id="example">
+                                    <table class="table table-bordered table-productos" id="table-productos">
                                         <thead>
                                             <tr>
                                                 <th>Imagen</th>
@@ -1645,37 +1645,11 @@
     </div>
     <!-- FIN MODAL DELETE -->
 
-    <!-- INICIO MODAL AÑADIR STOCK-->
-    <div class="modal modal-stock fade" id="modal-stock" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2"
-        tabindex="-1">
-        <div class="modal-dialog modal-dialog-centered modal-xl">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h3 class="mt-2">Añadir stock</h3>
-                </div>
-                <div class="modal-body">
-                    <div class="container my-5">
-                        <div class="row">
-                            <div class="col eliminar-content">
-                                <i class="fa-solid fa-circle-exclamation mb-4"></i>
-                                <h2>¿Estás seguro?</h2>
-                                <span>El elemento se borrará de manera permanente</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-footer d-flex mx-2 justify-content-between">
-                    <button class="btn btn-cancel" type="button" data-bs-target="#modal-agregar" data-bs-toggle="modal"
-                        data-bs-dismiss="modal">Cancelar</button>
-                    <button class="btn btn-siguiente" type="button" data-bs-target="" data-bs-toggle="modal"
-                        data-bs-dismiss="modal">Continuar</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- FIN MODAL STOCK-->
 
-    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <!---------------- SCRIPTS ---------------->
+    
+    <!-- BOOTSTRAP -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script>
@@ -1683,14 +1657,6 @@
     <!-- DATATABLE JS -->
     <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.11.5/js/dataTables.bootstrap5.min.js"></script>
-
-
-    <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js"
-        integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"
-        integrity="sha384-zNy6FEbO50N+Cg5wap8IKA4M/ZnLJgzc6w2NqACZaK0u0FXfOWRRJOnQtpZun8ha"
-        crossorigin="anonymous"></script>
 
     <!-- TAGIFY RESOURCE -->
     <script src="https://unpkg.com/@yaireo/tagify"></script>
