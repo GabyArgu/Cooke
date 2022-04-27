@@ -80,6 +80,7 @@
       data: data,
       options: {
          responsive: true,
+         maintainAspectRatio: true,
         legend: {
           display: false
         }
