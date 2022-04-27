@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    $('#table-empleados').DataTable({
+    $('#table-subcategorias-productos').DataTable({
       "info": false,
       "searching": false,
       "dom":
