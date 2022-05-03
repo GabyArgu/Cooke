@@ -698,6 +698,7 @@ main .container-fluid {
   margin-left: auto;
   margin-right: auto;
   width: 95%;
+  min-height: 610px;
 }
 
 
@@ -730,7 +731,6 @@ main .container-fluid .contenido {
 .content {
   overflow-y: auto;
   padding: 0;
-  padding-bottom: 10px;
 }
 
 .header h1 {
@@ -1762,9 +1762,7 @@ main .container-fluid .contenido {
   color: var(--rosadoOscuro);
   background-color: var(--rosadoPalido) !important;
 }
-footer{
-  margin-top: 4%;
-}
+
 .acciones{
   justify-content: center;
 }
