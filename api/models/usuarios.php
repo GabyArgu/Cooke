@@ -5,10 +5,15 @@
 */
 class Usuarios extends Validator
 {
-    // Declaración de atributos (propiedades).
+    // Declaración de atributos (propiedades) según nuestra tabla en la base de datos.
     private $id = null;
     private $nombres = null;
     private $apellidos = null;
+    private $cargo = null;
+    private $direccion = null;
+    private $telefono = null;
+    private $foto = null;
+    private $estado = null;
     private $correo = null;
     private $alias = null;
     private $clave = null;
@@ -44,6 +49,17 @@ class Usuarios extends Validator
         } else {
             return false;
         }
+    }
+    public function setDireccion($value)
+    {
+        $this->direccion = $value;
+        return true;
+    }
+
+    public function setTelefono($value)
+    {
+        $this->telefono = $value;
+        return true;
     }
 
     public function setCorreo($value)
@@ -94,6 +110,16 @@ class Usuarios extends Validator
         return $this->apellidos;
     }
 
+    public function getDireccion()
+    {
+        return $this->direccion;
+    }
+
+    public function getTelefono()
+    {
+        return $this->telefono;
+    }
+
     public function getCorreo()
     {
         return $this->correo;
@@ -138,44 +164,6 @@ class Usuarios extends Validator
         }
     }
 
-    public function changePassword()
-    {
-        $sql = 'UPDATE usuarios SET clave_usuario = ? WHERE id_usuario = ?';
-        $params = array($this->clave, $_SESSION['id_usuario']);
-        return Database::executeRow($sql, $params);
-    }
-
-    public function readProfile()
-    {
-        $sql = 'SELECT id_usuario, nombres_usuario, apellidos_usuario, correo_usuario, alias_usuario
-                FROM usuarios
-                WHERE id_usuario = ?';
-        $params = array($_SESSION['id_usuario']);
-        return Database::getRow($sql, $params);
-    }
-
-    public function editProfile()
-    {
-        $sql = 'UPDATE usuarios
-                SET nombres_usuario = ?, apellidos_usuario = ?, correo_usuario = ?
-                WHERE id_usuario = ?';
-        $params = array($this->nombres, $this->apellidos, $this->correo, $_SESSION['id_usuario']);
-        return Database::executeRow($sql, $params);
-    }
-
-    /*
-    *   Métodos para realizar las operaciones SCRUD (search, create, read, update, delete).
-    */
-    public function searchRows($value)
-    {
-        $sql = 'SELECT id_usuario, nombres_usuario, apellidos_usuario, correo_usuario, alias_usuario
-                FROM usuarios
-                WHERE apellidos_usuario ILIKE ? OR nombres_usuario ILIKE ?
-                ORDER BY apellidos_usuario';
-        $params = array("%$value%", "%$value%");
-        return Database::getRows($sql, $params);
-    }
-
     public function createRow()
     {
         $sql = 'INSERT INTO usuarios(nombres_usuario, apellidos_usuario, correo_usuario, alias_usuario, clave_usuario)
@@ -193,29 +181,4 @@ class Usuarios extends Validator
         return Database::getRows($sql, $params);
     }
 
-    public function readOne()
-    {
-        $sql = 'SELECT id_usuario, nombres_usuario, apellidos_usuario, correo_usuario, alias_usuario
-                FROM usuarios
-                WHERE id_usuario = ?';
-        $params = array($this->id);
-        return Database::getRow($sql, $params);
-    }
-
-    public function updateRow()
-    {
-        $sql = 'UPDATE usuarios 
-                SET nombres_usuario = ?, apellidos_usuario = ?, correo_usuario = ?
-                WHERE id_usuario = ?';
-        $params = array($this->nombres, $this->apellidos, $this->correo, $this->id);
-        return Database::executeRow($sql, $params);
-    }
-
-    public function deleteRow()
-    {
-        $sql = 'DELETE FROM usuarios
-                WHERE id_usuario = ?';
-        $params = array($this->id);
-        return Database::executeRow($sql, $params);
-    }
 }
