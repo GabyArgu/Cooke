@@ -51,9 +51,13 @@ class Usuarios extends Validator
         }
     }
     public function setDireccion($value)
-    {
-        $this->direccion = $value;
-        return true;
+    {   
+        if($this->validateAlphabetic($value, 1, 200)){
+            $this->direccion = $value;
+            return true;
+        } else {
+            return false;
+        }
     }
 
     public function setTelefono($value)
@@ -174,9 +178,9 @@ class Usuarios extends Validator
 
     public function readAll()
     {
-        $sql = 'SELECT id_usuario, nombres_usuario, apellidos_usuario, correo_usuario, alias_usuario
-                FROM usuarios
-                ORDER BY apellidos_usuario';
+        $sql = 'SELECT "idEmpleado", "nombresEmpleado", "apellidosEmpleado", "correoEmpleado", "aliasEmpleado"  
+                FROM empleado
+                ORDER BY "apellidosEmpleado"';
         $params = null;
         return Database::getRows($sql, $params);
     }

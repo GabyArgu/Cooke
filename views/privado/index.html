@@ -44,40 +44,45 @@
                             <h1 class="text-center titleL">LOGIN</h1>
                             <hr class="lineaLo">
                         </div>
-                        <div class="row justify-content-center">
-                            <div class="col-10 mt-4 ">
-                                <div class="input-group">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text SLcorreo SLimg" id="inputGroupPrepend2"></span>
+                        <form method="post" id="login-form">
+                            <div class="row justify-content-center">
+                                <div class="col-10 mt-4 ">
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text SLcorreo SLimg"
+                                                id="inputGroupPrepend2"></span>
+                                        </div>
+                                        <input type="text" class="form-control Lcorreo" id="validationDefaultUsername"
+                                            placeholder="Escribe tu correo" aria-describedby="inputGroupPrepend2"
+                                            required>
                                     </div>
-                                    <input type="text" class="form-control Lcorreo" id="validationDefaultUsername"
-                                        placeholder="Escribe tu correo" aria-describedby="inputGroupPrepend2" required>
+                                </div>
+                                <div class="col-10 mt-4 ">
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text SLcorreo SLimg2"
+                                                id="inputGroupPrepend2"></span>
+                                        </div>
+                                        <input type="password" class="form-control Lcorreo"
+                                            id="validationDefaultUsername" placeholder="Escribe tu contraseña"
+                                            aria-describedby="inputGroupPrepend2" required>
+                                    </div>
+                                </div>
+                                <div class="col-10 mt-3 Recu">
+                                    <a class="RecuperarA" href="recuperar1.html">¿Has perdido tu contraseña?</a>
+                                </div>
+                                <div class="col-10 mt-4">
+                                    <a href="dashboard.html"><button class="Aceptar"
+                                            type="submit">Continuar</button></a>
+                                </div>
+                                <div class="col-10 mt-4 ">
+                                    <p class="TerminosP">Al continuar, aceptas las Condiciones de uso y el Aviso de
+                                        privacidad
+                                        de Cooké.</p>
                                 </div>
                             </div>
-                            <div class="col-10 mt-4 ">
-                                <div class="input-group">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text SLcorreo SLimg2" id="inputGroupPrepend2"></span>
-                                    </div>
-                                    <input type="password" class="form-control Lcorreo" id="validationDefaultUsername"
-                                        placeholder="Escribe tu contraseña" aria-describedby="inputGroupPrepend2"
-                                        required>
-                                </div>
-                            </div>
-                            <div class="col-10 mt-3 Recu">
-                                <a class="RecuperarA" href="recuperar1.html">¿Has perdido tu contraseña?</a>
-                            </div>
-                            <div class="col-10 mt-4">
-                                <a href="dashboard.html"><button class="Aceptar">Continuar</button></a>
-                            </div>
-                            <div class="col-10 mt-4 ">
-                                <p class="TerminosP">Al continuar, aceptas las Condiciones de uso y el Aviso de
-                                    privacidad
-                                    de Cooké.</p>
-                            </div>
-                        </div>
+                        </form>
                     </div>
-
                 </div>
             </div>
         </section>
@@ -87,8 +92,9 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
         crossorigin="anonymous"></script>
-
-        <script src="../../controllers/privado/index.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="../../controllers/componentes.js"></script>
+    <script src="../../controllers/privado/index.js"></script>
 
 </body>
 

@@ -16,7 +16,8 @@ document.addEventListener('DOMContentLoaded', function () {
                 } else if (response.status) {
                     sweetAlert(4, 'Debe autenticarse para ingresar', null);
                 } else {
-                    sweetAlert(3, response.exception, 'signup.html');
+                    //Mostramos el mensaje y específicamos la página que se abrirá como siguiente paso
+                    sweetAlert(3, response.exception, 'crear.html');
                 }
             });
         } else {
@@ -26,13 +27,13 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 // Método manejador de eventos que se ejecuta cuando se envía el formulario de iniciar sesión.
-document.getElementById('session-form').addEventListener('submit', function (event) {
+document.getElementById('login-form').addEventListener('submit', function (event) {
     // Se evita recargar la página web después de enviar el formulario.
     event.preventDefault();
     // Petición para revisar si el administrador se encuentra registrado.
     fetch(API_USUARIOS + 'logIn', {
         method: 'post',
-        body: new FormData(document.getElementById('session-form'))
+        body: new FormData(document.getElementById('login-form'))
     }).then(function (request) {
         // Se verifica si la petición es correcta, de lo contrario se muestra un mensaje en la consola indicando el problema.
         if (request.ok) {

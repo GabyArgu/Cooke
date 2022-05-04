@@ -1,6 +1,6 @@
 <?php
 require_once('../helpers/database.php');
-require_once('../helpers/validator.php');
+require_once('../helpers/validaciones.php');
 require_once('../models/usuarios.php');
 
 // Se comprueba si existe una acción a realizar por medio de isset, de lo contrario se finaliza el script con un mensaje de error.
