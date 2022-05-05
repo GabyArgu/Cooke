@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="../../resources/css/assets/css/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../resources/css/style.css">
+    <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mohave&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap" rel="stylesheet">
+
+
+    <link rel="icon" type="icon/png" href="../../resources/img/index/logo.png">
+    <!-- libreria iconos FONTAWESOME-->
+    <link rel="icon" type="icon/png" href="../../resources/img/index/logo.png">
+    <script src="https://kit.fontawesome.com/479a6c23da.js" crossorigin="anonymous"></script>
+
+    <!-- Libreria dropzone -->
+    <script src="https://unpkg.com/dropzone@5/dist/min/dropzone.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/dropzone@5/dist/min/dropzone.min.css" type="text/css" />
+    <!-- Datepicker -->
+    <title>Cooké</title>
+</head>
+
+<body>
+
+    <div class="wrapper">
+        <nav id="sidebarMenu" class="sidebar">
+            <a href="dashboard.html" class="sidebar-conent-header d-flex"><img src="../../resources/img/index/logo2.png"
+                    alt="" id="logo_inicio" class="mx-auto d-block"></a>
+            <div class="sidebar-content">
+
+                <ul class="nav flex-column justify-content-center align-items-center">
+                    <img src="../../resources/img/dashboard/usuario.png" class="Usua-Ico" alt="">
+                    <h5 class="Nombre-Usu">Gabriela Méndez</h5>
+                    <a class="Adm" href="#">Administrar</a>
+                </ul>
+
+                <ul class="sidebar-nav Botones-Sider">
+
+                    <li class="sidebar-item has-submenu mt-2">
+                        <a href="#" class="sidebar-link collapsed mt-4">
+                            <i class="align-middle mb-2 fas fa-fw fa-home"></i> <span
+                                class="align-middle">PRINCIPAL</span>
+                        </a>
+                        <ul id="dashboards" class="list-unstyled collapse submenu mt-2" data-bs-parent="#sidebar">
+                            <li class="sidebar-item"><a class="sidebar-link" href="dashboard.html">Dashboard</a></li>
+
+                        </ul>
+                    </li>
+                    <li class="sidebar-item has-submenu mt-5">
+                        <a href="#" class="sidebar-link collapsed mt-4">
+                            <i class="fa-solid fa-shop"></i> <span class="align-middle">TIENDA</span>
+                        </a>
+                        <ul id="Tienda" class="list-unstyled submenu collapse">
+                            <li class="sidebar-item"><a class="sidebar-link" href="productos.html">Productos</a>
+                            </li>
+                            <li class="sidebar-item"><a class="sidebar-link"
+                                    href="categorias_productos.html">Categoría</a></li>
+                            <li class="sidebar-item"><a class="sidebar-link"
+                                    href="subcategorias_productos.html">Subcategoria</a></li>
+                            <li class="sidebar-item"><a class="sidebar-link" href="pedidos.html">Pedidos</a></li>
+                        </ul>
+                    </li>
+                    <li class="sidebar-item mt-5">
+                        <a href="#" class="sidebar-link collapsed mt-4">
+                            <i class="fa-solid fa-book me-2"></i><span class="align-middle">BLOG</span>
+                        </a>
+                        <ul id="blog" class="list-unstyled collapse submenu" data-bs-parent="#sidebar">
+                            <li class="sidebar-item"><a class="sidebar-link" href="articulo.html">Artículo</a></li>
+                            <li class="sidebar-item"><a class="sidebar-link" href="categorias_blog.html">Categoría</a>
+                            </li>
+
+                        </ul>
+                    </li>
+
+                    <li class="sidebar-item mt-5">
+                        <a href="#" class="sidebar-link collapsed mt-4">
+                            <i class="fa-solid me-2 fa-database"></i><span class="align-middle">ADMINISTRACIÓN</span>
+                        </a>
+                        <ul id="forms" class=" list-unstyled collapse submenu" data-bs-parent="#sidebar">
+                            <li class="sidebar-item"><a class="sidebar-link" href="clientes.html">Clientes</a></li>
+                            <li class="sidebar-item"><a class="sidebar-link" href="empleados.html">Empleados</a>
+                            </li>
+                            <li class="sidebar-item"><a class="sidebar-link" href="marcas_proveedores.html">Marcas y
+                                    proveedores</a></li>
+                        </ul>
+                    </li>
+
+
+                </ul>
+            </div>
+        </nav>
+
+        <div class="main productos">
+            <header>
+                <nav class="navbar navbar-expand navbar-theme">
+                    <a class="sidebar-toggle d-flex me-2">
+                        <i class="fa-solid fa-bars" onclick="sidebarToggle()"></i>
+                    </a>
+
+                    <div class="Lupa">
+                        <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+                    </div>
+
+                    <form class="d-none d-sm-inline-block me-auto ">
+                        <input class=" form-control form-control-lite barra-buscar" type="text"
+                            placeholder="Buscar en el sitio">
+                    </form>
+
+                    <div class="opciones-nav d-flex justify-content-center align-items-center">
+                        <div>
+                            <i class="fa-solid fa-moon fa-2x me-2 Confi-Logo"></i>
+                        </div>
+                        <ul class="navbar-nav ms-auto">
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown" href="#" id="navbarDropdownMenuLink" role="button"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="fa-solid fa-gear fa-2x Confi-Logo"></i>
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
+                                    <li><a class="dropdown-item" href="cuenta.html">Perfil</a></li>
+                                    <li><a class="dropdown-item" href="index.html">Cerrar Sesión</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </header>
+            <main class="content">
+                <div class="container-fluid">
+                    <div class="header">
+                        <h1>Administrar Clientes</h1>
+                    </div>
+                    <div class="row contenido">
+                        <div class="row pt-3 mx-auto header-table">
+                            <div class="col">
+                                <button class="btn-agregar" type="button" data-bs-toggle="modal"
+                                    data-bs-target="#modal-agregar">Agregar<i class="fa-solid fa-plus"></i></button>
+                            </div>
+                            <div class="col d-flex justify-content-end mx-auto">
+                                <input class="form-control form-control-dark w-60 d-none d-md-block Buscador-Imp"
+                                    type="text" placeholder="Buscar" aria-label="Search">
+                                <button class="btn-refresh"><i class="fa-solid fa-arrows-rotate"></i></button>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <div class="table-responsive mt-3 scroll" id="no-more-tables">
+                                    <table class="table table-bordered table-productos" id="table-clientes">
+                                        <thead>
+                                            <tr>
+                                                <th>Nombres</th>
+                                                <th>Apellidos</th>
+                                                <th>DUI</th>
+                                                <th>Correo</th>
+                                                <th>Estado</th>
+                                                <th>Acciones</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td data-title="NOMBRES">Raúl Fernando</td>
+                                                <td data-title="APELLIDOS">Salinas Castro</td>
+                                                <td data-title="DUI" class="dui">12345678-1</td>
+                                                <td data-title="CORREO">raulito@gmail.com</td>
+                                                <td data-title="ESTADO">Activo</td>
+                                                <td class="botones-table">
+                                                    <div class="acciones d-flex mx-auto">
+                                                        <span href="" class="accion-btn" type="button"
+                                                            data-bs-toggle="modal" data-bs-target="#modal-actualizar">
+                                                            <i class="fa-solid fa-pen-to-square"></i>
+                                                        </span>
+                                                        <span href="" class="accion-btn" type="button"
+                                                            data-bs-toggle="modal" data-bs-target="#modal-eliminar">
+                                                            <i class="fa-solid fa-trash-can fa-lg"></i>
+                                                        </span>
+                                                        <span href="" class="accion-btn" type="button"
+                                                            data-bs-toggle="modal" data-bs-target="#modal-ver">
+                                                            <i class="fa-solid fa-eye"></i>
+                                                        </span>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td data-title="NOMBRES">Raúl Fernando</td>
+                                                <td data-title="APELLIDOS">Salinas Castro</td>
+                                                <td data-title="DUI" class="dui">12345678-1</td>
+                                                <td data-title="CORREO">raulito@gmail.com</td>
+                                                <td data-title="ESTADO">Activo</td>
+                                                <td class="botones-table">
+                                                    <div class="acciones d-flex mx-auto">
+                                                        <span href="" class="accion-btn" type="button"
+                                                            data-bs-toggle="modal" data-bs-target="#modal-actualizar">
+                                                            <i class="fa-solid fa-pen-to-square"></i>
+                                                        </span>
+                                                        <span href="" class="accion-btn" type="button"
+                                                            data-bs-toggle="modal" data-bs-target="#modal-eliminar">
+                                                            <i class="fa-solid fa-trash-can fa-lg"></i>
+                                                        </span>
+                                                        <span href="" class="accion-btn" type="button"
+                                                            data-bs-toggle="modal" data-bs-target="#modal-ver">
+                                                            <i class="fa-solid fa-eye"></i>
+                                                        </span>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td data-title="NOMBRES">Raúl Fernando</td>
+                                                <td data-title="APELLIDOS">Salinas Castro</td>
+                                                <td data-title="DUI" class="dui">12345678-1</td>
+                                                <td data-title="CORREO">raulito@gmail.com</td>
+                                                <td data-title="ESTADO">Activo</td>
+                                                <td class="botones-table">
+                                                    <div class="acciones d-flex mx-auto">
+                                                        <span href="" class="accion-btn" type="button"
+                                                            data-bs-toggle="modal" data-bs-target="#modal-actualizar">
+                                                            <i class="fa-solid fa-pen-to-square"></i>
+                                                        </span>
+                                                        <span href="" class="accion-btn" type="button"
+                                                            data-bs-toggle="modal" data-bs-target="#modal-eliminar">
+                                                            <i class="fa-solid fa-trash-can fa-lg"></i>
+                                                        </span>
+                                                        <span href="" class="accion-btn" type="button"
+                                                            data-bs-toggle="modal" data-bs-target="#modal-ver">
+                                                            <i class="fa-solid fa-eye"></i>
+                                                        </span>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td data-title="NOMBRES">Raúl Fernando</td>
+                                                <td data-title="APELLIDOS">Salinas Castro</td>
+                                                <td data-title="DUI" class="dui">12345678-1</td>
+                                                <td data-title="CORREO">raulito@gmail.com</td>
+                                                <td data-title="ESTADO">Activo</td>
+                                                <td class="botones-table">
+                                                    <div class="acciones d-flex mx-auto">
+                                                        <span href="" class="accion-btn" type="button"
+                                                            data-bs-toggle="modal" data-bs-target="#modal-actualizar">
+                                                            <i class="fa-solid fa-pen-to-square"></i>
+                                                        </span>
+                                                        <span href="" class="accion-btn" type="button"
+                                                            data-bs-toggle="modal" data-bs-target="#modal-eliminar">
+                                                            <i class="fa-solid fa-trash-can fa-lg"></i>
+                                                        </span>
+                                                        <span href="" class="accion-btn" type="button"
+                                                            data-bs-toggle="modal" data-bs-target="#modal-ver">
+                                                            <i class="fa-solid fa-eye"></i>
+                                                        </span>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td data-title="NOMBRES">Raúl Fernando</td>
+                                                <td data-title="APELLIDOS">Salinas Castro</td>
+                                                <td data-title="DUI" class="dui">12345678-1</td>
+                                                <td data-title="CORREO">raulito@gmail.com</td>
+                                                <td data-title="ESTADO">Activo</td>
+                                                <td class="botones-table">
+                                                    <div class="acciones d-flex mx-auto">
+                                                        <span href="" class="accion-btn" type="button"
+                                                            data-bs-toggle="modal" data-bs-target="#modal-actualizar">
+                                                            <i class="fa-solid fa-pen-to-square"></i>
+                                                        </span>
+                                                        <span href="" class="accion-btn" type="button"
+                                                            data-bs-toggle="modal" data-bs-target="#modal-eliminar">
+                                                            <i class="fa-solid fa-trash-can fa-lg"></i>
+                                                        </span>
+                                                        <span href="" class="accion-btn" type="button"
+                                                            data-bs-toggle="modal" data-bs-target="#modal-ver">
+                                                            <i class="fa-solid fa-eye"></i>
+                                                        </span>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td data-title="NOMBRES">Raúl Fernando</td>
+                                                <td data-title="APELLIDOS">Salinas Castro</td>
+                                                <td data-title="DUI" class="dui">12345678-1</td>
+                                                <td data-title="CORREO">raulito@gmail.com</td>
+                                                <td data-title="ESTADO">Activo</td>
+                                                <td class="botones-table">
+                                                    <div class="acciones d-flex mx-auto">
+                                                        <span href="" class="accion-btn" type="button"
+                                                            data-bs-toggle="modal" data-bs-target="#modal-actualizar">
+                                                            <i class="fa-solid fa-pen-to-square"></i>
+                                                        </span>
+                                                        <span href="" class="accion-btn" type="button"
+                                                            data-bs-toggle="modal" data-bs-target="#modal-eliminar">
+                                                            <i class="fa-solid fa-trash-can fa-lg"></i>
+                                                        </span>
+                                                        <span href="" class="accion-btn" type="button"
+                                                            data-bs-toggle="modal" data-bs-target="#modal-ver">
+                                                            <i class="fa-solid fa-eye"></i>
+                                                        </span>
+                                                    </div>
+                                                </td>
+                                            </tr>
+
+
+
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <footer>
+                    <div class="text-center p-1 mt-4 CopCo">
+                        © 2021 Copyright:
+                        <a class="text-reset fw-bold" href="https://github.com/GabyArgu/Cooke/tree/ROscar">Cooké.com</a>
+                    </div>
+                </footer>
+
+            </main>
+        </div>
+    </div>
+
+    <!-- INICIO MODAL VISUALIZAR-->
+    <div class="modal modal-ver modal-ver-cliente fade" id="modal-ver" tabindex="-1" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+
+                    <h3 class="mt-2">Detalles</h3>
+
+                    <button type="button" class="btn-close my" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="container ver-empleado-content">
+                        <div class="row">
+                            <div class="col">
+                                <h4>Nombres</h4>
+                            </div>
+                            <div class="col col-8"><span>Raúl Fernando</span> </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col">
+                                <h4>Apellidos</h4>
+                            </div>
+                            <div class="col col-8"><span>Salinas Castro</span></div>
+                        </div>
+                        <hr>
+                        <div class="row ">
+                            <div class="col">
+                                <h4>DUI</h4>
+                            </div>
+                            <div class="col col-8"><span>12345678-9</span></div>
+                        </div>
+                        <hr>
+                        <div class="row ">
+                            <div class="col">
+                                <h4>Correo</h4>
+                            </div>
+                            <div class="col col-8"><span>Raulito@gmail.com</span></div>
+                        </div>
+                        <hr>
+                        <div class="row ">
+                            <div class="col">
+                                <h4>Teléfono</h4>
+                            </div>
+                            <div class="col col-8"><span>7777-7777</span></div>
+                        </div>
+                        <hr>
+                        <div class="row ">
+                            <div class="col-4">
+                                <h4>Nacimiento</h4>
+                            </div>
+                            <div class="col col-8"><span>01/01/2000</span></div>
+                        </div>
+                        <hr>
+                        <div class="row ">
+                            <div class="col">
+                                <h4>Dirección</h4>
+                            </div>
+                            <div class="col col-8"><span>Mejicanos, San Salvador</span></div>
+                        </div>
+                        <hr>
+                        <div class="row ">
+                            <div class="col">
+                                <h4>Estado</h4>
+                            </div>
+                            <div class="col col-8"><span>Activo</span></div>
+                        </div>
+                        <div class="row mt-2">
+                            <div class="col d-flex justify-content-center"><img
+                                    src="../../resources/img/dashboard/Usuario.png" class="Usua-Ico" alt=""></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- FIN MODAL -->
+
+    <!-- INICIO MODALS AGREGAR-->
+    <div class="modal modal-agregar modal-agregar-cliente fade" id="modal-agregar" tabindex="-1"
+        aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+
+                    <h3 class="mt-2">Agregar Cliente</h3>
+
+                    <button type="button" class="btn-close my" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="container">
+                        <div class="row agregar-content">
+                            <div class="col">
+
+                                <div class="row agregar-content-flex">
+                                    <div class="col-4 mb-4">
+                                        <label for="validationDefault0" class="form-label">Nombres</label>
+                                        <input type="text" class="form-control" id="validationDefault01" value=""
+                                            required>
+                                    </div>
+                                    <div class="col-4 mb-4">
+                                        <label for="validationDefault02" class="form-label">Apellidos</label>
+                                        <input type="text" class="form-control" id="validationDefault01" value=""
+                                            required>
+                                    </div>
+                                    <div class="col-4 mb-4">
+                                        <label for="validationDefault04" class="form-label">DUI</label>
+                                        <input type="text" class="form-control" id="validationDefault01" value=""
+                                            required>
+                                    </div>
+                                    <div class="col-4 mb-4">
+                                        <label for="validationDefault04" class="form-label">Correo electrónico</label>
+                                        <input type="text" class="form-control" id="validationDefault01" value=""
+                                            required>
+                                    </div>
+                                    <div class="col-4 mb-4">
+                                        <label for="validationDefault05" class="form-label">Teléfono</label>
+                                        <input type="text" class="form-control" id="validationDefault01" value=""
+                                            required>
+                                    </div>
+                                    <div class="col-4 mb-4">
+                                        <label for="validationDefault03" class="form-label">Fecha de
+                                            nacimiento</label>
+                                        <input type="text" class="form-control" data-toggle="datepicker">
+                                    </div>
+                                    <div class="col-4 mb-4">
+                                        <label for="validationDefault06" class="form-label">Dirección</label>
+                                        <input type="text" class="form-control" id="validationDefault01" value=""
+                                            required>
+                                    </div>
+                                    <div class="col-4 mb-4">
+                                        <label for="validationDefault07" class="form-label">Nombre de usuario</label>
+                                        <input type="text" class="form-control" id="validationDefault01" value=""
+                                            required>
+                                    </div>
+                                    <div class="col-4 mb-4">
+                                        <label for="validationDefault08" class="form-label">Contraseña</label>
+                                        <input type="text" class="form-control" id="validationDefault01" value=""
+                                            required>
+                                    </div>
+                                    <div class="col-4 mb-4">
+                                        <label for="validationDefault03" class="form-label">Estado</label>
+                                        <select class="form-select custom-form-select"
+                                            aria-label="Default select example">
+                                            <option selected disabled>Seleccione una opción</option>
+                                            <option value="1">Activo</option>
+                                            <option value="2">Inactivo</option>
+                                            <option value="3">Deshabilitado</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer d-flex justify-content-end">
+                    <button class="btn btn-siguiente" type="button" data-bs-target="#modal-agregar2"
+                        data-bs-toggle="modal" data-bs-dismiss="modal">Siguiente</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal modal-agregar2 modal-agregar-cliente2 fade" id="modal-agregar2" aria-hidden="true"
+        aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+
+                    <h3 class="mt-2">Agregar Cliente</h3>
+
+                    <button type="button" class="btn-close my" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="container my-5">
+                        <div class="row agregar-content">
+                            <div class="col">
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="drop-container perfil">
+                                            <i class="fa-solid fa-cloud-arrow-up"></i>
+                                            <span>Adjunte foto de perfil</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer d-flex justify-content-between">
+                    <button class="btn btn-regresar" type="button" data-bs-target="#modal-agregar"
+                        data-bs-toggle="modal" data-bs-dismiss="modal">Regresar</button>
+                    <button class="btn-guardar" type="button" data-bs-dismiss="modal">Guardar<i
+                            class="fa-solid fa-floppy-disk"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- FIN MODAL -->
+
+    <!-- INICIO MODALS ACTUALIZAR -->
+    <div class="modal modal-agregar fade" id="modal-actualizar" tabindex="-1" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+
+                    <h3 class="mt-2">Actualizar Cliente</h3>
+
+                    <button type="button" class="btn-close my" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="container">
+                        <div class="row agregar-content">
+                            <div class="col">
+                                <div class="row agregar-content-flex">
+                                    <div class="col-4 mb-4">
+                                        <label for="validationDefault0" class="form-label">Nombres</label>
+                                        <input type="text" class="form-control" id="validationDefault01" value=""
+                                            required>
+                                    </div>
+                                    <div class="col-4 mb-4">
+                                        <label for="validationDefault02" class="form-label">Apellidos</label>
+                                        <input type="text" class="form-control" id="validationDefault01" value=""
+                                            required>
+                                    </div>
+                                    <div class="col-4 mb-4">
+                                        <label for="validationDefault04" class="form-label">DUI</label>
+                                        <input type="text" class="form-control" id="validationDefault01" value=""
+                                            required>
+                                    </div>
+                                    <div class="col-4 mb-4">
+                                        <label for="validationDefault04" class="form-label">Correo electrónico</label>
+                                        <input type="text" class="form-control" id="validationDefault01" value=""
+                                            required>
+                                    </div>
+                                    <div class="col-4 mb-4">
+                                        <label for="validationDefault05" class="form-label">Teléfono</label>
+                                        <input type="text" class="form-control" id="validationDefault01" value=""
+                                            required>
+                                    </div>
+                                    <div class="col-4 mb-4">
+                                        <label for="validationDefault03" class="form-label">Fecha de
+                                            nacimiento</label>
+                                        <input type="text" class="form-control" data-toggle="datepicker">
+                                    </div>
+                                    <div class="col-4 mb-4">
+                                        <label for="validationDefault06" class="form-label">Dirección</label>
+                                        <input type="text" class="form-control" id="validationDefault01" value=""
+                                            required>
+                                    </div>
+                                    <div class="col-4 mb-4">
+                                        <label for="validationDefault07" class="form-label">Nombre de usuario</label>
+                                        <input type="text" class="form-control" id="validationDefault01" value=""
+                                            required>
+                                    </div>
+                                    <div class="col-4 mb-4">
+                                        <label for="validationDefault08" class="form-label">Contraseña</label>
+                                        <input type="text" class="form-control" id="validationDefault01" value=""
+                                            required>
+                                    </div>
+                                    <div class="col-4 mb-4">
+                                        <label for="validationDefault03" class="form-label">Estado</label>
+                                        <select class="form-select custom-form-select"
+                                            aria-label="Default select example">
+                                            <option selected disabled>Seleccione una opción</option>
+                                            <option value="1">Activo</option>
+                                            <option value="2">Inactivo</option>
+                                            <option value="3">Deshabilitado</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer d-flex justify-content-end">
+                    <button class="btn btn-siguiente" type="button" data-bs-target="#modal-actualizar2"
+                        data-bs-toggle="modal" data-bs-dismiss="modal">Siguiente</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal modal-agregar2 modal-agregar-empleado2 fade" id="modal-actualizar2" aria-hidden="true"
+        aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+
+                    <h3 class="mt-2">Actualizar Cliente</h3>
+
+                    <button type="button" class="btn-close my" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="container my-5">
+                        <div class="row agregar-content">
+                            <div class="col">
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="drop-container perfil">
+                                            <i class="fa-solid fa-cloud-arrow-up"></i>
+                                            <span>Adjunte foto de perfil</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer d-flex justify-content-between">
+                    <button class="btn btn-regresar" type="button" data-bs-target="#modal-actualizar"
+                        data-bs-toggle="modal" data-bs-dismiss="modal">Regresar</button>
+                    <button class="btn-guardar" type="button" data-bs-dismiss="modal">Guardar<i
+                            class="fa-solid fa-floppy-disk"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- FIN MODALS ACTUALIZAR -->
+
+    <!-- INICIO MODAL DELETE -->
+    <div class="modal modal-eliminar fade" id="modal-eliminar" aria-hidden="true"
+        aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="container my-5">
+                        <div class="row">
+                            <div class="col eliminar-content">
+                                <i class="fa-solid fa-circle-exclamation mb-4"></i>
+                                <h2>¿Estás seguro?</h2>
+                                <span>El elemento se borrará de manera permanente</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer d-flex mx-2 justify-content-between">
+                    <button class="btn btn-cancel" type="button" data-bs-target="" data-bs-toggle="modal"
+                        data-bs-dismiss="modal">Cancelar</button>
+                    <button class="btn btn-siguiente" type="button" data-bs-target="" data-bs-toggle="modal"
+                        data-bs-dismiss="modal">Continuar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- FIN MODAL DELETE -->
+
+    <!---------------- SCRIPTS ---------------->
+
+    <!-- BOOTSTRAP -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
+    <!-- DATATABLE JS -->
+    <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.5/js/dataTables.bootstrap5.min.js"></script>
+    <script src="../../controllers/privado/dashboard.js"></script>
+    <script src="../../controllers/privado/clientes.js"></script>
+
+</body>
+
+</html>
