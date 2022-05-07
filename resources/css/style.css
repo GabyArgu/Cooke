@@ -534,6 +534,13 @@ textarea.form-control:focus {
 
 .Confi-Logo {
   color: var(--rosadoTitulos);
+  transition: all .3s ease;
+  cursor: pointer;
+}
+
+.Confi-Logo:hover {
+  color: var(--blanco);
+  transform: scale(1.1);
 }
 
 
