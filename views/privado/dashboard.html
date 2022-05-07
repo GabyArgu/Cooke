@@ -33,19 +33,21 @@
 <body>
 
     <div class="wrapper">
+        <!-- INICIO DEL SIDEBAR DE LA PAGINA -->
         <nav id="sidebarMenu" class="sidebar">
             <a href="dashboard.html" class="sidebar-conent-header d-flex"><img src="../../resources/img/index/logo2.png"
                     alt="" id="logo_inicio" class="mx-auto d-block"></a>
+            <!-- INICIO DEL CONTENIDO DEL SIDEBAR DE LA PAGINA -->
             <div class="sidebar-content">
-
+                <!-- APARTADO DONDE APARECERA EL AVATAR Y NOMBRE DEL USUARIO -->
                 <ul class="nav flex-column justify-content-center align-items-center">
                     <img src="../../resources/img/dashboard/usuario.png" class="Usua-Ico" alt="">
                     <h5 class="Nombre-Usu">Gabriela Méndez</h5>
                     <a class="Adm" href="#">Administrar</a>
                 </ul>
-
+                <!-- APARTADO DE LOS ENLACES A LAS DIFERENTES PAGINAS DEL SITIO -->
                 <ul class="sidebar-nav Botones-Sider">
-
+                    <!-- ENLACES DE PRINCIPAL -->
                     <li class="sidebar-item has-submenu mt-2">
                         <a href="#" class="sidebar-link collapsed mt-4">
                             <i class="align-middle mb-2 fas fa-fw fa-home"></i> <span
@@ -53,9 +55,9 @@
                         </a>
                         <ul id="dashboards" class="list-unstyled collapse submenu mt-2" data-bs-parent="#sidebar">
                             <li class="sidebar-item"><a class="sidebar-link" href="dashboard.html">Dashboard</a></li>
-
                         </ul>
                     </li>
+                    <!-- ENLACES DE TIENDA -->
                     <li class="sidebar-item has-submenu mt-5">
                         <a href="#" class="sidebar-link collapsed mt-4">
                             <i class="fa-solid fa-shop"></i> <span class="align-middle">TIENDA</span>
@@ -64,12 +66,14 @@
                             <li class="sidebar-item"><a class="sidebar-link" href="productos.html">Productos</a>
                             </li>
                             <li class="sidebar-item"><a class="sidebar-link"
-                                    href="categorias_productos.html">Categoría</a></li>
+                                    href="categoriasProductos.html">Categoría</a></li>
                             <li class="sidebar-item"><a class="sidebar-link"
                                     href="subcategorias_productos.html">Subcategoria</a></li>
                             <li class="sidebar-item"><a class="sidebar-link" href="pedidos.html">Pedidos</a></li>
+                            <li class="sidebar-item"><a class="sidebar-link" href="resenas.html">Reseñas</a></li>
                         </ul>
                     </li>
+                    <!-- ENLACES DE BLOG -->
                     <li class="sidebar-item mt-5">
                         <a href="#" class="sidebar-link collapsed mt-4">
                             <i class="fa-solid fa-book me-2"></i><span class="align-middle">BLOG</span>
@@ -78,10 +82,11 @@
                             <li class="sidebar-item"><a class="sidebar-link" href="articulo.html">Artículo</a></li>
                             <li class="sidebar-item"><a class="sidebar-link" href="categorias_blog.html">Categoría</a>
                             </li>
-
+                            <li class="sidebar-item"><a class="sidebar-link"
+                                    href="comentarios_blog.html">Comentarios</a></li>
                         </ul>
                     </li>
-
+                    <!-- ENLACES DE ADMINISTRACIÓN -->
                     <li class="sidebar-item mt-5">
                         <a href="#" class="sidebar-link collapsed mt-4">
                             <i class="fa-solid me-2 fa-database"></i><span class="align-middle">ADMINISTRACIÓN</span>
@@ -92,14 +97,16 @@
                             </li>
                             <li class="sidebar-item"><a class="sidebar-link" href="marcas_proveedores.html">Marcas y
                                     proveedores</a></li>
+                            <li class="sidebar-item"><a class="sidebar-link" href="catalogo_color.html">Colores</a>
+                            </li>
+                            <li class="sidebar-item"><a class="sidebar-link" href="etiqueta.html">Etiquetas</a></li>
                         </ul>
                     </li>
-
-
                 </ul>
             </div>
+            <!-- FIN DEL CONTENIDO DEL SIDEBAR DE LA PAGINA -->
         </nav>
-
+        <!-- FIN DEL SIDEBAR DE LA PAGINA -->
         <div class="main productos">
             <header>
                 <nav class="navbar navbar-expand navbar-theme">
@@ -397,7 +404,7 @@
     </div>
 
     <!---------------- SCRIPTS ---------------->
-    
+
     <!-- BOOTSTRAP -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
