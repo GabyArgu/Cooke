@@ -534,6 +534,13 @@ textarea.form-control:focus {
 
 .Confi-Logo {
   color: var(--rosadoTitulos);
+  transition: all .3s ease;
+  cursor: pointer;
+}
+
+.Confi-Logo:hover {
+  color: var(--blanco);
+  transform: scale(1.1);
 }
 
 
@@ -1449,7 +1456,17 @@ div.dataTables_wrapper div.dataTables_length select {
   justify-content: center;
 }
 
+.picker{
+  padding:  5px !important;
+  border-bottom-left-radius: 0px !important;
+  border-top-left-radius: 0px !important;
+}
 
+.picker2{
+  border-bottom-right-radius: 0px !important;
+  border-top-right-radius: 0px !important;
+  border-right: 0px !important;
+}
 /* --------------------------------------------------------------FIN CATEGORÍAS Y SUBCATEGORÍAS-----------------------------------------------------------*/
 
 

@@ -31,21 +31,22 @@
 </head>
 
 <body>
-
     <div class="wrapper">
+        <!-- INICIO DEL SIDEBAR DE LA PAGINA -->
         <nav id="sidebarMenu" class="sidebar">
             <a href="dashboard.html" class="sidebar-conent-header d-flex"><img src="../../resources/img/index/logo2.png"
                     alt="" id="logo_inicio" class="mx-auto d-block"></a>
+            <!-- INICIO DEL CONTENIDO DEL SIDEBAR DE LA PAGINA -->
             <div class="sidebar-content">
-
+                <!-- APARTADO DONDE APARECERA EL AVATAR Y NOMBRE DEL USUARIO -->
                 <ul class="nav flex-column justify-content-center align-items-center">
                     <img src="../../resources/img/dashboard/usuario.png" class="Usua-Ico" alt="">
                     <h5 class="Nombre-Usu">Gabriela Méndez</h5>
                     <a class="Adm" href="#">Administrar</a>
                 </ul>
-
+                <!-- APARTADO DE LOS ENLACES A LAS DIFERENTES PAGINAS DEL SITIO -->
                 <ul class="sidebar-nav Botones-Sider">
-
+                    <!-- ENLACES DE PRINCIPAL -->
                     <li class="sidebar-item has-submenu mt-2">
                         <a href="#" class="sidebar-link collapsed mt-4">
                             <i class="align-middle mb-2 fas fa-fw fa-home"></i> <span
@@ -53,9 +54,9 @@
                         </a>
                         <ul id="dashboards" class="list-unstyled collapse submenu mt-2" data-bs-parent="#sidebar">
                             <li class="sidebar-item"><a class="sidebar-link" href="dashboard.html">Dashboard</a></li>
-
                         </ul>
                     </li>
+                    <!-- ENLACES DE TIENDA -->
                     <li class="sidebar-item has-submenu mt-5">
                         <a href="#" class="sidebar-link collapsed mt-4">
                             <i class="fa-solid fa-shop"></i> <span class="align-middle">TIENDA</span>
@@ -68,8 +69,10 @@
                             <li class="sidebar-item"><a class="sidebar-link"
                                     href="subcategorias_productos.html">Subcategoria</a></li>
                             <li class="sidebar-item"><a class="sidebar-link" href="pedidos.html">Pedidos</a></li>
+                            <li class="sidebar-item"><a class="sidebar-link" href="reseñas.html">Reseñas</a></li>
                         </ul>
                     </li>
+                    <!-- ENLACES DE BLOG -->
                     <li class="sidebar-item mt-5">
                         <a href="#" class="sidebar-link collapsed mt-4">
                             <i class="fa-solid fa-book me-2"></i><span class="align-middle">BLOG</span>
@@ -78,10 +81,10 @@
                             <li class="sidebar-item"><a class="sidebar-link" href="articulo.html">Artículo</a></li>
                             <li class="sidebar-item"><a class="sidebar-link" href="categorias_blog.html">Categoría</a>
                             </li>
-
+                            <li class="sidebar-item"><a class="sidebar-link" href="comentarios.html">Comentarios</a></li>
                         </ul>
                     </li>
-
+                    <!-- ENLACES DE ADMINISTRACIÓN -->
                     <li class="sidebar-item mt-5">
                         <a href="#" class="sidebar-link collapsed mt-4">
                             <i class="fa-solid me-2 fa-database"></i><span class="align-middle">ADMINISTRACIÓN</span>
@@ -92,30 +95,32 @@
                             </li>
                             <li class="sidebar-item"><a class="sidebar-link" href="marcas_proveedores.html">Marcas y
                                     proveedores</a></li>
+                            <li class="sidebar-item"><a class="sidebar-link" href="catalogo_color.html">Colores</a>
+                            </li>
+                            <li class="sidebar-item"><a class="sidebar-link" href="etiqueta.html">Etiquetas</a></li>
                         </ul>
                     </li>
-
-
                 </ul>
             </div>
+            <!-- FIN DEL CONTENIDO DEL SIDEBAR DE LA PAGINA -->
         </nav>
+        <!-- FIN DEL SIDEBAR DE LA PAGINA -->
 
+        <!-- INICIO DEL CONTENIDO PRINCIPAL DE LA PAGINA -->
         <div class="main productos">
+            <!-- HEADER DE LA PAGINA CONTIENE EL NAVBAR Y SUS COMPONENTES -->
             <header>
                 <nav class="navbar navbar-expand navbar-theme">
                     <a class="sidebar-toggle d-flex me-2">
                         <i class="fa-solid fa-bars" onclick="sidebarToggle()"></i>
                     </a>
-
                     <div class="Lupa">
                         <i class="fa-solid fa-magnifying-glass fa-lg"></i>
                     </div>
-
                     <form class="d-none d-sm-inline-block me-auto ">
                         <input class=" form-control form-control-lite barra-buscar" type="text"
                             placeholder="Buscar en el sitio">
                     </form>
-
                     <div class="opciones-nav d-flex justify-content-center align-items-center">
                         <div>
                             <i class="fa-solid fa-moon fa-2x me-2 Confi-Logo"></i>
@@ -135,6 +140,7 @@
                     </div>
                 </nav>
             </header>
+            <!-- MAIN O CONTENIDO DE LA PAGINA -->
             <main class="content">
                 <div class="container-fluid">
                     <div class="header">
@@ -176,7 +182,6 @@
                                                     </span>
                                                 </div>
                                             </td>
-
                                         </tr>
                                         <tr>
                                             <td data-title="COLOR" class="nombre-categoria">Rojo</td>
@@ -361,6 +366,7 @@
                     </div>
                 </div>
             </main>
+            <!-- FOOTER DE LA PAGINA -->
             <footer>
                 <div class="text-center p-1 CopCo">
                     © 2021 Copyright:
@@ -368,16 +374,16 @@
                 </div>
             </footer>
         </div>
+        <!-- FIN DEL CONTENIDO PRINCIPAL DE LA PAGINA -->
     </div>
-
-    <!-- INICIO MODALS AGREGAR-->
+    <!-- INICIO DEL MODALS DE AGREGAR COLORES DE LOS PRODUCTOS EXISTENTES-->
     <div class="modal modal-agregar modal-agregar-categoria fade" id="modal-agregar" tabindex="-1"
         aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-md">
             <div class="modal-content">
                 <div class="modal-header">
 
-                    <h3 class="mt-2">Agregar categoría</h3>
+                    <h3 class="mt-2">Agregar color</h3>
 
                     <button type="button" class="btn-close my" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
@@ -388,18 +394,19 @@
                                 <div class="row agregar-content agregar-content-flex">
                                     <div class="col-12 mb-4">
                                         <label for="validationDefault01" class="form-label">Nombre</label>
-                                        <input type="text" class="form-control" id="validationDefault01" value=""
-                                            required>
-                                    </div>
-                                    <div class="col-12 mb-4">
-                                        <label for="validationDefault01" class="form-label">Descripción</label>
-                                        <textarea class="form-control" id="exampleFormControlTextarea1"
-                                            rows="6"></textarea>
+                                        <div class="col-12 d-flex">
+                                            <div class="col-10">
+                                                <input type="text" class="form-control picker2" id="validationDefault01"
+                                                    value="" required>
+                                            </div>
+                                            <div class="col-2">
+                                                <input type="color" class="form-control form-control-color picker"
+                                                    id="exampleColorInput" value="#E79CC7" title="Seleecione un color">
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-
-
                         </div>
                     </div>
                 </div>
@@ -410,15 +417,16 @@
             </div>
         </div>
     </div>
+    <!-- FIN DEL MODALS DE AGREGAR COLORES DE LOS PRODUCTOS EXISTENTES-->
 
-    <!-- INICIO MODALS ACTUALIZAR -->
+    <!-- INICIO DEL MODALS DE ACTUALIZAR COLORES DE LOS PRODUCTOS EXISTENTES-->
     <div class="modal modal-agregar modal-agregar-categoria fade" id="modal-actualizar" tabindex="-1"
         aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-md">
             <div class="modal-content">
                 <div class="modal-header">
 
-                    <h3 class="mt-2">Editar categoría</h3>
+                    <h3 class="mt-2">Editar colores</h3>
 
                     <button type="button" class="btn-close my" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
@@ -429,18 +437,19 @@
                                 <div class="row agregar-content agregar-content-flex">
                                     <div class="col-12 mb-4">
                                         <label for="validationDefault01" class="form-label">Nombre</label>
-                                        <input type="text" class="form-control" id="validationDefault01" value=""
-                                            required>
-                                    </div>
-                                    <div class="col-12 mb-4">
-                                        <label for="validationDefault01" class="form-label">Descripción</label>
-                                        <textarea class="form-control" id="exampleFormControlTextarea1"
-                                            rows="6"></textarea>
+                                        <div class="col-12 d-flex">
+                                            <div class="col-10">
+                                                <input type="text" class="form-control picker2" id="validationDefault01"
+                                                    value="" required>
+                                            </div>
+                                            <div class="col-2">
+                                                <input type="color" class="form-control form-control-color picker"
+                                                    id="exampleColorInput" value="#E79CC7" title="Seleecione un color">
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-
-
                         </div>
                     </div>
                 </div>
@@ -451,10 +460,9 @@
             </div>
         </div>
     </div>
+    <!-- FIN DEL MODALS DE ACTUALIZAR COLORES DE LOS PRODUCTOS EXISTENTES-->
 
-    <!-- FIN MODALS ACTUALIZAR -->
-
-    <!-- INICIO MODAL DELETE -->
+    <!-- INICIO DEL MODALS DE DELETE COLORES DE LOS PRODUCTOS EXISTENTES -->
     <div class="modal modal-eliminar fade" id="modal-eliminar" aria-hidden="true"
         aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
         <div class="modal-dialog modal-dialog-centered modal-xl">
@@ -482,7 +490,7 @@
             </div>
         </div>
     </div>
-    <!-- FIN MODAL DELETE -->
+    <!-- FIN DEL MODALS DE DELETE COLORES DE LOS PRODUCTOS EXISTENTES -->
 
     <!---------------- SCRIPTS ---------------->
 
@@ -492,9 +500,9 @@
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script>
 
-   <!-- DATATABLE JS -->
-   <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
-   <script src="https://cdn.datatables.net/1.11.5/js/dataTables.bootstrap5.min.js"></script>
+    <!-- DATATABLE JS -->
+    <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.5/js/dataTables.bootstrap5.min.js"></script>
 
     <script src="../../controllers/privado/dashboard.js"></script>
     <script src="../../controllers/privado/categorias_productos.js"></script>

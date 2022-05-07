@@ -39,6 +39,7 @@ if (isset($_GET['action'])) {
         // Se compara la acción a realizar cuando el administrador no ha iniciado sesión.
         switch ($_GET['action']) {
             case 'readUsers':
+                //Verificamos si existen usuarios registrados en la base de datos, para que en caso de no, registrar el primer usuario
                 if ($usuario->readAll()) {
                     $result['status'] = 1;
                     $result['message'] = 'Existe al menos un usuario registrado';
@@ -46,16 +47,27 @@ if (isset($_GET['action'])) {
                     $result['exception'] = 'No existen usuarios registrados';
                 }
                 break;
-            case 'register':
+            case 'register-first-user':
+                //Especificamos los inputs por medio de su atributo name, y los capturamos con el método post
                 $_POST = $usuario->validateForm($_POST);
                 if (!$usuario->setNombres($_POST['nombres'])) {
-                    $result['exception'] = 'Nombres incorrectos';
+                    $result['exception'] = 'Nombres inválidos';
                 } elseif (!$usuario->setApellidos($_POST['apellidos'])) {
-                    $result['exception'] = 'Apellidos incorrectos';
+                    $result['exception'] = 'Apellidos inválidos';
+                } elseif (!$usuario->setCargo(1)){
+                    $result['exception'] = 'Cargo inválido';
                 } elseif (!$usuario->setCorreo($_POST['correo'])) {
-                    $result['exception'] = 'Correo incorrecto';
-                } elseif (!$usuario->setAlias($_POST['alias'])) {
-                    $result['exception'] = 'Alias incorrecto';
+                    $result['exception'] = 'Correo inválido';
+                } elseif (!$usuario->setDireccion($_POST['direccion'])) {
+                    $result['exception'] = 'Direccion inválida';
+                } elseif (!$usuario->setTelefono($_POST['telefono'])) {
+                    $result['exception'] = 'Teléfono inválido';
+                }elseif (!$usuario->setFoto('fotodeprueba')) {
+                    $result['exception'] = 'Foto inválida';
+                }elseif (!$usuario->setEstado(1)) {
+                    $result['exception'] = 'Estado inválido';
+                }elseif (!$usuario->setAlias($_POST['alias'])) {
+                    $result['exception'] = 'Alias inválido';
                 } elseif ($_POST['clave'] != $_POST['confirmar']) {
                     $result['exception'] = 'Claves diferentes';
                 } elseif (!$usuario->setClave($_POST['clave'])) {
