@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="../../resources/css/assets/css/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../resources/css/style.css">
+    <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mohave&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap" rel="stylesheet">
+
+
+    <link rel="icon" type="icon/png" href="../../resources/img/index/logo.png">
+    <!-- libreria iconos FONTAWESOME-->
+    <link rel="icon" type="icon/png" href="../../resources/img/index/logo.png">
+    <script src="https://kit.fontawesome.com/479a6c23da.js" crossorigin="anonymous"></script>
+
+    <!-- Libreria dropzone -->
+    <script src="https://unpkg.com/dropzone@5/dist/min/dropzone.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/dropzone@5/dist/min/dropzone.min.css" type="text/css" />
+    <!-- Datepicker -->
+    <title>Cooké</title>
+</head>
+
+<body>
+
+    <div class="wrapper">
+        <nav id="sidebarMenu" class="sidebar">
+            <a href="dashboard.html" class="sidebar-conent-header d-flex"><img src="../../resources/img/index/logo2.png"
+                    alt="" id="logo_inicio" class="mx-auto d-block"></a>
+            <div class="sidebar-content">
+
+                <ul class="nav flex-column justify-content-center align-items-center">
+                    <img src="../../resources/img/dashboard/usuario.png" class="Usua-Ico" alt="">
+                    <h5 class="Nombre-Usu">Gabriela Méndez</h5>
+                    <a class="Adm" href="#">Administrar</a>
+                </ul>
+
+                <ul class="sidebar-nav Botones-Sider">
+
+                    <li class="sidebar-item has-submenu mt-2">
+                        <a href="#" class="sidebar-link collapsed mt-4">
+                            <i class="align-middle mb-2 fas fa-fw fa-home"></i> <span
+                                class="align-middle">PRINCIPAL</span>
+                        </a>
+                        <ul id="dashboards" class="list-unstyled collapse submenu mt-2" data-bs-parent="#sidebar">
+                            <li class="sidebar-item"><a class="sidebar-link" href="dashboard.html">Dashboard</a></li>
+
+                        </ul>
+                    </li>
+                    <li class="sidebar-item has-submenu mt-5">
+                        <a href="#" class="sidebar-link collapsed mt-4">
+                            <i class="fa-solid fa-shop"></i> <span class="align-middle">TIENDA</span>
+                        </a>
+                        <ul id="Tienda" class="list-unstyled submenu collapse">
+                            <li class="sidebar-item"><a class="sidebar-link" href="productos.html">Productos</a>
+                            </li>
+                            <li class="sidebar-item"><a class="sidebar-link"
+                                    href="categorias_productos.html">Categoría</a></li>
+                            <li class="sidebar-item"><a class="sidebar-link"
+                                    href="subcategorias_productos.html">Subcategoria</a></li>
+                            <li class="sidebar-item"><a class="sidebar-link" href="pedidos.html">Pedidos</a></li>
+                        </ul>
+                    </li>
+                    <li class="sidebar-item mt-5">
+                        <a href="#" class="sidebar-link collapsed mt-4">
+                            <i class="fa-solid fa-book me-2"></i><span class="align-middle">BLOG</span>
+                        </a>
+                        <ul id="blog" class="list-unstyled collapse submenu" data-bs-parent="#sidebar">
+                            <li class="sidebar-item"><a class="sidebar-link" href="articulo.html">Artículo</a></li>
+                            <li class="sidebar-item"><a class="sidebar-link" href="categorias_blog.html">Categoría</a>
+                            </li>
+
+                        </ul>
+                    </li>
+
+                    <li class="sidebar-item mt-5">
+                        <a href="#" class="sidebar-link collapsed mt-4">
+                            <i class="fa-solid me-2 fa-database"></i><span class="align-middle">ADMINISTRACIÓN</span>
+                        </a>
+                        <ul id="forms" class=" list-unstyled collapse submenu" data-bs-parent="#sidebar">
+                            <li class="sidebar-item"><a class="sidebar-link" href="clientes.html">Clientes</a></li>
+                            <li class="sidebar-item"><a class="sidebar-link" href="empleados.html">Empleados</a>
+                            </li>
+                            <li class="sidebar-item"><a class="sidebar-link" href="marcas_proveedores.html">Marcas y
+                                    proveedores</a></li>
+                        </ul>
+                    </li>
+
+
+                </ul>
+            </div>
+        </nav>
+
+        <div class="main productos">
+            <header>
+                <nav class="navbar navbar-expand navbar-theme">
+                    <a class="sidebar-toggle d-flex me-2">
+                        <i class="fa-solid fa-bars" onclick="sidebarToggle()"></i>
+                    </a>
+
+                    <div class="Lupa">
+                        <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+                    </div>
+
+                    <form class="d-none d-sm-inline-block me-auto ">
+                        <input class=" form-control form-control-lite barra-buscar" type="text"
+                            placeholder="Buscar en el sitio">
+                    </form>
+
+                    <div class="opciones-nav d-flex justify-content-center align-items-center">
+                        <div>
+                            <i class="fa-solid fa-moon fa-2x me-2 Confi-Logo"></i>
+                        </div>
+                        <ul class="navbar-nav ms-auto">
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown" href="#" id="navbarDropdownMenuLink" role="button"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="fa-solid fa-gear fa-2x Confi-Logo"></i>
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
+                                    <li><a class="dropdown-item" href="cuenta.html">Perfil</a></li>
+                                    <li><a class="dropdown-item" href="index.html">Cerrar Sesión</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </header>
+
+            <main class="content">
+
+                <div class="container-fluid">
+
+                    <div class="header">
+                        <h1 class="Bien">Bienvenida de vuelta,</h1>
+                        <h2 class="N-Usuar">Gabriela</h2>
+                    </div>
+
+                    <div class="row mb-4">
+
+                        <div class="col-lg-4">
+
+                            <div class="card mb-3">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-8">
+                                            <div class="numbers">
+                                                <p class="Title-Cart">DINERO DE HOY
+                                                </p>
+                                                <h5 class="Monto">
+                                                    $12,000
+                                                </h5>
+                                                <p class="mb-0 Porcentaje">
+                                                    <span class="text-success text-sm font-weight-bolder">+55%</span>
+                                                    desde ayer
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="col-4 text-end">
+                                            <div class="icon icon-shape">
+                                                <i class="fa-solid fa-money-bills fa-2x"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="col-lg-4">
+                            <div class="card mb-3">
+                                <div class="card-body p-3">
+                                    <div class="row">
+                                        <div class="col-8">
+                                            <div class="numbers">
+                                                <p class="Title-Cart">NUEVOS CLIENTES
+                                                </p>
+                                                <h5 class="Monto">
+                                                    $1,000
+                                                </h5>
+                                                <p class="mb-0">
+                                                    <span class="text-danger text-sm font-weight-bolder">-7%</span>
+                                                    desde el ultimo mes
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="col-4 text-end">
+                                            <div class=" icon icon-shape ">
+                                                <i class="fa-solid fa-user-group fa-2x"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="col-lg-4 mb-xl-0 mb-4">
+                            <div class="card dashboard-card">
+                                <div class="card-body p-3">
+                                    <div class="row">
+                                        <div class="col-8">
+                                            <div class="numbers">
+                                                <p class="Title-Cart">VENTAS DEL MES
+                                                </p>
+                                                <h5 class="Monto">
+                                                    $53,000
+                                                </h5>
+                                                <p class="mb-0 Porcentaje">
+                                                    <span class="text-success text-sm font-weight-bolder">+18%</span>
+                                                    desde el mes pasado
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="col-4 text-end">
+                                            <div class=" icon icon-shape ">
+                                                <i class="fa-solid fa-calendar-days fa-2x"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="row mb-4">
+
+                        <div class="col-lg-6">
+                            <div class="card card-chart flex-fill w-100 mb-3">
+                                <div class="card-body">
+                                    <h5 class="mb-4 mt-2 Title-Cart fs-2 text-center">Resumen de ventas diarias</h5>
+                                    <div class="chart">
+                                        <canvas id="myChart"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6">
+                            <div class="card card-chart flex-fill w-100 mb-3">
+                                <div class="card-body">
+                                    <h5 class="mb-4 mt-2 Title-Cart fs-2 text-center">Ventas por categoría</h5>
+                                    <div class="chart">
+                                        <canvas id="myChart2"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="grafi2 ms-auto">
+                        <h2 class="ps-4 Title-Cart text-center my-3 fs-2">Pedidos de hoy</h2>
+                        <div class="table-responsive p-4">
+                            <table class="table table-striped table-sm">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">#</th>
+                                        <th scope="col">Nombre</th>
+                                        <th scope="col">Apellido</th>
+                                        <th scope="col">Producto</th>
+                                        <th scope="col">Cantidad</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>1,001</td>
+                                        <td>Gabriela</td>
+                                        <td>Méndez</td>
+                                        <td>Waflera</td>
+                                        <td>15</td>
+                                    </tr>
+                                    <tr>
+                                        <td>1,002</td>
+                                        <td>Nelson</td>
+                                        <td>Almendares</td>
+                                        <td>Batidora</td>
+                                        <td>2</td>
+                                    </tr>
+                                    <tr>
+                                        <td>1,003</td>
+                                        <td>Elisa</td>
+                                        <td>Sanchez</td>
+                                        <td>Cubiertos</td>
+                                        <td>50</td>
+                                    </tr>
+                                    <tr>
+                                        <td>1,004</td>
+                                        <td>Daniel</td>
+                                        <td>Garcia</td>
+                                        <td>Sarten</td>
+                                        <td>4</td>
+                                    </tr>
+                                    <tr>
+                                        <td>1,005</td>
+                                        <td>Gerardo</td>
+                                        <td>Rivera</td>
+                                        <td>Recetas 4K</td>
+                                        <td>40</td>
+                                    </tr>
+                                    <tr>
+                                        <td>1,006</td>
+                                        <td>Raquel</td>
+                                        <td>Barrera</td>
+                                        <td>Tostadora</td>
+                                        <td>2</td>
+                                    </tr>
+                                    <tr>
+                                        <td>1,007</td>
+                                        <td>Oscar</td>
+                                        <td>Orellana</td>
+                                        <td>Freidora</td>
+                                        <td>3</td>
+                                    </tr>
+                                    <tr>
+                                        <td>1,008</td>
+                                        <td>Leon</td>
+                                        <td>Peréz</td>
+                                        <td>Salero Dorado</td>
+                                        <td>7</td>
+                                    </tr>
+                                    <tr>
+                                        <td>1,009</td>
+                                        <td>Melanie</td>
+                                        <td>Argumedo</td>
+                                        <td>Vasos chinos</td>
+                                        <td>15</td>
+                                    </tr>
+                                    <tr>
+                                        <td>1,010</td>
+                                        <td>Santiago</td>
+                                        <td>Argueta</td>
+                                        <td>Delantal</td>
+                                        <td>34</td>
+                                    </tr>
+                                    <tr>
+                                        <td>1,011</td>
+                                        <td>Josué</td>
+                                        <td>Guinea</td>
+                                        <td>Taza pequeña</td>
+                                        <td>4</td>
+                                    </tr>
+                                    <tr>
+                                        <td>1,012</td>
+                                        <td>Minerva</td>
+                                        <td>Mancia</td>
+                                        <td>Extractor</td>
+                                        <td>19</td>
+                                    </tr>
+                                    <tr>
+                                        <td>1,013</td>
+                                        <td>Nicolle</td>
+                                        <td>Delgado</td>
+                                        <td>Olla grande</td>
+                                        <td>14</td>
+                                    </tr>
+                                    <tr>
+                                        <td>1,014</td>
+                                        <td>Carlos</td>
+                                        <td>Paredes</td>
+                                        <td>Porta vasos</td>
+                                        <td>29</td>
+                                    </tr>
+                                    <tr>
+                                        <td>1,015</td>
+                                        <td>Elmer</td>
+                                        <td>Salamanca</td>
+                                        <td>Anime cubiertos</td>
+                                        <td>90</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <footer>
+                    <div class="text-center p-1 mt-4 CopCo">
+                        © 2021 Copyright:
+                        <a class="text-reset fw-bold" href="https://github.com/GabyArgu/Cooke/tree/ROscar">Cooké.com</a>
+                    </div>
+                </footer>
+            </main>
+        </div>
+
+    </div>
+    </div>
+
+    <!---------------- SCRIPTS ---------------->
+    
+    <!-- BOOTSTRAP -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js"
+        integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"
+        integrity="sha384-zNy6FEbO50N+Cg5wap8IKA4M/ZnLJgzc6w2NqACZaK0u0FXfOWRRJOnQtpZun8ha"
+        crossorigin="anonymous"></script>
+
+    <!-- TAGIFY RESOURCE -->
+    <script src="https://unpkg.com/@yaireo/tagify"></script>
+    <script src="https://unpkg.com/@yaireo/tagify/dist/tagify.polyfills.min.js"></script>
+    <link href="https://unpkg.com/@yaireo/tagify/dist/tagify.css" rel="stylesheet" type="text/css" />
+    <script src="../../controllers/privado/charts.js"></script>
+    <script src="../../controllers/privado/dashboard.js"></script>
+
+</body>
+
+</html>

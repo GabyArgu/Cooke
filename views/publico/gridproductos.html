@@ -1,0 +1,1033 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="../../resources/css/assets/css/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../resources/css/estile.css">
+    <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mohave&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap" rel="stylesheet">
+
+    <link rel="icon" type="icon/png" href="../../resources/img/index/logo.png">
+    <!-- libreria iconos FONTAWESOME-->
+    <link rel="icon" type="icon/png" href="../../resources/img/index/logo.png">
+    <script src="https://kit.fontawesome.com/479a6c23da.js" crossorigin="anonymous"></script>
+    <title>Cooké</title>
+</head>
+
+<body class="grid-productos">
+    <div id="container-fluid content-wrapper">
+
+        <!-- INICIO NAVBAR DE LA PÁGINA-->
+        <header>
+            <!-- INICIA NAVBAR -->
+            <nav class="navbar fixed-top navbar-expand-lg navbar-light menu" id="navbar-page">
+                <div class=" container-fluid">
+                    <a class="navbar-brand me-auto" href="index.html"><img src="../../resources/img/index/logo2.png"
+                            alt="" id="logo_inicio" class="mx-auto d-block"></a>
+                    <button class="navbar-toggler collapsed d-flex d-lg-none flex-column justify-content-around"
+                        type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+                        aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="toggler-icon top-bar"></span>
+                        <span class="toggler-icon middle-bar"></span>
+                        <span class="toggler-icon bottom-bar"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 textcolor">
+                            <li class="nav-item dropdown textcolor2">
+                                <a class="nav-link dropdown" href="categoria.html" id="navbarDropdownMenuLink"
+                                    role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Categorías
+                                </a>
+                                <ul class="dropdown-menu dropdown-categorias" aria-labelledby="navbarDropdownMenuLink">
+                                    <li><a class="dropdown-item" href="categoria.html">Cocina</a></li>
+                                    <li><a class="dropdown-item" href="categoria.html">Utensilios</a></li>
+                                    <li><a class="dropdown-item" href="categoria.html">Eléctrodomesticos</a></li>
+                                    <li><a class="dropdown-item" href="categoria.html">Recetas</a></li>
+                                </ul>
+                            </li>
+                            <li class="nav-item textcolor2">
+                                <a class="nav-link active " aria-current="page" href="gridproductos.html">Destacados</a>
+                            </li>
+                            <li class="nav-item textcolor2">
+                                <a class="nav-link active" aria-current="page" href="nosotros.html">Nosotros</a>
+                            </li>
+                            <li class="nav-item textcolor2">
+                                <a class="nav-link active" aria-current="page" href="blog.html">Blog</a>
+                            </li>
+                            <li class="nav-item textcolor2">
+                                <a class="nav-link active" aria-current="page" href="contactanos.html">Contacto</a>
+                            </li>
+
+                            <div class="iconos-navbar">
+
+                                <li class="nav-item textcolor">
+                                    <a class="nav-link active img-hover" aria-current="page" href="login.html"></a>
+                                </li>
+
+                                <li class="nav-item textcolor">
+                                    <a class="nav-link active img-hover2" aria-current="page" href="deseos.html"></a>
+                                </li>
+
+                                <li class="nav-item textcolor nav-carrito">
+                                    <a class="nav-link active img-hover3 nav-carrito" aria-current="page"
+                                        data-bs-toggle="offcanvas" data-bs-target="#sidebarCarrito"
+                                        aria-controls="offcanvasRight"></a>
+                                </li>
+                            </div>
+
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </header>
+        <!-- FIN NAVBAR DE LA PÁGINA-->
+
+        <!-- INICIO CARRITO DE LA PÁGINA-->
+        <div class="offcanvas offcanvas-end" id="sidebarCarrito" aria-labelledby="offcanvasRightLabel">
+            <!-- INICIA CARRITO -->
+
+            <div class="offcanvas-body">
+
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+
+                <div id="cd-cart">
+                    <h2>CARRITO DE COMPRAS</h2>
+                    <ul class="cd-cart-items">
+
+                        <li class="product-item-cart">
+                            <div class="item">
+                                <span class="top-0 start-100 translate-middle badge quantity-badge">1</span>
+                                <img src="../../resources/img/index/olla.png" alt="" class="cart-img">
+                            </div>
+                            <div class="detail-box">
+                                <div class="cart-product-title">Cacerola Steel Co Healthy</div>
+                                <div class="cart-price">$29.74</div>
+                            </div>
+                            <i class="fa-solid fa-xmark cd-item-remove"></i>
+                        </li>
+
+                        <li class="product-item-cart">
+                            <div class="item">
+                                <span class="top-0 start-100 translate-middle badge quantity-badge">2</span>
+                                <img src="../../resources/img/index/cuchara.png" alt="" class="cart-img">
+                            </div>
+                            <div class="detail-box">
+                                <div class="cart-product-title">Cucharón de madera</div>
+                                <div class="cart-price">$19.80</div>
+                            </div>
+                            <i class="fa-solid fa-xmark cd-item-remove"></i>
+                        </li>
+
+                    </ul>
+
+                    <div class="cd-cart-total">
+                        <p class="card-total-line">Subtotal<span>$49.54</span></p>
+                        <p class="card-total-line">Envío<span>$0.00</span></p>
+                        <p class="total card-total-line">Total<span class="total">$49.54</span></p>
+                    </div> <!-- cd-cart-total -->
+
+                    <a href="carrito.html" class="checkout-btn">
+                        <span>
+                            <i class="fa-solid fa-cart-shopping"></i>
+                        </span> VER CARRITO
+                    </a>
+
+                    <a href="checkout.html" class="checkout-btn">
+                        <span>
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </span> IR A PAGAR
+                    </a>
+
+                </div> <!-- cd-cart -->
+
+            </div>
+
+        </div>
+        <!-- FIN CARRITO DE LA PÁGINA-->
+
+        <!-- INICIO DEL MAIN DE LA PÁGINA-->
+        <main>
+            <div class="container-fluid title-container-palido">
+                <div class="row mt-3 fondo-breadcumb">
+                    <nav class="breadcumb" aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="index.html">Inicio</a></li>
+                            <li class="breadcrumb-item"><a href="categoria.html">Categoría</a></li>
+                            <li class="breadcrumb-item"><a href="#">Subcategoría</a></li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+
+            <div class="row fondo-title mt-4 justify-content-center">
+                <h1 class="text-center title">Subcategoría</h1>
+                <hr class="linea">
+            </div>
+
+            <div class="container">
+                <div class="row responsive-row">
+
+                    <div class="col-md-3 mt-5 col-sm-12 justify-content-center filtros">
+                        <div class="row marca">
+                            <h4>Marca</h4>
+                            <div class="col-10 ">
+                                <div class="form-check">
+                                    <input class="form-check-input filled-in" type="checkbox" value=""
+                                        id="flexCheckDefault">
+                                    <label class="form-check-label" for="flexCheckDefault">
+                                        All-Clad
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault2"
+                                        checked>
+                                    <label class="form-check-label" for="flexCheckDefault2">
+                                        Le Creuset
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault3">
+                                    <label class="form-check-label" for="flexCheckDefault3">
+                                        Cuisinart
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault4">
+                                    <label class="form-check-label" for="flexCheckDefault4">
+                                        GreenLife
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault5">
+                                    <label class="form-check-label" for="flexCheckDefault5">
+                                        GreenPan
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault6">
+                                    <label class="form-check-label" for="flexCheckDefault6">
+                                        Oneida
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault7">
+                                    <label class="form-check-label" for="flexCheckDefault7">
+                                        Henckels
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault8">
+                                    <label class="form-check-label" for="flexCheckDefault8">
+                                        Hiware
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault9">
+                                    <label class="form-check-label" for="flexCheckDefault9">
+                                        Panasonic
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-10">
+                                <hr>
+                            </div>
+                        </div>
+                        <div class="row precio">
+                            <h4>Precio</h4>
+                            <div class="col-10 text-center">
+                                <input type="range" class="form-range" min="0" max="5" step="0.5" id="customRange">
+                                <label for="customRange" class="form-label">$5-$10</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-10">
+                                <hr>
+                            </div>
+                        </div>
+                        <div class="row etiquetas">
+                            <h4>Etiquetas relacionadas</h4>
+                            <div class="col-md-10 col-sm-12 ">
+
+                                <div class="row mt-3 gx-3 button-group-tags">
+                                    <div class="col">
+                                        <button class="etiqueta">
+                                            Cuchillos
+                                        </button>
+
+                                        <button class="etiqueta">
+                                            Sartenes
+                                        </button>
+
+
+                                        <button class="etiqueta">
+                                            Ofertas
+                                        </button>
+
+
+                                        <button class="etiqueta">
+                                            Pinzas
+                                        </button>
+
+
+                                        <button class="etiqueta">
+                                            Hornos
+                                        </button>
+
+
+                                        <button class="etiqueta">
+                                            Nuevo
+                                        </button>
+                                    </div>
+
+
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-9 col-sm-12">
+                        <div class="mt-4 productos-opciones d-flex">
+                            <div class="filtro-grid d-flex">
+                                <a class="grid-filter" href="#"></a>
+                                <a class="column-filter" href="#"></a>
+                            </div>
+                            <span class="nitems">1-9 de 30 items</span>
+                            <div class="dropdown">
+                                <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton1"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    Default sorting
+                                </button>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                    <li><a class="dropdown-item" href="#">Action</a></li>
+                                    <li><a class="dropdown-item" href="#">Another action</a></li>
+                                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <hr class="linea-opciones">
+
+                        <div class="row grid-productos">
+                            <!-- ITEM -->
+                            <div class="col-md-4 mx-auto my-3 product-item">
+                                <div class="product-img-content">
+                                    <div class="product-img">
+                                        <img src="../../resources/img/destacados/productosdestacados1.png" alt=""
+                                            class="img-fluid d-block mx-auto">
+                                        <div class="tags">
+                                            <span class="tag-new">NUEVO</span>
+                                            <span class="tag-discount">20%</span>
+                                        </div>
+                                        <div class="product-icons">
+                                            <span type="button" class="destacado-icon heart-icon"
+                                                data-bs-customClass="custom-tooltip" data-bs-toggle="tooltip"
+                                                data-bs-placement="left" title="Añadir a WishList">
+                                                <i class="far fa-heart wish"></i>
+                                            </span>
+                                            <span type="button" class="destacado-icon quickview-icon"
+                                                data-bs-toggle="tooltip" data-bs-placement="left" title="Quick View">
+                                                <i class="fa fa-magnifying-glass" type="button" data-bs-toggle="modal"
+                                                    data-bs-target="#exampleModal"></i>
+                                            </span>
+                                        </div>
+                                        <button type="button" class="col-6 py-2 text-center">
+                                            Añadir al carrito
+                                        </button>
+                                    </div>
+
+                                    <div class="product-info p-3">
+                                        <span class="product-name"><a href="producto.html">Mini Electric
+                                                sandwichera</a></span>
+                                        <span class="product-price">$ 100.50</span>
+                                        <span class="product-before">$ 100.50</span>
+                                        <div class="rating d-flex mt-1">
+                                            <span>
+                                                <i class="fa fa-star"></i>
+                                            </span>
+                                            <span>
+                                                <i class="fa fa-star"></i>
+                                            </span>
+                                            <span>
+                                                <i class="fa fa-star"></i>
+                                            </span>
+                                            <span>
+                                                <i class="fa fa-star"></i>
+                                            </span>
+                                            <span>
+                                                <i class="fa fa-star"></i>
+                                            </span>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- ITEM -->
+                            <div class="col-md-4 mx-auto my-3 product-item">
+                                <div class="product-img-content">
+                                    <div class="product-img">
+                                        <img src="../../resources/img/destacados/productosdestacados1.png" alt=""
+                                            class="img-fluid d-block mx-auto">
+                                        <div class="tags">
+                                            <span class="tag-new">NUEVO</span>
+                                            <span class="tag-discount">20%</span>
+                                        </div>
+                                        <div class="product-icons">
+                                            <span class="destacado-icon heart-icon" data-bs-customClass="custom-tooltip"
+                                                data-bs-toggle="tooltip" data-bs-placement="left"
+                                                title="Añadir a WishList">
+                                                <i class="far fa-heart wish"></i>
+                                            </span>
+                                            <span type="button" class="destacado-icon quickview-icon"
+                                                data-bs-toggle="tooltip" data-bs-placement="left" title="Quick View">
+                                                <i class="fa fa-magnifying-glass" type="button" data-bs-toggle="modal"
+                                                    data-bs-target="#exampleModal"></i>
+                                            </span>
+                                        </div>
+                                        <button type="button" class="col-6 py-2 text-center">
+                                            Añadir al carrito
+                                        </button>
+                                    </div>
+
+                                    <div class="product-info p-3">
+                                        <span class="product-name"><a href="producto.html">Mini Electric
+                                                sandwichera</a></span>
+                                        <span class="product-price">$ 100.50</span>
+                                        <span class="product-before">$ 100.50</span>
+                                        <div class="rating d-flex mt-1">
+                                            <span>
+                                                <i class="fa fa-star"></i>
+                                            </span>
+                                            <span>
+                                                <i class="fa fa-star"></i>
+                                            </span>
+                                            <span>
+                                                <i class="fa fa-star"></i>
+                                            </span>
+                                            <span>
+                                                <i class="fa fa-star"></i>
+                                            </span>
+                                            <span>
+                                                <i class="fa fa-star"></i>
+                                            </span>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- ITEM -->
+                            <div class="col-md-4 mx-auto my-3 product-item">
+                                <div class="product-img-content">
+                                    <div class="product-img">
+                                        <img src="../../resources/img/destacados/productosdestacados1.png" alt=""
+                                            class="img-fluid d-block mx-auto">
+                                        <div class="tags">
+                                            <span class="tag-new">NUEVO</span>
+                                            <span class="tag-discount">20%</span>
+                                        </div>
+                                        <div class="product-icons">
+                                            <span class="destacado-icon heart-icon" data-bs-customClass="custom-tooltip"
+                                                data-bs-toggle="tooltip" data-bs-placement="left"
+                                                title="Añadir a WishList">
+                                                <i class="far fa-heart wish"></i>
+                                            </span>
+                                            <span type="button" class="destacado-icon quickview-icon"
+                                                data-bs-toggle="tooltip" data-bs-placement="left" title="Quick View">
+                                                <i class="fa fa-magnifying-glass" type="button" data-bs-toggle="modal"
+                                                    data-bs-target="#exampleModal"></i>
+                                            </span>
+                                        </div>
+                                        <button type="button" class="col-6 py-2 text-center">
+                                            Añadir al carrito
+                                        </button>
+                                    </div>
+
+                                    <div class="product-info p-3">
+                                        <span class="product-name"><a href="producto.html">Mini Electric
+                                                sandwichera</a></span>
+                                        <span class="product-price">$ 100.50</span>
+                                        <span class="product-before">$ 100.50</span>
+                                        <div class="rating d-flex mt-1">
+                                            <span>
+                                                <i class="fa fa-star"></i>
+                                            </span>
+                                            <span>
+                                                <i class="fa fa-star"></i>
+                                            </span>
+                                            <span>
+                                                <i class="fa fa-star"></i>
+                                            </span>
+                                            <span>
+                                                <i class="fa fa-star"></i>
+                                            </span>
+                                            <span>
+                                                <i class="fa fa-star"></i>
+                                            </span>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- ITEM -->
+                            <div class="col-md-4 mx-auto my-3 product-item">
+                                <div class="product-img-content">
+                                    <div class="product-img">
+                                        <img src="../../resources/img/destacados/productosdestacados.png" alt=""
+                                            class="img-fluid d-block mx-auto">
+                                        <div class="tags">
+                                            <span class="tag-new">NUEVO</span>
+                                            <span class="tag-discount">20%</span>
+                                        </div>
+                                        <div class="product-icons">
+                                            <span class="destacado-icon heart-icon" data-bs-customClass="custom-tooltip"
+                                                data-bs-toggle="tooltip" data-bs-placement="left"
+                                                title="Añadir a WishList">
+                                                <i class="far fa-heart wish"></i>
+                                            </span>
+                                            <span type="button" class="destacado-icon quickview-icon"
+                                                data-bs-toggle="tooltip" data-bs-placement="left" title="Quick View">
+                                                <i class="fa fa-magnifying-glass" type="button" data-bs-toggle="modal"
+                                                    data-bs-target="#exampleModal"></i>
+                                            </span>
+                                        </div>
+                                        <button type="button" class="col-6 py-2 text-center">
+                                            Añadir al carrito
+                                        </button>
+                                    </div>
+
+                                    <div class="product-info p-3">
+                                        <span class="product-name"><a href="producto.html">Mini Electric
+                                                sandwichera</a></span>
+                                        <span class="product-price">$ 100.50</span>
+                                        <span class="product-before">$ 100.50</span>
+                                        <div class="rating d-flex mt-1">
+                                            <span>
+                                                <i class="fa fa-star"></i>
+                                            </span>
+                                            <span>
+                                                <i class="fa fa-star"></i>
+                                            </span>
+                                            <span>
+                                                <i class="fa fa-star"></i>
+                                            </span>
+                                            <span>
+                                                <i class="fa fa-star"></i>
+                                            </span>
+                                            <span>
+                                                <i class="fa fa-star"></i>
+                                            </span>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- ITEM -->
+                            <div class="col-md-4 mx-auto my-3 product-item">
+                                <div class="product-img-content">
+                                    <div class="product-img">
+                                        <img src="../../resources/img/destacados/productosdestacados.png" alt=""
+                                            class="img-fluid d-block mx-auto">
+                                        <div class="tags">
+                                            <span class="tag-new">NUEVO</span>
+                                            <span class="tag-discount">20%</span>
+                                        </div>
+                                        <div class="product-icons">
+                                            <span class="destacado-icon heart-icon" data-bs-customClass="custom-tooltip"
+                                                data-bs-toggle="tooltip" data-bs-placement="left"
+                                                title="Añadir a WishList">
+                                                <i class="far fa-heart wish"></i>
+                                            </span>
+                                            <span type="button" class="destacado-icon quickview-icon"
+                                                data-bs-toggle="tooltip" data-bs-placement="left" title="Quick View">
+                                                <i class="fa fa-magnifying-glass" type="button" data-bs-toggle="modal"
+                                                    data-bs-target="#exampleModal"></i>
+                                            </span>
+                                        </div>
+                                        <button type="button" class="col-6 py-2 text-center">
+                                            Añadir al carrito
+                                        </button>
+                                    </div>
+
+                                    <div class="product-info p-3">
+                                        <span class="product-name"><a href="producto.html">Mini Electric
+                                                sandwichera</a></span>
+                                        <span class="product-price">$ 100.50</span>
+                                        <span class="product-before">$ 100.50</span>
+                                        <div class="rating d-flex mt-1">
+                                            <span>
+                                                <i class="fa fa-star"></i>
+                                            </span>
+                                            <span>
+                                                <i class="fa fa-star"></i>
+                                            </span>
+                                            <span>
+                                                <i class="fa fa-star"></i>
+                                            </span>
+                                            <span>
+                                                <i class="fa fa-star"></i>
+                                            </span>
+                                            <span>
+                                                <i class="fa fa-star"></i>
+                                            </span>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- ITEM -->
+                            <div class="col-md-4 mx-auto my-3 product-item">
+                                <div class="product-img-content">
+                                    <div class="product-img">
+                                        <img src="../../resources/img/destacados/productosdestacados.png" alt=""
+                                            class="img-fluid d-block mx-auto">
+                                        <div class="tags">
+                                            <span class="tag-new">NUEVO</span>
+                                            <span class="tag-discount">20%</span>
+                                        </div>
+                                        <div class="product-icons">
+                                            <span class="destacado-icon heart-icon" data-bs-customClass="custom-tooltip"
+                                                data-bs-toggle="tooltip" data-bs-placement="left"
+                                                title="Añadir a WishList">
+                                                <i class="far fa-heart wish"></i>
+                                            </span>
+                                            <span type="button" class="destacado-icon quickview-icon"
+                                                data-bs-toggle="tooltip" data-bs-placement="left" title="Quick View">
+                                                <i class="fa fa-magnifying-glass" type="button" data-bs-toggle="modal"
+                                                    data-bs-target="#exampleModal"></i>
+                                            </span>
+                                        </div>
+                                        <button type="button" class="col-6 py-2 text-center">
+                                            Añadir al carrito
+                                        </button>
+                                    </div>
+
+                                    <div class="product-info p-3">
+                                        <span class="product-name"><a href="producto.html">Mini Electric
+                                                sandwichera</a></span>
+                                        <span class="product-price">$ 100.50</span>
+                                        <span class="product-before">$ 100.50</span>
+                                        <div class="rating d-flex mt-1">
+                                            <span>
+                                                <i class="fa fa-star"></i>
+                                            </span>
+                                            <span>
+                                                <i class="fa fa-star"></i>
+                                            </span>
+                                            <span>
+                                                <i class="fa fa-star"></i>
+                                            </span>
+                                            <span>
+                                                <i class="fa fa-star"></i>
+                                            </span>
+                                            <span>
+                                                <i class="fa fa-star"></i>
+                                            </span>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- ITEM -->
+                            <div class="col-md-4 mx-auto my-3 product-item">
+                                <div class="product-img-content">
+                                    <div class="product-img">
+                                        <img src="../../resources/img/destacados/productosdestacados2.png" alt=""
+                                            class="img-fluid d-block mx-auto">
+                                        <div class="tags">
+                                            <span class="tag-new">NUEVO</span>
+                                            <span class="tag-discount">20%</span>
+                                        </div>
+                                        <div class="product-icons">
+                                            <span class="destacado-icon heart-icon" data-bs-customClass="custom-tooltip"
+                                                data-bs-toggle="tooltip" data-bs-placement="left"
+                                                title="Añadir a WishList">
+                                                <i class="far fa-heart wish"></i>
+                                            </span>
+                                            <span type="button" class="destacado-icon quickview-icon"
+                                                data-bs-toggle="tooltip" data-bs-placement="left" title="Quick View">
+                                                <i class="fa fa-magnifying-glass" type="button" data-bs-toggle="modal"
+                                                    data-bs-target="#exampleModal"></i>
+                                            </span>
+                                        </div>
+                                        <button type="button" class="col-6 py-2 text-center">
+                                            Añadir al carrito
+                                        </button>
+                                    </div>
+
+                                    <div class="product-info p-3">
+                                        <span class="product-name"><a href="producto.html">Mini Electric
+                                                sandwichera</a></span>
+                                        <span class="product-price">$ 100.50</span>
+                                        <span class="product-before">$ 100.50</span>
+                                        <div class="rating d-flex mt-1">
+                                            <span>
+                                                <i class="fa fa-star"></i>
+                                            </span>
+                                            <span>
+                                                <i class="fa fa-star"></i>
+                                            </span>
+                                            <span>
+                                                <i class="fa fa-star"></i>
+                                            </span>
+                                            <span>
+                                                <i class="fa fa-star"></i>
+                                            </span>
+                                            <span>
+                                                <i class="fa fa-star"></i>
+                                            </span>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- ITEM -->
+                            <div class="col-md-4 mx-auto my-3 product-item">
+                                <div class="product-img-content">
+                                    <div class="product-img">
+                                        <img src="../../resources/img/destacados/productosdestacados2.png" alt=""
+                                            class="img-fluid d-block mx-auto">
+                                        <div class="tags">
+                                            <span class="tag-new">NUEVO</span>
+                                            <span class="tag-discount">20%</span>
+                                        </div>
+                                        <div class="product-icons">
+                                            <span class="destacado-icon heart-icon" data-bs-customClass="custom-tooltip"
+                                                data-bs-toggle="tooltip" data-bs-placement="left"
+                                                title="Añadir a WishList">
+                                                <i class="far fa-heart wish"></i>
+                                            </span>
+                                            <span type="button" class="destacado-icon quickview-icon"
+                                                data-bs-toggle="tooltip" data-bs-placement="left" title="Quick View">
+                                                <i class="fa fa-magnifying-glass" type="button" data-bs-toggle="modal"
+                                                    data-bs-target="#exampleModal"></i>
+                                            </span>
+                                        </div>
+                                        <button type="button" class="col-6 py-2 text-center">
+                                            Añadir al carrito
+                                        </button>
+                                    </div>
+
+                                    <div class="product-info p-3">
+                                        <span class="product-name"><a href="producto.html">Mini Electric
+                                                sandwichera</a></span>
+                                        <span class="product-price">$ 100.50</span>
+                                        <span class="product-before">$ 100.50</span>
+                                        <div class="rating d-flex mt-1">
+                                            <span>
+                                                <i class="fa fa-star"></i>
+                                            </span>
+                                            <span>
+                                                <i class="fa fa-star"></i>
+                                            </span>
+                                            <span>
+                                                <i class="fa fa-star"></i>
+                                            </span>
+                                            <span>
+                                                <i class="fa fa-star"></i>
+                                            </span>
+                                            <span>
+                                                <i class="fa fa-star"></i>
+                                            </span>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- ITEM -->
+                            <div class="col-md-4 mx-auto my-3 product-item">
+                                <div class="product-img-content">
+                                    <div class="product-img">
+                                        <img src="../../resources/img/destacados/productosdestacados2.png" alt=""
+                                            class="img-fluid d-block mx-auto">
+                                        <div class="tags">
+                                            <span class="tag-new">NUEVO</span>
+                                            <span class="tag-discount">20%</span>
+                                        </div>
+                                        <div class="product-icons">
+                                            <span class="destacado-icon heart-icon" data-bs-customClass="custom-tooltip"
+                                                data-bs-toggle="tooltip" data-bs-placement="left"
+                                                title="Añadir a WishList">
+                                                <i class="far fa-heart wish"></i>
+                                            </span>
+                                            <span type="button" class="destacado-icon quickview-icon"
+                                                data-bs-toggle="tooltip" data-bs-placement="left" title="Quick View">
+                                                <i class="fa fa-magnifying-glass" type="button" data-bs-toggle="modal"
+                                                    data-bs-target="#exampleModal"></i>
+                                            </span>
+                                        </div>
+                                        <button type="button" class="col-6 py-2 text-center">
+                                            Añadir al carrito
+                                        </button>
+                                    </div>
+
+                                    <div class="product-info p-3">
+                                        <span class="product-name"><a href="producto.html">Mini Electric
+                                                sandwichera</a></span>
+                                        <span class="product-price">$ 100.50</span>
+                                        <span class="product-before">$ 100.50</span>
+                                        <div class="rating d-flex mt-1">
+                                            <span>
+                                                <i class="fa fa-star"></i>
+                                            </span>
+                                            <span>
+                                                <i class="fa fa-star"></i>
+                                            </span>
+                                            <span>
+                                                <i class="fa fa-star"></i>
+                                            </span>
+                                            <span>
+                                                <i class="fa fa-star"></i>
+                                            </span>
+                                            <span>
+                                                <i class="fa fa-star"></i>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Botones de paginacion -->
+                        <div class="row">
+                            <nav aria-label="page-navigation">
+                                <ul class="pagination justify-content-center">
+                                    <li class="page-item">
+                                        <a class="page-link" href="#" aria-label="Previous">
+                                            <span><i class="fa fa-angle-left control"></i></span>
+                                        </a>
+                                    </li>
+                                    <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                    <li class="page-item">
+                                        <a class="page-link" href="#" aria-label="Next">
+                                            <span><i class="fa fa-angle-right control"></i></span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </main>
+        <!-- FIN DEL MAIN DE LA PÁGINA-->
+
+        <!-- INICIO MODAL DE DETALLE DE EL PRODUCTO -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="container">
+                            <div class="row info-detalle-content">
+                                <div class="col col-5 img-detalle-producto mx-auto">
+                                    <div class="main-img">
+                                        <img src="../../resources/img/detalleProducto/detalle1.jpg" alt=""
+                                            class="img-fluid d-block mx-auto img0" id="main-img">
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-3 secondary-img sec-img1">
+                                            <img src="../../resources/img/detalleProducto/detalle1.jpg" alt=""
+                                                class="img-fluid mx-auto" id="img1" onmouseover="hoverImagen(src)">
+                                        </div>
+                                        <div class="col-3 secondary-img sec-img2">
+                                            <img src="../../resources/img/detalleProducto/detalle2.jpg" alt=""
+                                                class="img-fluid mx-auto" id="img2" onmouseover="hoverImagen(src)">
+                                        </div>
+                                        <div class="col-3 secondary-img sec-img3">
+                                            <img src="../../resources/img/detalleProducto/detalle3.jpg" alt=""
+                                                class="img-fluid mx-auto" id="img3" onmouseover="hoverImagen(src)">
+                                        </div>
+                                        <div class="col-3 secondary-img sec-img4">
+                                            <img src="../../resources/img/detalleProducto/detalle4.jpg" alt=""
+                                                class="img-fluid mx-auto" id="img4" onmouseover="hoverImagen(src)">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col col-6 info-detalle-producto mx-auto">
+                                    <div class="row">
+                                        <span class="detalle-producto-name">
+                                            <h3>Plancha eléctrica Crepe Maker Cooktop</h3>
+                                        </span>
+                                    </div>
+                                    <div class="rating-detalle">
+                                        <span>
+                                            <i class="fa fa-star"></i>
+                                        </span>
+                                        <span>
+                                            <i class="fa fa-star"></i>
+                                        </span>
+                                        <span>
+                                            <i class="fa fa-star"></i>
+                                        </span>
+                                        <span>
+                                            <i class="fa fa-star"></i>
+                                        </span>
+                                        <span>
+                                            <i class="fa fa-star"></i>
+                                        </span>
+                                    </div>
+                                    <hr>
+                                    <div class="precio-disponibilidad d-block">
+                                        <div class="precios">
+                                            <span class="precio">$29.99</span>
+                                            <span class="precio-before">$52.99</span>
+                                        </div>
+                                        <div class="disponibilidad-group">
+                                            <span class="disponibilidad ">Disponibilidad:</span> <span class="stock">En
+                                                Stock</span>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="about-producto">
+                                        <span class="title-about-producto">Sobre este artículo</span>
+                                        <p class="mt-2">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quod
+                                            minima optio
+                                            magni officia
+                                            blanditiis culpa illo vitae? Possimus quod, provident ullam facere
+                                            necessitatibus
+                                            expedita
+                                            quaerat! Cupiditate dolore aut repudiandae asperiores.</p>
+                                    </div>
+                                    <hr>
+                                    <div class="row cantidad-row justify-content-start">
+                                        <span class="mb-2">Cantidad</span>
+                                        <div class="col-12 añadir-boton">
+                                            <div class="input-group ">
+                                                <button class="btn btn-outline-warning" type="button"
+                                                    id="button-addon1">-</button>
+                                                <input type="text" class="form-control text-center" placeholder="1"
+                                                    aria-label="Example text with button addon"
+                                                    aria-describedby="button-addon1">
+                                                <button class="btn btn-outline-warning" type="button"
+                                                    id="button-addon1">+</button>
+                                            </div>
+                                            <button class="carrito-button mx">Añadir al carrito</button>
+                                            <span class="destacado-icon heart-icon" data-bs-customClass="custom-tooltip"
+                                                data-bs-toggle="tooltip" data-bs-placement="right"
+                                                title="Añadir a WishList">
+                                                <i class="far fa-heart wish"></i></span>
+                                        </div>
+                                    </div>
+                                    <div class="row mt-1">
+                                        <span class="left-stock">Queda(n) 10 en stock</span>
+                                    </div>
+
+                                    <div class="colores mt-2">
+                                        <i class="fa-solid fa-square color1"></i>
+                                        <i class="fa-solid fa-square color2"></i>
+                                        <i class="fa-solid fa-square color3"></i>
+                                        <i class="fa-solid fa-square color4"></i>
+                                    </div>
+                                    <div class="cat">
+                                        <h5>Categorías</h5>
+                                        <span>Utensilios, cucharas, espátulas</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- FIN MODAL DE DETALLE DE EL PRODUCTO -->
+
+        <!-- INICIO DEL FOOTER DE LA PÁGINA -->
+        <footer class="text-center text-lg-start bg-light text-muted" id="Fo-rosa">
+            <section class="d-flex align-items-center flex-column">
+                <div class="container-fluid text-center text-md-start mt-4">
+                    <div class="row d-flex justify-content-center">
+                        <div class="col-sm-9 col-md-6 col-lg-5 logopart">
+                            <img src="../../resources/img/index/logo2.png" alt="" id="logo_final">
+                            <p>
+                                Cooké es una tienda online de utensilios de cocina de las mejores
+                                marcas para food lovers, o entusiastas de la buena mesa y la buena cocina.
+                            </p>
+                        </div>
+                        <div class="col-sm-9 col-md-6 col-lg-6" id="partefooter">
+                            <div class="row justify-content-center">
+                                <div class="col Redes-Div">
+                                    <h6 class="text-uppercase fw-bold h6Red ">Redes</h6>
+                                    <p class="d-flex justify-content-center "><a class="nav-link active redes-hover  "
+                                            aria-current="page" href="https://es-la.facebook.com/" target="_blank"></a>
+                                    </p>
+                                    <p class="d-flex justify-content-center "><a class="nav-link active redes-hover2 "
+                                            aria-current="page" href="https://www.instagram.com/?hl=es-la"
+                                            target="_blank"></a></p>
+                                    <p class="d-flex justify-content-center "><a class="nav-link active redes-hover3"
+                                            aria-current="page" href="https://twitter.com/?lang=es" target="_blank"></a>
+                                    </p>
+                                </div>
+                                <div class="col">
+                                    <h6 class="text-uppercase fw-bold mb-4">Contacto</h6>
+                                    <p><a href="mailto:20170573@ricaldone.edu.sv" class="text-reset link"
+                                            target="_blank">Correo</a></p>
+                                    <p><a href="https://api.whatsapp.com/send?phone=76901760&text=Hola,%20%C2%BFen%20que%20puede%20ayudarte%20Cook%C3%A9%20el%20dia%20de%20hoy?"
+                                            class="text-reset link" target="_blank">Teléfono</a></p>
+                                    <p><a href="contactanos.html" class="text-reset link">Contáctanos</a></p>
+                                </div>
+                                <div class="col">
+                                    <h6 class="text-uppercase fw-bold mb-4">Categorías</h6>
+                                    <p><a href="categoria.html" class="text-reset link">Cocina</a></p>
+                                    <p><a href="categoria.html" class="text-reset link">Ofertas</a></p>
+                                    <p><a href="categoria.html" class="text-reset link">Recetas</a></p>
+                                    <p><a href="categoria.html" class="text-reset link">Utensilios</a></p>
+                                    <p><a href="categoria.html" class="text-reset link">Electrodomésticos</a></p>
+                                </div>
+                                <div class="col">
+                                    <h6 class="text-uppercase fw-bold mb-4">Extras</h6>
+                                    <p><a href="cuenta.html" class="text-reset link">Mi cuenta</a></p>
+                                    <p><a href="nosotros.html" class="text-reset link">Sobre nosotros</a></p>
+                                    <p><a href="deseos.html" class="text-reset link">Lista de deseos</a></p>
+                                    <p><a href="gridproductos.html" class="text-reset link">Centro de compras</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- Copyright -->
+            <div class="text-center p-3 CopCo">
+                © 2021 Copyright:
+                <a class="text-reset fw-bold" href="https://github.com/GabyArgu/Cooke/tree/ROscar">Cooké.com</a>
+            </div>
+            <!-- Copyright -->
+        </footer>
+        <!-- FIN DEL FOOTER DE LA PÁGINA  -->
+    </div>
+
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+        integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+        integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+        crossorigin="anonymous"></script>
+
+    <script src="../../controllers/publico/gridproductos.js"></script>
+    <script src="../../controllers/publico/stickynavs.js"></script>
+</body>
+
+</html>
