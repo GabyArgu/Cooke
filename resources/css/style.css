@@ -1782,6 +1782,10 @@ main .container-fluid .contenido {
 .acciones{
   justify-content: center;
 }
+
+.input-hide{
+  display: none;
+}
 /* --------------------------------------------------------------RESPONSIVE------------------------------------------------------------*/
 
 @media (min-width: 476px) and (max-width: 992px) {
