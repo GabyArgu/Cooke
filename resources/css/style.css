@@ -750,23 +750,27 @@ main .container-fluid .contenido {
 
 
 .table-responsive::-webkit-scrollbar {
-    display: none;
-  }
-  div.dataTables_wrapper div.dataTables_length label{
-    display: flex;
-    font-weight: normal;
-    text-align: left;
-    white-space: nowrap;
-    color: var(--rosadoOscuro);
-  }
-  div.dataTables_wrapper div.dataTables_length select{
-    width: 18%;
-    margin: 0 3px;
-  }
-  .target-mp div.dataTables_wrapper div.dataTables_length select{
-    width: 25%;
-    margin: 0 3px;
-  }
+  display: none;
+}
+
+div.dataTables_wrapper div.dataTables_length label {
+  display: flex;
+  font-weight: normal;
+  text-align: left;
+  white-space: nowrap;
+  color: var(--rosadoOscuro);
+}
+
+div.dataTables_wrapper div.dataTables_length select {
+  width: 18%;
+  margin: 0 3px;
+}
+
+.target-mp div.dataTables_wrapper div.dataTables_length select {
+  width: 25%;
+  margin: 0 3px;
+}
+
 /*TABLAS*/
 .header-table .btn-agregar {
   display: flex;
@@ -990,6 +994,10 @@ main .container-fluid .contenido {
 .empleados .accion-btn:hover {
   background-color: var(--marfil);
   color: var(--rosadoTitulos);
+}
+
+.modal-ver .modal-header h3 {
+  margin-left: auto;
 }
 
 .modal-ver-empleado .modal-header {
@@ -1772,16 +1780,15 @@ main .container-fluid .contenido {
   display: flex;
 }
 
-
-
 .CopCo {
   color: var(--rosadoOscuro);
   background-color: var(--rosadoPalido) !important;
 }
 
-.acciones{
+.acciones {
   justify-content: center;
 }
+
 
 .input-hide{
   display: none;
@@ -1792,6 +1799,28 @@ main .container-fluid .contenido {
   width: 40px;
   height: 40px;
 }
+
+/* ----------------------------------------------------------------INICIO RESEÑAS Y COMENTARIOS-------------------------------------------------------------*/
+
+.titulo-modal {
+  color: var(--rosadoOscuro);
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.texto-modal {
+  color: var(--rosadoOscuro);
+  font-size: 18px;
+}
+
+.ver-resena-content .rating-detalle .fa-star{
+  color: var(--rosadoOscuro);
+}
+
+/* ----------------------------------------------------------------FIN RESEÑAS Y COMENTARIOS-------------------------------------------------------------*/
+
+
+
 /* --------------------------------------------------------------RESPONSIVE------------------------------------------------------------*/
 
 @media (min-width: 476px) and (max-width: 992px) {
@@ -1807,20 +1836,24 @@ main .container-fluid .contenido {
   }
 
 }
+
 @media (max-width: 1200px) {
   .target-mp {
     width: 100%;
     margin-bottom: 15px;
   }
-  .acciones{
+
+  .acciones {
     display: flex;
     flex-direction: column;
   }
-  .acciones span{
+
+  .acciones span {
     margin: auto;
     margin-bottom: 5px;
   }
 }
+
 @media (max-width: 768px) {
 
   .main {
@@ -1843,10 +1876,11 @@ main .container-fluid .contenido {
   .row-bottom-pedido .col-lg-4 {
     width: 30% !important;
   }
-    .grafi{
-      width: 49% !important;
-    }
+
+  .grafi {
+    width: 49% !important;
   }
+}
 
 @media (min-width: 1px) and (max-width: 992px) {
   .sidebar {

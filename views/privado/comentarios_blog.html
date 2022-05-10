@@ -42,7 +42,7 @@
                 <!-- APARTADO DONDE APARECERA EL AVATAR Y NOMBRE DEL USUARIO -->
                 <ul class="nav flex-column justify-content-center align-items-center">
                     <img src="../../resources/img/dashboard/usuario.png" class="Usua-Ico" alt="">
-                    <h5 class="Nombre-Usu" id="username"></h5>
+                    <h5 class="Nombre-Usu" id="username">Gabriela Méndez</h5>
                     <a class="Adm" href="#">Administrar</a>
                 </ul>
                 <!-- APARTADO DE LOS ENLACES A LAS DIFERENTES PAGINAS DEL SITIO -->
@@ -108,7 +108,7 @@
             <!-- FIN DEL CONTENIDO DEL SIDEBAR DE LA PAGINA -->
         </nav>
         <!-- FIN DEL SIDEBAR DE LA PAGINA -->
-        <div class="main articulo">
+        <div class="main">
             <header>
                 <nav class="navbar navbar-expand navbar-theme">
                     <a class="sidebar-toggle d-flex me-2">
@@ -143,17 +143,14 @@
                     </div>
                 </nav>
             </header>
-            <main class="content">
-                <div class="container-fluid">
+
+            <main class="content d-flex flex-column justify-content-between">
+                <div class="container-fluid mb-3">
                     <div class="header">
-                        <h1>Administrar subcategorías de productos</h1>
+                        <h1>Administrar Comentarios</h1>
                     </div>
                     <div class="row contenido">
                         <div class="row pt-3 mx-auto header-table">
-                            <div class="col">
-                                <button class="btn-agregar" type="button" data-bs-toggle="modal"
-                                    data-bs-target="#modal-agregar">Agregar<i class="fa-solid fa-plus"></i></button>
-                            </div>
                             <div class="col d-flex justify-content-end mx-auto">
                                 <input class="form-control form-control-dark w-60 d-none d-md-block Buscador-Imp"
                                     type="text" placeholder="Buscar" aria-label="Search">
@@ -163,112 +160,106 @@
                         <div class="row">
                             <div class="col">
                                 <div class="table-responsive mt-3" id="no-more-tables">
-                                    <table class="table table-bordered table-categorias"
-                                        id="table-subcategorias-productos">
+                                    <table class="table table-bordered table-categorias" id="table-categorias-blog">
                                         <thead>
                                             <tr>
-                                                <th>Nombre</th>
-                                                <th>Descripción</th>
-                                                <th>Categoría</th>
+                                                <th>Usuario</th>
+                                                <th>Artículo</th>
+                                                <th>Título</th>
+                                                <th>Fecha</th>
                                                 <th>Acciones</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                <td data-title="PRODUCTO" class="nombre-categoria">Sartenes</td>
-                                                <td data-title="DESCRIPCION">Sartenes de acero, de hierro, de cerámica y
-                                                    antiadherente.</td>
-                                                <td data-title="CATEGORÍA">Cocina</td>
+                                                <td>Oscar Orellana</td>
+                                                <td>¡Llegan las ofertas de San Valentín!</td>
+                                                <td>Grandes precios y productos de calidad</td>
+                                                <td>01/01/2022</td>
                                                 <td class="botones-table">
                                                     <div class="acciones d-flex mx-auto">
-                                                        <span href="" class="accion-btn" type="button"
-                                                            data-bs-toggle="modal" data-bs-target="#modal-actualizar">
-                                                            <i class="fa-solid fa-pen-to-square"></i>
-                                                        </span>
                                                         <span href="" class="accion-btn" type="button"
                                                             data-bs-toggle="modal" data-bs-target="#modal-eliminar">
                                                             <i class="fa-solid fa-trash-can fa-lg"></i>
                                                         </span>
+                                                        <span href="" class="accion-btn" type="button"
+                                                            data-bs-toggle="modal" data-bs-target="#modal-ver">
+                                                            <i class="fa-solid fa-eye"></i>
+                                                        </span>
                                                     </div>
                                                 </td>
-
                                             </tr>
                                             <tr>
-                                                <td data-title="PRODUCTO" class="nombre-categoria">Cocottes, cacerolas y
-                                                    cazos</td>
-                                                <td data-title="DESCRIPCION">Cocottes de hierro, aluminio, cacerolas de
-                                                    aluminio y acero.</td>
-                                                <td data-title="CATEGORÍA">Cocina</td>
+                                                <td>Oscar Orellana</td>
+                                                <td>¡Llegan las ofertas de San Valentín!</td>
+                                                <td>Grandes precios y productos de calidad</td>
+                                                <td>01/01/2022</td>
                                                 <td class="botones-table">
                                                     <div class="acciones d-flex mx-auto">
-                                                        <span href="" class="accion-btn" type="button"
-                                                            data-bs-toggle="modal" data-bs-target="#modal-actualizar">
-                                                            <i class="fa-solid fa-pen-to-square"></i>
-                                                        </span>
                                                         <span href="" class="accion-btn" type="button"
                                                             data-bs-toggle="modal" data-bs-target="#modal-eliminar">
                                                             <i class="fa-solid fa-trash-can fa-lg"></i>
                                                         </span>
+                                                        <span href="" class="accion-btn" type="button"
+                                                            data-bs-toggle="modal" data-bs-target="#modal-ver">
+                                                            <i class="fa-solid fa-eye"></i>
+                                                        </span>
                                                     </div>
                                                 </td>
-
                                             </tr>
                                             <tr>
-                                                <td data-title="PRODUCTO" class="nombre-categoria">Ollas</td>
-                                                <td data-title="DESCRIPCION">Ollas, juego de ollas y ollas rápidas.</td>
-                                                <td data-title="CATEGORÍA">Cocina</td>
+                                                <td>Oscar Orellana</td>
+                                                <td>¡Llegan las ofertas de San Valentín!</td>
+                                                <td>Grandes precios y productos de calidad</td>
+                                                <td>01/01/2022</td>
                                                 <td class="botones-table">
                                                     <div class="acciones d-flex mx-auto">
-                                                        <span href="" class="accion-btn" type="button"
-                                                            data-bs-toggle="modal" data-bs-target="#modal-actualizar">
-                                                            <i class="fa-solid fa-pen-to-square"></i>
-                                                        </span>
                                                         <span href="" class="accion-btn" type="button"
                                                             data-bs-toggle="modal" data-bs-target="#modal-eliminar">
                                                             <i class="fa-solid fa-trash-can fa-lg"></i>
                                                         </span>
+                                                        <span href="" class="accion-btn" type="button"
+                                                            data-bs-toggle="modal" data-bs-target="#modal-ver">
+                                                            <i class="fa-solid fa-eye"></i>
+                                                        </span>
                                                     </div>
                                                 </td>
-
                                             </tr>
                                             <tr>
-                                                <td data-title="PRODUCTO" class="nombre-categoria">Creperas y gofres
-                                                </td>
-                                                <td data-title="DESCRIPCION">Creperas de hierro mineral, y sartenes para
-                                                    gofres variados.</td>
-                                                <td data-title="CATEGORÍA">Cocina</td>
+                                                <td>Oscar Orellana</td>
+                                                <td>¡Llegan las ofertas de San Valentín!</td>
+                                                <td>Grandes precios y productos de calidad</td>
+                                                <td>01/01/2022</td>
                                                 <td class="botones-table">
                                                     <div class="acciones d-flex mx-auto">
-                                                        <span href="" class="accion-btn" type="button"
-                                                            data-bs-toggle="modal" data-bs-target="#modal-actualizar">
-                                                            <i class="fa-solid fa-pen-to-square"></i>
-                                                        </span>
                                                         <span href="" class="accion-btn" type="button"
                                                             data-bs-toggle="modal" data-bs-target="#modal-eliminar">
                                                             <i class="fa-solid fa-trash-can fa-lg"></i>
                                                         </span>
+                                                        <span href="" class="accion-btn" type="button"
+                                                            data-bs-toggle="modal" data-bs-target="#modal-ver">
+                                                            <i class="fa-solid fa-eye"></i>
+                                                        </span>
                                                     </div>
                                                 </td>
-
                                             </tr>
                                             <tr>
-                                                <td data-title="PRODUCTO" class="nombre-categoria">Cocina vapor</td>
-                                                <td data-title="DESCRIPCION">Vaporeras, recipientes y moldes para cocina
-                                                    saludable al vapor.</td>
-                                                <td data-title="CATEGORÍA">Cocina</td>
+                                                <td>Oscar Orellana</td>
+                                                <td>¡Llegan las ofertas de San Valentín!</td>
+                                                <td>Grandes precios y productos de calidad</td>
+                                                <td>01/01/2022</td>
                                                 <td class="botones-table">
                                                     <div class="acciones d-flex mx-auto">
-                                                        <span href="" class="accion-btn" type="button"
-                                                            data-bs-toggle="modal" data-bs-target="#modal-actualizar">
-                                                            <i class="fa-solid fa-pen-to-square"></i>
-                                                        </span>
                                                         <span href="" class="accion-btn" type="button"
                                                             data-bs-toggle="modal" data-bs-target="#modal-eliminar">
                                                             <i class="fa-solid fa-trash-can fa-lg"></i>
                                                         </span>
+                                                        <span href="" class="accion-btn" type="button"
+                                                            data-bs-toggle="modal" data-bs-target="#modal-ver">
+                                                            <i class="fa-solid fa-eye"></i>
+                                                        </span>
                                                     </div>
                                                 </td>
-
                                             </tr>
                                         </tbody>
                                     </table>
@@ -279,7 +270,7 @@
                 </div>
 
                 <footer>
-                    <div class="text-center p-1 mt-4 CopCo">
+                    <div class="text-center p-1 mt-5 CopCo">
                         © 2021 Copyright:
                         <a class="text-reset fw-bold" href="https://github.com/GabyArgu/Cooke/tree/ROscar">Cooké.com</a>
                     </div>
@@ -288,112 +279,6 @@
             </main>
         </div>
     </div>
-
-    <!-- INICIO MODALS AGREGAR-->
-    <div class="modal modal-agregar modal-agregar-categoria fade" id="modal-agregar" tabindex="-1"
-        aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered modal-md">
-            <div class="modal-content">
-                <div class="modal-header">
-
-                    <h3 class="mt-2">Agregar subcategoría</h3>
-
-                    <button type="button" class="btn-close my" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col">
-                                <div class="row agregar-content agregar-content-flex">
-                                    <div class="col-12 mb-4">
-                                        <label for="validationDefault01" class="form-label">Nombre</label>
-                                        <input type="text" class="form-control" id="validationDefault01" value=""
-                                            required>
-                                    </div>
-                                    <div class="col-12 mb-4">
-                                        <label for="validationDefault01" class="form-label">Descripción</label>
-                                        <textarea class="form-control" id="exampleFormControlTextarea1"
-                                            rows="6"></textarea>
-                                    </div>
-                                    <div class="col-12 mb-4">
-                                        <label for="validationDefault01" class="form-label">Categoría</label>
-                                        <select class="form-select custom-form-select"
-                                            aria-label="Default select example">
-                                            <option selected disabled>Seleccione una opción</option>
-                                            <option value="1">Cocina</option>
-                                            <option value="2">Electrodomésticos</option>
-                                            <option value="3">Utensilios</option>
-                                            <option value="4">Recetas</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-
-
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-footer d-flex justify-content-end">
-                    <button class="btn-guardar" type="button" data-bs-dismiss="modal">Guardar<i
-                            class="fa-solid fa-floppy-disk"></i></button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- INICIO MODALS ACTUALIZAR -->
-    <div class="modal modal-agregar modal-agregar-categoria fade" id="modal-actualizar" tabindex="-1"
-        aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered modal-md">
-            <div class="modal-content">
-                <div class="modal-header">
-
-                    <h3 class="mt-2">Editar subcategoría</h3>
-
-                    <button type="button" class="btn-close my" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col">
-                                <div class="row agregar-content agregar-content-flex">
-                                    <div class="col-12 mb-4">
-                                        <label for="validationDefault01" class="form-label">Nombre</label>
-                                        <input type="text" class="form-control" id="validationDefault01" value=""
-                                            required>
-                                    </div>
-                                    <div class="col-12 mb-4">
-                                        <label for="validationDefault01" class="form-label">Descripción</label>
-                                        <textarea class="form-control" id="exampleFormControlTextarea1"
-                                            rows="6"></textarea>
-                                    </div>
-                                    <div class="col-12 mb-4">
-                                        <label for="validationDefault01" class="form-label">Categoría</label>
-                                        <select class="form-select custom-form-select"
-                                            aria-label="Default select example">
-                                            <option selected disabled>Seleccione una opción</option>
-                                            <option value="1">Cocina</option>
-                                            <option value="2">Electrodomésticos</option>
-                                            <option value="3">Utensilios</option>
-                                            <option value="4">Recetas</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-
-
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-footer d-flex justify-content-end">
-                    <button class="btn-guardar" type="button" data-bs-dismiss="modal">Guardar<i
-                            class="fa-solid fa-floppy-disk"></i></button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- FIN MODALS ACTUALIZAR -->
 
     <!-- INICIO MODAL DELETE -->
     <div class="modal modal-eliminar fade" id="modal-eliminar" aria-hidden="true"
@@ -425,6 +310,85 @@
     </div>
     <!-- FIN MODAL DELETE -->
 
+    <!-- INICIO MODAL VISUALIZAR-->
+
+    <div class="modal modal-ver fade" id="modal-ver" tabindex="-1" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <h3 class="mt-2">Detalles</h3>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+
+                <div class="modal-body">
+                    <div class="container ver-comentarios-content">
+                        <div class="row">
+
+                            <div class="col">
+
+                                <div class="row">
+                                    <div class="col">
+                                        <h4 class="titulo-modal">Usuario</h4>
+                                    </div>
+                                    <div class="col col-8"><span class="texto-modal">Oscar Orellana</span> </div>
+                                </div>
+
+                                <hr>
+
+                                <div class="row">
+                                    <div class="col">
+                                        <h4 class="titulo-modal">Artículo</h4>
+                                    </div>
+                                    <div class="col col-8"><span class="texto-modal">¡Llegan las ofertas de San
+                                            Valentín!</span></div>
+                                </div>
+
+                                <hr>
+
+                                <div class="row">
+                                    <div class="col">
+                                        <h4 class="titulo-modal">Fecha</h4>
+                                    </div>
+                                    <div class="col col-8"><span class="texto-modal">01/01/2022</span></div>
+                                </div>
+
+                                <hr>
+
+                                <div class="row">
+                                    <div class="col">
+                                        <h4 class="titulo-modal">Título</h4>
+                                    </div>
+                                    <div class="col col-8"><span class="texto-modal">Grandes precios y productos de calidad</span> </div>
+                                </div>
+
+                                <hr>
+
+                                <div class="row">
+                                    <div class="col">
+                                        <h4 class="titulo-modal">Comentario</h4>
+                                    </div>
+                                    <div class="col col-8"><span class="texto-modal">Lorem ipsum dolor sit amet,
+                                            consectetur adipisicing elit. Amet doloremque culpa unde laborum ullam ea
+                                            nesciunt eaque itaque quisquam minima! Maxime dicta, dolor aspernatur sit
+                                            debitis neque expedita perferendis officia?
+                                            Nemo quod quia libero amet voluptates ut totam praesentium ea voluptate
+                                            mollitia, ex nam nisi quas, autem placeat animi dolores temporibus quae
+                                            optio deserunt? Earum id repudiandae fugiat sint dolor.</span> </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FIN MODAL -->
+
     <!---------------- SCRIPTS ---------------->
 
     <!-- BOOTSTRAP -->
@@ -437,11 +401,10 @@
     <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.11.5/js/dataTables.bootstrap5.min.js"></script>
 
-
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="../../controllers/componentes.js"></script>
     <script src="../../controllers/privado/online.js"></script>
-    <script src="../../controllers/privado/subcategorias_productos.js"></script>
+    <script src="../../controllers/privado/categorias_blog.js"></script>
 
 </body>
 
