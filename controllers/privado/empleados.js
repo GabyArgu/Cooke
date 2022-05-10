@@ -2,6 +2,7 @@
 const API_USUARIOS = SERVER + 'private/usuarios.php?action=';
 const ENDPOINT_CARGO = SERVER + 'private/cargoEmpleado.php?action=readAll';
 const ENDPOINT_ESTADO = SERVER + 'private/estadoEmpleado.php?action=readAll';
+const ENDPOINT_AVATAR = SERVER + 'private/avatar.php?action=readAll';
 
 // Método manejador de eventos que se ejecuta cuando el documento ha cargado.
 document.addEventListener('DOMContentLoaded', function () {
@@ -25,28 +26,90 @@ document.addEventListener('DOMContentLoaded', function () {
   readRows(API_USUARIOS);
   // Se define una variable para establecer las opciones del componente Modal.
   let options = {
-    // dismissible: false,
-    // onOpenStart: function () {
-    //   // Se restauran los elementos del formulario.
-    //   document.getElementById('save-form').reset();
-    // }
+    
   }
   var modal = new bootstrap.Modal(document.querySelector('.modal'), options)
 });
 
 // Función para preparar el formulario al momento de insertar un registro.
 function openCreate() {
+
+  //Limpiamos los campos del modal
+  $("#save-modal").find("input,textarea,select").val("");
+
   // Se asigna el título para la caja de diálogo (modal).
   document.getElementById('modal-title').textContent = 'Agregar empleado';
   // Se habilitan los campos de alias y contraseña.
   document.getElementById('alias').disabled = false;
   document.getElementById('clave').disabled = false;
-  
-  // Se llama a la función que llena el select del formulario. Se encuentra en el archivo components.js, mandar de parametros la ruta de la api de la tabla que utiliza el select, y el id del select
+  document.getElementById('confirmar').disabled = false;
+
+  //Añadimos la clase que esconde el estado ya que todos los usuarios ingresados, tendrán el valor de activo
+  document.getElementById('estado').classList.add('input-hide')
+  document.getElementById('estado-label').classList.add('input-hide')
+
+  //Ocultamos la imagen del avatar
+  document.getElementById('imagen-avatar').style.display = 'none '
+
+  /* Se llama a la función que llena el select del formulario. Se encuentra en el archivo components.js, 
+   * mandar de parametros la ruta de la api de la tabla que utiliza el select, y el id del select*/
   fillSelect(ENDPOINT_CARGO, 'cargo', null);
-  fillSelect(ENDPOINT_ESTADO, 'estado', null);
+  fillSelect(ENDPOINT_AVATAR, 'foto', null);
 }
 
+// Función para preparar el formulario al momento de modificar un registro.
+function openUpdate(id) {
+  //Limpiamos los campos del modal
+  $("#save-modal").find("input,textarea,select").val("");
+  // Se asigna el título para la caja de diálogo (modal).
+  document.getElementById('modal-title').textContent = 'Actualizar empleado';
+  //Desactivamos campos que no se podrán modificar
+  document.getElementById('alias').disabled = true;
+  document.getElementById('clave').disabled = true;
+  document.getElementById('confirmar').disabled = true;
+
+  document.getElementById('estado').classList.remove('input-hide')
+  document.getElementById('estado-label').classList.remove('input-hide')
+  // Se define un objeto con los datos del registro seleccionado.
+  const data = new FormData();
+  data.append('id', id);
+  // Petición para obtener los datos del registro solicitado.
+  fetch(API_USUARIOS + 'readOne', {
+      method: 'post',
+      body: data
+  }).then(function (request) {
+      // Se verifica si la petición es correcta, de lo contrario se muestra un mensaje en la consola indicando el problema.
+      if (request.ok) {
+          // Se obtiene la respuesta en formato JSON.
+          request.json().then(function (response) {
+              // Se comprueba si la respuesta es satisfactoria, de lo contrario se muestra un mensaje con la excepción.
+              if (response.status) {
+                  // Se inicializan los campos del formulario con los datos del registro seleccionado.
+                  document.getElementById('id').value = response.dataset.idEmpleado;
+                  document.getElementById('nombres').value = response.dataset.nombresEmpleado;
+                  document.getElementById('apellidos').value = response.dataset.apellidosEmpleado;
+                  document.getElementById('correo').value = response.dataset.correoEmpleado;
+                  document.getElementById('telefono').value = response.dataset.telefonoEmpleado;
+                  document.getElementById('direccion').value = response.dataset.direccionEmpleado;
+                  document.getElementById('alias').value = response.dataset.aliasEmpleado;
+                  fillSelect(ENDPOINT_CARGO, 'cargo', response.dataset.cargoEmpleado);
+                  fillSelect(ENDPOINT_AVATAR, 'foto', response.dataset.fotoEmpleado);
+                  fillSelect(ENDPOINT_ESTADO, 'estado', response.dataset.estadoEmpleado);
+
+              } else {
+                  sweetAlert(2, response.exception, null);
+              }
+          });
+      } else {
+          console.log(request.status + ' ' + request.statusText);
+      }
+  });
+}
+
+// Función para establecer el registro a eliminar y abrir una caja de diálogo de confirmación.
+function openDelete(id) {
+  document.getElementById('idEmpleado').value = id;
+}
 
 // Función para llenar la tabla con los datos de los registros. Se manda a llamar en la función readRows().
 function fillTable(dataset) {
@@ -64,7 +127,7 @@ function fillTable(dataset) {
               <td class="botones-table">
                   <div class="acciones d-flex mx-auto">
                       <span onclick="openUpdate(${row.idEmpleado})" class="accion-btn" type="button"
-                          data-bs-toggle="modal" data-bs-target="#modal-actualizar">
+                          data-bs-toggle="modal" data-bs-target="#save-modal">
                           <i class="fa-solid fa-pen-to-square"></i>
                       </span>
                       <span onclick="openDelete(${row.idEmpleado})" class="accion-btn" type="button"
@@ -84,7 +147,7 @@ function fillTable(dataset) {
   document.getElementById('tbody-rows').innerHTML = content;
 }
 
-/*Inicializando y configurando componente de calendario*/ 
+/*Inicializando y configurando componente de calendario*/
 flatpickr('#fecha', {
 });
 
@@ -99,3 +162,17 @@ document.getElementById('save-form').addEventListener('submit', function (event)
   // Se llama a la función para guardar el registro. Se encuentra en el archivo components.js
   saveRow(API_USUARIOS, action, 'save-form', 'save-modal');
 });
+
+// Método manejador de eventos que se ejecuta cuando se envía el formulario de guardar.
+document.getElementById('delete-form').addEventListener('submit', function (event) {
+  // Se evita recargar la página web después de enviar el formulario.
+  event.preventDefault();
+  confirmDelete(API_USUARIOS, 'delete-form');
+});
+
+function changeAvatar(){
+  let combo = document.getElementById('foto')
+  let selected = combo.options[combo.selectedIndex].text;
+  document.getElementById('imagen-avatar').style.display = 'inline-block'
+  document.getElementById('imagen-avatar').src = `../../resources/img/avatares/${selected}.jpg`;
+}

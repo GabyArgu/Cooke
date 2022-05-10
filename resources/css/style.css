@@ -1786,6 +1786,12 @@ main .container-fluid .contenido {
 .input-hide{
   display: none;
 }
+
+.imagen-avatar img{
+  display: none;
+  width: 40px;
+  height: 40px;
+}
 /* --------------------------------------------------------------RESPONSIVE------------------------------------------------------------*/
 
 @media (min-width: 476px) and (max-width: 992px) {

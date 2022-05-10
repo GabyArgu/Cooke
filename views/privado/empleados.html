@@ -284,19 +284,13 @@
                                 <div class="row agregar-content-flex">
                                     <div class="col-4 mb-4">
                                         <label for="validationDefault0" class="form-label">Nombres</label>
-                                        <input type="text" class="form-control" id="validationDefault01" value="" id="nombres" name="nombres"
+                                        <input type="text" class="form-control" value="" id="nombres" name="nombres"
                                             required>
                                     </div>
                                     <div class="col-4 mb-4">
                                         <label for="validationDefault02" class="form-label">Apellidos</label>
-                                        <input type="text" class="form-control" id="validationDefault01" value="" id="apellidos" name="apellidos"
+                                        <input type="text" class="form-control" value="" id="apellidos" name="apellidos"
                                             required>
-                                    </div>
-                                    <div class="col-4 mb-4">
-                                        <label for="validationDefault03" class="form-label" >Fecha de
-                                            nacimiento</label>
-                                        <input type="text" id="fecha" name="fecha" placeholder="Seleccione una fecha"
-                                        class="form-control">
                                     </div>
                                     <div class="col-4 mb-4">
                                         <label for="validationDefault04" class="form-label">Correo electrónico</label>
@@ -320,8 +314,13 @@
                                     </div>
                                     <div class="col-4 mb-4">
                                         <label for="validationDefault08" class="form-label">Contraseña</label>
-                                        <input type="text" class="form-control" id="clave" name="clave" value=""
+                                        <input type="password" class="form-control" id="clave" name="clave" value=""
                                             required>
+                                    </div>
+                                    <div class="col-4 mb-4">
+                                        <label for="validationDefault08" class="form-label">Confirmar contraseña</label>
+                                        <input type="password" class="form-control" id="confirmar" name="confirmar"
+                                            value="" required>
                                     </div>
                                     <div class="col-4 mb-4">
                                         <label for="validationDefault03" class="form-label">Cargo</label>
@@ -334,13 +333,29 @@
                                         </select>
                                     </div>
                                     <div class="col-4 mb-4">
-                                        <label for="validationDefault03" class="form-label">Estado</label>
-                                        <select class="form-select custom-form-select"
+                                        <label for="validationDefault03" class="form-label">Avatar</label>
+                                        <div class="row">
+                                            <div class="col col-10">
+                                                <select class="form-select custom-form-select"
+                                                    aria-label="Default select example" id="foto" name="foto"
+                                                    onchange="changeAvatar()">
+                                                </select>
+                                            </div>
+                                            <div class="col col-2 imagen-avatar d-flex justify-content-end">
+                                                <img id="imagen-avatar" src="" alt="">
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="col-4 mb-4">
+                                        <label for="validationDefault03" class="form-label input-hide"
+                                            id="estado-label">Estado</label>
+                                        <select class="form-select custom-form-select input-hide"
                                             aria-label="Default select example" id="estado" name="estado">
                                             <!-- <option selected disabled>Seleccione una opción</option>
-                                            <option value="1">Activo</option>
-                                            <option value="2">Inactivo</option>
-                                            <option value="3">Deshabilitado</option> -->
+                                            <option value="1">Administrador</option>
+                                            <option value="2">Ventas</option>
+                                            <option value="3">Inventario</option> -->
                                         </select>
                                     </div>
                                     <div class="col-4 mb-4">
@@ -352,184 +367,15 @@
                     </div>
                 </div>
                 <div class="modal-footer d-flex justify-content-end">
-                    <button class="btn btn-siguiente" type="button" data-bs-target="#modal-agregar2"
-                        data-bs-toggle="modal" data-bs-dismiss="modal">Siguiente</button>
+                    <button class="btn-guardar" type="submit" form="save-form">Guardar<i
+                        class="fa-solid fa-floppy-disk"></i></button>
                 </div>
             </div>
         </div>
     </div>
 
-    <div class="modal modal-agregar2 modal-agregar-empleado2 fade" id="modal-agregar2" aria-hidden="true"
-        aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
-        <div class="modal-dialog modal-dialog-centered modal-xl">
-            <div class="modal-content">
-                <div class="modal-header">
-
-                    <h3 class="mt-2">Agregar Empleado</h3>
-
-                    <button type="button" class="btn-close my" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="container my-5">
-                        <div class="row agregar-content">
-                            <div class="col">
-                                <div class="row">
-                                    <div class="col">
-                                        <div class="drop-container perfil">
-                                            <i class="fa-solid fa-cloud-arrow-up"></i>
-                                            <span>Adjunte foto de perfil</span>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-
-
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-footer d-flex justify-content-between">
-                    <button class="btn btn-regresar" type="button" data-bs-target="#save-modal"
-                        data-bs-toggle="modal" data-bs-dismiss="modal">Regresar</button>
-                    <button class="btn-guardar" type="submit" data-bs-dismiss="modal" form="">Guardar<i
-                            class="fa-solid fa-floppy-disk"></i></button>
-                </div>
-            </div>
-        </div>
-    </div>
     <!-- FIN MODAL -->
 
-    <!-- INICIO MODALS ACTUALIZAR -->
-    <div class="modal modal-agregar fade" id="modal-actualizar" tabindex="-1" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered modal-xl">
-            <div class="modal-content">
-                <div class="modal-header">
-
-                    <h3 class="mt-2">Actualizar empleado</h3>
-
-                    <button type="button" class="btn-close my" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="container">
-                        <div class="row agregar-content">
-                            <div class="col">
-                                <div class="row agregar-content-flex">
-                                    <div class="col-4 mb-4">
-                                        <label for="validationDefault0" class="form-label">Nombres</label>
-                                        <input type="text" class="form-control" id="validationDefault01" value=""
-                                            required>
-                                    </div>
-                                    <div class="col-4 mb-4">
-                                        <label for="validationDefault02" class="form-label">Apellidos</label>
-                                        <input type="text" class="form-control" id="validationDefault01" value=""
-                                            required>
-                                    </div>
-                                    <div class="col-4 mb-4">
-                                        <label for="validationDefault03" class="form-label">Fecha de
-                                            nacimiento</label>
-                                        <input type="text" class="form-control" data-toggle="datepicker">
-                                    </div>
-                                    <div class="col-4 mb-4">
-                                        <label for="validationDefault04" class="form-label">Correo electrónico</label>
-                                        <input type="text" class="form-control" id="validationDefault01" value=""
-                                            required>
-                                    </div>
-                                    <div class="col-4 mb-4">
-                                        <label for="validationDefault05" class="form-label">Teléfono</label>
-                                        <input type="text" class="form-control" id="validationDefault01" value=""
-                                            required>
-                                    </div>
-                                    <div class="col-4 mb-4">
-                                        <label for="validationDefault06" class="form-label">Dirección</label>
-                                        <input type="text" class="form-control" id="validationDefault01" value=""
-                                            required>
-                                    </div>
-                                    <div class="col-4 mb-4">
-                                        <label for="validationDefault07" class="form-label">Nombre de usuario</label>
-                                        <input type="text" class="form-control" id="validationDefault01" value=""
-                                            required>
-                                    </div>
-                                    <div class="col-4 mb-4">
-                                        <label for="validationDefault08" class="form-label">Contraseña</label>
-                                        <input type="text" class="form-control" id="validationDefault01" value=""
-                                            required>
-                                    </div>
-                                    <div class="col-4 mb-4">
-                                        <label for="validationDefault03" class="form-label">Cargo</label>
-                                        <select class="form-select custom-form-select"
-                                            aria-label="Default select example">
-                                            <option selected disabled>Seleccione una opción</option>
-                                            <option value="1">Administrador</option>
-                                            <option value="2">Ventas</option>
-                                            <option value="3">Inventario</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-4 mb-4">
-                                        <label for="validationDefault03" class="form-label">Estado</label>
-                                        <select class="form-select custom-form-select"
-                                            aria-label="Default select example">
-                                            <option selected disabled>Seleccione una opción</option>
-                                            <option value="1">Activo</option>
-                                            <option value="2">Inactivo</option>
-                                            <option value="3">Deshabilitado</option>
-                                        </select>
-                                    </div>
-                                </div>
-
-                            </div>
-
-
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-footer d-flex justify-content-end">
-                    <button class="btn btn-siguiente" type="button" data-bs-target="#modal-actualizar2"
-                        data-bs-toggle="modal" data-bs-dismiss="modal">Siguiente</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="modal modal-agregar2 modal-agregar-empleado2 fade" id="modal-actualizar2" aria-hidden="true"
-        aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
-        <div class="modal-dialog modal-dialog-centered modal-xl">
-            <div class="modal-content">
-                <div class="modal-header">
-
-                    <h3 class="mt-2">Actualizar empleado</h3>
-
-                    <button type="button" class="btn-close my" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="container my-5">
-                        <div class="row agregar-content">
-                            <div class="col">
-                                <div class="row">
-                                    <div class="col">
-                                        <div class="drop-container perfil">
-                                            <i class="fa-solid fa-cloud-arrow-up"></i>
-                                            <span>Adjunte foto de perfil</span>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-
-
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-footer d-flex justify-content-between">
-                    <button class="btn btn-regresar" type="button" data-bs-target="#modal-actualizar"
-                        data-bs-toggle="modal" data-bs-dismiss="modal">Regresar</button>
-                    <button class="btn-guardar" type="button" data-bs-dismiss="modal">Guardar<i
-                            class="fa-solid fa-floppy-disk"></i></button>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- FIN MODALS ACTUALIZAR -->
 
     <!-- INICIO MODAL DELETE -->
     <div class="modal modal-eliminar fade" id="modal-eliminar" aria-hidden="true"
@@ -553,74 +399,21 @@
                 <div class="modal-footer d-flex mx-2 justify-content-between">
                     <button class="btn btn-cancel" type="button" data-bs-target="" data-bs-toggle="modal"
                         data-bs-dismiss="modal">Cancelar</button>
-                    <button class="btn btn-siguiente" type="button" data-bs-target="" data-bs-toggle="modal"
-                        data-bs-dismiss="modal">Continuar</button>
+                    <form id="delete-form">
+                        <input type="hidden" id="idEmpleado" name="idEmpleado">
+                        <button class="btn btn-siguiente" type="submit" data-bs-target="" data-bs-toggle="modal"
+                            data-bs-dismiss="modal">Continuar</button>
+                    </form>
+                    
                 </div>
             </div>
         </div>
     </div>
     <!-- FIN MODAL DELETE -->
 
-    <!-- Componente Modal para mostrar una caja de diálogo -->
-    <div id="save-modal" class="modal">
-        <!-- Enlace para cerrar el componente Modal -->
-        <div class="row right">
-            <a class="black-text tooltipped modal-close" data-tooltip="Cerrar">
-                <i class="small material-icons">close</i>
-            </a>
-        </div>
-        <!-- Contenido del componente Modal -->
-        <div class="modal-content">
-            <!-- Título para la caja de diálogo -->
-            <h4 id="modal-title" class="center-align"></h4>
-            <!-- Formulario para crear o actualizar un registro -->
-            <form class="row" method="post" id="save-form">
-                <!-- Campo oculto para asignar el id del registro al momento de modificar -->
-                <input class="hide" type="number" id="id" name="id">
-                <div class="input-field col s12 m6">
-                    <i class="material-icons prefix">person</i>
-                    <input id="nombres" type="text" name="nombres" class="validate" required>
-                    <label for="nombres">Nombres</label>
-                </div>
-                <div class="input-field col s12 m6">
-                    <i class="material-icons prefix">person</i>
-                    <input id="apellidos" type="text" name="apellidos" class="validate" required>
-                    <label for="apellidos">Apellidos</label>
-                </div>
-                <div class="input-field col s12 m6">
-                    <i class="material-icons prefix">email</i>
-                    <input id="correo" type="email" name="correo" class="validate" required>
-                    <label for="correo">Correo</label>
-                </div>
-                <div class="input-field col s12 m6">
-                    <i class="material-icons prefix">person_pin</i>
-                    <input id="alias" type="text" name="alias" class="validate" required>
-                    <label for="alias">Alias</label>
-                </div>
-                <div class="input-field col s12 m6">
-                    <i class="material-icons prefix">security</i>
-                    <input id="clave" type="password" name="clave" class="validate" required>
-                    <label for="clave">Clave</label>
-                </div>
-                <div class="input-field col s12 m6">
-                    <i class="material-icons prefix">security</i>
-                    <input id="confirmar" type="password" name="confirmar" class="validate" required>
-                    <label for="confirmar">Confirmar clave</label>
-                </div>
-                <div class="col s12 center-align">
-                    <button type="reset" class="btn-floating waves-effect grey tooltipped" data-tooltip="Reiniciar">
-                        <i class="material-icons">autorenew</i>
-                    </button>
-                    <button type="submit" class="btn-floating waves-effect blue tooltipped" data-tooltip="Guardar">
-                        <i class="material-icons">save</i>
-                    </button>
-                </div>
-            </form>
-        </div>
-    </div>
 
     <!---------------- SCRIPTS ---------------->
-    
+
     <!-- BOOTSTRAP -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"

@@ -218,6 +218,15 @@ class Usuarios extends Validator
         return Database::getRows($sql, $params);
     }
 
+    public function readOne()
+    {
+        $sql = 'SELECT "idEmpleado", "nombresEmpleado", "apellidosEmpleado", "correoEmpleado", "telefonoEmpleado", "direccionEmpleado", "aliasEmpleado", "fotoEmpleado", "cargoEmpleado", "estadoEmpleado"
+        FROM empleado
+        where "idEmpleado" = ?';
+        $params = array($this->id);
+        return Database::getRow($sql, $params);
+    }
+
     /*
     *   Métodos para realizar las operaciones SCRUD (search, create, read, update, delete).
     */
@@ -245,10 +254,10 @@ class Usuarios extends Validator
     /* UPDATE */
     public function updateRow()
     {
-        $sql = 'UPDATE usuarios 
-                SET nombres_usuario = ?, apellidos_usuario = ?, correo_usuario = ?
-                WHERE id_usuario = ?';
-        $params = array($this->nombres, $this->apellidos, $this->correo, $this->id);
+        $sql = 'UPDATE empleado
+                SET "nombresEmpleado" = ?, "apellidosEmpleado" = ?, "correoEmpleado" = ?, "direccionEmpleado" = ?, "telefonoEmpleado" = ?, "cargoEmpleado" = ?, "estadoEmpleado" = ?, "fotoEmpleado" = ?
+                WHERE "idEmpleado" = ?';
+            $params = array($this->nombres, $this->apellidos, $this->correo, $this->direccion, $this->telefono, $this->cargo, $this->estado, $this->foto, $this->id);
         return Database::executeRow($sql, $params);
     }
 
