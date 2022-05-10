@@ -32,6 +32,88 @@ if (isset($_GET['action'])) {
                     $result['exception'] = 'Ocurrió un problema al cerrar la sesión';
                 }
                 break;
+            case 'readAll':
+                if ($result['dataset'] = $usuario->readAll()) {
+                    $result['status'] = 1;
+                } elseif (Database::getException()) {
+                    $result['exception'] = Database::getException();
+                } else {
+                    $result['exception'] = 'No hay datos registrados';
+                }
+                break;
+            case 'create':
+                //Especificamos los inputs por medio de su atributo name, y los capturamos con el método post
+                $_POST = $usuario->validateForm($_POST);
+                if (!$usuario->setNombres($_POST['nombres'])) {
+                    $result['exception'] = 'Nombres inválidos';
+                } elseif (!$usuario->setApellidos($_POST['apellidos'])) {
+                    $result['exception'] = 'Apellidos inválidos';
+                } elseif (!$usuario->setCargo($_POST['cargo'])){
+                    $result['exception'] = 'Cargo inválido';
+                } elseif (!$usuario->setCorreo($_POST['correo'])) {
+                    $result['exception'] = 'Correo inválido';
+                } elseif (!$usuario->setDireccion($_POST['direccion'])) {
+                    $result['exception'] = 'Direccion inválida';
+                } elseif (!$usuario->setTelefono($_POST['telefono'])) {
+                    $result['exception'] = 'Teléfono inválido';
+                }elseif (!$usuario->setFoto($_POST['foto'])) {
+                    $result['exception'] = 'Foto inválida';
+                }elseif (!$usuario->setEstado(1)) {
+                    $result['exception'] = 'Estado inválido';
+                }elseif (!$usuario->setAlias($_POST['alias'])) {
+                    $result['exception'] = 'Alias inválido';
+                } elseif ($_POST['clave'] != $_POST['confirmar']) {
+                    $result['exception'] = 'Claves diferentes';
+                } elseif (!$usuario->setClave($_POST['clave'])) {
+                    $result['exception'] = $usuario->getPasswordError();
+                } elseif ($usuario->createRow()) {
+                    $result['status'] = 1;
+                    $result['message'] = 'Empleado creado correctamente';
+                } else {
+                    $result['exception'] = Database::getException();
+                }
+                break;
+            case 'readOne':
+                if (!$usuario->setId($_POST['id'])) {
+                    $result['exception'] = 'Empleado incorrecto';
+                } elseif ($result['dataset'] = $usuario->readOne()) {
+                    $result['status'] = 1;
+                } elseif (Database::getException()) {
+                    $result['exception'] = Database::getException();
+                } else {
+                    $result['exception'] = 'Empleado inexistente';
+                }
+                break;
+            case 'update':
+                //Especificamos los inputs por medio de su atributo name, y los capturamos con el método post
+                $_POST = $usuario->validateForm($_POST);
+                if (!$usuario->setId($_POST['id'])) {
+                    $result['exception'] = 'Empleado incorrecto';
+                } elseif (!$usuario->readOne()) {
+                    $result['exception'] = 'Empleado inexistente';
+                } if (!$usuario->setNombres($_POST['nombres'])) {
+                    $result['exception'] = 'Nombres inválidos';
+                } elseif (!$usuario->setApellidos($_POST['apellidos'])) {
+                    $result['exception'] = 'Apellidos inválidos';
+                } elseif (!$usuario->setCargo($_POST['cargo'])){
+                    $result['exception'] = 'Cargo inválido';
+                } elseif (!$usuario->setCorreo($_POST['correo'])) {
+                    $result['exception'] = 'Correo inválido';
+                } elseif (!$usuario->setDireccion($_POST['direccion'])) {
+                    $result['exception'] = 'Direccion inválida';
+                } elseif (!$usuario->setTelefono($_POST['telefono'])) {
+                    $result['exception'] = 'Teléfono inválido';
+                }elseif (!$usuario->setFoto($_POST['foto'])) {
+                    $result['exception'] = 'Foto inválida';
+                }elseif (!$usuario->setEstado($_POST['estado'])) {
+                    $result['exception'] = 'Estado inválido';
+                }elseif ($usuario->updateRow()) {
+                    $result['status'] = 1;
+                    $result['message'] = 'Empleado modificado correctamente';
+                } else {
+                    $result['exception'] = Database::getException();
+                }
+                break;    
             default:
                 $result['exception'] = 'Acción no disponible dentro de la sesión';
         }
@@ -62,7 +144,7 @@ if (isset($_GET['action'])) {
                     $result['exception'] = 'Direccion inválida';
                 } elseif (!$usuario->setTelefono($_POST['telefono'])) {
                     $result['exception'] = 'Teléfono inválido';
-                }elseif (!$usuario->setFoto('fotodeprueba')) {
+                }elseif (!$usuario->setFoto(1)) {
                     $result['exception'] = 'Foto inválida';
                 }elseif (!$usuario->setEstado(1)) {
                     $result['exception'] = 'Estado inválido';
