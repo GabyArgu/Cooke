@@ -42,7 +42,7 @@
                 <!-- APARTADO DONDE APARECERA EL AVATAR Y NOMBRE DEL USUARIO -->
                 <ul class="nav flex-column justify-content-center align-items-center">
                     <img src="../../resources/img/dashboard/usuario.png" class="Usua-Ico" alt="">
-                    <h5 class="Nombre-Usu">Gabriela Méndez</h5>
+                    <h5 class="Nombre-Usu" id="username">Gabriela Méndez</h5>
                     <a class="Adm" href="#">Administrar</a>
                 </ul>
                 <!-- APARTADO DE LOS ENLACES A LAS DIFERENTES PAGINAS DEL SITIO -->
@@ -81,6 +81,7 @@
                         <ul id="blog" class="list-unstyled collapse submenu" data-bs-parent="#sidebar">
                             <li class="sidebar-item"><a class="sidebar-link" href="articulo.html">Artículo</a></li>
                             <li class="sidebar-item"><a class="sidebar-link" href="categorias_blog.html">Categoría</a>
+                            <li class="sidebar-item"><a class="sidebar-link" href="comentarios_blog.html">Comentarios</a>
                             </li>
                             <li class="sidebar-item"><a class="sidebar-link"
                                     href="comentarios_blog.html">Comentarios</a></li>
@@ -135,7 +136,7 @@
                                 </a>
                                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
                                     <li><a class="dropdown-item" href="cuenta.html">Perfil</a></li>
-                                    <li><a class="dropdown-item" href="index.html">Cerrar Sesión</a></li>
+                                    <li><a class="dropdown-item" onclick="logOut()">Cerrar Sesión</a></li>
                                 </ul>
                             </li>
                         </ul>
@@ -148,8 +149,8 @@
                 <div class="container-fluid">
 
                     <div class="header">
-                        <h1 class="Bien">Bienvenida de vuelta,</h1>
-                        <h2 class="N-Usuar">Gabriela</h2>
+                        <h1 class="Bien">Bienvenido de vuelta,</h1>
+                        <h2 class="N-Usuar username2">Gabriela</h2>
                     </div>
 
                     <div class="row mb-4">
@@ -418,13 +419,11 @@
         integrity="sha384-zNy6FEbO50N+Cg5wap8IKA4M/ZnLJgzc6w2NqACZaK0u0FXfOWRRJOnQtpZun8ha"
         crossorigin="anonymous"></script>
 
-    <!-- TAGIFY RESOURCE -->
-    <script src="https://unpkg.com/@yaireo/tagify"></script>
-    <script src="https://unpkg.com/@yaireo/tagify/dist/tagify.polyfills.min.js"></script>
-    <link href="https://unpkg.com/@yaireo/tagify/dist/tagify.css" rel="stylesheet" type="text/css" />
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="../../controllers/privado/charts.js"></script>
-    <script src="../../controllers/privado/dashboard.js"></script>
-
+    <script src="../../controllers/componentes.js"></script>
+    <script src="../../controllers/privado/online.js"></script>
+    
 </body>
 
 </html>

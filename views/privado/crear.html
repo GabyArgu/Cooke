@@ -44,13 +44,13 @@
                             <h1 class="text-center titleL">REGISTRAR</h1>
                             <hr class="lineaRe">
                         </div>
-                        <div class="row justify-content-center">
+                        <form class="row justify-content-center" id="register-form">
                             <div class="col-10 mt-4 d-flex justify-content-around">
                                 <div class="input-group LlenarIG">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text SLcorreo SCimg" id="inputGroupPrepend2"></span>
                                     </div>
-                                    <input type="text" class="form-control Lcorreo" id="validationDefaultUsername"
+                                    <input type="text" class="form-control Lcorreo" id="nombres" name="nombres"
                                         placeholder="Escribe tus nombres" aria-describedby="inputGroupPrepend2"
                                         required>
                                 </div>
@@ -58,7 +58,7 @@
                                     <div class="input-group-prepend">
                                         <span class="input-group-text SLcorreo SCimg2" id="inputGroupPrepend2"></span>
                                     </div>
-                                    <input type="text" class="form-control Lcorreo" id="validationDefaultUsername"
+                                    <input type="text" class="form-control Lcorreo" id="telefono" name="telefono"
                                         placeholder="Escribe tu teléfono" aria-describedby="inputGroupPrepend2"
                                         required>
                                 </div>
@@ -68,65 +68,57 @@
                                     <div class="input-group-prepend">
                                         <span class="input-group-text SLcorreo SCimg" id="inputGroupPrepend2"></span>
                                     </div>
-                                    <input type="text" class="form-control Lcorreo" id="validationDefaultUsername"
+                                    <input type="text" class="form-control Lcorreo" id="apellidos" name="apellidos"
                                         placeholder="Escribe tus apellidos" aria-describedby="inputGroupPrepend2"
                                         required>
                                 </div>
-                                <div class="input-group">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text SLcorreo SCimg4" id="inputGroupPrepend2"></span>
-                                    </div>
-                                    <input type="text" class="form-control Lcorreo" id="validationDefaultUsername"
-                                        placeholder="Escribe tu cumpleaños" aria-describedby="inputGroupPrepend2"
-                                        required>
-                                </div>
                             </div>
                             <div class="col-10 mt-4 d-flex justify-content-around">
                                 <div class="input-group LlenarIG">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text SLcorreo SCimg5" id="inputGroupPrepend2"></span>
-                                    </div>
-                                    <input type="text" class="form-control Lcorreo" id="validationDefaultUsername"
-                                        placeholder="Escribe tu dui" aria-describedby="inputGroupPrepend2" required>
-                                </div>
-                                <div class="input-group">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text SLcorreo SCimg6" id="inputGroupPrepend2"></span>
                                     </div>
-                                    <input type="text" class="form-control Lcorreo" id="validationDefaultUsername"
+                                    <input type="text" class="form-control Lcorreo" id="direccion" name="direccion"
                                         placeholder="Escribe tu dirreción" aria-describedby="inputGroupPrepend2"
                                         required>
+                                </div>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text SLcorreo SCimg7" id="inputGroupPrepend2"></span>
+                                    </div>
+                                    <input type="text" class="form-control Lcorreo" id="correo" name="correo"
+                                        placeholder="Escribe tu correo" aria-describedby="inputGroupPrepend2" required>
                                 </div>
                             </div>
                             <div class="col-10 mt-4 d-flex justify-content-around">
                                 <div class="input-group LlenarIG">
                                     <div class="input-group-prepend">
-                                        <span class="input-group-text SLcorreo SCimg7" id="inputGroupPrepend2"></span>
+                                        <span class="input-group-text SLcorreo SCimg8" id="inputGroupPrepend2"></span>
                                     </div>
-                                    <input type="text" class="form-control Lcorreo" id="validationDefaultUsername"
-                                        placeholder="Escribe tu correo" aria-describedby="inputGroupPrepend2" required>
+                                    <input type="text" class="form-control Lcorreo" id="alias" name="alias"
+                                        placeholder="Escribe tu alias" aria-describedby="inputGroupPrepend2" required>
                                 </div>
                                 <div class="input-group">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text SLcorreo SCimg8" id="inputGroupPrepend2"></span>
                                     </div>
-                                    <input type="text" class="form-control Lcorreo" id="validationDefaultUsername"
-                                        placeholder="Escribe tu alias" aria-describedby="inputGroupPrepend2"
-                                        required>
-                                </div>
-                            </div>
-                            <div class="col-10 mt-4 d-flex justify-content-around">
-                                <div class="input-group">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text SLcorreo SCimg8" id="inputGroupPrepend2"></span>
-                                    </div>
-                                    <input type="text" class="form-control Lcorreo" id="validationDefaultUsername"
+                                    <input type="text" class="form-control Lcorreo" id="clave" name="clave"
                                         placeholder="Escribe tu contraseña" aria-describedby="inputGroupPrepend2"
                                         required>
                                 </div>
                             </div>
+                            <div class="col-10 mt-4 d-flex justify-content-around">
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text SLcorreo SCimg8" id="inputGroupPrepend2"></span>
+                                    </div>
+                                    <input type="text" class="form-control Lcorreo" id="confirmar" name="confirmar"
+                                        placeholder="Confirmar contraseña" aria-describedby="inputGroupPrepend2"
+                                        required>
+                                </div>
+                            </div>
                             <div class="col-10 mt-4 justify-content-center">
-                                <a href="index.html"><button class="Aceptar"> Continuar</button></a>
+                                <a href="index.html"><button class="Aceptar" type="submit"> Continuar</button></a>
                             </div>
                             <div class="col-10 mt-4 justify-content-center">
                                 <p class="TerminosP2">Al continuar, aceptas las Condiciones de uso y el Aviso de
@@ -141,9 +133,8 @@
                             <div class="col-10 mt-1 justify-content-center">
                                 <a class="Crear2" href="index.html">Ingresar</a>
                             </div>
-                        </div>
+                        </form>
                     </div>
-
                 </div>
             </div>
         </section>
@@ -153,6 +144,9 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
         crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="../../controllers/componentes.js"></script>
+    <script src="../../controllers/privado/crear.js"></script>
 
 </body>
 
