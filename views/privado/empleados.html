@@ -153,9 +153,11 @@
                                     data-bs-target="#save-modal">Agregar<i class="fa-solid fa-plus"></i></button>
                             </div>
                             <div class="col d-flex justify-content-end mx-auto">
-                                <input class="form-control form-control-dark w-60 d-none d-md-block Buscador-Imp"
-                                    type="text" placeholder="Buscar" aria-label="Search">
-                                <button class="btn-refresh"><i class="fa-solid fa-arrows-rotate"></i></button>
+                                <form method="post" id="search-form">
+                                    <input class="form-control form-control-dark w-60 d-none d-md-block Buscador-Imp"
+                                    type="text" placeholder="Buscar" aria-label="Search" id="search" name="search">
+                                </form>
+                                <button class="btn-refresh" id="refresh"><i class="fa-solid fa-arrows-rotate"></i></button>
                             </div>
                         </div>
                         <div class="row">
@@ -341,13 +343,13 @@
                                     <div class="col-4 mb-4">
                                         <label for="validationDefault03" class="form-label">Avatar</label>
                                         <div class="row">
-                                            <div class="col col-10">
+                                            <div class="col col-12 col-md-10 d-flex align-items-center">
                                                 <select class="form-select custom-form-select"
                                                     aria-label="Default select example" id="foto" name="foto"
                                                     onchange="changeAvatar()">
                                                 </select>
                                             </div>
-                                            <div class="col col-2 imagen-avatar d-flex justify-content-end">
+                                            <div class="col col-12 col-md-2 imagen-avatar d-flex justify-content-center align-items-center my-1">
                                                 <img id="imagen-avatar" src="" alt="">
                                             </div>
                                         </div>
@@ -397,17 +399,17 @@
                             <div class="col eliminar-content">
                                 <i class="fa-solid fa-circle-exclamation mb-4"></i>
                                 <h2>¿Estás seguro?</h2>
-                                <span>El elemento se borrará de manera permanente</span>
+                                <span>El elemento será dado de baja</span>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="modal-footer d-flex mx-2 justify-content-between">
-                    <button class="btn btn-cancel" type="button" data-bs-target="" data-bs-toggle="modal"
+                    <button class="btn btn-cancel" type="button"
                         data-bs-dismiss="modal">Cancelar</button>
                     <form id="delete-form">
                         <input type="hidden" id="idEmpleado" name="idEmpleado">
-                        <button class="btn btn-siguiente" type="submit" data-bs-target="" data-bs-toggle="modal"
+                        <button class="btn btn-siguiente" type="submit" 
                             data-bs-dismiss="modal">Continuar</button>
                     </form>
                     

@@ -4,6 +4,8 @@ const ENDPOINT_CARGO = SERVER + 'private/cargoEmpleado.php?action=readAll';
 const ENDPOINT_ESTADO = SERVER + 'private/estadoEmpleado.php?action=readAll';
 const ENDPOINT_AVATAR = SERVER + 'private/avatar.php?action=readAll';
 
+/* Los endpoint_cargo, estado y avatar, son necesarios al ser tablas foráneas*/
+
 // Método manejador de eventos que se ejecuta cuando el documento ha cargado.
 document.addEventListener('DOMContentLoaded', function () {
   /* Cargando propiedades de datatable */
@@ -24,14 +26,29 @@ document.addEventListener('DOMContentLoaded', function () {
   });
   // Se llama a la función que obtiene los registros para llenar la tabla. Se encuentra en el archivo components.js
   readRows(API_USUARIOS);
-  // Se define una variable para establecer las opciones del componente Modal.
-  let options = {
-    
-  }
-  var modal = new bootstrap.Modal(document.querySelector('.modal'), options)
 });
 
-// Función para preparar el formulario al momento de insertar un registro.
+//Función para refrescar la tabla manualmente al darle click al botón refresh
+document.getElementById('refresh').addEventListener('click', function(){
+  readRows(API_USUARIOS);
+  document.getElementById('search').value = "";
+});
+
+
+//Función que se ejecuta cada vez que apretamos una tecla dentro del input #search, sirve para buscador en tiempo real
+$(document).on('keyup', '#search', function(){
+  var valor = $(this).val();
+  if(valor != ""){
+    //SearchRows se encuentra en componentes.js y mandamos la ruta de la api, el formulario el cual contiene nuestro input para buscar (id) y el input de buscar (id)
+    searchRows(API_USUARIOS, 'search-form', 'search');
+  }
+  else{
+    //Cuando el input este vacío porque borramos el texto manualmente
+    readRows(API_USUARIOS);
+  }
+});
+
+// Función para preparar el modal al momento de insertar un registro.
 function openCreate() {
 
   //Limpiamos los campos del modal
@@ -44,11 +61,11 @@ function openCreate() {
   document.getElementById('clave').disabled = false;
   document.getElementById('confirmar').disabled = false;
 
-  //Añadimos la clase que esconde el estado ya que todos los usuarios ingresados, tendrán el valor de activo
+  //Añadimos la clase que esconde el select estado ya que todos los usuarios ingresados, tendrán el valor de activo y este se manda automaticamente
   document.getElementById('estado').classList.add('input-hide')
   document.getElementById('estado-label').classList.add('input-hide')
 
-  //Ocultamos la imagen del avatar
+  //Ocultamos la imagen del avatar ya que por defecto no aparecerá, solo hasta que se seleccione un avatar
   document.getElementById('imagen-avatar').style.display = 'none '
 
   /* Se llama a la función que llena el select del formulario. Se encuentra en el archivo components.js, 
@@ -67,7 +84,6 @@ function openUpdate(id) {
   document.getElementById('alias').disabled = true;
   document.getElementById('clave').disabled = true;
   document.getElementById('confirmar').disabled = true;
-
   document.getElementById('estado').classList.remove('input-hide')
   document.getElementById('estado-label').classList.remove('input-hide')
   // Se define un objeto con los datos del registro seleccionado.
@@ -106,7 +122,7 @@ function openUpdate(id) {
   });
 }
 
-// Función para establecer el registro a eliminar y abrir una caja de diálogo de confirmación.
+// Función para mandar el id de la row seleccionada al modal eliminar.
 function openDelete(id) {
   document.getElementById('idEmpleado').value = id;
 }
@@ -163,16 +179,20 @@ document.getElementById('save-form').addEventListener('submit', function (event)
   saveRow(API_USUARIOS, action, 'save-form', 'save-modal');
 });
 
-// Método manejador de eventos que se ejecuta cuando se envía el formulario de guardar.
+// Método manejador de eventos que se ejecuta cuando se envía el modal de eliminar.
 document.getElementById('delete-form').addEventListener('submit', function (event) {
   // Se evita recargar la página web después de enviar el formulario.
   event.preventDefault();
+  //Llamamos al método que se encuentra en la api y le pasamos la ruta de la API y el id del formulario dentro de nuestro modal eliminar
   confirmDelete(API_USUARIOS, 'delete-form');
 });
 
+
+//Función para cambiar y mostrar el avatar dinámicamente en modals
 function changeAvatar(){
   let combo = document.getElementById('foto')
   let selected = combo.options[combo.selectedIndex].text;
   document.getElementById('imagen-avatar').style.display = 'inline-block'
   document.getElementById('imagen-avatar').src = `../../resources/img/avatares/${selected}.jpg`;
 }
+
