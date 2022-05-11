@@ -41,6 +41,15 @@ if (isset($_GET['action'])) {
                     $result['exception'] = 'No hay datos registrados';
                 }
                 break;
+            case 'search':
+                if ($result['dataset'] = $usuario->searchRows($_POST['search'])) {
+                    $result['status'] = 1;
+                } elseif (Database::getException()) {
+                    $result['exception'] = Database::getException();
+                }else {
+                    $result['exception'] = 'No hay coincidencias';
+                }
+                break;
             case 'create':
                 //Especificamos los inputs por medio de su atributo name, y los capturamos con el método post
                 $_POST = $usuario->validateForm($_POST);
@@ -110,6 +119,20 @@ if (isset($_GET['action'])) {
                 }elseif ($usuario->updateRow()) {
                     $result['status'] = 1;
                     $result['message'] = 'Empleado modificado correctamente';
+                } else {
+                    $result['exception'] = Database::getException();
+                }
+                break;
+            case 'delete':
+                if ($_POST['idEmpleado'] == $_SESSION['id_usuario']) {
+                    $result['exception'] = 'No se puede dar de baja a sí mismo';
+                } elseif (!$usuario->setId($_POST['idEmpleado'])) {
+                    $result['exception'] = 'Empleado incorrecto';
+                } elseif (!$usuario->readOne()) {
+                    $result['exception'] = 'Empleado inexistente';
+                } elseif ($usuario->deleteRow()) {
+                    $result['status'] = 1;
+                    $result['message'] = 'Empleado inhabilitado correctamente';
                 } else {
                     $result['exception'] = Database::getException();
                 }
