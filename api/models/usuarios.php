@@ -212,7 +212,8 @@ class Usuarios extends Validator
     {
         $sql = 'SELECT "idEmpleado", "nombresEmpleado", "apellidosEmpleado", "telefonoEmpleado", ce."cargoEmpleado", ee."estadoEmpleado"
         FROM empleado as e inner join "cargoEmpleado" as ce on e."cargoEmpleado" = ce."idCargoEmpleado"
-        inner join "estadoEmpleado" as ee on e."estadoEmpleado" = ee."idEstadoEmpleado"';
+        inner join "estadoEmpleado" as ee on e."estadoEmpleado" = ee."idEstadoEmpleado" 
+		order by "idEmpleado", e."estadoEmpleado"';
         
         $params = null;
         return Database::getRows($sql, $params);
@@ -233,10 +234,11 @@ class Usuarios extends Validator
     /* SEARCH */
     public function searchRows($value)
     {
-        $sql = 'SELECT id_usuario, nombres_usuario, apellidos_usuario, correo_usuario, alias_usuario
-                FROM usuarios
-                WHERE apellidos_usuario ILIKE ? OR nombres_usuario ILIKE ?
-                ORDER BY apellidos_usuario';
+        $sql = 'SELECT "idEmpleado", "nombresEmpleado", "apellidosEmpleado", "telefonoEmpleado", ce."cargoEmpleado", ee."estadoEmpleado"
+                FROM empleado as e inner join "cargoEmpleado" as ce on e."cargoEmpleado" = ce."idCargoEmpleado"
+                inner join "estadoEmpleado" as ee on e."estadoEmpleado" = ee."idEstadoEmpleado"
+                WHERE "nombresEmpleado" ILIKE ? OR "apellidosEmpleado" ILIKE ?
+                order by "idEmpleado", e."estadoEmpleado"';
         $params = array("%$value%", "%$value%");
         return Database::getRows($sql, $params);
     }
@@ -265,8 +267,8 @@ class Usuarios extends Validator
     /* Función para inhabilitar un usuario ya que no los borraremos de la base*/
     public function deleteRow()
     {
-        $sql = 'DELETE FROM usuarios
-                WHERE id_usuario = ?';
+        //No eliminaremos registros, solo los inhabilitaremos
+        $sql = 'UPDATE empleado SET "estadoEmpleado" = 3 WHERE "idEmpleado" = ?'; //Delete from empleado where "idEmpleado" = ?
         $params = array($this->id);
         return Database::executeRow($sql, $params);
     }

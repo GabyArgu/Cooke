@@ -39,6 +39,64 @@ function readRows(api) {
 }
 
 /*
+*   Función para obtener los resultados de una búsqueda en los mantenimientos de tablas (operación search).
+*
+*   Parámetros: api (ruta del servidor para obtener los datos) y form (identificador del formulario de búsqueda).
+*
+*   Retorno: ninguno.
+*/
+function searchRows(api, form, input) {
+    fetch(api + 'search', {
+        method: 'post',
+        body: new FormData(document.getElementById(form))
+    }).then(function (request) {
+        // Se verifica si la petición es correcta, de lo contrario se muestra un mensaje en la consola indicando el problema.
+        if (request.ok) {
+            // Se obtiene la respuesta en formato JSON.
+            request.json().then(function (response) {
+                // Se comprueba si la respuesta es satisfactoria, de lo contrario se muestra un mensaje con la excepción.
+                if (response.status) {
+                    // Se envían los datos a la función del controlador para que llene la tabla en la vista y se muestra un mensaje de éxito.
+                    fillTable(response.dataset);
+                    //sweetAlert(1, response.message, null);
+                } else {
+                    sweetAlert(2, response.exception, null);
+                    document.getElementById(input).value = "";
+                    readRows(api);
+                }
+            });
+        } else {
+            console.log(request.status + ' ' + request.statusText);
+        }
+    });
+}
+
+// function searchRows(api, consulta) {
+//     api + 'search';
+//     $.ajax({
+//         url: api,
+//         type: 'POST',
+//         dataType:'html',
+//         data: {'search':consulta},
+//     })
+//     .done(function(request){
+//         // Se obtiene la respuesta en formato JSON.
+//         request.json().then(function (response) {
+//             // Se comprueba si la respuesta es satisfactoria, de lo contrario se muestra un mensaje con la excepción.
+//             if (response.status) {
+//                 // Se envían los datos a la función del controlador para que llene la tabla en la vista y se muestra un mensaje de éxito.
+//                 fillTable(response.dataset);
+//             } else {
+//                 sweetAlert(2, response.exception, null);
+//             }
+//         });
+//     })  
+//     .fail(function(){
+//         console.log(request.status + ' ' + request.statusText);
+//     })
+// }
+
+/*
 *   Función para crear o actualizar un registro en los mantenimientos de tablas (operación create y update).
 *
 *   Parámetros: api (ruta del servidor para enviar los datos), form (identificador del formulario) y modal (identificador de la caja de dialogo).

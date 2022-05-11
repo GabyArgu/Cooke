@@ -24,12 +24,33 @@ document.addEventListener('DOMContentLoaded', function () {
   });
   // Se llama a la función que obtiene los registros para llenar la tabla. Se encuentra en el archivo components.js
   readRows(API_USUARIOS);
-  // Se define una variable para establecer las opciones del componente Modal.
-  let options = {
-    
-  }
-  var modal = new bootstrap.Modal(document.querySelector('.modal'), options)
 });
+
+document.getElementById('refresh').addEventListener('click', function(){
+  readRows(API_USUARIOS);
+  document.getElementById('search').value = "";
+});
+
+//Función que se ejecuta cada vez que apretamos una tecla, sirve para buscador en tiempo real
+$(document).on('keyup', '#search', function(){
+  var valor = $(this).val();
+  if(valor != ""){
+    searchRows(API_USUARIOS, 'search-form', 'search');
+  }
+  else{
+    //Cuando el input este vacío porque borramos el texto manualmente
+    readRows(API_USUARIOS);
+  }
+});
+
+
+// // Método manejador de eventos que se ejecuta cuando se envía el formulario de buscar.
+// document.getElementById('search-form').addEventListener('submit', function (event) {
+//   // Se evita recargar la página web después de enviar el formulario.
+//   event.preventDefault();
+//   // Se llama a la función que realiza la búsqueda. Se encuentra en el archivo components.js
+//   searchRows(API_USUARIOS, 'search-form');
+// });
 
 // Función para preparar el formulario al momento de insertar un registro.
 function openCreate() {
@@ -67,7 +88,6 @@ function openUpdate(id) {
   document.getElementById('alias').disabled = true;
   document.getElementById('clave').disabled = true;
   document.getElementById('confirmar').disabled = true;
-
   document.getElementById('estado').classList.remove('input-hide')
   document.getElementById('estado-label').classList.remove('input-hide')
   // Se define un objeto con los datos del registro seleccionado.
@@ -170,9 +190,12 @@ document.getElementById('delete-form').addEventListener('submit', function (even
   confirmDelete(API_USUARIOS, 'delete-form');
 });
 
+
+//Función para cambiar y mostrar el avatar dinámicamente en modals
 function changeAvatar(){
   let combo = document.getElementById('foto')
   let selected = combo.options[combo.selectedIndex].text;
   document.getElementById('imagen-avatar').style.display = 'inline-block'
   document.getElementById('imagen-avatar').src = `../../resources/img/avatares/${selected}.jpg`;
 }
+
