@@ -31,7 +31,6 @@
 </head>
 
 <body>
-
     <div class="wrapper">
         <!-- INICIO DEL SIDEBAR DE LA PAGINA -->
         <nav id="sidebarMenu" class="sidebar">
@@ -66,7 +65,7 @@
                             <li class="sidebar-item"><a class="sidebar-link" href="productos.html">Productos</a>
                             </li>
                             <li class="sidebar-item"><a class="sidebar-link"
-                                    href="categorias_productos.html">Categoría</a></li>
+                                    href="categoriasProductos.html">Categoría</a></li>
                             <li class="sidebar-item"><a class="sidebar-link"
                                     href="subcategorias_productos.html">Subcategoria</a></li>
                             <li class="sidebar-item"><a class="sidebar-link" href="pedidos.html">Pedidos</a></li>
@@ -81,7 +80,8 @@
                         <ul id="blog" class="list-unstyled collapse submenu" data-bs-parent="#sidebar">
                             <li class="sidebar-item"><a class="sidebar-link" href="articulo.html">Artículo</a></li>
                             <li class="sidebar-item"><a class="sidebar-link" href="categorias_blog.html">Categoría</a>
-                            <li class="sidebar-item"><a class="sidebar-link" href="comentarios_blog.html">Comentarios</a>
+                            <li class="sidebar-item"><a class="sidebar-link"
+                                    href="comentarios_blog.html">Comentarios</a>
                             </li>
                             <li class="sidebar-item"><a class="sidebar-link"
                                     href="comentarios_blog.html">Comentarios</a></li>
@@ -108,22 +108,22 @@
             <!-- FIN DEL CONTENIDO DEL SIDEBAR DE LA PAGINA -->
         </nav>
         <!-- FIN DEL SIDEBAR DE LA PAGINA -->
-        <div class="main articulo">
+
+        <!-- INICIO DEL CONTENIDO PRINCIPAL DE LA PAGINA -->
+        <div class="main productos">
+            <!-- HEADER DE LA PAGINA CONTIENE EL NAVBAR Y SUS COMPONENTES -->
             <header>
                 <nav class="navbar navbar-expand navbar-theme">
                     <a class="sidebar-toggle d-flex me-2">
                         <i class="fa-solid fa-bars" onclick="sidebarToggle()"></i>
                     </a>
-
                     <div class="Lupa">
                         <i class="fa-solid fa-magnifying-glass fa-lg"></i>
                     </div>
-
                     <form class="d-none d-sm-inline-block me-auto ">
                         <input class=" form-control form-control-lite barra-buscar" type="text"
                             placeholder="Buscar en el sitio">
                     </form>
-
                     <div class="opciones-nav d-flex justify-content-center align-items-center">
                         <div>
                             <i class="fa-solid fa-moon fa-2x me-2 Confi-Logo"></i>
@@ -143,10 +143,11 @@
                     </div>
                 </nav>
             </header>
+            <!-- MAIN O CONTENIDO DE LA PAGINA -->
             <main class="content">
                 <div class="container-fluid">
                     <div class="header">
-                        <h1>Administrar subcategorías de productos</h1>
+                        <h1>Etiquetas</h1>
                     </div>
                     <div class="row contenido">
                         <div class="row pt-3 mx-auto header-table">
@@ -161,142 +162,137 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col">
-                                <div class="table-responsive mt-3" id="no-more-tables">
-                                    <table class="table table-bordered table-categorias"
-                                        id="table-subcategorias-productos">
-                                        <thead>
-                                            <tr>
-                                                <th>Nombre</th>
-                                                <th>Descripción</th>
-                                                <th>Categoría</th>
-                                                <th>Acciones</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td data-title="PRODUCTO" class="nombre-categoria">Sartenes</td>
-                                                <td data-title="DESCRIPCION">Sartenes de acero, de hierro, de cerámica y
-                                                    antiadherente.</td>
-                                                <td data-title="CATEGORÍA">Cocina</td>
-                                                <td class="botones-table">
-                                                    <div class="acciones d-flex mx-auto">
-                                                        <span href="" class="accion-btn" type="button"
-                                                            data-bs-toggle="modal" data-bs-target="#modal-actualizar">
-                                                            <i class="fa-solid fa-pen-to-square"></i>
-                                                        </span>
-                                                        <span href="" class="accion-btn" type="button"
-                                                            data-bs-toggle="modal" data-bs-target="#modal-eliminar">
-                                                            <i class="fa-solid fa-trash-can fa-lg"></i>
-                                                        </span>
-                                                    </div>
-                                                </td>
+                            <div class="table-responsive mt-3" id="no-more-tables">
+                                <table class="table table-bordered table-categorias" id="table-categorias-productos">
+                                    <thead>
+                                        <tr>
+                                            <th>Nombre de la Etiqueta</th>
+                                            <th>Acciones</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <td data-title="etiqueta"class="nombre-categoria">-30%</td>
+                                        <td class="botones-table">
+                                            <div class="acciones d-flex mx-auto">
+                                                <span href="" class="accion-btn" type="button" data-bs-toggle="modal"
+                                                    data-bs-target="#modal-actualizar">
+                                                    <i class="fa-solid fa-pen-to-square"></i>
+                                                </span>
+                                                <span href="" class="accion-btn" type="button" data-bs-toggle="modal"
+                                                    data-bs-target="#modal-eliminar">
+                                                    <i class="fa-solid fa-trash-can fa-lg"></i>
+                                                </span>
+                                            </div>
+                                        </td>
 
-                                            </tr>
-                                            <tr>
-                                                <td data-title="PRODUCTO" class="nombre-categoria">Cocottes, cacerolas y
-                                                    cazos</td>
-                                                <td data-title="DESCRIPCION">Cocottes de hierro, aluminio, cacerolas de
-                                                    aluminio y acero.</td>
-                                                <td data-title="CATEGORÍA">Cocina</td>
-                                                <td class="botones-table">
-                                                    <div class="acciones d-flex mx-auto">
-                                                        <span href="" class="accion-btn" type="button"
-                                                            data-bs-toggle="modal" data-bs-target="#modal-actualizar">
-                                                            <i class="fa-solid fa-pen-to-square"></i>
-                                                        </span>
-                                                        <span href="" class="accion-btn" type="button"
-                                                            data-bs-toggle="modal" data-bs-target="#modal-eliminar">
-                                                            <i class="fa-solid fa-trash-can fa-lg"></i>
-                                                        </span>
-                                                    </div>
-                                                </td>
+                                        </tr>
+                                        <tr>
+                                            <td data-title="etiqueta" class="nombre-categoria">-40%</td>
+                                            <td class="botones-table">
+                                                <div class="acciones d-flex mx-auto">
+                                                    <span href="" class="accion-btn" type="button"
+                                                        data-bs-toggle="modal" data-bs-target="#modal-actualizar">
+                                                        <i class="fa-solid fa-pen-to-square"></i>
+                                                    </span>
+                                                    <span href="" class="accion-btn" type="button"
+                                                        data-bs-toggle="modal" data-bs-target="#modal-eliminar">
+                                                        <i class="fa-solid fa-trash-can fa-lg"></i>
+                                                    </span>
+                                                </div>
+                                            </td>
 
-                                            </tr>
-                                            <tr>
-                                                <td data-title="PRODUCTO" class="nombre-categoria">Ollas</td>
-                                                <td data-title="DESCRIPCION">Ollas, juego de ollas y ollas rápidas.</td>
-                                                <td data-title="CATEGORÍA">Cocina</td>
-                                                <td class="botones-table">
-                                                    <div class="acciones d-flex mx-auto">
-                                                        <span href="" class="accion-btn" type="button"
-                                                            data-bs-toggle="modal" data-bs-target="#modal-actualizar">
-                                                            <i class="fa-solid fa-pen-to-square"></i>
-                                                        </span>
-                                                        <span href="" class="accion-btn" type="button"
-                                                            data-bs-toggle="modal" data-bs-target="#modal-eliminar">
-                                                            <i class="fa-solid fa-trash-can fa-lg"></i>
-                                                        </span>
-                                                    </div>
-                                                </td>
+                                        </tr>
+                                        <tr>
+                                            <td data-title="etiqueta" class="nombre-categoria">Oferta</td>
+                                            <td class="botones-table">
+                                                <div class="acciones d-flex mx-auto">
+                                                    <span href="" class="accion-btn" type="button"
+                                                        data-bs-toggle="modal" data-bs-target="#modal-actualizar">
+                                                        <i class="fa-solid fa-pen-to-square"></i>
+                                                    </span>
+                                                    <span href="" class="accion-btn" type="button"
+                                                        data-bs-toggle="modal" data-bs-target="#modal-eliminar">
+                                                        <i class="fa-solid fa-trash-can fa-lg"></i>
+                                                    </span>
+                                                </div>
+                                            </td>
 
-                                            </tr>
-                                            <tr>
-                                                <td data-title="PRODUCTO" class="nombre-categoria">Creperas y gofres
-                                                </td>
-                                                <td data-title="DESCRIPCION">Creperas de hierro mineral, y sartenes para
-                                                    gofres variados.</td>
-                                                <td data-title="CATEGORÍA">Cocina</td>
-                                                <td class="botones-table">
-                                                    <div class="acciones d-flex mx-auto">
-                                                        <span href="" class="accion-btn" type="button"
-                                                            data-bs-toggle="modal" data-bs-target="#modal-actualizar">
-                                                            <i class="fa-solid fa-pen-to-square"></i>
-                                                        </span>
-                                                        <span href="" class="accion-btn" type="button"
-                                                            data-bs-toggle="modal" data-bs-target="#modal-eliminar">
-                                                            <i class="fa-solid fa-trash-can fa-lg"></i>
-                                                        </span>
-                                                    </div>
-                                                </td>
+                                        </tr>
+                                        <tr>
+                                            <td data-title="etiqueta" class="nombre-categoria">Nuevo</td>
+                                            <td class="botones-table">
+                                                <div class="acciones d-flex mx-auto">
+                                                    <span href="" class="accion-btn" type="button"
+                                                        data-bs-toggle="modal" data-bs-target="#modal-actualizar">
+                                                        <i class="fa-solid fa-pen-to-square"></i>
+                                                    </span>
+                                                    <span href="" class="accion-btn" type="button"
+                                                        data-bs-toggle="modal" data-bs-target="#modal-eliminar">
+                                                        <i class="fa-solid fa-trash-can fa-lg"></i>
+                                                    </span>
+                                                </div>
+                                            </td>
 
-                                            </tr>
-                                            <tr>
-                                                <td data-title="PRODUCTO" class="nombre-categoria">Cocina vapor</td>
-                                                <td data-title="DESCRIPCION">Vaporeras, recipientes y moldes para cocina
-                                                    saludable al vapor.</td>
-                                                <td data-title="CATEGORÍA">Cocina</td>
-                                                <td class="botones-table">
-                                                    <div class="acciones d-flex mx-auto">
-                                                        <span href="" class="accion-btn" type="button"
-                                                            data-bs-toggle="modal" data-bs-target="#modal-actualizar">
-                                                            <i class="fa-solid fa-pen-to-square"></i>
-                                                        </span>
-                                                        <span href="" class="accion-btn" type="button"
-                                                            data-bs-toggle="modal" data-bs-target="#modal-eliminar">
-                                                            <i class="fa-solid fa-trash-can fa-lg"></i>
-                                                        </span>
-                                                    </div>
-                                                </td>
-
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
+                                        </tr>
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
                     </div>
                 </div>
-
-                <footer>
-                    <div class="text-center p-1 mt-4 CopCo">
-                        © 2021 Copyright:
-                        <a class="text-reset fw-bold" href="https://github.com/GabyArgu/Cooke/tree/ROscar">Cooké.com</a>
-                    </div>
-                </footer>
-
             </main>
+            <!-- FOOTER DE LA PAGINA -->
+            <footer>
+                <div class="text-center p-1 CopCo">
+                    © 2021 Copyright:
+                    <a class="text-reset fw-bold" href="https://github.com/GabyArgu/Cooke/tree/ROscar">Cooké.com</a>
+                </div>
+            </footer>
         </div>
+        <!-- FIN DEL CONTENIDO PRINCIPAL DE LA PAGINA -->
     </div>
-
-    <!-- INICIO MODALS AGREGAR-->
-    <div class="modal modal-agregar modal-agregar-categoria fade" id="modal-agregar" tabindex="-1"
+    <!-- INICIO DEL MODALS DE AGREGAR ETIQUETAS-->
+    <div class="modal modal-agregar modal-agregar-categorias fade" id="modal-agregar" tabindex="-1"
         aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-md">
             <div class="modal-content">
                 <div class="modal-header">
 
-                    <h3 class="mt-2">Agregar subcategoría</h3>
+                    <h3 class="mt-2">Agregar Etiqueta</h3>
+                    <button type="button" class="btn-close my" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col">
+                                <div class="row agregar-content agregar-content-flex">
+                                    <div class="col-12 mb-4">
+                                        <label for="validationDefault01" class="form-label">Nombre</label>
+                                        <input type="text" class="form-control" id="validationDefault01" value=""
+                                            required>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer d-flex justify-content-end">
+                    <button class="btn-guardar" type="button" data-bs-dismiss="modal">Guardar<i
+                            class="fa-solid fa-floppy-disk"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- FIN DEL MODALS DE AGREGAR ETIQUETAS-->
+
+    <!-- INICIO DEL MODALS DE ACTUALIZAR ETIQUETAS-->
+    <div class="modal modal-agregar modal-agregar-categorias fade" id="modal-actualizar" tabindex="-1"
+        aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-md">
+            <div class="modal-content">
+                <div class="modal-header">
+
+                    <h3 class="mt-2">Editar Etiqueta</h3>
 
                     <button type="button" class="btn-close my" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
@@ -310,26 +306,8 @@
                                         <input type="text" class="form-control" id="validationDefault01" value=""
                                             required>
                                     </div>
-                                    <div class="col-12 mb-4">
-                                        <label for="validationDefault01" class="form-label">Descripción</label>
-                                        <textarea class="form-control" id="exampleFormControlTextarea1"
-                                            rows="6"></textarea>
-                                    </div>
-                                    <div class="col-12 mb-4">
-                                        <label for="validationDefault01" class="form-label">Categoría</label>
-                                        <select class="form-select custom-form-select"
-                                            aria-label="Default select example">
-                                            <option selected disabled>Seleccione una opción</option>
-                                            <option value="1">Cocina</option>
-                                            <option value="2">Electrodomésticos</option>
-                                            <option value="3">Utensilios</option>
-                                            <option value="4">Recetas</option>
-                                        </select>
-                                    </div>
                                 </div>
                             </div>
-
-
                         </div>
                     </div>
                 </div>
@@ -340,62 +318,9 @@
             </div>
         </div>
     </div>
+    <!-- FIN DEL MODALS DE ACTUALIZAR ETIQUETAS-->
 
-    <!-- INICIO MODALS ACTUALIZAR -->
-    <div class="modal modal-agregar modal-agregar-categoria fade" id="modal-actualizar" tabindex="-1"
-        aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered modal-md">
-            <div class="modal-content">
-                <div class="modal-header">
-
-                    <h3 class="mt-2">Editar subcategoría</h3>
-
-                    <button type="button" class="btn-close my" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col">
-                                <div class="row agregar-content agregar-content-flex">
-                                    <div class="col-12 mb-4">
-                                        <label for="validationDefault01" class="form-label">Nombre</label>
-                                        <input type="text" class="form-control" id="validationDefault01" value=""
-                                            required>
-                                    </div>
-                                    <div class="col-12 mb-4">
-                                        <label for="validationDefault01" class="form-label">Descripción</label>
-                                        <textarea class="form-control" id="exampleFormControlTextarea1"
-                                            rows="6"></textarea>
-                                    </div>
-                                    <div class="col-12 mb-4">
-                                        <label for="validationDefault01" class="form-label">Categoría</label>
-                                        <select class="form-select custom-form-select"
-                                            aria-label="Default select example">
-                                            <option selected disabled>Seleccione una opción</option>
-                                            <option value="1">Cocina</option>
-                                            <option value="2">Electrodomésticos</option>
-                                            <option value="3">Utensilios</option>
-                                            <option value="4">Recetas</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-
-
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-footer d-flex justify-content-end">
-                    <button class="btn-guardar" type="button" data-bs-dismiss="modal">Guardar<i
-                            class="fa-solid fa-floppy-disk"></i></button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- FIN MODALS ACTUALIZAR -->
-
-    <!-- INICIO MODAL DELETE -->
+    <!-- INICIO DEL MODALS DE DELETE ETIQUETAS -->
     <div class="modal modal-eliminar fade" id="modal-eliminar" aria-hidden="true"
         aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
         <div class="modal-dialog modal-dialog-centered modal-xl">
@@ -423,7 +348,7 @@
             </div>
         </div>
     </div>
-    <!-- FIN MODAL DELETE -->
+    <!-- FIN DEL MODALS DE DELETE ETIQUETAS -->
 
     <!---------------- SCRIPTS ---------------->
 
@@ -437,11 +362,10 @@
     <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.11.5/js/dataTables.bootstrap5.min.js"></script>
 
-
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="../../controllers/componentes.js"></script>
     <script src="../../controllers/privado/online.js"></script>
-    <script src="../../controllers/privado/subcategorias_productos.js"></script>
+    <script src="../../controllers/privado/categorias_productos.js"></script>
 
 </body>
 

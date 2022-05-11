@@ -799,13 +799,13 @@ div.dataTables_wrapper div.dataTables_length select {
   font-size: 25px;
   color: var(--rosadoTitulos);
   border: none;
-  transition: all 0.5s ease;
+  transition: all .3s ease;
 }
 
 .header-table .btn-refresh:hover {
-  font-size: 26px;
+  font-size: 25px;
   color: var(--rosadoOscuro);
-  transform: rotate(180deg);
+  transform: rotate(90deg);
 
 }
 
@@ -1789,6 +1789,18 @@ div.dataTables_wrapper div.dataTables_length select {
   justify-content: center;
 }
 
+
+.input-hide{
+  display: none;
+}
+
+.imagen-avatar img{
+  display: none;
+  width: 45px;
+  height: 45px;
+  border-radius: 22px;
+}
+
 /* ----------------------------------------------------------------INICIO RESEÑAS Y COMENTARIOS-------------------------------------------------------------*/
 
 .titulo-modal {
@@ -1807,6 +1819,7 @@ div.dataTables_wrapper div.dataTables_length select {
 }
 
 /* ----------------------------------------------------------------FIN RESEÑAS Y COMENTARIOS-------------------------------------------------------------*/
+
 
 
 /* --------------------------------------------------------------RESPONSIVE------------------------------------------------------------*/

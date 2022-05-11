@@ -205,6 +205,45 @@ class Usuarios extends Validator
         }
     }
 
+    /* 
+    *   Método para comprobar que existen usuarios registrados en nuestra base de datos
+    */
+    public function readAll()
+    {
+        $sql = 'SELECT "idEmpleado", "nombresEmpleado", "apellidosEmpleado", "telefonoEmpleado", ce."cargoEmpleado", ee."estadoEmpleado"
+        FROM empleado as e inner join "cargoEmpleado" as ce on e."cargoEmpleado" = ce."idCargoEmpleado"
+        inner join "estadoEmpleado" as ee on e."estadoEmpleado" = ee."idEstadoEmpleado" 
+		order by "idEmpleado", e."estadoEmpleado"';
+        
+        $params = null;
+        return Database::getRows($sql, $params);
+    }
+
+    public function readOne()
+    {
+        $sql = 'SELECT "idEmpleado", "nombresEmpleado", "apellidosEmpleado", "correoEmpleado", "telefonoEmpleado", "direccionEmpleado", "aliasEmpleado", "fotoEmpleado", "cargoEmpleado", "estadoEmpleado"
+        FROM empleado
+        where "idEmpleado" = ?';
+        $params = array($this->id);
+        return Database::getRow($sql, $params);
+    }
+
+    /*
+    *   Métodos para realizar las operaciones SCRUD (search, create, read, update, delete).
+    */
+    /* SEARCH */
+    public function searchRows($value)
+    {
+        $sql = 'SELECT "idEmpleado", "nombresEmpleado", "apellidosEmpleado", "telefonoEmpleado", ce."cargoEmpleado", ee."estadoEmpleado"
+                FROM empleado as e inner join "cargoEmpleado" as ce on e."cargoEmpleado" = ce."idCargoEmpleado"
+                inner join "estadoEmpleado" as ee on e."estadoEmpleado" = ee."idEstadoEmpleado"
+                WHERE "nombresEmpleado" ILIKE ? OR "apellidosEmpleado" ILIKE ?
+                order by "idEmpleado", e."estadoEmpleado"';
+        $params = array("%$value%", "%$value%");
+        return Database::getRows($sql, $params);
+    }
+
+    /* CREATE */
     public function createRow()
     {
         $sql = 'INSERT INTO empleado("nombresEmpleado", "apellidosEmpleado", "correoEmpleado", "aliasEmpleado", "contrasenaEmpleado", "direccionEmpleado", "telefonoEmpleado", "fotoEmpleado", "cargoEmpleado", "estadoEmpleado")
@@ -213,13 +252,24 @@ class Usuarios extends Validator
         return Database::executeRow($sql, $params);
     }
 
-    public function readAll()
+
+    /* UPDATE */
+    public function updateRow()
     {
-        $sql = 'SELECT "idEmpleado", "nombresEmpleado", "apellidosEmpleado", "correoEmpleado", "aliasEmpleado"  
-                FROM empleado
-                ORDER BY "apellidosEmpleado"';
-        $params = null;
-        return Database::getRows($sql, $params);
+        $sql = 'UPDATE empleado
+                SET "nombresEmpleado" = ?, "apellidosEmpleado" = ?, "correoEmpleado" = ?, "direccionEmpleado" = ?, "telefonoEmpleado" = ?, "cargoEmpleado" = ?, "estadoEmpleado" = ?, "fotoEmpleado" = ?
+                WHERE "idEmpleado" = ?';
+            $params = array($this->nombres, $this->apellidos, $this->correo, $this->direccion, $this->telefono, $this->cargo, $this->estado, $this->foto, $this->id);
+        return Database::executeRow($sql, $params);
     }
 
+    /* DELETE */
+    /* Función para inhabilitar un usuario ya que no los borraremos de la base*/
+    public function deleteRow()
+    {
+        //No eliminaremos registros, solo los inhabilitaremos
+        $sql = 'UPDATE empleado SET "estadoEmpleado" = 3 WHERE "idEmpleado" = ?'; //Delete from empleado where "idEmpleado" = ?
+        $params = array($this->id);
+        return Database::executeRow($sql, $params);
+    }
 }
