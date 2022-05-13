@@ -8,7 +8,6 @@ class CargoEmpleado extends Validator
     // Declaración de atributos (propiedades).
     private $id = null;
     private $nombre = null;
-    private $ruta = '../images/categorias/';
 
     /*
     *   Métodos para validar y asignar valores de los atributos.

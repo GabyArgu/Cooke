@@ -23,6 +23,8 @@ document.addEventListener('DOMContentLoaded', function () {
                         //Ponermos el nombre de usuario en nuestro sidebar y la pantalla principal
                         const user = document.getElementById("username");
                         user.innerText = response.username;
+                        const avatarImg = document.getElementById("avatar-side")
+                        avatarImg.src = `../../resources/img/avatares/${response.avatar}.jpg`;
                         //Comprobamos que existe el elemento, solo existe en el dashboard
                         if (document.body.contains(document.querySelector(".username2"))) {
                             const user2 = document.querySelector(".username2");

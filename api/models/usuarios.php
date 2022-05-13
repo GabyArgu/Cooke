@@ -181,11 +181,15 @@ class Usuarios extends Validator
     */
     public function checkUser($alias)
     {
-        $sql = 'SELECT "idEmpleado" FROM empleado WHERE "aliasEmpleado" = ?';
+        $sql = 'SELECT "idEmpleado", a.avatar, ce."cargoEmpleado"
+        FROM empleado as e inner join "cargoEmpleado" as ce on e."cargoEmpleado" = ce."idCargoEmpleado"
+		inner join "avatar" as a on e."fotoEmpleado" = a."idAvatar" 
+        WHERE "aliasEmpleado" = ?';
         $params = array($alias);
         if ($data = Database::getRow($sql, $params)) {
             $this->id = $data['idEmpleado'];
             $this->alias = $alias;
+            $this->foto = $data['avatar'];
             return true;
         } else {
             return false;
@@ -228,6 +232,17 @@ class Usuarios extends Validator
         return Database::getRow($sql, $params);
     }
 
+    /* Método para obtener un empleado y mostrarlo en modal de visualizar*/
+    public function readOneShow()
+    {
+        $sql = 'SELECT "idEmpleado", "nombresEmpleado", "apellidosEmpleado", "correoEmpleado", "telefonoEmpleado", "direccionEmpleado", "aliasEmpleado", a.avatar, ce."cargoEmpleado", ee."estadoEmpleado"
+        FROM empleado as e inner join "cargoEmpleado" as ce on e."cargoEmpleado" = ce."idCargoEmpleado"
+        inner join "estadoEmpleado" as ee on e."estadoEmpleado" = ee."idEstadoEmpleado"
+		inner join "avatar" as a on e."fotoEmpleado" = a."idAvatar" 
+        where "idEmpleado" = ?';
+        $params = array($this->id);
+        return Database::getRow($sql, $params);
+    }
     /*
     *   Métodos para realizar las operaciones SCRUD (search, create, read, update, delete).
     */

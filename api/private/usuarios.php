@@ -10,16 +10,17 @@ if (isset($_GET['action'])) {
     // Se instancia la clase correspondiente.
     $usuario = new Usuarios;
     // Se declara e inicializa un arreglo para guardar el resultado que retorna la API.
-    $result = array('status' => 0, 'session' => 0, 'message' => null, 'exception' => null, 'dataset' => null, 'username' => null);
+    $result = array('status' => 0, 'session' => 0, 'message' => null, 'exception' => null, 'dataset' => null, 'username' => null, 'avatar' => null);
     // Se verifica si existe una sesión iniciada como administrador, de lo contrario se finaliza el script con un mensaje de error.
     if (isset($_SESSION['id_usuario'])) {
         $result['session'] = 1;
         // Se compara la acción a realizar cuando un administrador ha iniciado sesión.
         switch ($_GET['action']) {
             case 'getUser':
-                if (isset($_SESSION['alias_usuario'])) {
+                if (isset($_SESSION['aliasEmpleado'])) {
                     $result['status'] = 1;
-                    $result['username'] = $_SESSION['alias_usuario'];
+                    $result['username'] = $_SESSION['aliasEmpleado'];
+                    $result['avatar'] = $_SESSION['avatar'];
                 } else {
                     $result['exception'] = 'Alias de usuario indefinido';
                 }
@@ -93,6 +94,17 @@ if (isset($_GET['action'])) {
                     $result['exception'] = 'Empleado inexistente';
                 }
                 break;
+            case 'readOneShow':
+                    if (!$usuario->setId($_POST['id'])) {
+                        $result['exception'] = 'Empleado incorrecto';
+                    } elseif ($result['dataset'] = $usuario->readOneShow()) {
+                        $result['status'] = 1;
+                    } elseif (Database::getException()) {
+                        $result['exception'] = Database::getException();
+                    } else {
+                        $result['exception'] = 'Empleado inexistente';
+                    }
+                    break;
             case 'update':
                 //Especificamos los inputs por medio de su atributo name, y los capturamos con el método post
                 $_POST = $usuario->validateForm($_POST);
@@ -192,7 +204,8 @@ if (isset($_GET['action'])) {
                     $result['status'] = 1;
                     $result['message'] = 'Autenticación correcta';
                     $_SESSION['id_usuario'] = $usuario->getId();
-                    $_SESSION['alias_usuario'] = $usuario->getAlias();
+                    $_SESSION['aliasEmpleado'] = $usuario->getAlias();
+                    $_SESSION['avatar'] = $usuario->getFoto();
                 } else {
                     $result['exception'] = 'Clave incorrecta';
                 }
