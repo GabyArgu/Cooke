@@ -96,8 +96,6 @@ function saveRow(api, action, form, modal) {
                     var myModalEl = document.getElementById(modal);
                     var modalIns = bootstrap.Modal.getInstance(myModalEl)
                     modalIns.hide();
-                    
-                    console.log("debería de cerrar")
                     //M.Modal.getInstance(document.getElementById(modal)).close();
                     // Se cargan nuevamente las filas en la tabla de la vista después de guardar un registro y se muestra un mensaje de éxito.
                     readRows(api);

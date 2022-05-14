@@ -41,7 +41,7 @@
             <div class="sidebar-content">
                 <!-- APARTADO DONDE APARECERA EL AVATAR Y NOMBRE DEL USUARIO -->
                 <ul class="nav flex-column justify-content-center align-items-center">
-                    <img src="../../resources/img/dashboard/usuario.png" class="Usua-Ico" alt="">
+                    <img src="" class="Usua-Ico" alt="" id="avatar-side">
                     <h5 class="Nombre-Usu" id="username"></h5>
                     <a class="Adm" href="#">Administrar</a>
                 </ul>
@@ -81,7 +81,8 @@
                         <ul id="blog" class="list-unstyled collapse submenu" data-bs-parent="#sidebar">
                             <li class="sidebar-item"><a class="sidebar-link" href="articulo.html">Artículo</a></li>
                             <li class="sidebar-item"><a class="sidebar-link" href="categorias_blog.html">Categoría</a>
-                            <li class="sidebar-item"><a class="sidebar-link" href="comentarios_blog.html">Comentarios</a>
+                            <li class="sidebar-item"><a class="sidebar-link"
+                                    href="comentarios_blog.html">Comentarios</a>
                             </li>
                             <li class="sidebar-item"><a class="sidebar-link"
                                     href="comentarios_blog.html">Comentarios</a></li>
@@ -151,8 +152,8 @@
                     <div class="row contenido">
                         <div class="row pt-3 mx-auto header-table">
                             <div class="col">
-                                <button class="btn-agregar" type="button" data-bs-toggle="modal"
-                                    data-bs-target="#modal-agregar">Agregar<i class="fa-solid fa-plus"></i></button>
+                                <button onclick="openCreate()" class="btn-agregar" type="button" data-bs-toggle="modal"
+                                data-bs-target="#save-modal">Agregar<i class="fa-solid fa-plus"></i></button>
                             </div>
                             <div class="col d-flex justify-content-end mx-auto">
                                 <input class="form-control form-control-dark w-60 d-none d-md-block Buscador-Imp"
@@ -167,109 +168,15 @@
                                         id="table-subcategorias-productos">
                                         <thead>
                                             <tr>
+                                                <th>Imagen</th>
                                                 <th>Nombre</th>
                                                 <th>Descripción</th>
                                                 <th>Categoría</th>
+                                                <th>Estado</th>
                                                 <th>Acciones</th>
                                             </tr>
                                         </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td data-title="PRODUCTO" class="nombre-categoria">Sartenes</td>
-                                                <td data-title="DESCRIPCION">Sartenes de acero, de hierro, de cerámica y
-                                                    antiadherente.</td>
-                                                <td data-title="CATEGORÍA">Cocina</td>
-                                                <td class="botones-table">
-                                                    <div class="acciones d-flex mx-auto">
-                                                        <span href="" class="accion-btn" type="button"
-                                                            data-bs-toggle="modal" data-bs-target="#modal-actualizar">
-                                                            <i class="fa-solid fa-pen-to-square"></i>
-                                                        </span>
-                                                        <span href="" class="accion-btn" type="button"
-                                                            data-bs-toggle="modal" data-bs-target="#modal-eliminar">
-                                                            <i class="fa-solid fa-trash-can fa-lg"></i>
-                                                        </span>
-                                                    </div>
-                                                </td>
-
-                                            </tr>
-                                            <tr>
-                                                <td data-title="PRODUCTO" class="nombre-categoria">Cocottes, cacerolas y
-                                                    cazos</td>
-                                                <td data-title="DESCRIPCION">Cocottes de hierro, aluminio, cacerolas de
-                                                    aluminio y acero.</td>
-                                                <td data-title="CATEGORÍA">Cocina</td>
-                                                <td class="botones-table">
-                                                    <div class="acciones d-flex mx-auto">
-                                                        <span href="" class="accion-btn" type="button"
-                                                            data-bs-toggle="modal" data-bs-target="#modal-actualizar">
-                                                            <i class="fa-solid fa-pen-to-square"></i>
-                                                        </span>
-                                                        <span href="" class="accion-btn" type="button"
-                                                            data-bs-toggle="modal" data-bs-target="#modal-eliminar">
-                                                            <i class="fa-solid fa-trash-can fa-lg"></i>
-                                                        </span>
-                                                    </div>
-                                                </td>
-
-                                            </tr>
-                                            <tr>
-                                                <td data-title="PRODUCTO" class="nombre-categoria">Ollas</td>
-                                                <td data-title="DESCRIPCION">Ollas, juego de ollas y ollas rápidas.</td>
-                                                <td data-title="CATEGORÍA">Cocina</td>
-                                                <td class="botones-table">
-                                                    <div class="acciones d-flex mx-auto">
-                                                        <span href="" class="accion-btn" type="button"
-                                                            data-bs-toggle="modal" data-bs-target="#modal-actualizar">
-                                                            <i class="fa-solid fa-pen-to-square"></i>
-                                                        </span>
-                                                        <span href="" class="accion-btn" type="button"
-                                                            data-bs-toggle="modal" data-bs-target="#modal-eliminar">
-                                                            <i class="fa-solid fa-trash-can fa-lg"></i>
-                                                        </span>
-                                                    </div>
-                                                </td>
-
-                                            </tr>
-                                            <tr>
-                                                <td data-title="PRODUCTO" class="nombre-categoria">Creperas y gofres
-                                                </td>
-                                                <td data-title="DESCRIPCION">Creperas de hierro mineral, y sartenes para
-                                                    gofres variados.</td>
-                                                <td data-title="CATEGORÍA">Cocina</td>
-                                                <td class="botones-table">
-                                                    <div class="acciones d-flex mx-auto">
-                                                        <span href="" class="accion-btn" type="button"
-                                                            data-bs-toggle="modal" data-bs-target="#modal-actualizar">
-                                                            <i class="fa-solid fa-pen-to-square"></i>
-                                                        </span>
-                                                        <span href="" class="accion-btn" type="button"
-                                                            data-bs-toggle="modal" data-bs-target="#modal-eliminar">
-                                                            <i class="fa-solid fa-trash-can fa-lg"></i>
-                                                        </span>
-                                                    </div>
-                                                </td>
-
-                                            </tr>
-                                            <tr>
-                                                <td data-title="PRODUCTO" class="nombre-categoria">Cocina vapor</td>
-                                                <td data-title="DESCRIPCION">Vaporeras, recipientes y moldes para cocina
-                                                    saludable al vapor.</td>
-                                                <td data-title="CATEGORÍA">Cocina</td>
-                                                <td class="botones-table">
-                                                    <div class="acciones d-flex mx-auto">
-                                                        <span href="" class="accion-btn" type="button"
-                                                            data-bs-toggle="modal" data-bs-target="#modal-actualizar">
-                                                            <i class="fa-solid fa-pen-to-square"></i>
-                                                        </span>
-                                                        <span href="" class="accion-btn" type="button"
-                                                            data-bs-toggle="modal" data-bs-target="#modal-eliminar">
-                                                            <i class="fa-solid fa-trash-can fa-lg"></i>
-                                                        </span>
-                                                    </div>
-                                                </td>
-
-                                            </tr>
+                                        <tbody id="tbody-rows">
                                         </tbody>
                                     </table>
                                 </div>
@@ -290,110 +197,65 @@
     </div>
 
     <!-- INICIO MODALS AGREGAR-->
-    <div class="modal modal-agregar modal-agregar-categoria fade" id="modal-agregar" tabindex="-1"
+    <div class="modal modal-agregar modal-agregar-categoria fade" id="save-modal" tabindex="-1"
         aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-md">
             <div class="modal-content">
                 <div class="modal-header">
 
-                    <h3 class="mt-2">Agregar subcategoría</h3>
+                    <h3 class="mt-2" id="modal-title"></h3>
 
                     <button type="button" class="btn-close my" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <div class="container">
                         <div class="row">
-                            <div class="col">
+                            <form class="col" method="post" id="save-form">
                                 <div class="row agregar-content agregar-content-flex">
                                     <div class="col-12 mb-4">
                                         <label for="validationDefault01" class="form-label">Nombre</label>
-                                        <input type="text" class="form-control" id="validationDefault01" value=""
+                                        <input type="text" class="form-control" id="nombre" name="nombre" value=""
                                             required>
                                     </div>
                                     <div class="col-12 mb-4">
                                         <label for="validationDefault01" class="form-label">Descripción</label>
-                                        <textarea class="form-control" id="exampleFormControlTextarea1"
+                                        <textarea class="form-control" id="descripcion" name="descripcion"
                                             rows="6"></textarea>
                                     </div>
                                     <div class="col-12 mb-4">
                                         <label for="validationDefault01" class="form-label">Categoría</label>
                                         <select class="form-select custom-form-select"
-                                            aria-label="Default select example">
-                                            <option selected disabled>Seleccione una opción</option>
-                                            <option value="1">Cocina</option>
-                                            <option value="2">Electrodomésticos</option>
-                                            <option value="3">Utensilios</option>
-                                            <option value="4">Recetas</option>
+                                            aria-label="Default select example"id="categoria" name="categoria">
                                         </select>
                                     </div>
+                                    <div class="col-12 mb-4">
+                                        <label for="validationDefault01" class="form-label">Imagen</label>
+                                        <input id="archivo" class="form-control" type="file" name="archivo" accept=".jpg, .png">
+                                    </div>
+                                    <div class="col-12 mb-4">
+                                        <label for="validationDefault03" class="form-label "
+                                            id="estado-label">Estado</label>
+                                        <select class="form-select custom-form-select"
+                                            aria-label="Default select example" id="estado" name="estado">
+                                        </select>
+                                    </div>
+                                    <div class="col-12 mb-4">
+                                        <input class="form-control input-hide" type="number" id="id" name="id">
+                                    </div>
                                 </div>
-                            </div>
+                            </form>
 
 
                         </div>
                     </div>
                 </div>
                 <div class="modal-footer d-flex justify-content-end">
-                    <button class="btn-guardar" type="button" data-bs-dismiss="modal">Guardar<i
+                    <button class="btn-guardar" type="submit" form="save-form">Guardar<i
                             class="fa-solid fa-floppy-disk"></i></button>
                 </div>
             </div>
         </div>
     </div>
-
-    <!-- INICIO MODALS ACTUALIZAR -->
-    <div class="modal modal-agregar modal-agregar-categoria fade" id="modal-actualizar" tabindex="-1"
-        aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered modal-md">
-            <div class="modal-content">
-                <div class="modal-header">
-
-                    <h3 class="mt-2">Editar subcategoría</h3>
-
-                    <button type="button" class="btn-close my" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col">
-                                <div class="row agregar-content agregar-content-flex">
-                                    <div class="col-12 mb-4">
-                                        <label for="validationDefault01" class="form-label">Nombre</label>
-                                        <input type="text" class="form-control" id="validationDefault01" value=""
-                                            required>
-                                    </div>
-                                    <div class="col-12 mb-4">
-                                        <label for="validationDefault01" class="form-label">Descripción</label>
-                                        <textarea class="form-control" id="exampleFormControlTextarea1"
-                                            rows="6"></textarea>
-                                    </div>
-                                    <div class="col-12 mb-4">
-                                        <label for="validationDefault01" class="form-label">Categoría</label>
-                                        <select class="form-select custom-form-select"
-                                            aria-label="Default select example">
-                                            <option selected disabled>Seleccione una opción</option>
-                                            <option value="1">Cocina</option>
-                                            <option value="2">Electrodomésticos</option>
-                                            <option value="3">Utensilios</option>
-                                            <option value="4">Recetas</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-
-
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-footer d-flex justify-content-end">
-                    <button class="btn-guardar" type="button" data-bs-dismiss="modal">Guardar<i
-                            class="fa-solid fa-floppy-disk"></i></button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- FIN MODALS ACTUALIZAR -->
 
     <!-- INICIO MODAL DELETE -->
     <div class="modal modal-eliminar fade" id="modal-eliminar" aria-hidden="true"

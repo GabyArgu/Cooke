@@ -41,7 +41,7 @@
             <div class="sidebar-content">
                 <!-- APARTADO DONDE APARECERA EL AVATAR Y NOMBRE DEL USUARIO -->
                 <ul class="nav flex-column justify-content-center align-items-center">
-                    <img src="../../resources/img/dashboard/usuario.png" class="Usua-Ico" alt="">
+                    <img src="" class="Usua-Ico" alt="" id="avatar-side">
                     <h5 class="Nombre-Usu" id="username"></h5>
                     <a class="Adm" href="#">Administrar</a>
                 </ul>
@@ -195,85 +195,6 @@
     </div>
 
 
-    <!-- INICIO MODAL VISUALIZAR-->
-    <div class="modal modal-ver modal-ver-empleado fade" id="modal-ver" tabindex="-1"
-        aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-
-                    <h3 class="mt-2">Detalles</h3>
-
-                    <button type="button" class="btn-close my" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="container ver-empleado-content">
-                        <div class="row">
-                            <div class="col">
-                                <h4>Nombres</h4>
-                            </div>
-                            <div class="col col-8"><span>Raúl Fernando</span> </div>
-                        </div>
-                        <hr>
-                        <div class="row">
-                            <div class="col">
-                                <h4>Apellidos</h4>
-                            </div>
-                            <div class="col col-8"><span>Salinas Castro</span></div>
-                        </div>
-                        <hr>
-                        <div class="row ">
-                            <div class="col">
-                                <h4>Cargo</h4>
-                            </div>
-                            <div class="col col-8"><span>Administrador</span></div>
-                        </div>
-                        <hr>
-                        <div class="row ">
-                            <div class="col">
-                                <h4>Correo</h4>
-                            </div>
-                            <div class="col col-8"><span>Raulito@gmail.com</span></div>
-                        </div>
-                        <hr>
-                        <div class="row ">
-                            <div class="col">
-                                <h4>Teléfono</h4>
-                            </div>
-                            <div class="col col-8"><span>7777-7777</span></div>
-                        </div>
-                        <hr>
-                        <div class="row ">
-                            <div class="col">
-                                <h4>Alias</h4>
-                            </div>
-                            <div class="col col-8"><span>Raul_F</span></div>
-                        </div>
-                        <hr>
-                        <div class="row ">
-                            <div class="col">
-                                <h4>Dirección</h4>
-                            </div>
-                            <div class="col col-8"><span>Mejicanos, San Salvador</span></div>
-                        </div>
-                        <hr>
-                        <div class="row ">
-                            <div class="col">
-                                <h4>Estado</h4>
-                            </div>
-                            <div class="col col-8"><span>Activo</span></div>
-                        </div>
-                        <div class="row">
-                            <div class="col d-flex justify-content-center mt-2"><img
-                                    src="../../resources/img/dashboard/Usuario.png" class="Usua-Ico" alt=""></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- FIN MODAL -->
-
     <!-- INICIO MODALS AGREGAR-->
     <div class="modal modal-agregar modal-agregar-empleado fade" id="save-modal" tabindex="-1"
         aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -360,10 +281,6 @@
                                             id="estado-label">Estado</label>
                                         <select class="form-select custom-form-select input-hide"
                                             aria-label="Default select example" id="estado" name="estado">
-                                            <!-- <option selected disabled>Seleccione una opción</option>
-                                            <option value="1">Administrador</option>
-                                            <option value="2">Ventas</option>
-                                            <option value="3">Inventario</option> -->
                                         </select>
                                     </div>
                                     <div class="col-4 mb-4">
@@ -418,6 +335,84 @@
     </div>
     <!-- FIN MODAL DELETE -->
 
+    <!-- INICIO MODAL VISUALIZAR-->
+    <div class="modal modal-ver modal-ver-empleado fade" id="modal-ver" tabindex="-1"
+        aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+
+                    <h3 class="mt-2">Detalles</h3>
+
+                    <button type="button" class="btn-close my" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="container ver-empleado-content">
+                        <div class="row">
+                            <div class="col">
+                                <h4>Nombres</h4>
+                            </div>
+                            <div class="col col-8"><span id="show-nombres">Raúl Fernando</span> </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col">
+                                <h4>Apellidos</h4>
+                            </div>
+                            <div class="col col-8"><span id="show-apellidos">Salinas Castro</span></div>
+                        </div>
+                        <hr>
+                        <div class="row ">
+                            <div class="col">
+                                <h4>Cargo</h4>
+                            </div>
+                            <div class="col col-8"><span id="show-cargo">Administrador</span></div>
+                        </div>
+                        <hr>
+                        <div class="row ">
+                            <div class="col">
+                                <h4>Correo</h4>
+                            </div>
+                            <div class="col col-8"><span id="show-correo">Raulito@gmail.com</span></div>
+                        </div>
+                        <hr>
+                        <div class="row ">
+                            <div class="col">
+                                <h4>Teléfono</h4>
+                            </div>
+                            <div class="col col-8"><span id="show-telefono">7777-7777</span></div>
+                        </div>
+                        <hr>
+                        <div class="row ">
+                            <div class="col">
+                                <h4>Alias</h4>
+                            </div>
+                            <div class="col col-8"><span id="show-alias">Raul_F</span></div>
+                        </div>
+                        <hr>
+                        <div class="row ">
+                            <div class="col">
+                                <h4>Dirección</h4>
+                            </div>
+                            <div class="col col-8"><span id="show-direccion">Mejicanos, San Salvador</span></div>
+                        </div>
+                        <hr>
+                        <div class="row ">
+                            <div class="col">
+                                <h4>Estado</h4>
+                            </div>
+                            <div class="col col-8"><span id="show-estado">Activo</span></div>
+                        </div>
+                        <div class="row">
+                            <div class="col d-flex justify-content-center mt-2"><img
+                                    src="../../resources/img/dashboard/Usuario.png" class="Usua-Ico" id="show-avatar" alt=""></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- FIN MODAL -->    
 
     <!---------------- SCRIPTS ---------------->
 

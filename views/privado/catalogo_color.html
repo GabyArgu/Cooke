@@ -40,7 +40,7 @@
             <div class="sidebar-content">
                 <!-- APARTADO DONDE APARECERA EL AVATAR Y NOMBRE DEL USUARIO -->
                 <ul class="nav flex-column justify-content-center align-items-center">
-                    <img src="../../resources/img/dashboard/usuario.png" class="Usua-Ico" alt="">
+                    <img src="" class="Usua-Ico" alt="" id="avatar-side">
                     <h5 class="Nombre-Usu" id="username"></h5>
                     <a class="Adm" href="#">Administrar</a>
                 </ul>
@@ -80,7 +80,8 @@
                         <ul id="blog" class="list-unstyled collapse submenu" data-bs-parent="#sidebar">
                             <li class="sidebar-item"><a class="sidebar-link" href="articulo.html">Artículo</a></li>
                             <li class="sidebar-item"><a class="sidebar-link" href="categorias_blog.html">Categoría</a>
-                            <li class="sidebar-item"><a class="sidebar-link" href="comentarios_blog.html">Comentarios</a>
+                            <li class="sidebar-item"><a class="sidebar-link"
+                                    href="comentarios_blog.html">Comentarios</a>
                             </li>
                             <li class="sidebar-item"><a class="sidebar-link"
                                     href="comentarios_blog.html">Comentarios</a></li>
@@ -155,212 +156,26 @@
                                     data-bs-target="#modal-agregar">Agregar<i class="fa-solid fa-plus"></i></button>
                             </div>
                             <div class="col d-flex justify-content-end mx-auto">
-                                <input class="form-control form-control-dark w-60 d-none d-md-block Buscador-Imp"
-                                    type="text" placeholder="Buscar" aria-label="Search">
+                                <form method="post" id="search-form">
+                                    <input class="form-control form-control-dark w-60 d-none d-md-block Buscador-Imp"
+                                        type="text" placeholder="Buscar" aria-label="Search" id="search" name="search">
+                                </form>
                                 <button class="btn-refresh"><i class="fa-solid fa-arrows-rotate"></i></button>
                             </div>
                         </div>
                         <div class="row">
                             <div class="table-responsive mt-3" id="no-more-tables">
-                                <table class="table table-bordered table-categorias" id="table-categorias-productos">
+                                <table class="table table-bordered table-categorias" id="table-colores">
                                     <thead>
                                         <tr>
+                                            <th>Id Color</th>
                                             <th>Nombre del color</th>
+                                            <th>Estado</th>
                                             <th>Acciones</th>
                                         </tr>
                                     </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td data-title="COLOR" class="nombre-categoria">Rosado</td>
-                                            <td class="botones-table">
-                                                <div class="acciones d-flex mx-auto">
-                                                    <span href="" class="accion-btn" type="button"
-                                                        data-bs-toggle="modal" data-bs-target="#modal-actualizar">
-                                                        <i class="fa-solid fa-pen-to-square"></i>
-                                                    </span>
-                                                    <span href="" class="accion-btn" type="button"
-                                                        data-bs-toggle="modal" data-bs-target="#modal-eliminar">
-                                                        <i class="fa-solid fa-trash-can fa-lg"></i>
-                                                    </span>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td data-title="COLOR" class="nombre-categoria">Rojo</td>
-                                            <td class="botones-table">
-                                                <div class="acciones d-flex mx-auto">
-                                                    <span href="" class="accion-btn" type="button"
-                                                        data-bs-toggle="modal" data-bs-target="#modal-actualizar">
-                                                        <i class="fa-solid fa-pen-to-square"></i>
-                                                    </span>
-                                                    <span href="" class="accion-btn" type="button"
-                                                        data-bs-toggle="modal" data-bs-target="#modal-eliminar">
-                                                        <i class="fa-solid fa-trash-can fa-lg"></i>
-                                                    </span>
-                                                </div>
-                                            </td>
+                                    <tbody id="tbody-rows">
 
-                                        </tr>
-                                        <tr>
-                                            <td data-title="COLOR" class="nombre-categoria">Verde</td>
-                                            <td class="botones-table">
-                                                <div class="acciones d-flex mx-auto">
-                                                    <span href="" class="accion-btn" type="button"
-                                                        data-bs-toggle="modal" data-bs-target="#modal-actualizar">
-                                                        <i class="fa-solid fa-pen-to-square"></i>
-                                                    </span>
-                                                    <span href="" class="accion-btn" type="button"
-                                                        data-bs-toggle="modal" data-bs-target="#modal-eliminar">
-                                                        <i class="fa-solid fa-trash-can fa-lg"></i>
-                                                    </span>
-                                                </div>
-                                            </td>
-
-                                        </tr>
-                                        <tr>
-                                            <td data-title="COLOR" class="nombre-categoria">Amarillo</td>
-                                            <td class="botones-table">
-                                                <div class="acciones d-flex mx-auto">
-                                                    <span href="" class="accion-btn" type="button"
-                                                        data-bs-toggle="modal" data-bs-target="#modal-actualizar">
-                                                        <i class="fa-solid fa-pen-to-square"></i>
-                                                    </span>
-                                                    <span href="" class="accion-btn" type="button"
-                                                        data-bs-toggle="modal" data-bs-target="#modal-eliminar">
-                                                        <i class="fa-solid fa-trash-can fa-lg"></i>
-                                                    </span>
-                                                </div>
-                                            </td>
-
-                                        </tr>
-                                        <tr>
-                                            <td data-title="COLOR" class="nombre-categoria">Anaranjado</td>
-                                            <td class="botones-table">
-                                                <div class="acciones d-flex mx-auto">
-                                                    <span href="" class="accion-btn" type="button"
-                                                        data-bs-toggle="modal" data-bs-target="#modal-actualizar">
-                                                        <i class="fa-solid fa-pen-to-square"></i>
-                                                    </span>
-                                                    <span href="" class="accion-btn" type="button"
-                                                        data-bs-toggle="modal" data-bs-target="#modal-eliminar">
-                                                        <i class="fa-solid fa-trash-can fa-lg"></i>
-                                                    </span>
-                                                </div>
-                                            </td>
-
-                                        </tr>
-                                        <tr>
-                                            <td data-title="COLOR" class="nombre-categoria">Celeste</td>
-                                            <td class="botones-table">
-                                                <div class="acciones d-flex mx-auto">
-                                                    <span href="" class="accion-btn" type="button"
-                                                        data-bs-toggle="modal" data-bs-target="#modal-actualizar">
-                                                        <i class="fa-solid fa-pen-to-square"></i>
-                                                    </span>
-                                                    <span href="" class="accion-btn" type="button"
-                                                        data-bs-toggle="modal" data-bs-target="#modal-eliminar">
-                                                        <i class="fa-solid fa-trash-can fa-lg"></i>
-                                                    </span>
-                                                </div>
-                                            </td>
-
-                                        </tr>
-                                        <tr>
-                                            <td data-title="COLOR" class="nombre-categoria">Azul</td>
-                                            <td class="botones-table">
-                                                <div class="acciones d-flex mx-auto">
-                                                    <span href="" class="accion-btn" type="button"
-                                                        data-bs-toggle="modal" data-bs-target="#modal-actualizar">
-                                                        <i class="fa-solid fa-pen-to-square"></i>
-                                                    </span>
-                                                    <span href="" class="accion-btn" type="button"
-                                                        data-bs-toggle="modal" data-bs-target="#modal-eliminar">
-                                                        <i class="fa-solid fa-trash-can fa-lg"></i>
-                                                    </span>
-                                                </div>
-                                            </td>
-
-                                        </tr>
-                                        <tr>
-                                            <td data-title="COLOR" class="nombre-categoria">Morado</td>
-                                            <td class="botones-table">
-                                                <div class="acciones d-flex mx-auto">
-                                                    <span href="" class="accion-btn" type="button"
-                                                        data-bs-toggle="modal" data-bs-target="#modal-actualizar">
-                                                        <i class="fa-solid fa-pen-to-square"></i>
-                                                    </span>
-                                                    <span href="" class="accion-btn" type="button"
-                                                        data-bs-toggle="modal" data-bs-target="#modal-eliminar">
-                                                        <i class="fa-solid fa-trash-can fa-lg"></i>
-                                                    </span>
-                                                </div>
-                                            </td>
-
-                                        </tr>
-                                        <tr>
-                                            <td data-title="COLOR" class="nombre-categoria">Café</td>
-                                            <td class="botones-table">
-                                                <div class="acciones d-flex mx-auto">
-                                                    <span href="" class="accion-btn" type="button"
-                                                        data-bs-toggle="modal" data-bs-target="#modal-actualizar">
-                                                        <i class="fa-solid fa-pen-to-square"></i>
-                                                    </span>
-                                                    <span href="" class="accion-btn" type="button"
-                                                        data-bs-toggle="modal" data-bs-target="#modal-eliminar">
-                                                        <i class="fa-solid fa-trash-can fa-lg"></i>
-                                                    </span>
-                                                </div>
-                                            </td>
-
-                                        </tr>
-                                        <tr>
-                                            <td data-title="COLOR" class="nombre-categoria">Blanco</td>
-                                            <td class="botones-table">
-                                                <div class="acciones d-flex mx-auto">
-                                                    <span href="" class="accion-btn" type="button"
-                                                        data-bs-toggle="modal" data-bs-target="#modal-actualizar">
-                                                        <i class="fa-solid fa-pen-to-square"></i>
-                                                    </span>
-                                                    <span href="" class="accion-btn" type="button"
-                                                        data-bs-toggle="modal" data-bs-target="#modal-eliminar">
-                                                        <i class="fa-solid fa-trash-can fa-lg"></i>
-                                                    </span>
-                                                </div>
-                                            </td>
-
-                                        </tr>
-                                        <tr>
-                                            <td data-title="COLOR" class="nombre-categoria">Negro</td>
-                                            <td class="botones-table">
-                                                <div class="acciones d-flex mx-auto">
-                                                    <span href="" class="accion-btn" type="button"
-                                                        data-bs-toggle="modal" data-bs-target="#modal-actualizar">
-                                                        <i class="fa-solid fa-pen-to-square"></i>
-                                                    </span>
-                                                    <span href="" class="accion-btn" type="button"
-                                                        data-bs-toggle="modal" data-bs-target="#modal-eliminar">
-                                                        <i class="fa-solid fa-trash-can fa-lg"></i>
-                                                    </span>
-                                                </div>
-                                            </td>
-
-                                        </tr>
-                                        <tr>
-                                            <td data-title="COLOR" class="nombre-categoria">Gris</td>
-                                            <td class="botones-table">
-                                                <div class="acciones d-flex mx-auto">
-                                                    <span href="" class="accion-btn" type="button"
-                                                        data-bs-toggle="modal" data-bs-target="#modal-actualizar">
-                                                        <i class="fa-solid fa-pen-to-square"></i>
-                                                    </span>
-                                                    <span href="" class="accion-btn" type="button"
-                                                        data-bs-toggle="modal" data-bs-target="#modal-eliminar">
-                                                        <i class="fa-solid fa-trash-can fa-lg"></i>
-                                                    </span>
-                                                </div>
-                                            </td>
-
-                                        </tr>
                                     </tbody>
                                 </table>
                             </div>
@@ -385,7 +200,7 @@
             <div class="modal-content">
                 <div class="modal-header">
 
-                    <h3 class="mt-2">Agregar color</h3>
+                    <h3 class="mt-2" id="modal-title"></h3>
 
                     <button type="button" class="btn-close my" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
@@ -394,26 +209,27 @@
                         <div class="row">
                             <div class="col">
                                 <div class="row agregar-content agregar-content-flex">
-                                    <div class="col-12 mb-4">
-                                        <label for="validationDefault01" class="form-label">Nombre</label>
+                                    <form class="col-12 mb-4" method="post" id="save-form">
+                                        <label for="colorProducto" class="form-label">Nombre</label>
                                         <div class="col-12 d-flex">
                                             <div class="col-10">
-                                                <input type="text" class="form-control picker2" id="validationDefault01"
-                                                    value="" required>
+                                                <input type="text" class="form-control picker2" id="colorProducto"
+                                                    name="colorProducto" value="" required>
                                             </div>
                                             <div class="col-2">
                                                 <input type="color" class="form-control form-control-color picker"
                                                     id="exampleColorInput" value="#E79CC7" title="Seleecione un color">
+                                                <input type="number" name="id" id="id" class="d-none">
                                             </div>
                                         </div>
-                                    </div>
+                                    </form>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="modal-footer d-flex justify-content-end">
-                    <button class="btn-guardar" type="button" data-bs-dismiss="modal">Guardar<i
+                    <button class="btn-guardar" type="submit" form="save-form">Guardar<i
                             class="fa-solid fa-floppy-disk"></i></button>
                 </div>
             </div>
@@ -437,26 +253,32 @@
                         <div class="row">
                             <div class="col">
                                 <div class="row agregar-content agregar-content-flex">
-                                    <div class="col-12 mb-4">
+                                    <form method="post" id="update-form" class="col-12 mb-4">
+                                        <input type="number" id="u_idColor" name="u_idColor" class="d-none">
                                         <label for="validationDefault01" class="form-label">Nombre</label>
-                                        <div class="col-12 d-flex">
+                                        <div class="col-12 d-flex flex-wrap">
                                             <div class="col-10">
-                                                <input type="text" class="form-control picker2" id="validationDefault01"
-                                                    value="" required>
+                                                <input type="text" class="form-control picker2" id="u_colorProducto"
+                                                    name="u_colorProducto" value="" required>
                                             </div>
                                             <div class="col-2">
                                                 <input type="color" class="form-control form-control-color picker"
                                                     id="exampleColorInput" value="#E79CC7" title="Seleecione un color">
                                             </div>
+
+                                            <div class="col-10 mt-3">
+                                                <input type="number" class="form-control picker2" id="u_estado"
+                                                    name="u_estado" value="" required>
+                                            </div>
                                         </div>
-                                    </div>
+                                    </form>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="modal-footer d-flex justify-content-end">
-                    <button class="btn-guardar" type="button" data-bs-dismiss="modal">Guardar<i
+                    <button class="btn-guardar" type="submit" form="update-form">Guardar<i
                             class="fa-solid fa-floppy-disk"></i></button>
                 </div>
             </div>
@@ -509,7 +331,7 @@
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="../../controllers/componentes.js"></script>
     <script src="../../controllers/privado/online.js"></script>
-    <script src="../../controllers/privado/categorias_productos.js"></script>
+    <script src="../../controllers/privado/colores.js"></script>
 
 </body>
 
