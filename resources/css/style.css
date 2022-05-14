@@ -1818,6 +1818,48 @@ div.dataTables_wrapper div.dataTables_length select {
   color: var(--rosadoOscuro);
 }
 
+.table-responsive .table-resenas {
+  border: transparent;
+  border-bottom: 1px solid var(--rosadoPalido);
+  color: var(--rosadoOscuro);
+}
+
+.table-resenas th {
+  text-align: center;
+  font-family: 'Mohave', sans-serif;
+  color: var(--rosadoOscuro);
+  font-size: 20px;
+}
+
+.table-resenas td {
+  vertical-align: middle;
+  text-align: center;
+  font-family: 'Mohave', sans-serif;
+  font-size: 16px;
+}
+
+.table-resenas tbody tr:hover {
+  background-color: var(--marfil);
+}
+
+.table-resenas .descripcion {
+  width: 50% !important;
+  text-align: center !important;
+}
+
+.table-resenas .botones-table {
+  width: 20% !important;
+  margin: 0 auto;
+}
+
+.table-resenas .accion-btn {
+  width: 150px !important;
+}
+
+.descripcion-resena {
+  display: none !important;
+}
+
 /* ----------------------------------------------------------------FIN RESEÑAS Y COMENTARIOS-------------------------------------------------------------*/
 
 

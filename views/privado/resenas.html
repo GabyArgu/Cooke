@@ -81,8 +81,11 @@
                         <ul id="blog" class="list-unstyled collapse submenu" data-bs-parent="#sidebar">
                             <li class="sidebar-item"><a class="sidebar-link" href="articulo.html">Artículo</a></li>
                             <li class="sidebar-item"><a class="sidebar-link" href="categorias_blog.html">Categoría</a>
-                            <li class="sidebar-item"><a class="sidebar-link" href="comentarios_blog.html">Comentarios</a>
                             </li>
+                            <li class="sidebar-item"><a class="sidebar-link"
+                                    href="comentarios_blog.html">Comentarios</a>
+                            </li>
+                        </ul>
                     </li>
                     <!-- ENLACES DE ADMINISTRACIÓN -->
                     <li class="sidebar-item mt-5">
@@ -149,15 +152,18 @@
                     <div class="row contenido">
                         <div class="row pt-3 mx-auto header-table">
                             <div class="col d-flex justify-content-end mx-auto">
-                                <input class="form-control form-control-dark w-60 d-none d-md-block Buscador-Imp"
-                                    type="text" placeholder="Buscar" aria-label="Search">
-                                <button class="btn-refresh"><i class="fa-solid fa-arrows-rotate"></i></button>
+                                <form method="post" id="search-form">
+                                    <input class="form-control form-control-dark w-60 d-none d-md-block Buscador-Imp"
+                                        type="text" placeholder="Buscar" aria-label="Search" id="search" name="search">
+                                </form>
+                                <button class="btn-refresh" name="refresh" id="refresh"><i
+                                        class="fa-solid fa-arrows-rotate"></i></button>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col">
                                 <div class="table-responsive mt-3" id="no-more-tables">
-                                    <table class="table table-bordered table-categorias" id="table-categorias-blog">
+                                    <table class="table table-bordered table-resenas" id="table-resenas">
                                         <thead>
                                             <tr>
                                                 <th>Cliente</th>
@@ -168,192 +174,7 @@
                                                 <th>Acciones</th>
                                             </tr>
                                         </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>Oscar Orellana</td>
-                                                <td>Cacerola Steel Co Healthy</td>
-                                                <td>Excelente producto</td>
-                                                <td>01/01/2022</td>
-                                                <td>
-                                                    <div class="rating-detalle">
-                                                        <span>
-                                                            <i class="fa fa-star"></i>
-                                                        </span>
-                                                        <span>
-                                                            <i class="fa fa-star"></i>
-                                                        </span>
-                                                        <span>
-                                                            <i class="fa fa-star"></i>
-                                                        </span>
-                                                        <span>
-                                                            <i class="fa fa-star"></i>
-                                                        </span>
-                                                        <span>
-                                                            <i class="fa fa-star"></i>
-                                                        </span>
-                                                    </div>
-                                                </td>
-                                                <td class="botones-table">
-                                                    <div class="acciones d-flex mx-auto">
-                                                        <span href="" class="accion-btn" type="button"
-                                                            data-bs-toggle="modal" data-bs-target="#modal-eliminar">
-                                                            <i class="fa-solid fa-trash-can fa-lg"></i>
-                                                        </span>
-                                                        <span href="" class="accion-btn" type="button"
-                                                            data-bs-toggle="modal" data-bs-target="#modal-ver">
-                                                            <i class="fa-solid fa-eye"></i>
-                                                        </span>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>Oscar Orellana</td>
-                                                <td>Cacerola Steel Co Healthy</td>
-                                                <td>Excelente producto</td>
-                                                <td>01/01/2022</td>
-                                                <td>
-                                                    <div class="rating-detalle">
-                                                        <span>
-                                                            <i class="fa fa-star"></i>
-                                                        </span>
-                                                        <span>
-                                                            <i class="fa fa-star"></i>
-                                                        </span>
-                                                        <span>
-                                                            <i class="fa fa-star"></i>
-                                                        </span>
-                                                        <span>
-                                                            <i class="fa fa-star"></i>
-                                                        </span>
-                                                        <span>
-                                                            <i class="fa fa-star"></i>
-                                                        </span>
-                                                    </div>
-                                                </td>
-                                                <td class="botones-table">
-                                                    <div class="acciones d-flex mx-auto">
-                                                        <span href="" class="accion-btn" type="button"
-                                                            data-bs-toggle="modal" data-bs-target="#modal-eliminar">
-                                                            <i class="fa-solid fa-trash-can fa-lg"></i>
-                                                        </span>
-                                                        <span href="" class="accion-btn" type="button"
-                                                            data-bs-toggle="modal" data-bs-target="#modal-ver">
-                                                            <i class="fa-solid fa-eye"></i>
-                                                        </span>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>Oscar Orellana</td>
-                                                <td>Cacerola Steel Co Healthy</td>
-                                                <td>Excelente producto</td>
-                                                <td>01/01/2022</td>
-                                                <td>
-                                                    <div class="rating-detalle">
-                                                        <span>
-                                                            <i class="fa fa-star"></i>
-                                                        </span>
-                                                        <span>
-                                                            <i class="fa fa-star"></i>
-                                                        </span>
-                                                        <span>
-                                                            <i class="fa fa-star"></i>
-                                                        </span>
-                                                        <span>
-                                                            <i class="fa fa-star"></i>
-                                                        </span>
-                                                        <span>
-                                                            <i class="fa fa-star"></i>
-                                                        </span>
-                                                    </div>
-                                                </td>
-                                                <td class="botones-table">
-                                                    <div class="acciones d-flex mx-auto">
-                                                        <span href="" class="accion-btn" type="button"
-                                                            data-bs-toggle="modal" data-bs-target="#modal-eliminar">
-                                                            <i class="fa-solid fa-trash-can fa-lg"></i>
-                                                        </span>
-                                                        <span href="" class="accion-btn" type="button"
-                                                            data-bs-toggle="modal" data-bs-target="#modal-ver">
-                                                            <i class="fa-solid fa-eye"></i>
-                                                        </span>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>Oscar Orellana</td>
-                                                <td>Cacerola Steel Co Healthy</td>
-                                                <td>Excelente producto</td>
-                                                <td>01/01/2022</td>
-                                                <td>
-                                                    <div class="rating-detalle">
-                                                        <span>
-                                                            <i class="fa fa-star"></i>
-                                                        </span>
-                                                        <span>
-                                                            <i class="fa fa-star"></i>
-                                                        </span>
-                                                        <span>
-                                                            <i class="fa fa-star"></i>
-                                                        </span>
-                                                        <span>
-                                                            <i class="fa fa-star"></i>
-                                                        </span>
-                                                        <span>
-                                                            <i class="fa fa-star"></i>
-                                                        </span>
-                                                    </div>
-                                                </td>
-                                                <td class="botones-table">
-                                                    <div class="acciones d-flex mx-auto">
-                                                        <span href="" class="accion-btn" type="button"
-                                                            data-bs-toggle="modal" data-bs-target="#modal-eliminar">
-                                                            <i class="fa-solid fa-trash-can fa-lg"></i>
-                                                        </span>
-                                                        <span href="" class="accion-btn" type="button"
-                                                            data-bs-toggle="modal" data-bs-target="#modal-ver">
-                                                            <i class="fa-solid fa-eye"></i>
-                                                        </span>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>Oscar Orellana</td>
-                                                <td>Cacerola Steel Co Healthy</td>
-                                                <td>Excelente producto</td>
-                                                <td>01/01/2022</td>
-                                                <td>
-                                                    <div class="rating-detalle">
-                                                        <span>
-                                                            <i class="fa fa-star"></i>
-                                                        </span>
-                                                        <span>
-                                                            <i class="fa fa-star"></i>
-                                                        </span>
-                                                        <span>
-                                                            <i class="fa fa-star"></i>
-                                                        </span>
-                                                        <span>
-                                                            <i class="fa fa-star"></i>
-                                                        </span>
-                                                        <span>
-                                                            <i class="fa fa-star"></i>
-                                                        </span>
-                                                    </div>
-                                                </td>
-                                                <td class="botones-table">
-                                                    <div class="acciones d-flex mx-auto">
-                                                        <span href="" class="accion-btn" type="button"
-                                                            data-bs-toggle="modal" data-bs-target="#modal-eliminar">
-                                                            <i class="fa-solid fa-trash-can fa-lg"></i>
-                                                        </span>
-                                                        <span href="" class="accion-btn" type="button"
-                                                            data-bs-toggle="modal" data-bs-target="#modal-ver">
-                                                            <i class="fa-solid fa-eye"></i>
-                                                        </span>
-                                                    </div>
-                                                </td>
-                                            </tr>
+                                        <tbody id="tbody-rows">
                                         </tbody>
                                     </table>
                                 </div>
@@ -376,7 +197,7 @@
     <!-- INICIO MODAL DELETE -->
     <div class="modal modal-eliminar fade" id="modal-eliminar" aria-hidden="true"
         aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
-        <div class="modal-dialog modal-dialog-centered modal-xl">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -393,10 +214,11 @@
                     </div>
                 </div>
                 <div class="modal-footer d-flex mx-2 justify-content-between">
-                    <button class="btn btn-cancel" type="button" data-bs-target="" data-bs-toggle="modal"
-                        data-bs-dismiss="modal">Cancelar</button>
-                    <button class="btn btn-siguiente" type="button" data-bs-target="" data-bs-toggle="modal"
-                        data-bs-dismiss="modal">Continuar</button>
+                    <button class="btn btn-cancel" type="button" data-bs-dismiss="modal">Cancelar</button>
+                    <form id="delete-form">
+                        <input type="hidden" id="idResena" name="idResena">
+                        <button class="btn btn-siguiente" type="submit" data-bs-dismiss="modal">Continuar</button>
+                    </form>
                 </div>
             </div>
         </div>
@@ -411,7 +233,7 @@
             <div class="modal-content">
 
                 <div class="modal-header">
-                    <h3 class="mt-2">Detalles</h3>
+                    <h3 class="mt-2" id="modal-title"></h3>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
 
@@ -425,7 +247,7 @@
                                     <div class="col">
                                         <h4 class="titulo-modal">Cliente</h4>
                                     </div>
-                                    <div class="col col-8"><span class="texto-modal">Oscar Orellana</span> </div>
+                                    <div class="col col-8"><span class="texto-modal" id="cliente-det"></span> </div>
                                 </div>
 
                                 <hr>
@@ -434,7 +256,7 @@
                                     <div class="col">
                                         <h4 class="titulo-modal">Producto</h4>
                                     </div>
-                                    <div class="col col-8"><span class="texto-modal">Cacerola Steel Co Healthy</span>
+                                    <div class="col col-8"><span class="texto-modal" id="producto-det"></span>
                                     </div>
                                 </div>
 
@@ -444,7 +266,7 @@
                                     <div class="col">
                                         <h4 class="titulo-modal">Fecha</h4>
                                     </div>
-                                    <div class="col col-8"><span class="texto-modal">01/01/2022</span></div>
+                                    <div class="col col-8"><span class="texto-modal" id="fecha-det"></span></div>
                                 </div>
 
                                 <hr>
@@ -453,27 +275,7 @@
                                     <div class="col">
                                         <h4 class="titulo-modal">Puntaje</h4>
                                     </div>
-                                    <div class="col col-8">
-                                        <span>
-                                            <div class="rating-detalle">
-                                                <span>
-                                                    <i class="fa fa-star"></i>
-                                                </span>
-                                                <span>
-                                                    <i class="fa fa-star"></i>
-                                                </span>
-                                                <span>
-                                                    <i class="fa fa-star"></i>
-                                                </span>
-                                                <span>
-                                                    <i class="fa fa-star"></i>
-                                                </span>
-                                                <span>
-                                                    <i class="fa fa-star"></i>
-                                                </span>
-                                            </div>
-                                        </span>
-                                    </div>
+                                    <div class="col col-8"><span class="texto-modal" id="puntaje-det"></span></div>
                                 </div>
 
                                 <hr>
@@ -482,7 +284,7 @@
                                     <div class="col">
                                         <h4 class="titulo-modal">Título</h4>
                                     </div>
-                                    <div class="col col-8"><span class="texto-modal">Excelente producto</span> </div>
+                                    <div class="col col-8"><span class="texto-modal" id="titulo-det"></span> </div>
                                 </div>
 
                                 <hr>
@@ -493,16 +295,128 @@
                                         <h4 class="titulo-modal">Reseña</h4>
                                     </div>
 
-                                    <div class="col col-8"><span class="texto-modal">Lorem ipsum dolor sit amet,
-                                            consectetur adipisicing
-                                            elit. Amet doloremque culpa unde laborum ullam ea nesciunt eaque itaque
-                                            quisquam minima! Maxime dicta, dolor aspernatur sit debitis neque expedita
-                                            perferendis officia?
-                                            Nemo quod quia libero amet voluptates ut totam praesentium ea voluptate
-                                            mollitia, ex nam nisi quas, autem placeat animi dolores temporibus quae
-                                            optio deserunt? Earum id repudiandae fugiat sint dolor.</span>
+                                    <div class="col col-8"><span class="texto-modal" id="descripcion-det"></span>
                                     </div>
-                                    
+
+                                </div>
+
+                                <hr>
+
+                                <div class="row">
+
+                                    <div class="col">
+                                        <h4 class="titulo-modal">Estado</h4>
+                                    </div>
+
+                                    <div class="col col-8"><span class="texto-modal" id="estado-det"></span>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FIN MODAL -->
+
+    <!-- INICIO MODAL EDITAR-->
+
+    <div class="modal modal-editar fade" id="modal-editar" tabindex="-1" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <h3 class="mt-2" id="modal-editar-title"></h3>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+
+                <div class="modal-body">
+                    <div class="container ver-resena-content">
+                        <div class="row">
+
+                            <div class="col">
+
+                                <div class="row">
+                                    <div class="col">
+                                        <h4 class="titulo-modal">Cliente</h4>
+                                    </div>
+                                    <div class="col col-8"><span class="texto-modal" id="cliente"></span> </div>
+                                </div>
+
+                                <hr>
+
+                                <div class="row">
+                                    <div class="col">
+                                        <h4 class="titulo-modal">Producto</h4>
+                                    </div>
+                                    <div class="col col-8"><span class="texto-modal" id="producto"></span>
+                                    </div>
+                                </div>
+
+                                <hr>
+
+                                <div class="row">
+                                    <div class="col">
+                                        <h4 class="titulo-modal">Fecha</h4>
+                                    </div>
+                                    <div class="col col-8"><span class="texto-modal" id="fecha"></span></div>
+                                </div>
+
+                                <hr>
+
+                                <div class="row">
+                                    <div class="col">
+                                        <h4 class="titulo-modal">Puntaje</h4>
+                                    </div>
+                                    <div class="col col-8"><span class="texto-modal" id="puntaje"></span></div>
+                                </div>
+
+                                <hr>
+
+                                <div class="row">
+                                    <div class="col">
+                                        <h4 class="titulo-modal">Título</h4>
+                                    </div>
+                                    <div class="col col-8"><span class="texto-modal" id="titulo"></span> </div>
+                                </div>
+
+                                <hr>
+
+                                <div class="row">
+
+                                    <div class="col">
+                                        <h4 class="titulo-modal">Reseña</h4>
+                                    </div>
+
+                                    <div class="col col-8"><span class="texto-modal" id="descripcion"></span>
+                                    </div>
+
+                                </div>
+
+                                <hr>
+
+                                <div class="row">
+
+                                    <div class="col">
+                                        <h4 class="titulo-modal">Estado</h4>
+                                    </div>
+
+                                    <div class="col-9">
+                                        <select class="form-select custom-form-select"
+                                            aria-label="Default select example" id="estado-resena" name="estado-resena">
+                                            <!-- <option selected disabled>Seleccione una opción</option>
+                                            <option value="1">Administrador</option>
+                                            <option value="2">Ventas</option>
+                                            <option value="3">Inventario</option> -->
+                                        </select>
+                                    </div>
+
                                 </div>
 
                             </div>
@@ -531,8 +445,7 @@
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="../../controllers/componentes.js"></script>
     <script src="../../controllers/privado/online.js"></script>
-    <script src="../../controllers/privado/categorias_blog.js"></script>
-
+    <script src="../../controllers/privado/resenas.js"></script>
 </body>
 
 </html>
