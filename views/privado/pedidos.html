@@ -151,7 +151,7 @@
                         <div class="row pt-3 mx-auto header-table">
                             <div class="col d-flex justify-content-end mx-auto">
                                 <input class="form-control form-control-dark w-60 d-none d-md-block Buscador-Imp"
-                                    type="text" placeholder="Buscar" aria-label="Search">
+                                    type="text" placeholder="Buscar" aria-label="Search" id="search" name="search">
                                 <button class="btn-refresh"><i class="fa-solid fa-arrows-rotate"></i></button>
                             </div>
                         </div>
@@ -161,83 +161,19 @@
                                     <thead>
                                         <tr>
                                             <th>ID Pedido</th>
+                                            <th>Cliente</th>
                                             <th>Fecha</th>
                                             <th>Estado</th>
-                                            <th>Cliente</th>
                                             <th>Monto Total</th>
                                             <th>Acciones</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <td data-title="ID PEDIDO">001</td>
+                                            <td data-title="ID PEDIDO" name="id" id="id">001</td>
+                                            <td data-title="CLIENTE">Oscar Orellana</td>
                                             <td data-title="FECHA">14/02/2022</td>
                                             <td data-title="ESTADO">Pagado</td>
-                                            <td data-title="CLIENTE">Oscar Orellana</td>
-                                            <td data-title="MONTO TOTAL">$44.73</td>
-                                            <td class="botones-table">
-                                                <div class="acciones d-flex mx-auto">
-                                                    <span href="" class="accion-btn" type="button"
-                                                        data-bs-toggle="modal" data-bs-target="#modal-ver">
-                                                        <i class="fa-solid fa-eye"></i>
-                                                    </span>
-                                                </div>
-                                            </td>
-
-                                        </tr>
-                                        <tr>
-                                            <td data-title="ID PEDIDO">001</td>
-                                            <td data-title="FECHA">14/02/2022</td>
-                                            <td data-title="ESTADO">Pagado</td>
-                                            <td data-title="CLIENTE">Oscar Orellana</td>
-                                            <td data-title="MONTO TOTAL">$44.73</td>
-                                            <td class="botones-table">
-                                                <div class="acciones d-flex mx-auto">
-                                                    <span href="" class="accion-btn" type="button"
-                                                        data-bs-toggle="modal" data-bs-target="#modal-ver">
-                                                        <i class="fa-solid fa-eye"></i>
-                                                    </span>
-                                                </div>
-                                            </td>
-
-                                        </tr>
-                                        <tr>
-                                            <td data-title="ID PEDIDO">001</td>
-                                            <td data-title="FECHA">14/02/2022</td>
-                                            <td data-title="ESTADO">Pagado</td>
-                                            <td data-title="CLIENTE">Oscar Orellana</td>
-                                            <td data-title="MONTO TOTAL">$44.73</td>
-                                            <td class="botones-table">
-                                                <div class="acciones d-flex mx-auto">
-                                                    <span href="" class="accion-btn" type="button"
-                                                        data-bs-toggle="modal" data-bs-target="#modal-ver">
-                                                        <i class="fa-solid fa-eye"></i>
-                                                    </span>
-                                                </div>
-                                            </td>
-
-                                        </tr>
-                                        <tr>
-                                            <td data-title="ID PEDIDO">001</td>
-                                            <td data-title="FECHA">14/02/2022</td>
-                                            <td data-title="ESTADO">Pagado</td>
-                                            <td data-title="CLIENTE">Oscar Orellana</td>
-                                            <td data-title="MONTO TOTAL">$44.73</td>
-                                            <td class="botones-table">
-                                                <div class="acciones d-flex mx-auto">
-                                                    <span href="" class="accion-btn" type="button"
-                                                        data-bs-toggle="modal" data-bs-target="#modal-ver">
-                                                        <i class="fa-solid fa-eye"></i>
-                                                    </span>
-                                                </div>
-                                            </td>
-
-                                        </tr>
-                                        <tr>
-                                            <td data-title="ID PEDIDO">001</td>
-                                            <td data-title="FECHA">14/02/2022</td>
-                                            <td data-title="ESTADO">Pagado</td>
-                                            <td data-title="CLIENTE">Oscar Orellana</td>
                                             <td data-title="MONTO TOTAL">$44.73</td>
                                             <td class="botones-table">
                                                 <div class="acciones d-flex mx-auto">
@@ -274,7 +210,7 @@
                 <div class="modal-header">
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="modal-body p-5">
+                <div class="modal-body p-5 pt-2">
                     <div class="container">
                         <div class="row info-detalle-content">
                             <div class="col-12 hijo-detallepedido p-3 mb-5">
@@ -334,13 +270,11 @@
                                     </div>
                                     <div class="col-lg-4 hijo-detallepedido p-3">
                                         <h4 class="text-center fw-bold">Información de envío</h4>
-                                        <div class="cd-cart-total">
+                                        <div class="cd-cart-total mt-4">
                                             <p class="card-total-line fw-bold">Nombre<span class="fw-normal">Oscar
                                                     Orellana</span></p>
                                             <p class="card-total-line fw-bold">Dirección<span class="fw-normal">Colonia
                                                     Miralvalle</span></p>
-                                            <p class="card-total-line fw-bold">Calle<span class="fw-normal">Estocolmo,
-                                                    #297</span></p>
                                             <p class="card-total-line fw-bold">Contacto<span
                                                     class="fw-normal">7668-4927</span></p>
                                         </div> <!-- cd-cart-total -->
