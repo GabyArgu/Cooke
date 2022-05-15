@@ -144,8 +144,8 @@
                 </nav>
             </header>
             <!-- MAIN O CONTENIDO DE LA PAGINA -->
-            <main class="content">
-                <div class="container-fluid">
+            <main class="content d-flex flex-column justify-content-between">
+                <div class="container-fluid mb-3">
                     <div class="header">
                         <h1>Etiquetas</h1>
                     </div>
@@ -167,11 +167,13 @@
                                     <thead>
                                         <tr>
                                             <th>Nombre de la Etiqueta</th>
+                                            <th>Estado</th>
                                             <th>Acciones</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <td data-title="etiqueta"class="nombre-categoria">-30%</td>
+                                        <td data-title="etiquetaEstado"class="nombre-categoria">inhabilitado</td>
                                         <td class="botones-table">
                                             <div class="acciones d-flex mx-auto">
                                                 <span href="" class="accion-btn" type="button" data-bs-toggle="modal"
@@ -188,6 +190,7 @@
                                         </tr>
                                         <tr>
                                             <td data-title="etiqueta" class="nombre-categoria">-40%</td>
+                                            <td data-title="etiquetaEstado"class="nombre-categoria">Activo</td>
                                             <td class="botones-table">
                                                 <div class="acciones d-flex mx-auto">
                                                     <span href="" class="accion-btn" type="button"
@@ -204,6 +207,7 @@
                                         </tr>
                                         <tr>
                                             <td data-title="etiqueta" class="nombre-categoria">Oferta</td>
+                                            <td data-title="etiquetaEstado"class="nombre-categoria">Activo</td>
                                             <td class="botones-table">
                                                 <div class="acciones d-flex mx-auto">
                                                     <span href="" class="accion-btn" type="button"
@@ -220,6 +224,7 @@
                                         </tr>
                                         <tr>
                                             <td data-title="etiqueta" class="nombre-categoria">Nuevo</td>
+                                            <td data-title="etiquetaEstado"class="nombre-categoria">Activo</td>
                                             <td class="botones-table">
                                                 <div class="acciones d-flex mx-auto">
                                                     <span href="" class="accion-btn" type="button"

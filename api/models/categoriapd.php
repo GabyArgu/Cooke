@@ -3,12 +3,11 @@
 *	Clase para manejar la tabla categorias de la base de datos.
 *   Es clase hija de Validator.
 */
-class EstadoEmpleado extends Validator
+class Categoriapd extends Validator
 {
     // Declaración de atributos (propiedades).
     private $id = null;
     private $nombre = null;
-    private $ruta = '../images/categorias/';
 
     /*
     *   Métodos para validar y asignar valores de los atributos.
@@ -48,7 +47,7 @@ class EstadoEmpleado extends Validator
 
     public function readAll()
     {
-        $sql = 'Select "idEstadoEmpleado", "estadoEmpleado" from "estadoEmpleado"';
+        $sql = 'SELECT "idCategoria", "nombreCategoriaP" FROM "categoriaProducto"';
         $params = null;
         return Database::getRows($sql, $params);
     }
