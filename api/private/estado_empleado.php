@@ -1,7 +1,7 @@
 <?php
 require_once('../helpers/database.php');
 require_once('../helpers/validaciones.php');
-require_once('../models/estadoEmpleado.php');
+require_once('../models/estado_empleado.php');
 
 // Se comprueba si existe una acción a realizar, de lo contrario se finaliza el script con un mensaje de error.
 if (isset($_GET['action'])) {
