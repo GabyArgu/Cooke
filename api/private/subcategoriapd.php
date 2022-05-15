@@ -103,7 +103,20 @@ if (isset($_GET['action'])) {
                     }
                 } else {
                     $result['exception'] = Database::getException();
-                }  
+                }
+                break;
+            case 'delete':
+                if (!$subcategorias->setId($_POST['id-delete'])) {
+                    $result['exception'] = 'Subcategoría incorrecta';
+                } elseif (!$subcategorias->readOne()) {
+                    $result['exception'] = 'Subcategoría inexistente';
+                } elseif ($subcategorias->deleteRow()) {
+                    $result['status'] = 1;
+                    $result['message'] = 'Subcategoría inhabilitada correctamente';
+                } else {
+                    $result['exception'] = Database::getException();
+                }
+                break;   
             default:
                 $result['exception'] = 'Acción no disponible dentro de la sesión';
         }

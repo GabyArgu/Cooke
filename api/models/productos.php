@@ -3,16 +3,19 @@
 *	Clase para manejar la tabla usuarios de la base de datos.
 *   Es clase hija de Validator.
 */
-class Subcategoriapd extends Validator
+class Productos extends Validator
 {
     // Declaración de atributos (propiedades) según nuestra tabla en la base de datos.
     private $id = null;
     private $nombre = null;
-    private $categoria = null;
     private $descripcion = null;
-    private $imagen = null;
+    private $precio = null;
+    private $subcategoria = null;
+    private $proveedor = null;
+    private $marca = null;
     private $estado = null;
-    private $ruta = '../images/subcategoriaspd/';
+    private $imagen = null;
+    private $ruta = '../images/productos/';
 
     /*
     *   Métodos para validar y asignar valores de los atributos.
@@ -27,6 +30,7 @@ class Subcategoriapd extends Validator
         }
     }
 
+    
     public function setNombre($value)
     {
         if ($this->validateAlphabetic($value, 1, 50)) {
@@ -37,15 +41,48 @@ class Subcategoriapd extends Validator
         }
     }
 
-    public function setCategoria($value)
+    public function setPrecio($value)//validaciones
     {
-        $this->categoria = $value;
-        return true;
+        if ($this->validateMoney($value)) {
+            $this->precio = $value;
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public function setSubcategoria($value)
+    {
+        if ($this->validateNaturalNumber($value)) {
+            $this->subcategoria = $value;
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public function setProveedor($value)
+    {
+        if ($this->validateNaturalNumber($value)) {
+            $this->proveedor = $value;
+            return true;
+        } else {
+            return false;
+        }
+    }
+    public function setMarca($value)
+    {
+        if ($this->validateNaturalNumber($value)) {
+            $this->marca = $value;
+            return true;
+        } else {
+            return false;
+        }
     }
 
     public function setDescripcion($value)
     {
-        if($this->validateString($value, 1, 250)) {
+        if($this->validateString($value, 1, 400)) {
             $this->descripcion = $value;
             return true;
         } else {
@@ -87,9 +124,24 @@ class Subcategoriapd extends Validator
         return $this->nombre;
     }
 
-    public function getCategoria()
+    public function getPrecio()
     {
-        return $this->categoria;
+        return $this->precio;
+    }
+
+    public function getSubcategoria()
+    {
+        return $this->subcategoria;
+    }
+
+    public function getProveedor()
+    {
+        return $this->proveedor;
+    }
+
+    public function getMarca()
+    {
+        return $this->marca;
     }
 
     public function getDescripcion()
@@ -117,10 +169,10 @@ class Subcategoriapd extends Validator
     */
     public function readAll()
     {
-        $sql = 'SELECT "idSubCategoriaP", "nombreSubCategoriaP", sc."descripcionSubCategoriaP", "imagenSubcategoria", cp."nombreCategoriaP", e.estado
-        FROM "subcategoriaProducto" as sc inner join "categoriaProducto" as cp on sc."idCategoriaP" = cp."idCategoria"
-        inner join estado e on sc.estado = e."idEstado"
-        ORDER BY "idSubCategoriaP"';
+        $sql = 'SELECT "idProducto", "imagenPrincipal", "nombreProducto", "descripcionProducto", "precioProducto", ep."estadoProducto" 
+        FROM producto as p inner join "estadoProducto" as ep on p."estadoProducto" = ep."idEstadoProducto" 
+        ORDER BY "idProducto"
+        ';
         
         $params = null;
         return Database::getRows($sql, $params);
@@ -128,9 +180,9 @@ class Subcategoriapd extends Validator
 
     public function readOne()
     {
-        $sql = 'SELECT "idSubCategoriaP", "nombreSubCategoriaP", "descripcionSubCategoriaP", "imagenSubcategoria", "idCategoriaP", estado
-        FROM "subcategoriaProducto"
-        WHERE "idSubCategoriaP" = ?';
+        $sql = 'SELECT "idProducto", "idSubCategoriaP", "idProveedor", "idMarca", "imagenPrincipal", "nombreProducto", "descripcionProducto", "precioProducto", "estadoProducto"
+        FROM producto 
+        WHERE "idProducto" = ?';
         $params = array($this->id);
         return Database::getRow($sql, $params);
     }
@@ -140,11 +192,10 @@ class Subcategoriapd extends Validator
     /* SEARCH */
     public function searchRows($value)
     {
-        $sql = 'SELECT "idSubCategoriaP", "nombreSubCategoriaP", sc."descripcionSubCategoriaP", "imagenSubcategoria", cp."nombreCategoriaP", e.estado
-                FROM "subcategoriaProducto" as sc inner join "categoriaProducto" as cp on sc."idCategoriaP" = cp."idCategoria"
-                inner join estado e on sc.estado = e."idEstado"
-                WHERE "nombreSubCategoriaP" ILIKE ? OR cp."nombreCategoriaP" ILIKE ?
-                ORDER BY "idSubCategoriaP"';
+        $sql = 'SELECT "idProducto", "imagenPrincipal", "nombreProducto", "descripcionProducto", "precioProducto", ep."estadoProducto" 
+        FROM producto as p inner join "estadoProducto" as ep on p."estadoProducto" = ep."idEstadoProducto"
+        WHERE "nombreProducto" ILIKE ? OR "descripcionProducto" ILIKE ?
+        ORDER BY "idProducto"';
         $params = array("%$value%", "%$value%");
         return Database::getRows($sql, $params);
     }
@@ -177,7 +228,7 @@ class Subcategoriapd extends Validator
     public function deleteRow()
     {
         //No eliminaremos registros, solo los inhabilitaremos
-        $sql = 'UPDATE "subcategoriaProducto" SET estado = 3 WHERE "idSubCategoriaP" = ?';
+        $sql = 'UPDATE producto SET "estadoProducto" = 3 WHERE "idProducto" = ?';
         $params = array($this->id);
         return Database::executeRow($sql, $params);
     }

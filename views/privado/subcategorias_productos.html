@@ -156,9 +156,11 @@
                                 data-bs-target="#save-modal">Agregar<i class="fa-solid fa-plus"></i></button>
                             </div>
                             <div class="col d-flex justify-content-end mx-auto">
-                                <input class="form-control form-control-dark w-60 d-none d-md-block Buscador-Imp"
-                                    type="text" placeholder="Buscar" aria-label="Search">
-                                <button class="btn-refresh"><i class="fa-solid fa-arrows-rotate"></i></button>
+                                <form method="post" id="search-form">
+                                    <input class="form-control form-control-dark w-60 d-none d-md-block Buscador-Imp"
+                                    type="text" placeholder="Buscar" aria-label="Search" id="search" name="search">
+                                </form>
+                                <button class="btn-refresh" id="refresh"><i class="fa-solid fa-arrows-rotate"></i></button>
                             </div>
                         </div>
                         <div class="row">
@@ -219,7 +221,7 @@
                                     </div>
                                     <div class="col-12 mb-4">
                                         <label for="validationDefault01" class="form-label">Descripción</label>
-                                        <textarea class="form-control" id="descripcion" name="descripcion"
+                                        <textarea class="form-control" type="text" id="descripcion" name="descripcion"
                                             rows="6"></textarea>
                                     </div>
                                     <div class="col-12 mb-4">
@@ -271,16 +273,20 @@
                             <div class="col eliminar-content">
                                 <i class="fa-solid fa-circle-exclamation mb-4"></i>
                                 <h2>¿Estás seguro?</h2>
-                                <span>El elemento se borrará de manera permanente</span>
+                                <span>El elemento será dado de baja</span>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="modal-footer d-flex mx-2 justify-content-between">
-                    <button class="btn btn-cancel" type="button" data-bs-target="" data-bs-toggle="modal"
+                    <button class="btn btn-cancel" type="button"
                         data-bs-dismiss="modal">Cancelar</button>
-                    <button class="btn btn-siguiente" type="button" data-bs-target="" data-bs-toggle="modal"
-                        data-bs-dismiss="modal">Continuar</button>
+                    <form id="delete-form">
+                        <input type="hidden" id="id-delete" name="id-delete">
+                        <button class="btn btn-siguiente" type="submit" 
+                            data-bs-dismiss="modal">Continuar</button>
+                    </form>
+                    
                 </div>
             </div>
         </div>
