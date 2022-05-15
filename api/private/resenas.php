@@ -16,22 +16,6 @@ if (isset($_GET['action'])) {
         $result['session'] = 1;
         // Se compara la acción a realizar cuando un administrador ha iniciado sesión.
         switch ($_GET['action']) {
-            case 'getUser':
-                if (isset($_SESSION['alias_usuario'])) {
-                    $result['status'] = 1;
-                    $result['username'] = $_SESSION['alias_usuario'];
-                } else {
-                    $result['exception'] = 'Alias de usuario indefinido';
-                }
-                break;
-            case 'logOut':
-                if (session_destroy()) {
-                    $result['status'] = 1;
-                    $result['message'] = 'Sesión eliminada correctamente';
-                } else {
-                    $result['exception'] = 'Ocurrió un problema al cerrar la sesión';
-                }
-                break;
             case 'readAll':
                 if ($result['dataset'] = $resena->readAll()) {
                     $result['status'] = 1;

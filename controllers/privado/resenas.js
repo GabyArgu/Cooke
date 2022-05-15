@@ -1,6 +1,5 @@
 // Constante para establecer la ruta y parámetros de comunicación con la API.
 const API_RESENAS = SERVER + 'private/resenas.php?action=';
-/* Los endpoint_cargo, estado y avatar, son necesarios al ser tablas foráneas*/
 
 // Método manejador de eventos que se ejecuta cuando el documento ha cargado.
 document.addEventListener('DOMContentLoaded', function () {
@@ -56,30 +55,30 @@ function fillTable(dataset) {
     dataset.map(function (row) {
         // Se crean y concatenan las filas de la tabla con los datos de cada registro.
         content += `
-          <tr>
-              <td>${row.nombresCliente} ${row.apellidosCliente}</td>
-              <td>${row.nombreProducto}</td>
-              <td>${row.tituloResena}</td>
-              <td>${row.fechaResena}</td>
-              <td>${row.puntajeResena}</td>
-              <td class="botones-table">
-                  <div class="acciones d-flex mx-auto">
-                      <span onclick="openUpdate(${row.idResena})" class="accion-btn" type="button"
-                          data-bs-toggle="modal" data-bs-target="#modal-editar">
-                          <i class="fa-solid fa-pen-to-square fa-lg"></i>
-                      </span>
-                      <span onclick="openDelete(${row.idResena})" class="accion-btn" type="button"
-                          data-bs-toggle="modal" data-bs-target="#modal-eliminar">
-                          <i class="fa-solid fa-trash-can fa-lg"></i>
-                      </span>
-                      <span onclick="openDetails(${row.idResena})" class="accion-btn" type="button"
-                          data-bs-toggle="modal" data-bs-target="#modal-ver">
-                          <i class="fa-solid fa-eye fa-lg"></i>
-                      </span>
-                  </div>
-              </td>
-          </tr>
-      `;
+            <tr>
+                <td>${row.nombreProducto}</td>
+                <td>${row.tituloResena}</td>
+                <td>${row.fechaResena}</td>
+                <td>${row.puntajeResena}</td>
+                <td>${row.estado}</td>
+                <td class="botones-table">
+                    <div class="acciones d-flex mx-auto">
+                        <span onclick="openUpdate(${row.idResena})" class="accion-btn" type="button"
+                            data-bs-toggle="modal" data-bs-target="#modal-editar">
+                            <i class="fa-solid fa-pen-to-square fa-lg"></i>
+                        </span>
+                        <span onclick="openDelete(${row.idResena})" class="accion-btn" type="button"
+                            data-bs-toggle="modal" data-bs-target="#modal-eliminar">
+                            <i class="fa-solid fa-trash-can fa-lg"></i>
+                        </span>
+                        <span onclick="openDetails(${row.idResena})" class="accion-btn" type="button"
+                            data-bs-toggle="modal" data-bs-target="#modal-ver">
+                            <i class="fa-solid fa-eye fa-lg"></i>
+                        </span>
+                    </div>
+                </td>
+            </tr>
+        `;
     });
     // Se agregan las filas al cuerpo de la tabla mediante su id para mostrar los registros.
     document.getElementById('tbody-rows').innerHTML = content;
