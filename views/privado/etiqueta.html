@@ -40,7 +40,7 @@
             <div class="sidebar-content">
                 <!-- APARTADO DONDE APARECERA EL AVATAR Y NOMBRE DEL USUARIO -->
                 <ul class="nav flex-column justify-content-center align-items-center">
-                    <img src="" class="Usua-Ico" alt="" id="avatar-side">
+                    <img src="../../resources/img/dashboard/usuario.png" class="Usua-Ico" alt="">
                     <h5 class="Nombre-Usu" id="username"></h5>
                     <a class="Adm" href="#">Administrar</a>
                 </ul>
@@ -147,7 +147,7 @@
             <main class="content d-flex flex-column justify-content-between">
                 <div class="container-fluid mb-3">
                     <div class="header">
-                        <h1>Administrar Etiquetas</h1>
+                        <h1>Etiquetas</h1>
                     </div>
                     <div class="row contenido">
                         <div class="row pt-3 mx-auto header-table">
@@ -162,93 +162,90 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col">
-                                <div class="table-responsive mt-3" id="no-more-tables">
-                                    <table class="table table-bordered table-categorias" id="table-categorias-blog">
-                                        <thead>
-                                            <tr>
-                                                <th>Nombre</th>
-                                                <th>Estado</th>
-                                                <th>Acciones</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td data-title="NOMBRE" class="nombre-categorias">-30%</td>
-                                                <td data-title="DESCRIPCION" class="descripcion">Activo </td>
-                                                <td class="botones-table">
-                                                    <div class="acciones d-flex mx-auto">
-                                                        <span href="" class="accion-btn" type="button"
-                                                            data-bs-toggle="modal" data-bs-target="#modal-actualizar">
-                                                            <i class="fa-solid fa-pen-to-square"></i>
-                                                        </span>
-                                                        <span href="" class="accion-btn" type="button"
-                                                            data-bs-toggle="modal" data-bs-target="#modal-eliminar">
-                                                            <i class="fa-solid fa-trash-can fa-lg"></i>
-                                                        </span>
-                                                    </div>
-                                                </td>
+                            <div class="table-responsive mt-3" id="no-more-tables">
+                                <table class="table table-bordered table-categorias" id="table-categorias-productos">
+                                    <thead>
+                                        <tr>
+                                            <th>Nombre de la Etiqueta</th>
+                                            <th>Estado</th>
+                                            <th>Acciones</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <td data-title="etiqueta"class="nombre-categoria">-30%</td>
+                                        <td data-title="etiquetaEstado"class="nombre-categoria">Activo</td>
+                                        <td class="botones-table">
+                                            <div class="acciones d-flex mx-auto">
+                                                <span href="" class="accion-btn" type="button" data-bs-toggle="modal"
+                                                    data-bs-target="#modal-actualizar">
+                                                    <i class="fa-solid fa-pen-to-square"></i>
+                                                </span>
+                                                <span href="" class="accion-btn" type="button" data-bs-toggle="modal"
+                                                    data-bs-target="#modal-eliminar">
+                                                    <i class="fa-solid fa-trash-can fa-lg"></i>
+                                                </span>
+                                            </div>
+                                        </td>
 
-                                            </tr>
-                                            <tr>
-                                                <td data-title="NOMBRE" class="nombre-categoria">-40%</td>
-                                                <td data-title="DESCRIPCION" class="descripcion">Activo </td>
-                                                <td class="botones-table">
-                                                    <div class="acciones d-flex mx-auto">
-                                                        <span href="" class="accion-btn" type="button"
-                                                            data-bs-toggle="modal" data-bs-target="#modal-actualizar">
-                                                            <i class="fa-solid fa-pen-to-square"></i>
-                                                        </span>
-                                                        <span href="" class="accion-btn" type="button"
-                                                            data-bs-toggle="modal" data-bs-target="#modal-eliminar">
-                                                            <i class="fa-solid fa-trash-can fa-lg"></i>
-                                                        </span>
-                                                    </div>
-                                                </td>
+                                        </tr>
+                                        <tr>
+                                            <td data-title="etiqueta" class="nombre-categoria">-40%</td>
+                                            <td data-title="etiquetaEstado"class="nombre-categoria">Activo</td>
+                                            <td class="botones-table">
+                                                <div class="acciones d-flex mx-auto">
+                                                    <span href="" class="accion-btn" type="button"
+                                                        data-bs-toggle="modal" data-bs-target="#modal-actualizar">
+                                                        <i class="fa-solid fa-pen-to-square"></i>
+                                                    </span>
+                                                    <span href="" class="accion-btn" type="button"
+                                                        data-bs-toggle="modal" data-bs-target="#modal-eliminar">
+                                                        <i class="fa-solid fa-trash-can fa-lg"></i>
+                                                    </span>
+                                                </div>
+                                            </td>
 
-                                            </tr>
-                                            <tr>
-                                                <td data-title="NOMBRE" class="nombre-categoria">Nuevo</td>
-                                                <td data-title="DESCRIPCION" class="descripcion">Activo </td>
-                                                <td class="botones-table">
-                                                    <div class="acciones d-flex mx-auto">
-                                                        <span href="" class="accion-btn" type="button"
-                                                            data-bs-toggle="modal" data-bs-target="#modal-actualizar">
-                                                            <i class="fa-solid fa-pen-to-square"></i>
-                                                        </span>
-                                                        <span href="" class="accion-btn" type="button"
-                                                            data-bs-toggle="modal" data-bs-target="#modal-eliminar">
-                                                            <i class="fa-solid fa-trash-can fa-lg"></i>
-                                                        </span>
-                                                    </div>
-                                                </td>
+                                        </tr>
+                                        <tr>
+                                            <td data-title="etiqueta" class="nombre-categoria">Oferta</td>
+                                            <td data-title="etiquetaEstado"class="nombre-categoria">Activo</td>
+                                            <td class="botones-table">
+                                                <div class="acciones d-flex mx-auto">
+                                                    <span href="" class="accion-btn" type="button"
+                                                        data-bs-toggle="modal" data-bs-target="#modal-actualizar">
+                                                        <i class="fa-solid fa-pen-to-square"></i>
+                                                    </span>
+                                                    <span href="" class="accion-btn" type="button"
+                                                        data-bs-toggle="modal" data-bs-target="#modal-eliminar">
+                                                        <i class="fa-solid fa-trash-can fa-lg"></i>
+                                                    </span>
+                                                </div>
+                                            </td>
 
-                                            </tr>
-                                            <tr>
-                                                <td data-title="NOMBRE" class="nombre-categoria">Oferta</td>
-                                                <td data-title="DESCRIPCION" class="descripcion">Activo</td>
-                                                <td class="botones-table">
-                                                    <div class="acciones d-flex mx-auto">
-                                                        <span href="" class="accion-btn" type="button"
-                                                            data-bs-toggle="modal" data-bs-target="#modal-actualizar">
-                                                            <i class="fa-solid fa-pen-to-square"></i>
-                                                        </span>
-                                                        <span href="" class="accion-btn" type="button"
-                                                            data-bs-toggle="modal" data-bs-target="#modal-eliminar">
-                                                            <i class="fa-solid fa-trash-can fa-lg"></i>
-                                                        </span>
-                                                    </div>
-                                                </td>
+                                        </tr>
+                                        <tr>
+                                            <td data-title="etiqueta" class="nombre-categoria">Nuevo</td>
+                                            <td data-title="etiquetaEstado"class="nombre-categoria">Activo</td>
+                                            <td class="botones-table">
+                                                <div class="acciones d-flex mx-auto">
+                                                    <span href="" class="accion-btn" type="button"
+                                                        data-bs-toggle="modal" data-bs-target="#modal-actualizar">
+                                                        <i class="fa-solid fa-pen-to-square"></i>
+                                                    </span>
+                                                    <span href="" class="accion-btn" type="button"
+                                                        data-bs-toggle="modal" data-bs-target="#modal-eliminar">
+                                                        <i class="fa-solid fa-trash-can fa-lg"></i>
+                                                    </span>
+                                                </div>
+                                            </td>
 
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
+                                        </tr>
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
                     </div>
                 </div>
-            </main> 
+            </main>
             <!-- FOOTER DE LA PAGINA -->
             <footer>
                 <div class="text-center p-1 CopCo">
