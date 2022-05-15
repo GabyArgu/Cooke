@@ -144,10 +144,10 @@
                 </nav>
             </header>
             <!-- MAIN O CONTENIDO DE LA PAGINA -->
-            <main class="content">
-                <div class="container-fluid">
+            <main class="content d-flex flex-column justify-content-between">
+                <div class="container-fluid mb-3">
                     <div class="header">
-                        <h1>Etiquetas</h1>
+                        <h1>Administrar Etiquetas</h1>
                     </div>
                     <div class="row contenido">
                         <div class="row pt-3 mx-auto header-table">
@@ -162,85 +162,90 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="table-responsive mt-3" id="no-more-tables">
-                                <table class="table table-bordered table-categorias" id="table-categorias-productos">
-                                    <thead>
-                                        <tr>
-                                            <th>Nombre de la Etiqueta</th>
-                                            <th>Acciones</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <td data-title="etiqueta"class="nombre-categoria">-30%</td>
-                                        <td class="botones-table">
-                                            <div class="acciones d-flex mx-auto">
-                                                <span href="" class="accion-btn" type="button" data-bs-toggle="modal"
-                                                    data-bs-target="#modal-actualizar">
-                                                    <i class="fa-solid fa-pen-to-square"></i>
-                                                </span>
-                                                <span href="" class="accion-btn" type="button" data-bs-toggle="modal"
-                                                    data-bs-target="#modal-eliminar">
-                                                    <i class="fa-solid fa-trash-can fa-lg"></i>
-                                                </span>
-                                            </div>
-                                        </td>
+                            <div class="col">
+                                <div class="table-responsive mt-3" id="no-more-tables">
+                                    <table class="table table-bordered table-categorias" id="table-categorias-blog">
+                                        <thead>
+                                            <tr>
+                                                <th>Nombre</th>
+                                                <th>Descripción</th>
+                                                <th>Acciones</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td data-title="NOMBRE" class="nombre-categorias">Ofertas</td>
+                                                <td data-title="DESCRIPCION" class="descripcion">Lorem ipsum dolor sit
+                                                    amet
+                                                    consectetur adipisicing elit. </td>
+                                                <td class="botones-table">
+                                                    <div class="acciones d-flex mx-auto">
+                                                        <span href="" class="accion-btn" type="button"
+                                                            data-bs-toggle="modal" data-bs-target="#modal-actualizar">
+                                                            <i class="fa-solid fa-pen-to-square"></i>
+                                                        </span>
+                                                        <span href="" class="accion-btn" type="button"
+                                                            data-bs-toggle="modal" data-bs-target="#modal-eliminar">
+                                                            <i class="fa-solid fa-trash-can fa-lg"></i>
+                                                        </span>
+                                                    </div>
+                                                </td>
 
-                                        </tr>
-                                        <tr>
-                                            <td data-title="etiqueta" class="nombre-categoria">-40%</td>
-                                            <td class="botones-table">
-                                                <div class="acciones d-flex mx-auto">
-                                                    <span href="" class="accion-btn" type="button"
-                                                        data-bs-toggle="modal" data-bs-target="#modal-actualizar">
-                                                        <i class="fa-solid fa-pen-to-square"></i>
-                                                    </span>
-                                                    <span href="" class="accion-btn" type="button"
-                                                        data-bs-toggle="modal" data-bs-target="#modal-eliminar">
-                                                        <i class="fa-solid fa-trash-can fa-lg"></i>
-                                                    </span>
-                                                </div>
-                                            </td>
+                                            </tr>
+                                            <tr>
+                                                <td data-title="NOMBRE" class="nombre-categoria">Recetas</td>
+                                                <td data-title="DESCRIPCION" class="descripcion">Lorem ipsum dolor sit
+                                                    amet
+                                                    consectetur adipisicing elit. </td>
+                                                <td class="botones-table">
+                                                    <div class="acciones d-flex mx-auto">
+                                                        <span href="" class="accion-btn" type="button"
+                                                            data-bs-toggle="modal" data-bs-target="#modal-actualizar">
+                                                            <i class="fa-solid fa-pen-to-square"></i>
+                                                        </span>
+                                                        <span href="" class="accion-btn" type="button"
+                                                            data-bs-toggle="modal" data-bs-target="#modal-eliminar">
+                                                            <i class="fa-solid fa-trash-can fa-lg"></i>
+                                                        </span>
+                                                    </div>
+                                                </td>
 
-                                        </tr>
-                                        <tr>
-                                            <td data-title="etiqueta" class="nombre-categoria">Oferta</td>
-                                            <td class="botones-table">
-                                                <div class="acciones d-flex mx-auto">
-                                                    <span href="" class="accion-btn" type="button"
-                                                        data-bs-toggle="modal" data-bs-target="#modal-actualizar">
-                                                        <i class="fa-solid fa-pen-to-square"></i>
-                                                    </span>
-                                                    <span href="" class="accion-btn" type="button"
-                                                        data-bs-toggle="modal" data-bs-target="#modal-eliminar">
-                                                        <i class="fa-solid fa-trash-can fa-lg"></i>
-                                                    </span>
-                                                </div>
-                                            </td>
+                                            </tr>
+                                            <tr>
+                                                <td data-title="NOMBRE" class="nombre-categoria">Nuevos productos</td>
+                                                <td data-title="DESCRIPCION" class="descripcion">Lorem ipsum dolor sit
+                                                    amet
+                                                    consectetur adipisicing elit. </td>
+                                                <td class="botones-table">
+                                                    <div class="acciones d-flex mx-auto">
+                                                        <span href="" class="accion-btn" type="button"
+                                                            data-bs-toggle="modal" data-bs-target="#modal-actualizar">
+                                                            <i class="fa-solid fa-pen-to-square"></i>
+                                                        </span>
+                                                        <span href="" class="accion-btn" type="button"
+                                                            data-bs-toggle="modal" data-bs-target="#modal-eliminar">
+                                                            <i class="fa-solid fa-trash-can fa-lg"></i>
+                                                        </span>
+                                                    </div>
+                                                </td>
 
-                                        </tr>
-                                        <tr>
-                                            <td data-title="etiqueta" class="nombre-categoria">Nuevo</td>
-                                            <td class="botones-table">
-                                                <div class="acciones d-flex mx-auto">
-                                                    <span href="" class="accion-btn" type="button"
-                                                        data-bs-toggle="modal" data-bs-target="#modal-actualizar">
-                                                        <i class="fa-solid fa-pen-to-square"></i>
-                                                    </span>
-                                                    <span href="" class="accion-btn" type="button"
-                                                        data-bs-toggle="modal" data-bs-target="#modal-eliminar">
-                                                        <i class="fa-solid fa-trash-can fa-lg"></i>
-                                                    </span>
-                                                </div>
-                                            </td>
-
-                                        </tr>
-                                    </tbody>
-                                </table>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </main>
+
+                <footer>
+                    <div class="text-center p-1 mt-5 CopCo">
+                        © 2021 Copyright:
+                        <a class="text-reset fw-bold" href="https://github.com/GabyArgu/Cooke/tree/ROscar">Cooké.com</a>
+                    </div>
+                </footer>
+
+            </main> 
             <!-- FOOTER DE LA PAGINA -->
             <footer>
                 <div class="text-center p-1 CopCo">
