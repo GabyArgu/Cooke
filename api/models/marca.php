@@ -8,6 +8,9 @@ class Marca extends Validator
     // Declaración de atributos (propiedades).
     private $id = null;
     private $marca = null;
+    private $imagen = null;
+    private $estado = null;
+    private $ruta = '../images/marcas/';
 
     /*
     *   Métodos para validar y asignar valores de los atributos.
@@ -31,6 +34,26 @@ class Marca extends Validator
             return false;
         }
     }
+
+    public function setImagen($file)
+    {
+        if ($this->validateImageFile($file, 500, 500)) {
+            $this->imagen = $this->getFileName();
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public function setEstado($value)
+    {
+        if ($this->validateNaturalNumber($value)) {
+            $this->estado = $value;
+            return true;
+        } else {
+            return false;
+        }
+    }
     /*
     *   Métodos para obtener valores de los atributos.
     */
@@ -42,6 +65,21 @@ class Marca extends Validator
     public function getMarca()
     {
         return $this->marca;
+    }
+
+    public function getImagen()
+    {
+        return $this->imagen;
+    }
+
+    public function getEstado()
+    {
+        return $this->estado;
+    }
+
+    public function getRuta()
+    {
+        return $this->ruta;
     }
 
 

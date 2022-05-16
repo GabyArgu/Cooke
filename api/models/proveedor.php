@@ -8,7 +8,9 @@ class Proveedor extends Validator
     // Declaración de atributos (propiedades).
     private $id = null;
     private $proveedor = null;
-
+    private $direccion = null;
+    private $telefono = null;
+    private $estado = null;
     /*
     *   Métodos para validar y asignar valores de los atributos.
     */
@@ -31,6 +33,36 @@ class Proveedor extends Validator
             return false;
         }
     }
+    public function setDireccion($value)
+    {   
+        if($this->validateAlphabetic($value, 1, 200)){
+            $this->direccion = $value;
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public function setTelefono($value)
+    {   
+        if ($this->validatePhone($value)) {
+            $this->telefono = $value;
+            return true;
+        } else {
+            return false;
+        }
+        
+    }
+
+    public function setEstado($value)
+    {
+        if ($this->validateNaturalNumber($value)) {
+            $this->estado = $value;
+            return true;
+        } else {
+            return false;
+        }
+    }
     /*
     *   Métodos para obtener valores de los atributos.
     */
@@ -44,6 +76,20 @@ class Proveedor extends Validator
         return $this->proveedor;
     }
 
+    public function getDireccion()
+    {
+        return $this->direccion;
+    }
+
+    public function getTelefono()
+    {
+        return $this->telefono;
+    }
+
+    public function getEstado()
+    {
+        return $this->estado;
+    }
 
     public function readAll()
     {
