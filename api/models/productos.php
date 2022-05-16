@@ -14,6 +14,8 @@ class Productos extends Validator
     private $proveedor = null;
     private $marca = null;
     private $estado = null;
+    private $color = null;
+    private $stock = null;
     private $imagen = null;
     private $ruta = '../images/productos/';
 
@@ -111,6 +113,26 @@ class Productos extends Validator
         }
     }
 
+    public function setColor($value)
+    {
+        if ($this->validateNaturalNumber($value)) {
+            $this->color = $value;
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public function setStock($value)
+    {
+        if ($this->validateNaturalNumber($value)) {
+            $this->stock = $value;
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     /*
     *   Métodos para obtener valores de los atributos.
     */
@@ -159,6 +181,11 @@ class Productos extends Validator
         return $this->estado;
     }
 
+    public function getColor()
+    {
+        return $this->color;
+    }
+
     public function getRuta()
     {
         return $this->ruta;
@@ -203,12 +230,28 @@ class Productos extends Validator
     /* CREATE */
     public function createRow()
     {
-        $sql = 'INSERT INTO "subcategoriaProducto"("idCategoriaP", "nombreSubCategoriaP", "descripcionSubCategoriaP", "imagenSubcategoria", "estado")
-        VALUES (?, ?, ?, ?, ?);';
-        $params = array($this->categoria, $this->nombre, $this->descripcion, $this->imagen, $this->estado);
+        $sql = 'INSERT INTO producto(
+        "idSubCategoriaP", "idProveedor", "idMarca", "nombreProducto", "descripcionProducto", "precioProducto", "estadoProducto", "imagenPrincipal")
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?) RETURNING "idProducto";';
+        $params = array($this->subcategoria, $this->proveedor, $this->marca, $this->nombre, $this->descripcion, $this->precio, $this->estado, $this->imagen);
         return Database::executeRow($sql, $params);
     }
 
+    /* Función para obtener el id del último registro ingresado*/
+    public function getLastId()
+    {
+        $sql = 'SELECT MAX("idProducto") as "idProducto" FROM producto ';
+        return Database::getRowId($sql, "idProducto");
+    }
+
+    public function insertStock($lastId)
+    {
+        $sql = 'INSERT INTO "colorStock"(
+        "idProducto", "idColor", stock)
+        VALUES (?, ?, ?);';
+        $params = array($lastId, $this->color, $this->stock);
+        return Database::executeRow($sql, $params);
+    }
 
     /* UPDATE */
     public function updateRow($current_image)

@@ -111,7 +111,9 @@ function openUpdate(id) {
                     fillSelect(ENDPOINT_CARGO, 'cargo', response.dataset.cargoEmpleado);
                     fillSelect(ENDPOINT_AVATAR, 'foto', response.dataset.fotoEmpleado);
                     fillSelect(ENDPOINT_ESTADO, 'estado', response.dataset.estadoEmpleado);
-
+                    document.getElementById('imagen-avatar').src = `../../resources/img/avatares/avatar${response.dataset.fotoEmpleado}.jpg`
+                    document.getElementById('imagen-avatar').style.display = 'inline-block'
+                    
                 } else {
                     sweetAlert(2, response.exception, null);
                 }
@@ -153,7 +155,7 @@ function openShow(id) {
                     document.getElementById('show-cargo').innerText = response.dataset.cargoEmpleado;
                     document.getElementById('show-estado').innerText = response.dataset.estadoEmpleado;
                     document.getElementById('show-avatar').src = `../../resources/img/avatares/${response.dataset.avatar}.jpg`;
-
+                    
                 } else {
                     sweetAlert(2, response.exception, null);
                 }

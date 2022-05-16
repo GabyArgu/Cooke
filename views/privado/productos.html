@@ -150,8 +150,8 @@
                     <div class="row contenido">
                         <div class="row pt-3 mx-auto header-table">
                             <div class="col">
-                                <button class="btn-agregar" type="button" data-bs-toggle="modal"
-                                    data-bs-target="#modal-agregar">Agregar<i class="fa-solid fa-plus"></i></button>
+                                <button onclick="openCreate()" class="btn-agregar" type="button" data-bs-toggle="modal"
+                                data-bs-target="#save-modal">Agregar<i class="fa-solid fa-plus"></i></button>
                             </div>
                             <div class="col d-flex justify-content-end mx-auto">
                                 <form method="post" id="search-form">
@@ -301,78 +301,53 @@
     <!-- FIN MODAL -->
 
     <!-- INICIO MODALS AGREGAR-->
-    <div class="modal modal-agregar fade" id="modal-agregar" tabindex="-1" aria-labelledby="exampleModalLabel"
+    <form method="post" id="save-form">
+        <div class="modal modal-agregar fade" id="save-modal" tabindex="-1" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-xl">
             <div class="modal-content">
                 <div class="modal-header">
 
-                    <h3 class="mt-2">Agregar producto</h3>
+                    <h3 class="mt-2" id="modal-title"></h3>
 
                     <button type="button" class="btn-close my" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <div class="container">
                         <div class="row agregar-content">
-                            <div class="col">
-
+                            <div class="col" >
                                 <div class="row">
                                     <div class="col-4 mb-4">
                                         <label for="validationDefault01" class="form-label">Nombre</label>
-                                        <input type="text" class="form-control" id="validationDefault01" value=""
+                                        <input type="text" class="form-control" id="nombre" name="nombre" value=""
                                             required>
                                     </div>
                                     <div class="col-4 mb-4">
                                         <label for="validationDefault01" class="form-label">Precio</label>
-                                        <input type="text" class="form-control" id="validationDefault01" value=""
+                                        <input type="number" class="form-control" id="precio" name="precio" value=""
                                             required>
                                     </div>
                                     <div class="col-4 mb-4">
-                                        <label for="validationDefault01" class="form-label">Cantidad en
-                                            stock</label>
-                                        <input type="text" class="form-control" id="validationDefault01" value=""
+                                        <label for="validationDefault01" class="form-label">Stock</label>
+                                        <input type="number" class="form-control" id="stock" name="stock" value=""
                                             required>
                                     </div>
                                     <div class="col-4 mb-4">
                                         <label for="validationDefault02" class="form-label">Subcategoría</label>
                                         <select class="form-select custom-form-select"
-                                            aria-label="Default select example">
-                                            <option selected disabled>Seleccione una opción</option>
-                                            <option value="1">Ollas</option>
-                                            <option value="2">Cuchillos</option>
-                                            <option value="3">Hornos</option>
+                                            aria-label="Default select example" id="subcategoria" name="subcategoria">
                                         </select>
                                     </div>
                                     <div class="col-4 mb-4">
                                         <label for="validationDefault03" class="form-label">Marca</label>
                                         <select class="form-select custom-form-select"
-                                            aria-label="Default select example">
-                                            <option selected disabled>Seleccione una opción</option>
-                                            <option value="1">Oneida</option>
-                                            <option value="2">All-Clad</option>
-                                            <option value="3">GreenLife</option>
-                                            <option value="4">Hiware</option>
-                                            <option value="5">Panasonic</option>
+                                            aria-label="Default select example" id="marca" name="marca">
                                         </select>
                                     </div>
                                     <div class="col-4 mb-4">
                                         <label for="validationDefault03" class="form-label">Proveedor</label>
                                         <select class="form-select custom-form-select"
-                                            aria-label="Default select example">
-                                            <option selected disabled>Seleccione una opción</option>
-                                            <option value="1">Almacenes Siman</option>
-                                            <option value="2">Walmart</option>
-                                            <option value="3">PriceMart</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-4 mb-4">
-                                        <label for="validationDefault03" class="form-label">Estado</label>
-                                        <select class="form-select custom-form-select"
-                                            aria-label="Default select example">
-                                            <option selected disabled>Seleccione una opción</option>
-                                            <option value="1">En stock</option>
-                                            <option value="2">Fuera de stock</option>
-                                            <option value="3">Deshabilitado</option>
+                                            aria-label="Default select example" id="proveedor" name="proveedor">
                                         </select>
                                     </div>
                                     <div class="col-4 mb-4">
@@ -381,94 +356,59 @@
                                             <input placeholder="" class="tagify">
                                         </fieldset>
                                     </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col color-producto">
-                                        <label for="">Color del producto</label>
-                                        <div class="colores mt-1 mx-1">
-                                            <i class="fa-solid fa-square color1"></i>
-                                            <i class="fa-solid fa-square color2"></i>
-                                            <i class="fa-solid fa-square color3"></i>
-                                            <i class="fa-solid fa-square color4"></i>
-                                            <i class="fa-solid fa-square color5"></i>
-                                            <i class="fa-solid fa-square color6"></i>
-                                            <i class="fa-solid fa-square color7"></i>
-                                            <i class="fa-solid fa-square color8"></i>
-                                            <i class="fa-solid fa-square color9"></i>
-                                            <i class="fa-solid fa-square color10"></i>
-                                        </div>
+                                    <div class="col-4 mb-4">
+                                        <label for="validationDefault03" class="form-label">Color</label>
+                                        <select class="form-select custom-form-select"
+                                            aria-label="Default select example" id="color" name="color">
+                                        </select>
                                     </div>
-
+                                    <div class="col-4 mb-4">
+                                        <label for="validationDefault03" class="form-label "
+                                            id="estado-label">Estado</label>
+                                        <select class="form-select custom-form-select"
+                                            aria-label="Default select example" id="estado" name="estado">
+                                        </select>
+                                    </div>
+                                    <div class="col-12 mb-4">
+                                        <input class="form-control input-hide" type="number" id="id" name="id">
+                                    </div>
                                 </div>
                             </div>
-
-
                         </div>
                     </div>
                 </div>
                 <div class="modal-footer d-flex justify-content-end">
-                    <button class="btn btn-siguiente" type="button" data-bs-target="#modal-agregar2"
+                    <button class="btn btn-siguiente" type="button" data-bs-target="#save-modal-2"
                         data-bs-toggle="modal" data-bs-dismiss="modal">Siguiente</button>
                 </div>
             </div>
         </div>
     </div>
-    <div class="modal modal-agregar2 fade" id="modal-agregar2" aria-hidden="true"
+    <div class="modal modal-agregar2 fade" id="save-modal-2" aria-hidden="true"
         aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
         <div class="modal-dialog modal-dialog-centered modal-xl">
             <div class="modal-content">
                 <div class="modal-header">
 
-                    <h3 class="mt-2">Agregar producto</h3>
+                    <h3 class="mt-2" id="modal-title2"></h3>
 
                     <button type="button" class="btn-close my" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <div class="container my-5">
+                    <div class="container my-2">
                         <div class="row agregar-content">
                             <div class="col">
                                 <div class="row">
                                     <div class="col">
                                         <label for="exampleFormControlTextarea1" class="form-label">Descripción</label>
-                                        <textarea class="form-control" id="exampleFormControlTextarea1"
+                                        <textarea class="form-control" id="descripcion" name="descripcion"
                                             rows="6"></textarea>
                                     </div>
                                 </div>
-
-                            </div>
-
-
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-footer d-flex justify-content-between">
-                    <button class="btn btn-regresar" type="button" data-bs-target="#modal-agregar"
-                        data-bs-toggle="modal" data-bs-dismiss="modal">Regresar</button>
-                    <button class="btn btn-siguiente" type="button" data-bs-target="#modal-agregar3"
-                        data-bs-toggle="modal" data-bs-dismiss="modal">Siguiente</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="modal modal-agregar3 fade" id="modal-agregar3" aria-hidden="true"
-        aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
-        <div class="modal-dialog modal-dialog-centered modal-xl">
-            <div class="modal-content">
-                <div class="modal-header">
-
-                    <h3 class="mt-2">Agregar producto</h3>
-
-                    <button type="button" class="btn-close my" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="container my-5">
-                        <div class="row agregar-content">
-                            <div class="col">
-                                <div class="row">
+                                <div class="row mt-2">
                                     <div class="col">
-                                        <form action="/file-upload" class="dropzone" id="agregar-dropzone">
-                                        </form>
+                                        <label for="validationDefault01" class="form-label">Imagen</label>
+                                        <input id="archivo" class="form-control" type="file" name="archivo" accept=".jpg, .png">
                                     </div>
                                 </div>
 
@@ -479,13 +419,17 @@
                     </div>
                 </div>
                 <div class="modal-footer d-flex justify-content-between">
-                    <button class="btn btn-regresar" type="button" data-bs-target="#modal-agregar2"
+                    <button class="btn btn-regresar" type="button" data-bs-target="#save-modal"
                         data-bs-toggle="modal" data-bs-dismiss="modal">Regresar</button>
-                    <button class="btn-guardar" type="button">Guardar<i class="fa-solid fa-floppy-disk"></i></button>
+                        <button class="btn-guardar" type="submit" form="save-form">Guardar<i
+                            class="fa-solid fa-floppy-disk"></i></button>
                 </div>
             </div>
         </div>
     </div>
+    </form>
+    
+
     <!-- FIN MODAL -->
 
     <!-- INICIO MODAL ACTUALIZAR -->
