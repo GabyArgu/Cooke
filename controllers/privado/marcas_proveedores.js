@@ -72,6 +72,37 @@ function fillTable(dataset) {
   document.getElementById('tbody-rows').innerHTML = content;
 }
 
+// Función para preparar el modal al momento de insertar un registro.
+function openCreate() {
+
+  //Limpiamos los campos del modal
+  $("#save-modal").find("input,textarea,select").val("");
+
+  // Se asigna el título para la caja de diálogo (modal).
+  document.getElementById('modal-title').textContent = 'Agregar marca';
+    //Añadimos la clase que esconde el select estado ya que todos los usuarios ingresados, tendrán el valor de activo y este se manda automaticamente
+  document.getElementById('estado').classList.add('input-hide')
+  document.getElementById('estado-label').classList.add('input-hide')
+}
+
+function openCreate2() {
+
+  //Limpiamos los campos del modal
+  $("#save-modal2").find("input,textarea,select").val("");
+
+  // Se asigna el título para la caja de diálogo (modal).
+  document.getElementById('modal-title2').textContent = 'Agregar proveedor';
+
+  //Añadimos la clase que esconde el select estado ya que todos los usuarios ingresados, tendrán el valor de activo y este se manda automaticamente
+  document.getElementById('estado2').classList.add('input-hide')
+  document.getElementById('estado-label2').classList.add('input-hide')
+
+
+  /* Se llama a la función que llena el select del formulario. Se encuentra en el archivo components.js, 
+   * mandar de parametros la ruta de la api de la tabla que utiliza el select, y el id del select*/
+  fillSelect(ENDPOINT_CARGO, 'cargo', null);
+}
+
 // Función para llenar la tabla con los datos de los registros. Se manda a llamar en la función readRows().
 function fillTable2(dataset) {
   let content = '';
@@ -104,3 +135,11 @@ function fillTable2(dataset) {
   // Se agregan las filas al cuerpo de la tabla mediante su id para mostrar los registros.
   document.getElementById('tbody-rows2').innerHTML = content;
 }
+
+
+/*
+* Pendiente:
+* Crud clientes Insert con imagen, update con cargar los campos, y que se actualice el registro en la base, delete(es un update al estado nada más) 
+*
+* 
+*/
