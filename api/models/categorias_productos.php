@@ -79,7 +79,7 @@ class categoriaCP extends Validator
 
     public function readAll()
     {
-        $sql = 'SELECT * from "categoriaProducto"';
+        $sql = 'SELECT * from "categoriaProducto" ORDER BY "idCategoria"';
         $params = null;
         return Database::getRows($sql, $params);
     }

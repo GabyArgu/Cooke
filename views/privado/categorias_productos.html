@@ -216,12 +216,12 @@
                                         <div class="col-12 mb-4">
                                             <label for="validationDefault01" class="form-label">Nombre</label>
                                             <input type="text" class="form-control" id="validationDefault01" value=""
-                                                id="nombreCB" name="nombreCB" required>
+                                                id="nombreCP" name="nombreCP" required>
                                         </div>
                                         <div class="col-12 mb-4">
                                             <label for="validationDefault01" class="form-label">Descripción</label>
-                                            <textarea class="form-control" rows="6" id="descripcionCB"
-                                                name="descripcionCB"></textarea>
+                                            <textarea class="form-control" rows="6" id="descripcionCP"
+                                                name="descripcionCP"></textarea>
                                         </div>
                                     </form>
                                 </div>
@@ -254,17 +254,17 @@
                             <div class="col">
                                 <div class="row agregar-content agregar-content-flex">
                                     <form method="post" id="update-form" class="col-12 mb-4">
-                                        <input type="number" id="u_idCB" name="u_idCB" class="d-none">
+                                        <input type="number" id="u_idCP" name="u_idCP" class="d-none">
                                         <label for="validationDefault01" class="form-label">Nombre</label>
                                         <div class="col-12 d-flex flex-wrap">
                                             <div class="col-12">
-                                                <input type="text" class="form-control picker2" id="u_nombreCB"
-                                                    name="u_nombreCB" value="" required>
+                                                <input type="text" class="form-control picker2" id="u_nombreCP"
+                                                    name="u_nombreCP" value="" required>
                                             </div>
                                             <div class="col-12 mb-4">
                                                 <label for="validationDefault01" class="form-label">Descripción</label>
-                                                <textarea class="form-control" rows="6" id="u_descripcionCB"
-                                                    name="u_descripcionCB"></textarea>
+                                                <textarea class="form-control" rows="6" id="u_descripcionCP"
+                                                    name="u_descripcionCP"></textarea>
                                             </div>
                                             <div class="col-12 mt-3">
                                                 <input type="number" class="form-control picker2" id="u_estado"
@@ -301,16 +301,20 @@
                             <div class="col eliminar-content">
                                 <i class="fa-solid fa-circle-exclamation mb-4"></i>
                                 <h2>¿Estás seguro?</h2>
-                                <span>El color se inhabilitara esta categoría de productos</span>
+                                <span>El elemento será dado de baja</span>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="modal-footer d-flex mx-2 justify-content-between">
-                    <button class="btn btn-cancel" type="button" data-bs-target="" data-bs-toggle="modal"
+                    <button class="btn btn-cancel" type="button"
                         data-bs-dismiss="modal">Cancelar</button>
-                    <button class="btn btn-siguiente" type="button" data-bs-target="" data-bs-toggle="modal"
-                        data-bs-dismiss="modal">Continuar</button>
+                    <form id="delete-form">
+                        <input type="hidden" id="id-delete" name="id-delete">
+                        <button class="btn btn-siguiente" type="submit" 
+                            data-bs-dismiss="modal">Continuar</button>
+                    </form>
+                    
                 </div>
             </div>
         </div>

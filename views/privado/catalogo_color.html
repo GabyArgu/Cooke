@@ -296,16 +296,20 @@
                             <div class="col eliminar-content">
                                 <i class="fa-solid fa-circle-exclamation mb-4"></i>
                                 <h2>¿Estás seguro?</h2>
-                                <span>El color se inhabilitara del catalogo</span>
+                                <span>El elemento será dado de baja</span>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="modal-footer d-flex mx-2 justify-content-between">
-                    <button class="btn btn-cancel" type="button" data-bs-target="" data-bs-toggle="modal"
+                    <button class="btn btn-cancel" type="button"
                         data-bs-dismiss="modal">Cancelar</button>
-                    <button class="btn btn-siguiente" type="button" data-bs-target="" data-bs-toggle="modal"
-                        data-bs-dismiss="modal">Continuar</button>
+                    <form id="delete-form">
+                        <input type="hidden" id="id-delete" name="id-delete">
+                        <button class="btn btn-siguiente" type="submit" 
+                            data-bs-dismiss="modal">Continuar</button>
+                    </form>
+                    
                 </div>
             </div>
         </div>

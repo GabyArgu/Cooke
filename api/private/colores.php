@@ -77,7 +77,7 @@ if (isset($_GET['action'])) {
                 }
                 break;
             case 'delete':
-                if (!$colores->setId($_POST['id'])) {
+                if (!$colores->setId($_POST['id-delete'])) {
                     $result['exception'] = 'Categoría incorrecta';
                 } elseif (!$data = $colores->readOne()) {
                     $result['exception'] = 'Categoría inexistente';

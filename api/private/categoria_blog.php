@@ -81,7 +81,7 @@ if (isset($_GET['action'])) {
                 }
                 break;
             case 'delete':
-                if (!$categoria->setId($_POST['id'])) {
+                if (!$categoria->setId($_POST['id-delete'])) {
                     $result['exception'] = 'Categoría incorrecta';
                 } elseif (!$data = $categoria->readOne()) {
                     $result['exception'] = 'Categoría inexistente';
