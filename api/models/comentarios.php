@@ -1,17 +1,16 @@
 <?php
 /*
-*	Clase para manejar la tabla reseñas de la base de datos.
+*	Clase para manejar la tabla comentarioArticulo de la base de datos.
 *   Es clase hija de Validator.
 */
-class Reseñas extends Validator
+class Comentarios extends Validator
 {
     // Declaración de atributos (propiedades) según nuestra tabla en la base de datos.
     private $id = null;
     private $cliente = null;
-    private $detalle_pedido = null;
+    private $articulo = null;
     private $titulo = null;
     private $descripcion = null;
-    private $puntaje = null;
     private $fecha = null;
     private $estado = null;
 
@@ -38,10 +37,10 @@ class Reseñas extends Validator
         }
     }
 
-    public function setDetallePedido($value)
+    public function setArticulo($value)
     {
         if ($this->validateNaturalNumber($value)) {
-            $this->detalle_pedido = $value;
+            $this->articulo = $value;
             return true;
         } else {
             return false;
@@ -63,16 +62,6 @@ class Reseñas extends Validator
     {
         if ($this->validateAlphabetic($value, 1, 350)) {
             $this->descripcion = $value;
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-    public function setPuntaje($value)
-    {
-        if ($this->validateNaturalNumber($value)) {
-            $this->puntaje = $value;
             return true;
         } else {
             return false;
@@ -107,9 +96,9 @@ class Reseñas extends Validator
         return $this->cliente;
     }
 
-    public function getDetallePedido()
+    public function getArticulo()
     {
-        return $this->detalle_pedido;
+        return $this->articulo;
     }
 
     public function getTitulo()
@@ -120,11 +109,6 @@ class Reseñas extends Validator
     public function getDescripcion()
     {
         return $this->descripcion;
-    }
-
-    public function getPuntaje()
-    {
-        return $this->puntaje;
     }
 
     public function getFecha()
@@ -142,35 +126,32 @@ class Reseñas extends Validator
     */
     public function readAll()
     {
-        $sql = 'SELECT  "idResena", c."nombresCliente", c."apellidosCliente", pr."nombreProducto", "tituloResena", "descripcionResena", "puntajeResena", "fechaResena", e."estado"
-                from "resena" as r inner join "cliente" as c on r."idCliente" = c."idCliente"
-                inner join "estado" as e on r."estado" = e."idEstado"
-                inner join "detallePedido" as dp on r."idDetalle" = dp."idDetallePedido"
-                inner join "producto" as pr on dp."idProducto" = pr."idProducto"
-                order by "fechaResena" desc';
+        $sql = 'SELECT "idComentario", cl."nombresCliente", cl."apellidosCliente", a."tituloArticulo", "tituloComentario", "descripcionComentario", "fechaComentario", e."estado"
+                from "comentarioArticulo" as ca inner join "cliente" as cl on ca."idCliente" = cl."idCliente"
+                inner join "articulo" as a on ca."idArticulo" = a."idArticulo"
+                inner join "estado" as e on ca."estado" = e."idEstado"
+                order by "fechaComentario" desc';
         $params = null;
         return Database::getRows($sql, $params);
     }
 
     public function readOne()
     {
-        $sql = 'SELECT  "idResena", c."nombresCliente", c."apellidosCliente", pr."nombreProducto", "tituloResena", "descripcionResena", "puntajeResena", "fechaResena", "estado"
-                from "resena" as r inner join "cliente" as c on r."idCliente" = c."idCliente"
-                inner join "detallePedido" as dp on r."idDetalle" = dp."idDetallePedido"
-                inner join "producto" as pr on dp."idProducto" = pr."idProducto"
-                where "idResena" = ?';
+        $sql = 'SELECT "idComentario", cl."nombresCliente", cl."apellidosCliente", a."tituloArticulo", "tituloComentario", "descripcionComentario", "fechaComentario", ca."estado"
+                from "comentarioArticulo" as ca inner join "cliente" as cl on ca."idCliente" = cl."idCliente"
+                inner join "articulo" as a on ca."idArticulo" = a."idArticulo"
+                where "idComentario" = ?';
         $params = array($this->id);
         return Database::getRow($sql, $params);
     }
 
     public function readOneDetail()
     {
-        $sql = 'SELECT  "idResena", c."nombresCliente", c."apellidosCliente", pr."nombreProducto", "tituloResena", "descripcionResena", "puntajeResena", "fechaResena", e."estado"
-                from "resena" as r inner join "cliente" as c on r."idCliente" = c."idCliente"
-                inner join "estado" as e on r."estado" = e."idEstado"
-                inner join "detallePedido" as dp on r."idDetalle" = dp."idDetallePedido"
-                inner join "producto" as pr on dp."idProducto" = pr."idProducto"
-                where "idResena" = ?';
+        $sql = 'SELECT "idComentario", cl."nombresCliente", cl."apellidosCliente", a."tituloArticulo", "tituloComentario", "descripcionComentario", "fechaComentario", e."estado"
+                from "comentarioArticulo" as ca inner join "cliente" as cl on ca."idCliente" = cl."idCliente"
+                inner join "articulo" as a on ca."idArticulo" = a."idArticulo"
+                inner join "estado" as e on ca."estado" = e."idEstado"
+                where "idComentario" = ?';
         $params = array($this->id);
         return Database::getRow($sql, $params);
     }
@@ -181,13 +162,12 @@ class Reseñas extends Validator
     /* SEARCH */
     public function searchRows($value)
     {
-        $sql = 'SELECT "idResena", c."nombresCliente", c."apellidosCliente", pr."nombreProducto", "tituloResena", "descripcionResena", "puntajeResena", "fechaResena", e."estado"
-                from "resena" as r inner join "cliente" as c on r."idCliente" = c."idCliente"
-                inner join "estado" as e on r."estado" = e."idEstado"
-                inner join "detallePedido" as dp on r."idDetalle" = dp."idDetallePedido"
-                inner join "producto" as pr on dp."idProducto" = pr."idProducto"
-                where "nombreProducto" ILIKE ?
-                order by "fechaResena" desc';
+        $sql = 'SELECT "idComentario", cl."nombresCliente", cl."apellidosCliente", a."tituloArticulo", "tituloComentario", "descripcionComentario", "fechaComentario", e."estado"
+                from "comentarioArticulo" as ca inner join "cliente" as cl on ca."idCliente" = cl."idCliente"
+                inner join "articulo" as a on ca."idArticulo" = a."idArticulo"
+                inner join "estado" as e on ca."estado" = e."idEstado"
+                where "tituloArticulo" ILIKE ?
+                order by "fechaComentario" desc';
         $params = array("%$value%");
         return Database::getRows($sql, $params);
     }
@@ -195,10 +175,10 @@ class Reseñas extends Validator
     /* UPDATE */
     public function updateRow()
     {
-        $sql = 'UPDATE "resena"
+        $sql = 'UPDATE "comentarioArticulo"
                 SET "estado" = ?
-                WHERE "idResena" = ?';
-            $params = array($this->estado, $this->id);
+                WHERE "idComentario" = ?';
+        $params = array($this->estado, $this->id);
         return Database::executeRow($sql, $params);
     }
 
@@ -206,7 +186,7 @@ class Reseñas extends Validator
     public function deleteRow()
     {
         //No eliminaremos registros, solo los inhabilitaremos
-        $sql = 'UPDATE "resena" SET "estado" = 3 WHERE "idResena" = ?';
+        $sql = 'UPDATE "comentarioArticulo" SET "estado" = 3 WHERE "idComentario" = ?';
         $params = array($this->id);
         return Database::executeRow($sql, $params);
     }
