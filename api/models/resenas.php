@@ -154,7 +154,7 @@ class Reseñas extends Validator
 
     public function readOne()
     {
-        $sql = 'SELECT  "idResena", c."nombresCliente", c."apellidosCliente", pr."nombreProducto", "tituloResena", "descripcionResena", "puntajeResena", "fechaResena", "estado"
+        $sql = 'SELECT "idResena", c."nombresCliente", c."apellidosCliente", pr."nombreProducto", "tituloResena", "descripcionResena", "puntajeResena", "fechaResena", "estado"
                 from "resena" as r inner join "cliente" as c on r."idCliente" = c."idCliente"
                 inner join "detallePedido" as dp on r."idDetalle" = dp."idDetallePedido"
                 inner join "producto" as pr on dp."idProducto" = pr."idProducto"

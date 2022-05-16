@@ -19,7 +19,7 @@ class Database
         $password = 'admin';
 
         // Se crea la conexión mediante la extensión PDO y el controlador para PostgreSQL.
-        self::$connection = new PDO('pgsql:host=' . $server . ';dbname=' . $database . ';port=5432', $username, $password);
+        self::$connection = new PDO('pgsql:host=' . $server . ';dbname=' . $database . ';port=5433', $username, $password);
     }
 /*
     *   Método para ejecutar las siguientes sentencias SQL: insert, update y delete.

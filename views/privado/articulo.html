@@ -26,7 +26,8 @@
     <!-- Libreria dropzone -->
     <script src="https://unpkg.com/dropzone@5/dist/min/dropzone.min.js"></script>
     <link rel="stylesheet" href="https://unpkg.com/dropzone@5/dist/min/dropzone.min.css" type="text/css" />
-    <!-- Datepicker -->
+    <!-- Flatpickr -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <title>Cooké</title>
 </head>
 
@@ -150,12 +151,14 @@
                     <div class="row contenido">
                         <div class="row pt-3 mx-auto header-table">
                             <div class="col">
-                                <button class="btn-agregar" type="button" data-bs-toggle="modal"
+                                <button onclick="openCreate()" class="btn-agregar" type="button" data-bs-toggle="modal"
                                     data-bs-target="#modal-agregar">Agregar<i class="fa-solid fa-plus"></i></button>
                             </div>
                             <div class="col d-flex justify-content-end mx-auto">
-                                <input class="form-control form-control-dark w-60 d-none d-md-block Buscador-Imp"
-                                    type="text" placeholder="Buscar" aria-label="Search">
+                                <form method="post" id="search-form">
+                                    <input class="form-control form-control-dark w-60 d-none d-md-block Buscador-Imp"
+                                        type="text" placeholder="Buscar" aria-label="Search" id="search" name="search">
+                                </form>
                                 <button class="btn-refresh"><i class="fa-solid fa-arrows-rotate"></i></button>
                             </div>
                         </div>
@@ -171,86 +174,11 @@
                                                 <th>Autor</th>
                                                 <th>Categoría</th>
                                                 <th>Fecha</th>
+                                                <th>Estado</th>
                                                 <th>Acciones</th>
                                             </tr>
                                         </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td data-title="IMAGEN"><img src="../../resources/img/blog/blog2.jpg"
-                                                        alt="">
-                                                </td>
-                                                <td data-title="TITULO">¡Llegan ofertas de San Valentin!</td>
-                                                <td data-title="AUTOR">Oscar Orellana</td>
-                                                <td data-title="CATEGORIA">Ofertas</td>
-                                                <td data-title="FECHA">10/02/2022</td>
-                                                <td class="botones-table">
-                                                    <div class="acciones d-flex mx-auto">
-                                                        <span href="" class="accion-btn" type="button"
-                                                            data-bs-toggle="modal" data-bs-target="#modal-actualizar">
-                                                            <i class="fa-solid fa-pen-to-square"></i>
-                                                        </span>
-                                                        <span href="" class="accion-btn" type="button"
-                                                            data-bs-toggle="modal" data-bs-target="#modal-eliminar">
-                                                            <i class="fa-solid fa-trash-can fa-lg"></i>
-                                                        </span>
-                                                        <span href="" class="accion-btn" type="button"
-                                                            data-bs-toggle="modal" data-bs-target="#modal-ver">
-                                                            <i class="fa-solid fa-eye"></i>
-                                                        </span>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td data-title="IMAGEN"><img src="../../resources/img/blog/blog1.jpg"
-                                                        alt="">
-                                                </td>
-                                                <td data-title="TITULO">Cocina Saludable con tu familia</td>
-                                                <td data-title="AUTOR">Oscar Orellana</td>
-                                                <td data-title="CATEGORIA">Recetas</td>
-                                                <td data-title="FECHA">10/02/2022</td>
-                                                <td class="botones-table">
-                                                    <div class="acciones d-flex mx-auto">
-                                                        <span href="" class="accion-btn" type="button"
-                                                            data-bs-toggle="modal" data-bs-target="#modal-actualizar">
-                                                            <i class="fa-solid fa-pen-to-square"></i>
-                                                        </span>
-                                                        <span href="" class="accion-btn" type="button"
-                                                            data-bs-toggle="modal" data-bs-target="#modal-eliminar">
-                                                            <i class="fa-solid fa-trash-can fa-lg"></i>
-                                                        </span>
-                                                        <span href="" class="accion-btn" type="button"
-                                                            data-bs-toggle="modal" data-bs-target="#modal-ver">
-                                                            <i class="fa-solid fa-eye"></i>
-                                                        </span>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td data-title="IMAGEN"><img src="../../resources/img/blog/blog3.jpg"
-                                                        alt="">
-                                                </td>
-                                                <td data-title="TITULO">Delicioso pie de manzana para compartir</td>
-                                                <td data-title="AUTOR">Oscar Orellana</td>
-                                                <td data-title="CATEGORIA">Recetas</td>
-                                                <td data-title="FECHA">10/02/2022</td>
-                                                <td class="botones-table">
-                                                    <div class="acciones d-flex mx-auto">
-                                                        <span href="" class="accion-btn" type="button"
-                                                            data-bs-toggle="modal" data-bs-target="#modal-actualizar">
-                                                            <i class="fa-solid fa-pen-to-square"></i>
-                                                        </span>
-                                                        <span href="" class="accion-btn" type="button"
-                                                            data-bs-toggle="modal" data-bs-target="#modal-eliminar">
-                                                            <i class="fa-solid fa-trash-can fa-lg"></i>
-                                                        </span>
-                                                        <span href="" class="accion-btn" type="button"
-                                                            data-bs-toggle="modal" data-bs-target="#modal-ver">
-                                                            <i class="fa-solid fa-eye"></i>
-                                                        </span>
-                                                    </div>
-                                                </td>
-                                            </tr>
-
+                                        <tbody id="tbody-rows">
                                         </tbody>
                                     </table>
                                 </div>
@@ -311,326 +239,111 @@
     <!-- FIN MODAL VER -->
 
     <!-- INICIO MODALS AGREGAR-->
-    <div class="modal modal-agregar modal-agregar-categorias fade" id="modal-agregar" tabindex="-1"
-        aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered modal-xl">
-            <div class="modal-content">
-                <div class="modal-header">
+    <form method="post" name="save-form">
 
-                    <h3 class="mt-2">Agregar artículos</h3>
+        <div class="modal modal-agregar fade" id="modal-agregar" tabindex="-1" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
 
-                    <button type="button" class="btn-close my" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="container">
-                        <div class="row ">
-                            <div class="col">
+                        <h3 class="mt-2" id="title-agregar1"></h3>
 
-                                <div class="row agregar-content-flex">
-                                    <div class="col-6 mb-6">
-                                        <label for="validationDefault0" class="form-label">Titulo</label>
-                                        <input type="text" class="form-control" id="validationDefault01" value=""
-                                            required>
+                        <button type="button" class="btn-close my" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="container">
+                            <div class="row ">
+                                <div class="col">
+
+                                    <div class="row agregar-content-flex">
+                                        <div class="col-6 mb-4">
+                                            <label for="titulo" class="form-label">Título</label>
+                                            <input type="text" class="form-control" id="titulo" name="titulo" value=""
+                                                required>
+                                        </div>
+                                        <div class="col-6 mb-4">
+                                            <label for="autor" class="form-label">Autor</label>
+                                            <input type="text" class="form-control" id="autor" name="autor" value=""
+                                                required>
+                                        </div>
+                                        <div class="col-6 mb-4">
+                                            <label for="fecha" class="form-label">Fecha</label>
+                                            <input type="text" id="calendar" class="form-control" name="fecha" value=""
+                                                required>
+                                        </div>
+                                        <div class="col-6 mb-4">
+                                            <label for="categoria" class="form-label">Categoría</label>
+                                            <select class="form-select custom-form-select"
+                                                aria-label="Default select example" id="categoria" name="categoria">
+                                            </select>
+                                        </div>
+                                        <div class="col-12 mb-4">
+                                            <label for="validationDefault01" class="form-label">Imagen</label>
+                                            <input id="imagen" class="form-control" type="file" name="imagen"
+                                                accept=".jpg, .png">
+                                        </div>
+                                        <div class="col-6 mb-4">
+                                            <label for="estado" class="form-label " id="estado-label">Estado</label>
+                                            <select class="form-select custom-form-select"
+                                                aria-label="Default select example" id="estado" name="estado">
+                                            </select>
+                                        </div>
+                                        <div class="col-6 mb-4">
+                                            <input class="form-control input-hide" type="number" id="id" name="id">
+                                        </div>
                                     </div>
-                                    <div class="col-6 mb-6">
-                                        <label for="validationDefault02" class="form-label">Empleado</label>
-                                        <input type="text" class="form-control" id="validationDefault01" value=""
-                                            required>
-                                    </div>
-                                    <div class="col-6 mb-6">
-                                        <label for="validationDefault02" class="form-label">Fecha</label>
-                                        <input type="text" class="form-control" id="validationDefault01" value=""
-                                            required>
-                                    </div>
-                                    <div class="col-6 mb-6">
-                                        <label for="validationDefault03" class="form-label">Categoria</label>
-                                        <select class="form-select custom-form-select"
-                                            aria-label="Default select example">
-                                            <option selected disabled>Seleccione una opción</option>
-                                            <option value="1">Ofertas</option>
-                                            <option value="2">Recetas</option>
-                                            <option value="3">Nuevos productos</option>
-                                        </select>
-                                    </div>
+
                                 </div>
-
                             </div>
-
-
+                        </div>
+                        <div class="modal-footer d-flex justify-content-end">
+                            <button class="btn btn-siguiente" type="button" data-bs-target="#modal-agregar2"
+                                data-bs-toggle="modal" data-bs-dismiss="modal">Siguiente</button>
                         </div>
                     </div>
                 </div>
-                <div class="modal-footer d-flex justify-content-end">
-                    <button class="btn btn-siguiente" type="button" data-bs-target="#modal-agregar2"
-                        data-bs-toggle="modal" data-bs-dismiss="modal">Siguiente</button>
-                </div>
             </div>
         </div>
-    </div>
 
-    <div class="modal modal-agregar1 modal-agregar-articulo1 fade" id="modal-agregar" tabindex="-1"
-        aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered modal-xl">
-            <div class="modal-content">
-                <div class="modal-header">
+        <div class="modal modal-agregar2 modal-agregar-articulo2 fade" id="modal-agregar2" aria-hidden="true"
+            aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
 
-                    <h3 class="mt-2">Agregar artículos</h3>
+                        <h3 class="mt-2" id="title-agregar2"></h3>
 
-                    <button type="button" class="btn-close my" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="container">
-                        <div class="row agregar-content">
-                            <div class="col">
+                        <button type="button" class="btn-close my" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="container mb-4">
+                            <div class="row agregar-content">
+                                <div class="col">
+                                    <div class="row">
+                                        <div class="col">
+                                            <label for="contenido" class="form-label">Descripción</label>
+                                            <textarea class="form-control" rows="6" id="contenido"
+                                                name="contenido"></textarea>
+                                        </div>
+                                    </div>
 
-                                <div class="row agregar-content-flex">
-                                    <div class="col-6 mb-6">
-                                        <label for="validationDefault0" class="form-label">Titulo</label>
-                                        <input type="text" class="form-control" id="validationDefault01" value=""
-                                            required>
-                                    </div>
-                                    <div class="col-6 mb-6">
-                                        <label for="validationDefault02" class="form-label">Empleado</label>
-                                        <input type="text" class="form-control" id="validationDefault01" value=""
-                                            required>
-                                    </div>
-                                    <div class="col-6 mb-6">
-                                        <label for="validationDefault02" class="form-label">Fecha</label>
-                                        <input type="text" class="form-control" id="validationDefault01" value=""
-                                            required>
-                                    </div>
-                                    <div class="col-6 mb-6">
-                                        <label for="validationDefault03" class="form-label">Categoria</label>
-                                        <select class="form-select custom-form-select"
-                                            aria-label="Default select example">
-                                            <option selected disabled>Seleccione una opción</option>
-                                            <option value="1">Ofertas</option>
-                                            <option value="2">Recetas</option>
-                                        </select>
-                                    </div>
                                 </div>
-
                             </div>
-
-
                         </div>
                     </div>
-                </div>
-                <div class="modal-footer d-flex justify-content-end">
-                    <button class="btn btn-siguiente" type="button" data-bs-target="#modal-agregar2"
-                        data-bs-toggle="modal" data-bs-dismiss="modal">Siguiente</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="modal modal-agregar2 modal-agregar-articulo2 fade" id="modal-agregar2" aria-hidden="true"
-        aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
-        <div class="modal-dialog modal-dialog-centered modal-xl">
-            <div class="modal-content">
-                <div class="modal-header">
-
-                    <h3 class="mt-2">Agregar artículos</h3>
-
-                    <button type="button" class="btn-close my" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="container my-5">
-                        <div class="row agregar-content">
-                            <div class="col">
-                                <div class="row">
-                                    <div class="col">
-                                        <label for="exampleFormControlTextarea1" class="form-label">Descripción</label>
-                                        <textarea class="form-control" id="exampleFormControlTextarea1"
-                                            rows="6"></textarea>
-                                    </div>
-                                </div>
-
-                            </div>
-
-
-                        </div>
+                    <div class="modal-footer d-flex justify-content-between">
+                        <button class="btn btn-regresar" type="button" data-bs-target="#modal-agregar"
+                            data-bs-toggle="modal" data-bs-dismiss="modal">Regresar</button>
+                        <button class="btn-guardar" type="submit" form="save-form">Guardar<i
+                                class="fa-solid fa-floppy-disk"></i></button>
                     </div>
                 </div>
-                <div class="modal-footer d-flex justify-content-between">
-                    <button class="btn btn-regresar" type="button" data-bs-target="#modal-agregar"
-                        data-bs-toggle="modal" data-bs-dismiss="modal">Regresar</button>
-                    <button class="btn btn-siguiente" type="button" data-bs-target="#modal-agregar3"
-                        data-bs-toggle="modal" data-bs-dismiss="modal">Siguiente</button>
-                </div>
             </div>
         </div>
-    </div>
 
-    <div class="modal modal-agregar3 modal-agregar-articulo3 fade" id="modal-agregar3" aria-hidden="true"
-        aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
-        <div class="modal-dialog modal-dialog-centered modal-xl">
-            <div class="modal-content">
-                <div class="modal-header">
-
-                    <h3 class="mt-2">Agregar Imagen</h3>
-
-                    <button type="button" class="btn-close my" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="container my-5">
-                        <div class="row agregar-content">
-                            <div class="col">
-                                <div class="row">
-                                    <div class="col">
-                                        <form action="/file-upload" class="dropzone" id="agregar-dropzone">
-                                        </form>
-                                    </div>
-                                </div>
-
-                            </div>
-
-
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-footer d-flex justify-content-between">
-                    <button class="btn btn-regresar" type="button" data-bs-target="#modal-agregar2"
-                        data-bs-toggle="modal" data-bs-dismiss="modal">Regresar</button>
-                    <button class="btn-guardar" type="button" data-bs-dismiss="modal">Guardar<i
-                            class="fa-solid fa-floppy-disk"></i></button>
-                </div>
-            </div>
-        </div>
-    </div>
+    </form>
     <!-- FIN MODAL -->
-
-    <!-- INICIO MODALS ACTUALIZAR -->
-    <div class="modal modal-agregar modal-agregar-articulos fade" id="modal-actualizar" tabindex="-1"
-        aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered modal-md">
-            <div class="modal-content">
-                <div class="modal-header">
-
-                    <h3 class="mt-2">Editar artículo</h3>
-
-                    <button type="button" class="btn-close my" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="container">
-                        <div class="row ">
-                            <div class="col">
-
-                                <div class="row agregar-content-flex">
-                                    <div class="col-6 mb-6">
-                                        <label for="validationDefault0" class="form-label">Titulo</label>
-                                        <input type="text" class="form-control" id="validationDefault01" value=""
-                                            required>
-                                    </div>
-                                    <div class="col-6 mb-6">
-                                        <label for="validationDefault02" class="form-label">Empleado</label>
-                                        <input type="text" class="form-control" id="validationDefault01" value=""
-                                            required>
-                                    </div>
-                                    <div class="col-6 mb-6">
-                                        <label for="validationDefault02" class="form-label">Fecha</label>
-                                        <input type="text" class="form-control" id="validationDefault01" value=""
-                                            required>
-                                    </div>
-                                    <div class="col-6 mb-6">
-                                        <label for="validationDefault03" class="form-label">Categoria</label>
-                                        <select class="form-select custom-form-select"
-                                            aria-label="Default select example">
-                                            <option selected disabled>Seleccione una opción</option>
-                                            <option value="1">Ofertas</option>
-                                            <option value="2">Recetas</option>
-                                        </select>
-                                    </div>
-                                </div>
-
-                            </div>
-
-
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-footer d-flex justify-content-end">
-                    <button class="btn btn-siguiente" type="button" data-bs-target="#modal-agregar2"
-                        data-bs-toggle="modal" data-bs-dismiss="modal">Siguiente</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="modal modal-agregar2 modal-agregar-articulo2 fade" id="modal-agregar2" aria-hidden="true"
-        aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
-        <div class="modal-dialog modal-dialog-centered modal-xl">
-            <div class="modal-content">
-                <div class="modal-header">
-
-                    <h3 class="mt-2">Agregar artículos</h3>
-
-                    <button type="button" class="btn-close my" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="container my-5">
-                        <div class="row agregar-content">
-                            <div class="col">
-                                <div class="row">
-                                    <div class="col">
-                                        <label for="exampleFormControlTextarea1" class="form-label">Descripción</label>
-                                        <textarea class="form-control" id="exampleFormControlTextarea1"
-                                            rows="6"></textarea>
-                                    </div>
-                                </div>
-
-                            </div>
-
-
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-footer d-flex justify-content-between">
-                    <button class="btn btn-regresar" type="button" data-bs-target="#modal-agregar"
-                        data-bs-toggle="modal" data-bs-dismiss="modal">Regresar</button>
-                    <button class="btn btn-siguiente" type="button" data-bs-target="##modal-agregar3"
-                        data-bs-toggle="modal" data-bs-dismiss="modal">Siguiente</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="modal modal-agregar3 modal-agregar-articulo3 fade" id="modal-agregar3" aria-hidden="true"
-        aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
-        <div class="modal-dialog modal-dialog-centered modal-xl">
-            <div class="modal-content">
-                <div class="modal-header">
-
-                    <h3 class="mt-2">Agregar Imagen</h3>
-
-                    <button type="button" class="btn-close my" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="container my-5">
-                        <div class="row agregar-content">
-                            <div class="col">
-                                <div class="row">
-                                    <div class="col">
-                                        <form action="/file-upload" class="dropzone" id="agregar-dropzone">
-                                        </form>
-                                    </div>
-                                </div>
-
-                            </div>
-
-
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-footer d-flex justify-content-between">
-                    <button class="btn btn-regresar" type="button" data-bs-target="#modal-agregar2"
-                        data-bs-toggle="modal" data-bs-dismiss="modal">Regresar</button>
-                    <button class="btn-guardar" type="button">Guardar<i class="fa-solid fa-floppy-disk"></i></button>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- FIN MODALS ACTUALIZAR -->
 
     <!-- INICIO MODAL DELETE -->
     <div class="modal modal-eliminar fade" id="modal-eliminar" aria-hidden="true"
@@ -671,6 +384,9 @@
     <!-- DATATABLE JS -->
     <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.11.5/js/dataTables.bootstrap5.min.js"></script>
+
+    <!-- FLATPICKR -->
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="../../controllers/componentes.js"></script>
