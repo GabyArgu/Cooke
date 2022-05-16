@@ -53,8 +53,12 @@ class Usuarios extends Validator
 
     public function setCargo($value)
     {
-        $this->cargo = $value;
-        return true;
+        if ($this->validateNaturalNumber($value)) {
+            $this->cargo = $value;
+            return true;
+        } else {
+            return false;
+        }
     }
 
     public function setDireccion($value)
@@ -116,8 +120,12 @@ class Usuarios extends Validator
 
     public function setEstado($value)
     {
-        $this->estado = $value;
-        return true;
+        if ($this->validateNaturalNumber($value)) {
+            $this->estado = $value;
+            return true;
+        } else {
+            return false;
+        }
     }
     /*
     *   Métodos para obtener valores de los atributos.

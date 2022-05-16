@@ -1,7 +1,7 @@
 // Constante para establecer la ruta y parámetros de comunicación con la API.
 const API_SUBCATEPRODUCTOS = SERVER + 'private/subcategoriapd.php?action=';
 const ENDPOINT_CATEGORIA = SERVER + 'private/categoriapd.php?action=readAll';
-const ENDPOINT_ESTADO = SERVER + 'private/estadoGeneral.php?action=readAll';
+const ENDPOINT_ESTADO = SERVER + 'private/estado_general.php?action=readAll';
 
 // Método manejador de eventos que se ejecuta cuando el documento ha cargado.
 document.addEventListener('DOMContentLoaded', function () {
@@ -25,6 +25,18 @@ document.addEventListener('DOMContentLoaded', function () {
     readRows(API_SUBCATEPRODUCTOS);
 });
 
+//Función que se ejecuta cada vez que apretamos una tecla dentro del input #search, sirve para buscador en tiempo real
+$(document).on('keyup', '#search', function () {
+    var valor = $(this).val();
+    if (valor != "") {
+        //SearchRows se encuentra en componentes.js y mandamos la ruta de la api, el formulario el cual contiene nuestro input para buscar (id) y el input de buscar (id)
+        searchRows(API_SUBCATEPRODUCTOS, 'search-form', 'search');
+    }
+    else {
+        //Cuando el input este vacío porque borramos el texto manualmente
+        readRows(API_SUBCATEPRODUCTOS);
+    }
+});
 
 // Función para preparar el modal al momento de insertar un registro.
 function openCreate() {
@@ -87,6 +99,25 @@ function openUpdate(id) {
         }
     });
 }
+
+// Función para mandar el id de la row seleccionada al modal eliminar.
+function openDelete(id) {
+    document.getElementById('id-delete').value = id;
+}
+
+// Método manejador de eventos que se ejecuta cuando se envía el modal de eliminar.
+document.getElementById('delete-form').addEventListener('submit', function (event) {
+    // Se evita recargar la página web después de enviar el formulario.
+    event.preventDefault();
+    //Llamamos al método que se encuentra en la api y le pasamos la ruta de la API y el id del formulario dentro de nuestro modal eliminar
+    confirmDelete(API_SUBCATEPRODUCTOS, 'delete-form');
+});
+
+//Función para refrescar la tabla manualmente al darle click al botón refresh
+document.getElementById('refresh').addEventListener('click', function () {
+    readRows(API_SUBCATEPRODUCTOS);
+    document.getElementById('search').value = "";
+});
 
 // Función para llenar la tabla con los datos de los registros. Se manda a llamar en la función readRows().
 function fillTable(dataset) {

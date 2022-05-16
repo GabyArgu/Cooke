@@ -40,7 +40,7 @@
             <div class="sidebar-content">
                 <!-- APARTADO DONDE APARECERA EL AVATAR Y NOMBRE DEL USUARIO -->
                 <ul class="nav flex-column justify-content-center align-items-center">
-                    <img src="" class="Usua-Ico" alt="" id="avatar-side">
+                    <img src="../../resources/img/dashboard/usuario.png" class="Usua-Ico" alt="">
                     <h5 class="Nombre-Usu" id="username"></h5>
                     <a class="Adm" href="#">Administrar</a>
                 </ul>
@@ -140,8 +140,8 @@
                 </nav>
             </header>
             <!-- MAIN O CONTENIDO DE LA PAGINA -->
-            <main class="content">
-                <div class="container-fluid">
+            <main class="content d-flex flex-column justify-content-between">
+                <div class="container-fluid mb-3">
                     <div class="header">
                         <h1>Etiquetas</h1>
                     </div>
@@ -163,11 +163,13 @@
                                     <thead>
                                         <tr>
                                             <th>Nombre de la Etiqueta</th>
+                                            <th>Estado</th>
                                             <th>Acciones</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <td data-title="etiqueta"class="nombre-categoria">-30%</td>
+                                        <td data-title="etiquetaEstado"class="nombre-categoria">inhabilitado</td>
                                         <td class="botones-table">
                                             <div class="acciones d-flex mx-auto">
                                                 <span href="" class="accion-btn" type="button" data-bs-toggle="modal"
@@ -184,6 +186,7 @@
                                         </tr>
                                         <tr>
                                             <td data-title="etiqueta" class="nombre-categoria">-40%</td>
+                                            <td data-title="etiquetaEstado"class="nombre-categoria">Activo</td>
                                             <td class="botones-table">
                                                 <div class="acciones d-flex mx-auto">
                                                     <span href="" class="accion-btn" type="button"
@@ -200,6 +203,7 @@
                                         </tr>
                                         <tr>
                                             <td data-title="etiqueta" class="nombre-categoria">Oferta</td>
+                                            <td data-title="etiquetaEstado"class="nombre-categoria">Activo</td>
                                             <td class="botones-table">
                                                 <div class="acciones d-flex mx-auto">
                                                     <span href="" class="accion-btn" type="button"
@@ -216,6 +220,7 @@
                                         </tr>
                                         <tr>
                                             <td data-title="etiqueta" class="nombre-categoria">Nuevo</td>
+                                            <td data-title="etiquetaEstado"class="nombre-categoria">Activo</td>
                                             <td class="botones-table">
                                                 <div class="acciones d-flex mx-auto">
                                                     <span href="" class="accion-btn" type="button"
@@ -262,10 +267,20 @@
                         <div class="row">
                             <div class="col">
                                 <div class="row agregar-content agregar-content-flex">
-                                    <div class="col-12 mb-4">
+                                    <div class="col-6 mb-4">
                                         <label for="validationDefault01" class="form-label">Nombre</label>
                                         <input type="text" class="form-control" id="validationDefault01" value=""
                                             required>
+                                    </div>
+                                    <div class="col-6 mb-4">
+                                        <label for="validationDefault03" class="form-label">Estado</label>
+                                        <select class="form-select custom-form-select"
+                                            aria-label="Default select example">
+                                            <option selected disabled>Seleccione una opción</option>
+                                            <option value="1">Activo</option>
+                                            <option value="2">Inactivo</option>
+                                            <option value="3">Deshabilitado</option>
+                                        </select>
                                     </div>
                                 </div>
                             </div>
@@ -297,10 +312,20 @@
                         <div class="row">
                             <div class="col">
                                 <div class="row agregar-content agregar-content-flex">
-                                    <div class="col-12 mb-4">
+                                    <div class="col-6 mb-4">
                                         <label for="validationDefault01" class="form-label">Nombre</label>
                                         <input type="text" class="form-control" id="validationDefault01" value=""
                                             required>
+                                    </div>
+                                    <div class="col-6 mb-4">
+                                        <label for="validationDefault03" class="form-label">Estado</label>
+                                        <select class="form-select custom-form-select"
+                                            aria-label="Default select example">
+                                            <option selected disabled>Seleccione una opción</option>
+                                            <option value="1">Activo</option>
+                                            <option value="2">Inactivo</option>
+                                            <option value="3">Deshabilitado</option>
+                                        </select>
                                     </div>
                                 </div>
                             </div>

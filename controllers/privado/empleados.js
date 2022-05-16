@@ -1,7 +1,7 @@
 // Constante para establecer la ruta y parámetros de comunicación con la API.
 const API_USUARIOS = SERVER + 'private/usuarios.php?action=';
-const ENDPOINT_CARGO = SERVER + 'private/cargoEmpleado.php?action=readAll';
-const ENDPOINT_ESTADO = SERVER + 'private/estadoEmpleado.php?action=readAll';
+const ENDPOINT_CARGO = SERVER + 'private/cargo_empleado.php?action=readAll';
+const ENDPOINT_ESTADO = SERVER + 'private/estado_empleado.php?action=readAll';
 const ENDPOINT_AVATAR = SERVER + 'private/avatar.php?action=readAll';
 
 /* Los endpoint_cargo, estado y avatar, son necesarios al ser tablas foráneas*/
