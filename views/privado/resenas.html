@@ -166,11 +166,11 @@
                                     <table class="table table-bordered table-resenas" id="table-resenas">
                                         <thead>
                                             <tr>
-                                                <th>Cliente</th>
                                                 <th>Producto</th>
                                                 <th>Título</th>
                                                 <th>Fecha</th>
                                                 <th>Puntaje</th>
+                                                <th>Estado</th>
                                                 <th>Acciones</th>
                                             </tr>
                                         </thead>
@@ -264,15 +264,6 @@
 
                                 <div class="row">
                                     <div class="col">
-                                        <h4 class="titulo-modal">Fecha</h4>
-                                    </div>
-                                    <div class="col col-8"><span class="texto-modal" id="fecha-det"></span></div>
-                                </div>
-
-                                <hr>
-
-                                <div class="row">
-                                    <div class="col">
                                         <h4 class="titulo-modal">Puntaje</h4>
                                     </div>
                                     <div class="col col-8"><span class="texto-modal" id="puntaje-det"></span></div>
@@ -303,6 +294,15 @@
                                 <hr>
 
                                 <div class="row">
+                                    <div class="col">
+                                        <h4 class="titulo-modal">Fecha</h4>
+                                    </div>
+                                    <div class="col col-8"><span class="texto-modal" id="fecha-det"></span></div>
+                                </div>
+
+                                <hr>
+
+                                <div class="row">
 
                                     <div class="col">
                                         <h4 class="titulo-modal">Estado</h4>
@@ -322,11 +322,11 @@
         </div>
     </div>
 
-    <!-- FIN MODAL -->
+    <!-- FIN MODAL VISUALIZAR -->
 
     <!-- INICIO MODAL EDITAR-->
 
-    <div class="modal modal-editar fade" id="modal-editar" tabindex="-1" aria-labelledby="exampleModalLabel"
+    <div class="modal modal-update fade" id="modal-editar" tabindex="-1" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
@@ -340,13 +340,13 @@
                     <div class="container ver-resena-content">
                         <div class="row">
 
-                            <div class="col">
+                            <form class="col" method="post" id="update-form">
 
                                 <div class="row">
                                     <div class="col">
                                         <h4 class="titulo-modal">Cliente</h4>
                                     </div>
-                                    <div class="col col-8"><span class="texto-modal" id="cliente"></span> </div>
+                                    <div class="col col-8"><span class="texto-modal" id="cliente-u"></span> </div>
                                 </div>
 
                                 <hr>
@@ -355,17 +355,8 @@
                                     <div class="col">
                                         <h4 class="titulo-modal">Producto</h4>
                                     </div>
-                                    <div class="col col-8"><span class="texto-modal" id="producto"></span>
+                                    <div class="col col-8"><span class="texto-modal" id="producto-u"></span>
                                     </div>
-                                </div>
-
-                                <hr>
-
-                                <div class="row">
-                                    <div class="col">
-                                        <h4 class="titulo-modal">Fecha</h4>
-                                    </div>
-                                    <div class="col col-8"><span class="texto-modal" id="fecha"></span></div>
                                 </div>
 
                                 <hr>
@@ -374,7 +365,7 @@
                                     <div class="col">
                                         <h4 class="titulo-modal">Puntaje</h4>
                                     </div>
-                                    <div class="col col-8"><span class="texto-modal" id="puntaje"></span></div>
+                                    <div class="col col-8"><span class="texto-modal" id="puntaje-u"></span></div>
                                 </div>
 
                                 <hr>
@@ -383,7 +374,7 @@
                                     <div class="col">
                                         <h4 class="titulo-modal">Título</h4>
                                     </div>
-                                    <div class="col col-8"><span class="texto-modal" id="titulo"></span> </div>
+                                    <div class="col col-8"><span class="texto-modal" id="titulo-u"></span> </div>
                                 </div>
 
                                 <hr>
@@ -394,9 +385,19 @@
                                         <h4 class="titulo-modal">Reseña</h4>
                                     </div>
 
-                                    <div class="col col-8"><span class="texto-modal" id="descripcion"></span>
+                                    <div class="col col-8"><span class="texto-modal" id="descripcion-u"></span>
                                     </div>
 
+                                </div>
+
+
+                                <hr>
+
+                                <div class="row">
+                                    <div class="col">
+                                        <h4 class="titulo-modal">Fecha</h4>
+                                    </div>
+                                    <div class="col col-8"><span class="texto-modal" id="fecha-u"></span></div>
                                 </div>
 
                                 <hr>
@@ -407,28 +408,30 @@
                                         <h4 class="titulo-modal">Estado</h4>
                                     </div>
 
-                                    <div class="col-9">
+                                    <div class="col-8">
                                         <select class="form-select custom-form-select"
                                             aria-label="Default select example" id="estado-resena" name="estado-resena">
-                                            <!-- <option selected disabled>Seleccione una opción</option>
-                                            <option value="1">Administrador</option>
-                                            <option value="2">Ventas</option>
-                                            <option value="3">Inventario</option> -->
                                         </select>
                                     </div>
 
                                 </div>
 
-                            </div>
+                                <input type="hidden" id="id-resena" name="id-resena">
+
+                            </form>
 
                         </div>
                     </div>
+                </div>
+                <div class="modal-footer d-flex justify-content-end">
+                    <button class="btn-guardar" type="submit" form="update-form">Guardar<i
+                            class="fa-solid fa-floppy-disk"></i></button>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- FIN MODAL -->
+    <!-- FIN MODAL EDITAR -->
 
     <!---------------- SCRIPTS ---------------->
 
