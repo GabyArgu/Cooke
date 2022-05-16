@@ -63,7 +63,7 @@ class colorProducto extends Validator
 
     public function readAll()
     {
-        $sql = 'SELECT * from "colorProducto"';
+        $sql = 'SELECT * from "colorProducto" ORDER BY "idColor"';
         $params = null;
         return Database::getRows($sql, $params);
     }

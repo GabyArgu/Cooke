@@ -80,7 +80,7 @@ class categoriaCB extends Validator
 
     public function readAll()
     {
-        $sql = 'SELECT * from "categoriaArticulo"';
+        $sql = 'SELECT * from "categoriaArticulo" ORDER BY "idCategoriaA"';
         $params = null;
         return Database::getRows($sql, $params);
     }
