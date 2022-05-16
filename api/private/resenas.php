@@ -45,6 +45,33 @@ if (isset($_GET['action'])) {
                     $result['exception'] = 'Reseña inexistente';
                 }
                 break;
+            case 'readOneDetail':
+                if (!$resena->setId($_POST['idResena'])) {
+                    $result['exception'] = 'Reseña incorrecta';
+                } elseif ($result['dataset'] = $resena->readOneDetail()) {
+                    $result['status'] = 1;
+                } elseif (Database::getException()) {
+                    $result['exception'] = Database::getException();
+                } else {
+                    $result['exception'] = 'Reseña inexistente';
+                }
+                break;
+            case 'update':
+                //Especificamos los inputs por medio de su atributo name, y los capturamos con el método post
+                $_POST = $resena->validateForm($_POST);
+                if (!$resena->setId($_POST['id-resena'])) {
+                    $result['exception'] = 'Reseña incorrecta';
+                } elseif (!$resena->readOne()) {
+                    $result['exception'] = 'Reseña inexistente';
+                } elseif (!$resena->setEstado($_POST['estado-resena'])) {
+                    $result['exception'] = 'Estado inválido';
+                } elseif ($resena->updateRow()) {
+                    $result['status'] = 1;
+                    $result['message'] = 'Reseña modificada correctamente';
+                } else {
+                    $result['exception'] = Database::getException();
+                }
+                break;
             case 'delete':
                 if (!$resena->setId($_POST['idResena'])) {
                     $result['exception'] = 'Reseña incorrecta';

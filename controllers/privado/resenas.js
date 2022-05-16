@@ -1,5 +1,6 @@
 // Constante para establecer la ruta y parámetros de comunicación con la API.
 const API_RESENAS = SERVER + 'private/resenas.php?action=';
+const ENDPOINT_ESTADO = SERVER + 'private/estadoGeneral.php?action=readAll';
 
 // Método manejador de eventos que se ejecuta cuando el documento ha cargado.
 document.addEventListener('DOMContentLoaded', function () {
@@ -84,6 +85,47 @@ function fillTable(dataset) {
     document.getElementById('tbody-rows').innerHTML = content;
 }
 
+
+function openUpdate(id) {
+    //Limpiamos los campos del modal
+    $("#modal-editar").find(".texto-modal").val("");
+    //Captura de id de reseña de reseña seleccionada
+    document.getElementById('id-resena').value = id;
+    // Se asigna el título para la caja de diálogo (modal).
+    document.getElementById('modal-editar-title').textContent = 'Editar reseña';
+    // Se define un objeto con los datos del registro seleccionado.
+    const data = new FormData();
+    data.append('idResena', id);
+    // Petición para obtener los datos del registro solicitado.
+    fetch(API_RESENAS + 'readOne', {
+        method: 'post',
+        body: data
+    }).then(function (request) {
+        // Se verifica si la petición es correcta, de lo contrario se muestra un mensaje en la consola indicando el problema.
+        if (request.ok) {
+            // Se obtiene la respuesta en formato JSON.
+            request.json().then(function (response) {
+                // Se comprueba si la respuesta es satisfactoria, de lo contrario se muestra un mensaje con la excepción.
+                if (response.status) {
+                    // Se inicializan los campos del formulario con los datos del registro seleccionado.
+                    document.getElementById('id-resena').textContent = response.dataset.idResena;
+                    document.getElementById('cliente-u').textContent = response.dataset.nombresCliente + " " + response.dataset.apellidosCliente;
+                    document.getElementById('producto-u').textContent = response.dataset.nombreProducto;
+                    document.getElementById('fecha-u').textContent = response.dataset.fechaResena;
+                    document.getElementById('puntaje-u').textContent = response.dataset.puntajeResena;
+                    document.getElementById('titulo-u').textContent = response.dataset.tituloResena;
+                    document.getElementById('descripcion-u').textContent = response.dataset.descripcionResena;
+                    fillSelect(ENDPOINT_ESTADO, 'estado-resena', response.dataset.estado);
+                } else {
+                    sweetAlert(2, response.exception, null);
+                }
+            });
+        } else {
+            console.log(request.status + ' ' + request.statusText);
+        }
+    });
+}
+
 function openDetails(id) {
     //Limpiamos los campos del modal
     $("#modal-ver").find(".texto-modal").val("");
@@ -93,7 +135,7 @@ function openDetails(id) {
     const data = new FormData();
     data.append('idResena', id);
     // Petición para obtener los datos del registro solicitado.
-    fetch(API_RESENAS + 'readOne', {
+    fetch(API_RESENAS + 'readOneDetail', {
         method: 'post',
         body: data
     }).then(function (request) {
@@ -122,51 +164,18 @@ function openDetails(id) {
     });
 }
 
-function openUpdate(id) {
-    //Limpiamos los campos del modal
-    $("#modal-editar").find(".texto-modal").val("");
-    // Se asigna el título para la caja de diálogo (modal).
-    document.getElementById('modal-editar-title').textContent = 'Editar reseña';
-    // Se define un objeto con los datos del registro seleccionado.
-    const data = new FormData();
-    data.append('id', id);
-    // Petición para obtener los datos del registro solicitado.
-    fetch(API_USUARIOS + 'readOne', {
-        method: 'post',
-        body: data
-    }).then(function (request) {
-        // Se verifica si la petición es correcta, de lo contrario se muestra un mensaje en la consola indicando el problema.
-        if (request.ok) {
-            // Se obtiene la respuesta en formato JSON.
-            request.json().then(function (response) {
-                // Se comprueba si la respuesta es satisfactoria, de lo contrario se muestra un mensaje con la excepción.
-                if (response.status) {
-                    // Se inicializan los campos del formulario con los datos del registro seleccionado.
-                    document.getElementById('id').value = response.dataset.idEmpleado;
-                    document.getElementById('nombres').value = response.dataset.nombresEmpleado;
-                    document.getElementById('apellidos').value = response.dataset.apellidosEmpleado;
-                    document.getElementById('correo').value = response.dataset.correoEmpleado;
-                    document.getElementById('telefono').value = response.dataset.telefonoEmpleado;
-                    document.getElementById('direccion').value = response.dataset.direccionEmpleado;
-                    document.getElementById('alias').value = response.dataset.aliasEmpleado;
-                    fillSelect(ENDPOINT_CARGO, 'cargo', response.dataset.cargoEmpleado);
-                    fillSelect(ENDPOINT_AVATAR, 'foto', response.dataset.fotoEmpleado);
-                    fillSelect(ENDPOINT_ESTADO, 'estado', response.dataset.estadoEmpleado);
-
-                } else {
-                    sweetAlert(2, response.exception, null);
-                }
-            });
-        } else {
-            console.log(request.status + ' ' + request.statusText);
-        }
-    });
-}
-
 // Método manejador de eventos que se ejecuta cuando se envía el modal de eliminar.
 document.getElementById('delete-form').addEventListener('submit', function (event) {
     // Se evita recargar la página web después de enviar el formulario.
     event.preventDefault();
     //Llamamos al método que se encuentra en la api y le pasamos la ruta de la API y el id del formulario dentro de nuestro modal eliminar
     confirmDelete(API_RESENAS, 'delete-form');
+});
+
+document.getElementById('update-form').addEventListener('submit', function (event) {
+    // Se evita recargar la página web después de enviar el formulario.
+    event.preventDefault();
+    let action = 'update'
+    // Se llama a la función para guardar el registro. Se encuentra en el archivo components.js
+    saveRow(API_RESENAS, action, 'update-form', 'modal-editar');
 });

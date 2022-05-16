@@ -154,6 +154,17 @@ class Reseñas extends Validator
 
     public function readOne()
     {
+        $sql = 'SELECT  "idResena", c."nombresCliente", c."apellidosCliente", pr."nombreProducto", "tituloResena", "descripcionResena", "puntajeResena", "fechaResena", "estado"
+                from "resena" as r inner join "cliente" as c on r."idCliente" = c."idCliente"
+                inner join "detallePedido" as dp on r."idDetalle" = dp."idDetallePedido"
+                inner join "producto" as pr on dp."idProducto" = pr."idProducto"
+                where "idResena" = ?';
+        $params = array($this->id);
+        return Database::getRow($sql, $params);
+    }
+
+    public function readOneDetail()
+    {
         $sql = 'SELECT  "idResena", c."nombresCliente", c."apellidosCliente", pr."nombreProducto", "tituloResena", "descripcionResena", "puntajeResena", "fechaResena", e."estado"
                 from "resena" as r inner join "cliente" as c on r."idCliente" = c."idCliente"
                 inner join "estado" as e on r."estado" = e."idEstado"
@@ -187,7 +198,7 @@ class Reseñas extends Validator
         $sql = 'UPDATE "resena"
                 SET "estado" = ?
                 WHERE "idResena" = ?';
-            $params = array($this->estado);
+            $params = array($this->estado, $this->id);
         return Database::executeRow($sql, $params);
     }
 
