@@ -207,9 +207,9 @@ class Productos extends Validator
 
     public function readOne()
     {
-        $sql = 'SELECT "idProducto", "idSubCategoriaP", "idProveedor", "idMarca", "imagenPrincipal", "nombreProducto", "descripcionProducto", "precioProducto", "estadoProducto"
-        FROM producto 
-        WHERE "idProducto" = ?';
+        $sql = 'SELECT p."idProducto", "idSubCategoriaP", "idProveedor", "idMarca", "imagenPrincipal", "nombreProducto", "descripcionProducto", "precioProducto", "estadoProducto", "idColor", stock 
+        FROM producto as p inner join "colorStock" as cs on p."idProducto" = cs."idProducto"
+        WHERE p."idProducto" =  ?';
         $params = array($this->id);
         return Database::getRow($sql, $params);
     }
@@ -259,13 +259,21 @@ class Productos extends Validator
         // Se verifica si existe una nueva imagen para borrar la actual, de lo contrario se mantiene la actual.
         ($this->imagen) ? $this->deleteFile($this->getRuta(), $current_image) : $this->imagen = $current_image;
 
-        $sql = 'UPDATE "subcategoriaProducto"
-                SET "idCategoriaP"=?, "nombreSubCategoriaP"=?, "descripcionSubCategoriaP"=?, "imagenSubcategoria"=?, estado=?
-                WHERE "idSubCategoriaP" = ?;';
-            $params = array($this->categoria, $this->nombre, $this->descripcion, $this->imagen, $this->estado, $this->id);
+        $sql = 'UPDATE producto
+            SET "idSubCategoriaP"=?, "idProveedor"=?, "idMarca"=?, "nombreProducto"=?, "descripcionProducto"=?, "precioProducto"=?, "estadoProducto"=?, "imagenPrincipal"=?
+            WHERE "idProducto"=?;';
+            $params = array($this->subcategoria, $this->proveedor, $this->marca, $this->nombre, $this->descripcion, $this->precio, $this->estado, $this->imagen, $this->id);
         return Database::executeRow($sql, $params);
     }
 
+    public function updateStock()
+    {   
+        $sql = 'UPDATE "colorStock"
+            SET "idColor"=?, stock=?
+            WHERE "idProducto" = ?;';
+            $params = array($this->color, $this->stock, $this->id);
+        return Database::executeRow($sql, $params);
+    }
     /* DELETE */
     /* Función para inhabilitar un usuario ya que no los borraremos de la base*/
     public function deleteRow()
