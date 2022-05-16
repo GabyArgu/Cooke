@@ -241,7 +241,7 @@ class Productos extends Validator
     public function getLastId()
     {
         $sql = 'SELECT MAX("idProducto") as "idProducto" FROM producto ';
-        return Database::getRowId($sql, "idProducto");
+        return Database::getRowId($sql);
     }
 
     public function insertStock($lastId)
