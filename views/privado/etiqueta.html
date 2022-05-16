@@ -80,11 +80,7 @@
                         <ul id="blog" class="list-unstyled collapse submenu" data-bs-parent="#sidebar">
                             <li class="sidebar-item"><a class="sidebar-link" href="articulo.html">Artículo</a></li>
                             <li class="sidebar-item"><a class="sidebar-link" href="categorias_blog.html">Categoría</a>
-                            <li class="sidebar-item"><a class="sidebar-link"
-                                    href="comentarios_blog.html">Comentarios</a>
-                            </li>
-                            <li class="sidebar-item"><a class="sidebar-link"
-                                    href="comentarios_blog.html">Comentarios</a></li>
+                            <li class="sidebar-item"><a class="sidebar-link" href="comentarios_blog.html">Comentarios</a></li>
                         </ul>
                     </li>
                     <!-- ENLACES DE ADMINISTRACIÓN -->
@@ -271,10 +267,20 @@
                         <div class="row">
                             <div class="col">
                                 <div class="row agregar-content agregar-content-flex">
-                                    <div class="col-12 mb-4">
+                                    <div class="col-6 mb-4">
                                         <label for="validationDefault01" class="form-label">Nombre</label>
                                         <input type="text" class="form-control" id="validationDefault01" value=""
                                             required>
+                                    </div>
+                                    <div class="col-6 mb-4">
+                                        <label for="validationDefault03" class="form-label">Estado</label>
+                                        <select class="form-select custom-form-select"
+                                            aria-label="Default select example">
+                                            <option selected disabled>Seleccione una opción</option>
+                                            <option value="1">Activo</option>
+                                            <option value="2">Inactivo</option>
+                                            <option value="3">Deshabilitado</option>
+                                        </select>
                                     </div>
                                 </div>
                             </div>
@@ -306,10 +312,20 @@
                         <div class="row">
                             <div class="col">
                                 <div class="row agregar-content agregar-content-flex">
-                                    <div class="col-12 mb-4">
+                                    <div class="col-6 mb-4">
                                         <label for="validationDefault01" class="form-label">Nombre</label>
                                         <input type="text" class="form-control" id="validationDefault01" value=""
                                             required>
+                                    </div>
+                                    <div class="col-6 mb-4">
+                                        <label for="validationDefault03" class="form-label">Estado</label>
+                                        <select class="form-select custom-form-select"
+                                            aria-label="Default select example">
+                                            <option selected disabled>Seleccione una opción</option>
+                                            <option value="1">Activo</option>
+                                            <option value="2">Inactivo</option>
+                                            <option value="3">Deshabilitado</option>
+                                        </select>
                                     </div>
                                 </div>
                             </div>
@@ -370,7 +386,7 @@
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="../../controllers/componentes.js"></script>
     <script src="../../controllers/privado/online.js"></script>
-    <script src="../../controllers/privado/categorias_productos.js"></script>
+    <script src="../../controllers/privado/etiqueta.js"></script>
 
 </body>
 

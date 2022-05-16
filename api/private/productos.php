@@ -33,32 +33,47 @@ if (isset($_GET['action'])) {
                     $result['exception'] = 'No hay coincidencias';
                 }
                 break;
-            // case 'create':
-            //     //Especificamos los inputs por medio de su atributo name, y los capturamos con el método post
-            //     $_POST = $subcategorias->validateForm($_POST);
-            //     if (!$subcategorias->setNombre($_POST['nombre'])) {
-            //         $result['exception'] = 'Nombre inválido';
-            //     }  elseif (!$subcategorias->setCategoria($_POST['categoria'])){
-            //         $result['exception'] = 'Categoría inválida';
-            //     } elseif (!$subcategorias->setDescripcion($_POST['descripcion'])) {
-            //         $result['exception'] = 'Descripción inválida';
-            //     } elseif (!is_uploaded_file($_FILES['archivo']['tmp_name'])) {
-            //         $result['exception'] = 'Seleccione una imagen';
-            //     } elseif (!$subcategorias->setImagen($_FILES['archivo'])) {
-            //         $result['exception'] = $subcategorias->getFileError();
-            //     } elseif (!$subcategorias->setEstado(1)) {
-            //         $result['exception'] = 'Estado inválido';
-            //     } elseif ($subcategorias->createRow()) {
-            //         $result['status'] = 1;
-            //         if ($subcategorias->saveFile($_FILES['archivo'], $subcategorias->getRuta(), $subcategorias->getImagen())) {
-            //             $result['message'] = 'Subcategoría creada correctamente';
-            //         } else {
-            //             $result['message'] = 'Subcategoría creada pero no se guardó la imagen';
-            //         }
-            //     } else {
-            //         $result['exception'] = Database::getException();
-            //     }
-            //     break;
+            case 'create':
+                //Especificamos los inputs por medio de su atributo name, y los capturamos con el método post
+                $_POST = $productos->validateForm($_POST);
+                if (!$productos->setNombre($_POST['nombre'])) {
+                    $result['exception'] = 'Nombre inválido';
+                }  elseif (!$productos->setDescripcion($_POST['descripcion'])) {
+                    $result['exception'] = 'Descripción inválida';
+                } elseif (!$productos->setSubcategoria($_POST['subcategoria'])){
+                    $result['exception'] = 'Subcategoría inválida';
+                } elseif (!$productos->setProveedor($_POST['proveedor'])){
+                    $result['exception'] = 'Proveedor inválido';
+                } elseif (!$productos->setMarca($_POST['marca'])){
+                    $result['exception'] = 'marca inválida';
+                } elseif (!$productos->setPrecio($_POST['precio'])){
+                    $result['exception'] = 'Categoría inválida';
+                } elseif (!$productos->setColor($_POST['color'])){
+                    $result['exception'] = 'Color inválido';
+                }elseif (!$productos->setStock($_POST['stock'])){
+                    $result['exception'] = 'Stock inválido';
+                }  elseif (!is_uploaded_file($_FILES['archivo']['tmp_name'])) {
+                    $result['exception'] = 'Seleccione una imagen';
+                } elseif (!$productos->setImagen($_FILES['archivo'])) {
+                    $result['exception'] = $productos->getFileError();
+                } elseif (!$productos->setEstado(1)) {
+                    $result['exception'] = 'Estado inválido';
+                } elseif ($productos->createRow()) {
+                    $result['status'] = 1;
+                    if ($productos->saveFile($_FILES['archivo'], $productos->getRuta(), $productos->getImagen())) {
+                        
+                        if (!$productos->insertStock($productos->getLastId())) {
+                            $result['exception'] = 'Ocurrió un error al insertar el stock';
+                        } else {
+                            $result['message'] = 'Producto creado correctamente';
+                        }
+                    } else {
+                        $result['message'] = 'Producto creado pero no se guardó la imagen';
+                    }
+                } else {
+                    $result['exception'] = Database::getException();
+                }
+                break;
             // case 'readOne':
             //     if (!$subcategorias->setId($_POST['id'])) {
             //         $result['exception'] = 'Subcategoría incorrecta';
