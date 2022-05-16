@@ -1,8 +1,11 @@
 // Constante para establecer la ruta y parámetros de comunicación con la API.
 const API_PRODUCTOS = SERVER + 'private/productos.php?action=';
-const ENDPOINT_CATEGORIA = SERVER + 'private/categoriapd.php?action=readAll';
-const ENDPOINT_ESTADO = SERVER + 'private/estado_general.php?action=readAll';
-
+const ENDPOINT_SUBCATEGORIA = SERVER + 'private/subcategoriapd.php?action=readAll';
+const ENDPOINT_MARCA = SERVER + 'private/marca.php?action=readAll';
+const ENDPOINT_PROVEEDOR = SERVER + 'private/proveedor.php?action=readAll';
+//const ENDPOINT_ETIQUETA = SERVER + 'private/etiqueta.php?action=readAll';
+const ENDPOINT_COLOR = SERVER + 'private/colores.php?action=readAll';
+const ENDPOINT_ESTADO = SERVER + 'private/estado_producto.php?action=readAll';
 
 // Método manejador de eventos que se ejecuta cuando el documento ha cargado.
 document.addEventListener('DOMContentLoaded', function () {
@@ -39,8 +42,28 @@ $(document).on('keyup', '#search', function () {
   }
 });
 
+// Función para preparar el modal al momento de insertar un registro.
+function openCreate() {
+  //Limpiamos los campos del modal
+  $("#save-form").find("input,textarea,select").val("");
+
+  // Se asigna el título para la caja de diálogo (modal).
+  document.getElementById('modal-title').textContent = 'Agregar producto';
+  document.getElementById('modal-title2').textContent = 'Agregar producto';
+
+  //Añadimos la clase que esconde el select estado ya que todos los usuarios ingresados, tendrán el valor de activo y este se manda automaticamente
+  document.getElementById('estado').classList.add('input-hide')
+  document.getElementById('estado-label').classList.add('input-hide')
 
 
+  /* Se llama a la función que llena el select del formulario. Se encuentra en el archivo components.js, 
+   * mandar de parametros la ruta de la api de la tabla que utiliza el select, y el id del select*/
+  fillSelect(ENDPOINT_SUBCATEGORIA, 'subcategoria', null);
+  fillSelect(ENDPOINT_MARCA, 'marca', null);
+  fillSelect(ENDPOINT_PROVEEDOR, 'proveedor', null);
+  fillSelect(ENDPOINT_COLOR, 'color', null);
+
+}
 
 // Función para mandar el id de la row seleccionada al modal eliminar.
 function openDelete(id) {
@@ -116,10 +139,23 @@ var tagify = new Tagify(input, {
   whitelist: ["Oferta", "Nuevo", "Marzo", "Limitado", "Especial", "Descuento"]
 })
 
-Dropzone.options.myDropzone = {
-  // Configuration options go here
-};
+// Dropzone.options.myDropzone = {
+//   // Configuration options go here
+// };
 
 function hoverImagen(ruta) {
   document.getElementById("main-img").src = ruta;
 }
+
+// Método manejador de eventos que se ejecuta cuando se envía el formulario de guardar.
+document.getElementById('save-form').addEventListener('submit', function (event) {
+    // Se evita recargar la página web después de enviar el formulario.
+    event.preventDefault();
+    // Se define una variable para establecer la acción a realizar en la API.
+    let action = '';
+    // Se comprueba si el campo oculto del formulario esta seteado para actualizar, de lo contrario será para crear.
+    (document.getElementById('id').value) ? action = 'update' : action = 'create';
+    // Se llama a la función para guardar el registro. Se encuentra en el archivo components.js
+    saveRow(API_PRODUCTOS, action, 'save-form', 'save-modal-2');
+});
+
