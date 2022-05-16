@@ -1861,6 +1861,18 @@ div.dataTables_wrapper div.dataTables_length select {
   display: none !important;
 }
 
+.modal-update h3 {
+  margin-left: auto !important;
+}
+
+.modal-update .modal-header {
+  border: none !important;
+}
+
+.modal-update hr {
+  color: var(--rosadoOscuro) !important;
+}
+
 /* ----------------------------------------------------------------FIN RESEÑAS Y COMENTARIOS-------------------------------------------------------------*/
 
 

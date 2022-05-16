@@ -1,14 +1,14 @@
 <?php
 require_once('../helpers/database.php');
 require_once('../helpers/validaciones.php');
-require_once('../models/resenas.php');
+require_once('../models/comentarios.php');
 
 // Se comprueba si existe una acción a realizar por medio de isset, de lo contrario se finaliza el script con un mensaje de error.
 if (isset($_GET['action'])) {
     // Se crea una sesión o se reanuda la actual para poder utilizar variables de sesión en el script.
     session_start();
     // Se instancia la clase correspondiente.
-    $resena = new Reseñas;
+    $comentarios = new Comentarios;
     // Se declara e inicializa un arreglo para guardar el resultado que retorna la API.
     $result = array('status' => 0, 'session' => 0, 'message' => null, 'exception' => null, 'dataset' => null, 'username' => null);
     // Se verifica si existe una sesión iniciada como administrador, de lo contrario se finaliza el script con un mensaje de error.
@@ -17,7 +17,7 @@ if (isset($_GET['action'])) {
         // Se compara la acción a realizar cuando un administrador ha iniciado sesión.
         switch ($_GET['action']) {
             case 'readAll':
-                if ($result['dataset'] = $resena->readAll()) {
+                if ($result['dataset'] = $comentarios->readAll()) {
                     $result['status'] = 1;
                 } elseif (Database::getException()) {
                     $result['exception'] = Database::getException();
@@ -26,7 +26,7 @@ if (isset($_GET['action'])) {
                 }
                 break;
             case 'search':
-                if ($result['dataset'] = $resena->searchRows($_POST['search'])) {
+                if ($result['dataset'] = $comentarios->searchRows($_POST['search'])) {
                     $result['status'] = 1;
                 } elseif (Database::getException()) {
                     $result['exception'] = Database::getException();
@@ -35,51 +35,51 @@ if (isset($_GET['action'])) {
                 }
                 break;
             case 'readOne':
-                if (!$resena->setId($_POST['idResena'])) {
-                    $result['exception'] = 'Reseña incorrecta';
-                } elseif ($result['dataset'] = $resena->readOne()) {
+                if (!$comentarios->setId($_POST['idComentario'])) {
+                    $result['exception'] = 'Comentario incorrecto';
+                } elseif ($result['dataset'] = $comentarios->readOne()) {
                     $result['status'] = 1;
                 } elseif (Database::getException()) {
                     $result['exception'] = Database::getException();
                 } else {
-                    $result['exception'] = 'Reseña inexistente';
+                    $result['exception'] = 'Comentario inexistente';
                 }
                 break;
             case 'readOneDetail':
-                if (!$resena->setId($_POST['idResena'])) {
-                    $result['exception'] = 'Reseña incorrecta';
-                } elseif ($result['dataset'] = $resena->readOneDetail()) {
+                if (!$comentarios->setId($_POST['idComentario'])) {
+                    $result['exception'] = 'Comentario incorrecto';
+                } elseif ($result['dataset'] = $comentarios->readOneDetail()) {
                     $result['status'] = 1;
                 } elseif (Database::getException()) {
                     $result['exception'] = Database::getException();
                 } else {
-                    $result['exception'] = 'Reseña inexistente';
+                    $result['exception'] = 'Comentario inexistente';
                 }
                 break;
             case 'update':
                 //Especificamos los inputs por medio de su atributo name, y los capturamos con el método post
-                $_POST = $resena->validateForm($_POST);
-                if (!$resena->setId($_POST['id-resena'])) {
-                    $result['exception'] = 'Reseña incorrecta';
-                } elseif (!$resena->readOne()) {
-                    $result['exception'] = 'Reseña inexistente';
-                } elseif (!$resena->setEstado($_POST['estado-resena'])) {
+                $_POST = $comentarios->validateForm($_POST);
+                if (!$comentarios->setId($_POST['id-comentario'])) {
+                    $result['exception'] = 'Comentario incorrecto';
+                } elseif (!$comentarios->readOne()) {
+                    $result['exception'] = 'Comentario inexistente';
+                } elseif (!$comentarios->setEstado($_POST['estado-comentario'])) {
                     $result['exception'] = 'Estado inválido';
-                } elseif ($resena->updateRow()) {
+                } elseif ($comentarios->updateRow()) {
                     $result['status'] = 1;
-                    $result['message'] = 'Reseña modificada correctamente';
+                    $result['message'] = 'Comentario modificado correctamente';
                 } else {
                     $result['exception'] = Database::getException();
                 }
                 break;
             case 'delete':
-                if (!$resena->setId($_POST['idResena'])) {
-                    $result['exception'] = 'Reseña incorrecta';
-                } elseif (!$data = $resena->readOne()) {
-                    $result['exception'] = 'Reseña inexistente';
-                } elseif ($resena->deleteRow()) {
+                if (!$comentarios->setId($_POST['idComentario'])) {
+                    $result['exception'] = 'Comentario incorrecto';
+                } elseif (!$data = $comentarios->readOne()) {
+                    $result['exception'] = 'Comentario inexistente';
+                } elseif ($comentarios->deleteRow()) {
                     $result['status'] = 1;
-                    $result['message'] = 'Reseña inhabilitada correctamente';
+                    $result['message'] = 'Comentario inhabilitado correctamente';
                 } else {
                     $result['exception'] = Database::getException();
                 }
