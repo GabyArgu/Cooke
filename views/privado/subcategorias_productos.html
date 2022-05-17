@@ -80,8 +80,10 @@
                         </a>
                         <ul id="blog" class="list-unstyled collapse submenu" data-bs-parent="#sidebar">
                             <li class="sidebar-item"><a class="sidebar-link" href="articulo.html">Artículo</a></li>
-                            <li class="sidebar-item"><a class="sidebar-link" href="categorias_blog.html">Categoría</a></li>
-                            <li class="sidebar-item"><a class="sidebar-link" href="comentarios_blog.html">Comentarios</a></li>
+                            <li class="sidebar-item"><a class="sidebar-link" href="categorias_blog.html">Categoría</a>
+                            </li>
+                            <li class="sidebar-item"><a class="sidebar-link"
+                                    href="comentarios_blog.html">Comentarios</a></li>
                         </ul>
                     </li>
                     <!-- ENLACES DE ADMINISTRACIÓN -->
@@ -149,14 +151,15 @@
                         <div class="row pt-3 mx-auto header-table">
                             <div class="col">
                                 <button onclick="openCreate()" class="btn-agregar" type="button" data-bs-toggle="modal"
-                                data-bs-target="#save-modal">Agregar<i class="fa-solid fa-plus"></i></button>
+                                    data-bs-target="#save-modal">Agregar<i class="fa-solid fa-plus"></i></button>
                             </div>
                             <div class="col d-flex justify-content-end mx-auto">
                                 <form method="post" id="search-form">
                                     <input class="form-control form-control-dark w-60 d-none d-md-block Buscador-Imp"
                                     type="text" placeholder="Buscar por nombre o categoría" aria-label="Search" id="search" name="search">
                                 </form>
-                                <button class="btn-refresh" id="refresh"><i class="fa-solid fa-arrows-rotate"></i></button>
+                                <button class="btn-refresh" id="refresh"><i
+                                        class="fa-solid fa-arrows-rotate"></i></button>
                             </div>
                         </div>
                         <div class="row">
@@ -223,12 +226,13 @@
                                     <div class="col-12 mb-4">
                                         <label for="validationDefault01" class="form-label">Categoría</label>
                                         <select class="form-select custom-form-select"
-                                            aria-label="Default select example"id="categoria" name="categoria">
+                                            aria-label="Default select example" id="categoria" name="categoria">
                                         </select>
                                     </div>
                                     <div class="col-12 mb-4">
                                         <label for="validationDefault01" class="form-label">Imagen</label>
-                                        <input id="archivo" class="form-control" type="file" name="archivo" accept=".jpg, .png">
+                                        <input id="archivo" class="form-control" type="file" name="archivo"
+                                            accept=".jpg, .png">
                                     </div>
                                     <div class="col-12 mb-4">
                                         <label for="validationDefault03" class="form-label "
@@ -242,8 +246,6 @@
                                     </div>
                                 </div>
                             </form>
-
-
                         </div>
                     </div>
                 </div>
@@ -275,14 +277,12 @@
                     </div>
                 </div>
                 <div class="modal-footer d-flex mx-2 justify-content-between">
-                    <button class="btn btn-cancel" type="button"
-                        data-bs-dismiss="modal">Cancelar</button>
+                    <button class="btn btn-cancel" type="button" data-bs-dismiss="modal">Cancelar</button>
                     <form id="delete-form">
                         <input type="hidden" id="id-delete" name="id-delete">
-                        <button class="btn btn-siguiente" type="submit" 
-                            data-bs-dismiss="modal">Continuar</button>
+                        <button class="btn btn-siguiente" type="submit" data-bs-dismiss="modal">Continuar</button>
                     </form>
-                    
+
                 </div>
             </div>
         </div>

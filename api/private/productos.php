@@ -15,6 +15,7 @@ if (isset($_GET['action'])) {
     if (isset($_SESSION['id_usuario'])) {
         // Se compara la acción a realizar cuando un administrador ha iniciado sesión.
         switch ($_GET['action']) {
+            // Accion de leer toda la información------------------.
             case 'readAll':
                 if ($result['dataset'] = $productos->readAll()) {
                     $result['status'] = 1;
@@ -24,6 +25,7 @@ if (isset($_GET['action'])) {
                     $result['exception'] = 'No hay datos registrados';
                 }
                 break;
+            // Accion de buscar información de los productos  disponibles------------------.     
             case 'search':
                 if ($result['dataset'] = $productos->searchRows($_POST['search'])) {
                     $result['status'] = 1;
@@ -33,6 +35,7 @@ if (isset($_GET['action'])) {
                     $result['exception'] = 'No hay coincidencias';
                 }
                 break;
+            // Accion de ingresar un nuevo producto ------------------.       
             case 'create':
                 //Especificamos los inputs por medio de su atributo name, y los capturamos con el método post
                 $_POST = $productos->validateForm($_POST);

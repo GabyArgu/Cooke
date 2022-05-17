@@ -1,9 +1,9 @@
 <?php
 /*
-*	Clase para manejar la tabla categorias de la base de datos.
+*	Clase para manejar la tabla categoríaArticulo de la base de datos.
 *   Es clase hija de Validator.
 */
-class Categoriapd extends Validator
+class CategoriaArt extends Validator
 {
     // Declaración de atributos (propiedades).
     private $id = null;
@@ -47,7 +47,7 @@ class Categoriapd extends Validator
 
     public function readAll()
     {
-        $sql = 'SELECT "idCategoria", "nombreCategoriaP" FROM "categoriaProducto"';
+        $sql = 'SELECT "idCategoriaA", "nombreCategoriaA" FROM "categoriaArticulo"';
         $params = null;
         return Database::getRows($sql, $params);
     }

@@ -161,18 +161,18 @@ function openDetails(id) {
     });
 }
 
-// Método manejador de eventos que se ejecuta cuando se envía el modal de eliminar.
+// Método manejador de eventos que se ejecuta cuando se envía el modal de eliminar-------------------.
 document.getElementById('delete-form').addEventListener('submit', function (event) {
-    // Se evita recargar la página web después de enviar el formulario.
+    // Se evita recargar la página web después de enviar el formulario-------------------.
     event.preventDefault();
-    //Llamamos al método que se encuentra en la api y le pasamos la ruta de la API y el id del formulario dentro de nuestro modal eliminar
+    //Llamamos al método que se encuentra en la api y le pasamos la ruta de la API y el id del formulario dentro de nuestro modal eliminar-------------------.
     confirmDelete(API_COMENTARIOS, 'delete-form');
 });
 
 document.getElementById('update-form').addEventListener('submit', function (event) {
-    // Se evita recargar la página web después de enviar el formulario.
+    // Se evita recargar la página web después de enviar el formulario-------------------.
     event.preventDefault();
     let action = 'update'
-    // Se llama a la función para guardar el registro. Se encuentra en el archivo components.js
+    // Se llama a la función para guardar el registro. Se encuentra en el archivo components.js-------------------.
     saveRow(API_COMENTARIOS, action, 'update-form', 'modal-editar');
 });

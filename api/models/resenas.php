@@ -140,6 +140,8 @@ class Reseñas extends Validator
     /* 
     *   Método para comprobar que existen usuarios registrados en nuestra base de datos
     */
+
+    // Método para leer toda la información de las reseñas existentes-------------------------.
     public function readAll()
     {
         $sql = 'SELECT  "idResena", c."nombresCliente", c."apellidosCliente", pr."nombreProducto", "tituloResena", "descripcionResena", "puntajeResena", "fechaResena", e."estado"
@@ -152,6 +154,7 @@ class Reseñas extends Validator
         return Database::getRows($sql, $params);
     }
 
+    // Método para abrir el modal de editar de las reseñas-------------------------.
     public function readOne()
     {
         $sql = 'SELECT  "idResena", c."nombresCliente", c."apellidosCliente", pr."nombreProducto", "tituloResena", "descripcionResena", "puntajeResena", "fechaResena", "estado"
@@ -163,6 +166,7 @@ class Reseñas extends Validator
         return Database::getRow($sql, $params);
     }
 
+    // Método para abrir el modal de detalles de las reseñas-------------------------.
     public function readOneDetail()
     {
         $sql = 'SELECT  "idResena", c."nombresCliente", c."apellidosCliente", pr."nombreProducto", "tituloResena", "descripcionResena", "puntajeResena", "fechaResena", e."estado"
@@ -203,9 +207,11 @@ class Reseñas extends Validator
     }
 
     /* DELETE */
+
+    /* Función para inhabilitar un reseña ya que no los borraremos de la base------------------------- */
     public function deleteRow()
     {
-        //No eliminaremos registros, solo los inhabilitaremos
+        //No eliminaremos registros, solo los inhabilitaremos-------------------------.
         $sql = 'UPDATE "resena" SET "estado" = 3 WHERE "idResena" = ?';
         $params = array($this->id);
         return Database::executeRow($sql, $params);
