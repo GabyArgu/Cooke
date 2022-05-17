@@ -24,6 +24,91 @@ if (isset($_GET['action'])) {
                     $result['exception'] = 'No hay datos registrados';
                 }
                 break;
+            case 'search':
+                if ($result['dataset'] = $marca->searchRows($_POST['search'])) {
+                    $result['status'] = 1;
+                } elseif (Database::getException()) {
+                    $result['exception'] = Database::getException();
+                }else {
+                    $result['exception'] = 'No hay coincidencias';
+                }
+                break;
+            case 'create':
+                //Especificamos los inputs por medio de su atributo name, y los capturamos con el método post
+                $_POST = $marca->validateForm($_POST);
+                if (!$marca->setMarca($_POST['nombre'])) {
+                    $result['exception'] = 'Nombre inválido';
+                } elseif (!is_uploaded_file($_FILES['archivo']['tmp_name'])) {
+                    $result['exception'] = 'Seleccione una imagen';
+                } elseif (!$marca->setImagen($_FILES['archivo'])) {
+                    $result['exception'] = $subcategorias->getFileError();
+                } elseif (!$marca->setEstado(1)) {
+                    $result['exception'] = 'Estado inválido';
+                } elseif ($marca->createRow()) {
+                    $result['status'] = 1;
+                    if ($marca->saveFile($_FILES['archivo'], $marca->getRuta(), $marca->getImagen())) {
+                        $result['message'] = 'Marca creada correctamente';
+                    } else {
+                        $result['message'] = 'Marca creada pero no se guardó la imagen';
+                    }
+                } else {
+                    $result['exception'] = Database::getException();
+                }
+                break;
+            case 'readOne':
+                if (!$marca->setId($_POST['id'])) {
+                    $result['exception'] = 'Marca incorrecta';
+                } elseif ($result['dataset'] = $marca->readOne()) {
+                    $result['status'] = 1;
+                } elseif (Database::getException()) {
+                    $result['exception'] = Database::getException();
+                } else {
+                    $result['exception'] = 'Marca inexistente';
+                }
+                break;
+            case 'update':
+                //Especificamos los inputs por medio de su atributo name, y los capturamos con el método post
+                $_POST = $marca->validateForm($_POST);
+                if (!$marca->setId($_POST['id'])) {
+                    $result['exception'] = 'Marca incorrecta';
+                } elseif (!$data = $marca->readOne()) {
+                    $result['exception'] = 'Marca inexistente';
+                }elseif (!$marca->setMarca($_POST['nombre'])) {
+                    $result['exception'] = 'Nombre inválido';
+                }  elseif (!$marca->setEstado($_POST['estado'])) {
+                    $result['exception'] = 'Estado inválido';
+                } elseif (!is_uploaded_file($_FILES['archivo']['tmp_name'])) {
+                    if ($marca->updateRow($data['imagenMarca'])) {
+                        $result['status'] = 1;
+                        $result['message'] = 'Marca modificada correctamente';
+                    } else {
+                        $result['exception'] = Database::getException();
+                    }
+                } elseif (!$marca->setImagen($_FILES['archivo'])) {
+                    $result['exception'] = $marca->getFileError();
+                } elseif ($marca->updateRow($data['imagenMarca'])) {
+                    $result['status'] = 1;
+                    if ($marca->saveFile($_FILES['archivo'], $marca->getRuta(), $marca->getImagen())) {
+                        $result['message'] = 'Subcategoría actualizada correctamente';
+                    } else {
+                        $result['message'] = 'Subcategoría actualizada pero no se guardó la imagen';
+                    }
+                } else {
+                    $result['exception'] = Database::getException();
+                }
+                break;
+            case 'delete':
+                if (!$marca->setId($_POST['id-delete'])) {
+                    $result['exception'] = 'Marca incorrecta';
+                } elseif (!$marca->readOne()) {
+                    $result['exception'] = 'Marca inexistente';
+                } elseif ($marca->deleteRow()) {
+                    $result['status'] = 1;
+                    $result['message'] = 'Marca inhabilitada correctamente';
+                } else {
+                    $result['exception'] = Database::getException();
+                }
+                break;
             default:
                 $result['exception'] = 'Acción no disponible dentro de la sesión';
         }

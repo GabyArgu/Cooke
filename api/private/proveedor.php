@@ -24,6 +24,89 @@ if (isset($_GET['action'])) {
                     $result['exception'] = 'No hay datos registrados';
                 }
                 break;
+            case 'search':
+                if ($result['dataset'] = $proveedor->searchRows($_POST['search2'])) {
+                    $result['status'] = 1;
+                } elseif (Database::getException()) {
+                    $result['exception'] = Database::getException();
+                }else {
+                    $result['exception'] = 'No hay coincidencias';
+                }
+                break;
+            case 'create':
+                //Especificamos los inputs por medio de su atributo name, y los capturamos con el método post
+                $_POST = $proveedor->validateForm($_POST);
+                if (!$proveedor->setProveedor($_POST['nombre-prov'])) {
+                    $result['exception'] = 'Nombre inválido';
+                } elseif (!$proveedor->setEstado(1)) {
+                    $result['exception'] = 'Estado inválido';
+                } elseif (!$proveedor->setDireccion($_POST['direccion-prov'])) {
+                    $result['exception'] = 'Dirección inválida';
+                }elseif (!$proveedor->setTelefono($_POST['telefono-prov'])) {
+                    $result['exception'] = 'Telefono inválido';
+                }elseif ($proveedor->createRow()) {
+                    $result['status'] = 1;
+                    $result['message'] = 'Proveedor creado correctamente';
+                } else {
+                    $result['exception'] = Database::getException();
+                }
+                break;
+            case 'readOne':
+                if (!$proveedor->setId($_POST['id-prov'])) {
+                    $result['exception'] = 'Proveedor incorrecto';
+                } elseif ($result['dataset'] = $proveedor->readOne()) {
+                    $result['status'] = 1;
+                } elseif (Database::getException()) {
+                    $result['exception'] = Database::getException();
+                } else {
+                    $result['exception'] = 'Proveedor inexistente';
+                }
+                break;
+            case 'update':
+                //Especificamos los inputs por medio de su atributo name, y los capturamos con el método post
+                $_POST = $proveedor->validateForm($_POST);
+                if (!$proveedor->setId($_POST['id-prov'])) {
+                    $result['exception'] = 'Proveedor incorrecto';
+                } elseif (!$data = $proveedor->readOne()) {
+                    $result['exception'] = 'Proveedor inexistente';
+                }elseif (!$proveedor->setProveedor($_POST['nombre-prov'])) {
+                    $result['exception'] = 'Nombre inválido';
+                } elseif (!$proveedor->setEstado($_POST['estado2'])) {
+                    $result['exception'] = 'Estado inválido';
+                } elseif (!$proveedor->setDireccion($_POST['direccion-prov'])) {
+                    $result['exception'] = 'Dirección inválida';
+                }elseif (!$proveedor->setTelefono($_POST['telefono-prov'])) {
+                    $result['exception'] = 'Telefono inválido';
+                } elseif ($proveedor->updateRow()) {
+                    $result['status'] = 1;
+                    $result['message'] = 'Proveedor actualizado correctamente';
+                } else {
+                    $result['exception'] = Database::getException();
+                }
+                break;
+            case 'readOneShow':
+                    if (!$proveedor->setId($_POST['id-prov'])) {
+                        $result['exception'] = 'Proveedor incorrecto';
+                    } elseif ($result['dataset'] = $proveedor->readOneShow()) {
+                        $result['status'] = 1;
+                    } elseif (Database::getException()) {
+                        $result['exception'] = Database::getException();
+                    } else {
+                        $result['exception'] = 'Empleado inexistente';
+                    }
+                    break;
+            case 'delete':
+                if (!$proveedor->setId($_POST['id-delete'])) {
+                    $result['exception'] = 'Proveedor incorrecto';
+                } elseif (!$proveedor->readOne()) {
+                    $result['exception'] = 'Proveedor inexistente';
+                } elseif ($proveedor->deleteRow()) {
+                    $result['status'] = 1;
+                    $result['message'] = 'Proveedor inhabilitado correctamente';
+                } else {
+                    $result['exception'] = Database::getException();
+                }
+                break;
             default:
                 $result['exception'] = 'Acción no disponible dentro de la sesión';
         }

@@ -154,7 +154,7 @@ class Validator
             return false;
         }
     }
-
+    
     /*
 *   Método para validar un dato alfabético (letras y espacios en blanco).
 *
