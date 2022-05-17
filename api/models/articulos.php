@@ -14,7 +14,7 @@ class Articulos extends Validator
     private $fecha = null;
     private $imagen = null;
     private $estado = null;
-    private $ruta = '../images/articulos/';
+    private $ruta = '../images/blog/';
 
     /*
     *   Métodos para validar y asignar valores de los atributos.
@@ -31,7 +31,7 @@ class Articulos extends Validator
 
     public function setEmpleado($value)
     {
-        if ($this->validateAlphabetic($value, 1, 50)) {
+        if ($this->validateNaturalNumber($value)) {
             $this->empleado = $value;
             return true;
         } else {
@@ -158,7 +158,7 @@ class Articulos extends Validator
                 from "articulo" as a inner join "empleado" as em on a."idEmpleado" = em."idEmpleado"
                 inner join "categoriaArticulo" as c on a."idCategoriaA" = c."idCategoriaA"
                 inner join "estado" as "e" on a."estado" = e."idEstado"
-                order by "fechaArticulo", "estado" desc';
+                order by "fechaArticulo" desc';
         $params = null;
         return Database::getRows($sql, $params);
     }
@@ -178,7 +178,7 @@ class Articulos extends Validator
                 from "articulo" as a inner join "empleado" as em on a."idEmpleado" = em."idEmpleado"
                 inner join "categoriaArticulo" as c on a."idCategoriaA" = c."idCategoriaA"
                 inner join "estado" as "e" on a."estado" = e."idEstado"
-                order by "fechaArticulo", "estado" desc';
+                where "idArticulo" = ?';
         $params = array($this->id);
         return Database::getRow($sql, $params);
     }

@@ -1651,29 +1651,8 @@ div.dataTables_wrapper div.dataTables_length select {
   margin-left: auto;
 }
 
-.modal-ver-articulo-blog .modal-dialog {
-  max-width: 900px;
-}
-
-.imgb {
-  width: 3%;
-}
-
-.img-b {
-  width: 50%;
-}
-
-.Lorem {
-  margin-left: 10px;
-  margin-right: 115px;
-}
-
 .modal-ver-articulo .modal-header {
   border: none;
-}
-
-.modal-ver-articulo .modal-dialog {
-  max-width: 350px;
 }
 
 .ver-articulo-content .col {
@@ -1698,6 +1677,10 @@ div.dataTables_wrapper div.dataTables_length select {
 .ver-articulo-content span {
   color: var(--rosadoOscuro);
   font-size: 18px;
+}
+
+.ver-articulo-content .fa-solid {
+  color: var(--rosadoTitulos);
 }
 
 .table-articulos td img {

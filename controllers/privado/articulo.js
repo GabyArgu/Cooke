@@ -27,7 +27,9 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 /*Inicializando y configurando componente de calendario*/
-flatpickr('#calendar', {});
+$('#calendar').flatpickr({
+    minDate: "today"
+})
 
 //Función que se ejecuta cada vez que apretamos una tecla dentro del input #search, sirve para buscador en tiempo real
 $(document).on('keyup', '#search', function () {
@@ -110,6 +112,7 @@ function openUpdate(id) {
     });
 }
 
+
 // Función para mandar el id de la row seleccionada al modal eliminar.
 function openDelete(id) {
     document.getElementById('id-delete').value = id;
@@ -164,6 +167,43 @@ function fillTable(dataset) {
     });
     // Se agregan las filas al cuerpo de la tabla mediante su id para mostrar los registros.
     document.getElementById('tbody-rows').innerHTML = content;
+}
+
+function openDetails(id) {
+    //Limpiamos los campos del modal
+    $("#modal-ver").find(".texto-modal").val("");
+    // Se asigna el título para la caja de diálogo (modal).
+    document.getElementById('title-detail').textContent = 'Detalles';
+    // Se define un objeto con los datos del registro seleccionado.
+    const data = new FormData();
+    data.append('id', id);
+    // Petición para obtener los datos del registro solicitado.
+    fetch(API_ARTICULOS + 'readOneDetail', {
+        method: 'post',
+        body: data
+    }).then(function (request) {
+        // Se verifica si la petición es correcta, de lo contrario se muestra un mensaje en la consola indicando el problema.
+        if (request.ok) {
+            // Se obtiene la respuesta en formato JSON.
+            request.json().then(function (response) {
+                // Se comprueba si la respuesta es satisfactoria, de lo contrario se muestra un mensaje con la excepción.
+                if (response.status) {
+                    // Se inicializan los campos del formulario con los datos del registro seleccionado.
+                    document.getElementById('categoria-det').textContent =response.dataset.nombreCategoriaA;
+                    document.getElementById('titulo-det').textContent = response.dataset.tituloArticulo;
+                    document.getElementById('autor-det').textContent = response.dataset.nombresEmpleado + " " + response.dataset.apellidosEmpleado;
+                    document.getElementById('fecha-det').textContent = response.dataset.fechaArticulo;
+                    document.getElementById('estado-det').textContent = response.dataset.estado;
+                    document.getElementById('imagen-det').textContent = response.dataset.imagenArticulo;
+                    document.getElementById('contenido-det').textContent = response.dataset.contenidoArticulo;
+                } else {
+                    sweetAlert(2, response.exception, null);
+                }
+            });
+        } else {
+            console.log(request.status + ' ' + request.statusText);
+        }
+    });
 }
 
 // Método manejador de eventos que se ejecuta cuando se envía el formulario de guardar.

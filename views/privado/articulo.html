@@ -159,7 +159,8 @@
                                     <input class="form-control form-control-dark w-60 d-none d-md-block Buscador-Imp"
                                         type="text" placeholder="Buscar" aria-label="Search" id="search" name="search">
                                 </form>
-                                <button class="btn-refresh"><i class="fa-solid fa-arrows-rotate"></i></button>
+                                <button class="btn-refresh" id="refresh"><i
+                                        class="fa-solid fa-arrows-rotate"></i></button>
                             </div>
                         </div>
                         <div class="row">
@@ -203,34 +204,37 @@
         aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
+
                 <div class="modal-header">
-
-                    <h3 class="mt-2">¡Llegan ofertas de San Valentin!</h3>
-
+                    <h3 class="mt-2" id="title-detail"></h3>
                     <button type="button" class="btn-close my" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
+
                 <div class="modal-body">
+
                     <div class="container ver-articulo-content">
-                        <div class="row">
-                            <div class="col">
-                                <img class="imgb" src="../../resources/img/blog/iconus.png" alt="#">
-                                <div class="col col-2"><span>Oscar Orellana</span> </div>
-                                <img class="imgb" src="../../resources/img/blog/calendari.png" alt="#">
-                                <div class="col col-2"><span>10/02/2022</span> </div>
+
+                        <div class="row d-flex flex-row justify-content-between mb-2">
+                            <h3 class="text-uppercase" id="categoria-det"></h3>
+                            <h3 id="titulo-det"></h3>
+                            <div class="col col-4">
+                                <i class="fa-solid fa-user me-2"></i>
+                                <span id="autor-det"></span>
+                            </div>
+                            <div class="col col-4">
+                                <i class="fa-solid fa-calendar me-2"></i>
+                                <span id="fecha-det"></span>
+                            </div>
+                            <div class="col col-4">
+                                <i class="fa-solid fa-circle-info me-2"></i>
+                                <span id="estado-det"></span>
                             </div>
                         </div>
                         <hr>
                         <div class="row">
-                            <div class="col">
-                                <img class="img-b" src="../../resources/img/blog/blog2.jpg" alt="">
-                                <div class="col col-8 "><span class="Lorem">Lorem ipsum dolor sit amet consectetur
-                                        adipisicing elit. Tempora dicta, tempore cupiditate explicabo deserunt omnis
-                                        fuga assumenda distinctio rerum eum qui recusandae totam quae culpa commodi
-                                        fugit eligendi. Magnam, necessitatibus.</span></div>
-                            </div>
-
+                            <img class="col my-2" src="../../resources/img/blog/blog2.jpg" alt="" id="imagen-det">
+                            <div class="col"><span id="contenido-det"></span></div>
                         </div>
-
                     </div>
                 </div>
             </div>
@@ -241,8 +245,8 @@
     <!-- INICIO MODALS AGREGAR-->
     <form method="post" id="save-form" name="save-form">
 
-        <div class="modal modal-agregar fade" id="modal-agregar" name="modal-agregar" tabindex="-1" aria-labelledby="exampleModalLabel"
-            aria-hidden="true">
+        <div class="modal modal-agregar fade" id="modal-agregar" name="modal-agregar" tabindex="-1"
+            aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -306,9 +310,9 @@
                 </div>
             </div>
         </div>
-            
-        <div class="modal modal-agregar2 modal-agregar-articulo2 fade" id="modal-agregar2" name="modal-agregar2" aria-hidden="true"
-            aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
+
+        <div class="modal modal-agregar2 modal-agregar-articulo2 fade" id="modal-agregar2" name="modal-agregar2"
+            aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
             <div class="modal-dialog modal-dialog-centered modal-lg">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -390,7 +394,6 @@
 
     <!-- FLATPICKR -->
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="../../controllers/componentes.js"></script>
     <script src="../../controllers/privado/online.js"></script>

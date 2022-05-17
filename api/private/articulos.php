@@ -75,7 +75,7 @@ if (isset($_GET['action'])) {
                 }
                 break;
             case 'readOneDetail':
-                if (!$articulos->setId($_POST['idArticulo'])) {
+                if (!$articulos->setId($_POST['id'])) {
                     $result['exception'] = 'Artículo incorrecto';
                 } elseif ($result['dataset'] = $articulos->readOneDetail()) {
                     $result['status'] = 1;
@@ -88,7 +88,7 @@ if (isset($_GET['action'])) {
             case 'update':
                 //Especificamos los inputs por medio de su atributo name, y los capturamos con el método post
                 $_POST = $articulos->validateForm($_POST);
-                if (!$articulos->setId($_POST['idArticulo'])) {
+                if (!$articulos->setId($_POST['id'])) {
                     $result['exception'] = 'Artículo incorrecto';
                 } elseif (!$data = $articulos->readOne()) {
                     $result['exception'] = 'Artículo inexistente';
@@ -115,7 +115,7 @@ if (isset($_GET['action'])) {
                     $result['exception'] = $articulos->getFileError();
                 } elseif ($articulos->updateRow($data['imagenArticulo'])) {
                     $result['status'] = 1;
-                    if ($articulos->saveFile($_FILES['archivo'], $articulos->getRuta(), $articulos->getImagen())) {
+                    if ($articulos->saveFile($_FILES['imagen'], $articulos->getRuta(), $articulos->getImagen())) {
                         $result['message'] = 'Artículo actualizado correctamente';
                     } else {
                         $result['message'] = 'Artículo actualizado pero no se guardó la imagen';
