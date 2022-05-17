@@ -1,6 +1,6 @@
 <?php
 /*
-*	Clase para manejar la tabla usuarios de la base de datos.
+*	Clase para manejar la tabla subcategoria de la base de datos.
 *   Es clase hija de Validator.
 */
 class Subcategoriapd extends Validator
@@ -12,6 +12,7 @@ class Subcategoriapd extends Validator
     private $descripcion = null;
     private $imagen = null;
     private $estado = null;
+    //Variable para un campo con imagen -------------------------.
     private $ruta = '../images/subcategoriaspd/';
 
     /*
@@ -115,6 +116,8 @@ class Subcategoriapd extends Validator
     /* 
     *   Método para comprobar que existen subcategorias registradas en nuestra base de datos
     */
+
+    // Método para leer toda la información de las subcategorias existentes-------------------------.
     public function readAll()
     {
         $sql = 'SELECT "idSubCategoriaP", "nombreSubCategoriaP", sc."descripcionSubCategoriaP", "imagenSubcategoria", cp."nombreCategoriaP", e.estado
@@ -125,7 +128,8 @@ class Subcategoriapd extends Validator
         $params = null;
         return Database::getRows($sql, $params);
     }
-
+    
+    // Método para un dato en especifico de las subcategorias existentes-------------------------.
     public function readOne()
     {
         $sql = 'SELECT "idSubCategoriaP", "nombreSubCategoriaP", "descripcionSubCategoriaP", "imagenSubcategoria", "idCategoriaP", estado
@@ -173,10 +177,10 @@ class Subcategoriapd extends Validator
     }
 
     /* DELETE */
-    /* Función para inhabilitar un usuario ya que no los borraremos de la base*/
+    /* Función para inhabilitar una subcategoria ya que no los borraremos de la base -------------------------.*/
     public function deleteRow()
     {
-        //No eliminaremos registros, solo los inhabilitaremos
+        //No eliminaremos registros, solo los inhabilitaremos-------------------------.
         $sql = 'UPDATE "subcategoriaProducto" SET estado = 3 WHERE "idSubCategoriaP" = ?';
         $params = array($this->id);
         return Database::executeRow($sql, $params);

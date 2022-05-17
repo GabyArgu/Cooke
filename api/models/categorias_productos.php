@@ -1,13 +1,14 @@
 <?php
 /*
-*	Clase para manejar la tabla catalogo de colores de la base de datos de la tienda.
+*	Clase para manejar la tabla categoria de productos de la base de datos de la tienda.
 *   Es una clase hija de Validator.
 */
-class colorProducto extends Validator
+class categoriaCP extends Validator
 {
     // Declaración de atributos (propiedades).
     private $id = null;
-    private $color = null;
+    private $nombre = null;
+    private $descripcion = null;
     private $estado = null;
 
     /*
@@ -23,14 +24,25 @@ class colorProducto extends Validator
         }
     }
 
-    public function setColor($value)
+    public function setNombre($value)
     {
         if ($this->validateAlphanumeric($value, 1, 50)) {
-            $this->color = $value;
+            $this->nombre = $value;
             return true;
         } else {
             return false;
         }
+    }
+
+    public function setDescripcion($value)
+    {
+        if($this->validateString($value, 1, 250)) {
+            $this->descripcion = $value;
+            return true;
+        } else {
+            return false;
+        }
+        
     }
 
     public function setEstado($value)
@@ -50,9 +62,14 @@ class colorProducto extends Validator
         return $this->id;
     }
 
-    public function getColor()
+    public function getNombre()
     {
-        return $this->color;
+        return $this->nombre;
+    }
+
+    public function getDescripcion()
+    {
+        return $this->descripcion;
     }
 
     public function getEstado()
@@ -60,20 +77,20 @@ class colorProducto extends Validator
         return $this->estado;
     }
 
-    // Método para leer toda la información de los colores existentes-------------------------.
+    // Método para leer toda la información de las categoria de productos existentes-------------------------.
     public function readAll()
     {
-        $sql = 'SELECT * from "colorProducto" ORDER BY "idColor"';
+        $sql = 'SELECT * from "categoriaProducto" ORDER BY "idCategoria"';
         $params = null;
         return Database::getRows($sql, $params);
     }
 
-    // Método para un dato en especifico de los colores existentes-------------------------.
+    // Método para un dato en especifico  de las categoria de productos existentes-------------------------.
     public function readOne()
     {
         $sql = 'SELECT *
-        FROM "colorProducto"
-        where "idColor" = ?';
+        FROM "categoriaProducto"
+        where "idCategoria" = ?';
         $params = array($this->id);
         return Database::getRow($sql, $params);
     }
@@ -84,9 +101,9 @@ class colorProducto extends Validator
     /* SEARCH */
     public function searchRows($value)
     {
-        $sql = 'SELECT "colorProducto"
-                FROM "colorProducto"
-                WHERE "colorProducto" ILIKE ? ';
+        $sql = 'SELECT "nombreCategoriaP"
+                FROM "categoriaProducto"
+                WHERE "categoriaProducto" ILIKE ? ';
         $params = array("%$value%");
         return Database::getRows($sql, $params);
     }
@@ -94,9 +111,9 @@ class colorProducto extends Validator
     /* CREATE */
     public function createRow()
     {
-        $sql = 'INSERT INTO "colorProducto"("colorProducto", estado)
-                VALUES (?, 1);';
-        $params = array($this->color);
+        $sql = 'INSERT INTO "categoriaProducto"("nombreCategoriaP", "descripcionCategoria", estado)
+                VALUES (?,?, 1);';
+        $params = array($this->nombre, $this->descripcion);
         return Database::executeRow($sql, $params);
     }
 
@@ -104,22 +121,21 @@ class colorProducto extends Validator
     /* UPDATE */
     public function updateRow()
     {
-        $sql = 'UPDATE "colorProducto"
-                SET "colorProducto" = ?,
-                "estado" = ?
-                WHERE "idColor" = ?';
-            $params = array($this->color,$this->estado,$this->id);
+        $sql = 'UPDATE "categoriaProducto"
+                SET "nombreCategoriaP" = ?, "descripcionCategoria"=?,"estado" = ?
+                WHERE "idCategoria" = ?';
+            $params = array($this->nombre,$this->descripcion,$this->estado,$this->id);
         return Database::executeRow($sql, $params);
     }
 
     /* DELETE */
-    /* Función para borrar un color de la base (Solo se inahbilita)-------------------------*/
+    /* Función para inhabilitar una categoria de productos ya que no los borraremos de la base -------------------------.*/
     public function deleteRow()
     {
-        //No eliminaremos registros, solo los inhabilitaremos-------------------------
-        $sql = 'UPDATE "colorProducto"
+        //No eliminaremos registros, solo los inhabilitaremos-------------------------.
+        $sql = 'UPDATE "categoriaProducto"
                 SET estado = 2
-                WHERE "idColor" = ?';
+                WHERE "idCategoria" = ?';
         $params = array($this->id);
         return Database::executeRow($sql, $params);
     }

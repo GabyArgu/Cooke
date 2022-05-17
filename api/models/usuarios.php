@@ -1,7 +1,7 @@
 <?php
 /*
-*	Clase para manejar la tabla usuarios de la base de datos.
-*   Es clase hija de Validator.
+*	Esta sera la clase para manejar la tabla usuarios de la base de datos.
+*   Es una clase hija de Validator.
 */
 class Usuarios extends Validator
 {
@@ -185,8 +185,11 @@ class Usuarios extends Validator
     }
 
     /*
-    *   Métodos para gestionar la cuenta del usuario.
+    *   Métodos para gestionar la cuenta de la tabla usuario.
     */
+
+    // Se verifica si hay concidencias de información mediante el alias del empleado ingresado-------------------------.
+
     public function checkUser($alias)
     {
         $sql = 'SELECT "idEmpleado", a.avatar, ce."cargoEmpleado"
@@ -220,6 +223,8 @@ class Usuarios extends Validator
     /* 
     *   Método para comprobar que existen usuarios registrados en nuestra base de datos
     */
+
+    // Método para leer toda la información de los usuarios registrados-------------------------.
     public function readAll()
     {
         $sql = 'SELECT "idEmpleado", "nombresEmpleado", "apellidosEmpleado", "telefonoEmpleado", ce."cargoEmpleado", ee."estadoEmpleado"
@@ -231,6 +236,7 @@ class Usuarios extends Validator
         return Database::getRows($sql, $params);
     }
 
+    // Método para un dato en especifico de los usuarios registrados-------------------------.
     public function readOne()
     {
         $sql = 'SELECT "idEmpleado", "nombresEmpleado", "apellidosEmpleado", "correoEmpleado", "telefonoEmpleado", "direccionEmpleado", "aliasEmpleado", "fotoEmpleado", "cargoEmpleado", "estadoEmpleado"
@@ -287,11 +293,11 @@ class Usuarios extends Validator
     }
 
     /* DELETE */
-    /* Función para inhabilitar un usuario ya que no los borraremos de la base*/
+    /* Función para inhabilitar un usuario ya que no los borraremos de la base------------------------- */
     public function deleteRow()
     {
-        //No eliminaremos registros, solo los inhabilitaremos
-        $sql = 'UPDATE empleado SET "estadoEmpleado" = 3 WHERE "idEmpleado" = ?'; //Delete from empleado where "idEmpleado" = ?
+        //No eliminaremos registros, solo los inhabilitaremos-------------------------.
+        $sql = 'UPDATE empleado SET "estadoEmpleado" = 3 WHERE "idEmpleado" = ?'; //Delete from empleado where "idEmpleado" = ? -------------------------.
         $params = array($this->id);
         return Database::executeRow($sql, $params);
     }

@@ -155,80 +155,28 @@
                                     data-bs-target="#modal-agregar">Agregar<i class="fa-solid fa-plus"></i></button>
                             </div>
                             <div class="col d-flex justify-content-end mx-auto">
-                                <input class="form-control form-control-dark w-60 d-none d-md-block Buscador-Imp"
-                                    type="text" placeholder="Buscar" aria-label="Search">
+                                <form method="post" id="search-form">
+                                    <input class="form-control form-control-dark w-60 d-none d-md-block Buscador-Imp"
+                                        type="text" placeholder="Buscar" aria-label="Search" id="search" name="search">
+                                </form>
                                 <button class="btn-refresh"><i class="fa-solid fa-arrows-rotate"></i></button>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col">
                                 <div class="table-responsive mt-3" id="no-more-tables">
-                                    <table class="table table-bordered table-categorias" id="table-categorias-blog">
+                                    <table class="table table-bordered table-categorias" id="table-catalogo">
                                         <thead>
                                             <tr>
-                                                <th>Nombre</th>
+                                                <th>Id Catalogo</th>
+                                                <th>Nombre </th>
                                                 <th>Descripción</th>
+                                                <th>Estado</th>
                                                 <th>Acciones</th>
                                             </tr>
                                         </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td data-title="NOMBRE" class="nombre-categorias">Ofertas</td>
-                                                <td data-title="DESCRIPCION" class="descripcion">Lorem ipsum dolor sit
-                                                    amet
-                                                    consectetur adipisicing elit. </td>
-                                                <td class="botones-table">
-                                                    <div class="acciones d-flex mx-auto">
-                                                        <span href="" class="accion-btn" type="button"
-                                                            data-bs-toggle="modal" data-bs-target="#modal-actualizar">
-                                                            <i class="fa-solid fa-pen-to-square"></i>
-                                                        </span>
-                                                        <span href="" class="accion-btn" type="button"
-                                                            data-bs-toggle="modal" data-bs-target="#modal-eliminar">
-                                                            <i class="fa-solid fa-trash-can fa-lg"></i>
-                                                        </span>
-                                                    </div>
-                                                </td>
+                                        <tbody id="tbody-rows">
 
-                                            </tr>
-                                            <tr>
-                                                <td data-title="NOMBRE" class="nombre-categoria">Recetas</td>
-                                                <td data-title="DESCRIPCION" class="descripcion">Lorem ipsum dolor sit
-                                                    amet
-                                                    consectetur adipisicing elit. </td>
-                                                <td class="botones-table">
-                                                    <div class="acciones d-flex mx-auto">
-                                                        <span href="" class="accion-btn" type="button"
-                                                            data-bs-toggle="modal" data-bs-target="#modal-actualizar">
-                                                            <i class="fa-solid fa-pen-to-square"></i>
-                                                        </span>
-                                                        <span href="" class="accion-btn" type="button"
-                                                            data-bs-toggle="modal" data-bs-target="#modal-eliminar">
-                                                            <i class="fa-solid fa-trash-can fa-lg"></i>
-                                                        </span>
-                                                    </div>
-                                                </td>
-
-                                            </tr>
-                                            <tr>
-                                                <td data-title="NOMBRE" class="nombre-categoria">Nuevos productos</td>
-                                                <td data-title="DESCRIPCION" class="descripcion">Lorem ipsum dolor sit
-                                                    amet
-                                                    consectetur adipisicing elit. </td>
-                                                <td class="botones-table">
-                                                    <div class="acciones d-flex mx-auto">
-                                                        <span href="" class="accion-btn" type="button"
-                                                            data-bs-toggle="modal" data-bs-target="#modal-actualizar">
-                                                            <i class="fa-solid fa-pen-to-square"></i>
-                                                        </span>
-                                                        <span href="" class="accion-btn" type="button"
-                                                            data-bs-toggle="modal" data-bs-target="#modal-eliminar">
-                                                            <i class="fa-solid fa-trash-can fa-lg"></i>
-                                                        </span>
-                                                    </div>
-                                                </td>
-
-                                            </tr>
                                         </tbody>
                                     </table>
                                 </div>
@@ -264,25 +212,25 @@
                         <div class="row">
                             <div class="col">
                                 <div class="row agregar-content agregar-content-flex">
-                                    <div class="col-12 mb-4">
-                                        <label for="validationDefault01" class="form-label">Nombre</label>
-                                        <input type="text" class="form-control" id="validationDefault01" value=""
-                                            required>
-                                    </div>
-                                    <div class="col-12 mb-4">
-                                        <label for="validationDefault01" class="form-label">Descripción</label>
-                                        <textarea class="form-control" id="exampleFormControlTextarea1"
-                                            rows="6"></textarea>
-                                    </div>
+                                    <form class="col-12 mb-4" method="post" id="save-form">
+                                        <div class="col-12 mb-4">
+                                            <label for="validationDefault01" class="form-label">Nombre</label>
+                                            <input type="text" class="form-control" id="validationDefault01" value=""
+                                                id="nombreCB" name="nombreCB" required>
+                                        </div>
+                                        <div class="col-12 mb-4">
+                                            <label for="validationDefault01" class="form-label">Descripción</label>
+                                            <textarea class="form-control" rows="6" id="descripcionCB"
+                                                name="descripcionCB"></textarea>
+                                        </div>
+                                    </form>
                                 </div>
                             </div>
-
-
                         </div>
                     </div>
                 </div>
                 <div class="modal-footer d-flex justify-content-end">
-                    <button class="btn-guardar" type="button" data-bs-dismiss="modal">Guardar<i
+                    <button class="btn-guardar" type="submit" form="save-form">Guardar<i
                             class="fa-solid fa-floppy-disk"></i></button>
                 </div>
             </div>
@@ -305,25 +253,32 @@
                         <div class="row">
                             <div class="col">
                                 <div class="row agregar-content agregar-content-flex">
-                                    <div class="col-12 mb-4">
+                                    <form method="post" id="update-form" class="col-12 mb-4">
+                                        <input type="number" id="u_idCB" name="u_idCB" class="d-none">
                                         <label for="validationDefault01" class="form-label">Nombre</label>
-                                        <input type="text" class="form-control" id="validationDefault01" value=""
-                                            required>
-                                    </div>
-                                    <div class="col-12 mb-4">
-                                        <label for="validationDefault01" class="form-label">Descripción</label>
-                                        <textarea class="form-control" id="exampleFormControlTextarea1"
-                                            rows="6"></textarea>
-                                    </div>
+                                        <div class="col-12 d-flex flex-wrap">
+                                            <div class="col-12">
+                                                <input type="text" class="form-control picker2" id="u_nombreCB"
+                                                    name="u_nombreCB" value="" required>
+                                            </div>
+                                            <div class="col-12 mb-4">
+                                                <label for="validationDefault01" class="form-label">Descripción</label>
+                                                <textarea class="form-control" rows="6" id="u_descripcionCB"
+                                                    name="u_descripcionCB"></textarea>
+                                            </div>
+                                            <div class="col-12 mt-3">
+                                                <input type="number" class="form-control picker2" id="u_estado"
+                                                    name="u_estado" value="" required>
+                                            </div>
+                                        </div>
+                                    </form>
                                 </div>
                             </div>
-
-
                         </div>
                     </div>
                 </div>
                 <div class="modal-footer d-flex justify-content-end">
-                    <button class="btn-guardar" type="button" data-bs-dismiss="modal">Guardar<i
+                    <button class="btn-guardar" type="submit" form="update-form">Guardar<i
                             class="fa-solid fa-floppy-disk"></i></button>
                 </div>
             </div>
@@ -332,7 +287,7 @@
 
     <!-- FIN MODALS ACTUALIZAR -->
 
-    <!-- INICIO MODAL DELETE -->
+    <!-- INICIO DEL MODALS DE DELETE COLORES DE LOS PRODUCTOS EXISTENTES -->
     <div class="modal modal-eliminar fade" id="modal-eliminar" aria-hidden="true"
         aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
         <div class="modal-dialog modal-dialog-centered modal-xl">
@@ -346,21 +301,25 @@
                             <div class="col eliminar-content">
                                 <i class="fa-solid fa-circle-exclamation mb-4"></i>
                                 <h2>¿Estás seguro?</h2>
-                                <span>El elemento se borrará de manera permanente</span>
+                                <span>El elemento será dado de baja</span>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="modal-footer d-flex mx-2 justify-content-between">
-                    <button class="btn btn-cancel" type="button" data-bs-target="" data-bs-toggle="modal"
+                    <button class="btn btn-cancel" type="button"
                         data-bs-dismiss="modal">Cancelar</button>
-                    <button class="btn btn-siguiente" type="button" data-bs-target="" data-bs-toggle="modal"
-                        data-bs-dismiss="modal">Continuar</button>
+                    <form id="delete-form">
+                        <input type="hidden" id="id-delete" name="id-delete">
+                        <button class="btn btn-siguiente" type="submit" 
+                            data-bs-dismiss="modal">Continuar</button>
+                    </form>
+                    
                 </div>
             </div>
         </div>
     </div>
-    <!-- FIN MODAL DELETE -->
+    <!-- FIN DEL MODALS DE DELETE COLORES DE LOS PRODUCTOS EXISTENTES -->
 
     <!---------------- SCRIPTS ---------------->
 
@@ -377,7 +336,7 @@
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="../../controllers/componentes.js"></script>
     <script src="../../controllers/privado/online.js"></script>
-    <script src="../../controllers/privado/categorias_blog.js"></script>
+    <script src="../../controllers/privado/categoria_blog.js"></script>
 
 </body>
 

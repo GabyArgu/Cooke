@@ -147,13 +147,13 @@
                     <div class="row contenido">
                         <div class="row pt-3 mx-auto header-table">
                             <div class="col">
-                                <button class="btn-agregar" type="button" data-bs-toggle="modal"
-                                    data-bs-target="#modal-agregar">Agregar<i class="fa-solid fa-plus"></i></button>
+                                <button onclick="openCreate()" class="btn-agregar" type="button" data-bs-toggle="modal"
+                                data-bs-target="#save-modal">Agregar<i class="fa-solid fa-plus"></i></button>
                             </div>
                             <div class="col d-flex justify-content-end mx-auto">
                                 <form method="post" id="search-form">
                                     <input class="form-control form-control-dark w-60 d-none d-md-block Buscador-Imp"
-                                    type="text" placeholder="Buscar" aria-label="Search" id="search" name="search">
+                                    type="text" placeholder="Buscar por nombre o descripción" aria-label="Search" id="search" name="search">
                                 </form>
                                 <button class="btn-refresh" id="refresh"><i class="fa-solid fa-arrows-rotate"></i></button>
                             </div>
@@ -205,10 +205,10 @@
                         <div class="row info-detalle-content">
                             <div class="col col-5 img-detalle-producto mx-auto">
                                 <div class="main-img">
-                                    <img src="../../resources/img/detalleproducto/detalle1.jpg" alt=""
-                                        class="img-fluid d-block mx-auto img0" id="main-img">
+                                    <img src="" alt=""
+                                        class="img-fluid d-block mx-auto img0" id="show-img-main">
                                 </div>
-                                <div class="row">
+                                <!-- <div class="row">
                                     <div class="col-3 secondary-img sec-img1">
                                         <img src="../../resources/img/detalleproducto/detalle1.jpg" alt=""
                                             class="img-fluid mx-auto" id="img1" onmouseover="hoverImagen(src)">
@@ -225,12 +225,12 @@
                                         <img src="../../resources/img/detalleproducto/detalle4.jpg" alt=""
                                             class="img-fluid mx-auto" id="img4" onmouseover="hoverImagen(src)">
                                     </div>
-                                </div>
+                                </div> -->
                             </div>
                             <div class="col col-6 info-detalle-producto mx-auto">
                                 <div class="row">
                                     <span class="detalle-producto-name">
-                                        <h3>Plancha eléctrica Crepe Maker Cooktop</h3>
+                                        <h3 id="show-nombre" class="d-inline"></h3><span> </span><h3 class="d-inline" id="show-marca"></h3>
                                     </span>
                                 </div>
                                 <div class="rating-detalle">
@@ -253,40 +253,31 @@
                                 <hr>
                                 <div class="precio-disponibilidad d-block">
                                     <div class="precios">
-                                        <span class="precio">$29.99</span>
-                                        <span class="precio-before">$52.99</span>
+                                        <span class="precio" id="show-precio"></span>
+                                        <span class="precio-before" id="show-precio-before"></span>
                                     </div>
                                     <div class="disponibilidad-group">
-                                        <span class="disponibilidad ">Disponibilidad:</span> <span class="stock">En
-                                            Stock</span>
+                                        <span class="disponibilidad ">Disponibilidad:</span> <span class="stock" id="show-estado"></span>
                                     </div>
                                 </div>
                                 <hr>
                                 <div class="about-producto">
                                     <span class="title-about-producto">Sobre este artículo</span>
-                                    <p class="mt-2">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quod
-                                        minima optio
-                                        magni officia
-                                        blanditiis culpa illo vitae? Possimus quod, provident ullam facere
-                                        necessitatibus
-                                        expedita
-                                        quaerat! Cupiditate dolore aut repudiandae asperiores.</p>
+                                    <p class="mt-2" id="show-descripcion"></p>
                                 </div>
                                 <hr>
 
                                 <div class="row">
-                                    <span class="left-stock">Queda(n) 10 en stock</span>
+                                    <span class="left-stock">Queda(n) <span id="show-stock"></span> en stock</span>
                                 </div>
 
-                                <div class="colores mt-2">
-                                    <i class="fa-solid fa-square color1"></i>
-                                    <i class="fa-solid fa-square color2"></i>
-                                    <i class="fa-solid fa-square color3"></i>
-                                    <i class="fa-solid fa-square color4"></i>
+                                <div class="colores mt-2 cat">
+                                    <h5 class="d-inline">Color:</h5>
+                                    <span id="show-color"></span>
                                 </div>
                                 <div class="cat">
-                                    <h5>Categorías</h5>
-                                    <span>Utensilios, cucharas, espátulas</span>
+                                    <h5>Categoría</h5>
+                                    <span id="show-subcategoria"></span>
                                 </div>
                             </div>
                         </div>
@@ -298,376 +289,127 @@
     <!-- FIN MODAL -->
 
     <!-- INICIO MODALS AGREGAR-->
-    <div class="modal modal-agregar fade" id="modal-agregar" tabindex="-1" aria-labelledby="exampleModalLabel"
+    <form method="post" id="save-form">
+        <div class="modal modal-agregar fade" id="save-modal" tabindex="-1" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-xl">
             <div class="modal-content">
                 <div class="modal-header">
 
-                    <h3 class="mt-2">Agregar producto</h3>
+                    <h3 class="mt-2" id="modal-title"></h3>
 
                     <button type="button" class="btn-close my" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <div class="container">
                         <div class="row agregar-content">
-                            <div class="col">
-
+                            <div class="col" >
                                 <div class="row">
                                     <div class="col-4 mb-4">
                                         <label for="validationDefault01" class="form-label">Nombre</label>
-                                        <input type="text" class="form-control" id="validationDefault01" value=""
+                                        <input type="text" class="form-control" id="nombre" name="nombre" value=""
                                             required>
                                     </div>
                                     <div class="col-4 mb-4">
                                         <label for="validationDefault01" class="form-label">Precio</label>
-                                        <input type="text" class="form-control" id="validationDefault01" value=""
+                                        <input class="form-control" id="precio" name="precio" value=""
                                             required>
                                     </div>
                                     <div class="col-4 mb-4">
-                                        <label for="validationDefault01" class="form-label">Cantidad en
-                                            stock</label>
-                                        <input type="text" class="form-control" id="validationDefault01" value=""
-                                            required>
-                                    </div>
-                                    <div class="col-4 mb-4">
-                                        <label for="validationDefault02" class="form-label">Subcategoría</label>
-                                        <select class="form-select custom-form-select"
-                                            aria-label="Default select example">
-                                            <option selected disabled>Seleccione una opción</option>
-                                            <option value="1">Ollas</option>
-                                            <option value="2">Cuchillos</option>
-                                            <option value="3">Hornos</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-4 mb-4">
-                                        <label for="validationDefault03" class="form-label">Marca</label>
-                                        <select class="form-select custom-form-select"
-                                            aria-label="Default select example">
-                                            <option selected disabled>Seleccione una opción</option>
-                                            <option value="1">Oneida</option>
-                                            <option value="2">All-Clad</option>
-                                            <option value="3">GreenLife</option>
-                                            <option value="4">Hiware</option>
-                                            <option value="5">Panasonic</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-4 mb-4">
-                                        <label for="validationDefault03" class="form-label">Proveedor</label>
-                                        <select class="form-select custom-form-select"
-                                            aria-label="Default select example">
-                                            <option selected disabled>Seleccione una opción</option>
-                                            <option value="1">Almacenes Siman</option>
-                                            <option value="2">Walmart</option>
-                                            <option value="3">PriceMart</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-4 mb-4">
-                                        <label for="validationDefault03" class="form-label">Estado</label>
-                                        <select class="form-select custom-form-select"
-                                            aria-label="Default select example">
-                                            <option selected disabled>Seleccione una opción</option>
-                                            <option value="1">En stock</option>
-                                            <option value="2">Fuera de stock</option>
-                                            <option value="3">Deshabilitado</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-4 mb-4">
-                                        <label for="validationDefault01" class="form-label ">Tags</label>
-                                        <fieldset>
-                                            <input placeholder="" class="tagify">
-                                        </fieldset>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col color-producto">
-                                        <label for="">Color del producto</label>
-                                        <div class="colores mt-1 mx-1">
-                                            <i class="fa-solid fa-square color1"></i>
-                                            <i class="fa-solid fa-square color2"></i>
-                                            <i class="fa-solid fa-square color3"></i>
-                                            <i class="fa-solid fa-square color4"></i>
-                                            <i class="fa-solid fa-square color5"></i>
-                                            <i class="fa-solid fa-square color6"></i>
-                                            <i class="fa-solid fa-square color7"></i>
-                                            <i class="fa-solid fa-square color8"></i>
-                                            <i class="fa-solid fa-square color9"></i>
-                                            <i class="fa-solid fa-square color10"></i>
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </div>
-
-
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-footer d-flex justify-content-end">
-                    <button class="btn btn-siguiente" type="button" data-bs-target="#modal-agregar2"
-                        data-bs-toggle="modal" data-bs-dismiss="modal">Siguiente</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="modal modal-agregar2 fade" id="modal-agregar2" aria-hidden="true"
-        aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
-        <div class="modal-dialog modal-dialog-centered modal-xl">
-            <div class="modal-content">
-                <div class="modal-header">
-
-                    <h3 class="mt-2">Agregar producto</h3>
-
-                    <button type="button" class="btn-close my" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="container my-5">
-                        <div class="row agregar-content">
-                            <div class="col">
-                                <div class="row">
-                                    <div class="col">
-                                        <label for="exampleFormControlTextarea1" class="form-label">Descripción</label>
-                                        <textarea class="form-control" id="exampleFormControlTextarea1"
-                                            rows="6"></textarea>
-                                    </div>
-                                </div>
-
-                            </div>
-
-
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-footer d-flex justify-content-between">
-                    <button class="btn btn-regresar" type="button" data-bs-target="#modal-agregar"
-                        data-bs-toggle="modal" data-bs-dismiss="modal">Regresar</button>
-                    <button class="btn btn-siguiente" type="button" data-bs-target="#modal-agregar3"
-                        data-bs-toggle="modal" data-bs-dismiss="modal">Siguiente</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="modal modal-agregar3 fade" id="modal-agregar3" aria-hidden="true"
-        aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
-        <div class="modal-dialog modal-dialog-centered modal-xl">
-            <div class="modal-content">
-                <div class="modal-header">
-
-                    <h3 class="mt-2">Agregar producto</h3>
-
-                    <button type="button" class="btn-close my" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="container my-5">
-                        <div class="row agregar-content">
-                            <div class="col">
-                                <div class="row">
-                                    <div class="col">
-                                        <form action="/file-upload" class="dropzone" id="agregar-dropzone">
-                                        </form>
-                                    </div>
-                                </div>
-
-                            </div>
-
-
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-footer d-flex justify-content-between">
-                    <button class="btn btn-regresar" type="button" data-bs-target="#modal-agregar2"
-                        data-bs-toggle="modal" data-bs-dismiss="modal">Regresar</button>
-                    <button class="btn-guardar" type="button">Guardar<i class="fa-solid fa-floppy-disk"></i></button>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- FIN MODAL -->
-
-    <!-- INICIO MODAL ACTUALIZAR -->
-    <div class="modal modal-agregar fade" id="modal-actualizar" tabindex="-1" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered modal-xl">
-            <div class="modal-content">
-                <div class="modal-header">
-
-                    <h3 class="mt-2">Actualizar producto</h3>
-
-                    <button type="button" class="btn-close my" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="container">
-                        <div class="row agregar-content">
-                            <div class="col">
-                                <div class="row">
-                                    <div class="col-4 mb-4">
-                                        <label for="validationDefault01" class="form-label">Nombre</label>
-                                        <input type="text" class="form-control" id="validationDefault01" value=""
-                                            required>
-                                    </div>
-                                    <div class="col-4 mb-4">
-                                        <label for="validationDefault01" class="form-label">Precio</label>
-                                        <input type="text" class="form-control" id="validationDefault01" value=""
-                                            required>
-                                    </div>
-                                    <div class="col-4 mb-4">
-                                        <label for="validationDefault01" class="form-label">Cantidad en
-                                            stock</label>
+                                        <label for="validationDefault01" class="form-label">Stock</label>
                                         <div class="stock-container">
-                                            <div class="col col-lg-4  input-stock">
-                                                <input type="text" class="form-control" id="stock-actul" value=""
-                                                    placeholder="10" disabled>
+                                            <div class="col input-stock" id="div-stock">
+                                                <input type="number" class="form-control" id="stock" name="stock" value=""
+                                                required>
                                             </div>
-                                            <div class="col col-lg-4  input-stock">
-                                                <input type="text" class="form-control " id="stock-nuevo" value=""
-                                                    required>
+                                            <div class="col col-lg-4 input-stock input-hide" id="div-stock-nuevo">
+                                                <input type="text" class="form-control " id="stock-nuevo">
                                             </div>
                                             <div class="col col-lg-4 d-flex">
-                                                <button class="btn btn-stock" type="button"><i
-                                                        class="fa-solid fa-minus"></i></button>
-                                                <button class="btn btn-stock" type="button"><i
+                                                <button class="btn btn-stock input-hide" type="button" id="quitar-stock" onclick="restarStock()"><i
+                                                        class="fa-solid fa-minus" ></i></button>
+                                                <button class="btn btn-stock input-hide" type="button" id="añadir-stock" onclick="sumarStock()"><i
                                                         class="fa-solid fa-plus"></i></button>
                                             </div>
-
                                         </div>
                                     </div>
                                     <div class="col-4 mb-4">
                                         <label for="validationDefault02" class="form-label">Subcategoría</label>
                                         <select class="form-select custom-form-select"
-                                            aria-label="Default select example">
-                                            <option selected disabled>Seleccione una opción</option>
-                                            <option value="1">Ollas</option>
-                                            <option value="2">Cuchillos</option>
-                                            <option value="3">Hornos</option>
+                                            aria-label="Default select example" id="subcategoria" name="subcategoria">
                                         </select>
                                     </div>
                                     <div class="col-4 mb-4">
                                         <label for="validationDefault03" class="form-label">Marca</label>
                                         <select class="form-select custom-form-select"
-                                            aria-label="Default select example">
-                                            <option selected disabled>Seleccione una opción</option>
-                                            <option value="1">Oneida</option>
-                                            <option value="2">All-Clad</option>
-                                            <option value="3">GreenLife</option>
-                                            <option value="4">Hiware</option>
-                                            <option value="5">Panasonic</option>
+                                            aria-label="Default select example" id="marca" name="marca">
                                         </select>
                                     </div>
                                     <div class="col-4 mb-4">
                                         <label for="validationDefault03" class="form-label">Proveedor</label>
                                         <select class="form-select custom-form-select"
-                                            aria-label="Default select example">
-                                            <option selected disabled>Seleccione una opción</option>
-                                            <option value="1">Almacenes Siman</option>
-                                            <option value="2">Walmart</option>
-                                            <option value="3">PriceMart</option>
+                                            aria-label="Default select example" id="proveedor" name="proveedor">
                                         </select>
                                     </div>
                                     <div class="col-4 mb-4">
-                                        <label for="validationDefault03" class="form-label">Estado</label>
+                                        <label for="validationDefault03" class="form-label">Color</label>
                                         <select class="form-select custom-form-select"
-                                            aria-label="Default select example">
-                                            <option selected disabled>Seleccione una opción</option>
-                                            <option value="1">En stock</option>
-                                            <option value="2">Fuera de stock</option>
-                                            <option value="3">Deshabilitado</option>
+                                            aria-label="Default select example" id="color" name="color">
                                         </select>
                                     </div>
                                     <div class="col-4 mb-4">
-                                        <label for="validationDefault01" class="form-label ">Tags</label>
-                                        <fieldset>
-                                            <input placeholder="" class="tagify1">
+                                        <label for="validationDefault03" class="form-label "
+                                            id="estado-label">Estado</label>
+                                        <select class="form-select custom-form-select"
+                                            aria-label="Default select example" id="estado" name="estado">
+                                        </select>
+                                    </div>
+                                    <div class="col-4 mb-4">
+                                        <label for="validationDefault01" class="form-label input-hide">Tags</label>
+                                        <fieldset class="input-hide">
+                                            <input placeholder="" class="tagify input-hide">
                                         </fieldset>
                                     </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col color-producto">
-                                        <label for="">Color del producto</label>
-                                        <div class="colores mt-1 mx-1">
-                                            <i class="fa-solid fa-square color1"></i>
-                                            <i class="fa-solid fa-square color2"></i>
-                                            <i class="fa-solid fa-square color3"></i>
-                                            <i class="fa-solid fa-square color4"></i>
-                                            <i class="fa-solid fa-square color5"></i>
-                                            <i class="fa-solid fa-square color6"></i>
-                                            <i class="fa-solid fa-square color7"></i>
-                                            <i class="fa-solid fa-square color8"></i>
-                                            <i class="fa-solid fa-square color9"></i>
-                                            <i class="fa-solid fa-square color10"></i>
-                                        </div>
+                                    <div class="col-12 mb-4">
+                                        <input class="form-control input-hide" type="number" id="id" name="id">
                                     </div>
-
                                 </div>
                             </div>
-
-
                         </div>
                     </div>
                 </div>
                 <div class="modal-footer d-flex justify-content-end">
-                    <button class="btn btn-siguiente" type="button" data-bs-target="#modal-actualizar2"
+                    <button class="btn btn-siguiente" type="button" data-bs-target="#save-modal-2"
                         data-bs-toggle="modal" data-bs-dismiss="modal">Siguiente</button>
                 </div>
             </div>
         </div>
     </div>
-    <div class="modal modal-agregar2 fade" id="modal-actualizar2" aria-hidden="true"
+    <div class="modal modal-agregar2 fade" id="save-modal-2" aria-hidden="true"
         aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
         <div class="modal-dialog modal-dialog-centered modal-xl">
             <div class="modal-content">
                 <div class="modal-header">
 
-                    <h3 class="mt-2">Actualizar producto</h3>
+                    <h3 class="mt-2" id="modal-title2"></h3>
 
                     <button type="button" class="btn-close my" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <div class="container my-5">
+                    <div class="container my-2">
                         <div class="row agregar-content">
                             <div class="col">
                                 <div class="row">
                                     <div class="col">
                                         <label for="exampleFormControlTextarea1" class="form-label">Descripción</label>
-                                        <textarea class="form-control" id="exampleFormControlTextarea1"
+                                        <textarea class="form-control" id="descripcion" name="descripcion"
                                             rows="6"></textarea>
                                     </div>
                                 </div>
-
-                            </div>
-
-
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-footer d-flex justify-content-between">
-                    <button class="btn btn-regresar" type="button" data-bs-target="#modal-actualizar"
-                        data-bs-toggle="modal" data-bs-dismiss="modal">Regresar</button>
-                    <button class="btn btn-siguiente" type="button" data-bs-target="#modal-actualizar3"
-                        data-bs-toggle="modal" data-bs-dismiss="modal">Siguiente</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="modal modal-agregar3 fade" id="modal-actualizar3" aria-hidden="true"
-        aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
-        <div class="modal-dialog modal-dialog-centered modal-xl">
-            <div class="modal-content">
-                <div class="modal-header">
-
-                    <h3 class="mt-2">Actualizar producto</h3>
-
-                    <button type="button" class="btn-close my" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="container my-5">
-                        <div class="row agregar-content">
-                            <div class="col">
-                                <div class="row">
+                                <div class="row mt-2">
                                     <div class="col">
-                                        <form action="/file-upload" class="dropzone" id="my-awesome-dropzone">
-                                        </form>
+                                        <label for="validationDefault01" class="form-label">Imagen</label>
+                                        <input id="archivo" class="form-control" type="file" name="archivo" accept=".jpg, .png">
                                     </div>
                                 </div>
 
@@ -678,14 +420,19 @@
                     </div>
                 </div>
                 <div class="modal-footer d-flex justify-content-between">
-                    <button class="btn btn-regresar" type="button" data-bs-target="#modal-actualizar2"
+                    <button class="btn btn-regresar" type="button" data-bs-target="#save-modal"
                         data-bs-toggle="modal" data-bs-dismiss="modal">Regresar</button>
-                    <button class="btn-guardar" type="button">Guardar<i class="fa-solid fa-floppy-disk"></i></button>
+                        <button class="btn-guardar" type="submit" form="save-form">Guardar<i
+                            class="fa-solid fa-floppy-disk"></i></button>
                 </div>
             </div>
         </div>
     </div>
-    <!-- FIN MODALS ACTUALIZAR -->
+    </form>
+    
+
+    <!-- FIN MODAL -->
+
 
     <!-- INICIO MODAL DELETE -->
     <div class="modal modal-eliminar fade" id="modal-eliminar" aria-hidden="true"

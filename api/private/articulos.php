@@ -15,6 +15,7 @@ if (isset($_GET['action'])) {
     if (isset($_SESSION['id_usuario'])) {
         // Se compara la acción a realizar cuando un administrador ha iniciado sesión.
         switch ($_GET['action']) {
+            // Accion de leer toda la información------------------.
             case 'readAll':
                 if ($result['dataset'] = $articulos->readAll()) {
                     $result['status'] = 1;
@@ -24,6 +25,7 @@ if (isset($_GET['action'])) {
                     $result['exception'] = 'No hay datos registrados';
                 }
                 break;
+            // Accion de buscar información de los articulos------------------.      
             case 'search':
                 if ($result['dataset'] = $articulos->searchRows($_POST['search'])) {
                     $result['status'] = 1;
@@ -33,6 +35,7 @@ if (isset($_GET['action'])) {
                     $result['exception'] = 'No hay coincidencias';
                 }
                 break;
+            // Accion de crear un nuevo articulo ------------------.    
             case 'create':
                 //Especificamos los inputs por medio de su atributo name, y los capturamos con el método post
                 $_POST = $articulos->validateForm($_POST);
@@ -63,6 +66,7 @@ if (isset($_GET['action'])) {
                     $result['exception'] = Database::getException();
                 }
                 break;
+            // Accion leer un elemento de toda la información------------------    
             case 'readOne':
                 if (!$articulos->setId($_POST['id'])) {
                     $result['exception'] = 'Artículo incorrecto';
@@ -74,6 +78,7 @@ if (isset($_GET['action'])) {
                     $result['exception'] = 'Artículo inexistente';
                 }
                 break;
+            // Accion leer detalles de articulo------------------.        
             case 'readOneDetail':
                 if (!$articulos->setId($_POST['id'])) {
                     $result['exception'] = 'Artículo incorrecto';
@@ -85,6 +90,7 @@ if (isset($_GET['action'])) {
                     $result['exception'] = 'Artículo inexistente';
                 }
                 break;
+            // Accion de actualizar un elemento de toda la información------------------    
             case 'update':
                 //Especificamos los inputs por medio de su atributo name, y los capturamos con el método post
                 $_POST = $articulos->validateForm($_POST);
@@ -124,6 +130,7 @@ if (isset($_GET['action'])) {
                     $result['exception'] = Database::getException();
                 }
                 break;
+            // Accion de desabilitar un elemento de toda la información------------------    
             case 'delete':
                 if (!$articulos->setId($_POST['id-delete'])) {
                     $result['exception'] = 'Artículo incorrecto';

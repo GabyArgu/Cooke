@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', function () {
                         user.innerText = response.username;
                         const avatarImg = document.getElementById("avatar-side")
                         avatarImg.src = `../../resources/img/avatares/${response.avatar}.jpg`;
-                        //Comprobamos que existe el elemento, solo existe en el dashboard
+                        //Comprobamos que existe el elemento, solo existe en el dashboard-------------------.
                         if (document.body.contains(document.querySelector(".username2"))) {
                             const user2 = document.querySelector(".username2");
                             user2.innerText = response.username;
@@ -57,16 +57,16 @@ document.addEventListener('DOMContentLoaded', function () {
                 } else {
                     mycollapse.show();
 
-                    // find other submenus with class=show
+                    // encontrar otros submenús con class=show---------------.
                     var opened_submenu = parentEl.parentElement.querySelector('.submenu.show');
-                    // if it exists, then close all of them
+                    // si existe, entonces cierra todas ellas-----------------.
                     if (opened_submenu) {
                         new bootstrap.Collapse(opened_submenu);
                     }
                 }
             }
-        }); // addEventListener
-    }) // forEach
+        }); // añadir un receptor de eventos-----------.
+    }) // para cada uno de ellos-------------------.
 
 });
 

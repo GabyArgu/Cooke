@@ -1,13 +1,13 @@
 <?php
 /*
-*	Clase para manejar la tabla categorias de la base de datos.
+*	Clase para manejar la tabla estado de producto de la base de datos.
 *   Es clase hija de Validator.
 */
-class Categoriapd extends Validator
+class EstadoProducto extends Validator
 {
     // Declaración de atributos (propiedades).
     private $id = null;
-    private $nombre = null;
+    private $estado = null;
 
     /*
     *   Métodos para validar y asignar valores de los atributos.
@@ -22,10 +22,10 @@ class Categoriapd extends Validator
         }
     }
 
-    public function setNombre($value)
+    public function setEstado($value)
     {
         if ($this->validateAlphanumeric($value, 1, 50)) {
-            $this->nombre = $value;
+            $this->estado = $value;
             return true;
         } else {
             return false;
@@ -39,15 +39,15 @@ class Categoriapd extends Validator
         return $this->id;
     }
 
-    public function getNombre()
+    public function getEstado()
     {
-        return $this->nombre;
+        return $this->estado;
     }
 
-
+    // Método para leer todos los estados de productos existentes-------------------------.
     public function readAll()
     {
-        $sql = 'SELECT "idCategoria", "nombreCategoriaP" FROM "categoriaProducto"';
+        $sql = 'SELECT "idEstadoProducto", "estadoProducto" FROM "estadoProducto"';
         $params = null;
         return Database::getRows($sql, $params);
     }

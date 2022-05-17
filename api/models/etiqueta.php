@@ -7,7 +7,7 @@ class colorProducto extends Validator
 {
     // Declaración de atributos (propiedades).
     private $id = null;
-    private $color = null;
+    private $nombreEtiqueta = null;
     private $estado = null;
 
     /*
@@ -23,10 +23,10 @@ class colorProducto extends Validator
         }
     }
 
-    public function setColor($value)
+    public function setNombreEtiqueta($value)
     {
         if ($this->validateAlphanumeric($value, 1, 50)) {
-            $this->color = $value;
+            $this->nombre_etiqueta = $value;
             return true;
         } else {
             return false;
@@ -50,9 +50,9 @@ class colorProducto extends Validator
         return $this->id;
     }
 
-    public function getColor()
+    public function getNombreEtiqueta()
     {
-        return $this->color;
+        return $this->NombreEtiqueta;
     }
 
     public function getEstado()
@@ -60,20 +60,19 @@ class colorProducto extends Validator
         return $this->estado;
     }
 
-    // Método para leer toda la información de los colores existentes-------------------------.
+
     public function readAll()
     {
-        $sql = 'SELECT * from "colorProducto" ORDER BY "idColor"';
+        $sql = 'SELECT * from "nombreEtiqueta"';
         $params = null;
         return Database::getRows($sql, $params);
     }
 
-    // Método para un dato en especifico de los colores existentes-------------------------.
     public function readOne()
     {
         $sql = 'SELECT *
-        FROM "colorProducto"
-        where "idColor" = ?';
+        FROM "nombreEtiqueta"
+        where "idEtiqueta" = ?';
         $params = array($this->id);
         return Database::getRow($sql, $params);
     }
@@ -84,9 +83,9 @@ class colorProducto extends Validator
     /* SEARCH */
     public function searchRows($value)
     {
-        $sql = 'SELECT "colorProducto"
-                FROM "colorProducto"
-                WHERE "colorProducto" ILIKE ? ';
+        $sql = 'SELECT "nombreEtiqueta"
+                FROM "nombreEtiqueta"
+                WHERE "nombreEtiqueta" ILIKE ? ';
         $params = array("%$value%");
         return Database::getRows($sql, $params);
     }
@@ -94,7 +93,7 @@ class colorProducto extends Validator
     /* CREATE */
     public function createRow()
     {
-        $sql = 'INSERT INTO "colorProducto"("colorProducto", estado)
+        $sql = 'INSERT INTO "nombreEtiqueta"("nombreEtiqueta", idEstado)
                 VALUES (?, 1);';
         $params = array($this->color);
         return Database::executeRow($sql, $params);
@@ -104,22 +103,21 @@ class colorProducto extends Validator
     /* UPDATE */
     public function updateRow()
     {
-        $sql = 'UPDATE "colorProducto"
-                SET "colorProducto" = ?,
-                "estado" = ?
-                WHERE "idColor" = ?';
-            $params = array($this->color,$this->estado,$this->id);
+        $sql = 'UPDATE "nombreEtiqueta"
+                SET "nombreEtiqueta" = ?,
+                "idEstado" = ?
+                WHERE "idEtiqueta" = ?';
+            $params = array($this->nombre_,$this->estado,$this->id);
         return Database::executeRow($sql, $params);
     }
 
     /* DELETE */
-    /* Función para borrar un color de la base (Solo se inahbilita)-------------------------*/
+    
     public function deleteRow()
     {
-        //No eliminaremos registros, solo los inhabilitaremos-------------------------
-        $sql = 'UPDATE "colorProducto"
-                SET estado = 2
-                WHERE "idColor" = ?';
+        $sql = 'UPDATE "nombreEtiqueta"
+                SET idEstado = 2
+                WHERE "idEtiqueta" = ?';
         $params = array($this->id);
         return Database::executeRow($sql, $params);
     }

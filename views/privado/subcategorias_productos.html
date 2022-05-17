@@ -135,7 +135,7 @@
                                 </a>
                                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
                                     <li><a class="dropdown-item" href="cuenta.html">Perfil</a></li>
-                                    <li><a class="dropdown-item" href="index.html">Cerrar Sesión</a></li>
+                                    <li><a class="dropdown-item" onclick="logOut()">Cerrar Sesión</a></li>
                                 </ul>
                             </li>
                         </ul>
@@ -156,7 +156,7 @@
                             <div class="col d-flex justify-content-end mx-auto">
                                 <form method="post" id="search-form">
                                     <input class="form-control form-control-dark w-60 d-none d-md-block Buscador-Imp"
-                                        type="text" placeholder="Buscar" aria-label="Search" id="search" name="search">
+                                    type="text" placeholder="Buscar por nombre o categoría" aria-label="Search" id="search" name="search">
                                 </form>
                                 <button class="btn-refresh" id="refresh"><i
                                         class="fa-solid fa-arrows-rotate"></i></button>

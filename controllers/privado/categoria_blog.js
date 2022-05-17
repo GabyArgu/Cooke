@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    $('#table-categoriap').DataTable({
+    $('#table-catalogo').DataTable({
         "info": false,
         "searching": false,
         "dom":
@@ -17,12 +17,12 @@ $(document).ready(function () {
 });
 
 // Constante para establecer la ruta y parámetros de comunicación con la API.
-const API_CATEGORIAP = SERVER + 'private/categorias_productos.php?action=';
+const API_CATALOGO = SERVER + 'private/categoria_blog.php?action=';
 
 // Método manejador de eventos que se ejecuta cuando el documento ha cargado.
 document.addEventListener('DOMContentLoaded', function () {
     // Se llama a la función que obtiene los registros para llenar la tabla. Se encuentra en el archivo components.js
-    readRows(API_CATEGORIAP);
+    readRows(API_CATALOGO);
 });
 
 // Función para llenar la tabla con los datos de los registros. Se manda a llamar en la función readRows().
@@ -33,18 +33,18 @@ function fillTable(dataset) {
         // Se crean y concatenan las filas de la tabla con los datos de cada registro.
         content += `
             <tr>
-                <td data-title="ID" class="nombre-categoria">${row.idCategoria}</td>
-                <td data-title="COLOR" class="nombre-categoria">${row.nombreCategoriaP}</td>
-                <td data-title="COLOR" class="nombre-categoria">${row.descripcionCategoria}</td>
+                <td data-title="ID" class="nombre-categoria">${row.idCategoriaA}</td>
+                <td data-title="COLOR" class="nombre-categoria">${row.nombreCategoriaA}</td>
+                <td data-title="COLOR" class="nombre-categoria">${row.descripcionCategoriaA}</td>
                 <td data-title="ESTADO" class="nombre-categoria">${row.estado}</td>
                 <td class="botones-table">
                     <div class="acciones d-flex mx-auto">
                         <span href="" class="accion-btn" type="button"
-                            data-bs-toggle="modal" data-bs-target="#modal-actualizar" onclick="openUpdate(${row.idCategoria})">
+                            data-bs-toggle="modal" data-bs-target="#modal-actualizar" onclick="openUpdate(${row.idCategoriaA})">
                             <i class="fa-solid fa-pen-to-square"></i>
                         </span>
                         <span href="" class="accion-btn" type="button"
-                            data-bs-toggle="modal" data-bs-target="#modal-eliminar" onclick="openDelete(${row.idCategoria})">
+                            data-bs-toggle="modal" data-bs-target="#modal-eliminar" onclick="openDelete(${row.idCategoriaA})">
                             <i class="fa-solid fa-trash-can fa-lg"></i>
                         </span>
                     </div>
@@ -61,7 +61,7 @@ document.getElementById('search-form').addEventListener('submit', function (even
     // Se evita recargar la página web después de enviar el formulario.
     event.preventDefault();
     // Se llama a la función que realiza la búsqueda. Se encuentra en el archivo components.js
-    searchRows(API_CATEGORIAP, 'search-form');
+    searchRows(API_CATALOGO, 'search-form');
 });
 
 
@@ -71,7 +71,7 @@ function openUpdate(id) {
     const data = new FormData();
     data.append('id', id);
     // Petición para obtener los datos del registro solicitado.
-    fetch(API_CATEGORIAP + 'readOne', {
+    fetch(API_CATALOGO + 'readOne', {
         method: 'post',
         body: data
     }).then(function (request) {
@@ -82,9 +82,9 @@ function openUpdate(id) {
                 // Se comprueba si la respuesta es satisfactoria, de lo contrario se muestra un mensaje con la excepción.
                 if (response.status) {
                     // Se inicializan los campos del formulario con los datos del registro seleccionado.
-                    document.getElementById('u_idCP').value = response.dataset.idCategoria;
-                    document.getElementById('u_nombreCP').value = response.dataset.nombreCategoriaP;
-                    document.getElementById('u_descripcionCP').value = response.dataset.descripcionCategoria;
+                    document.getElementById('u_idCB').value = response.dataset.idCategoriaA;
+                    document.getElementById('u_nombreCB').value = response.dataset.nombreCategoriaA;
+                    document.getElementById('u_descripcionCB').value = response.dataset.descripcionCategoriaA;
                     document.getElementById('u_estado').value = response.dataset.estado;
                 } else {
                     sweetAlert(2, response.exception, null);
@@ -101,7 +101,7 @@ document.getElementById('save-form').addEventListener('submit', function (event)
     // Se evita recargar la página web después de enviar el formulario.
     event.preventDefault();
     // Se llama a la función para guardar el registro. Se encuentra en el archivo components.js
-    saveRow(API_CATEGORIAP, 'create', 'save-form', 'modal-agregar');
+    saveRow(API_CATALOGO, 'create', 'save-form', 'modal-agregar');
 });
 
 // Método manejador de eventos que se ejecuta cuando se envía el formulario de actualizar.
@@ -109,18 +109,18 @@ document.getElementById('update-form').addEventListener('submit', function (even
     // Se evita recargar la página web después de enviar el formulario.
     event.preventDefault();
     // Se llama a la función para actualizar el registro. Se encuentra en el archivo components.js
-    saveRow(API_CATEGORIAP, 'update', 'update-form', 'modal-actualizar');
+    saveRow(API_CATALOGO, 'update', 'update-form', 'modal-actualizar');
 });
 
-// Función para mandar el id de la row seleccionada al modal eliminar-------------------.
+// Función para mandar el id de la row seleccionada al modal eliminar-------------------..
 function openDelete(id) {
     document.getElementById('id-delete').value = id;
 }
 
-// Método manejador de eventos que se ejecuta cuando se envía el modal de eliminar-------------------.
+// Método manejador de eventos que se ejecuta cuando se envía el modal de eliminar-------------------..
 document.getElementById('delete-form').addEventListener('submit', function (event) {
     // Se evita recargar la página web después de enviar el formulario-------------------.
     event.preventDefault();
     //Llamamos al método que se encuentra en la api y le pasamos la ruta de la API y el id del formulario dentro de nuestro modal eliminar-------------------.
-    confirmDelete(API_CATEGORIAP, 'delete-form');
+    confirmDelete(API_CATALOGO, 'delete-form');
 });

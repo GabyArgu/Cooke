@@ -43,7 +43,7 @@ function fillTable(dataset) {
                             <i class="fa-solid fa-pen-to-square"></i>
                         </span>
                         <span href="" class="accion-btn" type="button"
-                            data-bs-toggle="modal" data-bs-target="#modal-eliminar">
+                            data-bs-toggle="modal" data-bs-target="#modal-eliminar" onclick="openDelete(${row.idColor})">
                             <i class="fa-solid fa-trash-can fa-lg"></i>
                         </span>
                     </div>
@@ -110,11 +110,15 @@ document.getElementById('update-form').addEventListener('submit', function (even
     saveRow(API_COLORES, 'update', 'update-form', 'modal-actualizar');
 });
 
-// Función para establecer el registro a eliminar y abrir una caja de diálogo de confirmación.
+// Función para mandar el id de la row seleccionada al modal eliminar-------------------..
 function openDelete(id) {
-    // Se define un objeto con los datos del registro seleccionado.
-    const data = new FormData();
-    data.append('id', id);
-    // Se llama a la función que elimina un registro. Se encuentra en el archivo components.js
-    confirmDelete(API_COLORES, data);
+    document.getElementById('id-delete').value = id;
 }
+
+// Método manejador de eventos que se ejecuta cuando se envía el modal de eliminar-------------------.
+document.getElementById('delete-form').addEventListener('submit', function (event) {
+    // Se evita recargar la página web después de enviar el formulario-------------------..
+    event.preventDefault();
+    //Llamamos al método que se encuentra en la api y le pasamos la ruta de la API y el id del formulario dentro de nuestro modal eliminar-------------------.
+    confirmDelete(API_COLORES, 'delete-form');
+});

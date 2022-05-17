@@ -1,6 +1,6 @@
 <?php
 /*
-*	Clase para manejar la tabla usuarios de la base de datos.
+*	Clase para manejar la tabla productos de la base de datos.
 *   Es clase hija de Validator.
 */
 class Productos extends Validator
@@ -14,7 +14,10 @@ class Productos extends Validator
     private $proveedor = null;
     private $marca = null;
     private $estado = null;
+    private $color = null;
+    private $stock = null;
     private $imagen = null;
+    //Variable para un campo con imagen -------------------------.
     private $ruta = '../images/productos/';
 
     /*
@@ -111,6 +114,26 @@ class Productos extends Validator
         }
     }
 
+    public function setColor($value)
+    {
+        if ($this->validateNaturalNumber($value)) {
+            $this->color = $value;
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public function setStock($value)
+    {
+        if ($this->validateNaturalNumber($value)) {
+            $this->stock = $value;
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     /*
     *   Métodos para obtener valores de los atributos.
     */
@@ -159,6 +182,11 @@ class Productos extends Validator
         return $this->estado;
     }
 
+    public function getColor()
+    {
+        return $this->color;
+    }
+
     public function getRuta()
     {
         return $this->ruta;
@@ -167,6 +195,8 @@ class Productos extends Validator
     /* 
     *   Método para comprobar que existen subcategorias registradas en nuestra base de datos
     */
+
+    // Método para leer toda la información de los productos registrados-------------------------.
     public function readAll()
     {
         $sql = 'SELECT "idProducto", "imagenPrincipal", "nombreProducto", "descripcionProducto", "precioProducto", ep."estadoProducto" 
@@ -178,11 +208,25 @@ class Productos extends Validator
         return Database::getRows($sql, $params);
     }
 
+    // Método para un dato en especifico de los productos registrados-------------------------.
     public function readOne()
     {
         $sql = 'SELECT "idProducto", "idSubCategoriaP", "idProveedor", "idMarca", "imagenPrincipal", "nombreProducto", "descripcionProducto", "precioProducto", "estadoProducto"
         FROM producto 
         WHERE "idProducto" = ?';
+        $params = array($this->id);
+        return Database::getRow($sql, $params);
+    }
+
+    public function readOneShow()
+    {
+        $sql = 'SELECT p."idProducto", "nombreSubCategoriaP", "nombreMarca", "imagenPrincipal", "nombreProducto", "descripcionProducto", "precioProducto", ep."estadoProducto", cp."colorProducto", stock 
+        FROM producto as p inner join "colorStock" as cs on p."idProducto" = cs."idProducto"
+		inner join "subcategoriaProducto" as sp on p."idSubCategoriaP" = sp."idSubCategoriaP"
+		inner join "estadoProducto" as ep on p."estadoProducto" = ep."idEstadoProducto"
+		inner join marca as m on p."idMarca" = m."idMarca"
+		inner join "colorProducto" as cp on cs."idColor" = cp."idColor"
+        WHERE p."idProducto" =  ?';
         $params = array($this->id);
         return Database::getRow($sql, $params);
     }
@@ -203,17 +247,33 @@ class Productos extends Validator
     /* CREATE */
     public function createRow()
     {
-        $sql = 'INSERT INTO "subcategoriaProducto"("idCategoriaP", "nombreSubCategoriaP", "descripcionSubCategoriaP", "imagenSubcategoria", "estado")
-        VALUES (?, ?, ?, ?, ?);';
-        $params = array($this->categoria, $this->nombre, $this->descripcion, $this->imagen, $this->estado);
+        $sql = 'INSERT INTO producto(
+        "idSubCategoriaP", "idProveedor", "idMarca", "nombreProducto", "descripcionProducto", "precioProducto", "estadoProducto", "imagenPrincipal")
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?) RETURNING "idProducto";';
+        $params = array($this->subcategoria, $this->proveedor, $this->marca, $this->nombre, $this->descripcion, $this->precio, $this->estado, $this->imagen);
         return Database::executeRow($sql, $params);
     }
 
+    /* Función para obtener el id del último registro ingresado -------------------------*/
+    public function getLastId()
+    {
+        $sql = 'SELECT MAX("idProducto") as "idProducto" FROM producto ';
+        return Database::getRowId($sql);
+    }
+
+    public function insertStock($lastId)
+    {
+        $sql = 'INSERT INTO "colorStock"(
+        "idProducto", "idColor", stock, fecha)
+        VALUES (?, ?, ?, CURRENT_DATE);';
+        $params = array($lastId, $this->color, $this->stock);
+        return Database::executeRow($sql, $params);
+    }
 
     /* UPDATE */
     public function updateRow($current_image)
     {   
-        // Se verifica si existe una nueva imagen para borrar la actual, de lo contrario se mantiene la actual.
+        // Se verifica si existe una nueva imagen para borrar la actual, de lo contrario se mantiene la actual -------------------------.
         ($this->imagen) ? $this->deleteFile($this->getRuta(), $current_image) : $this->imagen = $current_image;
 
         $sql = 'UPDATE "subcategoriaProducto"
@@ -223,11 +283,22 @@ class Productos extends Validator
         return Database::executeRow($sql, $params);
     }
 
+    /* UPDATE stock */
+    /* Actualiza el stock que esta en la tabla colorStock del respectivo producto------------------------.*/
+    public function updateStock()
+    {   
+        $sql = 'UPDATE "colorStock"
+            SET "idColor"=?, stock=?, fecha = CURRENT_DATE
+            WHERE "idProducto" = ?;';
+            $params = array($this->color, $this->stock, $this->id);
+        return Database::executeRow($sql, $params);
+    }
+
     /* DELETE */
-    /* Función para inhabilitar un usuario ya que no los borraremos de la base*/
+    /* Función para inhabilitar un usuario ya que no los borraremos de la base-------------------------.*/
     public function deleteRow()
     {
-        //No eliminaremos registros, solo los inhabilitaremos
+        //No eliminaremos registros, solo los inhabilitaremos-------------------------.
         $sql = 'UPDATE producto SET "estadoProducto" = 3 WHERE "idProducto" = ?';
         $params = array($this->id);
         return Database::executeRow($sql, $params);

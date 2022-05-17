@@ -124,6 +124,8 @@ class Comentarios extends Validator
     /* 
     *   Método para comprobar que existen usuarios registrados en nuestra base de datos
     */
+
+    // Método para leer toda la información de los comentarios existentes-------------------------.
     public function readAll()
     {
         $sql = 'SELECT "idComentario", cl."nombresCliente", cl."apellidosCliente", a."tituloArticulo", "tituloComentario", "descripcionComentario", "fechaComentario", e."estado"
@@ -135,6 +137,7 @@ class Comentarios extends Validator
         return Database::getRows($sql, $params);
     }
 
+    // Método para un dato en especifico de los comentarios existentes-------------------------.
     public function readOne()
     {
         $sql = 'SELECT "idComentario", cl."nombresCliente", cl."apellidosCliente", a."tituloArticulo", "tituloComentario", "descripcionComentario", "fechaComentario", ca."estado"
@@ -183,9 +186,10 @@ class Comentarios extends Validator
     }
 
     /* DELETE */
+    /* Función para inhabilitar un comentario ya que no los borraremos de la base------------------------- */
     public function deleteRow()
     {
-        //No eliminaremos registros, solo los inhabilitaremos
+        //No eliminaremos registros, solo los inhabilitaremos-------------------------.
         $sql = 'UPDATE "comentarioArticulo" SET "estado" = 3 WHERE "idComentario" = ?';
         $params = array($this->id);
         return Database::executeRow($sql, $params);

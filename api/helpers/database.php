@@ -67,6 +67,29 @@ class Database
     }
     
     /*
+    *   Método para obtener un registro de una sentencia SQL tipo SELECT.
+    *
+    *   Parámetros: $query (sentencia SQL) y $values (arreglo de valores para la sentencia SQL).
+    *   
+    *   Retorno: arreglo asociativo del registro si la sentencia SQL se ejecuta satisfactoriamente o false en caso contrario.
+    */
+    public static function getRowId($query)
+    {
+        try {
+            self::conectar();
+            self::$statement = self::$connection->prepare($query);
+            self::$statement->execute();
+            // Se anula la conexión con el servidor de base de datos.
+            $idReturn = self::$statement->fetchColumn();
+            self::$connection = null;
+            return  $idReturn;
+        } catch (PDOException $error) {
+            // Se obtiene el código y el mensaje de la excepción para establecer un error personalizado.
+            self::setException($error->getCode(), $error->getMessage());
+            die(self::getException());
+        }
+    }
+    /*
     *   Método para obtener todos los registros de una sentencia SQL tipo SELECT.
     *
     *   Parámetros: $query (sentencia SQL) y $values (arreglo de valores para la sentencia SQL).

@@ -1,7 +1,7 @@
 <?php
 require_once('../helpers/database.php');
 require_once('../helpers/validaciones.php');
-require_once('../models/colores.php');
+require_once('../models/etiqueta.php');
 
 // Se comprueba si existe una acción a realizar, de lo contrario se finaliza el script con un mensaje de error.
 if (isset($_GET['action'])) {
@@ -15,9 +15,8 @@ if (isset($_GET['action'])) {
     if (isset($_SESSION['id_usuario'])) {
         // Se compara la acción a realizar cuando un administrador ha iniciado sesión.
         switch ($_GET['action']) {
-            // Accion de leer toda la información------------------.
             case 'readAll':
-                if ($result['dataset'] = $colores->readAll()) {
+                if ($result['dataset'] = $etiqueta->readAll()) {
                     $result['status'] = 1;
                 } elseif (Database::getException()) {
                     $result['exception'] = Database::getException();
@@ -25,12 +24,11 @@ if (isset($_GET['action'])) {
                     $result['exception'] = 'No hay datos registrados';
                 }
                 break;
-            // Accion de buscar información de los colores disponibles------------------.    
             case 'search':
-                $_POST = $colores->validateForm($_POST);
+                $_POST = $etiqueta->validateForm($_POST);
                 if ($_POST['search'] == '') {
                     $result['exception'] = 'Ingrese un valor para buscar';
-                } elseif ($result['dataset'] = $colores->searchRows($_POST['search'])) {
+                } elseif ($result['dataset'] = $etiqueta->searchRows($_POST['search'])) {
                     $result['status'] = 1;
                     $result['message'] = 'Valor encontrado';
                 } elseif (Database::getException()) {
@@ -39,57 +37,53 @@ if (isset($_GET['action'])) {
                     $result['exception'] = 'No hay coincidencias';
                 }
                 break;
-            // Accion de crear un nuevo color ------------------.    
             case 'create':
-                $_POST = $colores->validateForm($_POST);
-                if (!$colores->setColor($_POST['colorProducto'])) {
-                    $result['exception'] = 'Nombre de color inválido';
-                } elseif ($colores->createRow()) {
+                $_POST = $etiqueta->validateForm($_POST);
+                if (!$etiqueta->set($_POST['nombre_etiqueta'])) {
+                    $result['exception'] = 'Nombre de Etiqueta inválido';
+                } elseif ($etiqueta->createRow()) {
                     $result['status'] = 1;
-                    $result['message'] = 'Color de producto agregado correctamente.';
+                    $result['message'] = 'Etiqueta de producto agregada correctamente.';
                 } else {
                     $result['exception'] = Database::getException();
                 }
                 break;
-            // Accion leer un elemento de toda la información------------------.    
             case 'readOne':
-                if (!$colores->setId($_POST['id'])) {
+                if (!$etiqueta->setId($_POST['id'])) {
                     $result['exception'] = 'Error con el ID';
-                } elseif ($result['dataset'] = $colores->readOne()) {
+                } elseif ($result['dataset'] = $etiqueta->readOne()) {
                     $result['status'] = 1;
                 } elseif (Database::getException()) {
                     $result['exception'] = Database::getException();
                 } else {
-                    $result['exception'] = 'Color inexistente';
+                    $result['exception'] = 'Etiqueta inexistente';
                 }
                 break;
-            // Accion de actualizar un elemento de toda la información------------------.    
             case 'update':
-                $_POST = $colores->validateForm($_POST);
-                if (!$colores->setId($_POST['u_idColor'])) {
+                $_POST = $etiqueta->validateForm($_POST);
+                if (!$etiqueta->setId($_POST['u_idEtiqueta'])) {
                     $result['exception'] = 'ID inválido';
-                } elseif (!$data = $colores->readOne()) {
-                    $result['exception'] = 'Color inexistente';
-                } elseif (!$colores->setColor($_POST['u_colorProducto'])) {
-                    $result['exception'] = 'Nombre de color inválido';
-                } elseif (!$colores->setEstado($_POST['u_estado'])) {
+                } elseif (!$data = $etiqueta->readOne()) {
+                    $result['exception'] = 'Etiqueta inexistente';
+                } elseif (!$etiqueta->setNombreEtiqueta($_POST['u_nombreEtiqueta'])) {
+                    $result['exception'] = 'Nombre de Etiqueta inválido';
+                } elseif (!$etiqueta->setEstado($_POST['u_idEstado'])) {
                     $result['exception'] = 'Estado inválido';
-                } elseif ($colores->updateRow()) {
+                } elseif ($etiqueta->updateRow()) {
                     $result['status'] = 1;
-                    $result['message'] = 'Color modificado correctamente';
+                    $result['message'] = 'Etiqueta modificada correctamente';
                 } else {
                     $result['exception'] = Database::getException();
                 }
                 break;
-            // Accion de desabilitar un elemento de toda la información------------------.    
             case 'delete':
-                if (!$colores->setId($_POST['id-delete'])) {
-                    $result['exception'] = 'Color incorrecta';
-                } elseif (!$data = $colores->readOne()) {
-                    $result['exception'] = 'Color inexistente';
-                } elseif ($colores->deleteRow()) {
+                if (!$etiqueta->setId($_POST['id'])) {
+                    $result['exception'] = 'Etiqueta incorrecta';
+                } elseif (!$data = $etiqueta->readOne()) {
+                    $result['exception'] = 'Etiqueta inexistente';
+                } elseif ($etiqueta->deleteRow()) {
                     $result['status'] = 1;
-                    $result['message'] = 'Color eliminado correctamente';
+                    $result['message'] = 'Etiqueta eliminada correctamente';
                 } else {
                     $result['exception'] = Database::getException();
                 }

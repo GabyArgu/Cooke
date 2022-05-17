@@ -1,14 +1,14 @@
 <?php
 require_once('../helpers/database.php');
 require_once('../helpers/validaciones.php');
-require_once('../models/colores.php');
+require_once('../models/categoria_blog.php');
 
 // Se comprueba si existe una acción a realizar, de lo contrario se finaliza el script con un mensaje de error.
 if (isset($_GET['action'])) {
     // Se crea una sesión o se reanuda la actual para poder utilizar variables de sesión en el script.
     session_start();
     // Se instancia la clase correspondiente.
-    $colores = new colorProducto;
+    $categoria = new categoriaCB;
     // Se declara e inicializa un arreglo para guardar el resultado que retorna la API.
     $result = array('status' => 0, 'message' => null, 'exception' => null);
     // Se verifica si existe una sesión iniciada como administrador, de lo contrario se finaliza el script con un mensaje de error.
@@ -17,7 +17,7 @@ if (isset($_GET['action'])) {
         switch ($_GET['action']) {
             // Accion de leer toda la información------------------.
             case 'readAll':
-                if ($result['dataset'] = $colores->readAll()) {
+                if ($result['dataset'] = $categoria->readAll()) {
                     $result['status'] = 1;
                 } elseif (Database::getException()) {
                     $result['exception'] = Database::getException();
@@ -25,12 +25,12 @@ if (isset($_GET['action'])) {
                     $result['exception'] = 'No hay datos registrados';
                 }
                 break;
-            // Accion de buscar información de los colores disponibles------------------.    
+            // Accion de buscar información de las categorias disponibles------------------.     
             case 'search':
-                $_POST = $colores->validateForm($_POST);
+                $_POST = $categoria->validateForm($_POST);
                 if ($_POST['search'] == '') {
                     $result['exception'] = 'Ingrese un valor para buscar';
-                } elseif ($result['dataset'] = $colores->searchRows($_POST['search'])) {
+                } elseif ($result['dataset'] = $categoria->searchRows($_POST['search'])) {
                     $result['status'] = 1;
                     $result['message'] = 'Valor encontrado';
                 } elseif (Database::getException()) {
@@ -39,57 +39,61 @@ if (isset($_GET['action'])) {
                     $result['exception'] = 'No hay coincidencias';
                 }
                 break;
-            // Accion de crear un nuevo color ------------------.    
+            // Accion de crear un nueva categoria ------------------.    
             case 'create':
-                $_POST = $colores->validateForm($_POST);
-                if (!$colores->setColor($_POST['colorProducto'])) {
-                    $result['exception'] = 'Nombre de color inválido';
-                } elseif ($colores->createRow()) {
+                $_POST = $categoria->validateForm($_POST);
+                if (!$categoria->setNombre($_POST['nombreCB'])) {
+                    $result['exception'] = 'Nombre de categoria inválido';
+                }elseif (!$categoria->setDescripcion($_POST['descripcionCB'])) {
+                    $result['exception'] = 'Descripción inválida';
+                } elseif ($categoria->createRow()) {
                     $result['status'] = 1;
-                    $result['message'] = 'Color de producto agregado correctamente.';
+                    $result['message'] = 'Categoria de blog agregada correctamente.';
                 } else {
                     $result['exception'] = Database::getException();
                 }
                 break;
-            // Accion leer un elemento de toda la información------------------.    
+            // Accion leer un elemento de toda la información------------------.        
             case 'readOne':
-                if (!$colores->setId($_POST['id'])) {
+                if (!$categoria->setId($_POST['id'])) {
                     $result['exception'] = 'Error con el ID';
-                } elseif ($result['dataset'] = $colores->readOne()) {
+                } elseif ($result['dataset'] = $categoria->readOne()) {
                     $result['status'] = 1;
                 } elseif (Database::getException()) {
                     $result['exception'] = Database::getException();
                 } else {
-                    $result['exception'] = 'Color inexistente';
+                    $result['exception'] = 'Categoria de blog inexistente';
                 }
                 break;
-            // Accion de actualizar un elemento de toda la información------------------.    
+            // Accion de actualizar un elemento de toda la información------------------.       
             case 'update':
-                $_POST = $colores->validateForm($_POST);
-                if (!$colores->setId($_POST['u_idColor'])) {
+                $_POST = $categoria->validateForm($_POST);
+                if (!$categoria->setId($_POST['u_idCB'])) {
                     $result['exception'] = 'ID inválido';
-                } elseif (!$data = $colores->readOne()) {
-                    $result['exception'] = 'Color inexistente';
-                } elseif (!$colores->setColor($_POST['u_colorProducto'])) {
-                    $result['exception'] = 'Nombre de color inválido';
-                } elseif (!$colores->setEstado($_POST['u_estado'])) {
+                } elseif (!$data = $categoria->readOne()) {
+                    $result['exception'] = 'Categoria inexistente';
+                } elseif (!$categoria->setNombre($_POST['u_nombreCB'])) {
+                    $result['exception'] = 'Nombre de categoria inválido';
+                }elseif (!$categoria->setDescripcion($_POST['u_descripcionCB'])) {
+                    $result['exception'] = 'Nombre de categoria inválido';
+                } elseif (!$categoria->setEstado($_POST['u_estado'])) {
                     $result['exception'] = 'Estado inválido';
-                } elseif ($colores->updateRow()) {
+                } elseif ($categoria->updateRow()) {
                     $result['status'] = 1;
-                    $result['message'] = 'Color modificado correctamente';
+                    $result['message'] = 'Categoria modificada correctamente';
                 } else {
                     $result['exception'] = Database::getException();
                 }
                 break;
-            // Accion de desabilitar un elemento de toda la información------------------.    
+            // Accion de desabilitar un elemento de toda la información------------------.        
             case 'delete':
-                if (!$colores->setId($_POST['id-delete'])) {
-                    $result['exception'] = 'Color incorrecta';
-                } elseif (!$data = $colores->readOne()) {
-                    $result['exception'] = 'Color inexistente';
-                } elseif ($colores->deleteRow()) {
+                if (!$categoria->setId($_POST['id-delete'])) {
+                    $result['exception'] = 'Categoría incorrecta';
+                } elseif (!$data = $categoria->readOne()) {
+                    $result['exception'] = 'Categoría inexistente';
+                } elseif ($categoria->deleteRow()) {
                     $result['status'] = 1;
-                    $result['message'] = 'Color eliminado correctamente';
+                    $result['message'] = 'Categoría eliminada correctamente';
                 } else {
                     $result['exception'] = Database::getException();
                 }
