@@ -1,6 +1,6 @@
 <?php
 /*
-*	Clase para manejar la tabla categorias de la base de datos.
+*	Clase para manejar la tabla avatar de la base de datos.
 *   Es clase hija de Validator.
 */
 class Avatar extends Validator
@@ -8,6 +8,7 @@ class Avatar extends Validator
     // Declaración de atributos (propiedades).
     private $id = null;
     private $nombre = null;
+    //Variable para un campo con imagen -------------------------.
     private $ruta = '../images/categorias/';
 
     /*
@@ -46,6 +47,7 @@ class Avatar extends Validator
     }
 
 
+    // Método para leer toda la información de la tabla avatar-------------------------.
     public function readAll()
     {
         $sql = 'Select "idAvatar", "avatar" from "avatar"';

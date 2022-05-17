@@ -1,6 +1,6 @@
 <?php
 /*
-*	Clase para manejar la tabla categorias de la base de datos.
+*	Clase para manejar la tabla estado empleado de la base de datos.
 *   Es clase hija de Validator.
 */
 class EstadoEmpleado extends Validator
@@ -45,6 +45,7 @@ class EstadoEmpleado extends Validator
     }
 
 
+    // Método para leer todlos estados de empleados existentes-------------------------.
     public function readAll()
     {
         $sql = 'Select "idEstadoEmpleado", "estadoEmpleado" from "estadoEmpleado"';

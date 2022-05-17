@@ -1,6 +1,6 @@
 <?php
 /*
-*	Clase para manejar la tabla categorias de la base de datos.
+*	Clase para manejar la tabla cargo empleado de la base de datos.
 *   Es clase hija de Validator.
 */
 class CargoEmpleado extends Validator
@@ -45,6 +45,7 @@ class CargoEmpleado extends Validator
     }
 
 
+    // Método para leer todos los cargos de empleado existentes-------------------------.
     public function readAll()
     {
         $sql = 'Select "idCargoEmpleado", "cargoEmpleado" from "cargoEmpleado"';

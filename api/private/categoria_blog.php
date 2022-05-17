@@ -15,6 +15,7 @@ if (isset($_GET['action'])) {
     if (isset($_SESSION['id_usuario'])) {
         // Se compara la acción a realizar cuando un administrador ha iniciado sesión.
         switch ($_GET['action']) {
+            // Accion de leer toda la información------------------.
             case 'readAll':
                 if ($result['dataset'] = $categoria->readAll()) {
                     $result['status'] = 1;
@@ -24,6 +25,7 @@ if (isset($_GET['action'])) {
                     $result['exception'] = 'No hay datos registrados';
                 }
                 break;
+            // Accion de buscar información de las categorias disponibles------------------.     
             case 'search':
                 $_POST = $categoria->validateForm($_POST);
                 if ($_POST['search'] == '') {
@@ -37,6 +39,7 @@ if (isset($_GET['action'])) {
                     $result['exception'] = 'No hay coincidencias';
                 }
                 break;
+            // Accion de crear un nueva categoria ------------------.    
             case 'create':
                 $_POST = $categoria->validateForm($_POST);
                 if (!$categoria->setNombre($_POST['nombreCB'])) {
@@ -50,6 +53,7 @@ if (isset($_GET['action'])) {
                     $result['exception'] = Database::getException();
                 }
                 break;
+            // Accion leer un elemento de toda la información------------------.        
             case 'readOne':
                 if (!$categoria->setId($_POST['id'])) {
                     $result['exception'] = 'Error con el ID';
@@ -61,6 +65,7 @@ if (isset($_GET['action'])) {
                     $result['exception'] = 'Categoria de blog inexistente';
                 }
                 break;
+            // Accion de actualizar un elemento de toda la información------------------.       
             case 'update':
                 $_POST = $categoria->validateForm($_POST);
                 if (!$categoria->setId($_POST['u_idCB'])) {
@@ -80,6 +85,7 @@ if (isset($_GET['action'])) {
                     $result['exception'] = Database::getException();
                 }
                 break;
+            // Accion de desabilitar un elemento de toda la información------------------.        
             case 'delete':
                 if (!$categoria->setId($_POST['id-delete'])) {
                     $result['exception'] = 'Categoría incorrecta';

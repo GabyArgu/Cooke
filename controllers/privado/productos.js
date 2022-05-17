@@ -62,72 +62,23 @@ function openCreate() {
   fillSelect(ENDPOINT_MARCA, 'marca', null);
   fillSelect(ENDPOINT_PROVEEDOR, 'proveedor', null);
   fillSelect(ENDPOINT_COLOR, 'color', null);
+
 }
 
-// Función para preparar el formulario al momento de modificar un registro.
-function openUpdate(id) {
-  //Limpiamos los campos del modal
-  $("#save-modal").find("input,textarea,select").val("");
-  // Se asigna el título para la caja de diálogo (modal).
-  document.getElementById('modal-title').textContent = 'Actualizar producto';
-  document.getElementById('modal-title2').textContent = 'Actualizar producto';
-  //Mostramos label y select de estado
-  document.getElementById('estado').classList.remove('input-hide')
-  document.getElementById('estado-label').classList.remove('input-hide')
-  // Se establece el campo de archivo como opcional.
-  document.getElementById('archivo').required = false;
-  // Se define un objeto con los datos del registro seleccionado.
-  const data = new FormData();
-  data.append('id', id);
-  // Petición para obtener los datos del registro solicitado.
-  fetch(API_PRODUCTOS + 'readOne', {
-      method: 'post',
-      body: data
-  }).then(function (request) {  
-      // Se verifica si la petición es correcta, de lo contrario se muestra un mensaje en la consola indicando el problema.
-      if (request.ok) {
-          // Se obtiene la respuesta en formato JSON.
-          request.json().then(function (response) {
-              // Se comprueba si la respuesta es satisfactoria, de lo contrario se muestra un mensaje con la excepción.
-              if (response.status) {
-                  // Se inicializan los campos del formulario con los datos del registro seleccionado.
-                  document.getElementById('id').value = response.dataset.idProducto;
-                  document.getElementById('nombre').value = response.dataset.nombreProducto;
-                  document.getElementById('precio').value = response.dataset.precioProducto;
-                  document.getElementById('stock').value = response.dataset.stock;
-                  document.getElementById('descripcion').value = response.dataset.descripcionProducto;
-                  fillSelect(ENDPOINT_SUBCATEGORIA, 'subcategoria', response.dataset.idSubCategoriaP);
-                  fillSelect(ENDPOINT_MARCA, 'marca', response.dataset.idMarca);
-                  fillSelect(ENDPOINT_PROVEEDOR, 'proveedor', response.dataset.idProveedor);
-                  fillSelect(ENDPOINT_COLOR, 'color', response.dataset.idColor);
-                  fillSelect(ENDPOINT_ESTADO, 'estado', response.dataset.estadoProducto);
-                  
-                  
-              } else {
-                  sweetAlert(2, response.exception, null);
-              }
-          });
-      } else {
-          console.log(request.status + ' ' + request.statusText);
-      }
-  });
-}
-
-
-// Función para mandar el id de la row seleccionada al modal eliminar.
+// Función para mandar el id de la row seleccionada al modal eliminar-------------------.
 function openDelete(id) {
   document.getElementById('id-delete').value = id;
 }
 
-// Método manejador de eventos que se ejecuta cuando se envía el modal de eliminar.
+// Método manejador de eventos que se ejecuta cuando se envía el modal de eliminar-------------------.
 document.getElementById('delete-form').addEventListener('submit', function (event) {
-  // Se evita recargar la página web después de enviar el formulario.
+  // Se evita recargar la página web después de enviar el formulario-------------------.
   event.preventDefault();
-  //Llamamos al método que se encuentra en la api y le pasamos la ruta de la API y el id del formulario dentro de nuestro modal eliminar
+  //Llamamos al método que se encuentra en la api y le pasamos la ruta de la API y el id del formulario dentro de nuestro modal eliminar-------------------.
   confirmDelete(API_PRODUCTOS, 'delete-form');
 });
 
-//Función para refrescar la tabla manualmente al darle click al botón refresh
+//Función para refrescar la tabla manualmente al darle click al botón refresh-------------------.
 document.getElementById('refresh').addEventListener('click', function () {
   readRows(API_PRODUCTOS);
   document.getElementById('search').value = "";

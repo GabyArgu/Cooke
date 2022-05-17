@@ -1,6 +1,6 @@
 // Constante para establecer la ruta y parámetros de comunicación con la API.
 const API_RESENAS = SERVER + 'private/resenas.php?action=';
-const ENDPOINT_ESTADO = SERVER + 'private/estado_general.php?action=readAll';
+const ENDPOINT_ESTADO = SERVER + 'private/estadoGeneral.php?action=readAll';
 
 // Método manejador de eventos que se ejecuta cuando el documento ha cargado.
 document.addEventListener('DOMContentLoaded', function () {
@@ -44,7 +44,7 @@ $(document).on('keyup', '#search', function () {
     }
 });
 
-// Función para mandar el id de la row seleccionada al modal eliminar.
+// Función para mandar el id de la row seleccionada al modal eliminar-------------------.
 function openDelete(id) {
     document.getElementById('idResena').value = id;
 }
@@ -163,18 +163,18 @@ function openDetails(id) {
     });
 }
 
-// Método manejador de eventos que se ejecuta cuando se envía el modal de eliminar.
+// Método manejador de eventos que se ejecuta cuando se envía el modal de eliminar-------------------..
 document.getElementById('delete-form').addEventListener('submit', function (event) {
-    // Se evita recargar la página web después de enviar el formulario.
+    // Se evita recargar la página web después de enviar el formulario-------------------..
     event.preventDefault();
-    //Llamamos al método que se encuentra en la api y le pasamos la ruta de la API y el id del formulario dentro de nuestro modal eliminar
+    //Llamamos al método que se encuentra en la api y le pasamos la ruta de la API y el id del formulario dentro de nuestro modal eliminar-------------------..
     confirmDelete(API_RESENAS, 'delete-form');
 });
 
 document.getElementById('update-form').addEventListener('submit', function (event) {
-    // Se evita recargar la página web después de enviar el formulario.
+    // Se evita recargar la página web después de enviar el formulario-------------------..
     event.preventDefault();
     let action = 'update'
-    // Se llama a la función para guardar el registro. Se encuentra en el archivo components.js
+    // Se llama a la función para guardar el registro. Se encuentra en el archivo components.js-------------------..
     saveRow(API_RESENAS, action, 'update-form', 'modal-editar');
 });
