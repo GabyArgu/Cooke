@@ -54,10 +54,8 @@ if (isset($_GET['action'])) {
                     $result['exception'] = 'Estado inválido';
                 }elseif (!$cliente->setAlias($_POST['alias'])) {
                     $result['exception'] = 'Alias inválido';
-                } elseif ($_POST['clave'] != $_POST['confirmar']) {
-                    $result['exception'] = 'Claves diferentes';
                 } elseif (!$cliente->setClave($_POST['clave'])) {
-                    $result['exception'] = $cliente->getPasswordError();
+                    $result['exception'] = 'Clave inválida';
                 } elseif ($cliente->createRow()) {
                     $result['status'] = 1;
                     $result['message'] = 'Cliente creado correctamente';
@@ -92,7 +90,7 @@ if (isset($_GET['action'])) {
                     $_POST = $cliente->validateForm($_POST);
                     if (!$cliente->setId($_POST['id'])) {
                         $result['exception'] = 'Cliente incorrecto';
-                    } elseif (!$cliente->readOne()) {
+                    } elseif (!$data = $cliente->readOne()) {
                         $result['exception'] = 'Cliente inexistente';
                     } if (!$cliente->setNombres($_POST['nombres'])) {
                         $result['exception'] = 'Nombres inválidos';
@@ -106,7 +104,7 @@ if (isset($_GET['action'])) {
                         $result['exception'] = 'Direccion inválida';
                     } elseif (!$cliente->setTelefono($_POST['telefono'])) {
                         $result['exception'] = 'Teléfono inválido';
-                    }elseif (!$cliente->setNacimiento($_POST['foto'])) {
+                    }elseif (!$cliente->setNacimiento($_POST['nacimiento'])) {
                         $result['exception'] = 'Fecha inválida';
                     }elseif (!$cliente->setEstado($_POST['estado'])) {
                         $result['exception'] = 'Estado inválido';
@@ -117,7 +115,7 @@ if (isset($_GET['action'])) {
                         $result['exception'] = Database::getException();
                     }
                     break;
-               case 'delete':
+                case 'delete':
                 if (!$cliente->setId($_POST['id-delete'])) {
                     $result['exception'] = 'Cliente incorrecto';
                 } elseif (!$cliente->readOne()) {

@@ -1,23 +1,9 @@
-$(document).ready(function () {
-    $('#table-clientes').DataTable({
-      "info": false,
-      "searching": false,
-      "dom":
-        "<'row'<'col-sm-12'tr>>" +
-        "<'row'<'col-sm-5'l><'col-sm-7 d-flex justify-content-end pe-3'p>>",
-      "language": {
-        "lengthMenu": "Mostrando _MENU_ registros",
-        "paginate": {
-          "next": '<i class="fa-solid fa-angle-right"></i>',
-          "previous": '<i class="fa-solid fa-angle-left"></i>'
-        }
-      },
-      "lengthMenu": [[10, 15, 20, -1], [10, 15, 20, "Todos"]]
-    });
-  });
-
-  // Constante para establecer la ruta y parámetros de comunicación con la API.
+// Constante para establecer la ruta y parámetros de comunicación con la API.
 const API_CLIENTE = SERVER + 'private/cliente.php?action=';
+ENDPOINT_ESTADO = SERVER + 'private/estado_cliente.php?action=readAll';
+flatpickr('#nacimiento', {
+});
+
   // Método manejador de eventos que se ejecuta cuando el documento ha cargado.
 document.addEventListener('DOMContentLoaded', function () {
   /* Cargando propiedades de datatable */
@@ -37,12 +23,12 @@ document.addEventListener('DOMContentLoaded', function () {
     "lengthMenu": [[10, 15, 20, -1], [10, 15, 20, "Todos"]]
   });
   // Se llama a la función que obtiene los registros para llenar la tabla. Se encuentra en el archivo components.js
-  readRows(API_USUARIOS);
+  readRows(API_CLIENTE);
 });
 
 //Función para refrescar la tabla manualmente al darle click al botón refresh
 document.getElementById('refresh').addEventListener('click', function () {
-  readRows(API_USUARIOS);
+  readRows(API_CLIENTE);
   document.getElementById('search').value = "";
 });
 
@@ -128,7 +114,7 @@ function openUpdate(id) {
 
 // Función para mandar el id de la row seleccionada al modal eliminar.
 function openDelete(id) {
-  document.getElementById('idCliente').value = id;
+  document.getElementById('id-delete').value = id;
 }
 
 // Función para preparar el formulario al momento de visualizar un registro.
@@ -150,13 +136,12 @@ function openShow(id) {
                   // Se inicializan los campos del formulario con los datos del registro seleccionado.  
                   document.getElementById('show-nombres').innerText = response.dataset.nombresCliente;
                   document.getElementById('show-apellidos').innerText = response.dataset.apellidosCliente;
+                  document.getElementById('show-dui').innerText = response.dataset.duiCliente;
                   document.getElementById('show-correo').innerText = response.dataset.correoCliente;
                   document.getElementById('show-telefono').innerText = response.dataset.telefonoCliente;
-                  document.getElementById('show-direccion').innerText = response.dataset.direccionCliente;
-                  document.getElementById('show-alias').innerText = response.dataset.aliasCliente;
-                  document.getElementById('show-dui').innerText = response.dataset.duiCliente;
-                  document.getElementById('show-estado').innerText = response.dataset.estadoCliente;
                   document.getElementById('show-nacimiento').innerText = response.dataset.nacimientoCliente;
+                  document.getElementById('show-direccion').innerText = response.dataset.direccionCliente;
+                  document.getElementById('show-estado').innerText = response.dataset.estadoCliente;
                   
               } else {
                   sweetAlert(2, response.exception, null);
@@ -178,8 +163,8 @@ function fillTable(dataset) {
           <tr>
               <td>${row.nombresCliente}</td>
               <td>${row.apellidosCliente}</td>
-              <td>${row.telefonoCliente}</td>
-              <td>${row.cargoCliente}</td>
+              <td>${row.duiCliente}</td>
+              <td>${row.correoCliente}</td>
               <td>${row.estadoCliente}</td>
               <td class="botones-table">
                   <div class="acciones d-flex mx-auto">

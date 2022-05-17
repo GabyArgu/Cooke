@@ -54,7 +54,7 @@ class Cliente extends Validator
     public function setDui($value)
     {
         if ($this->validateDUI($value)) {
-            $this->cargo = $value;
+            $this->dui = $value;
             return true;
         } else {
             return false;
@@ -195,16 +195,16 @@ class Cliente extends Validator
     */
     public function readAll()
     {
-        $sql = 'SELECT "idCliente", "nombresCliente", "apellidosCliente", "correoCliente", "duiCliente", "estadoCliente"
-        FROM cliente
-        ORDER BY "apellidosCliente"';
+        $sql = 'SELECT "idCliente", "nombresCliente", "apellidosCliente", "correoCliente", "duiCliente", ec."estadoCliente"
+        FROM cliente as c inner join "estadoCliente" as ec on c."estadoCliente" = ec."idEstadoCliente"
+        ORDER BY "idCliente"';
         $params = null;
         return Database::getRows($sql, $params);
     }
 
     public function readOne()
     {
-        $sql = 'SELECT "idCliente", "nombresCliente", "apellidosCliente", "correoCliente", "duiCliente", "telefonoCliente", "nacimientoCliente", "aliascliente", "direccionCliente", "estadoCliente"
+        $sql = 'SELECT "idCliente", "nombresCliente", "apellidosCliente", "correoCliente", "duiCliente", "telefonoCliente", "nacimientoCliente", "aliasCliente", "direccionCliente", "estadoCliente"
         FROM cliente
         WHERE "idCliente" = ?';
         $params = array($this->id);
@@ -237,9 +237,9 @@ class Cliente extends Validator
     /* CREATE */
     public function createRow()
     {
-        $sql = 'INSERT INTO public.cliente(
-            "idCliente", "nombresCliente", "apellidosCliente", "duiCliente", "correoCliente", "telefonoCliente", "nacimientoCliente", "direccionCliente", "contrasenaCliente", "estadoCliente", "aliasCliente")
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);';
+        $sql = 'INSERT INTO cliente(
+            "nombresCliente", "apellidosCliente", "duiCliente", "correoCliente", "telefonoCliente", "nacimientoCliente", "direccionCliente", "contrasenaCliente", "estadoCliente", "aliasCliente")
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)';
         $params = array($this->nombres, $this->apellidos, $this->dui, $this->correo, $this->telefono, $this->nacimiento, $this->direccion,  $this->clave,   $this->estado, $this->alias,);
         return Database::executeRow($sql, $params);
     }
@@ -248,10 +248,10 @@ class Cliente extends Validator
     /* UPDATE */
     public function updateRow()
     {
-        $sql = 'UPDATE empleado
-                SET "idCliente"  = ?, "nombresCliente" = ?, "apellidosCliente" = ?, "duiCliente" = ?, "correoCliente" = ?, "telefonoCliente" = ?, "nacimientoCliente" = ?, "direccionCliente" = ?, "contrasenaCliente" = ?, "estadoCliente" = ?, "aliasCliente" = ?)
-                WHERE "idEmpleado" = ?';
-            $params = array($this->nombres, $this->apellidos, $this->correo, $this->direccion, $this->telefono, $this->cargo, $this->estado, $this->foto, $this->id);
+        $sql = 'UPDATE cliente
+            SET "nombresCliente"=?, "apellidosCliente"=?, "duiCliente"=?, "correoCliente"=?, "telefonoCliente"=?, "nacimientoCliente"=?, "direccionCliente"=?, "estadoCliente"=?
+            WHERE "idCliente"=?;';
+            $params = array($this->nombres, $this->apellidos, $this->dui, $this->correo, $this->telefono, $this->nacimiento, $this->direccion, $this->estado, $this->id);
         return Database::executeRow($sql, $params);
     }
 
