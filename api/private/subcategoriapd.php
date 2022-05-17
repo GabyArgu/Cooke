@@ -112,18 +112,17 @@ if (isset($_GET['action'])) {
                 break;
             // Accion de desabilitar un elemento de toda la información------------------.        
             case 'delete':
-                if (!$subcategorias->setId($_POST['id-delete'])) {
-                    $result['exception'] = 'Subcategoría incorrecta';
-                } elseif (!$subcategorias->readOne()) {
-                    $result['exception'] = 'Subcategoría inexistente';
-                } elseif ($subcategorias->deleteRow()) {
+                if (!$productos->setId($_POST['id-delete'])) {
+                    $result['exception'] = 'Producto incorrecto';
+                } elseif (!$productos->readOne()) {
+                    $result['exception'] = 'Producto inexistente';
+                } elseif ($productos->deleteRow()) {
                     $result['status'] = 1;
-                    $result['message'] = 'Subcategoría inhabilitada correctamente';
+                    $result['message'] = 'Producto inhabilitado correctamente';
                 } else {
                     $result['exception'] = Database::getException();
                 }
                 break;   
-            default:
                 $result['exception'] = 'Acción no disponible dentro de la sesión';
         }
     } else {
