@@ -1,6 +1,6 @@
 <?php
 /*
-*	Clase para manejar la tabla catalogo de colores de la base de datos de la tienda.
+*	Clase para manejar la tabla categoria de productos de la base de datos de la tienda.
 *   Es una clase hija de Validator.
 */
 class categoriaCP extends Validator
@@ -77,6 +77,7 @@ class categoriaCP extends Validator
         return $this->estado;
     }
 
+    // Método para leer toda la información de las categoria de productos existentes-------------------------.
     public function readAll()
     {
         $sql = 'SELECT * from "categoriaProducto" ORDER BY "idCategoria"';
@@ -84,6 +85,7 @@ class categoriaCP extends Validator
         return Database::getRows($sql, $params);
     }
 
+    // Método para un dato en especifico  de las categoria de productos existentes-------------------------.
     public function readOne()
     {
         $sql = 'SELECT *
@@ -127,9 +129,10 @@ class categoriaCP extends Validator
     }
 
     /* DELETE */
-    /* Función para borrar un nombre de la base (Solo se inahbilita)*/
+    /* Función para inhabilitar una categoria de productos ya que no los borraremos de la base -------------------------.*/
     public function deleteRow()
     {
+        //No eliminaremos registros, solo los inhabilitaremos-------------------------.
         $sql = 'UPDATE "categoriaProducto"
                 SET estado = 2
                 WHERE "idCategoria" = ?';

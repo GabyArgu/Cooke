@@ -15,6 +15,7 @@ if (isset($_GET['action'])) {
     if (isset($_SESSION['id_usuario'])) {
         // Se compara la acción a realizar cuando un administrador ha iniciado sesión.
         switch ($_GET['action']) {
+            // Accion de leer toda la información------------------.
             case 'readAll':
                 if ($result['dataset'] = $subcategorias->readAll()) {
                     $result['status'] = 1;
@@ -24,6 +25,7 @@ if (isset($_GET['action'])) {
                     $result['exception'] = 'No hay datos registrados';
                 }
                 break;
+            // Accion de buscar información de las subcategorias disponibles------------------.     
             case 'search':
                 if ($result['dataset'] = $subcategorias->searchRows($_POST['search'])) {
                     $result['status'] = 1;
@@ -33,6 +35,7 @@ if (isset($_GET['action'])) {
                     $result['exception'] = 'No hay coincidencias';
                 }
                 break;
+            // Accion de crear una nueva subcategoria ------------------.       
             case 'create':
                 //Especificamos los inputs por medio de su atributo name, y los capturamos con el método post
                 $_POST = $subcategorias->validateForm($_POST);
@@ -59,6 +62,7 @@ if (isset($_GET['action'])) {
                     $result['exception'] = Database::getException();
                 }
                 break;
+            // Accion leer un elemento de toda la información------------------.       
             case 'readOne':
                 if (!$subcategorias->setId($_POST['id'])) {
                     $result['exception'] = 'Subcategoría incorrecta';
@@ -70,6 +74,7 @@ if (isset($_GET['action'])) {
                     $result['exception'] = 'Subcategoría inexistente';
                 }
                 break;
+            // Accion de actualizar un elemento de toda la información------------------.     
             case 'update':
                 //Especificamos los inputs por medio de su atributo name, y los capturamos con el método post
                 $_POST = $subcategorias->validateForm($_POST);
@@ -105,6 +110,7 @@ if (isset($_GET['action'])) {
                     $result['exception'] = Database::getException();
                 }
                 break;
+            // Accion de desabilitar un elemento de toda la información------------------.        
             case 'delete':
                 if (!$subcategorias->setId($_POST['id-delete'])) {
                     $result['exception'] = 'Subcategoría incorrecta';

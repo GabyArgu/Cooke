@@ -152,6 +152,8 @@ class Articulos extends Validator
     /* 
     *   Método para comprobar que existen subcategorias registradas en nuestra base de datos
     */
+
+    // Método para leer toda la información de los articulos existentes-------------------------.
     public function readAll()
     {
         $sql = 'SELECT "idArticulo", em."nombresEmpleado", em."apellidosEmpleado", c."nombreCategoriaA", "tituloArticulo", "contenidoArticulo", "fechaArticulo", e."estado", "imagenArticulo" 
@@ -163,6 +165,7 @@ class Articulos extends Validator
         return Database::getRows($sql, $params);
     }
 
+    // Método para un dato en especifico de los articulos existentes-------------------------.
     public function readOne()
     {
         $sql = 'SELECT "idArticulo", "idEmpleado", "idCategoriaA", "tituloArticulo", "contenidoArticulo", "fechaArticulo", "estado", "imagenArticulo"  
@@ -172,6 +175,7 @@ class Articulos extends Validator
         return Database::getRow($sql, $params);
     }
 
+    // Método para leer los detalles de los articulos-------------------------.
     public function readOneDetail()
     {
         $sql = 'SELECT "idArticulo", em."nombresEmpleado", em."apellidosEmpleado", c."nombreCategoriaA", "tituloArticulo", "contenidoArticulo", "fechaArticulo", e."estado", "imagenArticulo"  
@@ -222,10 +226,10 @@ class Articulos extends Validator
     }
 
     /* DELETE */
-    /* Función para inhabilitar un usuario ya que no los borraremos de la base*/
+    /* Función para borrar un color de la base (Solo se inahbilita)-------------------------*/
     public function deleteRow()
     {
-        //No eliminaremos registros, solo los inhabilitaremos
+        //No eliminaremos registros, solo los inhabilitaremos-------------------------
         $sql = 'UPDATE "articulo" SET estado = 3 WHERE "idArticulo" = ?';
         $params = array($this->id);
         return Database::executeRow($sql, $params);
