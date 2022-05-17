@@ -80,7 +80,7 @@ class CategoriaCB extends Validator
     // Método para leer toda la información de las categorias de blog existentes-------------------------.
     public function readAll()
     {
-        $sql = 'SELECT  "idCategoriaA","nombreCategoriaA", ee."estado"
+        $sql = 'SELECT  "idCategoriaA","nombreCategoriaA", "descripcionCategoriaA", ee."estado"
         FROM "categoriaArticulo" as e inner join estado as ee on e."estado" = ee."idEstado"
         ORDER BY "idCategoriaA"';
         $params = null;
