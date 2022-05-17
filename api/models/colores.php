@@ -3,7 +3,7 @@
 *	Clase para manejar la tabla catalogo de colores de la base de datos de la tienda.
 *   Es una clase hija de Validator.
 */
-class colorProducto extends Validator
+class ColorProducto extends Validator
 {
     // Declaración de atributos (propiedades).
     private $id = null;
@@ -63,7 +63,9 @@ class colorProducto extends Validator
     // Método para leer toda la información de los colores existentes-------------------------.
     public function readAll()
     {
-        $sql = 'SELECT * from "colorProducto" ORDER BY "idColor"';
+        $sql = 'SELECT  "idColor","colorProducto", ee."estado"
+        FROM "colorProducto" as e inner join estado as ee on e."estado" = ee."idEstado"
+        ORDER BY "idColor"';
         $params = null;
         return Database::getRows($sql, $params);
     }

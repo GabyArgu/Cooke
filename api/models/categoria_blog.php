@@ -3,7 +3,7 @@
 *	Clase para manejar la tabla categoria de blog de la base de datos de la tienda.
 *   Es una clase hija de Validator.
 */
-class categoriaCB extends Validator
+class CategoriaCB extends Validator
 {
     // Declaración de atributos (propiedades).
     private $id = null;
@@ -80,7 +80,9 @@ class categoriaCB extends Validator
     // Método para leer toda la información de las categorias de blog existentes-------------------------.
     public function readAll()
     {
-        $sql = 'SELECT * from "categoriaArticulo" ORDER BY "idCategoriaA"';
+        $sql = 'SELECT  "idCategoriaA","nombreCategoriaA", ee."estado"
+        FROM "categoriaArticulo" as e inner join estado as ee on e."estado" = ee."idEstado"
+        ORDER BY "idCategoriaA"';
         $params = null;
         return Database::getRows($sql, $params);
     }
