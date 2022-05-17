@@ -173,6 +173,7 @@ function openShow(id) {
                     document.getElementById('show-stock').innerText = response.dataset.stock;
                     document.getElementById('show-color').innerText = response.dataset.colorProducto;
                     document.getElementById('show-subcategoria').innerText = response.dataset.nombreSubCategoriaP;
+                    document.getElementById('show-fecha').innerText = response.dataset.fecha;
                     document.getElementById('show-img-main').src = `${SERVER}/images/productos/${response.dataset.imagenPrincipal}`;
                 } else {
                     sweetAlert(2, response.exception, null);
