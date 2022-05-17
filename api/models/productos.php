@@ -217,6 +217,19 @@ class Productos extends Validator
         $params = array($this->id);
         return Database::getRow($sql, $params);
     }
+
+    public function readOneShow()
+    {
+        $sql = 'SELECT p."idProducto", "nombreSubCategoriaP", "nombreMarca", "imagenPrincipal", "nombreProducto", "descripcionProducto", "precioProducto", ep."estadoProducto", cp."colorProducto", stock 
+        FROM producto as p inner join "colorStock" as cs on p."idProducto" = cs."idProducto"
+		inner join "subcategoriaProducto" as sp on p."idSubCategoriaP" = sp."idSubCategoriaP"
+		inner join "estadoProducto" as ep on p."estadoProducto" = ep."idEstadoProducto"
+		inner join marca as m on p."idMarca" = m."idMarca"
+		inner join "colorProducto" as cp on cs."idColor" = cp."idColor"
+        WHERE p."idProducto" =  ?';
+        $params = array($this->id);
+        return Database::getRow($sql, $params);
+    }
     /*
     *   Métodos para realizar las operaciones SCRUD (search, create, read, update, delete).
     */
@@ -251,8 +264,8 @@ class Productos extends Validator
     public function insertStock($lastId)
     {
         $sql = 'INSERT INTO "colorStock"(
-        "idProducto", "idColor", stock)
-        VALUES (?, ?, ?);';
+        "idProducto", "idColor", stock, fecha)
+        VALUES (?, ?, ?, CURRENT_DATE);';
         $params = array($lastId, $this->color, $this->stock);
         return Database::executeRow($sql, $params);
     }
@@ -267,6 +280,17 @@ class Productos extends Validator
                 SET "idCategoriaP"=?, "nombreSubCategoriaP"=?, "descripcionSubCategoriaP"=?, "imagenSubcategoria"=?, estado=?
                 WHERE "idSubCategoriaP" = ?;';
             $params = array($this->categoria, $this->nombre, $this->descripcion, $this->imagen, $this->estado, $this->id);
+        return Database::executeRow($sql, $params);
+    }
+
+    /* UPDATE stock */
+    /* Actualiza el stock que esta en la tabla colorStock del respectivo producto------------------------.*/
+    public function updateStock()
+    {   
+        $sql = 'UPDATE "colorStock"
+            SET "idColor"=?, stock=?, fecha = CURRENT_DATE
+            WHERE "idProducto" = ?;';
+            $params = array($this->color, $this->stock, $this->id);
         return Database::executeRow($sql, $params);
     }
 

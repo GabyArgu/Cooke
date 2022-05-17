@@ -135,7 +135,7 @@
                                 </a>
                                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
                                     <li><a class="dropdown-item" href="cuenta.html">Perfil</a></li>
-                                    <li><a class="dropdown-item" href="index.html">Cerrar Sesión</a></li>
+                                    <li><a class="dropdown-item" onclick="logOut()">Cerrar Sesión</a></li>
                                 </ul>
                             </li>
                         </ul>
@@ -156,11 +156,12 @@
                                             data-bs-toggle="modal" data-bs-target="#save-modal">Agregar<i
                                                 class="fa-solid fa-plus"></i></button>
                                     </div>
-                                    <div class="col-8 d-flex justify-content-end mx-auto">
-                                        <input
-                                            class="form-control form-control-dark w-60 d-none d-md-block Buscador-Imp"
-                                            type="text" placeholder="Buscar" aria-label="Search">
-                                        <button class="btn-refresh"><i class="fa-solid fa-arrows-rotate"></i></button>
+                                    <div class="col-8 d-flex justify-content-end mx-auto align-items-center">
+                                        <form method="post" id="search-form">
+                                    <input class="form-control form-control-dark w-100 d-none d-md-block Buscador-Imp"
+                                    type="text" placeholder="Buscar nombre" aria-label="Search" id="search" name="search">
+                                </form>
+                                        <button class="btn-refresh" id="refresh"><i class="fa-solid fa-arrows-rotate"></i></button>
                                     </div>
                                 </div>
                                 <div class="row">
@@ -191,11 +192,12 @@
                                             data-bs-toggle="modal" data-bs-target="#save-modal2">Agregar<i
                                                 class="fa-solid fa-plus"></i></button>
                                     </div>
-                                    <div class="col-8 d-flex justify-content-end mx-auto">
-                                        <input
-                                            class="form-control form-control-dark w-60 d-none d-md-block Buscador-Imp"
-                                            type="text" placeholder="Buscar" aria-label="Search">
-                                        <button class="btn-refresh"><i class="fa-solid fa-arrows-rotate"></i></button>
+                                    <div class="col-8 d-flex justify-content-end align-items-center mx-auto">
+                                        <form method="post" id="search-form2">
+                                            <input class="form-control form-control-dark w-100 d-none d-md-block Buscador-Imp"
+                                            type="text" placeholder="Buscar nombre" aria-label="Search" id="search2" name="search2">
+                                        </form>
+                                        <button class="btn-refresh" id="refresh2"><i class="fa-solid fa-arrows-rotate"></i></button>
                                     </div>
                                 </div>
                                 <div class="row">
@@ -258,9 +260,9 @@
                                         <input id="archivo" class="form-control" type="file" name="archivo"
                                             accept=".jpg, .png">
                                     </div>
-                                    <div class="col-6 d-flex align-items-center flex-column">
+                                    <div class="col-6 ">
                                         <label for="validationDefault02" class="form-label">Nombre</label>
-                                        <input type="text" class="form-control" id="validationDefault01" value=""
+                                        <input type="text" class="form-control" id="nombre" name="nombre"
                                             required>
                                     </div>
                                     <div class="col-6 d-flex align-items-center flex-column mt-3">
@@ -269,6 +271,9 @@
                                         <select class="form-select custom-form-select"
                                             aria-label="Default select example" id="estado" name="estado">
                                         </select>
+                                    </div>
+                                    <div class="col-6 d-flex align-items-center flex-column mt-3">
+                                        <input class="form-control input-hide" type="number" id="id" name="id">
                                     </div>
                                 </div>
 
@@ -301,22 +306,22 @@
                 <div class="modal-body">
                     <div class="container">
                         <div class="row agregar-content">
-                            <form class="col" method="post" id="save-form">
+                            <form class="col" method="post" id="save-form2">
 
                                 <div class="row agregar-content-flex d-flex justify-content-center align-items-center">
                                     <div class="col-6 mb-4">
                                         <label for="validationDefault0" class="form-label">Nombre</label>
-                                        <input type="text" class="form-control" id="validationDefault01" value=""
+                                        <input type="text" class="form-control" id="nombre-prov" name="nombre-prov" value=""
                                             required>
                                     </div>
                                     <div class="col-6 mb-4">
                                         <label for="validationDefault02" class="form-label">Teléfono</label>
-                                        <input type="text" class="form-control" id="validationDefault01" value=""
+                                        <input type="tel" pattern="[0-9]{4}-[0-9]{4}" class="form-control" id="telefono-prov" name="telefono-prov" value=""
                                             required>
                                     </div>
                                     <div class="col-6 mb-4">
                                         <label for="validationDefault02" class="form-label">Dirección</label>
-                                        <input type="text" class="form-control" id="validationDefault01" value=""
+                                        <input type="text" class="form-control" id="direccion-prov" name="direccion-prov" value=""
                                             required>
                                     </div>
                                     <div class="col-6 mb-4">
@@ -325,6 +330,9 @@
                                         <select class="form-select custom-form-select"
                                             aria-label="Default select example" id="estado2" name="estado2">
                                         </select>
+                                    </div>
+                                    <div class="col-6 d-flex align-items-center flex-column mt-3">
+                                        <input class="form-control input-hide" type="number" id="id-prov" name="id-prov">
                                     </div>
                                 </div>
 
@@ -335,7 +343,7 @@
                     </div>
                 </div>
                 <div class="modal-footer d-flex justify-content-end">
-                    <button class="btn-guardar" type="submit" form="save-form">Guardar<i
+                    <button class="btn-guardar" type="submit" form="save-form2">Guardar<i
                             class="fa-solid fa-floppy-disk"></i></button>
                 </div>
             </div>
@@ -361,28 +369,28 @@
                             <div class="col">
                                 <h4>Nombre</h4>
                             </div>
-                            <div class="col col-8"><span>Amazon</span> </div>
+                            <div class="col col-8"><span id="show-proveedor"></span> </div>
                         </div>
                         <hr>
                         <div class="row ">
                             <div class="col">
                                 <h4>Dirección</h4>
                             </div>
-                            <div class="col col-8"><span>Mejicanos, San Salvador</span></div>
+                            <div class="col col-8"><span id="show-direccion"></span></div>
                         </div>
                         <hr>
                         <div class="row ">
                             <div class="col">
                                 <h4>Telefóno</h4>
                             </div>
-                            <div class="col col-8"><span>1234-5678</span></div>
+                            <div class="col col-8"><span id="show-telefono"></span></div>
                         </div>
                         <hr>
                         <div class="row mb-3">
                             <div class="col">
                                 <h4>Estado</h4>
                             </div>
-                            <div class="col col-8"><span>Activo</span></div>
+                            <div class="col col-8"><span id="show-estado"></span></div>
                         </div>
 
                     </div>
@@ -412,12 +420,14 @@
                     </div>
                 </div>
                 <div class="modal-footer d-flex mx-2 justify-content-between">
-                    <button class="btn btn-cancel" type="button" data-bs-dismiss="modal">Cancelar</button>
+                    <button class="btn btn-cancel" type="button"
+                        data-bs-dismiss="modal">Cancelar</button>
                     <form id="delete-form">
-                        <input type="hidden" id="idEmpleado" name="idEmpleado">
-                        <button class="btn btn-siguiente" type="submit" data-bs-dismiss="modal">Continuar</button>
+                        <input type="hidden" id="id-delete" name="id-delete">
+                        <button class="btn btn-siguiente" type="submit" 
+                            data-bs-dismiss="modal">Continuar</button>
                     </form>
-
+                    
                 </div>
             </div>
         </div>

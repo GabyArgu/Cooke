@@ -93,10 +93,66 @@ class Proveedor extends Validator
 
     public function readAll()
     {
-        $sql = 'SELECT "idProveedor", "nombreProveedor", e.estado FROM proveedor p INNER JOIN estado as e on p.estado = e."idEstado"';
+        $sql = 'SELECT "idProveedor", "nombreProveedor", e.estado FROM proveedor p INNER JOIN estado as e on p.estado = e."idEstado" order by "idProveedor"';
         $params = null;
         return Database::getRows($sql, $params);
     }
 
+    public function readOne()
+    {
+        $sql = 'SELECT "idProveedor", "nombreProveedor", "telefonoProveedor", "direccionProveedor", estado FROM proveedor WHERE "idProveedor" = ?';
+        $params = array($this->id);
+        return Database::getRow($sql, $params);
+    }
 
+    public function readOneShow()
+    {
+        $sql = 'SELECT "nombreProveedor", "telefonoProveedor", "direccionProveedor", e.estado FROM proveedor p INNER JOIN estado as e on p.estado = e."idEstado" 
+		WHERE "idProveedor" = ?';
+        $params = array($this->id);
+        return Database::getRow($sql, $params);
+    }
+
+    /*
+    *   Métodos para realizar las operaciones SCRUD (search, create, read, update, delete).
+    */
+    /* SEARCH */
+    public function searchRows($value)
+    {
+        $sql = 'SELECT "idProveedor", "nombreProveedor", "direccionProveedor", "telefonoProveedor", e.estado FROM proveedor p INNER JOIN estado as e on p.estado = e."idEstado" 
+        WHERE "nombreProveedor" ILIKE ?
+		ORDER BY "idProveedor"';
+        $params = array("%$value%");
+        return Database::getRows($sql, $params);
+    }
+
+    /* CREATE */
+    public function createRow()
+    {
+        $sql = 'INSERT INTO proveedor(
+            "nombreProveedor", "direccionProveedor", "telefonoProveedor", estado)
+            VALUES (?, ?, ?, ?);';
+        $params = array($this->proveedor, $this->direccion, $this->telefono, $this->estado);
+        return Database::executeRow($sql, $params);
+    }
+
+    /* UPDATE */
+    public function updateRow()
+    {   
+        $sql = 'UPDATE proveedor
+        SET "nombreProveedor"=?, "direccionProveedor"=?, "telefonoProveedor"=?, estado=?
+        WHERE "idProveedor"=?;';
+            $params = array($this->proveedor, $this->direccion, $this->telefono, $this->estado, $this->id);
+        return Database::executeRow($sql, $params);
+    }
+
+    /* DELETE */
+    /* Función para inhabilitar un usuario ya que no los borraremos de la base*/
+    public function deleteRow()
+    {
+        //No eliminaremos registros, solo los inhabilitaremos
+        $sql = 'UPDATE proveedor SET estado = 3 WHERE "idProveedor" = ?';
+        $params = array($this->id);
+        return Database::executeRow($sql, $params);
+    }
 }
