@@ -15,6 +15,7 @@ if (isset($_GET['action'])) {
     if (isset($_SESSION['id_usuario'])) {
         // Se compara la acción a realizar cuando un administrador ha iniciado sesión.
         switch ($_GET['action']) {
+            // Accion de leer toda la información------------------.
             case 'readAll':
                 if ($result['dataset'] = $proveedor->readAll()) {
                     $result['status'] = 1;
@@ -24,6 +25,7 @@ if (isset($_GET['action'])) {
                     $result['exception'] = 'No hay datos registrados';
                 }
                 break;
+            // Accion de buscar información de los colores disponibles------------------.        
             case 'search':
                 if ($result['dataset'] = $proveedor->searchRows($_POST['search2'])) {
                     $result['status'] = 1;
@@ -33,6 +35,7 @@ if (isset($_GET['action'])) {
                     $result['exception'] = 'No hay coincidencias';
                 }
                 break;
+            // Accion de crear un nuevo color ------------------.       
             case 'create':
                 //Especificamos los inputs por medio de su atributo name, y los capturamos con el método post
                 $_POST = $proveedor->validateForm($_POST);
@@ -51,6 +54,7 @@ if (isset($_GET['action'])) {
                     $result['exception'] = Database::getException();
                 }
                 break;
+            // Accion leer un elemento de toda la información------------------.        
             case 'readOne':
                 if (!$proveedor->setId($_POST['id-prov'])) {
                     $result['exception'] = 'Proveedor incorrecto';
@@ -62,6 +66,7 @@ if (isset($_GET['action'])) {
                     $result['exception'] = 'Proveedor inexistente';
                 }
                 break;
+            // Accion de actualizar un elemento de toda la información------------------.        
             case 'update':
                 //Especificamos los inputs por medio de su atributo name, y los capturamos con el método post
                 $_POST = $proveedor->validateForm($_POST);
@@ -95,6 +100,7 @@ if (isset($_GET['action'])) {
                         $result['exception'] = 'Empleado inexistente';
                     }
                     break;
+            // Accion de desabilitar un elemento de toda la información------------------.          
             case 'delete':
                 if (!$proveedor->setId($_POST['id-delete'])) {
                     $result['exception'] = 'Proveedor incorrecto';
