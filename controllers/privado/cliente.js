@@ -45,6 +45,19 @@ $(document).on('keyup', '#search', function () {
   }
 });
 
+//Función que se ejecuta cada vez que apretamos una tecla dentro del input #search, sirve para buscador en tiempo real
+$(document).on('keyup', '#search', function () {
+  var valor = $(this).val();
+  if (valor != "") {
+      //SearchRows se encuentra en componentes.js y mandamos la ruta de la api, el formulario el cual contiene nuestro input para buscar (id) y el input de buscar (id)
+      searchRows(API_CLIENTE, 'search-form', 'search');
+  }
+  else {
+      //Cuando el input este vacío porque borramos el texto manualmente
+      readRows(API_CLIENTE);
+  }
+});
+
 // Función para preparar el modal al momento de insertar un registro.
 function openCreate() {
 

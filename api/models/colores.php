@@ -86,9 +86,10 @@ class ColorProducto extends Validator
     /* SEARCH */
     public function searchRows($value)
     {
-        $sql = 'SELECT "colorProducto"
-                FROM "colorProducto"
-                WHERE "colorProducto" ILIKE ? ';
+        $sql = 'SELECT  "idColor","colorProducto", ee."estado"
+                FROM "colorProducto" as e inner join estado as ee on e."estado" = ee."idEstado"
+                WHERE "colorProducto" ILIKE ?
+                ORDER BY "idColor"';
         $params = array("%$value%");
         return Database::getRows($sql, $params);
     }

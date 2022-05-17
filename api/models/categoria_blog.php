@@ -104,8 +104,8 @@ class CategoriaCB extends Validator
     public function searchRows($value)
     {
         $sql = 'SELECT "nombreCategoriaA"
-                FROM "categoriaArticulo"
-                WHERE "categoriaArticulo" ILIKE ? ';
+        FROM "categoriaArticulo"
+        WHERE "nombreCategoriaA" ILIKE ? ';
         $params = array("%$value%");
         return Database::getRows($sql, $params);
     }

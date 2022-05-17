@@ -229,7 +229,7 @@ class Cliente extends Validator
         $sql = 'SELECT "idCliente", "nombresCliente", "apellidosCliente", "correoCliente", "duiCliente", ec."estadoCliente"
         FROM cliente as c inner join "estadoCliente" as ec on c."estadoCliente" = ec."idEstadoCliente"
         WHERE "nombresCliente" ILIKE ? OR "apellidosCliente" ILIKE ?
-        order by "idEmpleado"';
+        order by "idCliente"';
         $params = array("%$value%", "%$value%");
         return Database::getRows($sql, $params);
     }
