@@ -1,6 +1,6 @@
 // Constante para establecer la ruta y parámetros de comunicación con la API.
 const API_RESENAS = SERVER + 'private/resenas.php?action=';
-const ENDPOINT_ESTADO = SERVER + 'private/estadoGeneral.php?action=readAll';
+const ENDPOINT_ESTADO = SERVER + 'private/estado_general.php?action=readAll';
 
 // Método manejador de eventos que se ejecuta cuando el documento ha cargado.
 document.addEventListener('DOMContentLoaded', function () {
