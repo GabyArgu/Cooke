@@ -16,7 +16,6 @@ if (isset($_GET['action'])) {
         $result['session'] = 1;
         // Se compara la acción a realizar cuando un administrador ha iniciado sesión.
         switch ($_GET['action']) {
-            // Accion de leer toda la información------------------.
             case 'readAll':
                 if ($result['dataset'] = $resena->readAll()) {
                     $result['status'] = 1;
@@ -26,7 +25,6 @@ if (isset($_GET['action'])) {
                     $result['exception'] = 'No hay datos registrados';
                 }
                 break;
-            // Accion de buscar información de las reseñas existencias------------------.     
             case 'search':
                 if ($result['dataset'] = $resena->searchRows($_POST['search'])) {
                     $result['status'] = 1;
@@ -36,7 +34,6 @@ if (isset($_GET['action'])) {
                     $result['exception'] = 'No hay coincidencias';
                 }
                 break;
-            // Accion leer un elemento de toda la información------------------.       
             case 'readOne':
                 if (!$resena->setId($_POST['idResena'])) {
                     $result['exception'] = 'Reseña incorrecta';
@@ -48,7 +45,6 @@ if (isset($_GET['action'])) {
                     $result['exception'] = 'Reseña inexistente';
                 }
                 break;
-            // Accion de leer los detalles de la reseña ------------------.     
             case 'readOneDetail':
                 if (!$resena->setId($_POST['idResena'])) {
                     $result['exception'] = 'Reseña incorrecta';
@@ -60,7 +56,6 @@ if (isset($_GET['action'])) {
                     $result['exception'] = 'Reseña inexistente';
                 }
                 break;
-            // Accion de actualizar un elemento de toda la información------------------.     
             case 'update':
                 //Especificamos los inputs por medio de su atributo name, y los capturamos con el método post
                 $_POST = $resena->validateForm($_POST);
@@ -77,7 +72,6 @@ if (isset($_GET['action'])) {
                     $result['exception'] = Database::getException();
                 }
                 break;
-            // Accion de desabilitar un elemento de toda la información------------------.        
             case 'delete':
                 if (!$resena->setId($_POST['idResena'])) {
                     $result['exception'] = 'Reseña incorrecta';

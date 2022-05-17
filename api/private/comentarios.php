@@ -16,7 +16,6 @@ if (isset($_GET['action'])) {
         $result['session'] = 1;
         // Se compara la acción a realizar cuando un administrador ha iniciado sesión.
         switch ($_GET['action']) {
-            // Accion de leer toda la información------------------.
             case 'readAll':
                 if ($result['dataset'] = $comentarios->readAll()) {
                     $result['status'] = 1;
@@ -26,7 +25,6 @@ if (isset($_GET['action'])) {
                     $result['exception'] = 'No hay datos registrados';
                 }
                 break;
-            // Accion de buscar información de los comentarios existentes------------------.        
             case 'search':
                 if ($result['dataset'] = $comentarios->searchRows($_POST['search'])) {
                     $result['status'] = 1;
@@ -36,7 +34,6 @@ if (isset($_GET['action'])) {
                     $result['exception'] = 'No hay coincidencias';
                 }
                 break;
-            // Accion leer un elemento de toda la información------------------.     
             case 'readOne':
                 if (!$comentarios->setId($_POST['idComentario'])) {
                     $result['exception'] = 'Comentario incorrecto';
@@ -48,7 +45,6 @@ if (isset($_GET['action'])) {
                     $result['exception'] = 'Comentario inexistente';
                 }
                 break;
-            // Accion leer los detalles en el modal------------------.     
             case 'readOneDetail':
                 if (!$comentarios->setId($_POST['idComentario'])) {
                     $result['exception'] = 'Comentario incorrecto';
@@ -60,9 +56,8 @@ if (isset($_GET['action'])) {
                     $result['exception'] = 'Comentario inexistente';
                 }
                 break;
-            // Accion de actualizar un elemento de toda la información------------------.    
             case 'update':
-                //Especificamos los inputs por medio de su atributo name, y los capturamos con el método post------------.
+                //Especificamos los inputs por medio de su atributo name, y los capturamos con el método post
                 $_POST = $comentarios->validateForm($_POST);
                 if (!$comentarios->setId($_POST['id-comentario'])) {
                     $result['exception'] = 'Comentario incorrecto';
@@ -77,7 +72,6 @@ if (isset($_GET['action'])) {
                     $result['exception'] = Database::getException();
                 }
                 break;
-            // Accion de desabilitar un elemento de toda la información------------------.     
             case 'delete':
                 if (!$comentarios->setId($_POST['idComentario'])) {
                     $result['exception'] = 'Comentario incorrecto';

@@ -16,7 +16,6 @@ if (isset($_GET['action'])) {
         $result['session'] = 1;
         // Se compara la acción a realizar cuando un administrador ha iniciado sesión.
         switch ($_GET['action']) {
-            // Accion de leer la información en base al alias ------------------.
             case 'getUser':
                 if (isset($_SESSION['alias_usuario'])) {
                     $result['status'] = 1;
@@ -25,7 +24,6 @@ if (isset($_GET['action'])) {
                     $result['exception'] = 'Alias de usuario indefinido';
                 }
                 break;
-            // Accion de cerrar  secion------------------.    
             case 'logOut':
                 if (session_destroy()) {
                     $result['status'] = 1;
@@ -34,7 +32,6 @@ if (isset($_GET['action'])) {
                     $result['exception'] = 'Ocurrió un problema al cerrar la sesión';
                 }
                 break;
-            // Accion de leer toda la información------------------.    
             case 'readAll':
                 if ($result['dataset'] = $pedido->readAll()) {
                     $result['status'] = 1;
@@ -44,7 +41,6 @@ if (isset($_GET['action'])) {
                     $result['exception'] = 'No hay datos registrados';
                 }
                 break;
-            // Accion de buscar información de los pedidos existentes------------------.      
             case 'search':
                 if ($result['dataset'] = $pedido->searchRows($_POST['search'])) {
                     $result['status'] = 1;
@@ -54,7 +50,6 @@ if (isset($_GET['action'])) {
                     $result['exception'] = 'No hay coincidencias';
                 }
                 break;
-            // Accion leer un elemento de toda la información------------------.       
             case 'readOne':
                 if (!$pedido->setId($_POST['id'])) {
                     $result['exception'] = 'Pedido incorrecto';

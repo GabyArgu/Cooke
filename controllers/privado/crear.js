@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 // Método manejador de eventos que se ejecuta cuando se envía el formulario de registrar.
 document.getElementById('register-form').addEventListener('submit', function (event) {
-    // Se evita recargar la página web después de enviar el formulario-------------------.
+    // Se evita recargar la página web después de enviar el formulario.
     event.preventDefault();
     // Petición para registrar el primer usuario del sitio privado.
     fetch(API_USUARIOS + 'register-first-user', {

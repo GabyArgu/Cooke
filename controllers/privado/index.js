@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 } else if (response.status) {
                     sweetAlert(4, 'Debe autenticarse para ingresar', null);
                 } else {
-                    //Mostramos el mensaje y específicamos la página que se abrirá como siguiente paso-------------------.
+                    //Mostramos el mensaje y específicamos la página que se abrirá como siguiente paso
                     sweetAlert(3, response.exception, 'crear.html');
                 }
             });

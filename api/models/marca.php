@@ -1,6 +1,6 @@
 <?php
 /*
-*	Clase para manejar la tabla marcas de la base de datos.
+*	Clase para manejar la tabla categorias de la base de datos.
 *   Es clase hija de Validator.
 */
 class Marca extends Validator
@@ -10,7 +10,6 @@ class Marca extends Validator
     private $marca = null;
     private $imagen = null;
     private $estado = null;
-    //Variable para un campo con imagen -------------------------.
     private $ruta = '../images/marcas/';
 
     /*
@@ -84,7 +83,6 @@ class Marca extends Validator
     }
 
 
-    // Método para leer toda la información de las marcas disponibles-------------------------.
     public function readAll()
     {
         $sql = 'SELECT "idMarca", "nombreMarca", "imagenMarca", e.estado FROM marca m INNER JOIN estado as e on m.estado = e."idEstado"';

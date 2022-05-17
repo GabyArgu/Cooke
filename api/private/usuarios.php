@@ -16,7 +16,6 @@ if (isset($_GET['action'])) {
         $result['session'] = 1;
         // Se compara la acción a realizar cuando un administrador ha iniciado sesión.
         switch ($_GET['action']) {
-            // Accion de leer la información en base al alias ------------------.
             case 'getUser':
                 if (isset($_SESSION['aliasEmpleado'])) {
                     $result['status'] = 1;
@@ -26,7 +25,6 @@ if (isset($_GET['action'])) {
                     $result['exception'] = 'Alias de usuario indefinido';
                 }
                 break;
-            // Accion de cerrar  secion------------------.        
             case 'logOut':
                 if (session_destroy()) {
                     $result['status'] = 1;
@@ -35,7 +33,6 @@ if (isset($_GET['action'])) {
                     $result['exception'] = 'Ocurrió un problema al cerrar la sesión';
                 }
                 break;
-            // Accion de leer toda la información------------------.    
             case 'readAll':
                 if ($result['dataset'] = $usuario->readAll()) {
                     $result['status'] = 1;
@@ -45,7 +42,6 @@ if (isset($_GET['action'])) {
                     $result['exception'] = 'No hay datos registrados';
                 }
                 break;
-            // Accion de buscar información de los usuarios disponibles------------------.     
             case 'search':
                 if ($result['dataset'] = $usuario->searchRows($_POST['search'])) {
                     $result['status'] = 1;
@@ -55,7 +51,6 @@ if (isset($_GET['action'])) {
                     $result['exception'] = 'No hay coincidencias';
                 }
                 break;
-            // Accion de crear un nuevo usuario ------------------.       
             case 'create':
                 //Especificamos los inputs por medio de su atributo name, y los capturamos con el método post
                 $_POST = $usuario->validateForm($_POST);
@@ -88,7 +83,6 @@ if (isset($_GET['action'])) {
                     $result['exception'] = Database::getException();
                 }
                 break;
-            // Accion leer un elemento de toda la información------------------.       
             case 'readOne':
                 if (!$usuario->setId($_POST['id'])) {
                     $result['exception'] = 'Empleado incorrecto';
@@ -100,7 +94,6 @@ if (isset($_GET['action'])) {
                     $result['exception'] = 'Empleado inexistente';
                 }
                 break;
-            // Accion de leer si el id existe del empleado------------------.     
             case 'readOneShow':
                     if (!$usuario->setId($_POST['id'])) {
                         $result['exception'] = 'Empleado incorrecto';
@@ -112,7 +105,6 @@ if (isset($_GET['action'])) {
                         $result['exception'] = 'Empleado inexistente';
                     }
                     break;
-            // Accion de actualizar un elemento de toda la información------------------.         
             case 'update':
                 //Especificamos los inputs por medio de su atributo name, y los capturamos con el método post
                 $_POST = $usuario->validateForm($_POST);
@@ -143,7 +135,6 @@ if (isset($_GET['action'])) {
                     $result['exception'] = Database::getException();
                 }
                 break;
-            // Accion de desabilitar un elemento de toda la información------------------.        
             case 'delete':
                 if ($_POST['idEmpleado'] == $_SESSION['id_usuario']) {
                     $result['exception'] = 'No se puede dar de baja a sí mismo';

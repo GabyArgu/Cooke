@@ -80,7 +80,7 @@ function openUpdate(id) {
     $("#save-modal").find("input,textarea,select").val("");
     // Se asigna el título para la caja de diálogo (modal).
     document.getElementById('modal-title').textContent = 'Actualizar empleado';
-    //Desactivamos campos que no se podrán modificar-------------------.
+    //Desactivamos campos que no se podrán modificar
     document.getElementById('alias').disabled = true;
     document.getElementById('clave').disabled = true;
     document.getElementById('confirmar').disabled = true;
@@ -124,7 +124,7 @@ function openUpdate(id) {
     });
 }
 
-// Función para mandar el id de la row seleccionada al modal eliminar-------------------.
+// Función para mandar el id de la row seleccionada al modal eliminar.
 function openDelete(id) {
     document.getElementById('idEmpleado').value = id;
 }
@@ -202,7 +202,7 @@ function fillTable(dataset) {
     document.getElementById('tbody-rows').innerHTML = content;
 }
 
-/*Inicializando y configurando componente de calendario-------------------.*/
+/*Inicializando y configurando componente de calendario*/
 flatpickr('#fecha', {
 });
 
@@ -218,16 +218,16 @@ document.getElementById('save-form').addEventListener('submit', function (event)
     saveRow(API_USUARIOS, action, 'save-form', 'save-modal');
 });
 
-// Método manejador de eventos que se ejecuta cuando se envía el modal de eliminar-------------------.
+// Método manejador de eventos que se ejecuta cuando se envía el modal de eliminar.
 document.getElementById('delete-form').addEventListener('submit', function (event) {
-    // Se evita recargar la página web después de enviar el formulario-------------------.
+    // Se evita recargar la página web después de enviar el formulario.
     event.preventDefault();
-    //Llamamos al método que se encuentra en la api y le pasamos la ruta de la API y el id del formulario dentro de nuestro modal eliminar-------------------.
+    //Llamamos al método que se encuentra en la api y le pasamos la ruta de la API y el id del formulario dentro de nuestro modal eliminar
     confirmDelete(API_USUARIOS, 'delete-form');
 });
 
 
-//Función para cambiar y mostrar el avatar dinámicamente en modals-------------------.
+//Función para cambiar y mostrar el avatar dinámicamente en modals
 function changeAvatar() {
     let combo = document.getElementById('foto')
     let selected = combo.options[combo.selectedIndex].text;

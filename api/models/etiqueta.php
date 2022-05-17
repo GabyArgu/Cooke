@@ -3,12 +3,11 @@
 *	Clase para manejar la tabla catalogo de colores de la base de datos de la tienda.
 *   Es una clase hija de Validator.
 */
-class categoriaCP extends Validator
+class colorProducto extends Validator
 {
     // Declaración de atributos (propiedades).
     private $id = null;
-    private $nombre = null;
-    private $descripcion = null;
+    private $nombreEtiqueta = null;
     private $estado = null;
 
     /*
@@ -24,25 +23,14 @@ class categoriaCP extends Validator
         }
     }
 
-    public function setNombre($value)
+    public function setNombreEtiqueta($value)
     {
         if ($this->validateAlphanumeric($value, 1, 50)) {
-            $this->nombre = $value;
+            $this->nombre_etiqueta = $value;
             return true;
         } else {
             return false;
         }
-    }
-
-    public function setDescripcion($value)
-    {
-        if($this->validateString($value, 1, 250)) {
-            $this->descripcion = $value;
-            return true;
-        } else {
-            return false;
-        }
-        
     }
 
     public function setEstado($value)
@@ -62,14 +50,9 @@ class categoriaCP extends Validator
         return $this->id;
     }
 
-    public function getNombre()
+    public function getNombreEtiqueta()
     {
-        return $this->nombre;
-    }
-
-    public function getDescripcion()
-    {
-        return $this->descripcion;
+        return $this->NombreEtiqueta;
     }
 
     public function getEstado()
@@ -77,9 +60,10 @@ class categoriaCP extends Validator
         return $this->estado;
     }
 
+
     public function readAll()
     {
-        $sql = 'SELECT * from "categoriaProducto" ORDER BY "idCategoria"';
+        $sql = 'SELECT * from "nombreEtiqueta"';
         $params = null;
         return Database::getRows($sql, $params);
     }
@@ -87,8 +71,8 @@ class categoriaCP extends Validator
     public function readOne()
     {
         $sql = 'SELECT *
-        FROM "categoriaProducto"
-        where "idCategoria" = ?';
+        FROM "nombreEtiqueta"
+        where "idEtiqueta" = ?';
         $params = array($this->id);
         return Database::getRow($sql, $params);
     }
@@ -99,9 +83,9 @@ class categoriaCP extends Validator
     /* SEARCH */
     public function searchRows($value)
     {
-        $sql = 'SELECT "nombreCategoriaP"
-                FROM "categoriaProducto"
-                WHERE "categoriaProducto" ILIKE ? ';
+        $sql = 'SELECT "nombreEtiqueta"
+                FROM "nombreEtiqueta"
+                WHERE "nombreEtiqueta" ILIKE ? ';
         $params = array("%$value%");
         return Database::getRows($sql, $params);
     }
@@ -109,9 +93,9 @@ class categoriaCP extends Validator
     /* CREATE */
     public function createRow()
     {
-        $sql = 'INSERT INTO "categoriaProducto"("nombreCategoriaP", "descripcionCategoria", estado)
-                VALUES (?,?, 1);';
-        $params = array($this->nombre, $this->descripcion);
+        $sql = 'INSERT INTO "nombreEtiqueta"("nombreEtiqueta", idEstado)
+                VALUES (?, 1);';
+        $params = array($this->color);
         return Database::executeRow($sql, $params);
     }
 
@@ -119,20 +103,21 @@ class categoriaCP extends Validator
     /* UPDATE */
     public function updateRow()
     {
-        $sql = 'UPDATE "categoriaProducto"
-                SET "nombreCategoriaP" = ?, "descripcionCategoria"=?,"estado" = ?
-                WHERE "idCategoria" = ?';
-            $params = array($this->nombre,$this->descripcion,$this->estado,$this->id);
+        $sql = 'UPDATE "nombreEtiqueta"
+                SET "nombreEtiqueta" = ?,
+                "idEstado" = ?
+                WHERE "idEtiqueta" = ?';
+            $params = array($this->nombre_,$this->estado,$this->id);
         return Database::executeRow($sql, $params);
     }
 
     /* DELETE */
-    /* Función para borrar un nombre de la base (Solo se inahbilita)*/
+    
     public function deleteRow()
     {
-        $sql = 'UPDATE "categoriaProducto"
-                SET estado = 2
-                WHERE "idCategoria" = ?';
+        $sql = 'UPDATE "nombreEtiqueta"
+                SET idEstado = 2
+                WHERE "idEtiqueta" = ?';
         $params = array($this->id);
         return Database::executeRow($sql, $params);
     }

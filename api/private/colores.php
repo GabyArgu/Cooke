@@ -15,7 +15,6 @@ if (isset($_GET['action'])) {
     if (isset($_SESSION['id_usuario'])) {
         // Se compara la acción a realizar cuando un administrador ha iniciado sesión.
         switch ($_GET['action']) {
-            // Accion de leer toda la información------------------.
             case 'readAll':
                 if ($result['dataset'] = $colores->readAll()) {
                     $result['status'] = 1;
@@ -25,7 +24,6 @@ if (isset($_GET['action'])) {
                     $result['exception'] = 'No hay datos registrados';
                 }
                 break;
-            // Accion de buscar información de los colores disponibles------------------.    
             case 'search':
                 $_POST = $colores->validateForm($_POST);
                 if ($_POST['search'] == '') {
@@ -39,7 +37,6 @@ if (isset($_GET['action'])) {
                     $result['exception'] = 'No hay coincidencias';
                 }
                 break;
-            // Accion de crear un nuevo color ------------------.    
             case 'create':
                 $_POST = $colores->validateForm($_POST);
                 if (!$colores->setColor($_POST['colorProducto'])) {
@@ -51,7 +48,6 @@ if (isset($_GET['action'])) {
                     $result['exception'] = Database::getException();
                 }
                 break;
-            // Accion leer un elemento de toda la información------------------.    
             case 'readOne':
                 if (!$colores->setId($_POST['id'])) {
                     $result['exception'] = 'Error con el ID';
@@ -63,7 +59,6 @@ if (isset($_GET['action'])) {
                     $result['exception'] = 'Color inexistente';
                 }
                 break;
-            // Accion de actualizar un elemento de toda la información------------------.    
             case 'update':
                 $_POST = $colores->validateForm($_POST);
                 if (!$colores->setId($_POST['u_idColor'])) {
@@ -81,15 +76,14 @@ if (isset($_GET['action'])) {
                     $result['exception'] = Database::getException();
                 }
                 break;
-            // Accion de desabilitar un elemento de toda la información------------------.    
             case 'delete':
                 if (!$colores->setId($_POST['id-delete'])) {
-                    $result['exception'] = 'Color incorrecta';
+                    $result['exception'] = 'Categoría incorrecta';
                 } elseif (!$data = $colores->readOne()) {
-                    $result['exception'] = 'Color inexistente';
+                    $result['exception'] = 'Categoría inexistente';
                 } elseif ($colores->deleteRow()) {
                     $result['status'] = 1;
-                    $result['message'] = 'Color eliminado correctamente';
+                    $result['message'] = 'Categoría eliminada correctamente';
                 } else {
                     $result['exception'] = Database::getException();
                 }

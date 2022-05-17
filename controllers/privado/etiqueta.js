@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    $('#table-colores').DataTable({
+    $('#table-etiqueta').DataTable({
         "info": false,
         "searching": false,
         "dom":
@@ -17,12 +17,12 @@ $(document).ready(function () {
 });
 
 // Constante para establecer la ruta y parámetros de comunicación con la API.
-const API_COLORES = SERVER + 'private/colores.php?action=';
+const API_ETIQUETA = SERVER + 'private/etiqueta.php?action=';
 
 // Método manejador de eventos que se ejecuta cuando el documento ha cargado.
 document.addEventListener('DOMContentLoaded', function () {
     // Se llama a la función que obtiene los registros para llenar la tabla. Se encuentra en el archivo components.js
-    readRows(API_COLORES);
+    readRows(API_ETIQUETA);
 });
 
 // Función para llenar la tabla con los datos de los registros. Se manda a llamar en la función readRows().
@@ -33,17 +33,16 @@ function fillTable(dataset) {
         // Se crean y concatenan las filas de la tabla con los datos de cada registro.
         content += `
             <tr>
-                <td data-title="ID" class="nombre-categoria">${row.idColor}</td>
-                <td data-title="COLOR" class="nombre-categoria">${row.colorProducto}</td>
+                <td data-title="ETIQUETA" class="nombre-categoria">${row.nombreEtiqueta}</td>
                 <td data-title="ESTADO" class="nombre-categoria">${row.estado}</td>
                 <td class="botones-table">
                     <div class="acciones d-flex mx-auto">
                         <span href="" class="accion-btn" type="button"
-                            data-bs-toggle="modal" data-bs-target="#modal-actualizar" onclick="openUpdate(${row.idColor})">
+                            data-bs-toggle="modal" data-bs-target="#modal-actualizar" onclick="openUpdate(${row.nombreEtiqueta})">
                             <i class="fa-solid fa-pen-to-square"></i>
                         </span>
                         <span href="" class="accion-btn" type="button"
-                            data-bs-toggle="modal" data-bs-target="#modal-eliminar" onclick="openDelete(${row.idColor})">
+                            data-bs-toggle="modal" data-bs-target="#modal-eliminar">
                             <i class="fa-solid fa-trash-can fa-lg"></i>
                         </span>
                     </div>
@@ -60,7 +59,7 @@ document.getElementById('search-form').addEventListener('submit', function (even
     // Se evita recargar la página web después de enviar el formulario.
     event.preventDefault();
     // Se llama a la función que realiza la búsqueda. Se encuentra en el archivo components.js
-    searchRows(API_COLORES, 'search-form');
+    searchRows(API_ETIQUETA, 'search-form');
 });
 
 
@@ -70,7 +69,7 @@ function openUpdate(id) {
     const data = new FormData();
     data.append('id', id);
     // Petición para obtener los datos del registro solicitado.
-    fetch(API_COLORES + 'readOne', {
+    fetch(API_ETIQUETA + 'readOne', {
         method: 'post',
         body: data
     }).then(function (request) {
@@ -81,8 +80,7 @@ function openUpdate(id) {
                 // Se comprueba si la respuesta es satisfactoria, de lo contrario se muestra un mensaje con la excepción.
                 if (response.status) {
                     // Se inicializan los campos del formulario con los datos del registro seleccionado.
-                    document.getElementById('u_idColor').value = response.dataset.idColor;
-                    document.getElementById('u_colorProducto').value = response.dataset.colorProducto;
+                    document.getElementById('u_nombreEtiqueta').value = response.dataset.colorProducto;
                     document.getElementById('u_estado').value = response.dataset.estado;
                 } else {
                     sweetAlert(2, response.exception, null);
@@ -99,7 +97,7 @@ document.getElementById('save-form').addEventListener('submit', function (event)
     // Se evita recargar la página web después de enviar el formulario.
     event.preventDefault();
     // Se llama a la función para guardar el registro. Se encuentra en el archivo components.js
-    saveRow(API_COLORES, 'create', 'save-form', 'modal-agregar');
+    saveRow(API_ETIQUETA, 'create', 'save-form', 'modal-agregar');
 });
 
 // Método manejador de eventos que se ejecuta cuando se envía el formulario de actualizar.
@@ -107,18 +105,14 @@ document.getElementById('update-form').addEventListener('submit', function (even
     // Se evita recargar la página web después de enviar el formulario.
     event.preventDefault();
     // Se llama a la función para actualizar el registro. Se encuentra en el archivo components.js
-    saveRow(API_COLORES, 'update', 'update-form', 'modal-actualizar');
+    saveRow(API_ETIQUETA, 'update', 'update-form', 'modal-actualizar');
 });
 
-// Función para mandar el id de la row seleccionada al modal eliminar.
+// Función para establecer el registro a eliminar y abrir una caja de diálogo de confirmación.
 function openDelete(id) {
-    document.getElementById('id-delete').value = id;
+    // Se define un objeto con los datos del registro seleccionado.
+    const data = new FormData();
+    data.append('id', id);
+    // Se llama a la función que elimina un registro. Se encuentra en el archivo components.js
+    confirmDelete(API_ETIQUETA, data);
 }
-
-// Método manejador de eventos que se ejecuta cuando se envía el modal de eliminar.
-document.getElementById('delete-form').addEventListener('submit', function (event) {
-    // Se evita recargar la página web después de enviar el formulario.
-    event.preventDefault();
-    //Llamamos al método que se encuentra en la api y le pasamos la ruta de la API y el id del formulario dentro de nuestro modal eliminar
-    confirmDelete(API_COLORES, 'delete-form');
-});
