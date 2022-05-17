@@ -233,6 +233,7 @@ class Pedidos extends Validator
     *   Método para comprobar que existen pedidos registrados en nuestra base de datos
     */
 
+    // Método para leer toda la información de los pedidos-------------------------.
     public function readAll()
     {
         $sql = 'SELECT "idPedido", c."nombresCliente", c."apellidosCliente", "fechaPedido", ep."estadoPedido", "montoTotal", tp."tipoPago"
@@ -244,6 +245,7 @@ class Pedidos extends Validator
         return Database::getRows($sql, $params);
     }
 
+    // Método para un dato en especifico de los pedidos-------------------------.
     public function readOne()
     {
         $sql = 'SELECT "idPedido", "idCliente", "fechaPedido", "montoTotal", "estadoPedido", "tipoPago"

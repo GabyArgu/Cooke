@@ -1,6 +1,6 @@
 <?php
 /*
-*	Clase para manejar la tabla categorias de la base de datos.
+*	Clase para manejar la tabla estado de producto de la base de datos.
 *   Es clase hija de Validator.
 */
 class EstadoProducto extends Validator
@@ -44,7 +44,7 @@ class EstadoProducto extends Validator
         return $this->estado;
     }
 
-
+    // Método para leer todos los estados de productos existentes-------------------------.
     public function readAll()
     {
         $sql = 'SELECT "idEstadoProducto", "estadoProducto" FROM "estadoProducto"';

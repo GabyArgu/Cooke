@@ -1,6 +1,6 @@
 <?php
 /*
-*	Clase para manejar la tabla usuarios de la base de datos.
+*	Clase para manejar la tabla productos de la base de datos.
 *   Es clase hija de Validator.
 */
 class Productos extends Validator
@@ -17,6 +17,7 @@ class Productos extends Validator
     private $color = null;
     private $stock = null;
     private $imagen = null;
+    //Variable para un campo con imagen -------------------------.
     private $ruta = '../images/productos/';
 
     /*
@@ -194,6 +195,8 @@ class Productos extends Validator
     /* 
     *   Método para comprobar que existen subcategorias registradas en nuestra base de datos
     */
+
+    // Método para leer toda la información de los productos registrados-------------------------.
     public function readAll()
     {
         $sql = 'SELECT "idProducto", "imagenPrincipal", "nombreProducto", "descripcionProducto", "precioProducto", ep."estadoProducto" 
@@ -205,6 +208,7 @@ class Productos extends Validator
         return Database::getRows($sql, $params);
     }
 
+    // Método para un dato en especifico de los productos registrados-------------------------.
     public function readOne()
     {
         $sql = 'SELECT "idProducto", "idSubCategoriaP", "idProveedor", "idMarca", "imagenPrincipal", "nombreProducto", "descripcionProducto", "precioProducto", "estadoProducto"
@@ -237,7 +241,7 @@ class Productos extends Validator
         return Database::executeRow($sql, $params);
     }
 
-    /* Función para obtener el id del último registro ingresado*/
+    /* Función para obtener el id del último registro ingresado -------------------------*/
     public function getLastId()
     {
         $sql = 'SELECT MAX("idProducto") as "idProducto" FROM producto ';
@@ -256,7 +260,7 @@ class Productos extends Validator
     /* UPDATE */
     public function updateRow($current_image)
     {   
-        // Se verifica si existe una nueva imagen para borrar la actual, de lo contrario se mantiene la actual.
+        // Se verifica si existe una nueva imagen para borrar la actual, de lo contrario se mantiene la actual -------------------------.
         ($this->imagen) ? $this->deleteFile($this->getRuta(), $current_image) : $this->imagen = $current_image;
 
         $sql = 'UPDATE "subcategoriaProducto"
@@ -267,10 +271,10 @@ class Productos extends Validator
     }
 
     /* DELETE */
-    /* Función para inhabilitar un usuario ya que no los borraremos de la base*/
+    /* Función para inhabilitar un usuario ya que no los borraremos de la base-------------------------.*/
     public function deleteRow()
     {
-        //No eliminaremos registros, solo los inhabilitaremos
+        //No eliminaremos registros, solo los inhabilitaremos-------------------------.
         $sql = 'UPDATE producto SET "estadoProducto" = 3 WHERE "idProducto" = ?';
         $params = array($this->id);
         return Database::executeRow($sql, $params);

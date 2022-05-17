@@ -1,6 +1,6 @@
 <?php
 /*
-*	Clase para manejar la tabla categorias de la base de datos.
+*	Clase para manejar la tabla proveedores de la base de datos.
 *   Es clase hija de Validator.
 */
 class Proveedor extends Validator
@@ -91,6 +91,7 @@ class Proveedor extends Validator
         return $this->estado;
     }
 
+    // Método para leer toda la información del proveedor-------------------------.
     public function readAll()
     {
         $sql = 'SELECT "idProveedor", "nombreProveedor", e.estado FROM proveedor p INNER JOIN estado as e on p.estado = e."idEstado"';

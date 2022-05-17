@@ -60,7 +60,7 @@ class colorProducto extends Validator
         return $this->estado;
     }
 
-
+    // Método para leer toda la información de los colores existentes-------------------------.
     public function readAll()
     {
         $sql = 'SELECT * from "colorProducto" ORDER BY "idColor"';
@@ -68,6 +68,7 @@ class colorProducto extends Validator
         return Database::getRows($sql, $params);
     }
 
+    // Método para un dato en especifico de los colores existentes-------------------------.
     public function readOne()
     {
         $sql = 'SELECT *
@@ -112,9 +113,10 @@ class colorProducto extends Validator
     }
 
     /* DELETE */
-    /* Función para borrar un color de la base (Solo se inahbilita)*/
+    /* Función para borrar un color de la base (Solo se inahbilita)-------------------------*/
     public function deleteRow()
     {
+        //No eliminaremos registros, solo los inhabilitaremos-------------------------
         $sql = 'UPDATE "colorProducto"
                 SET estado = 2
                 WHERE "idColor" = ?';

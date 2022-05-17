@@ -110,15 +110,15 @@ document.getElementById('update-form').addEventListener('submit', function (even
     saveRow(API_COLORES, 'update', 'update-form', 'modal-actualizar');
 });
 
-// Función para mandar el id de la row seleccionada al modal eliminar.
+// Función para mandar el id de la row seleccionada al modal eliminar-------------------..
 function openDelete(id) {
     document.getElementById('id-delete').value = id;
 }
 
-// Método manejador de eventos que se ejecuta cuando se envía el modal de eliminar.
+// Método manejador de eventos que se ejecuta cuando se envía el modal de eliminar-------------------.
 document.getElementById('delete-form').addEventListener('submit', function (event) {
-    // Se evita recargar la página web después de enviar el formulario.
+    // Se evita recargar la página web después de enviar el formulario-------------------..
     event.preventDefault();
-    //Llamamos al método que se encuentra en la api y le pasamos la ruta de la API y el id del formulario dentro de nuestro modal eliminar
+    //Llamamos al método que se encuentra en la api y le pasamos la ruta de la API y el id del formulario dentro de nuestro modal eliminar-------------------.
     confirmDelete(API_COLORES, 'delete-form');
 });

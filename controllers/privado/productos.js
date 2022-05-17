@@ -65,20 +65,20 @@ function openCreate() {
 
 }
 
-// Función para mandar el id de la row seleccionada al modal eliminar.
+// Función para mandar el id de la row seleccionada al modal eliminar-------------------.
 function openDelete(id) {
   document.getElementById('id-delete').value = id;
 }
 
-// Método manejador de eventos que se ejecuta cuando se envía el modal de eliminar.
+// Método manejador de eventos que se ejecuta cuando se envía el modal de eliminar-------------------.
 document.getElementById('delete-form').addEventListener('submit', function (event) {
-  // Se evita recargar la página web después de enviar el formulario.
+  // Se evita recargar la página web después de enviar el formulario-------------------.
   event.preventDefault();
-  //Llamamos al método que se encuentra en la api y le pasamos la ruta de la API y el id del formulario dentro de nuestro modal eliminar
+  //Llamamos al método que se encuentra en la api y le pasamos la ruta de la API y el id del formulario dentro de nuestro modal eliminar-------------------.
   confirmDelete(API_PRODUCTOS, 'delete-form');
 });
 
-//Función para refrescar la tabla manualmente al darle click al botón refresh
+//Función para refrescar la tabla manualmente al darle click al botón refresh-------------------.
 document.getElementById('refresh').addEventListener('click', function () {
   readRows(API_PRODUCTOS);
   document.getElementById('search').value = "";
