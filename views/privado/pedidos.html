@@ -150,8 +150,10 @@
                     <div class="row contenido">
                         <div class="row pt-3 mx-auto header-table">
                             <div class="col d-flex justify-content-end mx-auto">
-                                <input class="form-control form-control-dark w-60 d-none d-md-block Buscador-Imp"
-                                    type="text" placeholder="Buscar" aria-label="Search" id="search" name="search">
+                                <form method="post" id="search-form">
+                                    <input class="form-control form-control-dark w-60 d-none d-md-block Buscador-Imp"
+                                        type="text" placeholder="Buscar" aria-label="Search" id="search" name="search">
+                                </form>
                                 <button class="btn-refresh"><i class="fa-solid fa-arrows-rotate"></i></button>
                             </div>
                         </div>
@@ -160,7 +162,7 @@
                                 <table class="table table-bordered table-pedidos" id="table-pedidos">
                                     <thead>
                                         <tr>
-                                            <th>ID Pedido</th>
+                                            <th>Identificador</th>
                                             <th>Cliente</th>
                                             <th>Fecha</th>
                                             <th>Estado</th>
@@ -168,23 +170,7 @@
                                             <th>Acciones</th>
                                         </tr>
                                     </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td data-title="ID PEDIDO" name="id" id="id">001</td>
-                                            <td data-title="CLIENTE">Oscar Orellana</td>
-                                            <td data-title="FECHA">14/02/2022</td>
-                                            <td data-title="ESTADO">Pagado</td>
-                                            <td data-title="MONTO TOTAL">$44.73</td>
-                                            <td class="botones-table">
-                                                <div class="acciones d-flex mx-auto">
-                                                    <span href="" class="accion-btn" type="button"
-                                                        data-bs-toggle="modal" data-bs-target="#modal-ver">
-                                                        <i class="fa-solid fa-eye"></i>
-                                                    </span>
-                                                </div>
-                                            </td>
-
-                                        </tr>
+                                    <tbody id="tbody-rows">
                                     </tbody>
                                 </table>
                             </div>
