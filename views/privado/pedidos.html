@@ -152,9 +152,9 @@
                             <div class="col d-flex justify-content-end mx-auto">
                                 <form method="post" id="search-form">
                                     <input class="form-control form-control-dark w-60 d-none d-md-block Buscador-Imp"
-                                        type="text" placeholder="Buscar" aria-label="Search" id="search" name="search">
+                                        type="text" placeholder="Buscar por ID de pedido" aria-label="Search" id="search" name="search">
                                 </form>
-                                <button class="btn-refresh"><i class="fa-solid fa-arrows-rotate"></i></button>
+                                <button class="btn-refresh" id="refresh"><i class="fa-solid fa-arrows-rotate"></i></button>
                             </div>
                         </div>
                         <div class="row">
@@ -165,8 +165,8 @@
                                             <th>Identificador</th>
                                             <th>Cliente</th>
                                             <th>Fecha</th>
-                                            <th>Estado</th>
                                             <th>Monto Total</th>
+                                            <th>Estado</th>
                                             <th>Acciones</th>
                                         </tr>
                                     </thead>
@@ -199,38 +199,19 @@
                 <div class="modal-body p-5 pt-2">
                     <div class="container">
                         <div class="row info-detalle-content">
+                            <h3 class="text-center fw-bold" id="title-items"></h3>
                             <div class="col-12 hijo-detallepedido p-3 mb-5">
-                                <h3 class="text-center fw-bold">Listado de items</h3>
-                                <div class="table-responsive mt-3" id="no-more-tables">
+                                <div class="table-responsive mt-3 table-wrapper" id="no-more-tables">
                                     <table class="table table-bordered table-pedidos">
                                         <thead>
                                             <tr>
-                                                <th>Imagen</th>
                                                 <th>Producto</th>
                                                 <th>Precio</th>
                                                 <th>Cantidad</th>
-                                                <th>Total</th>
+                                                <th>Subtotal</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td data-title="IMAGEN"><img src="../../resources/img/pedido/Olla.png"
-                                                        alt="olla">
-                                                </td>
-                                                <td data-title="PRODUCTO">Cacerola Steel Co Healthy</td>
-                                                <td data-title="PRECIO">$29.74</td>
-                                                <td data-title="CANTIDAD">Oscar Orellana</td>
-                                                <td data-title="MONTO TOTAL">$44.73</td>
-                                            </tr>
-                                            <tr>
-                                                <td data-title="IMAGEN"><img src="../../resources/img/pedido/Olla.png"
-                                                        alt="olla">
-                                                </td>
-                                                <td data-title="PRODUCTO">Cacerola Steel Co Healthy</td>
-                                                <td data-title="PRECIO">$29.74</td>
-                                                <td data-title="CANTIDAD">Oscar Orellana</td>
-                                                <td data-title="MONTO TOTAL">$44.73</td>
-                                            </tr>
                                         </tbody>
                                     </table>
                                 </div>
@@ -242,31 +223,31 @@
                             <div class="col-12">
                                 <div class="row row-bottom-pedido">
                                     <div class="col-lg-4 hijo-detallepedido p-3">
-                                        <h4 class="text-center fw-bold">Información de pedido</h4>
+                                        <h4 class="text-center fw-bold" id="pedido-title"></h4>
                                         <div class="cd-cart-total">
                                             <p class="card-total-line fw-bold">ID Pedido<span
-                                                    class="fw-normal">001</span></p>
+                                                    class="fw-normal" id="id-det">001</span></p>
                                             <p class="card-total-line fw-bold">Fecha<span
-                                                    class="fw-normal">14/02/2022</span></p>
+                                                    class="fw-normal" id="fecha-det">14/02/2022</span></p>
                                             <p class="card-total-line fw-bold">Estado<span
-                                                    class="fw-normal">Pagado</span></p>
+                                                    class="fw-normal" id="estado-det">Pagado</span></p>
                                             <p class="card-total-line fw-bold">Pago<span
-                                                    class="fw-normal">Efectivo</span></p>
+                                                    class="fw-normal" id="pago-det">Efectivo</span></p>
                                         </div> <!-- cd-cart-total -->
                                     </div>
                                     <div class="col-lg-4 hijo-detallepedido p-3">
-                                        <h4 class="text-center fw-bold">Información de envío</h4>
+                                        <h4 class="text-center fw-bold" id="envio-title">Información de envío</h4>
                                         <div class="cd-cart-total mt-4">
-                                            <p class="card-total-line fw-bold">Nombre<span class="fw-normal">Oscar
+                                            <p class="card-total-line fw-bold">Nombre<span class="fw-normal" id="cliente-det">Oscar
                                                     Orellana</span></p>
-                                            <p class="card-total-line fw-bold">Dirección<span class="fw-normal">Colonia
+                                            <p class="card-total-line fw-bold">Dirección<span class="fw-normal" id="direccion-det">Colonia
                                                     Miralvalle</span></p>
                                             <p class="card-total-line fw-bold">Contacto<span
-                                                    class="fw-normal">7668-4927</span></p>
+                                                    class="fw-normal" id="telefono-det">7668-4927</span></p>
                                         </div> <!-- cd-cart-total -->
                                     </div>
                                     <div class="col-lg-4 hijo-detallepedido p-3 col-resumen-pedido">
-                                        <h4 class="text-center fw-bold">Resumen de pedido</h4>
+                                        <h4 class="text-center fw-bold" id="resumen-title">Resumen de pedido</h4>
                                         <div class="cd-cart-total mt-4">
                                             <p class="card-total-line fw-bold">Subtotal<span
                                                     class="fw-normal">$49.54</span></p>
@@ -303,7 +284,6 @@
     <script src="../../controllers/componentes.js"></script>
     <script src="../../controllers/privado/online.js"></script>
     <script src="../../controllers/privado/pedidos.js"></script>
-
 </body>
 
 </html>

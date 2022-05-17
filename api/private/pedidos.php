@@ -16,22 +16,6 @@ if (isset($_GET['action'])) {
         $result['session'] = 1;
         // Se compara la acción a realizar cuando un administrador ha iniciado sesión.
         switch ($_GET['action']) {
-            case 'getUser':
-                if (isset($_SESSION['alias_usuario'])) {
-                    $result['status'] = 1;
-                    $result['username'] = $_SESSION['alias_usuario'];
-                } else {
-                    $result['exception'] = 'Alias de usuario indefinido';
-                }
-                break;
-            case 'logOut':
-                if (session_destroy()) {
-                    $result['status'] = 1;
-                    $result['message'] = 'Sesión eliminada correctamente';
-                } else {
-                    $result['exception'] = 'Ocurrió un problema al cerrar la sesión';
-                }
-                break;
             case 'readAll':
                 if ($result['dataset'] = $pedido->readAll()) {
                     $result['status'] = 1;
@@ -54,6 +38,17 @@ if (isset($_GET['action'])) {
                 if (!$pedido->setId($_POST['id'])) {
                     $result['exception'] = 'Pedido incorrecto';
                 } elseif ($result['dataset'] = $pedido->readOne()) {
+                    $result['status'] = 1;
+                } elseif (Database::getException()) {
+                    $result['exception'] = Database::getException();
+                } else {
+                    $result['exception'] = 'Pedido inexistente';
+                }
+                break;
+            case 'readOneDetail':
+                if (!$pedido->setId($_POST['id'])) {
+                    $result['exception'] = 'Pedido incorrecto';
+                } elseif ($result['dataset'] = $pedido->readOneDetail()) {
                     $result['status'] = 1;
                 } elseif (Database::getException()) {
                     $result['exception'] = Database::getException();
