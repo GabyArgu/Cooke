@@ -2,6 +2,7 @@
 const API_ARTICULOS = SERVER + 'private/articulos.php?action=';
 const ENDPOINT_CATEGORIA = SERVER + 'private/categoria_articulo.php?action=readAll';
 const ENDPOINT_ESTADO = SERVER + 'private/estado_general.php?action=readAll';
+const ENDPOINT_USUARIO = SERVER + 'private/usuarios.php?action=readAll';
 
 // Método manejador de eventos que se ejecuta cuando el documento ha cargado.
 document.addEventListener('DOMContentLoaded', function () {
@@ -45,7 +46,8 @@ $(document).on('keyup', '#search', function () {
 function openCreate() {
 
     //Limpiamos los campos del modal
-    $("#save-modal").find("input,textarea,select").val("");
+    $("#modal-agregar").find("input,textarea,select").val('');
+    document.getElementById('contenido').value = '';
 
     // Se asigna el título para la caja de diálogo (modal).
     document.getElementById('title-agregar1').textContent = 'Agregar artículo';
@@ -59,6 +61,7 @@ function openCreate() {
     /* Se llama a la función que llena el select del formulario. Se encuentra en el archivo components.js, 
      * mandar de parametros la ruta de la api de la tabla que utiliza el select, y el id del select*/
     fillSelect(ENDPOINT_CATEGORIA, 'categoria', null);
+    fillSelect(ENDPOINT_USUARIO, 'autor', null);
 }
 
 // Función para preparar el formulario al momento de modificar un registro.
@@ -93,9 +96,10 @@ function openUpdate(id) {
                     document.getElementById('titulo').value = response.dataset.tituloArticulo;
                     document.getElementById('autor').value = response.dataset.nombresEmpleado + " " + response.dataset.apellidosEmpleado;
                     document.getElementById('calendar').value = response.dataset.fechaArticulo;
-                    fillSelect(ENDPOINT_CATEGORIA, 'categoria', response.dataset.idCategoriaA);
+                    document.getElementById('contenido').value = response.dataset.contenidoArticulo;
                     fillSelect(ENDPOINT_ESTADO, 'estado', response.dataset.estado);
-
+                    fillSelect(ENDPOINT_USUARIO, 'autor', response.dataset.idEmpleado);
+                    fillSelect(ENDPOINT_CATEGORIA, 'categoria', response.dataset.idCategoriaA);
                 } else {
                     sweetAlert(2, response.exception, null);
                 }
@@ -116,12 +120,12 @@ document.getElementById('delete-form').addEventListener('submit', function (even
     // Se evita recargar la página web después de enviar el formulario.
     event.preventDefault();
     //Llamamos al método que se encuentra en la api y le pasamos la ruta de la API y el id del formulario dentro de nuestro modal eliminar
-    confirmDelete(API_SUBCATEPRODUCTOS, 'delete-form');
+    confirmDelete(API_ARTICULOS, 'delete-form');
 });
 
 //Función para refrescar la tabla manualmente al darle click al botón refresh
 document.getElementById('refresh').addEventListener('click', function () {
-    readRows(API_SUBCATEPRODUCTOS);
+    readRows(API_ARTICULOS);
     document.getElementById('search').value = "";
 });
 
@@ -133,7 +137,7 @@ function fillTable(dataset) {
         // Se crean y concatenan las filas de la tabla con los datos de cada registro.
         content += `
             <tr>
-                <td><img src="${SERVER}images/articulo/${row.imagenArticulo}" class="img-fluid" width="100" height="50"></td>
+                <td><img src="${SERVER}images/blog/${row.imagenArticulo}" class="img-fluid" width="100" height="50"></td>
                 <td>${row.tituloArticulo}</td>
                 <td>${row.nombresEmpleado} ${row.apellidosEmpleado}</td>
                 <td>${row.nombreCategoriaA}</td>
@@ -148,6 +152,10 @@ function fillTable(dataset) {
                         <span onclick="openDelete(${row.idArticulo})" class="accion-btn" type="button"
                             data-bs-toggle="modal" data-bs-target="#modal-eliminar">
                             <i class="fa-solid fa-trash-can fa-lg"></i>
+                        </span>
+                        <span onclick="openDetails(${row.idArticulo})" class="accion-btn" type="button"
+                            data-bs-toggle="modal" data-bs-target="#modal-ver">
+                            <i class="fa-solid fa-eye fa-lg"></i>
                         </span>
                     </div>
                 </td>
@@ -167,5 +175,5 @@ document.getElementById('save-form').addEventListener('submit', function (event)
     // Se comprueba si el campo oculto del formulario esta seteado para actualizar, de lo contrario será para crear.
     (document.getElementById('id').value) ? action = 'update' : action = 'create';
     // Se llama a la función para guardar el registro. Se encuentra en el archivo components.js
-    saveRow(API_SUBCATEPRODUCTOS, action, 'save-form', 'save-modal');
+    saveRow(API_ARTICULOS, action, 'save-form', 'modal-agregar2');
 });

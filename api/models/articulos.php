@@ -41,8 +41,12 @@ class Articulos extends Validator
 
     public function setCategoria($value)
     {
-        $this->categoria = $value;
-        return true;
+        if ($this->validateNaturalNumber($value)) {
+            $this->categoria = $value;
+            return true;
+        } else {
+            return false;
+        }
     }
 
     public function setTitulo($value)
@@ -161,9 +165,8 @@ class Articulos extends Validator
 
     public function readOne()
     {
-        $sql = 'SELECT "idArticulo", em."nombresEmpleado", em."apellidosEmpleado", c."nombreCategoriaA", "tituloArticulo", "contenidoArticulo", "fechaArticulo", a."estado", "imagenArticulo"  
-                from "articulo" as a inner join "empleado" as em on a."idEmpleado" = em."idEmpleado"
-                inner join "categoriaArticulo" as c on a."idCategoriaA" = c."idCategoriaA"
+        $sql = 'SELECT "idArticulo", "idEmpleado", "idCategoriaA", "tituloArticulo", "contenidoArticulo", "fechaArticulo", "estado", "imagenArticulo"  
+                FROM "articulo"
                 WHERE "idArticulo" = ?';
         $params = array($this->id);
         return Database::getRow($sql, $params);
@@ -188,7 +191,7 @@ class Articulos extends Validator
     {
         $sql = 'SELECT "idArticulo", em."nombresEmpleado", em."apellidosEmpleado", c."nombreCategoriaA", "tituloArticulo", "contenidoArticulo", "fechaArticulo", e."estado", "imagenArticulo"  
                 from "articulo" as a inner join "empleado" as em on a."idEmpleado" = em."idEmpleado"
-                inner join "categoriaArticulo" as c on a."idsCategoriaA" = c."idCategoriaA"
+                inner join "categoriaArticulo" as c on a."idCategoriaA" = c."idCategoriaA"
                 inner join "estado" as "e" on a."estado" = e."idEstado"
                 where "tituloArticulo" ILIKE ?
                 order by "fechaArticulo", "estado" desc';
@@ -199,8 +202,8 @@ class Articulos extends Validator
     /* CREATE */
     public function createRow()
     {
-        $sql = 'INSERT INTO "subcategoriaProducto"("idEmpleado", "idCategoriaA", "tituloArticulo", "contenidoArticulo", "fechaArticulo", "estado", "imagenArticulo")
-        VALUES (?, ?, ?, ?, ?, ?);';
+        $sql = 'INSERT INTO "articulo"("idEmpleado", "idCategoriaA", "tituloArticulo", "contenidoArticulo", "fechaArticulo", "estado", "imagenArticulo")
+        VALUES (?, ?, ?, ?, ?, ?, ?);';
         $params = array($this->empleado, $this->categoria, $this->titulo, $this->contenido, $this->fecha, $this->estado, $this->imagen);
         return Database::executeRow($sql, $params);
     }
@@ -211,7 +214,7 @@ class Articulos extends Validator
         // Se verifica si existe una nueva imagen para borrar la actual, de lo contrario se mantiene la actual.
         ($this->imagen) ? $this->deleteFile($this->getRuta(), $current_image) : $this->imagen = $current_image;
 
-        $sql = 'UPDATE "subcategoriaProducto"
+        $sql = 'UPDATE "articulo"
                 SET "idEmpleado"=?, "idCategoriaA"=?, "tituloArticulo"=?, "contenidoArticulo"=?, "fechaArticulo"=?, estado=?, "imagenArticulo"=?
                 WHERE "idArticulo" = ?;';
             $params = array($this->empleado, $this->categoria, $this->titulo, $this->contenido, $this->fecha, $this->estado, $this->imagen, $this->id);

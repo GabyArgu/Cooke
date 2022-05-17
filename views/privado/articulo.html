@@ -239,9 +239,9 @@
     <!-- FIN MODAL VER -->
 
     <!-- INICIO MODALS AGREGAR-->
-    <form method="post" name="save-form">
+    <form method="post" id="save-form" name="save-form">
 
-        <div class="modal modal-agregar fade" id="modal-agregar" tabindex="-1" aria-labelledby="exampleModalLabel"
+        <div class="modal modal-agregar fade" id="modal-agregar" name="modal-agregar" tabindex="-1" aria-labelledby="exampleModalLabel"
             aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
@@ -264,8 +264,9 @@
                                         </div>
                                         <div class="col-6 mb-4">
                                             <label for="autor" class="form-label">Autor</label>
-                                            <input type="text" class="form-control" id="autor" name="autor" value=""
-                                                required>
+                                            <select class="form-select custom-form-select"
+                                                aria-label="Default select example" id="autor" name="autor">
+                                            </select>
                                         </div>
                                         <div class="col-6 mb-4">
                                             <label for="fecha" class="form-label">Fecha</label>
@@ -293,22 +294,22 @@
                                             <input class="form-control input-hide" type="number" id="id" name="id">
                                         </div>
                                     </div>
-
                                 </div>
+
                             </div>
                         </div>
-                        <div class="modal-footer d-flex justify-content-end">
-                            <button class="btn btn-siguiente" type="button" data-bs-target="#modal-agregar2"
-                                data-bs-toggle="modal" data-bs-dismiss="modal">Siguiente</button>
-                        </div>
+                    </div>
+                    <div class="modal-footer d-flex justify-content-end">
+                        <button class="btn btn-siguiente" type="button" data-bs-target="#modal-agregar2"
+                            data-bs-toggle="modal" data-bs-dismiss="modal">Siguiente</button>
                     </div>
                 </div>
             </div>
         </div>
-
-        <div class="modal modal-agregar2 modal-agregar-articulo2 fade" id="modal-agregar2" aria-hidden="true"
+            
+        <div class="modal modal-agregar2 modal-agregar-articulo2 fade" id="modal-agregar2" name="modal-agregar2" aria-hidden="true"
             aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
-            <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-dialog modal-dialog-centered modal-lg">
                 <div class="modal-content">
                     <div class="modal-header">
 
@@ -322,8 +323,8 @@
                                 <div class="col">
                                     <div class="row">
                                         <div class="col">
-                                            <label for="contenido" class="form-label">Descripción</label>
-                                            <textarea class="form-control" rows="6" id="contenido"
+                                            <label for="contenido" class="form-label">Contenido</label>
+                                            <textarea class="form-control" rows="12" id="contenido"
                                                 name="contenido"></textarea>
                                         </div>
                                     </div>
@@ -365,10 +366,12 @@
                     </div>
                 </div>
                 <div class="modal-footer d-flex mx-2 justify-content-between">
-                    <button class="btn btn-cancel" type="button" data-bs-target="" data-bs-toggle="modal"
-                        data-bs-dismiss="modal">Cancelar</button>
-                    <button class="btn btn-siguiente" type="button" data-bs-target="" data-bs-toggle="modal"
-                        data-bs-dismiss="modal">Continuar</button>
+                    <button class="btn btn-cancel" type="button" data-bs-dismiss="modal">Cancelar</button>
+                    <form id="delete-form">
+                        <input type="hidden" id="id-delete" name="id-delete">
+                        <button class="btn btn-siguiente" type="submit" data-bs-dismiss="modal">Continuar</button>
+                    </form>
+
                 </div>
             </div>
         </div>
