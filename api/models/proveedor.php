@@ -91,6 +91,7 @@ class Proveedor extends Validator
         return $this->estado;
     }
 
+    // Método para leer toda la información de los colores existentes-------------------------.
     public function readAll()
     {
         $sql = 'SELECT "idProveedor", "nombreProveedor", e.estado FROM proveedor p INNER JOIN estado as e on p.estado = e."idEstado" order by "idProveedor"';
@@ -98,6 +99,7 @@ class Proveedor extends Validator
         return Database::getRows($sql, $params);
     }
 
+    // Método para un dato en especifico de los colores existentes-------------------------.
     public function readOne()
     {
         $sql = 'SELECT "idProveedor", "nombreProveedor", "telefonoProveedor", "direccionProveedor", estado FROM proveedor WHERE "idProveedor" = ?';
@@ -147,10 +149,10 @@ class Proveedor extends Validator
     }
 
     /* DELETE */
-    /* Función para inhabilitar un usuario ya que no los borraremos de la base*/
+    /* Función para inhabilitar un usuario ya que no los borraremos de la base---------------------------*/
     public function deleteRow()
     {
-        //No eliminaremos registros, solo los inhabilitaremos
+        //No eliminaremos registros, solo los inhabilitaremos----------------------------
         $sql = 'UPDATE proveedor SET estado = 3 WHERE "idProveedor" = ?';
         $params = array($this->id);
         return Database::executeRow($sql, $params);

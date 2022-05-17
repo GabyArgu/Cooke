@@ -3,7 +3,7 @@
 *	Clase para manejar la tabla categoria de productos de la base de datos de la tienda.
 *   Es una clase hija de Validator.
 */
-class categoriaCP extends Validator
+class CategoriaCP extends Validator
 {
     // Declaración de atributos (propiedades).
     private $id = null;
