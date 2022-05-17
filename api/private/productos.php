@@ -85,6 +85,17 @@ if (isset($_GET['action'])) {
                     $result['exception'] = 'Producto inexistente';
                 }
                 break;
+            case 'readOneShow':
+                    if (!$productos->setId($_POST['id'])) {
+                        $result['exception'] = 'Producto incorrecto';
+                    } elseif ($result['dataset'] = $productos->readOneShow()) {
+                        $result['status'] = 1;
+                    } elseif (Database::getException()) {
+                        $result['exception'] = Database::getException();
+                    } else {
+                        $result['exception'] = 'Producto inexistente';
+                    }
+                    break;
             case 'update':
                 //Especificamos los inputs por medio de su atributo name, y los capturamos con el método post
                 $_POST = $productos->validateForm($_POST);
@@ -103,7 +114,7 @@ if (isset($_GET['action'])) {
                 } elseif (!$productos->setMarca($_POST['marca'])){
                     $result['exception'] = 'marca inválida';
                 } elseif (!$productos->setPrecio($_POST['precio'])){
-                    $result['exception'] = 'Categoría inválida';
+                    $result['exception'] = 'Precio inválido';
                 } elseif (!$productos->setColor($_POST['color'])){
                     $result['exception'] = 'Color inválido';
                 }elseif (!$productos->setStock($_POST['stock'])){

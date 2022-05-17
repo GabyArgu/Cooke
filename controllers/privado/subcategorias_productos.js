@@ -44,7 +44,7 @@ function openCreate() {
     //Limpiamos los campos del modal
     $("#save-modal").find("input,textarea,select").val("");
 
-    // Se asigna el título para la caja de diálogo (modal).
+    // Se asigna el título para cada modal.
     document.getElementById('modal-title').textContent = 'Agregar subcategoría';
 
     //Añadimos la clase que esconde el select estado ya que todos los usuarios ingresados, tendrán el valor de activo y este se manda automaticamente
