@@ -116,7 +116,7 @@ class Pedidos extends Validator
 
     public function readOne()
     {
-        $sql = 'SELECT "SELECT "idPedido", c."nombresCliente", c."apellidosCliente", c."direccionCliente", c."telefonoCliente", "fechaPedido", p."estadoPedido", "montoTotal", tp."tipoPago"
+        $sql = 'SELECT "idPedido", c."nombresCliente", c."apellidosCliente", c."direccionCliente", c."telefonoCliente", "fechaPedido", p."estadoPedido", "montoTotal", tp."tipoPago"
                 from pedido as p inner join "cliente" as c on p."idCliente" = c."idCliente"
                 inner join "tipoPago" as tp on p."tipoPago" = tp."idTipoPago"
                 where "idPedido" = ?';
@@ -124,15 +124,27 @@ class Pedidos extends Validator
         return Database::getRow($sql, $params);
     }
 
-    public function readOneDetail()
+    public function readOneShow()
     {
-        $sql = ' SELECT "idPedido", c."nombresCliente", c."apellidosCliente", c."direccionCliente", c."telefonoCliente", fechaPedido", ep."estadoPedido", "montoTotal", tp."tipoPago"
+        $sql = 'SELECT "idPedido", c."nombresCliente", c."apellidosCliente", c."direccionCliente", c."telefonoCliente", "fechaPedido", ep."estadoPedido", "montoTotal", tp."tipoPago"
                 from pedido as p inner join "cliente" as c on p."idCliente" = c."idCliente"
                 inner join "estadoPedido" as ep on p."estadoPedido" = ep."idEstadoPedido"
                 inner join "tipoPago" as tp on p."tipoPago" = tp."idTipoPago"
                 where "idPedido" = ?';
         $params = array($this->id);
         return Database::getRow($sql, $params);
+    }
+
+    public function readOneDPShow()
+    {   
+        $sql = 'SELECT "idDetallePedido", pr."nombreProducto", pr."precioProducto", "cantidadProducto", pr."precioProducto" * "cantidadProducto" as "subtotal"
+                from "detallePedido" as dp inner join "pedido" as p on dp."idPedido" = p."idPedido"
+                inner join "cliente" as cl on p."idCliente" = cl."idCliente"
+                inner join "estadoPedido" as ep on p."estadoPedido" = ep."idEstadoPedido"
+                inner join "producto" as pr on dp."idProducto" = pr."idProducto"
+                where p."idPedido" = ?';
+        $params = array($this->id);
+        return Database::getRows($sql, $params);
     }
 
     /*
@@ -151,5 +163,14 @@ class Pedidos extends Validator
                 order by "idPedido"';
         $params = array("%$value%", "%$value%");
         return Database::getRows($sql, $params);
+    }
+
+    public function updateRow()
+    {
+        $sql = 'UPDATE "pedido"
+                SET "estadoPedido" = ?
+                WHERE "idPedido" = ?';
+            $params = array($this->estado, $this->id);
+        return Database::executeRow($sql, $params);
     }
 }

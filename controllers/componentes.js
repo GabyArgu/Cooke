@@ -62,6 +62,30 @@ function readRows2(api) {
     });
 }
 
+function searchRows3(api, id, table) {
+    fetch(api + 'readOneDPShow', {
+        method: 'post',
+        body: id
+    }).then(function (request) {
+        // Se verifica si la petición es correcta, de lo contrario se muestra un mensaje en la consola indicando el problema.
+        if (request.ok) {
+            // Se obtiene la respuesta en formato JSON.
+            request.json().then(function (response) {
+                // Se comprueba si la respuesta es satisfactoria, de lo contrario se muestra un mensaje con la excepción.
+                if (response.status) {
+                    // Se envían los datos a la función del controlador para que llene la tabla en la vista y se muestra un mensaje de éxito.
+                    fillTable3(response.dataset, table);
+                } else {
+                    /* En caso de no encontrar coincidencias, limpiara el campo y se recargará la tabla -----------------------*/
+                    sweetAlert(2, response.exception, null);
+                }
+            });
+        } else {
+            console.log(request.status + ' ' + request.statusText);
+        }
+    });
+}
+
 /*
 *   Función para obtener los resultados de una búsqueda en los mantenimientos de tablas (operación search).
 *

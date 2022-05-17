@@ -1,6 +1,5 @@
 // Constante para establecer la ruta y parámetros de comunicación con la API.
 const API_PEDIDOS = SERVER + 'private/pedidos.php?action=';
-const API_DETALLE = SERVER + 'private/detalle_pedido.php?action=';
 const ENDPOINT_ESTADO = SERVER + 'private/estado_pedido.php?action=readAll';
 
 // Método manejador de eventos que se ejecuta cuando el documento ha cargado.
@@ -61,10 +60,10 @@ function fillTable(dataset) {
                 <td class="botones-table">
                     <div class="acciones d-flex mx-auto">
                         <span onclick="openUpdate(${row.idPedido})" class="accion-btn" type="button"
-                            data-bs-toggle="modal" data-bs-target="#modal-editar">
+                            data-bs-toggle="modal" data-bs-target="#modal-update">
                             <i class="fa-solid fa-pen-to-square fa-lg"></i>
                         </span>
-                        <span onclick="openDetails(${row.idPedido})" class="accion-btn" type="button"
+                        <span onclick="openShow(${row.idPedido})" class="accion-btn" type="button"
                             data-bs-toggle="modal" data-bs-target="#modal-ver">
                             <i class="fa-solid fa-eye fa-lg"></i>
                         </span>
@@ -77,19 +76,40 @@ function fillTable(dataset) {
     document.getElementById('tbody-rows').innerHTML = content;
 }
 
+function fillTable3(dataset, table) {
+    let content = '';
+    // Se recorre el conjunto de registros (dataset) fila por fila a través del objeto row.
+    dataset.map(function(row) {
+        // Se crean y concatenan las filas de la tabla con los datos de cada registro.
+        content += `
+            <tr>
+                <td>${row.nombreProducto}</td>
+                <td>${row.precioProducto}</td>
+                <td>${row.cantidadProducto}</td>
+                <td>$${row.subtotal}</td>
+            </tr>
+        `;
+    });
+    // Se agregan las filas al cuerpo de la tabla mediante su id para mostrar los registros.
+    document.getElementById(table).innerHTML = content;
+}
 
 function openUpdate(id) {
     //Limpiamos los campos del modal
-    $("#modal-editar").find(".texto-modal").val("");
+    $("#modal-update").find(".texto-modal").val("");
     //Captura de id de reseña de reseña seleccionada
-    document.getElementById('id-resena').value = id;
+    document.getElementById('id-u').value = id;
     // Se asigna el título para la caja de diálogo (modal).
-    document.getElementById('modal-editar-title').textContent = 'Editar reseña';
+    document.getElementById('title-items-u').textContent = 'Listado de items';
+    document.getElementById('pedido-title-u').textContent = 'Información de pedido'
+    document.getElementById('envio-title-u').textContent = 'Información de envío'
+    document.getElementById('resumen-title-u').textContent = 'Resumen de pedido'
+    document.getElementById('envio-u').textContent = '$0.00';
     // Se define un objeto con los datos del registro seleccionado.
     const data = new FormData();
-    data.append('idResena', id);
+    data.append('id-det', id);
     // Petición para obtener los datos del registro solicitado.
-    fetch(API_RESENAS + 'readOne', {
+    fetch(API_PEDIDOS + 'readOne', {
         method: 'post',
         body: data
     }).then(function (request) {
@@ -100,14 +120,15 @@ function openUpdate(id) {
                 // Se comprueba si la respuesta es satisfactoria, de lo contrario se muestra un mensaje con la excepción.
                 if (response.status) {
                     // Se inicializan los campos del formulario con los datos del registro seleccionado.
-                    document.getElementById('id-resena').textContent = response.dataset.idResena;
+                    document.getElementById('id-u').textContent = response.dataset.idPedido;
+                    document.getElementById('fecha-u').textContent = response.dataset.fechaPedido;
+                    document.getElementById('pago-u').textContent = response.dataset.tipoPago;
                     document.getElementById('cliente-u').textContent = response.dataset.nombresCliente + " " + response.dataset.apellidosCliente;
-                    document.getElementById('producto-u').textContent = response.dataset.nombreProducto;
-                    document.getElementById('puntaje-u').textContent = response.dataset.puntajeResena;
-                    document.getElementById('titulo-u').textContent = response.dataset.tituloResena;
-                    document.getElementById('descripcion-u').textContent = response.dataset.descripcionResena;
-                    document.getElementById('fecha-u').textContent = response.dataset.fechaResena;
-                    fillSelect(ENDPOINT_ESTADO, 'estado-resena', response.dataset.estado);
+                    document.getElementById('direccion-u').textContent = response.dataset.direccionCliente;
+                    document.getElementById('telefono-u').textContent = response.dataset.telefonoCliente;
+                    document.getElementById('monto-total-u').textContent = response.dataset.montoTotal;
+                    fillSelect(ENDPOINT_ESTADO, 'estado-pedido', response.dataset.estadoPedido);
+                    searchRows3(API_PEDIDOS, data, 'tbody-rows-update')
                 } else {
                     sweetAlert(2, response.exception, null);
                 }
@@ -118,17 +139,20 @@ function openUpdate(id) {
     });
 }
 
-function openDetails(id) {
+function openShow(id) {
     //Limpiamos los campos del modal
     $("#modal-ver").find(".texto-modal").val("");
     // Se asigna el título para la caja de diálogo (modal).
     document.getElementById('title-items').textContent = 'Listado de items';
     document.getElementById('pedido-title').textContent = 'Información de pedido'
+    document.getElementById('envio-title').textContent = 'Información de envío'
+    document.getElementById('resumen-title').textContent = 'Resumen de pedido'
+    document.getElementById('envio-det').textContent = '$0.00';
     // Se define un objeto con los datos del registro seleccionado.
     const data = new FormData();
     data.append('id-det', id);
     // Petición para obtener los datos del registro solicitado.
-    fetch(API_RESENAS + 'readOneDetail', {
+    fetch(API_PEDIDOS + 'readOneShow', {
         method: 'post',
         body: data
     }).then(function (request) {
@@ -139,13 +163,15 @@ function openDetails(id) {
                 // Se comprueba si la respuesta es satisfactoria, de lo contrario se muestra un mensaje con la excepción.
                 if (response.status) {
                     // Se inicializan los campos del formulario con los datos del registro seleccionado.
+                    document.getElementById('id-det').textContent = response.dataset.idPedido;
+                    document.getElementById('fecha-det').textContent = response.dataset.fechaPedido;
+                    document.getElementById('estado-det').textContent = response.dataset.estadoPedido;
+                    document.getElementById('pago-det').textContent = response.dataset.tipoPago;
                     document.getElementById('cliente-det').textContent = response.dataset.nombresCliente + " " + response.dataset.apellidosCliente;
-                    document.getElementById('producto-det').textContent = response.dataset.nombreProducto
-                    document.getElementById('puntaje-det').textContent = response.dataset.puntajeResena;
-                    document.getElementById('titulo-det').textContent = response.dataset.tituloResena;
-                    document.getElementById('descripcion-det').textContent = response.dataset.descripcionResena;
-                    document.getElementById('fecha-det').textContent = response.dataset.fechaResena;
-                    document.getElementById('estado-det').textContent = response.dataset.estado;
+                    document.getElementById('direccion-det').textContent = response.dataset.direccionCliente;
+                    document.getElementById('telefono-det').textContent = response.dataset.telefonoCliente;
+                    document.getElementById('monto-total-det').textContent = response.dataset.montoTotal;
+                    searchRows3(API_PEDIDOS, data, 'tbody-rows-detalle')
                 } else {
                     sweetAlert(2, response.exception, null);
                 }
@@ -156,18 +182,12 @@ function openDetails(id) {
     });
 }
 
-// Método manejador de eventos que se ejecuta cuando se envía el modal de eliminar.
-document.getElementById('delete-form').addEventListener('submit', function (event) {
-    // Se evita recargar la página web después de enviar el formulario.
-    event.preventDefault();
-    //Llamamos al método que se encuentra en la api y le pasamos la ruta de la API y el id del formulario dentro de nuestro modal eliminar
-    confirmDelete(API_RESENAS, 'delete-form');
-});
+
 
 document.getElementById('update-form').addEventListener('submit', function (event) {
     // Se evita recargar la página web después de enviar el formulario.
     event.preventDefault();
     let action = 'update'
     // Se llama a la función para guardar el registro. Se encuentra en el archivo components.js
-    saveRow(API_RESENAS, action, 'update-form', 'modal-editar');
+    saveRow(API_PEDIDOS, action, 'update-form', 'modal-update');
 });
