@@ -16,6 +16,7 @@ class Productos extends Validator
     private $estado = null;
     private $color = null;
     private $stock = null;
+    private $descuento = null;
     private $imagen = null;
     private $ruta = '../images/productos/';
 
@@ -125,8 +126,18 @@ class Productos extends Validator
 
     public function setStock($value)
     {
-        if ($this->validateNaturalNumber($value)) {
+        if ($this->validateStock($value)) {
             $this->stock = $value;
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public function setDescuento($value)
+    {
+        if ($this->validateStock($value)) {
+            $this->descuento = $value;
             return true;
         } else {
             return false;
@@ -186,6 +197,16 @@ class Productos extends Validator
         return $this->color;
     }
 
+    public function getStock()
+    {
+        return $this->stock;
+    }
+
+    public function getDescuento()
+    {
+        return $this->descuento;
+    }
+
     public function getRuta()
     {
         return $this->ruta;
@@ -207,7 +228,7 @@ class Productos extends Validator
 
     public function readOne()
     {
-        $sql = 'SELECT p."idProducto", "idSubCategoriaP", "idProveedor", "idMarca", "imagenPrincipal", "nombreProducto", "descripcionProducto", "precioProducto", "estadoProducto", "idColor", stock 
+        $sql = 'SELECT p."idProducto", "idSubCategoriaP", "idProveedor", "idMarca", "imagenPrincipal", "nombreProducto", "descripcionProducto", "precioProducto", "estadoProducto", "idColor", stock, descuento 
         FROM producto as p inner join "colorStock" as cs on p."idProducto" = cs."idProducto"
         WHERE p."idProducto" =  ?';
         $params = array($this->id);
@@ -216,7 +237,7 @@ class Productos extends Validator
 
     public function readOneShow()
     {
-        $sql = 'SELECT p."idProducto", "nombreSubCategoriaP", "nombreMarca", "imagenPrincipal", "nombreProducto", "descripcionProducto", "precioProducto", ep."estadoProducto", cp."colorProducto", stock, fecha 
+        $sql = 'SELECT p."idProducto", "nombreSubCategoriaP", "nombreMarca", "imagenPrincipal", "nombreProducto", "descripcionProducto", "precioProducto", ep."estadoProducto", cp."colorProducto", stock, fecha, descuento 
         FROM producto as p inner join "colorStock" as cs on p."idProducto" = cs."idProducto"
 		inner join "subcategoriaProducto" as sp on p."idSubCategoriaP" = sp."idSubCategoriaP"
 		inner join "estadoProducto" as ep on p."estadoProducto" = ep."idEstadoProducto"
@@ -244,9 +265,9 @@ class Productos extends Validator
     public function createRow()
     {
         $sql = 'INSERT INTO producto(
-        "idSubCategoriaP", "idProveedor", "idMarca", "nombreProducto", "descripcionProducto", "precioProducto", "estadoProducto", "imagenPrincipal")
-        VALUES (?, ?, ?, ?, ?, ?, ?, ?) RETURNING "idProducto";';
-        $params = array($this->subcategoria, $this->proveedor, $this->marca, $this->nombre, $this->descripcion, $this->precio, $this->estado, $this->imagen);
+        "idSubCategoriaP", "idProveedor", "idMarca", "nombreProducto", "descripcionProducto", "precioProducto", "estadoProducto", "imagenPrincipal", descuento)
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING "idProducto";';
+        $params = array($this->subcategoria, $this->proveedor, $this->marca, $this->nombre, $this->descripcion, $this->precio, $this->estado, $this->imagen, $this->descuento);
         return Database::executeRow($sql, $params);
     }
 
@@ -273,9 +294,9 @@ class Productos extends Validator
         ($this->imagen) ? $this->deleteFile($this->getRuta(), $current_image) : $this->imagen = $current_image;
 
         $sql = 'UPDATE producto
-            SET "idSubCategoriaP"=?, "idProveedor"=?, "idMarca"=?, "nombreProducto"=?, "descripcionProducto"=?, "precioProducto"=?, "estadoProducto"=?, "imagenPrincipal"=?
+            SET "idSubCategoriaP"=?, "idProveedor"=?, "idMarca"=?, "nombreProducto"=?, "descripcionProducto"=?, "precioProducto"=?, "estadoProducto"=?, "imagenPrincipal"=?, descuento = ?
             WHERE "idProducto"=?;';
-            $params = array($this->subcategoria, $this->proveedor, $this->marca, $this->nombre, $this->descripcion, $this->precio, $this->estado, $this->imagen, $this->id);
+            $params = array($this->subcategoria, $this->proveedor, $this->marca, $this->nombre, $this->descripcion, $this->precio, $this->estado, $this->imagen, $this->descuento, $this->id);
         return Database::executeRow($sql, $params);
     }
 

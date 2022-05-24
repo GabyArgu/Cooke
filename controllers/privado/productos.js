@@ -45,7 +45,7 @@ $(document).on('keyup', '#search', function () {
 // Función para preparar el modal al momento de insertar un registro.
 function openCreate() {
     //Limpiamos los campos del modal
-    $("#save-form").find("input,textarea,select").val("");
+    document.getElementById('save-form').reset();
 
     // Se asigna el título para la caja de diálogo (modal).
     document.getElementById('modal-title').textContent = 'Agregar producto';
@@ -73,7 +73,7 @@ function openCreate() {
 // Función para preparar el formulario al momento de modificar un registro.
 function openUpdate(id) {
     //Limpiamos los campos del modal
-    $("#save-modal").find("input,textarea,select").val("");
+    document.getElementById('save-form').reset();
     // Se asigna el título para la caja de diálogo (modal).
     document.getElementById('modal-title').textContent = 'Actualizar producto';
     document.getElementById('modal-title2').textContent = 'Actualizar producto';
@@ -109,6 +109,7 @@ function openUpdate(id) {
                     document.getElementById('nombre').value = response.dataset.nombreProducto;
                     document.getElementById('precio').value = response.dataset.precioProducto;
                     document.getElementById('stock').value = response.dataset.stock;
+                    document.getElementById('descuento').value = response.dataset.descuento;
                     document.getElementById('descripcion').value = response.dataset.descripcionProducto;
                     fillSelect(ENDPOINT_SUBCATEGORIA, 'subcategoria', response.dataset.idSubCategoriaP);
                     fillSelect(ENDPOINT_MARCA, 'marca', response.dataset.idMarca);
@@ -167,7 +168,7 @@ function openShow(id) {
                     document.getElementById('show-nombre').innerText = response.dataset.nombreProducto;
                     document.getElementById('show-marca').innerText = response.dataset.nombreMarca;
                     document.getElementById('show-precio').innerText = "$" + response.dataset.precioProducto;
-                    document.getElementById('show-precio-before').innerText = "$" + String(parseFloat(parseInt(response.dataset.precioProducto) * 1.25).toFixed(2));
+                    document.getElementById('show-precio-before').innerText = "$" + String(parseFloat((response.dataset.precioProducto) * ((parseFloat(response.dataset.descuento)/100)+1.00)).toFixed(2));
                     document.getElementById('show-estado').innerText = response.dataset.estadoProducto;
                     document.getElementById('show-descripcion').innerText = response.dataset.descripcionProducto;
                     document.getElementById('show-stock').innerText = response.dataset.stock;
@@ -251,7 +252,6 @@ function hoverImagen(ruta) {
 document.getElementById('save-form').addEventListener('submit', function (event) {
     // Se evita recargar la página web después de enviar el formulario.
     event.preventDefault();
-    document.getElementById('stock').disabled = false;
     // Se define una variable para establecer la acción a realizar en la API.
     let action = '';
     // Se comprueba si el campo oculto del formulario esta seteado para actualizar, de lo contrario será para crear.
