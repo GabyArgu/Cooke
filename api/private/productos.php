@@ -50,6 +50,8 @@ if (isset($_GET['action'])) {
                     $result['exception'] = 'Categoría inválida';
                 } elseif (!$productos->setColor($_POST['color'])){
                     $result['exception'] = 'Color inválido';
+                }elseif (!$productos->setDescuento($_POST['descuento'])){
+                    $result['exception'] = 'Descuento inválido';
                 }elseif (!$productos->setStock($_POST['stock'])){
                     $result['exception'] = 'Stock inválido';
                 }  elseif (!is_uploaded_file($_FILES['archivo']['tmp_name'])) {
@@ -117,6 +119,8 @@ if (isset($_GET['action'])) {
                     $result['exception'] = 'Precio inválido';
                 } elseif (!$productos->setColor($_POST['color'])){
                     $result['exception'] = 'Color inválido';
+                }elseif (!$productos->setDescuento($_POST['descuento'])){
+                    $result['exception'] = 'Descuento inválido';
                 }elseif (!$productos->setStock($_POST['stock'])){
                     $result['exception'] = 'Stock inválido';
                 }elseif (!$productos->setEstado($_POST['estado'])) {
