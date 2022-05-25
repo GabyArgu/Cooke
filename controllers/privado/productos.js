@@ -116,8 +116,6 @@ function openUpdate(id) {
                     fillSelect(ENDPOINT_PROVEEDOR, 'proveedor', response.dataset.idProveedor);
                     fillSelect(ENDPOINT_COLOR, 'color', response.dataset.idColor);
                     fillSelect(ENDPOINT_ESTADO, 'estado', response.dataset.estadoProducto);
-
-
                 } else {
                     sweetAlert(2, response.exception, null);
                 }
@@ -256,8 +254,12 @@ document.getElementById('save-form').addEventListener('submit', function (event)
     let action = '';
     // Se comprueba si el campo oculto del formulario esta seteado para actualizar, de lo contrario será para crear.
     (document.getElementById('id').value) ? action = 'update' : action = 'create';
+    //Se activa el campo de stock para poder mandarlo al servidor, si está desactivado no se puede mandar
+    document.getElementById('stock').disabled = false;
     // Se llama a la función para guardar el registro. Se encuentra en el archivo components.js
     saveRow(API_PRODUCTOS, action, 'save-form', 'save-modal-2');
+    //Se desactiva el campo de stock porque ya se utilizo
+    document.getElementById('stock').disabled = true;
 });
 
 let sumarStock = () => {
