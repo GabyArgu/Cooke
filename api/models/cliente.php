@@ -17,6 +17,7 @@ class Cliente extends Validator
     private $correo = null;
     private $alias = null;
     private $clave = null;
+    private $foto = null;
 
     /*
     *   Métodos para validar y asignar valores de los atributos.
@@ -132,6 +133,12 @@ class Cliente extends Validator
         }
     }
 
+    public function setFoto($value)
+    {
+        $this->foto = $value;
+        return true;
+    }
+
     /*
     *   Métodos para obtener valores de los atributos.
     */
@@ -189,6 +196,11 @@ class Cliente extends Validator
     {
         return $this->clave;
     }
+
+    public function getFoto()
+    {
+        return $this->foto;
+    }
     
     /* 
     *   Método para comprobar que existen usuarios registrados en nuestra base de datos
@@ -204,7 +216,7 @@ class Cliente extends Validator
 
     public function readOne()
     {
-        $sql = 'SELECT "idCliente", "nombresCliente", "apellidosCliente", "correoCliente", "duiCliente", "telefonoCliente", "nacimientoCliente", "aliasCliente", "direccionCliente", "estadoCliente"
+        $sql = 'SELECT "idCliente", "nombresCliente", "apellidosCliente", "correoCliente", "duiCliente", "telefonoCliente", "nacimientoCliente", "aliasCliente", "direccionCliente", "estadoCliente", avatar
         FROM cliente
         WHERE "idCliente" = ?';
         $params = array($this->id);
@@ -214,8 +226,9 @@ class Cliente extends Validator
     /* Método para obtener un empleado y mostrarlo en modal de visualizar*/
     public function readOneShow()
     {
-        $sql = 'SELECT "idCliente", "nombresCliente", "apellidosCliente", "duiCliente", "correoCliente", "telefonoCliente", "nacimientoCliente", "direccionCliente", ec."estadoCliente"
+        $sql = 'SELECT "idCliente", "nombresCliente", "apellidosCliente", "duiCliente", "correoCliente", "telefonoCliente", "nacimientoCliente", "direccionCliente", ec."estadoCliente", a.avatar
         FROM cliente as c inner join "estadoCliente" as ec on c."estadoCliente" = ec."idEstadoCliente"
+		inner join "avatar" as a on c."avatar" = a."idAvatar" 
         WHERE "idCliente" = ?';
         $params = array($this->id);
         return Database::getRow($sql, $params);
@@ -238,9 +251,9 @@ class Cliente extends Validator
     public function createRow()
     {
         $sql = 'INSERT INTO cliente(
-            "nombresCliente", "apellidosCliente", "duiCliente", "correoCliente", "telefonoCliente", "nacimientoCliente", "direccionCliente", "contrasenaCliente", "estadoCliente", "aliasCliente")
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)';
-        $params = array($this->nombres, $this->apellidos, $this->dui, $this->correo, $this->telefono, $this->nacimiento, $this->direccion,  $this->clave,   $this->estado, $this->alias,);
+            "nombresCliente", "apellidosCliente", "duiCliente", "correoCliente", "telefonoCliente", "nacimientoCliente", "direccionCliente", "contrasenaCliente", "estadoCliente", "aliasCliente", avatar)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)';
+        $params = array($this->nombres, $this->apellidos, $this->dui, $this->correo, $this->telefono, $this->nacimiento, $this->direccion,  $this->clave,  $this->estado, $this->alias, $this->foto);
         return Database::executeRow($sql, $params);
     }
 
@@ -249,9 +262,9 @@ class Cliente extends Validator
     public function updateRow()
     {
         $sql = 'UPDATE cliente
-            SET "nombresCliente"=?, "apellidosCliente"=?, "duiCliente"=?, "correoCliente"=?, "telefonoCliente"=?, "nacimientoCliente"=?, "direccionCliente"=?, "estadoCliente"=?
+            SET "nombresCliente"=?, "apellidosCliente"=?, "duiCliente"=?, "correoCliente"=?, "telefonoCliente"=?, "nacimientoCliente"=?, "direccionCliente"=?, "estadoCliente"=?, avatar = ?
             WHERE "idCliente"=?;';
-            $params = array($this->nombres, $this->apellidos, $this->dui, $this->correo, $this->telefono, $this->nacimiento, $this->direccion, $this->estado, $this->id);
+            $params = array($this->nombres, $this->apellidos, $this->dui, $this->correo, $this->telefono, $this->nacimiento, $this->direccion, $this->estado, $this->foto, $this->id);
         return Database::executeRow($sql, $params);
     }
 

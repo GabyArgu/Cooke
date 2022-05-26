@@ -1130,6 +1130,7 @@ body {
 }
 
 .inicio .scroll:hover {
+    mask-position: left top;
     -webkit-mask-position: left top;
 }
 
@@ -2326,6 +2327,10 @@ body {
     justify-content: space-between;
 }
 
+.detalle-producto-content .añadir-boton .input-group button:hover{
+    color: var(--blanco);
+}
+
 .detalle-producto-content .left-stock {
     margin-top: 10px;
     color: var(--rosadoOscuro);
@@ -2491,6 +2496,12 @@ body {
     color: var(--rosadoTitulos);
 }
 
+.detalle-producto-content .input {
+    height: 38px;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+}
+
 .escribir-resena {
     width: 150px;
     height: 40px;
@@ -2607,6 +2618,7 @@ body {
 .detalle-producto-content .owl-theme .owl-nav [class*="owl-"]:hover {
     background-color: transparent;
 }
+
 
 /* ------------------------------------------------------------------FIN DETALLES PRODUCTOS-------------------------------------------------------*/
 
