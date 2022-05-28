@@ -6,7 +6,7 @@ document.getElementById('register-form').addEventListener('submit', function (ev
     // Se evita recargar la página web después de enviar el formulario-------------------.
     event.preventDefault();
     // Petición para registrar el primer usuario del sitio privado.
-    fetch(API_CLIENTE + 'register-first-user', {
+    fetch(API_CLIENTE + 'register', {
         method: 'post',
         body: new FormData(document.getElementById('register-form'))
     }).then(function (request) {
