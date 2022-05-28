@@ -1,5 +1,6 @@
 <?php
 /*
+/*
 *	Clase para manejar la tabla usuarios de la base de datos.
 *   Es clase hija de Validator.
 */
@@ -200,6 +201,60 @@ class Cliente extends Validator
     public function getFoto()
     {
         return $this->foto;
+    }
+    
+
+
+
+    public function checkUser($correo)
+    {
+        $sql = 'SELECT idCliente, estadoCliente FROM cliente WHERE correoCliente = ?';
+        $params = array($correo);
+        if ($data = Database::getRow($sql, $params)) {
+            $this->id = $data['idCliente'];
+            $this->estado = $data['estadoCliente'];
+            $this->correo = $correo;
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public function checkPassword($password)
+    {
+        $sql = 'SELECT claveCliente FROM cliente WHERE idCliente = ?';
+        $params = array($this->id);
+        $data = Database::getRow($sql, $params);
+        if (password_verify($password, $data['claveCliente'])) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public function changePassword()
+    {
+        $sql = 'UPDATE cliente SET claveCliente = ? WHERE idCliente = ?';
+        $params = array($this->clave, $this->id);
+        return Database::executeRow($sql, $params);
+    }
+
+    public function editProfile()
+    {
+        $sql = 'UPDATE cliente
+                "nombresCliente"=?, "apellidosCliente"=?, "duiCliente"=?, "correoCliente"=?, "telefonoCliente"=?, "nacimientoCliente"=?, "direccionCliente"=?, "estadoCliente"=?, avatar = ?
+                WHERE idCliente = ?';
+        $params = array($this->nombres, $this->apellidos, $this->dui, $this->correo, $this->telefono, $this->nacimiento, $this->direccion, $this->estado, $this->foto, $this->id);
+        return Database::executeRow($sql, $params);
+    }
+
+    public function changeStatus()
+    {
+        $sql = 'UPDATE cliente
+                SET estadoCliente = ?
+                WHERE idCliente = ?';
+        $params = array($this->estado, $this->id);
+        return Database::executeRow($sql, $params);
     }
     
     /* 
