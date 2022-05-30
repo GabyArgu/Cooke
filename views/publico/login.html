@@ -167,13 +167,14 @@
                             <h1 class="text-center titleL">LOGIN</h1>
                             <hr class="lineaLo">
                         </div>
-                        <div class="row justify-content-center">
+                        <form method="post" id="login-form">
+                            <div class="row justify-content-center">
                             <div class="col-10 mt-4 ">
                                 <div class="input-group">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text SLcorreo SLimg" id="inputGroupPrepend2"></span>
                                     </div>
-                                    <input type="text" class="form-control Lcorreo" id="validationDefaultUsername"
+                                    <input type="email" class="form-control Lcorreo" id="correo" name="correo"
                                         placeholder="Escribe tu correo" aria-describedby="inputGroupPrepend2" required>
                                 </div>
                             </div>
@@ -182,16 +183,16 @@
                                     <div class="input-group-prepend">
                                         <span class="input-group-text SLcorreo SLimg2" id="inputGroupPrepend2"></span>
                                     </div>
-                                    <input type="text" class="form-control Lcorreo" id="validationDefaultUsername"
-                                        placeholder="Escribe tu contraseña" aria-describedby="inputGroupPrepend2"
-                                        required>
+                                    <input type="password" class="form-control Lcorreo" name="clave"
+                                            id="clave" placeholder="Escribe tu contraseña"
+                                            aria-describedby="inputGroupPrepend2" required>
                                 </div>
                             </div>
                             <div class="col-10 mt-3 Recu">
                                 <a class="RecuperarA" href="recuperar1.html">¿Has perdido tu contraseña?</a>
                             </div>
-                            <div class="col-10 mt-4 ">
-                                <a href="index.html"><button class="AAceptar"> Continuar</button></a>
+                            <div class="col-10 mt-4 justify-content-center">
+                                <a href="login.html"><button class="AAceptar" type="submit"> Continuar</button></a>
                             </div>
                             <div class="col-10 mt-4 ">
                                 <p class="TerminosP">Al continuar, aceptas las Condiciones de uso y el Aviso de
@@ -207,6 +208,7 @@
                                 <a class="Crear" href="crear.html">Crear tu cuenta</a>
                             </div>
                         </div>
+                    </form>
                     </div>
 
                 </div>
@@ -288,6 +290,9 @@
         integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
         crossorigin="anonymous"></script>
     <script src="../../controllers/publico/stickynavs.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="../../controllers/componentes.js"></script>
+    <script src="../../controllers/publico/login.js"></script>
 </body>
 
 </html>

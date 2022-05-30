@@ -25,6 +25,25 @@ document.addEventListener('DOMContentLoaded', function () {
     readRows(API_CATALOGO);
 });
 
+//Función que se ejecuta cada vez que apretamos una tecla dentro del input #search, sirve para buscador en tiempo real
+$(document).on('keyup', '#search', function () {
+    var valor = $(this).val();
+    if (valor != "") {
+        //SearchRows se encuentra en componentes.js y mandamos la ruta de la api, el formulario el cual contiene nuestro input para buscar (id) y el input de buscar (id)
+        searchRows(API_CATALOGO, 'search-form', 'search');
+    }
+    else {
+        //Cuando el input este vacío porque borramos el texto manualmente
+        readRows(API_CATALOGO);
+    }
+});
+
+//Función para refrescar la tabla manualmente al darle click al botón refresh
+document.getElementById('refresh').addEventListener('click', function () {
+    readRows(API_CATALOGO);
+    document.getElementById('search').value = "";
+});
+
 // Función para llenar la tabla con los datos de los registros. Se manda a llamar en la función readRows().
 function fillTable(dataset) {
     let content = '';

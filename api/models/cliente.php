@@ -1,22 +1,24 @@
 <?php
 /*
-*	Esta sera la clase para manejar la tabla usuarios de la base de datos.
-*   Es una clase hija de Validator.
+/*
+*	Clase para manejar la tabla usuarios de la base de datos.
+*   Es clase hija de Validator.
 */
-class Usuarios extends Validator
+class Cliente extends Validator
 {
     // Declaración de atributos (propiedades) según nuestra tabla en la base de datos.
     private $id = null;
     private $nombres = null;
     private $apellidos = null;
-    private $cargo = null;
+    private $dui = null;
     private $direccion = null;
     private $telefono = null;
-    private $foto = null;
+    private $nacimiento = null;
     private $estado = null;
     private $correo = null;
     private $alias = null;
     private $clave = null;
+    private $foto = null;
 
     /*
     *   Métodos para validar y asignar valores de los atributos.
@@ -51,10 +53,10 @@ class Usuarios extends Validator
         }
     }
 
-    public function setCargo($value)
+    public function setDui($value)
     {
-        if ($this->validateNaturalNumber($value)) {
-            $this->cargo = $value;
+        if ($this->validateDUI($value)) {
+            $this->dui = $value;
             return true;
         } else {
             return false;
@@ -80,6 +82,26 @@ class Usuarios extends Validator
             return false;
         }
         
+    }
+
+    public function setNacimiento($value)
+    {
+        if ($this->validateDate($value)) {
+            $this->nacimiento = $value;
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public function setEstado($value)
+    {
+        if ($this->validateNaturalNumber($value)) {
+            $this->estado = $value;
+            return true;
+        } else {
+            return false;
+        }
     }
 
     public function setCorreo($value)
@@ -118,15 +140,6 @@ class Usuarios extends Validator
         return true;
     }
 
-    public function setEstado($value)
-    {
-        if ($this->validateNaturalNumber($value)) {
-            $this->estado = $value;
-            return true;
-        } else {
-            return false;
-        }
-    }
     /*
     *   Métodos para obtener valores de los atributos.
     */
@@ -145,9 +158,9 @@ class Usuarios extends Validator
         return $this->apellidos;
     }
 
-    public function getCargo()
+    public function getDui()
     {
-        return $this->cargo;
+        return $this->dui;
     }
 
     public function getDireccion()
@@ -158,6 +171,11 @@ class Usuarios extends Validator
     public function getTelefono()
     {
         return $this->telefono;
+    }
+
+    public function getNacimiento()
+    {
+        return $this->nacimiento;
     }
 
     public function getEstado()
@@ -179,29 +197,23 @@ class Usuarios extends Validator
     {
         return $this->clave;
     }
-    
+
     public function getFoto()
     {
         return $this->foto;
     }
+    
 
-    /*
-    *   Métodos para gestionar la cuenta de la tabla usuario.
-    */
 
-    // Se verifica si hay concidencias de información mediante el alias del empleado ingresado-------------------------.
 
-    public function checkUser($alias)
+    public function checkUser($correo)
     {
-        $sql = 'SELECT "idEmpleado", a.avatar, ce."cargoEmpleado"
-        FROM empleado as e inner join "cargoEmpleado" as ce on e."cargoEmpleado" = ce."idCargoEmpleado"
-		inner join "avatar" as a on e."fotoEmpleado" = a."idAvatar" 
-        WHERE "aliasEmpleado" = ?';
-        $params = array($alias);
+        $sql = 'SELECT "idCliente", "estadoCliente" FROM cliente WHERE "correoCliente" = ?';
+        $params = array($correo);
         if ($data = Database::getRow($sql, $params)) {
-            $this->id = $data['idEmpleado'];
-            $this->alias = $alias;
-            $this->foto = $data['avatar'];
+            $this->id = $data['idCliente'];
+            $this->estado = $data['estadoCliente'];
+            $this->correo = $correo;
             return true;
         } else {
             return false;
@@ -210,39 +222,58 @@ class Usuarios extends Validator
 
     public function checkPassword($password)
     {
-        $sql = 'SELECT "contrasenaEmpleado" FROM empleado WHERE "idEmpleado" = ?';
+        $sql = 'SELECT "contrasenaCliente" FROM cliente WHERE "idCliente" = ?';
         $params = array($this->id);
         $data = Database::getRow($sql, $params);
-        // Se verifica si la contraseña coincide con el hash almacenado en la base de datos.
-        if (password_verify($password, $data['contrasenaEmpleado'])) {
+        if (password_verify($password, $data['contrasenaCliente'])) {
             return true;
         } else {
             return false;
         }
     }
 
+    public function changePassword()
+    {
+        $sql = 'UPDATE cliente SET claveCliente = ? WHERE idCliente = ?';
+        $params = array($this->clave, $this->id);
+        return Database::executeRow($sql, $params);
+    }
+
+    public function editProfile()
+    {
+        $sql = 'UPDATE cliente
+                "nombresCliente"=?, "apellidosCliente"=?, "duiCliente"=?, "correoCliente"=?, "telefonoCliente"=?, "nacimientoCliente"=?, "direccionCliente"=?, "estadoCliente"=?, avatar = ?
+                WHERE idCliente = ?';
+        $params = array($this->nombres, $this->apellidos, $this->dui, $this->correo, $this->telefono, $this->nacimiento, $this->direccion, $this->estado, $this->foto, $this->id);
+        return Database::executeRow($sql, $params);
+    }
+
+    public function changeStatus()
+    {
+        $sql = 'UPDATE cliente
+                SET estadoCliente = ?
+                WHERE idCliente = ?';
+        $params = array($this->estado, $this->id);
+        return Database::executeRow($sql, $params);
+    }
+    
     /* 
     *   Método para comprobar que existen usuarios registrados en nuestra base de datos
     */
-
-    // Método para leer toda la información de los usuarios registrados-------------------------.
     public function readAll()
     {
-        $sql = 'SELECT "idEmpleado", "nombresEmpleado", "apellidosEmpleado", "telefonoEmpleado", ce."cargoEmpleado", ee."estadoEmpleado"
-        FROM empleado as e inner join "cargoEmpleado" as ce on e."cargoEmpleado" = ce."idCargoEmpleado"
-        inner join "estadoEmpleado" as ee on e."estadoEmpleado" = ee."idEstadoEmpleado" 
-		order by "idEmpleado", e."estadoEmpleado"';
-        
+        $sql = 'SELECT "idCliente", "nombresCliente", "apellidosCliente", "correoCliente", "duiCliente", ec."estadoCliente"
+        FROM cliente as c inner join "estadoCliente" as ec on c."estadoCliente" = ec."idEstadoCliente"
+        ORDER BY "idCliente"';
         $params = null;
         return Database::getRows($sql, $params);
     }
 
-    // Método para un dato en especifico de los usuarios registrados-------------------------.
     public function readOne()
     {
-        $sql = 'SELECT "idEmpleado", "nombresEmpleado", "apellidosEmpleado", "correoEmpleado", "telefonoEmpleado", "direccionEmpleado", "aliasEmpleado", "fotoEmpleado", "cargoEmpleado", "estadoEmpleado"
-        FROM empleado
-        where "idEmpleado" = ?';
+        $sql = 'SELECT "idCliente", "nombresCliente", "apellidosCliente", "correoCliente", "duiCliente", "telefonoCliente", "nacimientoCliente", "aliasCliente", "direccionCliente", "estadoCliente", avatar
+        FROM cliente
+        WHERE "idCliente" = ?';
         $params = array($this->id);
         return Database::getRow($sql, $params);
     }
@@ -250,11 +281,10 @@ class Usuarios extends Validator
     /* Método para obtener un empleado y mostrarlo en modal de visualizar*/
     public function readOneShow()
     {
-        $sql = 'SELECT "idEmpleado", "nombresEmpleado", "apellidosEmpleado", "correoEmpleado", "telefonoEmpleado", "direccionEmpleado", "aliasEmpleado", a.avatar, ce."cargoEmpleado", ee."estadoEmpleado"
-        FROM empleado as e inner join "cargoEmpleado" as ce on e."cargoEmpleado" = ce."idCargoEmpleado"
-        inner join "estadoEmpleado" as ee on e."estadoEmpleado" = ee."idEstadoEmpleado"
-		inner join "avatar" as a on e."fotoEmpleado" = a."idAvatar" 
-        where "idEmpleado" = ?';
+        $sql = 'SELECT "idCliente", "nombresCliente", "apellidosCliente", "duiCliente", "correoCliente", "telefonoCliente", "nacimientoCliente", "direccionCliente", ec."estadoCliente", a.avatar
+        FROM cliente as c inner join "estadoCliente" as ec on c."estadoCliente" = ec."idEstadoCliente"
+		inner join "avatar" as a on c."avatar" = a."idAvatar" 
+        WHERE "idCliente" = ?';
         $params = array($this->id);
         return Database::getRow($sql, $params);
     }
@@ -264,11 +294,10 @@ class Usuarios extends Validator
     /* SEARCH */
     public function searchRows($value)
     {
-        $sql = 'SELECT "idEmpleado", "nombresEmpleado", "apellidosEmpleado", "telefonoEmpleado", ce."cargoEmpleado", ee."estadoEmpleado"
-                FROM empleado as e inner join "cargoEmpleado" as ce on e."cargoEmpleado" = ce."idCargoEmpleado"
-                inner join "estadoEmpleado" as ee on e."estadoEmpleado" = ee."idEstadoEmpleado"
-                WHERE "nombresEmpleado" ILIKE ? OR "apellidosEmpleado" ILIKE ?
-                order by "idEmpleado", e."estadoEmpleado"';
+        $sql = 'SELECT "idCliente", "nombresCliente", "apellidosCliente", "correoCliente", "duiCliente", ec."estadoCliente"
+        FROM cliente as c inner join "estadoCliente" as ec on c."estadoCliente" = ec."idEstadoCliente"
+        WHERE "nombresCliente" ILIKE ? OR "apellidosCliente" ILIKE ?
+        order by "idCliente"';
         $params = array("%$value%", "%$value%");
         return Database::getRows($sql, $params);
     }
@@ -276,9 +305,10 @@ class Usuarios extends Validator
     /* CREATE */
     public function createRow()
     {
-        $sql = 'INSERT INTO empleado("nombresEmpleado", "apellidosEmpleado", "correoEmpleado", "aliasEmpleado", "contrasenaEmpleado", "direccionEmpleado", "telefonoEmpleado", "fotoEmpleado", "cargoEmpleado", "estadoEmpleado")
-                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?);';
-        $params = array($this->nombres, $this->apellidos, $this->correo, $this->alias, $this->clave, $this->direccion, $this->telefono, $this->foto, $this->cargo, $this->estado);
+        $sql = 'INSERT INTO cliente(
+            "nombresCliente", "apellidosCliente", "duiCliente", "correoCliente", "telefonoCliente", "nacimientoCliente", "direccionCliente", "contrasenaCliente", "estadoCliente", "aliasCliente", avatar)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)';
+        $params = array($this->nombres, $this->apellidos, $this->dui, $this->correo, $this->telefono, $this->nacimiento, $this->direccion,  $this->clave,  $this->estado, $this->alias, $this->foto);
         return Database::executeRow($sql, $params);
     }
 
@@ -286,19 +316,19 @@ class Usuarios extends Validator
     /* UPDATE */
     public function updateRow()
     {
-        $sql = 'UPDATE empleado
-                SET "nombresEmpleado" = ?, "apellidosEmpleado" = ?, "correoEmpleado" = ?, "direccionEmpleado" = ?, "telefonoEmpleado" = ?, "cargoEmpleado" = ?, "estadoEmpleado" = ?, "fotoEmpleado" = ?
-                WHERE "idEmpleado" = ?';
-            $params = array($this->nombres, $this->apellidos, $this->correo, $this->direccion, $this->telefono, $this->cargo, $this->estado, $this->foto, $this->id);
+        $sql = 'UPDATE cliente
+            SET "nombresCliente"=?, "apellidosCliente"=?, "duiCliente"=?, "correoCliente"=?, "telefonoCliente"=?, "nacimientoCliente"=?, "direccionCliente"=?, "estadoCliente"=?, avatar = ?
+            WHERE "idCliente"=?;';
+            $params = array($this->nombres, $this->apellidos, $this->dui, $this->correo, $this->telefono, $this->nacimiento, $this->direccion, $this->estado, $this->foto, $this->id);
         return Database::executeRow($sql, $params);
     }
 
     /* DELETE */
-    /* Función para inhabilitar un usuario ya que no los borraremos de la base------------------------- */
+    /* Función para inhabilitar un usuario ya que no los borraremos de la base*/
     public function deleteRow()
     {
-        //No eliminaremos registros, solo los inhabilitaremos-------------------------.
-        $sql = 'UPDATE empleado SET "estadoEmpleado" = 3 WHERE "idEmpleado" = ?'; //Delete from empleado where "idEmpleado" = ? -------------------------.
+        //No eliminaremos registros, solo los inhabilitaremos
+        $sql = 'UPDATE cliente SET "estadoCliente" = 3 WHERE "idCliente" = ?'; 
         $params = array($this->id);
         return Database::executeRow($sql, $params);
     }

@@ -1,6 +1,6 @@
 // Constante para establecer la ruta y parámetros de comunicación con la API.
 const API_ARTICULOS = SERVER + 'private/articulos.php?action=';
-const ENDPOINT_CATEGORIA = SERVER + 'private/categoria_articulo.php?action=readAll';
+const ENDPOINT_CATEGORIA = SERVER + 'private/categoria_blog.php?action=readAll';
 const ENDPOINT_ESTADO = SERVER + 'private/estado_general.php?action=readAll';
 const ENDPOINT_USUARIO = SERVER + 'private/usuarios.php?action=readAll';
 

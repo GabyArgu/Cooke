@@ -82,7 +82,7 @@ class Marca extends Validator
         return $this->ruta;
     }
 
-
+    // Método para leer toda la información de los colores existentes-------------------------.
     public function readAll()
     {
         $sql = 'SELECT "idMarca", "nombreMarca", "imagenMarca", e.estado FROM marca m INNER JOIN estado as e on m.estado = e."idEstado" 
@@ -91,6 +91,7 @@ class Marca extends Validator
         return Database::getRows($sql, $params);
     }
 
+    // Método para un dato en especifico de los colores existentes-------------------------.
     public function readOne()
     {
         $sql = 'SELECT "idMarca", "nombreMarca", "imagenMarca", estado FROM marca  WHERE "idMarca" = ?';
@@ -135,10 +136,10 @@ class Marca extends Validator
     }
 
     /* DELETE */
-    /* Función para inhabilitar un usuario ya que no los borraremos de la base*/
+    /* Función para borrar un color de la base (Solo se inahbilita)-------------------------*/
     public function deleteRow()
     {
-        //No eliminaremos registros, solo los inhabilitaremos
+        //No eliminaremos registros, solo los inhabilitaremos----------------------
         $sql = 'UPDATE marca SET estado = 3 WHERE "idMarca" = ?';
         $params = array($this->id);
         return Database::executeRow($sql, $params);

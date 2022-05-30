@@ -1,15 +1,14 @@
 // Constante para establecer la ruta y parámetros de comunicación con la API.
-const API_USUARIOS = SERVER + 'private/usuarios.php?action=';
-const ENDPOINT_CARGO = SERVER + 'private/cargo_empleado.php?action=readAll';
-const ENDPOINT_ESTADO = SERVER + 'private/estado_empleado.php?action=readAll';
+const API_CLIENTE = SERVER + 'private/cliente.php?action=';
+const ENDPOINT_ESTADO = SERVER + 'private/estado_cliente.php?action=readAll';
 const ENDPOINT_AVATAR = SERVER + 'private/avatar.php?action=readAll';
 
-/* Los endpoint_cargo, estado y avatar, son necesarios al ser tablas foráneas*/
+
 
 // Método manejador de eventos que se ejecuta cuando el documento ha cargado.
 document.addEventListener('DOMContentLoaded', function () {
     /* Cargando propiedades de datatable */
-    $('#table-empleados').DataTable({
+    $('#table-clientes').DataTable({
         "info": false,
         "searching": false,
         "dom":
@@ -24,27 +23,55 @@ document.addEventListener('DOMContentLoaded', function () {
         },
         "lengthMenu": [[10, 15, 20, -1], [10, 15, 20, "Todos"]]
     });
+    // Se declara e inicializa un objeto para obtener la fecha y hora actual.
+    let today = new Date();
+    // Se declara e inicializa una variable para guardar el día en formato de 2 dígitos.
+    let day = ('0' + today.getDate()).slice(-2);
+    // Se declara e inicializa una variable para guardar el mes en formato de 2 dígitos.
+    var month = ('0' + (today.getMonth() + 1)).slice(-2);
+    // Se declara e inicializa una variable para guardar el año con la mayoría de edad.
+    let year = today.getFullYear() - 18;
+    // Se declara e inicializa una variable para establecer el formato de la fecha.
+    let date = `${year}-${month}-${day}`;
+
+    /*Inicializando y configurando componente de calendario*/
+    $('#nacimiento').flatpickr({
+        maxDate: date
+    })
     // Se llama a la función que obtiene los registros para llenar la tabla. Se encuentra en el archivo components.js
-    readRows(API_USUARIOS);
+    readRows(API_CLIENTE);
 });
+
 
 //Función para refrescar la tabla manualmente al darle click al botón refresh
 document.getElementById('refresh').addEventListener('click', function () {
-    readRows(API_USUARIOS);
+    readRows(API_CLIENTE);
     document.getElementById('search').value = "";
 });
-
 
 //Función que se ejecuta cada vez que apretamos una tecla dentro del input #search, sirve para buscador en tiempo real
 $(document).on('keyup', '#search', function () {
     var valor = $(this).val();
     if (valor != "") {
         //SearchRows se encuentra en componentes.js y mandamos la ruta de la api, el formulario el cual contiene nuestro input para buscar (id) y el input de buscar (id)
-        searchRows(API_USUARIOS, 'search-form', 'search');
+        searchRows(API_CLIENTE, 'search-form', 'search');
     }
     else {
         //Cuando el input este vacío porque borramos el texto manualmente
-        readRows(API_USUARIOS);
+        readRows(API_CLIENTE);
+    }
+});
+
+//Función que se ejecuta cada vez que apretamos una tecla dentro del input #search, sirve para buscador en tiempo real
+$(document).on('keyup', '#search', function () {
+    var valor = $(this).val();
+    if (valor != "") {
+        //SearchRows se encuentra en componentes.js y mandamos la ruta de la api, el formulario el cual contiene nuestro input para buscar (id) y el input de buscar (id)
+        searchRows(API_CLIENTE, 'search-form', 'search');
+    }
+    else {
+        //Cuando el input este vacío porque borramos el texto manualmente
+        readRows(API_CLIENTE);
     }
 });
 
@@ -59,20 +86,19 @@ function openCreate() {
     // Se habilitan los campos de alias y contraseña.
     document.getElementById('alias').disabled = false;
     document.getElementById('clave').disabled = false;
-    document.getElementById('confirmar').disabled = false;
 
     //Añadimos la clase que esconde el select estado ya que todos los usuarios ingresados, tendrán el valor de activo y este se manda automaticamente
     document.getElementById('estado').classList.add('input-hide')
     document.getElementById('estado-label').classList.add('input-hide')
 
     //Ocultamos la imagen del avatar ya que por defecto no aparecerá, solo hasta que se seleccione un avatar
-    document.getElementById('imagen-avatar').style.display = 'none '
+    document.getElementById('imagen-avatar').style.display = 'none'
 
     /* Se llama a la función que llena el select del formulario. Se encuentra en el archivo components.js, 
-     * mandar de parametros la ruta de la api de la tabla que utiliza el select, y el id del select*/
-    fillSelect(ENDPOINT_CARGO, 'cargo', null);
+    * mandar de parametros la ruta de la api de la tabla que utiliza el select, y el id del select*/
     fillSelect(ENDPOINT_AVATAR, 'foto', null);
 }
+
 
 // Función para preparar el formulario al momento de modificar un registro.
 function openUpdate(id) {
@@ -80,17 +106,16 @@ function openUpdate(id) {
     document.getElementById('save-form').reset();
     // Se asigna el título para la caja de diálogo (modal).
     document.getElementById('modal-title').textContent = 'Actualizar empleado';
-    //Desactivamos campos que no se podrán modificar-------------------.
+    //Desactivamos campos que no se podrán modificar
     document.getElementById('alias').disabled = true;
     document.getElementById('clave').disabled = true;
-    document.getElementById('confirmar').disabled = true;
     document.getElementById('estado').classList.remove('input-hide')
     document.getElementById('estado-label').classList.remove('input-hide')
     // Se define un objeto con los datos del registro seleccionado.
     const data = new FormData();
     data.append('id', id);
     // Petición para obtener los datos del registro solicitado.
-    fetch(API_USUARIOS + 'readOne', {
+    fetch(API_CLIENTE + 'readOne', {
         method: 'post',
         body: data
     }).then(function (request) {
@@ -101,19 +126,19 @@ function openUpdate(id) {
                 // Se comprueba si la respuesta es satisfactoria, de lo contrario se muestra un mensaje con la excepción.
                 if (response.status) {
                     // Se inicializan los campos del formulario con los datos del registro seleccionado.
-                    document.getElementById('id').value = response.dataset.idEmpleado;
-                    document.getElementById('nombres').value = response.dataset.nombresEmpleado;
-                    document.getElementById('apellidos').value = response.dataset.apellidosEmpleado;
-                    document.getElementById('correo').value = response.dataset.correoEmpleado;
-                    document.getElementById('telefono').value = response.dataset.telefonoEmpleado;
-                    document.getElementById('direccion').value = response.dataset.direccionEmpleado;
-                    document.getElementById('alias').value = response.dataset.aliasEmpleado;
-                    fillSelect(ENDPOINT_CARGO, 'cargo', response.dataset.cargoEmpleado);
-                    fillSelect(ENDPOINT_AVATAR, 'foto', response.dataset.fotoEmpleado);
-                    fillSelect(ENDPOINT_ESTADO, 'estado', response.dataset.estadoEmpleado);
-                    document.getElementById('imagen-avatar').src = `../../resources/img/avatares/avatar${response.dataset.fotoEmpleado}.jpg`
+                    document.getElementById('id').value = response.dataset.idCliente;
+                    document.getElementById('nombres').value = response.dataset.nombresCliente;
+                    document.getElementById('apellidos').value = response.dataset.apellidosCliente;
+                    document.getElementById('correo').value = response.dataset.correoCliente;
+                    document.getElementById('telefono').value = response.dataset.telefonoCliente;
+                    document.getElementById('direccion').value = response.dataset.direccionCliente;
+                    document.getElementById('alias').value = response.dataset.aliasCliente;
+                    document.getElementById('dui').value = response.dataset.duiCliente;
+                    document.getElementById('nacimiento').value = response.dataset.nacimientoCliente;
+                    fillSelect(ENDPOINT_ESTADO, 'estado', response.dataset.estadoCliente);
+                    fillSelect(ENDPOINT_AVATAR, 'foto', response.dataset.avatar);
+                    document.getElementById('imagen-avatar').src = `../../resources/img/avatares/avatar${response.dataset.avatar}.jpg`
                     document.getElementById('imagen-avatar').style.display = 'inline-block'
-                    
                 } else {
                     sweetAlert(2, response.exception, null);
                 }
@@ -124,9 +149,9 @@ function openUpdate(id) {
     });
 }
 
-// Función para mandar el id de la row seleccionada al modal eliminar-------------------.
+// Función para mandar el id de la row seleccionada al modal eliminar.
 function openDelete(id) {
-    document.getElementById('idEmpleado').value = id;
+    document.getElementById('id-delete').value = id;
 }
 
 // Función para preparar el formulario al momento de visualizar un registro.
@@ -135,7 +160,7 @@ function openShow(id) {
     const data = new FormData();
     data.append('id', id);
     // Petición para obtener los datos del registro solicitado.
-    fetch(API_USUARIOS + 'readOneShow', {
+    fetch(API_CLIENTE + 'readOneShow', {
         method: 'post',
         body: data
     }).then(function (request) {
@@ -146,16 +171,15 @@ function openShow(id) {
                 // Se comprueba si la respuesta es satisfactoria, de lo contrario se muestra un mensaje con la excepción.
                 if (response.status) {
                     // Se inicializan los campos del formulario con los datos del registro seleccionado.  
-                    document.getElementById('show-nombres').innerText = response.dataset.nombresEmpleado;
-                    document.getElementById('show-apellidos').innerText = response.dataset.apellidosEmpleado;
-                    document.getElementById('show-correo').innerText = response.dataset.correoEmpleado;
-                    document.getElementById('show-telefono').innerText = response.dataset.telefonoEmpleado;
-                    document.getElementById('show-direccion').innerText = response.dataset.direccionEmpleado;
-                    document.getElementById('show-alias').innerText = response.dataset.aliasEmpleado;
-                    document.getElementById('show-cargo').innerText = response.dataset.cargoEmpleado;
-                    document.getElementById('show-estado').innerText = response.dataset.estadoEmpleado;
+                    document.getElementById('show-nombres').innerText = response.dataset.nombresCliente;
+                    document.getElementById('show-apellidos').innerText = response.dataset.apellidosCliente;
+                    document.getElementById('show-dui').innerText = response.dataset.duiCliente;
+                    document.getElementById('show-correo').innerText = response.dataset.correoCliente;
+                    document.getElementById('show-telefono').innerText = response.dataset.telefonoCliente;
+                    document.getElementById('show-nacimiento').innerText = response.dataset.nacimientoCliente;
+                    document.getElementById('show-direccion').innerText = response.dataset.direccionCliente;
+                    document.getElementById('show-estado').innerText = response.dataset.estadoCliente;
                     document.getElementById('show-avatar').src = `../../resources/img/avatares/${response.dataset.avatar}.jpg`;
-                    
                 } else {
                     sweetAlert(2, response.exception, null);
                 }
@@ -174,22 +198,22 @@ function fillTable(dataset) {
         // Se crean y concatenan las filas de la tabla con los datos de cada registro.
         content += `
             <tr>
-                <td>${row.nombresEmpleado}</td>
-                <td>${row.apellidosEmpleado}</td>
-                <td>${row.telefonoEmpleado}</td>
-                <td>${row.cargoEmpleado}</td>
-                <td>${row.estadoEmpleado}</td>
+                <td>${row.nombresCliente}</td>
+                <td>${row.apellidosCliente}</td>
+                <td>${row.duiCliente}</td>
+                <td>${row.correoCliente}</td>
+                <td>${row.estadoCliente}</td>
                 <td class="botones-table">
                     <div class="acciones d-flex mx-auto">
-                        <span onclick="openUpdate(${row.idEmpleado})" class="accion-btn" type="button"
+                        <span onclick="openUpdate(${row.idCliente})" class="accion-btn" type="button"
                             data-bs-toggle="modal" data-bs-target="#save-modal">
                             <i class="fa-solid fa-pen-to-square"></i>
                         </span>
-                        <span onclick="openDelete(${row.idEmpleado})" class="accion-btn" type="button"
+                        <span onclick="openDelete(${row.idCliente})" class="accion-btn" type="button"
                             data-bs-toggle="modal" data-bs-target="#modal-eliminar">
                             <i class="fa-solid fa-trash-can fa-lg"></i>
                         </span>
-                        <span onclick="openShow(${row.idEmpleado})" class="accion-btn" type="button"
+                        <span onclick="openShow(${row.idCliente})" class="accion-btn" type="button"
                             data-bs-toggle="modal" data-bs-target="#modal-ver">
                             <i class="fa-solid fa-eye"></i>
                         </span>
@@ -202,7 +226,6 @@ function fillTable(dataset) {
     document.getElementById('tbody-rows').innerHTML = content;
 }
 
-
 // Método manejador de eventos que se ejecuta cuando se envía el formulario de guardar.
 document.getElementById('save-form').addEventListener('submit', function (event) {
     // Se evita recargar la página web después de enviar el formulario.
@@ -212,17 +235,16 @@ document.getElementById('save-form').addEventListener('submit', function (event)
     // Se comprueba si el campo oculto del formulario esta seteado para actualizar, de lo contrario será para crear.
     (document.getElementById('id').value) ? action = 'update' : action = 'create';
     // Se llama a la función para guardar el registro. Se encuentra en el archivo components.js
-    saveRow(API_USUARIOS, action, 'save-form', 'save-modal');
+    saveRow(API_CLIENTE, action, 'save-form', 'save-modal');
 });
 
-// Método manejador de eventos que se ejecuta cuando se envía el modal de eliminar-------------------.
+// Método manejador de eventos que se ejecuta cuando se envía el modal de eliminar.
 document.getElementById('delete-form').addEventListener('submit', function (event) {
-    // Se evita recargar la página web después de enviar el formulario-------------------.
+    // Se evita recargar la página web después de enviar el formulario.
     event.preventDefault();
-    //Llamamos al método que se encuentra en la api y le pasamos la ruta de la API y el id del formulario dentro de nuestro modal eliminar-------------------.
-    confirmDelete(API_USUARIOS, 'delete-form');
+    //Llamamos al método que se encuentra en la api y le pasamos la ruta de la API y el id del formulario dentro de nuestro modal eliminar
+    confirmDelete(API_CLIENTE, 'delete-form');
 });
-
 
 //Función para cambiar y mostrar el avatar dinámicamente en modals-------------------.
 function changeAvatar() {
@@ -231,4 +253,3 @@ function changeAvatar() {
     document.getElementById('imagen-avatar').style.display = 'inline-block'
     document.getElementById('imagen-avatar').src = `../../resources/img/avatares/${selected}.jpg`;
 }
-

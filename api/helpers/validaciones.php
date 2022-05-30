@@ -64,6 +64,23 @@ class Validator
         }
     }
 
+        /*
+*   Método para validar el stock 
+*
+*   Parámetros: $value (dato a validar).
+*   
+*   Retorno: booleano (true si el valor es correcto o false en caso contrario).
+*/
+    public function validateStock($value)
+    {
+        // Se verifica que el valor sea un número entero mayor o igual a uno.
+        if (!($value >=0)) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
     /*
 *   Método para validar un archivo de imagen.
 *
