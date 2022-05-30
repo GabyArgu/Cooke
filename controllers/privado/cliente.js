@@ -82,7 +82,7 @@ function openCreate() {
     document.getElementById('save-form').reset();
 
     // Se asigna el título para la caja de diálogo (modal).
-    document.getElementById('modal-title').textContent = 'Agregar empleado';
+    document.getElementById('modal-title').textContent = 'Agregar Cliente';
     // Se habilitan los campos de alias y contraseña.
     document.getElementById('alias').disabled = false;
     document.getElementById('clave').disabled = false;
@@ -105,7 +105,7 @@ function openUpdate(id) {
     //Limpiamos los campos del modal
     document.getElementById('save-form').reset();
     // Se asigna el título para la caja de diálogo (modal).
-    document.getElementById('modal-title').textContent = 'Actualizar empleado';
+    document.getElementById('modal-title').textContent = 'Actualizar Cliente';
     //Desactivamos campos que no se podrán modificar
     document.getElementById('alias').disabled = true;
     document.getElementById('clave').disabled = true;
