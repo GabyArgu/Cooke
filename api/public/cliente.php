@@ -27,7 +27,8 @@ if (isset($_GET['action'])) {
                 break;
             // Accion de cerrar sesión------------------.        
             case 'logOut':
-                if (session_destroy()) {
+                unset($_SESSION['idCliente'])
+                if (isset($_SESSION['idCliente'])) {
                     $result['status'] = 1;
                     $result['message'] = 'Sesión eliminada correctamente';
                 } else {
@@ -74,6 +75,52 @@ if (isset($_GET['action'])) {
                     $result['exception'] = Database::getException();
                 }
                 break;
+
+            case 'update':
+                //Especificamos los inputs por medio de su atributo name, y los capturamos con el método post
+                    $_POST = $cliente->validateForm($_POST);
+                if (!$cliente->setId($_POST['id'])) {
+                        $result['exception'] = 'Cliente incorrecto';
+                } elseif (!$data = $cliente->readOne()) {
+                        $result['exception'] = 'Cliente inexistente';
+                } if (!$cliente->setNombres($_POST['nombres'])) {
+                        $result['exception'] = 'Nombres inválidos';
+                } elseif (!$cliente->setApellidos($_POST['apellidos'])) {
+                        $result['exception'] = 'Apellidos inválidos';
+                } elseif (!$cliente->setDui($_POST['dui'])){
+                        $result['exception'] = 'Dui inválido';
+                } elseif (!$cliente->setCorreo($_POST['correo'])) {
+                        $result['exception'] = 'Correo inválido';
+                } elseif (!$cliente->setDireccion($_POST['direccion'])) {
+                        $result['exception'] = 'Direccion inválida';
+                } elseif (!$cliente->setTelefono($_POST['telefono'])) {
+                        $result['exception'] = 'Teléfono inválido';
+                }elseif (!$cliente->setNacimiento($_POST['nacimiento'])) {
+                        $result['exception'] = 'Fecha inválida';
+                }elseif (!$cliente->setFoto($_POST['foto'])) {
+                        $result['exception'] = 'Foto inválida';
+                }elseif (!$cliente->setEstado($_POST['estado'])) {
+                        $result['exception'] = 'Estado inválido';
+                }elseif ($cliente->updateRow()) {
+                        $result['status'] = 1;
+                        $result['message'] = 'Cliente modificado correctamente';
+                } else {
+                        $result['exception'] = Database::getException();
+                    }
+                    break; 
+
+            case 'readOneShow':
+                if (!$cliente->setId($_POST['id'])) {
+                         $result['exception'] = 'Cliente incorrecto';
+                } elseif ($result['dataset'] = $cliente->readOneShow()) {
+                        $result['status'] = 1;
+                } elseif (Database::getException()) {
+                         $result['exception'] = Database::getException();
+                } else {
+                        $result['exception'] = 'Cliente inexistente';
+                    }
+                    break;   
+                         
             case 'logIn':
                 $_POST = $cliente->validateForm($_POST);
                 if (!$cliente->checkUser($_POST['correo'])) {
