@@ -3781,14 +3781,8 @@ b {
     height: 25px;
 }
 
-.ver-img {
-    width: 30px;
-    height: 30px;
-}
-
-.ver-img img {
-    width: 30px !important;
-    height: 30px !important;
+.ver-detalle{
+    color: var(--rosadoTitulos) !important;
 }
 
 .usu-img {
