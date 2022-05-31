@@ -12,7 +12,7 @@ if (isset($_GET['action'])) {
     // Se declara e inicializa un arreglo para guardar el resultado que retorna la API.
     $result = array('status' => 0, 'session' => 0, 'recaptcha' => 0, 'message' => null, 'exception' => null, 'dataset' => null, 'username' => null, 'avatar' => null);
     // Se verifica si existe una sesión iniciada como administrador, de lo contrario se finaliza el script con un mensaje de error.
-    if (isset($_SESSION['id_cliente'])) {
+    if (isset($_SESSION['idCliente'])) {
         $result['session'] = 1;
         // Se compara la acción a realizar cuando un administrador ha iniciado sesión.
         switch ($_GET['action']) {
@@ -26,17 +26,16 @@ if (isset($_GET['action'])) {
                 }
                 break;
             // Accion de cerrar sesión------------------.        
-            // case 'logOut':
-            //     unset($_SESSION['idCliente'])
-            //     if (isset($_SESSION['idCliente'])) {
-            //         $result['status'] = 1;
-            //         $result['message'] = 'Sesión eliminada correctamente';
-            //     } else {
-            //         $result['exception'] = 'Ocurrió un problema al cerrar la sesión';
-            //     }
-            //     break;     
-            // default:
-            //     $result['exception'] = 'Acción no disponible dentro de la sesión';
+            case 'logOut':
+                if (session_destroy()) {
+                    $result['status'] = 1;
+                    $result['message'] = 'Sesión eliminada correctamente';
+                } else {
+                    $result['exception'] = 'Ocurrió un problema al cerrar la sesión';
+                }
+                break;
+            default:
+                $result['exception'] = 'Acción no disponible dentro de la sesión';
         }
     } else {
         // Se compara la acción a realizar cuando el administrador no ha iniciado sesión.
