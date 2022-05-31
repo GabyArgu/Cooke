@@ -192,7 +192,7 @@ class Subcategoriapd extends Validator
         $sql = 'SELECT "idSubCategoriaP", "imagenSubcategoria", "nombreSubCategoriaP", "descripcionSubCategoriaP"
         FROM "subcategoriaProducto"
         WHERE "idCategoriaP" =  ?
-        ORDER BY "nombreSubCategoriaP"';
+        ORDER BY "idSubCategoriaP"';
         $params = array($this->id);
         return Database::getRows($sql, $params);
     }

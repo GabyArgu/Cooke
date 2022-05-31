@@ -36,9 +36,9 @@ if (isset($_GET['action'])) {
             }
             break;
         case 'readProductosSubcategoria':
-            if (!$producto->setId($_POST['id_categoria'])) {
-                $result['exception'] = 'Categoría incorrecta';
-            } elseif ($result['dataset'] = $producto->readProductosCategoria()) {
+            if (!$producto->setId($_POST['idSubcategoria'])) {
+                $result['exception'] = 'Subcategoría incorrecta';
+            } elseif ($result['dataset'] = $producto->readProductosSubcategoria()) {
                 $result['status'] = 1;
             } elseif (Database::getException()) {
                 $result['exception'] = Database::getException();
