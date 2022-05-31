@@ -328,4 +328,15 @@ class Productos extends Validator
         $params = array($this->id);
         return Database::executeRow($sql, $params);
     }
+
+
+    public function readProductosSubcategoria()
+    {
+        $sql = 'SELECT id_producto, imagen_producto, nombre_producto, descripcion_producto, precio_producto
+                FROM productos INNER JOIN categorias USING(id_categoria)
+                WHERE id_categoria = ? AND estado_producto = true
+                ORDER BY nombre_producto';
+        $params = array($this->id);
+        return Database::getRows($sql, $params);
+    }
 }
