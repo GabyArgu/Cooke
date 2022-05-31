@@ -10,7 +10,7 @@ if (isset($_GET['action'])) {
     // Se instancia la clase correspondiente.
     $cliente = new Cliente;
     // Se declara e inicializa un arreglo para guardar el resultado que retorna la API.
-    $result = array('status' => 0, 'session' => 0, 'message' => null, 'exception' => null, 'dataset' => null, 'username' => null, 'avatar' => null);
+    $result = array('status' => 0, 'session' => 0, 'recaptcha' => 0, 'message' => null, 'exception' => null, 'dataset' => null, 'username' => null, 'avatar' => null);
     // Se verifica si existe una sesión iniciada como administrador, de lo contrario se finaliza el script con un mensaje de error.
     if (isset($_SESSION['id_cliente'])) {
         $result['session'] = 1;
@@ -42,6 +42,26 @@ if (isset($_GET['action'])) {
         // Se compara la acción a realizar cuando el administrador no ha iniciado sesión.
         switch ($_GET['action']) {
             case 'register':
+                $_POST = $cliente->validateForm($_POST);
+                $secretKey = '6LdBzLQUAAAAAL6oP4xpgMao-SmEkmRCpoLBLri-';
+                $ip = $_SERVER['REMOTE_ADDR'];
+
+                $data = array('secret' => $secretKey, 'response' => $_POST['g-recaptcha-response'],'remoteip' => $ip);
+
+                $options = array(
+                    'http' => array('header'  => "Content-type: application/x-www-form-urlencoded\r\n", 'method' => 'POST', 'content' => http_build_query($data)),
+                    'ssl' => array('verify_peer' => false, 'verify_peer_name' => false)
+                );
+
+                $url = 'https://www.google.com/recaptcha/api/siteverify';
+                $context  = stream_context_create($options);
+                $response = file_get_contents($url, false, $context);
+                $captcha = json_decode($response, true);
+
+                if (!$captcha['success']) {
+                    $result['recaptcha'] = 1;
+                    $result['exception'] = 'No eres un humano';
+                }
                 //Especificamos los inputs por medio de su atributo name, y los capturamos con el método post
                 $_POST = $cliente->validateForm($_POST);
                 if (!$cliente->setNombres($_POST['nombres'])) {

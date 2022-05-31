@@ -855,6 +855,8 @@ body {
     opacity: 0;
 }
 
+
+
 /*------------------PRODUCTOS DESTACADOS END------------------*/
 
 /*------------------SOBRE NOSOTROS STAR------------------*/
@@ -1655,13 +1657,10 @@ body {
     color: green;
 }
 
-.modal .colores i {
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.modal .colores i:hover {
-    filter: opacity(0.7);
+.modal .colores .input{
+    height: 38px;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
 }
 
 .modal .fa-square {
@@ -2216,14 +2215,7 @@ body {
     color: green;
 }
 
-.detalle-producto-content .colores i {
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
 
-.detalle-producto-content .colores i:hover {
-    filter: opacity(0.7);
-}
 
 .detalle-producto-content .fa-square {
     font-size: 25px;
