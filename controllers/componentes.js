@@ -14,7 +14,7 @@ const SERVER = 'http://localhost/Cooke/api/';
 *
 *   Retorno: ninguno.
 */
- 
+
 function readRows(api) {
     // Se promete devolver un valor (peticion al servidor)------------------------.
     fetch(api + 'readAll', {
@@ -64,7 +64,7 @@ function readRows2(api) {
     });
 }
 
-function searchRows3(api, id, table) {
+function readRows3(api, id, table) {
     fetch(api + 'readOneDPShow', {
         method: 'post',
         body: id
@@ -81,6 +81,30 @@ function searchRows3(api, id, table) {
                     /* En caso de no encontrar coincidencias, limpiara el campo y se recargará la tabla -----------------------*/
                     sweetAlert(2, response.exception, null);
                 }
+            });
+        } else {
+            console.log(request.status + ' ' + request.statusText);
+        }
+    });
+}
+
+function readRows4(api) {
+    fetch(api + 'readPedidosCliente', {
+        method: 'get'
+    }).then(function (request) {
+        // Se verifica si la petición es correcta, de lo contrario se muestra un mensaje en la consola indicando el problema.
+        if (request.ok) {
+            // Se obtiene la respuesta en formato JSON.
+            request.json().then(function (response) {
+                let data = [];
+                // Se comprueba si la respuesta es satisfactoria para obtener los datos, de lo contrario se muestra un mensaje con la excepción.
+                if (response.status) {
+                    data = response.dataset;
+                } else {
+                    sweetAlert(4, response.exception, null);
+                }
+                // Se envían los datos a la función del controlador para llenar la tabla en la vista.
+                fillTable4(data);
             });
         } else {
             console.log(request.status + ' ' + request.statusText);

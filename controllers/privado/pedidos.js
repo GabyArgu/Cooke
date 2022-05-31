@@ -128,7 +128,7 @@ function openUpdate(id) {
                     document.getElementById('telefono-u').textContent = response.dataset.telefonoCliente;
                     document.getElementById('monto-total-u').textContent = response.dataset.montoTotal;
                     fillSelect(ENDPOINT_ESTADO, 'estado-pedido', response.dataset.estadoPedido);
-                    searchRows3(API_PEDIDOS, data, 'tbody-rows-update')
+                    readRows3(API_PEDIDOS, data, 'tbody-rows-update')
                 } else {
                     sweetAlert(2, response.exception, null);
                 }
@@ -171,7 +171,7 @@ function openShow(id) {
                     document.getElementById('direccion-det').textContent = response.dataset.direccionCliente;
                     document.getElementById('telefono-det').textContent = response.dataset.telefonoCliente;
                     document.getElementById('monto-total-det').textContent = response.dataset.montoTotal;
-                    searchRows3(API_PEDIDOS, data, 'tbody-rows-detalle')
+                    readRows3(API_PEDIDOS, data, 'tbody-rows-detalle')
                 } else {
                     sweetAlert(2, response.exception, null);
                 }
