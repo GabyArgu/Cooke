@@ -260,79 +260,94 @@
 
             </div>
 
-            <!-- Modal Editar cuenta -->
-            <div class="modal fade " id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
+            <!-- Modal -->
+            <div class="modal modal-agregar modal-agregar-cliente fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
                 tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-dialog modal-dialog-centered modal-xl">
                     <div class="modal-content">
                         <div class="modal-header">
                             <h5 class="modal-title" id="staticBackdropLabel">Editar información</h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                            <div class="container-fluid">
-                                <div class="row align-items-center d-flex justify-content-center">
-                                    <div class="col-6 Spa-in">
-                                        <span class="input-group-text">Alias</span>
-                                        <input type="text" class="form-control  " placeholder="Escribe tu alias"
-                                            aria-label="Username">
-                                    </div>
-                                    <div class="col-6 Spa-in">
-                                        <span class="input-group-text">Correo</span>
-                                        <input type="text" class="form-control  " placeholder="Escribe tu correo"
-                                            aria-label="Username">
-                                    </div>
-                                </div>
-                                <div class="row align-items-center d-flex justify-content-center">
-                                    <div class="col-6 Spa-in">
-                                        <span class="input-group-text">Nombres</span>
-                                        <input type="text" class="form-control  " placeholder="Escribe tu nombres"
-                                            aria-label="Username">
-                                    </div>
-                                    <div class="col-6 Spa-in">
-                                        <span class="input-group-text">Apellidos</span>
-                                        <input type="text" class="form-control  " placeholder="Escribe tu apellidos"
-                                            aria-label="Username">
-                                    </div>
-                                </div>
-                                <div class="row align-items-center d-flex justify-content-center">
-                                    <div class="col-6 Spa-in">
-                                        <span class="input-group-text">Cumpleaños</span>
-                                        <input type="text" class="form-control  " placeholder="Escribe tu cumpleaños"
-                                            aria-label="Username">
-                                    </div>
-                                    <div class="col-6 Spa-in">
-                                        <span class="input-group-text">Dui</span>
-                                        <input type="text" class="form-control  " placeholder="Escribe tu dui"
-                                            aria-label="Username">
-                                    </div>
-                                </div>
-                                <div class="row align-items-center d-flex justify-content-center">
-                                    <div class="col-6 Spa-in">
-                                        <span class="input-group-text">Télefono</span>
-                                        <input type="text" class="form-control  " placeholder="Escribe tu teléfono"
-                                            aria-label="Username">
-                                    </div>
-                                    <div class="col-6 Spa-in">
-                                        <span class="input-group-text">Dirección</span>
-                                        <input type="text" class="form-control  " placeholder="Escribe tu dirección"
-                                            aria-label="Username">
-                                    </div>
-                                </div>
-                                <div class="row align-items-center d-flex justify-content-center">
-                                    <div
-                                        class="col-sm-12 col-md-6 col-lg-4 usu-img align-items-center d-flex justify-content-center flex-column">
-                                        <input type="file" class="form-control" id="inputGroupFile01">
-                                        <label class=" mb-3" for="inputGroupFile01"><img
-                                                src="../../resources/img/usuario/usuario2.png"> </label>
-                                    </div>
+                            <div class="container">
+                                <div class="row agregar-content">
+                                    <form class="row justify-content-center" id="save-form">
+                                        <div class="col-10 mt-4 d-flex justify-content-around">
+                                            <div class="input-group LlenarIG">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text SLcorreo SCimg" id="inputGroupPrepend2"></span>
+                                                </div>
+                                                <input type="text" class="form-control Lcorreo" id="nombres" name="nombres"
+                                                    placeholder="Escribe tus nombres" aria-describedby="inputGroupPrepend2"
+                                                    required>
+                                            </div>
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text SLcorreo SCimg2" id="inputGroupPrepend2"></span>
+                                                </div>
+                                                <input type="tel" class="form-control Lcorreo" id="telefono" name="telefono"
+                                                    placeholder="1234-5678" pattern="[0-9]{4}-[0-9]{4}" required>
+                                            </div>
+                                        </div>
+                                        <div class="col-10 mt-4 d-flex justify-content-around">
+                                            <div class="input-group LlenarIG">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text SLcorreo SCimg" id="inputGroupPrepend2"></span>
+                                                </div>
+                                                <input type="text" class="form-control Lcorreo" id="apellidos" name="apellidos"
+                                                    placeholder="Escribe tus apellidos" aria-describedby="inputGroupPrepend2"
+                                                    required>
+                                            </div>
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text SLcorreo SCimg4" id="inputGroupPrepend2"></span>
+                                                </div>
+                                                <input type="text" class="form-control Lcorreo" id="nacimiento" name="nacimiento"
+                                                    for="validationDefault03" aria-describedby="inputGroupPrepend2" required>
+                                            </div>
+                                        </div>
+                                        <div class="col-10 mt-4 d-flex justify-content-around">
+                                            <div class="input-group LlenarIG">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text SLcorreo SCimg5" id="inputGroupPrepend2"></span>
+                                                </div>
+                                                <input type="text" class="form-control Lcorreo" id="dui" name="dui"
+                                                    placeholder="00000000-0" aria-describedby="inputGroupPrepend2" required>
+                                            </div>
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text SLcorreo SCimg6" id="inputGroupPrepend2"></span>
+                                                </div>
+                                                <input type="text" class="form-control Lcorreo" id="direccion" name="direccion"
+                                                    placeholder="Escribe tu dirreción" aria-describedby="inputGroupPrepend2"
+                                                    required>
+                                            </div>
+                                        </div>
+                                        <div class="col-10 mt-4 d-flex justify-content-around">
+                                            <div class="input-group LlenarIG">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text SLcorreo SCimg7" id="inputGroupPrepend2"></span>
+                                                </div>
+                                                <input type="email" class="form-control Lcorreo" id="correo" name="correo"
+                                                    placeholder="Escribe tu correo" aria-describedby="inputGroupPrepend2" required>
+                                            </div>
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text SLcorreo SCimg8" id="inputGroupPrepend2"></span>
+                                                </div>
+                                                <input type="text" class="form-control Lcorreo" id="alias" name="alias"
+                                                    placeholder="Nombre de usuario" aria-describedby="inputGroupPrepend2"
+                                                    required>
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer d-flex justify-content-end">
+                                            <button class="AAceptar" type="submit" form="save-form">Guardar</i></button>
+                                        </div>
+                                    </form>
+                                        </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-primary I-guar" data-bs-dismiss="modal"><i
-                                    class="fa-solid fa-floppy-disk I-guar"></i> Guardar </button>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -459,10 +474,12 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
         integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
         crossorigin="anonymous"></script>
-
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="../../controllers/publico/stickynavs.js"></script>
     <script src="../../controllers/componentes.js"></script>
-    <script src="../../controllers/publico/cuenta.js"></script>
+    <script src="../../controllers/publico/editar_perfil.js"></script>
 </body>
 
 </html>

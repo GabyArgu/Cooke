@@ -10,7 +10,7 @@ if (isset($_GET['action'])) {
     // Se instancia la clase correspondiente.
     $cliente = new Cliente;
     // Se declara e inicializa un arreglo para guardar el resultado que retorna la API.
-    $result = array('status' => 0, 'session' => 0, 'message' => null, 'exception' => null, 'dataset' => null, 'username' => null, 'avatar' => null);
+    $result = array('status' => 0, 'session' => 0, 'recaptcha' => 0, 'message' => null, 'exception' => null, 'dataset' => null, 'username' => null, 'avatar' => null);
     // Se verifica si existe una sesión iniciada como administrador, de lo contrario se finaliza el script con un mensaje de error.
     if (isset($_SESSION['id_cliente'])) {
         $result['session'] = 1;
@@ -27,7 +27,8 @@ if (isset($_GET['action'])) {
                 break;
             // Accion de cerrar sesión------------------.        
             case 'logOut':
-                if (session_destroy()) {
+                unset($_SESSION['idCliente'])
+                if (isset($_SESSION['idCliente'])) {
                     $result['status'] = 1;
                     $result['message'] = 'Sesión eliminada correctamente';
                 } else {
@@ -41,6 +42,26 @@ if (isset($_GET['action'])) {
         // Se compara la acción a realizar cuando el administrador no ha iniciado sesión.
         switch ($_GET['action']) {
             case 'register':
+                $_POST = $cliente->validateForm($_POST);
+                $secretKey = '6LdBzLQUAAAAAL6oP4xpgMao-SmEkmRCpoLBLri-';
+                $ip = $_SERVER['REMOTE_ADDR'];
+
+                $data = array('secret' => $secretKey, 'response' => $_POST['g-recaptcha-response'],'remoteip' => $ip);
+
+                $options = array(
+                    'http' => array('header'  => "Content-type: application/x-www-form-urlencoded\r\n", 'method' => 'POST', 'content' => http_build_query($data)),
+                    'ssl' => array('verify_peer' => false, 'verify_peer_name' => false)
+                );
+
+                $url = 'https://www.google.com/recaptcha/api/siteverify';
+                $context  = stream_context_create($options);
+                $response = file_get_contents($url, false, $context);
+                $captcha = json_decode($response, true);
+
+                if (!$captcha['success']) {
+                    $result['recaptcha'] = 1;
+                    $result['exception'] = 'No eres un humano';
+                }
                 //Especificamos los inputs por medio de su atributo name, y los capturamos con el método post
                 $_POST = $cliente->validateForm($_POST);
                 if (!$cliente->setNombres($_POST['nombres'])) {
@@ -74,6 +95,52 @@ if (isset($_GET['action'])) {
                     $result['exception'] = Database::getException();
                 }
                 break;
+
+            case 'update':
+                //Especificamos los inputs por medio de su atributo name, y los capturamos con el método post
+                    $_POST = $cliente->validateForm($_POST);
+                if (!$cliente->setId($_POST['id'])) {
+                        $result['exception'] = 'Cliente incorrecto';
+                } elseif (!$data = $cliente->readOne()) {
+                        $result['exception'] = 'Cliente inexistente';
+                } if (!$cliente->setNombres($_POST['nombres'])) {
+                        $result['exception'] = 'Nombres inválidos';
+                } elseif (!$cliente->setApellidos($_POST['apellidos'])) {
+                        $result['exception'] = 'Apellidos inválidos';
+                } elseif (!$cliente->setDui($_POST['dui'])){
+                        $result['exception'] = 'Dui inválido';
+                } elseif (!$cliente->setCorreo($_POST['correo'])) {
+                        $result['exception'] = 'Correo inválido';
+                } elseif (!$cliente->setDireccion($_POST['direccion'])) {
+                        $result['exception'] = 'Direccion inválida';
+                } elseif (!$cliente->setTelefono($_POST['telefono'])) {
+                        $result['exception'] = 'Teléfono inválido';
+                }elseif (!$cliente->setNacimiento($_POST['nacimiento'])) {
+                        $result['exception'] = 'Fecha inválida';
+                }elseif (!$cliente->setFoto($_POST['foto'])) {
+                        $result['exception'] = 'Foto inválida';
+                }elseif (!$cliente->setEstado($_POST['estado'])) {
+                        $result['exception'] = 'Estado inválido';
+                }elseif ($cliente->updateRow()) {
+                        $result['status'] = 1;
+                        $result['message'] = 'Cliente modificado correctamente';
+                } else {
+                        $result['exception'] = Database::getException();
+                    }
+                    break; 
+
+            case 'readOneShow':
+                if (!$cliente->setId($_POST['id'])) {
+                         $result['exception'] = 'Cliente incorrecto';
+                } elseif ($result['dataset'] = $cliente->readOneShow()) {
+                        $result['status'] = 1;
+                } elseif (Database::getException()) {
+                         $result['exception'] = Database::getException();
+                } else {
+                        $result['exception'] = 'Cliente inexistente';
+                    }
+                    break;   
+                         
             case 'logIn':
                 $_POST = $cliente->validateForm($_POST);
                 if (!$cliente->checkUser($_POST['correo'])) {
