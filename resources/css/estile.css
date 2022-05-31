@@ -3814,7 +3814,7 @@ b {
 /*------------------RESPONSIVE GLOBAL------------------*/
 @media (min-width: 476px) and (max-width: 767.98px) {
     #Cuenta-table {
-        width: 250px;
+        width: 500px;
     }
 
     .Pane-cuen {

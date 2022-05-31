@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
 
 <head>
@@ -199,11 +199,11 @@
                                 <table class="table table-bordered bordered table-cuen" id="Cuenta-table">
                                     <thead>
                                         <tr>
-                                            <th>ORDEN</th>
-                                            <th>FECHA</th>
-                                            <th>ESTADO</th>
-                                            <th>TOTAL</th>
-                                            <th>VER</th>
+                                            <th data-title="ORDEN">ORDEN</th>
+                                            <th data-title="ORDEN">FECHA</th>
+                                            <th data-title="ORDEN">ESTADO</th>
+                                            <th data-title="ORDEN">TOTAL</th>
+                                            <th data-title="ORDEN">VER</th>
                                         </tr>
                                     </thead>
                                     <tbody id="tbody-rows">
@@ -260,9 +260,9 @@
 
             </div>
 
-            <!-- Modal -->
-            <div class="modal modal-agregar modal-agregar-cliente fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
-                tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <!-- Modal editar cuenta -->
+            <div class="modal modal-agregar modal-agregar-cliente fade" id="staticBackdrop" data-bs-backdrop="static"
+                data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered modal-xl">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -276,85 +276,96 @@
                                         <div class="col-10 mt-4 d-flex justify-content-around">
                                             <div class="input-group LlenarIG">
                                                 <div class="input-group-prepend">
-                                                    <span class="input-group-text SLcorreo SCimg" id="inputGroupPrepend2"></span>
+                                                    <span class="input-group-text SLcorreo SCimg"
+                                                        id="inputGroupPrepend2"></span>
                                                 </div>
-                                                <input type="text" class="form-control Lcorreo" id="nombres" name="nombres"
-                                                    placeholder="Escribe tus nombres" aria-describedby="inputGroupPrepend2"
-                                                    required>
+                                                <input type="text" class="form-control Lcorreo" id="nombres"
+                                                    name="nombres" placeholder="Escribe tus nombres"
+                                                    aria-describedby="inputGroupPrepend2" required>
                                             </div>
                                             <div class="input-group">
                                                 <div class="input-group-prepend">
-                                                    <span class="input-group-text SLcorreo SCimg2" id="inputGroupPrepend2"></span>
+                                                    <span class="input-group-text SLcorreo SCimg2"
+                                                        id="inputGroupPrepend2"></span>
                                                 </div>
-                                                <input type="tel" class="form-control Lcorreo" id="telefono" name="telefono"
-                                                    placeholder="1234-5678" pattern="[0-9]{4}-[0-9]{4}" required>
+                                                <input type="tel" class="form-control Lcorreo" id="telefono"
+                                                    name="telefono" placeholder="1234-5678" pattern="[0-9]{4}-[0-9]{4}"
+                                                    required>
                                             </div>
                                         </div>
                                         <div class="col-10 mt-4 d-flex justify-content-around">
                                             <div class="input-group LlenarIG">
                                                 <div class="input-group-prepend">
-                                                    <span class="input-group-text SLcorreo SCimg" id="inputGroupPrepend2"></span>
+                                                    <span class="input-group-text SLcorreo SCimg"
+                                                        id="inputGroupPrepend2"></span>
                                                 </div>
-                                                <input type="text" class="form-control Lcorreo" id="apellidos" name="apellidos"
-                                                    placeholder="Escribe tus apellidos" aria-describedby="inputGroupPrepend2"
-                                                    required>
+                                                <input type="text" class="form-control Lcorreo" id="apellidos"
+                                                    name="apellidos" placeholder="Escribe tus apellidos"
+                                                    aria-describedby="inputGroupPrepend2" required>
                                             </div>
                                             <div class="input-group">
                                                 <div class="input-group-prepend">
-                                                    <span class="input-group-text SLcorreo SCimg4" id="inputGroupPrepend2"></span>
+                                                    <span class="input-group-text SLcorreo SCimg4"
+                                                        id="inputGroupPrepend2"></span>
                                                 </div>
-                                                <input type="text" class="form-control Lcorreo" id="nacimiento" name="nacimiento"
-                                                    for="validationDefault03" aria-describedby="inputGroupPrepend2" required>
+                                                <input type="text" class="form-control Lcorreo" id="nacimiento"
+                                                    name="nacimiento" for="validationDefault03"
+                                                    aria-describedby="inputGroupPrepend2" required>
                                             </div>
                                         </div>
                                         <div class="col-10 mt-4 d-flex justify-content-around">
                                             <div class="input-group LlenarIG">
                                                 <div class="input-group-prepend">
-                                                    <span class="input-group-text SLcorreo SCimg5" id="inputGroupPrepend2"></span>
+                                                    <span class="input-group-text SLcorreo SCimg5"
+                                                        id="inputGroupPrepend2"></span>
                                                 </div>
                                                 <input type="text" class="form-control Lcorreo" id="dui" name="dui"
-                                                    placeholder="00000000-0" aria-describedby="inputGroupPrepend2" required>
+                                                    placeholder="00000000-0" aria-describedby="inputGroupPrepend2"
+                                                    required>
                                             </div>
                                             <div class="input-group">
                                                 <div class="input-group-prepend">
-                                                    <span class="input-group-text SLcorreo SCimg6" id="inputGroupPrepend2"></span>
+                                                    <span class="input-group-text SLcorreo SCimg6"
+                                                        id="inputGroupPrepend2"></span>
                                                 </div>
-                                                <input type="text" class="form-control Lcorreo" id="direccion" name="direccion"
-                                                    placeholder="Escribe tu dirreción" aria-describedby="inputGroupPrepend2"
-                                                    required>
+                                                <input type="text" class="form-control Lcorreo" id="direccion"
+                                                    name="direccion" placeholder="Escribe tu dirreción"
+                                                    aria-describedby="inputGroupPrepend2" required>
                                             </div>
                                         </div>
                                         <div class="col-10 mt-4 d-flex justify-content-around">
                                             <div class="input-group LlenarIG">
                                                 <div class="input-group-prepend">
-                                                    <span class="input-group-text SLcorreo SCimg7" id="inputGroupPrepend2"></span>
+                                                    <span class="input-group-text SLcorreo SCimg7"
+                                                        id="inputGroupPrepend2"></span>
                                                 </div>
-                                                <input type="email" class="form-control Lcorreo" id="correo" name="correo"
-                                                    placeholder="Escribe tu correo" aria-describedby="inputGroupPrepend2" required>
+                                                <input type="email" class="form-control Lcorreo" id="correo"
+                                                    name="correo" placeholder="Escribe tu correo"
+                                                    aria-describedby="inputGroupPrepend2" required>
                                             </div>
                                             <div class="input-group">
                                                 <div class="input-group-prepend">
-                                                    <span class="input-group-text SLcorreo SCimg8" id="inputGroupPrepend2"></span>
+                                                    <span class="input-group-text SLcorreo SCimg8"
+                                                        id="inputGroupPrepend2"></span>
                                                 </div>
                                                 <input type="text" class="form-control Lcorreo" id="alias" name="alias"
-                                                    placeholder="Nombre de usuario" aria-describedby="inputGroupPrepend2"
-                                                    required>
+                                                    placeholder="Nombre de usuario"
+                                                    aria-describedby="inputGroupPrepend2" required>
                                             </div>
                                         </div>
                                         <div class="modal-footer d-flex justify-content-end">
                                             <button class="AAceptar" type="submit" form="save-form">Guardar</i></button>
                                         </div>
                                     </form>
-                                        </div>
                                 </div>
                             </div>
+                        </div>
                     </div>
                 </div>
             </div>
 
-
-            <div class="modal fade" id="modal_detalle" data-bs-keyboard="false" tabindex="-1"
-                aria-hidden="true">
+            <!-- Modal detalle pedido -->
+            <div class="modal fade" id="modal_detalle" data-bs-keyboard="false" tabindex="-1" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered modal-lg">
                     <div class="modal-content">
                         <div class="modal-header border-0">
@@ -398,6 +409,7 @@
                         </div>
                     </div>
                 </div>
+            </div>
 
         </main>
         <!-- FIN DEL MAIN DE LA PÁGINA-->
@@ -481,6 +493,7 @@
     <script src="../../controllers/publico/stickynavs.js"></script>
     <script src="../../controllers/publico/account.js"></script>
     <script src="../../controllers/publico/editar_perfil.js"></script>
+    <script src="../../controllers/publico/pedidos.js"></script>
 </body>
 
 </html>

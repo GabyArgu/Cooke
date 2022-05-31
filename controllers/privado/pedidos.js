@@ -171,7 +171,7 @@ function openShow(id) {
                     document.getElementById('direccion-det').textContent = response.dataset.direccionCliente;
                     document.getElementById('telefono-det').textContent = response.dataset.telefonoCliente;
                     document.getElementById('monto-total-det').textContent = response.dataset.montoTotal;
-                    readRows3(API_PEDIDOS, data, 'tbody-rows-detalle')
+                    readRows4(API_PEDIDOS, data, 'tbody-rows-detalle')
                 } else {
                     sweetAlert(2, response.exception, null);
                 }

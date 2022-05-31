@@ -204,7 +204,7 @@ class Pedidos extends Validator
                 inner join "cliente" as c on p."idCliente" = c."idCliente"
                 where p."idCliente" = ?
                 order by "idPedido"';
-        $params = array($_SESSION['id_cliente']);
+        $params = array($_SESSION['idCliente']);
         return Database::getRows($sql, $params);
     }
 }

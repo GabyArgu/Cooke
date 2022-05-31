@@ -101,7 +101,7 @@ function readRows4(api) {
                 if (response.status) {
                     data = response.dataset;
                 } else {
-                    sweetAlert(4, response.exception, null);
+                    sweetAlert(2, response.exception, null);
                 }
                 // Se envían los datos a la función del controlador para llenar la tabla en la vista.
                 fillTable4(data);
