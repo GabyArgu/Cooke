@@ -226,6 +226,17 @@ class Productos extends Validator
         return Database::getRows($sql, $params);
     }
 
+    public function readDestacados()
+    {
+        $sql = 'SELECT "idProducto", "imagenPrincipal", "nombreProducto", "descripcionProducto", "precioProducto", descuento, ep."estadoProducto" 
+        FROM producto as p inner join "estadoProducto" as ep on p."estadoProducto" = ep."idEstadoProducto" 
+        ORDER BY "idProducto"
+        ';
+        
+        $params = null;
+        return Database::getRows($sql, $params);
+    }
+
     public function readOne()
     {
         $sql = 'SELECT p."idProducto", "idSubCategoriaP", "idProveedor", "idMarca", "imagenPrincipal", "nombreProducto", "descripcionProducto", "precioProducto", "estadoProducto", "idColor", stock, descuento 

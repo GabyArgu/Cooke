@@ -1,6 +1,27 @@
 // Constante para establecer la ruta y parámetros de comunicación con la API.
 const API_CLIENTE = SERVER + 'public/cliente.php?action=';
 
+// Método manejador de eventos que se ejecuta cuando el documento ha cargado.
+document.addEventListener('DOMContentLoaded', function () {
+    // Se declara e inicializa un objeto para obtener la fecha y hora actual.
+    let today = new Date();
+    // Se declara e inicializa una variable para guardar el día en formato de 2 dígitos.
+    let day = ('0' + today.getDate()).slice(-2);
+    // Se declara e inicializa una variable para guardar el mes en formato de 2 dígitos.
+    var month = ('0' + (today.getMonth() + 1)).slice(-2);
+    // Se declara e inicializa una variable para guardar el año con la mayoría de edad.
+    let year = today.getFullYear() - 18;
+    // Se declara e inicializa una variable para establecer el formato de la fecha.
+    let date = `${year}-${month}-${day}`;
+
+    /*Inicializando y configurando componente de calendario*/
+    $('#nacimiento').flatpickr({
+        maxDate: date
+    })
+
+});
+
+
 // Método manejador de eventos que se ejecuta cuando se envía el formulario de registrar.
 document.getElementById('register-form').addEventListener('submit', function (event) {
     // Se evita recargar la página web después de enviar el formulario-------------------.

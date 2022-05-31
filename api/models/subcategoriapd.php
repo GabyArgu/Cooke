@@ -185,4 +185,15 @@ class Subcategoriapd extends Validator
         $params = array($this->id);
         return Database::executeRow($sql, $params);
     }
+
+    /*  */
+    public function readSubcategoriasCategoria()
+    {
+        $sql = 'SELECT "idSubCategoriaP", "imagenSubcategoria", "nombreSubCategoriaP", "descripcionSubCategoriaP"
+        FROM "subcategoriaProducto"
+        WHERE "idCategoriaP" =  ?
+        ORDER BY "nombreSubCategoriaP"';
+        $params = array($this->id);
+        return Database::getRows($sql, $params);
+    }
 }

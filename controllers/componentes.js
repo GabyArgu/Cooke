@@ -14,7 +14,7 @@ const SERVER = 'http://localhost/Cooke/api/';
 *
 *   Retorno: ninguno.
 */
- 
+
 function readRows(api) {
     // Se promete devolver un valor (peticion al servidor)------------------------.
     fetch(api + 'readAll', {

@@ -208,8 +208,8 @@ class Cliente extends Validator
 
     public function checkUser($correo)
     {
-        $sql = 'SELECT "idCliente", "estadoCliente" FROM cliente WHERE "correoCliente" = ?';
-        $params = array($correo);
+        $sql = 'SELECT "idCliente", "estadoCliente" FROM cliente WHERE "correoCliente" = ? or "aliasCliente" = ?';
+        $params = array($correo, $correo);
         if ($data = Database::getRow($sql, $params)) {
             $this->id = $data['idCliente'];
             $this->estado = $data['estadoCliente'];
