@@ -26,17 +26,17 @@ if (isset($_GET['action'])) {
                 }
                 break;
             // Accion de cerrar sesión------------------.        
-            case 'logOut':
-                unset($_SESSION['idCliente'])
-                if (isset($_SESSION['idCliente'])) {
-                    $result['status'] = 1;
-                    $result['message'] = 'Sesión eliminada correctamente';
-                } else {
-                    $result['exception'] = 'Ocurrió un problema al cerrar la sesión';
-                }
-                break;     
-            default:
-                $result['exception'] = 'Acción no disponible dentro de la sesión';
+            // case 'logOut':
+            //     unset($_SESSION['idCliente'])
+            //     if (isset($_SESSION['idCliente'])) {
+            //         $result['status'] = 1;
+            //         $result['message'] = 'Sesión eliminada correctamente';
+            //     } else {
+            //         $result['exception'] = 'Ocurrió un problema al cerrar la sesión';
+            //     }
+            //     break;     
+            // default:
+            //     $result['exception'] = 'Acción no disponible dentro de la sesión';
         }
     } else {
         // Se compara la acción a realizar cuando el administrador no ha iniciado sesión.
