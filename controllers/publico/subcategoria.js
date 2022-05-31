@@ -43,14 +43,14 @@ function readSubcategoriaCategoria(id, categoria) {
 
                                         <img src="${SERVER}images/subcategoriaspd/${row.imagenSubcategoria}" alt=""
                                             class="img-fluid d-block mx-auto">
-                                        <button type="button" class="col-6 text-center"><a href="gridproductos.html">Ver
+                                        <button type="button" class="col-6 text-center"><a href="${url}">Ver
                                                 categoría</a>
                                         </button>
                                     </div>
 
                                     <div class="categoria-info p-2">
                                         <span href="" class="categoria-name d-block "><a
-                                                href="gridproductos.html">${row.nombreSubCategoriaP}</a></span>
+                                                href="${url}">${row.nombreSubCategoriaP}</a></span>
                                         <span href="#" class="categoria-description d-block mt-1">${row.descripcionSubCategoriaP}</span>
                                     </div>
                                 </div>
@@ -63,7 +63,7 @@ function readSubcategoriaCategoria(id, categoria) {
                     document.getElementById('subcategorias').innerHTML = content;
                 } else {
                     // Se presenta un mensaje de error cuando no existen datos para mostrar.
-                    document.getElementById('title').innerHTML = `${response.exception}:`;
+                    document.getElementById('title').innerHTML = `${response.exception}:${categoria}`;
                 }
             });
         } else {
