@@ -3,6 +3,8 @@ const API_PRODUCTO = SERVER + 'public/productos.php?action=';
 
 
 document.addEventListener('DOMContentLoaded', function () {
+    // Se llama a la función que asignan los href de las categorias.
+    readCategorias();
     // Se llama a la función que muestra los productos destacados.
     readDestacados();
     function checkOwlcarousel() {
@@ -21,6 +23,30 @@ document.addEventListener('DOMContentLoaded', function () {
     $("body").tooltip({ selector: '[data-bs-toggle=tooltip]' });
 });
 
+const readCategorias=()=>{
+    //Seteamos el atributo de href en cada elemento, pasando el id de la subcategoria y su respectivo nombre
+    //forma 1, utilizando foreach
+    var cocina = document.querySelectorAll('.categoria-cocina');
+    cocina.forEach((els)=>{
+        els.setAttribute("href", "categoria.html?id=1&nombre=Cocina");
+    });
+
+    //forma 2, utilizando un for normal
+    var utensilios = document.querySelectorAll('.categoria-utensilios');
+    for (var i=0; i < utensilios.length; i++) {
+    utensilios[i].setAttribute("href", "categoria.html?id=2&nombre=Utensilios");
+    }
+
+    var elec = document.querySelectorAll('.categoria-electrodomesticos');
+    for (var i=0; i < elec.length; i++) {
+    elec[i].setAttribute("href", "categoria.html?id=3&nombre=Electrodomésticos");
+    }
+
+    var recetas = document.querySelectorAll('.categoria-recetas');
+    for (var i=0; i < recetas.length; i++) {
+    recetas[i].setAttribute("href", "categoria.html?id=4&nombre=Recetas");
+    }
+}
 // Función para obtener y mostrar las categorías disponibles.
 function readDestacados() {
     // Petición para solicitar los datos de las categorías.
