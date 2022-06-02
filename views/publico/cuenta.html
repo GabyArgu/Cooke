@@ -75,8 +75,18 @@
                             <div class="iconos-navbar">
 
                                 <li class="nav-item textcolor">
-                                    <a class="nav-link active img-hover" aria-current="page" href="login.html"></a>
-                                </li>
+                                    <ul class="navbar-nav ms-auto">
+                                        <li class="nav-item dropdown">
+                                            <a class="nav-link dropdown p-0" href="#" id="navbarDropdownMenuLink" role="button"
+                                                data-bs-toggle="dropdown" aria-expanded="false">
+                                                <i class="fa-solid  img-hover"></i>
+                                            </a>
+                                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
+                                                <li><a class="dropdown-item" href="login.html">Perfil</a></li>
+                                                <li><a class="dropdown-item" onclick="logOut()">Cerrar Sesión</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
 
                                 <li class="nav-item textcolor">
                                     <a class="nav-link active img-hover2" aria-current="page" href="deseos.html"></a>
@@ -498,6 +508,7 @@
     <script src="../../controllers/publico/stickynavs.js"></script>
     <script src="../../controllers/componentes.js"></script>
     <script src="../../controllers/publico/editar_perfil.js"></script>
+    <script src="../../controllers/publico/account.js"></script>
 </body>
 
 </html>
