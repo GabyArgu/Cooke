@@ -10,7 +10,8 @@ document.addEventListener('DOMContentLoaded', function () {
     checkOwlcarousel();
     var carousel = document.querySelector('#carouselExampleCaptions');
     var bootstrapCarousel = new bootstrap.Carousel(carousel, {interval:3000});
-
+    
+    //Inicializando tooltips
     $("body").tooltip({ selector: '[data-bs-toggle=tooltip]' });
 });
 

@@ -235,9 +235,19 @@ class Productos extends Validator
         return Database::getRow($sql, $params);
     }
 
+    public function readProductStock()
+    {
+        $sql = 'SELECT  stock
+        FROM "colorProducto" as cp inner join "colorStock" as cs on cp."idColor"  = cs."idColor"
+		inner join producto as p on cs."idProducto" = p."idProducto"
+		WHERE p."idProducto" = ? and cp."idColor" = ?';
+        $params = array($this->id, $this->color);
+        return Database::getRow($sql, $params);
+    }
+
     public function readOneShow()
     {
-        $sql = 'SELECT p."idProducto", "nombreSubCategoriaP", "nombreMarca", "imagenPrincipal", "nombreProducto", "descripcionProducto", "precioProducto", ep."estadoProducto", cp."colorProducto", stock, fecha, descuento 
+        $sql = 'SELECT p."idProducto", "nombreSubCategoriaP", "nombreMarca", "imagenPrincipal", "nombreProducto", "descripcionProducto", "precioProducto", ep."estadoProducto", cp."idColor",cp."colorProducto", stock, fecha, descuento 
         FROM producto as p inner join "colorStock" as cs on p."idProducto" = cs."idProducto"
 		inner join "subcategoriaProducto" as sp on p."idSubCategoriaP" = sp."idSubCategoriaP"
 		inner join "estadoProducto" as ep on p."estadoProducto" = ep."idEstadoProducto"

@@ -271,21 +271,23 @@
                                 quaerat! Cupiditate dolore aut repudiandae asperiores.</p>
                         </div>
                         <hr>
-                        <div class="row cantidad-row justify-content-start">
-                            <span class="mb-2">Cantidad</span>
-                            <div class="col-12 añadir-boton">
-                                <div class="input-group ">
-                                    <button class="btn btn-outline-warning" type="button" id="button-addon1">-</button>
-                                    <input id="input-stock" type="text" class="form-control text-center" placeholder="1"
-                                        aria-label="Example text with button addon" aria-describedby="button-addon1">
-                                    <button class="btn btn-outline-warning" type="button" id="button-addon1">+</button>
+                        <form class="row" method="post" id="carrito-form">
+                            <div class="row cantidad-row justify-content-start">
+                                <span class="mb-2">Cantidad</span>
+                                <div class="col-12 añadir-boton">
+                                    <div class="input-group ">
+                                        <button onclick="restarStock()" class="btn btn-outline-warning" type="button" id="res-btn" >-</button>
+                                        <input onchange="validacionInputStock()" onkeypress="return valideKey(event);" id="input-stock" name="input-stock"  type="number" min="0" class="form-control text-center" placeholder=""
+                                            aria-label="Example text with button addon" aria-describedby="button-addon1" value="1">
+                                        <button onclick="sumarStock()"  class="btn btn-outline-warning" type="button" id="sum-btn">+</button>
+                                    </div>
+                                    <button type="submit" class="carrito-button mx">Añadir al carrito</button>
+                                    <span class="destacado-icon heart-icon" data-bs-customClass="custom-tooltip"
+                                        data-bs-toggle="tooltip" data-bs-placement="right" title="Añadir a WishList">
+                                        <i class="far fa-heart wish"></i></span>
                                 </div>
-                                <button class="carrito-button mx">Añadir al carrito</button>
-                                <span class="destacado-icon heart-icon" data-bs-customClass="custom-tooltip"
-                                    data-bs-toggle="tooltip" data-bs-placement="right" title="Añadir a WishList">
-                                    <i class="far fa-heart wish"></i></span>
                             </div>
-                        </div>
+                        </form>
                         <div class="row mt-1">
                             <span class="left-stock">Queda(n) <span id="stock"></span> en stock</span>
                         </div>
@@ -550,16 +552,27 @@
                         </div>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="row justify-content-md-center">
-                        <h1 class="text-center title">Productos Relacionados</h1>
-                        <hr class="lineaP">
+                <div class="container">
+                        <div class="row justify-content-md-center">
+                            <h1 class="text-center title">Productos Relacionados</h1>
+                            <hr class="lineaP">
+                        </div>
+
+                        <div id="owl0" class="row my-5 owl-carousel owl-theme ">
+                        
                     </div>
                 </div>
-                <div id="owl0" class="row g-4 my-5 mx-auto owl-carousel owl-theme">
-                    
-                </div>
-                <div class="modal fade resena-modal" id="exampleModal1" tabindex="-1"
+                
+
+                
+            </div>
+            <!-- FIN CONTENIDO -->
+
+
+        </main>
+        <!-- FIN DEL MAIN DE LA PÁGINA-->
+
+        <div class="modal fade resena-modal" id="exampleModal1" tabindex="-1"
                     aria-labelledby="exampleModalLabel1" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered modal-xl">
                         <div class="modal-content">
@@ -619,13 +632,6 @@
                         </div>
                     </div>
                 </div>
-            </div>
-            <!-- FIN CONTENIDO -->
-
-
-        </main>
-        <!-- FIN DEL MAIN DE LA PÁGINA-->
-
         <!-- INICIO DE MODAL DE RESEÑA-->
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered modal-xl">
@@ -814,7 +820,6 @@
 
     </div>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="../../resources/plugins/star-rating/jquery.star-rating-svg.js"></script>
     <script src="../../resources/plugins/owlCarousel/owl.carousel.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
         integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
@@ -822,11 +827,11 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
         integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
         crossorigin="anonymous"></script>
-
+        <script src="../../resources/plugins/star-rating/jquery.star-rating-svg.js"></script>
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>   
     <script src="../../controllers/publico/stickynavs.js"></script>
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="../../controllers/componentes.js"></script>
-    <script src="../../controllers/publico/account.js"></script>
+    
     <script src="../../controllers/publico/producto.js"></script>
 </body>
 

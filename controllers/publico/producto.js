@@ -1,6 +1,8 @@
 // Constante para establecer la ruta y parámetros de comunicación con la API.
 const API_PRODUCTO = SERVER + 'public/productos.php?action=';
 const API_PEDIDOS = SERVER + 'public/pedidos.php?action=';
+const API_CATALOGO = SERVER + 'public/catalogo.php?action=';
+const ENDPOINT_COLOR = SERVER + 'public/catalogo.php?action=readColor';
 
 document.addEventListener('DOMContentLoaded', function () {
     // Se busca en la URL las variables (parámetros) disponibles.
@@ -11,9 +13,7 @@ document.addEventListener('DOMContentLoaded', function () {
     readOneProducto(ID);
     // Se llama a la función que muestra los productos destacados.
     readDestacados();
-    
     checkOwlcarousel();
-
 
     //Inicializando tooltips
     $("body").tooltip({ selector: '[data-bs-toggle=tooltip]' });
@@ -49,16 +49,18 @@ function readOneProducto(id) {
                     document.getElementById('nombre').innerText = response.dataset.nombreProducto;
                     document.getElementById('marca').innerText = response.dataset.nombreMarca;
                     document.getElementById('precio').innerText = "$" + response.dataset.precioProducto;
-                    document.getElementById('precio-before').innerText = "$" + String(parseFloat((response.dataset.precioProducto) * ((parseFloat(response.dataset.descuento)/100)+1.00)).toFixed(2));
+                    document.getElementById('precio-before').innerText = "$" + String(parseFloat((response.dataset.precioProducto) * ((parseFloat(response.dataset.descuento) / 100) + 1.00)).toFixed(2));
                     document.getElementById('estado').innerText = response.dataset.estadoProducto;
                     var cocina = document.querySelectorAll('.show-descripcion');
-                    cocina.forEach((els)=>{
+                    cocina.forEach((els) => {
                         els.innerText = response.dataset.descripcionProducto;;
                     });
                     document.getElementById('input-stock').setAttribute = ("max", response.dataset.stock);
                     document.getElementById('stock').innerText = response.dataset.stock;
                     document.getElementById('subcategoria').innerText = response.dataset.nombreSubCategoriaP;
                     document.getElementById('img-main').src = `${SERVER}/images/productos/${response.dataset.imagenPrincipal}`;
+                    fillSelectProducto(ENDPOINT_COLOR, 'color', response.dataset.idColor, id);
+                    document.getElementById("input-stock").max = parseInt(response.dataset.stock);
                 } else {
                     // Se presenta un mensaje de error cuando no existen datos para mostrar.
                     document.getElementById('title').innerHTML = `${response.exception}`;
@@ -118,7 +120,7 @@ function readDestacados() {
                                     <div class="product-info p-3">
                                         <span class="product-name"><a href="producto.html?id=${row.idProducto}">${row.nombreProducto}</a></span>
                                         <span class="product-price">$ ${row.precioProducto}</span>
-                                        <span class="product-before">$ ${String(parseFloat((row.precioProducto) * ((parseFloat(row.descuento)/100)+1.00)).toFixed(2))}</span>
+                                        <span class="product-before">$ ${String(parseFloat((row.precioProducto) * ((parseFloat(row.descuento) / 100) + 1.00)).toFixed(2))}</span>
                                         <div class="rating d-flex mt-1">
                                             <span>
                                                 <i class="fa fa-star"></i>
@@ -174,7 +176,7 @@ function openShow(id) {
                     document.getElementById('show-nombre').innerText = response.dataset.nombreProducto;
                     document.getElementById('show-marca').innerText = response.dataset.nombreMarca;
                     document.getElementById('show-precio').innerText = "$" + response.dataset.precioProducto;
-                    document.getElementById('show-precio-before').innerText = "$" + String(parseFloat((response.dataset.precioProducto) * ((parseFloat(response.dataset.descuento)/100)+1.00)).toFixed(2));
+                    document.getElementById('show-precio-before').innerText = "$" + String(parseFloat((response.dataset.precioProducto) * ((parseFloat(response.dataset.descuento) / 100) + 1.00)).toFixed(2));
                     document.getElementById('show-estado').innerText = response.dataset.estadoProducto;
                     document.getElementById('show-descripcion').innerText = response.dataset.descripcionProducto;
                     document.getElementById('input-stock').setAttribute = ("max", response.dataset.stock);
@@ -191,10 +193,11 @@ function openShow(id) {
     });
 }
 
-function owlsliderfuction(){
-    $('#owl0').owlCarousel({
+
+function owlsliderfuction() {
+    var owl = $('#owl0').owlCarousel({
         loop: true,
-        margin: 10,
+        margin: 5,
         responsiveClass: true,
         autoplay: true,
         autoplayTimeout: 2500,
@@ -216,8 +219,9 @@ function owlsliderfuction(){
             }
         }
     });
-    
 }
+
+
 
 $(".my-rating").starRating({
     totalStars: 5,
@@ -231,11 +235,128 @@ $(".my-rating").starRating({
     useGradient: false
 });
 
+function setMaxStock(color) {
+    let input = document.getElementById("input-stock");
+    let select = document.getElementById("color");
+    let params = new URLSearchParams(location.search);
 
-  // function hoverImagen(ruta){
-  //   document.getElementById("main-img").src=ruta;
-  // }
+    // Se define un objeto con los datos del producto seleccionado.
+    const data = new FormData();
+    data.append('idProducto', params.get('id'));
+    data.append('idColor', color);
+    // Petición para obtener los datos del producto solicitado.
+    fetch(API_CATALOGO + 'readStock', {
+        method: 'post',
+        body: data
+    }).then(function (request) {
+        // Se verifica si la petición es correcta, de lo contrario se muestra un mensaje en la consola indicando el problema.
+        if (request.ok) {
+            // Se obtiene la respuesta en formato JSON.
+            request.json().then(function (response) {
+                // Se comprueba si la respuesta es satisfactoria, de lo contrario se muestra un mensaje con la excepción.
+                if (response.status) {
+                    //Le ponemos el atributo max a nuestro input de stock para que no se pueda agregar al carrito más del stock que se tiene
+                    input.max = parseInt(response.dataset.stock);
+                    document.getElementById('stock').innerText = response.dataset.stock;
+                } else {
+                    // Se presenta un mensaje de error cuando no existen datos para mostrar.
+                    sweetAlert(2, response.exception, null);
+                }
+            });
+        } else {
+            console.log(request.status + ' ' + request.statusText);
+        }
+    });
 
-  // function hoverImagenC(ruta){
-  //   document.getElementById("main-imgC").src=ruta;
-  // }
+}
+
+// Método manejador de eventos que se ejecuta cuando se envía el formulario de agregar un producto al carrito.
+document.getElementById('carrito-form').addEventListener('submit', function (event) {
+    // Se evita recargar la página web después de enviar el formulario.
+    event.preventDefault();
+    // Petición para agregar un producto al pedido.
+    fetch(API_PEDIDOS + 'createDetail', {
+        method: 'post',
+        body: new FormData(document.getElementById('shopping-form'))
+    }).then(function (request) {
+        // Se verifica si la petición es correcta, de lo contrario se muestra un mensaje en la consola indicando el problema.
+        if (request.ok) {
+            // Se obtiene la respuesta en formato JSON.
+            request.json().then(function (response) {
+                // Se comprueba si la respuesta es satisfactoria, de lo contrario se constata si el cliente ha iniciado sesión.
+                if (response.status) {
+                    sweetAlert(1, response.message, 'cart.html');
+                } else {
+                    // Se verifica si el cliente ha iniciado sesión para mostrar la excepción, de lo contrario se direcciona para que se autentique. 
+                    if (response.session) {
+                        sweetAlert(2, response.exception, null);
+                    } else {
+                        sweetAlert(3, response.exception, 'login.html');
+                    }
+                }
+            });
+        } else {
+            console.log(request.status + ' ' + request.statusText);
+        }
+    });
+});
+
+
+//Función para cambiar el atributo max del input-stock al cambiar de color en el select
+document.getElementById("color").addEventListener("change", function () {
+    var selectValue = document.getElementById('color').value;
+    console.log(selectValue);
+    setMaxStock(selectValue);
+    document.getElementById("input-stock").value = 1;
+});
+
+//Función que suma 1 al stock y valida que no supere el max
+let sumarStock = () => {
+    let input = document.getElementById("input-stock");
+    let max = input.max;
+    let valor = parseInt(input.value);
+    if (valor + 1 > max) {
+        input.value = input.value;
+    }
+    else {
+        input.value = parseInt(input.value) + 1;
+    }
+}
+
+//Función que resta 1 al stock y valida que no descienda del min
+let restarStock = () => {
+    let input = document.getElementById("input-stock");
+    let min = input.min;
+    let valor = parseInt(input.value);
+    if (valor - 1 <= min) {
+        input.value = input.value;
+    }
+    else {
+        input.value = parseInt(input.value) - 1;
+    }
+
+}
+
+//Funciones de validaciones
+
+let validacionInputStock = () => {
+    let input = document.getElementById("input-stock");
+    let valor = parseInt(input.value);
+    if (valor > input.max || valor <= input.min) {
+        input.value = 1;
+    }
+}
+
+function valideKey(evt) {
+
+    // code is the decimal ASCII representation of the pressed key.
+    var code = (evt.which) ? evt.which : evt.keyCode;
+
+    if (code == 8) { // backspace.
+        return true;
+    } else if (code >= 48 && code <= 57) { // is a number.
+        return true;
+    } else { // other keys.
+        return false;
+    }
+}
