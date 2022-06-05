@@ -3784,14 +3784,8 @@ b {
     height: 25px;
 }
 
-.ver-img {
-    width: 30px;
-    height: 30px;
-}
-
-.ver-img img {
-    width: 30px !important;
-    height: 30px !important;
+.ver-detalle{
+    color: var(--rosadoTitulos) !important;
 }
 
 .usu-img {
@@ -3837,7 +3831,7 @@ input[type=number]::-webkit-outer-spin-button {
 /*------------------RESPONSIVE GLOBAL------------------*/
 @media (min-width: 476px) and (max-width: 767.98px) {
     #Cuenta-table {
-        width: 250px;
+        width: 500px;
     }
 
     .Pane-cuen {
