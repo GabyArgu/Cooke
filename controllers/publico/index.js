@@ -7,21 +7,23 @@ document.addEventListener('DOMContentLoaded', function () {
     readCategorias();
     // Se llama a la función que muestra los productos destacados.
     readDestacados();
-    function checkOwlcarousel() {
-        setTimeout(function () {
-            if ($('.owl-carousel .active').is(':visible')) {
-                owlsliderfuction();
-            } else {
-                checkOwlcarousel();
-            }
-        }, 250);
-    }
     checkOwlcarousel();
     var carousel = document.querySelector('#carouselExampleCaptions');
     var bootstrapCarousel = new bootstrap.Carousel(carousel, {interval:3000});
-
+    
+    //Inicializando tooltips
     $("body").tooltip({ selector: '[data-bs-toggle=tooltip]' });
 });
+
+function checkOwlcarousel() {
+    setTimeout(function () {
+        if ($('.owl-carousel .active').is(':visible')) {
+            owlsliderfuction();
+        } else {
+            checkOwlcarousel();
+        }
+    }, 250);
+}
 
 const readCategorias=()=>{
     //Seteamos el atributo de href en cada elemento, pasando el id de la subcategoria y su respectivo nombre

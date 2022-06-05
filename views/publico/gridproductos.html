@@ -361,118 +361,103 @@
         <!-- FIN DEL MAIN DE LA PÁGINA-->
 
         <!-- INICIO MODAL DE DETALLE DE EL PRODUCTO -->
-        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered modal-xl">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <div class="container">
-                            <div class="row info-detalle-content">
-                                <div class="col col-5 img-detalle-producto mx-auto">
-                                    <div class="main-img">
-                                        <img src="../../resources/img/detalleProducto/detalle1.jpg" alt=""
-                                            class="img-fluid d-block mx-auto img0" id="main-img">
+        <div class="modal fade" id="modal-ver" tabindex="-1" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="container">
+                        <div class="row info-detalle-content">
+                            <div class="col col-5 img-detalle-producto mx-auto">
+                                <div class="main-img">
+                                    <img src="" alt=""
+                                    class="img-fluid d-block mx-auto img0" id="show-img-main">
+                                </div>
+                            </div>
+                            <div class="col col-6 info-detalle-producto mx-auto">
+                                <div class="row">
+                                    <span class="detalle-producto-name">
+                                        <h3 id="show-nombre" class="d-inline"></h3><span> </span><h3 class="d-inline" id="show-marca"></h3>
+                                    </span>
+                                </div>
+                                <div class="rating-detalle">
+                                    <span>
+                                        <i class="fa fa-star"></i>
+                                    </span>
+                                    <span>
+                                        <i class="fa fa-star"></i>
+                                    </span>
+                                    <span>
+                                        <i class="fa fa-star"></i>
+                                    </span>
+                                    <span>
+                                        <i class="fa fa-star"></i>
+                                    </span>
+                                    <span>
+                                        <i class="fa fa-star"></i>
+                                    </span>
+                                </div>
+                                <hr>
+                                <div class="precio-disponibilidad d-block">
+                                    <div class="precios">
+                                        <span class="precio" id="show-precio">$29.99</span>
+                                        <span class="precio-before" id="show-precio-before">$52.99</span>
                                     </div>
-                                    <div class="row">
-                                        <div class="col-3 secondary-img sec-img1">
-                                            <img src="../../resources/img/detalleProducto/detalle1.jpg" alt=""
-                                                class="img-fluid mx-auto" id="img1" onmouseover="hoverImagen(src)">
-                                        </div>
-                                        <div class="col-3 secondary-img sec-img2">
-                                            <img src="../../resources/img/detalleProducto/detalle2.jpg" alt=""
-                                                class="img-fluid mx-auto" id="img2" onmouseover="hoverImagen(src)">
-                                        </div>
-                                        <div class="col-3 secondary-img sec-img3">
-                                            <img src="../../resources/img/detalleProducto/detalle3.jpg" alt=""
-                                                class="img-fluid mx-auto" id="img3" onmouseover="hoverImagen(src)">
-                                        </div>
-                                        <div class="col-3 secondary-img sec-img4">
-                                            <img src="../../resources/img/detalleProducto/detalle4.jpg" alt=""
-                                                class="img-fluid mx-auto" id="img4" onmouseover="hoverImagen(src)">
-                                        </div>
+                                    <div class="disponibilidad-group">
+                                        <span class="disponibilidad ">Disponibilidad:</span> <span
+                                            class="stock" id="show-estado">En
+                                            Stock</span>
                                     </div>
                                 </div>
-                                <div class="col col-6 info-detalle-producto mx-auto">
-                                    <div class="row">
-                                        <span class="detalle-producto-name">
-                                            <h3>Plancha eléctrica Crepe Maker Cooktop</h3>
-                                        </span>
-                                    </div>
-                                    <div class="rating-detalle">
-                                        <span>
-                                            <i class="fa fa-star"></i>
-                                        </span>
-                                        <span>
-                                            <i class="fa fa-star"></i>
-                                        </span>
-                                        <span>
-                                            <i class="fa fa-star"></i>
-                                        </span>
-                                        <span>
-                                            <i class="fa fa-star"></i>
-                                        </span>
-                                        <span>
-                                            <i class="fa fa-star"></i>
-                                        </span>
-                                    </div>
-                                    <hr>
-                                    <div class="precio-disponibilidad d-block">
-                                        <div class="precios">
-                                            <span class="precio">$29.99</span>
-                                            <span class="precio-before">$52.99</span>
+                                <hr>
+                                <div class="about-producto">
+                                    <span class="title-about-producto">Sobre este artículo</span>
+                                    <p class="mt-2" id="show-descripcion">Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                                        Quod
+                                        minima optio
+                                        magni officia
+                                        blanditiis culpa illo vitae? Possimus quod, provident ullam facere
+                                        necessitatibus
+                                        expedita
+                                        quaerat! Cupiditate dolore aut repudiandae asperiores.</p>
+                                </div>
+                                <hr>
+                                <div class="row cantidad-row justify-content-start">
+                                    <span class="mb-2">Cantidad</span>
+                                    <div class="col-12 añadir-boton">
+                                        <div class="input-group ">
+                                            <button class="btn btn-outline-warning" type="button"
+                                                id="button-addon1">-</button>
+                                            <input id="input-stock" type="text" class="form-control text-center" placeholder="1"
+                                                aria-label="Example text with button addon"
+                                                aria-describedby="button-addon1">
+                                            <button class="btn btn-outline-warning" type="button"
+                                                id="button-addon1">+</button>
                                         </div>
-                                        <div class="disponibilidad-group">
-                                            <span class="disponibilidad ">Disponibilidad:</span> <span class="stock">En
-                                                Stock</span>
-                                        </div>
+                                        <button class="carrito-button mx">Añadir al carrito</button>
+                                        <span class="destacado-icon heart-icon"
+                                            data-bs-customClass="custom-tooltip" data-bs-toggle="tooltip"
+                                            data-bs-placement="right" title="Añadir a WishList">
+                                            <i class="far fa-heart wish"></i></span>
                                     </div>
-                                    <hr>
-                                    <div class="about-producto">
-                                        <span class="title-about-producto">Sobre este artículo</span>
-                                        <p class="mt-2">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quod
-                                            minima optio
-                                            magni officia
-                                            blanditiis culpa illo vitae? Possimus quod, provident ullam facere
-                                            necessitatibus
-                                            expedita
-                                            quaerat! Cupiditate dolore aut repudiandae asperiores.</p>
-                                    </div>
-                                    <hr>
-                                    <div class="row cantidad-row justify-content-start">
-                                        <span class="mb-2">Cantidad</span>
-                                        <div class="col-12 añadir-boton">
-                                            <div class="input-group ">
-                                                <button class="btn btn-outline-warning" type="button"
-                                                    id="button-addon1">-</button>
-                                                <input type="text" class="form-control text-center" placeholder="1"
-                                                    aria-label="Example text with button addon"
-                                                    aria-describedby="button-addon1">
-                                                <button class="btn btn-outline-warning" type="button"
-                                                    id="button-addon1">+</button>
-                                            </div>
-                                            <button class="carrito-button mx">Añadir al carrito</button>
-                                            <span class="destacado-icon heart-icon" data-bs-customClass="custom-tooltip"
-                                                data-bs-toggle="tooltip" data-bs-placement="right"
-                                                title="Añadir a WishList">
-                                                <i class="far fa-heart wish"></i></span>
-                                        </div>
-                                    </div>
-                                    <div class="row mt-1">
-                                        <span class="left-stock">Queda(n) 10 en stock</span>
-                                    </div>
+                                </div>
+                                <div class="row mt-1">
+                                    <span class="left-stock">Queda(n) <span id="show-stock"></span> en stock</span>
+                                </div>
 
-                                    <div class="colores mt-2">
-                                        <i class="fa-solid fa-square color1"></i>
-                                        <i class="fa-solid fa-square color2"></i>
-                                        <i class="fa-solid fa-square color3"></i>
-                                        <i class="fa-solid fa-square color4"></i>
-                                    </div>
-                                    <div class="cat">
-                                        <h5>Categorías</h5>
-                                        <span>Utensilios, cucharas, espátulas</span>
-                                    </div>
+                                <div class="colores mt-2">
+                                    <select name="color" id="color" class="w-25 input"></select>
+                                    <!-- <i class="fa-solid fa-square color1"></i>
+                                    <i class="fa-solid fa-square color2"></i>
+                                    <i class="fa-solid fa-square color3"></i>
+                                    <i class="fa-solid fa-square color4"></i> -->
+                                </div>
+                                <div class="cat">
+                                    <h5>Categorías</h5>
+                                    <span id="show-subcategoria"></span>
                                 </div>
                             </div>
                         </div>
@@ -480,6 +465,7 @@
                 </div>
             </div>
         </div>
+    </div>
         <!-- FIN MODAL DE DETALLE DE EL PRODUCTO -->
 
         <!-- INICIO DEL FOOTER DE LA PÁGINA -->
@@ -561,7 +547,6 @@
     <script src="../../controllers/publico/gridproductos.js"></script>
     <script src="../../controllers/publico/stickynavs.js"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    <script src="../../controllers/componentes.js"></script>
     <script src="../../controllers/publico/account.js"></script>
 </body>
 

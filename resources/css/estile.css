@@ -420,16 +420,19 @@ body {
     padding-top: 3px;
     padding-bottom: 3px;
 }
-.btn-banner{
+
+.btn-banner {
     transition: all .3s ease;
 }
-.btn-banner:hover{
+
+.btn-banner:hover {
     color: var(--rosadoTitulos);
     background-color: var(--marfil);
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     transform: scale(1.05);
-    
+
 }
+
 #TextoC2 {
     padding-left: 38%;
     padding-bottom: 13%;
@@ -596,28 +599,29 @@ body {
     overflow: hidden;
     position: relative;
 }
-.categorias .card{
+
+.categorias .card {
     position: relative;
     cursor: pointer;
     overflow: hidden;
 }
 
-.categorias .card-body:hover img{
+.categorias .card-body:hover img {
     filter: opacity(0.6);
     transform: scale(1.1);
     cursor: pointer;
 }
 
-.card-cocina img{
+.card-cocina img {
     width: 600px;
     height: 350px;
-    position:absolute;
+    position: absolute;
     left: -90%;
     bottom: 0;
     transition: all .6s ease;
 }
 
-.card-utensilios img{
+.card-utensilios img {
     position: absolute;
     top: -10%;
     left: 0;
@@ -626,7 +630,7 @@ body {
     transition: all .6s ease;
 }
 
-.card-electro img{
+.card-electro img {
     position: absolute;
     top: 9%;
     left: 50%;
@@ -636,7 +640,7 @@ body {
 }
 
 
-.card-recetas img{
+.card-recetas img {
     position: absolute;
     top: 0;
     left: 21%;
@@ -1657,7 +1661,7 @@ body {
     color: green;
 }
 
-.modal .colores .input{
+.modal .colores .input {
     height: 38px;
     border: 1px solid #ced4da;
     border-radius: 5px;
@@ -2319,7 +2323,7 @@ body {
     justify-content: space-between;
 }
 
-.detalle-producto-content .añadir-boton .input-group button:hover{
+.detalle-producto-content .añadir-boton .input-group button:hover {
     color: var(--blanco);
 }
 
@@ -3222,6 +3226,7 @@ body {
     padding-left: 20px;
     padding-right: 0;
 }
+
 firm-btn {
     display: block;
     width: 100%;
@@ -3251,39 +3256,45 @@ firm-btn {
 }
 
 @media only screen and (max-width: 992px) {
-    .card-cocina img{
+    .card-cocina img {
         width: 600px;
         height: 350px;
-        position:absolute;
+        position: absolute;
         left: 50%;
         bottom: -40%;
         transition: all .3s ease;
     }
+
     .card-cocina>.card-body {
         align-items: flex-start;
         justify-content: center;
         padding: 40px;
     }
+
     .card-utensilios>.card-body {
         align-items: flex-end;
         justify-content: center;
         padding: 40px;
     }
+
     .card-electro>.card-body {
         align-items: flex-start;
         justify-content: center;
         padding: 40px;
     }
+
     .card-recetas>.card-body {
         align-items: flex-start;
         justify-content: center;
         padding: 40px;
     }
-    .card-recetas img{
+
+    .card-recetas img {
         left: 66%;
         width: 300px;
         height: 375px;
     }
+
     #no-more-tables tbody,
     #no-more-tables tr,
     #no-more-tables td {
@@ -3808,6 +3819,12 @@ b {
     height: 0px;
 }
 
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
 /* --------------------------------------------------------------FIN CUENTA -----------------------------------------------------*/
 
 
@@ -4250,4 +4267,5 @@ b {
         border: 2px;
     }
 }
+
 /*------------------RESPONSIVE------------------*/

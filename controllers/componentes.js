@@ -391,6 +391,64 @@ function fillSelect(endpoint, select, selected) {
     });
 }
 
+/*
+*   Función para cargar las opciones en un select de formulario de un producto en especifico.
+*
+*   Parámetros: endpoint (ruta específica del servidor para obtener los datos), select (identificador del select en el formulario) y selected (valor seleccionado), id del producto.
+*
+*   Retorno: ninguno.
+*   Se usa para cargar los colores que hay guardados de cierto producto
+*/
+function fillSelectProducto(endpoint, select, selected, id) {
+    //let valorReturn;
+    // Se define un objeto con los datos del producto seleccionado.
+    const data = new FormData();
+    data.append('idProducto', id);
+    fetch(endpoint, {
+        method: 'post',
+        body: data
+    }).then(function (request) {
+        // Se verifica si la petición es correcta, de lo contrario se muestra un mensaje en la consola indicando el problema.
+        if (request.ok) {
+            // Se obtiene la respuesta en formato JSON.
+            request.json().then(function (response) {
+                let content = '';
+                // Se comprueba si la respuesta es satisfactoria, de lo contrario se muestra un mensaje con la excepción.
+                if (response.status) {
+                    // Si no existe un valor para seleccionar, se muestra una opción para indicarlo.
+                    if (!selected) {
+                        content += '<option disabled selected>Seleccione una opción</option>';
+                    }
+                    // Se recorre el conjunto de registros devuelto por la API (dataset) fila por fila a través del objeto row.
+                    response.dataset.map(function (row) {
+                        // Se obtiene el dato del primer campo de la sentencia SQL (valor para cada opción).
+                        value = Object.values(row)[0];
+                        // Se obtiene el dato del segundo campo de la sentencia SQL (texto para cada opción).
+                        text = Object.values(row)[1];
+                        // Se verifica si el valor de la API es diferente al valor seleccionado para enlistar una opción, de lo contrario se establece la opción como seleccionada.
+                        if (value != selected) {
+                            content += `<option value="${value}">${text}</option>`;
+                        } else {
+                            content += `<option value="${value}" selected>${text}</option>`;
+                            //valorReturn = value;
+                        }
+                    });
+                } else {
+                    content += '<option>No hay opciones disponibles</option>';
+                }
+                // Se agregan las opciones a la etiqueta select mediante su id.
+                document.getElementById(select).innerHTML = content;
+                //return valorReturn;
+            });
+        } else {
+            console.log(request.status + ' ' + request.statusText);
+        }
+    });
+}
+
+
+
+
 // Función para mostrar un mensaje de confirmación al momento de cerrar sesión.
 function logOut() {
     swal({
