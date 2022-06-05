@@ -226,17 +226,6 @@ class Productos extends Validator
         return Database::getRows($sql, $params);
     }
 
-    public function readDestacados()
-    {
-        $sql = 'SELECT "idProducto", "imagenPrincipal", "nombreProducto", "descripcionProducto", "precioProducto", descuento, ep."estadoProducto" 
-        FROM producto as p inner join "estadoProducto" as ep on p."estadoProducto" = ep."idEstadoProducto" 
-        ORDER BY "idProducto"
-        ';
-        
-        $params = null;
-        return Database::getRows($sql, $params);
-    }
-
     public function readOne()
     {
         $sql = 'SELECT p."idProducto", "idSubCategoriaP", "idProveedor", "idMarca", "imagenPrincipal", "nombreProducto", "descripcionProducto", "precioProducto", "estadoProducto", "idColor", stock, descuento 
@@ -330,12 +319,24 @@ class Productos extends Validator
     }
 
 
+    /* Funciones para mostrar productos en público */
+    public function readDestacados()
+    {
+        $sql = 'SELECT "idProducto", "imagenPrincipal", "nombreProducto", "descripcionProducto", "precioProducto", descuento, ep."estadoProducto" 
+        FROM producto as p inner join "estadoProducto" as ep on p."estadoProducto" = ep."idEstadoProducto" 
+        ORDER BY "idProducto"
+        ';
+        
+        $params = null;
+        return Database::getRows($sql, $params);
+    }
+
     public function readProductosSubcategoria()
     {
-        $sql = 'SELECT id_producto, imagen_producto, nombre_producto, descripcion_producto, precio_producto
-                FROM productos INNER JOIN categorias USING(id_categoria)
-                WHERE id_categoria = ? AND estado_producto = true
-                ORDER BY nombre_producto';
+        $sql = 'SELECT "idProducto", "imagenPrincipal", "nombreProducto", "descripcionProducto", "precioProducto", descuento
+        FROM producto 
+		WHERE "idSubCategoriaP" = ? AND "estadoProducto" = 1
+		ORDER BY "idProducto"';
         $params = array($this->id);
         return Database::getRows($sql, $params);
     }

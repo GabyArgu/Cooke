@@ -301,4 +301,3 @@ function navbarResponsive(){
         navbar.classList.remove('shrink');
     }
 }
-
