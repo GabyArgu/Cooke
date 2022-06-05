@@ -84,7 +84,7 @@ class Pedidos extends Validator
     {
         return $this->fecha;
     }
-    
+
     public function getTotal()
     {
         return $this->total;
@@ -99,6 +99,7 @@ class Pedidos extends Validator
     {
         return $this->tipo_pago;
     }
+
     /* 
     *   Método para comprobar que existen pedidos registrados en nuestra base de datos
     */
@@ -114,6 +115,10 @@ class Pedidos extends Validator
         return Database::getRows($sql, $params);
     }
 
+    /* 
+    *   Método para leer los datos del pedido seleccionado en el modal editar
+    */
+
     public function readOne()
     {
         $sql = 'SELECT "idPedido", c."nombresCliente", c."apellidosCliente", c."direccionCliente", c."telefonoCliente", "fechaPedido", p."estadoPedido", "montoTotal", tp."tipoPago"
@@ -123,6 +128,10 @@ class Pedidos extends Validator
         $params = array($this->id);
         return Database::getRow($sql, $params);
     }
+
+    /* 
+    *   Método para leer los datos del pedido seleccionado en el modal visualizar
+    */
 
     public function readOneShow()
     {
@@ -135,8 +144,12 @@ class Pedidos extends Validator
         return Database::getRow($sql, $params);
     }
 
+    /* 
+    *   Método para leer el detalle del pedido seleccionado en el modal visualizar
+    */
+
     public function readOneDPShow()
-    {   
+    {
         $sql = 'SELECT "idDetallePedido", pr."nombreProducto", pr."precioProducto", "cantidadProducto", pr."precioProducto" * "cantidadProducto" as "subtotal"
                 from "detallePedido" as dp inner join "pedido" as p on dp."idPedido" = p."idPedido"
                 inner join "cliente" as cl on p."idCliente" = cl."idCliente"
@@ -165,12 +178,33 @@ class Pedidos extends Validator
         return Database::getRows($sql, $params);
     }
 
+    /* UPDATE */
+
     public function updateRow()
     {
         $sql = 'UPDATE "pedido"
                 SET "estadoPedido" = ?
                 WHERE "idPedido" = ?';
-            $params = array($this->estado, $this->id);
+        $params = array($this->estado, $this->id);
         return Database::executeRow($sql, $params);
+    }
+
+    /*
+    *   MÉTODOS PARA EL SITIO PÚBLICO
+    */
+
+    /*
+    *   Método para obtener los pedidos del cliente activo
+    */
+
+    public function readPedidosCliente()
+    {
+        $sql = 'SELECT "idPedido", "fechaPedido", ep."estadoPedido", "montoTotal"
+                from pedido as p inner join "estadoPedido" as ep on p."estadoPedido" = ep."idEstadoPedido"
+                inner join "cliente" as c on p."idCliente" = c."idCliente"
+                where p."idCliente" = ?
+                order by "idPedido"';
+        $params = array($_SESSION['idCliente']);
+        return Database::getRows($sql, $params);
     }
 }
