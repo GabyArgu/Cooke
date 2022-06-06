@@ -33,67 +33,69 @@
 
         <!-- INICIO NAVBAR DE LA PÁGINA-->
         <header>
-            <!-- INICIA NAVBAR -->
-            <nav class="navbar fixed-top navbar-expand-lg navbar-light menu" id="navbar-home">
-                <div class=" container-fluid">
-                    <a class="navbar-brand me-auto" href="index.html"><img src="../../resources/img/index/logo2.png"
-                            alt="" id="logo_inicio" class="mx-auto d-block"></a>
-                    <button class="navbar-toggler collapsed d-flex d-lg-none flex-column justify-content-around"
-                        type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
-                        aria-controls="navbarText" onclick="navbarResponsive()">
-                        <span class="toggler-icon top-bar"></span>
-                        <span class="toggler-icon middle-bar"></span>
-                        <span class="toggler-icon bottom-bar"></span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 textcolor">
-                            <li class="nav-item dropdown textcolor2">
-                                <a class="nav-link dropdown" href="categoria.html" id="navbarDropdownMenuLink"
-                                    role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    Categorías
-                                </a>
-                                <ul class="dropdown-menu dropdown-categorias" aria-labelledby="navbarDropdownMenuLink">
-                                    <li><a class="dropdown-item" href="categoria.html">Cocina</a></li>
-                                    <li><a class="dropdown-item" href="categoria.html">Utensilios</a></li>
-                                    <li><a class="dropdown-item" href="categoria.html">Eléctrodomesticos</a></li>
-                                    <li><a class="dropdown-item" href="categoria.html">Recetas</a></li>
+            <div class=" container-fluid">
+                <a class="navbar-brand me-auto" href="index.html"><img src="../../resources/img/index/logo2.png" alt="" id="logo_inicio" class="mx-auto d-block"></a>
+                <button class="navbar-toggler collapsed d-flex d-lg-none flex-column justify-content-around" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarText" onclick="navbarResponsive()">
+                    <span class="toggler-icon top-bar"></span>
+                    <span class="toggler-icon middle-bar"></span>
+                    <span class="toggler-icon bottom-bar"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0 textcolor">
+                        <li class="nav-item dropdown textcolor2">
+                            <a class="nav-link dropdown" href="categoria.html" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Categorías
+                            </a>
+                            <ul class="dropdown-menu dropdown-categorias" aria-labelledby="navbarDropdownMenuLink">
+                                <li><a class="dropdown-item categoria-cocina" href="">Cocina</a></li>
+                                <li><a class="dropdown-item categoria-utensilios" href="">Utensilios</a></li>
+                                <li><a class="dropdown-item categoria-electrodomesticos" href="">Eléctrodomesticos</a></li>
+                                <li><a class="dropdown-item categoria-recetas" href="">Recetas</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item textcolor2">
+                            <a class="nav-link active " aria-current="page" href="gridproductos.html">Destacados</a>
+                        </li>
+                        <li class="nav-item textcolor2">
+                            <a class="nav-link active" aria-current="page" href="nosotros.html">Nosotros</a>
+                        </li>
+                        <li class="nav-item textcolor2">
+                            <a class="nav-link active" aria-current="page" href="blog.html">Blog</a>
+                        </li>
+                        <li class="nav-item textcolor2">
+                            <a class="nav-link active" aria-current="page" href="contactanos.html">Contacto</a>
+                        </li>
+
+                        <div class="iconos-navbar">
+
+                            <li class="nav-item textcolor">
+                                <ul class="navbar-nav ms-auto">
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown p-0 show" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="true">
+                                            <i class="fa-solid  img-hover"></i>
+                                        </a>
+                                        <ul class="dropdown-menu dropdown-menu-end show" aria-labelledby="navbarDropdownMenuLink" data-bs-popper="none">
+                                            <li><a class="dropdown-item" href="cuenta.html">Cuenta</a></li>
+                                            <li><a class="dropdown-item" href="login.html">Iniciar Sesión</a></li>
+                                        </ul>
+                                    </li>
                                 </ul>
                             </li>
-                            <li class="nav-item textcolor2">
-                                <a class="nav-link active " aria-current="page" href="gridproductos.html">Destacados</a>
-                            </li>
-                            <li class="nav-item textcolor2">
-                                <a class="nav-link active" aria-current="page" href="nosotros.html">Nosotros</a>
-                            </li>
-                            <li class="nav-item textcolor2">
-                                <a class="nav-link active" aria-current="page" href="blog.html">Blog</a>
-                            </li>
-                            <li class="nav-item textcolor2">
-                                <a class="nav-link active" aria-current="page" href="contactanos.html">Contacto</a>
+
+                            <li class="nav-item textcolor">
+                                <a class="nav-link active img-hover2" aria-current="page" href="deseos.html"></a>
                             </li>
 
-                            <div class="iconos-navbar">
 
-                                <li class="nav-item textcolor">
-                                    <a class="nav-link active img-hover" aria-current="page" href="login.html"></a>
-                                </li>
-
-                                <li class="nav-item textcolor">
-                                    <a class="nav-link active img-hover2" aria-current="page" href="deseos.html"></a>
-                                </li>
-
-                                <li class="nav-item textcolor nav-carrito">
-                                    <a class="nav-link active img-hover3 nav-carrito" onclick="readOrderDetailOff()" aria-current="page"
-                                        data-bs-toggle="offcanvas" data-bs-target="#sidebarCarrito"
-                                        aria-controls="offcanvasRight"></a>
-                                </li>
-                            </div>
-
-                        </ul>
-                    </div>
+                            <li class="nav-item textcolor nav-carrito">
+                                <a class="nav-link active img-hover3 nav-carrito" onclick="readOrderDetailOff()" aria-current="page" data-bs-toggle="offcanvas" data-bs-target="#sidebarCarrito" aria-controls="offcanvasRight"></a>
+                            </li>
+                        </div>
+                    </ul>
                 </div>
-            </nav>
-        </header>
+            </div>
+        </nav>
+            </header>
         <!-- FIN NAVBAR DE LA PÁGINA-->
 
         <!-- INICIO CARRITO DE LA PÁGINA-->
@@ -1000,7 +1002,6 @@
                                 </div>
                                 <div class="col">
                                     <h6 class="text-uppercase fw-bold mb-4">Extras</h6>
-                                    <p><a href="cuenta.html" class="text-reset link">Mi cuenta</a></p>
                                     <p><a href="nosotros.html" class="text-reset link">Sobre nosotros</a></p>
                                     <p><a href="deseos.html" class="text-reset link">Lista de deseos</a></p>
                                     <p><a href="gridproductos.html" class="text-reset link">Centro de compras</a>
