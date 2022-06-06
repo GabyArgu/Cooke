@@ -354,11 +354,11 @@ $('#owl3').owlCarousel({
 //     document.getElementById("main-img").src = ruta;
 // }
 
-const navbar = document.getElementById('navbar-home');
-let navbarCollapse = document.getElementById('navbarNavDropdown');
 
 window.addEventListener('scroll', function () {
+    let navbar = document.getElementById('navbar-home');
     if (window.pageYOffset > 86) {
+        console.log(navbar);
         navbar.classList.add('shrink', 'shadow');
     } else {
         if(!navbar.classList.contains("activado")){
