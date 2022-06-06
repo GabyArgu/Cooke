@@ -107,10 +107,10 @@ class Pedidos extends Validator
     public function readAll()
     {
         $sql = 'SELECT "idPedido", c."nombresCliente", c."apellidosCliente", c."direccionCliente", c."telefonoCliente", "fechaPedido", ep."estadoPedido", "montoTotal", tp."tipoPago"
-                        from pedido as p inner join "cliente" as c on p."idCliente" = c."idCliente"
-                        inner join "estadoPedido" as ep on p."estadoPedido" = ep."idEstadoPedido"
-                        inner join "tipoPago" as tp on p."tipoPago" = tp."idTipoPago"
-                        order by "idPedido"';
+                from pedido as p inner join "cliente" as c using("idCliente")
+                inner join "estadoPedido" as ep on p."estadoPedido" = ep."idEstadoPedido"
+                inner join "tipoPago" as tp on p."tipoPago" = tp."idTipoPago"
+                order by "idPedido"';
         $params = null;
         return Database::getRows($sql, $params);
     }
@@ -122,7 +122,7 @@ class Pedidos extends Validator
     public function readOne()
     {
         $sql = 'SELECT "idPedido", c."nombresCliente", c."apellidosCliente", c."direccionCliente", c."telefonoCliente", "fechaPedido", p."estadoPedido", "montoTotal", tp."tipoPago"
-                from pedido as p inner join "cliente" as c on p."idCliente" = c."idCliente"
+                from pedido as p inner join "cliente" as c using ("idCliente")
                 inner join "tipoPago" as tp on p."tipoPago" = tp."idTipoPago"
                 where "idPedido" = ?';
         $params = array($this->id);
@@ -136,7 +136,7 @@ class Pedidos extends Validator
     public function readOneShow()
     {
         $sql = 'SELECT "idPedido", c."nombresCliente", c."apellidosCliente", c."direccionCliente", c."telefonoCliente", "fechaPedido", ep."estadoPedido", "montoTotal", tp."tipoPago"
-                from pedido as p inner join "cliente" as c on p."idCliente" = c."idCliente"
+                from pedido as p inner join "cliente" as c using ("idCliente")
                 inner join "estadoPedido" as ep on p."estadoPedido" = ep."idEstadoPedido"
                 inner join "tipoPago" as tp on p."tipoPago" = tp."idTipoPago"
                 where "idPedido" = ?';
@@ -154,7 +154,8 @@ class Pedidos extends Validator
                 from "detallePedido" as dp inner join "pedido" as p on dp."idPedido" = p."idPedido"
                 inner join "cliente" as cl on p."idCliente" = cl."idCliente"
                 inner join "estadoPedido" as ep on p."estadoPedido" = ep."idEstadoPedido"
-                inner join "producto" as pr on dp."idProducto" = pr."idProducto"
+                inner join "colorStock" using ("idColorStock")
+                inner join "producto" as pr using ("idProducto")
                 where p."idPedido" = ?';
         $params = array($this->id);
         return Database::getRows($sql, $params);
@@ -174,7 +175,7 @@ class Pedidos extends Validator
                 inner join "tipoPago" as tp on p."tipoPago" = tp."idTipoPago"
                 where CAST("idPedido" AS TEXT) ILIKE ?
                 order by "idPedido"';
-        $params = array("%$value%", "%$value%");
+        $params = array("%$value%");
         return Database::getRows($sql, $params);
     }
 
