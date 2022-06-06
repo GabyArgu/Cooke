@@ -4,6 +4,7 @@ require_once('../helpers/validaciones.php');
 require_once('../models/categorias_productos.php');
 require_once('../models/subcategoriapd.php');
 require_once('../models/productos.php');
+require_once('../models/colores.php');
 
 // Se comprueba si existe una acción a realizar, de lo contrario se finaliza el script con un mensaje de error.
 if (isset($_GET['action'])) {
@@ -11,6 +12,7 @@ if (isset($_GET['action'])) {
     $categoria = new CategoriaCP;
     $producto = new Productos;
     $subcategoria = new Subcategoriapd;
+    $colores = new ColorProducto;
     // Se declara e inicializa un arreglo para guardar el resultado que retorna la API.
     $result = array('status' => 0, 'message' => null, 'exception' => null);
     // Se compara la acción a realizar según la petición del controlador.
@@ -47,7 +49,7 @@ if (isset($_GET['action'])) {
             }
             break;
         case 'readOne':
-            if (!$producto->setId($_POST['id_producto'])) {
+            if (!$producto->setId($_POST['idProducto'])) {
                 $result['exception'] = 'Producto incorrecto';
             } elseif ($result['dataset'] = $producto->readOne()) {
                 $result['status'] = 1;
@@ -55,6 +57,30 @@ if (isset($_GET['action'])) {
                 $result['exception'] = Database::getException();
             } else {
                 $result['exception'] = 'Producto inexistente';
+            }
+            break;
+        case 'readStock':
+            if (!$producto->setId($_POST['idProducto'])) {
+                $result['exception'] = 'Producto incorrecto';
+            } elseif (!$producto->setColor($_POST['idColor'])) {
+                $result['exception'] = 'Color incorrecto';
+            } elseif ($result['dataset'] = $producto->readProductStock()) {
+                $result['status'] = 1;
+            } elseif (Database::getException()) {
+                $result['exception'] = Database::getException();
+            } else {
+                $result['exception'] = 'Stock del producto inexistente';
+            }
+            break;
+        case 'readColor':
+            if (!$colores->setId($_POST['idProducto'])) {
+                $result['exception'] = 'Producto incorrecto';
+            } elseif ($result['dataset'] = $colores->readColorProducto()) {
+                $result['status'] = 1;
+            } elseif (Database::getException()) {
+                $result['exception'] = Database::getException();
+            } else {
+                $result['exception'] = 'No hay datos registrados';
             }
             break;
         default:

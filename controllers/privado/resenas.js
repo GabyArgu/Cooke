@@ -1,6 +1,6 @@
 // Constante para establecer la ruta y parámetros de comunicación con la API.
 const API_RESENAS = SERVER + 'private/resenas.php?action=';
-const ENDPOINT_ESTADO = SERVER + 'private/estadoGeneral.php?action=readAll';
+const ENDPOINT_ESTADO = SERVER + 'private/estado_general.php?action=readAll';
 
 // Método manejador de eventos que se ejecuta cuando el documento ha cargado.
 document.addEventListener('DOMContentLoaded', function () {
@@ -178,3 +178,5 @@ document.getElementById('update-form').addEventListener('submit', function (even
     // Se llama a la función para guardar el registro. Se encuentra en el archivo components.js-------------------..
     saveRow(API_RESENAS, action, 'update-form', 'modal-editar');
 });
+
+console.log ("hola")

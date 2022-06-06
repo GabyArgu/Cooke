@@ -1,3 +1,5 @@
+
+
 navPage = document.getElementById('navbar-page');
 
 window.addEventListener('scroll', function () {

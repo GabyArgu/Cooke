@@ -80,8 +80,8 @@
                                 <li class="nav-item textcolor">
                                     <ul class="navbar-nav ms-auto">
                                         <li class="nav-item dropdown">
-                                            <a class="nav-link dropdown p-0" href="#" id="navbarDropdownMenuLink" role="button"
-                                                data-bs-toggle="dropdown" aria-expanded="false">
+                                            <a class="nav-link dropdown p-0" href="#" id="navbarDropdownMenuLink"
+                                                role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                                 <i class="fa-solid  img-hover"></i>
                                             </a>
                                             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
@@ -189,17 +189,16 @@
             </div>
 
             <div class="row fondo-title mt-4 justify-content-center">
-                <h1 class="text-center title">Detalles del producto</h1>
+                <h1 class="text-center title" id="title">Detalles del producto</h1>
                 <hr class="linea">
             </div>
 
             <!-- INICIO CONTENIDO -->
-            <div class="container mt-5">
+            <div class="container mt-5" >
                 <div class="row info-detalle-content">
                     <div class="col col-5 img-detalle-producto mx-auto">
                         <div class="main-img">
-                            <img src="../../resources/img/detalleproducto/detalle1.jpg" alt=""
-                                class="img-fluid d-block mx-auto img0" id="main-img">
+                            <img src="" alt="" class="img-fluid d-block mx-auto img0" id="img-main">
                         </div>
                         <!-- <div class="row">
                             <div class="col-3 secondary-img sec-img1">
@@ -223,7 +222,8 @@
                     <div class="col col-6 info-detalle-producto mx-auto">
                         <div class="row">
                             <span class="detalle-producto-name">
-                                <h3>Plancha eléctrica Crepe Maker Cooktop</h3>
+                                <h3 id="nombre" class="d-inline"></h3><span> </span>
+                                <h3 class="d-inline" id="marca"></h3>
                             </span>
                         </div>
                         <div class="rating-detalle">
@@ -246,40 +246,49 @@
                         <hr>
                         <div class="precio-disponibilidad d-block">
                             <div class="precios">
-                                <span class="precio">$29.99</span>
-                                <span class="precio-before">$52.99</span>
+                                <span class="precio" id="precio">$29.99</span>
+                                <span class="precio-before" id="precio-before">$52.99</span>
                             </div>
                             <div class="disponibilidad-group">
-                                <span class="disponibilidad ">Disponibilidad:</span> <span class="stock">En Stock</span>
+                                <span class="disponibilidad ">Disponibilidad:</span> <span class="stock"
+                                    id="estado">
+                                    En Stock
+                                </span>
                             </div>
                         </div>
                         <hr>
                         <div class="about-producto">
                             <span class="title-about-producto">Sobre este artículo</span>
-                            <p class="mt-2">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quod minima optio
+                            <p class="mt-2 descripcion" id="">Lorem ipsum dolor sit amet consectetur, adipisicing
+                                elit.
+                                Quod
+                                minima optio
                                 magni officia
-                                blanditiis culpa illo vitae? Possimus quod, provident ullam facere necessitatibus
+                                blanditiis culpa illo vitae? Possimus quod, provident ullam facere
+                                necessitatibus
                                 expedita
                                 quaerat! Cupiditate dolore aut repudiandae asperiores.</p>
                         </div>
                         <hr>
-                        <div class="row cantidad-row justify-content-start">
-                            <span class="mb-2">Cantidad</span>
-                            <div class="col-8 añadir-boton">
-                                <div class="input-group ">
-                                    <button class="btn btn-outline-warning" type="button" id="button-addon1">-</button>
-                                    <input type="text" class="form-control text-center" placeholder="1"
-                                        aria-label="Example text with button addon" aria-describedby="button-addon1">
-                                    <button class="btn btn-outline-warning" type="button" id="button-addon1">+</button>
+                        <form class="row" method="post" id="carrito-form">
+                            <div class="row cantidad-row justify-content-start">
+                                <span class="mb-2">Cantidad</span>
+                                <div class="col-12 añadir-boton">
+                                    <div class="input-group ">
+                                        <button onclick="restarStock()" class="btn btn-outline-warning" type="button" id="res-btn" >-</button>
+                                        <input onchange="validacionInputStock()" onkeypress="return valideKey(event);" id="input-stock" name="input-stock"  type="number" min="0" class="form-control text-center" placeholder=""
+                                            aria-label="Example text with button addon" aria-describedby="button-addon1" value="1">
+                                        <button onclick="sumarStock()"  class="btn btn-outline-warning" type="button" id="sum-btn">+</button>
+                                    </div>
+                                    <button type="submit" class="carrito-button mx">Añadir al carrito</button>
+                                    <span class="destacado-icon heart-icon" data-bs-customClass="custom-tooltip"
+                                        data-bs-toggle="tooltip" data-bs-placement="right" title="Añadir a WishList">
+                                        <i class="far fa-heart wish"></i></span>
                                 </div>
-                                <button class="carrito-button mx">Añadir al carrito</button>
-                                <span class="destacado-icon heart-icon" data-bs-customClass="custom-tooltip"
-                                    data-bs-toggle="tooltip" data-bs-placement="right" title="Añadir a WishList">
-                                    <i class="far fa-heart wish"></i></span>
                             </div>
-                        </div>
+                        </form>
                         <div class="row mt-1">
-                            <span class="left-stock">Queda(n) 10 en stock</span>
+                            <span class="left-stock">Queda(n) <span id="stock"></span> en stock</span>
                         </div>
 
                         <div class="colores mt-2">
@@ -291,7 +300,7 @@
                         </div>
                         <div class="cat">
                             <h5>Categorías</h5>
-                            <span>Utensilios, cucharas, espátulas</span>
+                            <span id="subcategoria"></span>
                         </div>
                     </div>
                 </div>
@@ -316,13 +325,15 @@
                                         class="descripcion-detalle-producto-title d-block my-2">Especificaciones:
                                     </span>
                                     <span class="descripcion-detalle-producto-content">
-                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea fugiat, molestias,
-                                        eligendi totam, magni officiis obcaecati nulla accusantium aliquid odit veniam
-                                        ipsa sapiente explicabo maiores sunt repellendus unde? Nobis, et. Lorem ipsum
-                                        dolor sit amet consectetur adipisicing elit. Modi architecto laudantium
-                                        necessitatibus repellendus accusamus animi? Rem recusandae, fugiat nostrum totam
-                                        quibusdam maxime doloremque obcaecati quaerat laudantium dolores sapiente
-                                        reiciendis delectus.
+                                        <p class="descripcion" id="">Lorem ipsum dolor sit amet consectetur,
+                                            adipisicing elit.
+                                            Quod
+                                            minima optio
+                                            magni officia
+                                            blanditiis culpa illo vitae? Possimus quod, provident ullam facere
+                                            necessitatibus
+                                            expedita
+                                            quaerat! Cupiditate dolore aut repudiandae asperiores.</p>
                                     </span>
                                 </div>
 
@@ -540,271 +551,27 @@
                         </div>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="row justify-content-md-center">
-                        <h1 class="text-center title">Productos Relacionados</h1>
-                        <hr class="lineaP">
+                <div class="container">
+                        <div class="row justify-content-md-center">
+                            <h1 class="text-center title">Productos Relacionados</h1>
+                            <hr class="lineaP">
+                        </div>
+
+                        <div id="owl0" class="row my-5 owl-carousel owl-theme ">
+                        
                     </div>
                 </div>
-                <div id="owl4" class="row g-4 my-5 mx-auto owl-carousel owl-theme">
-                    <!--------------Item producto---------------->
-                    <div class="col product-item mx-auto">
-                        <div class="product-img-content">
-                            <div class="product-img">
-                                <img src="../../resources/img/destacados/productosdestacados1.png" alt=""
-                                    class="img-fluid d-block mx-auto">
-                                <div class="tags">
-                                    <span class="tag-new">NUEVO</span>
-                                    <span class="tag-discount">20%</span>
-                                </div>
-                                <div class="product-icons">
-                                    <span class="destacado-icon heart-icon" data-bs-customClass="custom-tooltip"
-                                        data-bs-toggle="tooltip" data-bs-placement="left" title="Añadir a WishList">
-                                        <i class="far fa-heart wish"></i>
-                                    </span>
-                                    <span type="button" class="destacado-icon quickview-icon" data-bs-toggle="tooltip"
-                                        data-bs-placement="left" title="Quick View">
-                                        <i class="fa fa-magnifying-glass" type="button" data-bs-toggle="modal"
-                                            data-bs-target="#exampleModal"></i>
-                                    </span>
-                                </div>
-                                <button type="button" class="col-6 py-2 text-center">
-                                    Añadir al carrito
-                                </button>
-                            </div>
+                
 
-                            <div class="product-info p-3">
-                                <span class="product-name"><a href="producto.html">Mini Electric sandwichera</a></span>
-                                <span class="product-price">$ 100.50</span>
-                                <span class="product-before">$ 100.50</span>
-                                <div class="rating d-flex mt-1">
-                                    <span>
-                                        <i class="fa fa-star"></i>
-                                    </span>
-                                    <span>
-                                        <i class="fa fa-star"></i>
-                                    </span>
-                                    <span>
-                                        <i class="fa fa-star"></i>
-                                    </span>
-                                    <span>
-                                        <i class="fa fa-star"></i>
-                                    </span>
-                                    <span>
-                                        <i class="fa fa-star"></i>
-                                    </span>
-                                </div>
+                
+            </div>
+            <!-- FIN CONTENIDO -->
 
-                            </div>
-                        </div>
-                    </div>
-                    <!--------------Item producto---------------->
-                    <div class="col product-item mx-auto">
-                        <div class="product-img-content">
-                            <div class="product-img">
-                                <img src="../../resources/img/destacados/productosdestacados.png" alt=""
-                                    class="img-fluid d-block mx-auto">
-                                <div class="tags">
-                                    <span class="tag-new">NUEVO</span>
-                                    <span class="tag-discount">20%</span>
-                                </div>
-                                <div class="product-icons">
-                                    <span class="destacado-icon heart-icon" data-bs-customClass="custom-tooltip"
-                                        data-bs-toggle="tooltip" data-bs-placement="left" title="Añadir a WishList">
-                                        <i class="far fa-heart wish"></i>
-                                    </span>
-                                    <span type="button" class="destacado-icon quickview-icon" data-bs-toggle="tooltip"
-                                        data-bs-placement="left" title="Quick View">
-                                        <i class="fa fa-magnifying-glass" type="button" data-bs-toggle="modal"
-                                            data-bs-target="#exampleModal"></i>
-                                    </span>
-                                </div>
-                                <button type="button" class="col-6 py-2 text-center">
-                                    Añadir al carrito
-                                </button>
-                            </div>
 
-                            <div class="product-info p-3">
-                                <span class="product-name"><a href="producto.html">Mini Electric sandwichera</a></span>
-                                <span class="product-price">$ 100.50</span>
-                                <span class="product-before">$ 100.50</span>
-                                <div class="rating d-flex mt-1">
-                                    <span>
-                                        <i class="fa fa-star"></i>
-                                    </span>
-                                    <span>
-                                        <i class="fa fa-star"></i>
-                                    </span>
-                                    <span>
-                                        <i class="fa fa-star"></i>
-                                    </span>
-                                    <span>
-                                        <i class="fa fa-star"></i>
-                                    </span>
-                                    <span>
-                                        <i class="fa fa-star"></i>
-                                    </span>
-                                </div>
+        </main>
+        <!-- FIN DEL MAIN DE LA PÁGINA-->
 
-                            </div>
-                        </div>
-                    </div>
-                    <!--------------Item producto---------------->
-                    <div class="col product-item mx-auto">
-                        <div class="product-img-content">
-                            <div class="product-img">
-                                <img src="../../resources/img/destacados/productosdestacados2.png" alt=""
-                                    class="img-fluid d-block mx-auto">
-                                <div class="tags">
-                                    <span class="tag-new">NUEVO</span>
-                                    <span class="tag-discount">20%</span>
-                                </div>
-                                <div class="product-icons">
-                                    <span class="destacado-icon heart-icon" data-bs-customClass="custom-tooltip"
-                                        data-bs-toggle="tooltip" data-bs-placement="left" title="Añadir a WishList">
-                                        <i class="far fa-heart wish"></i>
-                                    </span>
-                                    <span type="button" class="destacado-icon quickview-icon" data-bs-toggle="tooltip"
-                                        data-bs-placement="left" title="Quick View">
-                                        <i class="fa fa-magnifying-glass" type="button" data-bs-toggle="modal"
-                                            data-bs-target="#exampleModal"></i>
-                                    </span>
-                                </div>
-                                <button type="button" class="col-6 py-2 text-center">
-                                    Añadir al carrito
-                                </button>
-                            </div>
-
-                            <div class="product-info p-3">
-                                <span class="product-name"><a href="producto.html">Mini Electric sandwichera</a></span>
-                                <span class="product-price">$ 100.50</span>
-                                <span class="product-before">$ 100.50</span>
-                                <div class="rating d-flex mt-1">
-                                    <span>
-                                        <i class="fa fa-star"></i>
-                                    </span>
-                                    <span>
-                                        <i class="fa fa-star"></i>
-                                    </span>
-                                    <span>
-                                        <i class="fa fa-star"></i>
-                                    </span>
-                                    <span>
-                                        <i class="fa fa-star"></i>
-                                    </span>
-                                    <span>
-                                        <i class="fa fa-star"></i>
-                                    </span>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                    <!--------------Item producto---------------->
-                    <div class="col product-item mx-auto">
-                        <div class="product-img-content">
-                            <div class="product-img">
-                                <img src="../../resources/img/destacados/productosdestacados1.png" alt=""
-                                    class="img-fluid d-block mx-auto">
-                                <div class="tags">
-                                    <span class="tag-new">NUEVO</span>
-                                    <span class="tag-discount">20%</span>
-                                </div>
-                                <div class="product-icons">
-                                    <span class="destacado-icon heart-icon" data-bs-customClass="custom-tooltip"
-                                        data-bs-toggle="tooltip" data-bs-placement="left" title="Añadir a WishList">
-                                        <i class="far fa-heart wish"></i>
-                                    </span>
-                                    <span type="button" class="destacado-icon quickview-icon" data-bs-toggle="tooltip"
-                                        data-bs-placement="left" title="Quick View">
-                                        <i class="fa fa-magnifying-glass" type="button" data-bs-toggle="modal"
-                                            data-bs-target="#exampleModal"></i>
-                                    </span>
-                                </div>
-                                <button type="button" class="col-6 py-2 text-center">
-                                    Añadir al carrito
-                                </button>
-                            </div>
-
-                            <div class="product-info p-3">
-                                <span class="product-name"><a href="producto.html">Mini Electric sandwichera</a></span>
-                                <span class="product-price">$ 100.50</span>
-                                <span class="product-before">$ 100.50</span>
-                                <div class="rating d-flex mt-1">
-                                    <span>
-                                        <i class="fa fa-star"></i>
-                                    </span>
-                                    <span>
-                                        <i class="fa fa-star"></i>
-                                    </span>
-                                    <span>
-                                        <i class="fa fa-star"></i>
-                                    </span>
-                                    <span>
-                                        <i class="fa fa-star"></i>
-                                    </span>
-                                    <span>
-                                        <i class="fa fa-star"></i>
-                                    </span>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                    <!--------------Item producto---------------->
-                    <div class="col product-item mx-auto">
-                        <div class="product-img-content">
-                            <div class="product-img">
-                                <img src="../../resources/img/destacados/productosdestacados3.png" alt=""
-                                    class="img-fluid d-block mx-auto">
-                                <div class="tags">
-                                    <span class="tag-new">NUEVO</span>
-                                    <span class="tag-discount">20%</span>
-                                </div>
-                                <div class="product-icons">
-                                    <span class="destacado-icon heart-icon" data-bs-customClass="custom-tooltip"
-                                        data-bs-toggle="tooltip" data-bs-placement="left" title="Añadir a WishList">
-                                        <i class="far fa-heart wish"></i>
-                                    </span>
-                                    <span type="button" class="destacado-icon quickview-icon" data-bs-toggle="tooltip"
-                                        data-bs-placement="left" title="Quick View">
-                                        <i class="fa fa-magnifying-glass" type="button" data-bs-toggle="modal"
-                                            data-bs-target="#exampleModal"></i>
-                                    </span>
-                                </div>
-                                <button type="button" class="col-6 py-2 text-center">
-                                    Añadir al carrito
-                                </button>
-                            </div>
-
-                            <div class="product-info p-3">
-                                <span class="product-name"><a href="producto.html">Mini Electric sandwichera</a></span>
-                                <span class="product-price">$ 100.50</span>
-                                <span class="product-before">$ 100.50</span>
-                                <div class="rating d-flex mt-1">
-                                    <span>
-                                        <i class="fa fa-star"></i>
-                                    </span>
-                                    <span>
-                                        <i class="fa fa-star"></i>
-                                    </span>
-                                    <span>
-                                        <i class="fa fa-star"></i>
-                                    </span>
-                                    <span>
-                                        <i class="fa fa-star"></i>
-                                    </span>
-                                    <span>
-                                        <i class="fa fa-star"></i>
-                                    </span>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-                <div class="modal fade resena-modal" id="exampleModal1" tabindex="-1"
+        <div class="modal fade resena-modal" id="exampleModal1" tabindex="-1"
                     aria-labelledby="exampleModalLabel1" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered modal-xl">
                         <div class="modal-content">
@@ -864,13 +631,6 @@
                         </div>
                     </div>
                 </div>
-            </div>
-            <!-- FIN CONTENIDO -->
-
-
-        </main>
-        <!-- FIN DEL MAIN DE LA PÁGINA-->
-
         <!-- INICIO DE MODAL DE RESEÑA-->
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered modal-xl">
@@ -942,7 +702,7 @@
                                     <hr>
                                     <div class="about-producto">
                                         <span class="title-about-producto">Sobre este artículo</span>
-                                        <p class="mt-2">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quod
+                                        <p class="" id="descripcion">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quod
                                             minima optio
                                             magni officia
                                             blanditiis culpa illo vitae? Possimus quod, provident ullam facere
@@ -1058,7 +818,6 @@
 
     </div>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="../../resources/plugins/star-rating/jquery.star-rating-svg.js"></script>
     <script src="../../resources/plugins/owlCarousel/owl.carousel.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
         integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
@@ -1066,12 +825,12 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
         integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
         crossorigin="anonymous"></script>
-
-    <script src="../../controllers/publico/producto.js"></script>
+        <script src="../../resources/plugins/star-rating/jquery.star-rating-svg.js"></script>
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>   
     <script src="../../controllers/publico/stickynavs.js"></script>
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="../../controllers/componentes.js"></script>
-    <script src="../../controllers/publico/account.js"></script>
+    
+    <script src="../../controllers/publico/producto.js"></script>
 </body>
 
 </html>

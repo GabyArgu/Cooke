@@ -158,7 +158,8 @@
                                     <input class="form-control form-control-dark w-60 d-none d-md-block Buscador-Imp"
                                         type="text" placeholder="Buscar" aria-label="Search" id="search" name="search">
                                 </form>
-                                <button class="btn-refresh" id="refresh"><i class="fa-solid fa-arrows-rotate"></i></button>
+                                <button class="btn-refresh" id="refresh"><i
+                                        class="fa-solid fa-arrows-rotate"></i></button>
                             </div>
                         </div>
                         <div class="row">
@@ -167,7 +168,7 @@
                                     <table class="table table-bordered table-categorias" id="table-categoriap">
                                         <thead>
                                             <tr>
-                                                <th>Id Catalogo</th>
+                                                <th>Id</th>
                                                 <th>Nombre </th>
                                                 <th>Descripción</th>
                                                 <th>Estado</th>
@@ -256,8 +257,8 @@
                                         <input type="number" id="u_idCP" name="u_idCP" class="d-none">
                                         <label for="validationDefault01" class="form-label">Nombre</label>
                                         <div class="col-12 d-flex flex-wrap">
-                                            <div class="col-12">
-                                                <input type="text" class="form-control picker2" id="u_nombreCP"
+                                            <div class="col-12 mb-4">
+                                                <input type="text" class="form-control " id="u_nombreCP"
                                                     name="u_nombreCP" value="" required>
                                             </div>
                                             <div class="col-12 mb-4">
@@ -265,9 +266,11 @@
                                                 <textarea class="form-control" rows="6" id="u_descripcionCP"
                                                     name="u_descripcionCP"></textarea>
                                             </div>
-                                            <div class="col-12 mt-3">
-                                                <input type="number" min="1" max="3" class="form-control picker2" id="u_estado"
-                                                    name="u_estado" value="" required>
+                                            <div class="col-12">
+                                                <label for="validationDefault01" class="form-label">Estado</label>
+                                                <select class="form-select custom-form-select"
+                                                    aria-label="Default select example" id="u_estado" name="u_estado">
+                                                </select>
                                             </div>
                                         </div>
                                     </form>
@@ -306,14 +309,12 @@
                     </div>
                 </div>
                 <div class="modal-footer d-flex mx-2 justify-content-between">
-                    <button class="btn btn-cancel" type="button"
-                        data-bs-dismiss="modal">Cancelar</button>
+                    <button class="btn btn-cancel" type="button" data-bs-dismiss="modal">Cancelar</button>
                     <form id="delete-form">
                         <input type="hidden" id="id-delete" name="id-delete">
-                        <button class="btn btn-siguiente" type="submit" 
-                            data-bs-dismiss="modal">Continuar</button>
+                        <button class="btn btn-siguiente" type="submit" data-bs-dismiss="modal">Continuar</button>
                     </form>
-                    
+
                 </div>
             </div>
         </div>

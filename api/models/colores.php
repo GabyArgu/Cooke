@@ -70,6 +70,17 @@ class ColorProducto extends Validator
         return Database::getRows($sql, $params);
     }
 
+    public function readColorProducto()
+    {
+        $sql = 'SELECT  cp."idColor", "colorProducto"
+        FROM "colorProducto" as cp inner join "colorStock" as cs on cp."idColor"  = cs."idColor"
+		inner join producto as p on cs."idProducto" = p."idProducto"
+		WHERE p."idProducto" = ?
+        ORDER BY "idColor"';
+        $params = array($this->id);
+        return Database::getRows($sql, $params);
+    }
+
     // Método para un dato en especifico de los colores existentes-------------------------.
     public function readOne()
     {

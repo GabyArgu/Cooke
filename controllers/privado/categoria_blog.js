@@ -1,23 +1,6 @@
-$(document).ready(function () {
-    $('#table-catalogo').DataTable({
-        "info": false,
-        "searching": false,
-        "dom":
-            "<'row'<'col-sm-12'tr>>" +
-            "<'row'<'col-sm-5'l><'col-sm-7 d-flex justify-content-end pe-3'p>>",
-        "language": {
-            "lengthMenu": "Mostrando _MENU_ registros",
-            "paginate": {
-                "next": '<i class="fa-solid fa-angle-right"></i>',
-                "previous": '<i class="fa-solid fa-angle-left"></i>'
-            }
-        },
-        "lengthMenu": [[10, 15, 20, -1], [10, 15, 20, "Todos"]]
-    });
-});
-
 // Constante para establecer la ruta y parámetros de comunicación con la API.
 const API_CATALOGO = SERVER + 'private/categoria_blog.php?action=';
+const ENDPOINT_ESTADO = SERVER + 'private/estado_general.php?action=readAll';
 
 // Método manejador de eventos que se ejecuta cuando el documento ha cargado.
 document.addEventListener('DOMContentLoaded', function () {
@@ -104,7 +87,7 @@ function openUpdate(id) {
                     document.getElementById('u_idCB').value = response.dataset.idCategoriaA;
                     document.getElementById('u_nombreCB').value = response.dataset.nombreCategoriaA;
                     document.getElementById('u_descripcionCB').value = response.dataset.descripcionCategoriaA;
-                    document.getElementById('u_estado').value = response.dataset.estado;
+                    fillSelect(ENDPOINT_ESTADO, 'u_estado', response.dataset.estado);
                 } else {
                     sweetAlert(2, response.exception, null);
                 }
