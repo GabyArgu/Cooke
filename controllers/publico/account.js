@@ -147,14 +147,6 @@ document.addEventListener('DOMContentLoaded', function () {
                                         </ul>
                                     </li>
     
-                                    <li class="nav-item textcolor">
-                                        <a class="nav-link active img-hover2" aria-current="page" href="deseos.html"></a>
-                                    </li>
-    
-                                    <li class="nav-item textcolor nav-carrito">
-                                        <a class="nav-link active img-hover3 nav-carrito" aria-current="page"
-                                            data-bs-toggle="offcanvas" data-bs-target="#sidebarCarrito"
-                                            aria-controls="offcanvasRight"></a>
                                     </li>
                                 </div>
     
