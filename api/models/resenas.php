@@ -200,6 +200,16 @@ class Reseñas extends Validator
         return Database::getRows($sql, $params);
     }
 
+    /* CREATE */
+    public function createRow()
+    {
+        $sql = 'INSERT INTO resena(
+            "idCliente", "idDetalle", "tituloResena", "descripcionResena", "puntajeResena", "fechaResena", estado)
+            VALUES (?, ?, ?, ?, ?, ?, 1);';
+        $params = array($this->cliente, $this->detalle_pedido, $this->titulo, $this->descripcion, $this->puntaje, $this->fecha, $this->estado);
+        return Database::executeRow($sql, $params);
+    }
+
     /* UPDATE */
     public function updateRow()
     {

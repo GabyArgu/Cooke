@@ -1,5 +1,6 @@
 // Constante para establecer la ruta y parámetros de comunicación con la API.
 const API_PRODUCTO = SERVER + 'public/productos.php?action=';
+const ENDPOINT_COLOR = SERVER + 'public/catalogo.php?action=readColor';
 
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -7,21 +8,23 @@ document.addEventListener('DOMContentLoaded', function () {
     readCategorias();
     // Se llama a la función que muestra los productos destacados.
     readDestacados();
-    function checkOwlcarousel() {
-        setTimeout(function () {
-            if ($('.owl-carousel .active').is(':visible')) {
-                owlsliderfuction();
-            } else {
-                checkOwlcarousel();
-            }
-        }, 250);
-    }
     checkOwlcarousel();
     var carousel = document.querySelector('#carouselExampleCaptions');
     var bootstrapCarousel = new bootstrap.Carousel(carousel, {interval:3000});
-
+    
+    //Inicializando tooltips
     $("body").tooltip({ selector: '[data-bs-toggle=tooltip]' });
 });
+
+function checkOwlcarousel() {
+    setTimeout(function () {
+        if ($('.owl-carousel .active').is(':visible')) {
+            owlsliderfuction();
+        } else {
+            checkOwlcarousel();
+        }
+    }, 250);
+}
 
 const readCategorias=()=>{
     //Seteamos el atributo de href en cada elemento, pasando el id de la subcategoria y su respectivo nombre
@@ -87,7 +90,7 @@ function readDestacados() {
                                                     data-bs-target="#modal-ver"></i>
                                             </span>
                                         </div>
-                                        <button type="button" class="col-6 py-2 text-center">
+                                        <button type="button"  class="col-6 py-2 text-center" onclick="addToCar(${row.idColorStock})" >
                                             Añadir al carrito
                                         </button>
                                     </div>
@@ -130,6 +133,41 @@ function readDestacados() {
         }
     });
 }
+
+function addToCar(id){
+    const data = new FormData();
+    data.append('idColorStock', id);
+    // Petición para agregar un producto al pedido.
+    fetch(API_PEDIDOS + 'createDetailInicio', {
+        method: 'post',
+        headers: {
+            "Access-Control-Allow-Origin" : "*", 
+            "Access-Control-Allow-Credentials" : true 
+        },
+        body: data
+    }).then(function (request) {
+        // Se verifica si la petición es correcta, de lo contrario se muestra un mensaje en la consola indicando el problema.
+        if (request.ok) {
+            // Se obtiene la respuesta en formato JSON.
+            request.json().then(function (response) {
+                // Se comprueba si la respuesta es satisfactoria, de lo contrario se constata si el cliente ha iniciado sesión.
+                if (response.status) {
+                    sweetAlert(1, response.message, 'carrito.html');
+                } else {
+                    // Se verifica si el cliente ha iniciado sesión para mostrar la excepción, de lo contrario se direcciona para que se autentique. 
+                    if (response.session) {
+                        sweetAlert(2, response.exception, null);
+                    } else {
+                        sweetAlert(3, response.exception, 'login.html');
+                    }
+                }
+            });
+        } else {
+            console.log(request.status + ' ' + request.statusText);
+        }
+    })
+}
+
 // Función para preparar el formulario al momento de visualizar un registro.
 function openShow(id) {
     // Se define un objeto con los datos del registro seleccionado.
@@ -146,7 +184,8 @@ function openShow(id) {
             request.json().then(function (response) {
                 // Se comprueba si la respuesta es satisfactoria, de lo contrario se muestra un mensaje con la excepción.
                 if (response.status) {
-                    // Se inicializan los campos del formulario con los datos del registro seleccionado.  
+                    // Se inicializan los campos del formulario con los datos del registro seleccionado.
+                    document.getElementById('idProducto').value = response.dataset.idProducto;    
                     document.getElementById('show-nombre').innerText = response.dataset.nombreProducto;
                     document.getElementById('show-marca').innerText = response.dataset.nombreMarca;
                     document.getElementById('show-precio').innerText = "$" + response.dataset.precioProducto;
@@ -157,6 +196,8 @@ function openShow(id) {
                     document.getElementById('show-stock').innerText = response.dataset.stock;
                     document.getElementById('show-subcategoria').innerText = response.dataset.nombreSubCategoriaP;
                     document.getElementById('show-img-main').src = `${SERVER}/images/productos/${response.dataset.imagenPrincipal}`;
+                    fillSelectProducto(ENDPOINT_COLOR, 'color', response.dataset.idColor, id);
+                    document.getElementById("input-stock").max = parseInt(response.dataset.stock);
                 } else {
                     sweetAlert(2, response.exception, null);
                 }
@@ -167,6 +208,40 @@ function openShow(id) {
     });
 }
 
+//Funcion para asignar el atributo max del input max dinámicamente
+function setMaxStock(color) {
+    let input = document.getElementById("input-stock");
+    let select = document.getElementById("color");
+    let params = new URLSearchParams(location.search);
+
+    // Se define un objeto con los datos del producto seleccionado.
+    const data = new FormData();
+    data.append('idProducto', params.get('id'));
+    data.append('idColor', color);
+    // Petición para obtener los datos del producto solicitado.
+    fetch(API_CATALOGO + 'readStock', {
+        method: 'post',
+        body: data
+    }).then(function (request) {
+        // Se verifica si la petición es correcta, de lo contrario se muestra un mensaje en la consola indicando el problema.
+        if (request.ok) {
+            // Se obtiene la respuesta en formato JSON.
+            request.json().then(function (response) {
+                // Se comprueba si la respuesta es satisfactoria, de lo contrario se muestra un mensaje con la excepción.
+                if (response.status) {
+                    //Le ponemos el atributo max a nuestro input de stock para que no se pueda agregar al carrito más del stock que se tiene
+                    input.max = parseInt(response.dataset.stock);
+                    document.getElementById('stock').innerText = response.dataset.stock;
+                } else {
+                    // Se presenta un mensaje de error cuando no existen datos para mostrar.
+                    sweetAlert(2, response.exception, null);
+                }
+            });
+        } else {
+            console.log(request.status + ' ' + request.statusText);
+        }
+    });
+}
 
 function owlsliderfuction(){
     $('#owl0').owlCarousel({
@@ -279,11 +354,11 @@ $('#owl3').owlCarousel({
 //     document.getElementById("main-img").src = ruta;
 // }
 
-const navbar = document.getElementById('navbar-home');
-let navbarCollapse = document.getElementById('navbarNavDropdown');
 
 window.addEventListener('scroll', function () {
+    let navbar = document.getElementById('navbar-home');
     if (window.pageYOffset > 86) {
+        console.log(navbar);
         navbar.classList.add('shrink', 'shadow');
     } else {
         if(!navbar.classList.contains("activado")){
@@ -299,5 +374,97 @@ function navbarResponsive(){
         navbar.classList.add('shrink');
     }else{
         navbar.classList.remove('shrink');
+    }
+}
+
+//Función para cambiar el atributo max del input-stock al cambiar de color en el select
+document.getElementById("color").addEventListener("change", function () {
+    var selectValue = document.getElementById('color').value;
+    console.log(selectValue);
+    setMaxStock(selectValue);
+    document.getElementById("input-stock").value = 1;
+});
+
+// Método manejador de eventos que se ejecuta cuando se envía el formulario de agregar un producto al carrito.
+document.getElementById('carritoForm').addEventListener('submit', function (event) {
+    // Se evita recargar la página web después de enviar el formulario.
+    event.preventDefault();
+    // Petición para agregar un producto al pedido.
+    fetch(API_PEDIDOS + 'createDetail', {
+        method: 'post',
+        headers: {
+            "Access-Control-Allow-Origin" : "*", 
+            "Access-Control-Allow-Credentials" : true 
+        },
+        body: new FormData(document.getElementById('carritoForm'))
+    }).then(function (request) {
+        // Se verifica si la petición es correcta, de lo contrario se muestra un mensaje en la consola indicando el problema.
+        if (request.ok) {
+            // Se obtiene la respuesta en formato JSON.
+            request.json().then(function (response) {
+                // Se comprueba si la respuesta es satisfactoria, de lo contrario se constata si el cliente ha iniciado sesión.
+                if (response.status) {
+                    sweetAlert(1, response.message, 'carrito.html');
+                } else {
+                    // Se verifica si el cliente ha iniciado sesión para mostrar la excepción, de lo contrario se direcciona para que se autentique. 
+                    if (response.session) {
+                        sweetAlert(2, response.exception, null);
+                    } else {
+                        sweetAlert(3, response.exception, 'login.html');
+                    }
+                }
+            });
+        } else {
+            console.log(request.status + ' ' + request.statusText);
+        }
+    })
+});
+
+//Funciones de validaciones
+//Función que suma 1 al stock y valida que no supere el max
+let sumarStock = () => {
+    let input = document.getElementById("input-stock");
+    let max = input.max;
+    let valor = parseInt(input.value);
+    if (valor + 1 > max) {
+        input.value = input.value;
+    }
+    else {
+        input.value = parseInt(input.value) + 1;
+    }
+}
+
+//Función que resta 1 al stock y valida que no descienda del min
+let restarStock = () => {
+    let input = document.getElementById("input-stock");
+    let min = input.min;
+    let valor = parseInt(input.value);
+    if (valor - 1 <= min) {
+        input.value = input.value;
+    }
+    else {
+        input.value = parseInt(input.value) - 1;
+    }
+
+}
+let validacionInputStock = () => {
+    let input = document.getElementById("input-stock");
+    let valor = parseInt(input.value);
+    if (valor > input.max || valor <= input.min) {
+        input.value = 1;
+    }
+}
+
+function valideKey(evt) {
+
+    // code is the decimal ASCII representation of the pressed key.
+    var code = (evt.which) ? evt.which : evt.keyCode;
+
+    if (code == 8) { // backspace.
+        return true;
+    } else if (code >= 48 && code <= 57) { // is a number.
+        return true;
+    } else { // other keys.
+        return false;
     }
 }

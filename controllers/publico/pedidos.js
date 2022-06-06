@@ -1,5 +1,3 @@
-const API_PEDIDOS = SERVER + 'public/pedidos.php?action=';
-
 document.addEventListener('DOMContentLoaded', function () {
     readRows4(API_PEDIDOS);
 });
