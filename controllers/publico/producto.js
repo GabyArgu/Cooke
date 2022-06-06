@@ -1,6 +1,5 @@
 // Constante para establecer la ruta y parámetros de comunicación con la API.
 const API_PRODUCTO = SERVER + 'public/productos.php?action=';
-const API_PEDIDOS = SERVER + 'public/pedidos.php?action=';
 const API_CATALOGO = SERVER + 'public/catalogo.php?action=';
 const ENDPOINT_COLOR = SERVER + 'public/catalogo.php?action=readColor';
 
@@ -29,6 +28,42 @@ function checkOwlcarousel() {
     }, 250);
 }
 
+
+// Método manejador de eventos que se ejecuta cuando se envía el formulario de agregar un producto al carrito.
+document.getElementById('carritoForm').addEventListener('submit', function (event) {
+    // Se evita recargar la página web después de enviar el formulario.
+    event.preventDefault();
+    // Petición para agregar un producto al pedido.
+    fetch(API_PEDIDOS + 'createDetail', {
+        method: 'post',
+        headers: {
+            "Access-Control-Allow-Origin" : "*", 
+            "Access-Control-Allow-Credentials" : true 
+        },
+        body: new FormData(document.getElementById('carritoForm'))
+    }).then(function (request) {
+        // Se verifica si la petición es correcta, de lo contrario se muestra un mensaje en la consola indicando el problema.
+        if (request.ok) {
+            // Se obtiene la respuesta en formato JSON.
+            request.json().then(function (response) {
+                // Se comprueba si la respuesta es satisfactoria, de lo contrario se constata si el cliente ha iniciado sesión.
+                if (response.status) {
+                    sweetAlert(1, response.message, 'carrito.html');
+                } else {
+                    // Se verifica si el cliente ha iniciado sesión para mostrar la excepción, de lo contrario se direcciona para que se autentique. 
+                    if (response.session) {
+                        sweetAlert(2, response.exception, null);
+                    } else {
+                        sweetAlert(3, response.exception, 'login.html');
+                    }
+                }
+            });
+        } else {
+            console.log(request.status + ' ' + request.statusText);
+        }
+    })
+});
+
 // Función para obtener y mostrar los datos del producto seleccionado.
 function readOneProducto(id) {
     // Se define un objeto con los datos del producto seleccionado.
@@ -45,7 +80,8 @@ function readOneProducto(id) {
             request.json().then(function (response) {
                 // Se comprueba si la respuesta es satisfactoria, de lo contrario se muestra un mensaje con la excepción.
                 if (response.status) {
-                    // Se inicializan los campos del formulario con los datos del registro seleccionado.  
+                    // Se inicializan los campos del formulario con los datos del registro seleccionado.
+                    document.getElementById('idProducto').value = response.dataset.idProducto;  
                     document.getElementById('nombre').innerText = response.dataset.nombreProducto;
                     document.getElementById('marca').innerText = response.dataset.nombreMarca;
                     document.getElementById('precio').innerText = "$" + response.dataset.precioProducto;
@@ -234,7 +270,7 @@ $(".my-rating").starRating({
     ratedColors: ['#c34e8b', '#c34e8b', '#c34e8b', '#c34e8b', '#c34e8b'],
     useGradient: false
 });
-
+//Funcion para asignar el atributo max del input max dinámicamente
 function setMaxStock(color) {
     let input = document.getElementById("input-stock");
     let select = document.getElementById("color");
@@ -267,39 +303,9 @@ function setMaxStock(color) {
             console.log(request.status + ' ' + request.statusText);
         }
     });
-
 }
 
-// Método manejador de eventos que se ejecuta cuando se envía el formulario de agregar un producto al carrito.
-document.getElementById('carrito-form').addEventListener('submit', function (event) {
-    // Se evita recargar la página web después de enviar el formulario.
-    event.preventDefault();
-    // Petición para agregar un producto al pedido.
-    fetch(API_PEDIDOS + 'createDetail', {
-        method: 'post',
-        body: new FormData(document.getElementById('shopping-form'))
-    }).then(function (request) {
-        // Se verifica si la petición es correcta, de lo contrario se muestra un mensaje en la consola indicando el problema.
-        if (request.ok) {
-            // Se obtiene la respuesta en formato JSON.
-            request.json().then(function (response) {
-                // Se comprueba si la respuesta es satisfactoria, de lo contrario se constata si el cliente ha iniciado sesión.
-                if (response.status) {
-                    sweetAlert(1, response.message, 'cart.html');
-                } else {
-                    // Se verifica si el cliente ha iniciado sesión para mostrar la excepción, de lo contrario se direcciona para que se autentique. 
-                    if (response.session) {
-                        sweetAlert(2, response.exception, null);
-                    } else {
-                        sweetAlert(3, response.exception, 'login.html');
-                    }
-                }
-            });
-        } else {
-            console.log(request.status + ' ' + request.statusText);
-        }
-    });
-});
+
 
 
 //Función para cambiar el atributo max del input-stock al cambiar de color en el select
