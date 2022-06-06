@@ -1,6 +1,5 @@
 // Constante para establecer la ruta y parámetros de comunicación con la API.
 const API_PRODUCTO = SERVER + 'public/productos.php?action=';
-const API_PEDIDOS = SERVER + 'public/pedidos.php?action=';
 const API_CATALOGO = SERVER + 'public/catalogo.php?action=';
 const ENDPOINT_COLOR = SERVER + 'public/catalogo.php?action=readColor';
 
