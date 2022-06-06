@@ -119,6 +119,17 @@ if (isset($_GET['action'])) {
                     $result['exception'] = 'Su historial de pedidos está vacío';
                 }
                 break;
+            case 'readOneDPShow':
+                if (!$pedido->setId($_POST['id-det'])) {
+                    $result['exception'] = 'Pedido incorrecto';
+                } elseif ($result['dataset'] = $pedido->readOneDPShow()) {
+                    $result['status'] = 1;
+                } elseif (Database::getException()) {
+                    $result['exception'] = Database::getException();
+                } else {
+                    $result['exception'] = 'Pedido inexistente';
+                }
+                break;
             default:
                 $result['exception'] = 'Acción no disponible dentro de la sesión';
         }

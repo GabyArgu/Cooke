@@ -148,7 +148,8 @@ class Reseñas extends Validator
                 from "resena" as r inner join "cliente" as c on r."idCliente" = c."idCliente"
                 inner join "estado" as e on r."estado" = e."idEstado"
                 inner join "detallePedido" as dp on r."idDetalle" = dp."idDetallePedido"
-                inner join "producto" as pr on dp."idProducto" = pr."idProducto"
+                inner join "colorStock" using ("idColorStock")
+                inner join "producto" as pr using ("idProducto")
                 order by "fechaResena" desc';
         $params = null;
         return Database::getRows($sql, $params);
@@ -157,10 +158,11 @@ class Reseñas extends Validator
     // Método para abrir el modal de editar de las reseñas-------------------------.
     public function readOne()
     {
-        $sql = 'SELECT  "idResena", c."nombresCliente", c."apellidosCliente", pr."nombreProducto", "tituloResena", "descripcionResena", "puntajeResena", "fechaResena", "estado"
-                from "resena" as r inner join "cliente" as c on r."idCliente" = c."idCliente"
+        $sql = 'SELECT "idResena", c."nombresCliente", c."apellidosCliente", pr."nombreProducto", "tituloResena", "descripcionResena", "puntajeResena", "fechaResena", "estado"
+                from "resena" as r inner join "cliente" as c using ("idCliente")
                 inner join "detallePedido" as dp on r."idDetalle" = dp."idDetallePedido"
-                inner join "producto" as pr on dp."idProducto" = pr."idProducto"
+                inner join "colorStock" using ("idColorStock")
+                inner join "producto" as pr using ("idProducto")
                 where "idResena" = ?';
         $params = array($this->id);
         return Database::getRow($sql, $params);
@@ -170,10 +172,11 @@ class Reseñas extends Validator
     public function readOneDetail()
     {
         $sql = 'SELECT  "idResena", c."nombresCliente", c."apellidosCliente", pr."nombreProducto", "tituloResena", "descripcionResena", "puntajeResena", "fechaResena", e."estado"
-                from "resena" as r inner join "cliente" as c on r."idCliente" = c."idCliente"
+                from "resena" as r inner join "cliente" as c using ("idCliente")
                 inner join "estado" as e on r."estado" = e."idEstado"
                 inner join "detallePedido" as dp on r."idDetalle" = dp."idDetallePedido"
-                inner join "producto" as pr on dp."idProducto" = pr."idProducto"
+                inner join "colorStock" using ("idColorStock")
+                inner join "producto" as pr using ("idProducto")
                 where "idResena" = ?';
         $params = array($this->id);
         return Database::getRow($sql, $params);
@@ -186,10 +189,11 @@ class Reseñas extends Validator
     public function searchRows($value)
     {
         $sql = 'SELECT "idResena", c."nombresCliente", c."apellidosCliente", pr."nombreProducto", "tituloResena", "descripcionResena", "puntajeResena", "fechaResena", e."estado"
-                from "resena" as r inner join "cliente" as c on r."idCliente" = c."idCliente"
+                from "resena" as r inner join "cliente" as c using ("idCliente")
                 inner join "estado" as e on r."estado" = e."idEstado"
                 inner join "detallePedido" as dp on r."idDetalle" = dp."idDetallePedido"
-                inner join "producto" as pr on dp."idProducto" = pr."idProducto"
+                inner join "colorStock" using ("idColorStock")
+                inner join "producto" as pr using ("idProducto")
                 where "nombreProducto" ILIKE ?
                 order by "fechaResena" desc';
         $params = array("%$value%");

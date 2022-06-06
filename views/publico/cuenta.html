@@ -381,12 +381,12 @@
                         <div class="modal-header border-0">
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
-                        <div class="modal-body">
+                        <div class="modal-body pt-0">
                             <div class="container-fluid">
                                 <div class="row align-items-center d-flex justify-content-center">
-                                    <h1 class="text-center title m-0 p-0 mb-3">DETALLE DE PEDIDO</h1>
+                                    <h1 class="text-center title m-0 p-0 mb-3" id="modal-title"></h1>
                                     <div class="table-responsive">
-                                        <table class="table table-bordered bordered table-carrito">
+                                        <table class="table table-bordered bordered table-carrito" id="no-more-tables">
                                             <thead>
                                                 <tr>
                                                     <th>IMAGEN</th>
@@ -396,21 +396,7 @@
                                                     <th>SUBTOTAL</th>
                                                 </tr>
                                             </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <td><img src="../../resources/img/index/Olla.png" alt=""></td>
-                                                    <td data-title="PRODUCTO">Cacerola Steel Co Healthy</td>
-                                                    <td data-title="PRECIO">$29.74</td>
-                                                    <td data-title="CANTIDAD">1</td>
-                                                    <td data-title="SUBTOTAL">$29.74</td>
-                                                </tr>
-                                                <tr>
-                                                    <td><img src="../../resources/img/index/Olla.png" alt=""></td>
-                                                    <td data-title="PRODUCTO">Cacerola Steel Co Healthy</td>
-                                                    <td data-title="PRECIO">$29.74</td>
-                                                    <td data-title="CANTIDAD">1</td>
-                                                    <td data-title="SUBTOTAL">$29.74</td>
-                                                </tr>
+                                            <tbody id="tbody-rows-detalle">
                                             </tbody>
                                         </table>
                                     </div>
