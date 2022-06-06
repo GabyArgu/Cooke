@@ -178,3 +178,5 @@ document.getElementById('update-form').addEventListener('submit', function (even
     // Se llama a la función para guardar el registro. Se encuentra en el archivo components.js-------------------..
     saveRow(API_RESENAS, action, 'update-form', 'modal-editar');
 });
+
+console.log ("hola")
