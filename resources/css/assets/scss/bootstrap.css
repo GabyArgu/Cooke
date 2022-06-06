@@ -3361,7 +3361,7 @@ fieldset:disabled .btn {
 }
 
 .btn-warning:hover {
-  color: #000;
+  color: #fff;
   background-color: #ffca2c;
   border-color: #ffc720;
 }
@@ -3660,7 +3660,7 @@ fieldset:disabled .btn {
 }
 
 .btn-outline-warning:hover {
-  color: #000;
+  color: #fff;
   background-color: #ffc107;
   border-color: #ffc107;
 }
