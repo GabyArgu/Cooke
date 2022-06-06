@@ -146,6 +146,7 @@ function searchRows(api, form, input) {
     });
 }
 
+
 function searchRows2(api, form, input) {
     fetch(api + 'search', {
         method: 'post',

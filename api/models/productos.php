@@ -271,6 +271,16 @@ class Productos extends Validator
         return Database::getRows($sql, $params);
     }
 
+    public function searchRowsPublic($value)
+    {
+        $sql = 'SELECT "idProducto", "imagenPrincipal", "nombreProducto", "descripcionProducto", "precioProducto", descuento, "idSubCategoriaP"
+        FROM producto INNER JOIN "marca" USING("idMarca")
+		WHERE ("nombreProducto" ILIKE ? OR "nombreMarca" ILIKE ?) AND "idSubCategoriaP" = ? AND "estadoProducto" = 1 
+		ORDER BY "idProducto"';
+        $params = array("%$value%", "%$value%", $this->id);
+        return Database::getRows($sql, $params);
+    }
+
     /* CREATE */
     public function createRow()
     {
