@@ -1,6 +1,7 @@
 
 // Constante para establecer la ruta y parámetros de comunicación con la API.
 const API_COLORES = SERVER + 'private/colores.php?action=';
+const ENDPOINT_ESTADO = SERVER + 'private/estado_general.php?action=readAll';
 
 // Método manejador de eventos que se ejecuta cuando el documento ha cargado.
 document.addEventListener('DOMContentLoaded', function () {
@@ -78,7 +79,7 @@ function openUpdate(id) {
                     // Se inicializan los campos del formulario con los datos del registro seleccionado.
                     document.getElementById('u_idColor').value = response.dataset.idColor;
                     document.getElementById('u_colorProducto').value = response.dataset.colorProducto;
-                    document.getElementById('u_estado').value = response.dataset.estado;
+                    fillSelect(ENDPOINT_ESTADO, 'u_estado', response.dataset.estado);
                 } else {
                     sweetAlert(2, response.exception, null);
                 }
