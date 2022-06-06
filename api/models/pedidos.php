@@ -226,6 +226,7 @@ class Pedidos extends Validator
                 from pedido as p inner join "estadoPedido" as ep on p."estadoPedido" = ep."idEstadoPedido"
                 inner join "cliente" as c on p."idCliente" = c."idCliente"
                 where p."idCliente" = ?
+                and ep."idEstadoPedido" != 2
                 order by "idPedido"';
         $params = array($_SESSION['idCliente']);
         return Database::getRows($sql, $params);
@@ -336,7 +337,7 @@ class Pedidos extends Validator
             $sql = 'UPDATE pedido
                     SET "estadoPedido" = ?, "fechaPedido" = ?, "montoTotal" = ?
                     WHERE "idPedido" = ?';
-            $params = array($this->estado, $date, $this->total, $_SESSION['idPedido']);
+            $params = array($this->estado, $this->total, $_SESSION['idPedido']);
             return Database::executeRow($sql, $params);
         }
     
