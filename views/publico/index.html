@@ -83,7 +83,7 @@
                                 </li>
 
                                 <li class="nav-item textcolor nav-carrito">
-                                    <a class="nav-link active img-hover3 nav-carrito" aria-current="page"
+                                    <a class="nav-link active img-hover3 nav-carrito" onclick="readOrderDetailOff()" aria-current="page"
                                         data-bs-toggle="offcanvas" data-bs-target="#sidebarCarrito"
                                         aria-controls="offcanvasRight"></a>
                                 </li>
@@ -105,51 +105,20 @@
                 <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
 
                 <div id="cd-cart">
-                    <h2>CARRITO DE COMPRAS</h2>
-                    <ul class="cd-cart-items">
-
-                        <li class="product-item-cart">
-                            <div class="item">
-                                <span class="top-0 start-100 translate-middle badge quantity-badge">1</span>
-                                <img src="../../resources/img/index/olla.png" alt="" class="cart-img">
-                            </div>
-                            <div class="detail-box">
-                                <div class="cart-product-title">Cacerola Steel Co Healthy</div>
-                                <div class="cart-price">$29.74</div>
-                            </div>
-                            <i class="fa-solid fa-xmark cd-item-remove"></i>
-                        </li>
-
-                        <li class="product-item-cart">
-                            <div class="item">
-                                <span class="top-0 start-100 translate-middle badge quantity-badge">2</span>
-                                <img src="../../resources/img/index/cuchara.png" alt="" class="cart-img">
-                            </div>
-                            <div class="detail-box">
-                                <div class="cart-product-title">Cucharón de madera</div>
-                                <div class="cart-price">$19.80</div>
-                            </div>
-                            <i class="fa-solid fa-xmark cd-item-remove"></i>
-                        </li>
-
+                    <h2 id="title-off">CARRITO DE COMPRAS</h2>
+                    <ul class="cd-cart-items" id="tbody-rows-off">
+                                
                     </ul>
-
-                    <div class="cd-cart-total">
-                        <p class="card-total-line">Subtotal<span>$49.54</span></p>
-                        <p class="card-total-line">Envío<span>$0.00</span></p>
-                        <p class="total card-total-line">Total<span class="total">$49.54</span></p>
+                    <div class="cd-cart-total" id="factura-off">
+                        <p class="card-total-line">Subtotal<span id="total-off">$0</span></p>
+                        <p class="card-total-line">Envío<span id="envio-off">$0</span></p>
+                        <p class="total card-total-line">Total<span class="total" id="pago-off">$0</span></p>
                     </div> <!-- cd-cart-total -->
 
                     <a href="carrito.html" class="checkout-btn">
                         <span>
                             <i class="fa-solid fa-cart-shopping"></i>
                         </span> VER CARRITO
-                    </a>
-
-                    <a href="checkout.html" class="checkout-btn">
-                        <span>
-                            <i class="fa-solid fa-arrow-right"></i>
-                        </span> IR A PAGAR
                     </a>
 
                 </div> <!-- cd-cart -->
@@ -934,36 +903,43 @@
                                                 quaerat! Cupiditate dolore aut repudiandae asperiores.</p>
                                         </div>
                                         <hr>
-                                        <div class="row cantidad-row justify-content-start">
-                                            <span class="mb-2">Cantidad</span>
-                                            <div class="col-12 añadir-boton">
-                                                <div class="input-group ">
-                                                    <button class="btn btn-outline-warning" type="button"
-                                                        id="button-addon1">-</button>
-                                                    <input id="input-stock" type="text" class="form-control text-center" placeholder="1"
-                                                        aria-label="Example text with button addon"
-                                                        aria-describedby="button-addon1">
-                                                    <button class="btn btn-outline-warning" type="button"
-                                                        id="button-addon1">+</button>
+                                        <form class="row" method="post" id="carritoForm">
+                                            <div class="row cantidad-row justify-content-start">
+                                                <!-- Campo oculto para asignar el id del producto -->
+                                                <input type="hidden" id="idProducto" name="idProducto">
+                                                <span class="mb-2">Cantidad</span>
+                                                <div class="col-12 añadir-boton">
+                                                    <div class="input-group ">
+                                                        <button onclick="restarStock()" class="btn btn-outline-warning" type="button"
+                                                            id="res-btn">-</button>
+                                                        <input onchange="validacionInputStock()" onkeypress="return valideKey(event);"
+                                                            id="input-stock" name="input-stock" type="number" min="0"
+                                                            class="form-control text-center" placeholder=""
+                                                            aria-label="Example text with button addon" aria-describedby="button-addon1"
+                                                            value="1">
+                                                        <button onclick="sumarStock()" class="btn btn-outline-warning" type="button"
+                                                            id="sum-btn">+</button>
+                                                    </div>
+                                                    <button type="submit" class="carrito-button mx" id="btn-carrito">Añadir al
+                                                        carrito</button>
+                                                    <span class="destacado-icon heart-icon" data-bs-customClass="custom-tooltip"
+                                                        data-bs-toggle="tooltip" data-bs-placement="right" title="Añadir a WishList">
+                                                        <i class="far fa-heart wish"></i></span>
                                                 </div>
-                                                <button class="carrito-button mx">Añadir al carrito</button>
-                                                <span class="destacado-icon heart-icon"
-                                                    data-bs-customClass="custom-tooltip" data-bs-toggle="tooltip"
-                                                    data-bs-placement="right" title="Añadir a WishList">
-                                                    <i class="far fa-heart wish"></i></span>
                                             </div>
-                                        </div>
-                                        <div class="row mt-1">
-                                            <span class="left-stock">Queda(n) <span id="show-stock"></span> en stock</span>
-                                        </div>
-
-                                        <div class="colores mt-2">
-                                            <select name="color" id="color" class="w-25 input"></select>
-                                            <!-- <i class="fa-solid fa-square color1"></i>
+                
+                                            <div class="row mt-1">
+                                                <span class="left-stock">Queda(n) <span id="show-stock"></span> en stock</span>
+                                            </div>
+                
+                                            <div class="colores mt-2">
+                                                <select name="color" id="color" class="w-25 input"></select>
+                                                <!-- <i class="fa-solid fa-square color1"></i>
                                             <i class="fa-solid fa-square color2"></i>
                                             <i class="fa-solid fa-square color3"></i>
                                             <i class="fa-solid fa-square color4"></i> -->
-                                        </div>
+                                            </div>
+                                        </form>
                                         <div class="cat">
                                             <h5>Categorías</h5>
                                             <span id="show-subcategoria"></span>
@@ -1056,6 +1032,7 @@
         crossorigin="anonymous"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="../../controllers/componentes.js"></script>
+    <script src="../../controllers/publico/account.js"></script>
     <script src="../../controllers/publico/index.js"></script>
 </body>
 

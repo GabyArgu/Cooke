@@ -195,7 +195,7 @@
             </div>
 
             <!-- INICIO CONTENIDO -->
-            <div class="container mt-5" >
+            <div class="container mt-5">
                 <div class="row info-detalle-content">
                     <div class="col col-5 img-detalle-producto mx-auto">
                         <div class="main-img">
@@ -251,8 +251,7 @@
                                 <span class="precio-before" id="precio-before">$52.99</span>
                             </div>
                             <div class="disponibilidad-group">
-                                <span class="disponibilidad ">Disponibilidad:</span> <span class="stock"
-                                    id="estado">
+                                <span class="disponibilidad ">Disponibilidad:</span> <span class="stock" id="estado">
                                     En Stock
                                 </span>
                             </div>
@@ -271,34 +270,43 @@
                                 quaerat! Cupiditate dolore aut repudiandae asperiores.</p>
                         </div>
                         <hr>
-                        <form class="row" method="post" id="carrito-form">
+                        <form class="row" method="post" id="carritoForm">
                             <div class="row cantidad-row justify-content-start">
+                                <!-- Campo oculto para asignar el id del producto -->
+                                <input type="hidden" id="idProducto" name="idProducto">
                                 <span class="mb-2">Cantidad</span>
                                 <div class="col-12 añadir-boton">
                                     <div class="input-group ">
-                                        <button onclick="restarStock()" class="btn btn-outline-warning" type="button" id="res-btn" >-</button>
-                                        <input onchange="validacionInputStock()" onkeypress="return valideKey(event);" id="input-stock" name="input-stock"  type="number" min="0" class="form-control text-center" placeholder=""
-                                            aria-label="Example text with button addon" aria-describedby="button-addon1" value="1">
-                                        <button onclick="sumarStock()"  class="btn btn-outline-warning" type="button" id="sum-btn">+</button>
+                                        <button onclick="restarStock()" class="btn btn-outline-warning" type="button"
+                                            id="res-btn">-</button>
+                                        <input onchange="validacionInputStock()" onkeypress="return valideKey(event);"
+                                            id="input-stock" name="input-stock" type="number" min="0"
+                                            class="form-control text-center" placeholder=""
+                                            aria-label="Example text with button addon" aria-describedby="button-addon1"
+                                            value="1">
+                                        <button onclick="sumarStock()" class="btn btn-outline-warning" type="button"
+                                            id="sum-btn">+</button>
                                     </div>
-                                    <button type="submit" class="carrito-button mx">Añadir al carrito</button>
+                                    <button type="submit" class="carrito-button mx" id="btn-carrito">Añadir al
+                                        carrito</button>
                                     <span class="destacado-icon heart-icon" data-bs-customClass="custom-tooltip"
                                         data-bs-toggle="tooltip" data-bs-placement="right" title="Añadir a WishList">
                                         <i class="far fa-heart wish"></i></span>
                                 </div>
                             </div>
-                        </form>
-                        <div class="row mt-1">
-                            <span class="left-stock">Queda(n) <span id="stock"></span> en stock</span>
-                        </div>
 
-                        <div class="colores mt-2">
-                            <select name="color" id="color" class="w-25 input"></select>
-                            <!-- <i class="fa-solid fa-square color1"></i>
+                            <div class="row mt-1">
+                                <span class="left-stock">Queda(n) <span id="stock"></span> en stock</span>
+                            </div>
+
+                            <div class="colores mt-2">
+                                <select name="color" id="color" class="w-25 input"></select>
+                                <!-- <i class="fa-solid fa-square color1"></i>
                             <i class="fa-solid fa-square color2"></i>
                             <i class="fa-solid fa-square color3"></i>
                             <i class="fa-solid fa-square color4"></i> -->
-                        </div>
+                            </div>
+                        </form>
                         <div class="cat">
                             <h5>Categorías</h5>
                             <span id="subcategoria"></span>
@@ -553,18 +561,18 @@
                     </div>
                 </div>
                 <div class="container">
-                        <div class="row justify-content-md-center">
-                            <h1 class="text-center title">Productos Relacionados</h1>
-                            <hr class="lineaP">
-                        </div>
+                    <div class="row justify-content-md-center">
+                        <h1 class="text-center title">Productos Relacionados</h1>
+                        <hr class="lineaP">
+                    </div>
 
-                        <div id="owl0" class="row my-5 owl-carousel owl-theme ">
-                        
+                    <div id="owl0" class="row my-5 owl-carousel owl-theme ">
+
                     </div>
                 </div>
-                
 
-                
+
+
             </div>
             <!-- FIN CONTENIDO -->
 
@@ -572,66 +580,64 @@
         </main>
         <!-- FIN DEL MAIN DE LA PÁGINA-->
 
-        <div class="modal fade resena-modal" id="exampleModal1" tabindex="-1"
-                    aria-labelledby="exampleModalLabel1" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered modal-xl">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                    aria-label="Close"></button>
+        <div class="modal fade resena-modal" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel1"
+            aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col">
+                                    <div class="mb-3">
+                                        <label for="exampleFormControlInput1" class="form-label">Nombre</label>
+                                        <input type="email" class="form-control" id="exampleFormControlInput1"
+                                            placeholder="">
+                                    </div>
+
+                                </div>
+                                <div class="col">
+                                    <div class="mb-3">
+                                        <label for="exampleFormControlInput1" class="form-label">Titulo de la
+                                            reseña</label>
+                                        <input type="email" class="form-control" id="exampleFormControlInput1"
+                                            placeholder="">
+                                    </div>
+                                </div>
+
                             </div>
-                            <div class="modal-body">
-                                <div class="container">
-                                    <div class="row">
-                                        <div class="col">
-                                            <div class="mb-3">
-                                                <label for="exampleFormControlInput1" class="form-label">Nombre</label>
-                                                <input type="email" class="form-control" id="exampleFormControlInput1"
-                                                    placeholder="">
-                                            </div>
-
-                                        </div>
-                                        <div class="col">
-                                            <div class="mb-3">
-                                                <label for="exampleFormControlInput1" class="form-label">Titulo de la
-                                                    reseña</label>
-                                                <input type="email" class="form-control" id="exampleFormControlInput1"
-                                                    placeholder="">
-                                            </div>
-                                        </div>
-
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="mb-3">
+                                        <label for="exampleFormControlTextarea1" class="form-label">Comentario</label>
+                                        <textarea class="form-control" id="exampleFormControlTextarea1"
+                                            rows="3"></textarea>
                                     </div>
-                                    <div class="row">
-                                        <div class="col-12">
-                                            <div class="mb-3">
-                                                <label for="exampleFormControlTextarea1"
-                                                    class="form-label">Comentario</label>
-                                                <textarea class="form-control" id="exampleFormControlTextarea1"
-                                                    rows="3"></textarea>
-                                            </div>
-                                        </div>
+                                </div>
 
+                            </div>
+                            <div class="row">
+                                <div class="col d-flex justify-content-start">
+                                    <span>Puntuación:</span>
+                                    <div class="valoracion">
+
+                                        <div class="my-rating"></div>
                                     </div>
-                                    <div class="row">
-                                        <div class="col d-flex justify-content-start">
-                                            <span>Puntuación:</span>
-                                            <div class="valoracion">
 
-                                                <div class="my-rating"></div>
-                                            </div>
-
-                                        </div>
-                                        <div class="col-3 d-flex justify-content-end">
-                                            <button class="enviar-resena">
-                                                Enviar
-                                            </button>
-                                        </div>
-                                    </div>
+                                </div>
+                                <div class="col-3 d-flex justify-content-end">
+                                    <button class="enviar-resena">
+                                        Enviar
+                                    </button>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
         <!-- INICIO DE MODAL DE RESEÑA-->
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered modal-xl">
@@ -703,7 +709,8 @@
                                     <hr>
                                     <div class="about-producto">
                                         <span class="title-about-producto">Sobre este artículo</span>
-                                        <p class="" id="descripcion">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quod
+                                        <p class="" id="descripcion">Lorem ipsum dolor sit amet consectetur, adipisicing
+                                            elit. Quod
                                             minima optio
                                             magni officia
                                             blanditiis culpa illo vitae? Possimus quod, provident ullam facere
@@ -827,11 +834,11 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
         integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
         crossorigin="anonymous"></script>
-        <script src="../../resources/plugins/star-rating/jquery.star-rating-svg.js"></script>
-        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>   
+    <script src="../../resources/plugins/star-rating/jquery.star-rating-svg.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="../../controllers/publico/stickynavs.js"></script>
     <script src="../../controllers/componentes.js"></script>
-    
+
     <script src="../../controllers/publico/producto.js"></script>
 </body>
 

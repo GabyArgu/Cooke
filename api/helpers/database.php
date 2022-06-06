@@ -43,6 +43,34 @@ class Database
             return false;
         }
     }
+    
+    /*
+    *   Método para obtener el valor de la llave primaria del último registro insertado.
+    *
+    *   Parámetros: $query (sentencia SQL) y $values (arreglo de valores para la sentencia SQL).
+    *   
+    *   Retorno: numérico entero (último valor de la llave primaria si la sentencia se ejecuta satisfactoriamente o 0 en caso contrario).
+    */
+    public static function getLastRow($query, $values)
+    {
+        try {
+            self::conectar();
+            self::$statement = self::$connection->prepare($query);
+            if (self::$statement->execute($values)) {
+                $id = self::$connection->lastInsertId();
+            } else {
+                $id = 0;
+            }
+            // Se anula la conexión con el servidor de base de datos.
+            self::$connection = null;
+            return $id;
+        } catch (PDOException $error) {
+            // Se obtiene el código y el mensaje de la excepción para establecer un error personalizado.
+            self::setException($error->getCode(), $error->getMessage());
+            return 0;
+        }
+    }
+
     /*
     *   Método para obtener un registro de una sentencia SQL tipo SELECT.
     *
@@ -66,6 +94,36 @@ class Database
         }
     }
     
+    /*
+    *   Método para verificar la existencia de un registro.
+    *
+    *   Parámetros: $query (sentencia SQL) y $values (arreglo de valores para la sentencia SQL).
+    *   
+    *   Retorno: True si existe, false si no existe.
+    */
+    public static function registerExist($query, $values)
+    {
+        try {
+            self::conectar();
+            self::$statement = self::$connection->prepare($query);
+            self::$statement->execute($values);
+            // Se anula la conexión con el servidor de base de datos.
+            self::$connection = null;
+            $registro = self::$statement->fetchColumn();
+            if($registro>0){
+                return true;
+            }
+            else{
+                return false;
+            }
+            
+        } catch (PDOException $error) {
+            // Se obtiene el código y el mensaje de la excepción para establecer un error personalizado.
+            self::setException($error->getCode(), $error->getMessage());
+            die(self::getException());
+        }
+    }
+
     /*
     *   Método para obtener un registro de una sentencia SQL tipo SELECT.
     *
@@ -128,7 +186,7 @@ class Database
                 self::$error = 'Existe un problema al conectar con el servidor';
                 break;
             case '42703':
-                self::$error = 'Nombre de campo desconocido';
+                self::$error = $message;
                 break;
             case '23505':
                 self::$error = 'Dato duplicado, no se puede guardar';
