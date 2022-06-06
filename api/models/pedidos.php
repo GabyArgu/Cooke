@@ -150,7 +150,7 @@ class Pedidos extends Validator
 
     public function readOneDPShow()
     {
-        $sql = 'SELECT "idDetallePedido", pr."nombreProducto", pr."precioProducto", "cantidadProducto", pr."precioProducto" * "cantidadProducto" as "subtotal"
+        $sql = 'SELECT "idDetallePedido", pr."imagenPrincipal", pr."nombreProducto", pr."precioProducto", "cantidadProducto", pr."precioProducto" * "cantidadProducto" as "subtotal"
                 from "detallePedido" as dp inner join "pedido" as p on dp."idPedido" = p."idPedido"
                 inner join "cliente" as cl on p."idCliente" = cl."idCliente"
                 inner join "estadoPedido" as ep on p."estadoPedido" = ep."idEstadoPedido"
