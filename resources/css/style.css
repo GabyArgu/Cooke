@@ -1550,6 +1550,13 @@ div.dataTables_wrapper div.dataTables_length select {
   font-weight: bold;
 }
 
+.table-wrapper {
+  max-height: 220px;
+  overflow: auto;
+  display:inline-block;
+  width: 100% !important;
+}
+
 
 /* ---------------------------------------------------------------INICIO CUENTA------------------------------------------------------------*/
 

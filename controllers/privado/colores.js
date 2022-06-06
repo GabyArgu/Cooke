@@ -1,20 +1,3 @@
-$(document).ready(function () {
-    $('#table-colores').DataTable({
-        "info": false,
-        "searching": false,
-        "dom":
-            "<'row'<'col-sm-12'tr>>" +
-            "<'row'<'col-sm-5'l><'col-sm-7 d-flex justify-content-end pe-3'p>>",
-        "language": {
-            "lengthMenu": "Mostrando _MENU_ registros",
-            "paginate": {
-                "next": '<i class="fa-solid fa-angle-right"></i>',
-                "previous": '<i class="fa-solid fa-angle-left"></i>'
-            }
-        },
-        "lengthMenu": [[10, 15, 20, -1], [10, 15, 20, "Todos"]]
-    });
-});
 
 // Constante para establecer la ruta y parámetros de comunicación con la API.
 const API_COLORES = SERVER + 'private/colores.php?action=';
@@ -23,7 +6,7 @@ const API_COLORES = SERVER + 'private/colores.php?action=';
 document.addEventListener('DOMContentLoaded', function () {
     // Se llama a la función que obtiene los registros para llenar la tabla. Se encuentra en el archivo components.js
     readRows(API_COLORES);
-});
+}); 
 
 // Función para llenar la tabla con los datos de los registros. Se manda a llamar en la función readRows().
 function fillTable(dataset) {
@@ -63,6 +46,18 @@ document.getElementById('search-form').addEventListener('submit', function (even
     searchRows(API_COLORES, 'search-form');
 });
 
+//Función que se ejecuta cada vez que apretamos una tecla dentro del input #search, sirve para buscador en tiempo real
+$(document).on('keyup', '#search', function () {
+    var valor = $(this).val();
+    if (valor != "") {
+        //SearchRows se encuentra en componentes.js y mandamos la ruta de la api, el formulario el cual contiene nuestro input para buscar (id) y el input de buscar (id)
+        searchRows(API_COLORES, 'search-form', 'search');
+    }
+    else {
+        //Cuando el input este vacío porque borramos el texto manualmente
+        readRows(API_COLORES);
+    }
+});
 
 // Función para preparar el formulario al momento de modificar un registro.
 function openUpdate(id) {
@@ -121,4 +116,10 @@ document.getElementById('delete-form').addEventListener('submit', function (even
     event.preventDefault();
     //Llamamos al método que se encuentra en la api y le pasamos la ruta de la API y el id del formulario dentro de nuestro modal eliminar-------------------.
     confirmDelete(API_COLORES, 'delete-form');
+});
+
+//Función para refrescar la tabla manualmente al darle click al botón refresh
+document.getElementById('refresh').addEventListener('click', function () {
+    readRows(API_COLORES);
+    document.getElementById('search').value = "";
 });

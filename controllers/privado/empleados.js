@@ -52,7 +52,7 @@ $(document).on('keyup', '#search', function () {
 function openCreate() {
 
     //Limpiamos los campos del modal
-    $("#save-modal").find("input,textarea,select").val("");
+    document.getElementById('save-form').reset();
 
     // Se asigna el título para la caja de diálogo (modal).
     document.getElementById('modal-title').textContent = 'Agregar empleado';
@@ -77,7 +77,7 @@ function openCreate() {
 // Función para preparar el formulario al momento de modificar un registro.
 function openUpdate(id) {
     //Limpiamos los campos del modal
-    $("#save-modal").find("input,textarea,select").val("");
+    document.getElementById('save-form').reset();
     // Se asigna el título para la caja de diálogo (modal).
     document.getElementById('modal-title').textContent = 'Actualizar empleado';
     //Desactivamos campos que no se podrán modificar-------------------.
@@ -202,9 +202,6 @@ function fillTable(dataset) {
     document.getElementById('tbody-rows').innerHTML = content;
 }
 
-/*Inicializando y configurando componente de calendario-------------------.*/
-flatpickr('#fecha', {
-});
 
 // Método manejador de eventos que se ejecuta cuando se envía el formulario de guardar.
 document.getElementById('save-form').addEventListener('submit', function (event) {

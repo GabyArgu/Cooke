@@ -80,7 +80,7 @@ class CategoriaCP extends Validator
     // Método para leer toda la información de las categoria de productos existentes-------------------------.
     public function readAll()
     {
-        $sql = 'SELECT  "idCategoria","nombreCategoriaP", ee."estado"
+        $sql = 'SELECT  "idCategoria","nombreCategoriaP", "descripcionCategoria", ee."estado"
         FROM "categoriaProducto" as e inner join estado as ee on e."estado" = ee."idEstado"
         ORDER BY "idCategoria"';
         $params = null;
@@ -103,9 +103,10 @@ class CategoriaCP extends Validator
     /* SEARCH */
     public function searchRows($value)
     {
-        $sql = 'SELECT "nombreCategoriaP"
-                FROM "categoriaProducto"
-                WHERE "categoriaProducto" ILIKE ? ';
+        $sql = 'SELECT  "idCategoria","nombreCategoriaP", "descripcionCategoria", ee."estado"
+            FROM "categoriaProducto" as e inner join estado as ee on e."estado" = ee."idEstado"
+            WHERE "nombreCategoriaP" ILIKE ? 
+            ORDER BY "idCategoria"';
         $params = array("%$value%");
         return Database::getRows($sql, $params);
     }

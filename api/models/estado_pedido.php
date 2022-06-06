@@ -1,13 +1,13 @@
 <?php
 /*
-*	Clase para manejar la tabla categoríaArticulo de la base de datos.
+*	Clase para manejar la tabla categorias de la base de datos.
 *   Es clase hija de Validator.
 */
-class CategoriaArt extends Validator
+class EstadoPedido extends Validator
 {
     // Declaración de atributos (propiedades).
     private $id = null;
-    private $nombre = null;
+    private $estado = null;
 
     /*
     *   Métodos para validar y asignar valores de los atributos.
@@ -22,10 +22,10 @@ class CategoriaArt extends Validator
         }
     }
 
-    public function setNombre($value)
+    public function setEstado($value)
     {
         if ($this->validateAlphanumeric($value, 1, 50)) {
-            $this->nombre = $value;
+            $this->estado = $value;
             return true;
         } else {
             return false;
@@ -39,15 +39,15 @@ class CategoriaArt extends Validator
         return $this->id;
     }
 
-    public function getNombre()
+    public function getEstado()
     {
-        return $this->nombre;
+        return $this->estado;
     }
 
 
     public function readAll()
     {
-        $sql = 'SELECT "idCategoriaA", "nombreCategoriaA" FROM "categoriaArticulo"';
+        $sql = 'SELECT "idEstadoPedido", "estadoPedido" FROM "estadoPedido"';
         $params = null;
         return Database::getRows($sql, $params);
     }

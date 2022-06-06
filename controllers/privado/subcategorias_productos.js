@@ -1,6 +1,6 @@
 // Constante para establecer la ruta y parámetros de comunicación con la API.
 const API_SUBCATEPRODUCTOS = SERVER + 'private/subcategoriapd.php?action=';
-const ENDPOINT_CATEGORIA = SERVER + 'private/categoriapd.php?action=readAll';
+const ENDPOINT_CATEGORIA = SERVER + 'private/categorias_productos.php?action=readAll';
 const ENDPOINT_ESTADO = SERVER + 'private/estado_general.php?action=readAll';
 
 // Método manejador de eventos que se ejecuta cuando el documento ha cargado.

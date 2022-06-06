@@ -15,7 +15,6 @@ if (isset($_GET['action'])) {
     if (isset($_SESSION['id_usuario'])) {
         // Se compara la acción a realizar cuando un administrador ha iniciado sesión.
         switch ($_GET['action']) {
-            // Accion de leer toda la información------------------.
             case 'readAll':
                 if ($result['dataset'] = $productos->readAll()) {
                     $result['status'] = 1;
@@ -25,7 +24,6 @@ if (isset($_GET['action'])) {
                     $result['exception'] = 'No hay datos registrados';
                 }
                 break;
-            // Accion de buscar información de los productos  disponibles------------------.     
             case 'search':
                 if ($result['dataset'] = $productos->searchRows($_POST['search'])) {
                     $result['status'] = 1;
@@ -35,7 +33,6 @@ if (isset($_GET['action'])) {
                     $result['exception'] = 'No hay coincidencias';
                 }
                 break;
-            // Accion de ingresar un nuevo producto ------------------.       
             case 'create':
                 //Especificamos los inputs por medio de su atributo name, y los capturamos con el método post
                 $_POST = $productos->validateForm($_POST);
@@ -53,6 +50,8 @@ if (isset($_GET['action'])) {
                     $result['exception'] = 'Categoría inválida';
                 } elseif (!$productos->setColor($_POST['color'])){
                     $result['exception'] = 'Color inválido';
+                }elseif (!$productos->setDescuento($_POST['descuento'])){
+                    $result['exception'] = 'Descuento inválido';
                 }elseif (!$productos->setStock($_POST['stock'])){
                     $result['exception'] = 'Stock inválido';
                 }  elseif (!is_uploaded_file($_FILES['archivo']['tmp_name'])) {
@@ -120,6 +119,8 @@ if (isset($_GET['action'])) {
                     $result['exception'] = 'Precio inválido';
                 } elseif (!$productos->setColor($_POST['color'])){
                     $result['exception'] = 'Color inválido';
+                }elseif (!$productos->setDescuento($_POST['descuento'])){
+                    $result['exception'] = 'Descuento inválido';
                 }elseif (!$productos->setStock($_POST['stock'])){
                     $result['exception'] = 'Stock inválido';
                 }elseif (!$productos->setEstado($_POST['estado'])) {

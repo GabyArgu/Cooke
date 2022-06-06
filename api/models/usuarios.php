@@ -179,6 +179,7 @@ class Usuarios extends Validator
     {
         return $this->clave;
     }
+    
     public function getFoto()
     {
         return $this->foto;

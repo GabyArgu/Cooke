@@ -168,13 +168,13 @@
                             <h1 class="text-center titleL">REGISTRAR</h1>
                             <hr class="lineaRe">
                         </div>
-                        <div class="row justify-content-center">
+                        <form class="row justify-content-center" id="register-form">
                             <div class="col-10 mt-4 d-flex justify-content-around">
                                 <div class="input-group LlenarIG">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text SLcorreo SCimg" id="inputGroupPrepend2"></span>
                                     </div>
-                                    <input type="text" class="form-control Lcorreo" id="validationDefaultUsername"
+                                    <input type="text" class="form-control Lcorreo" id="nombres" name="nombres"
                                         placeholder="Escribe tus nombres" aria-describedby="inputGroupPrepend2"
                                         required>
                                 </div>
@@ -182,9 +182,8 @@
                                     <div class="input-group-prepend">
                                         <span class="input-group-text SLcorreo SCimg2" id="inputGroupPrepend2"></span>
                                     </div>
-                                    <input type="text" class="form-control Lcorreo" id="validationDefaultUsername"
-                                        placeholder="Escribe tu teléfono" aria-describedby="inputGroupPrepend2"
-                                        required>
+                                    <input type="tel" class="form-control Lcorreo" id="telefono" name="telefono"
+                                        placeholder="1234-5678" pattern="[0-9]{4}-[0-9]{4}" required>
                                 </div>
                             </div>
                             <div class="col-10 mt-4 d-flex justify-content-around">
@@ -192,7 +191,7 @@
                                     <div class="input-group-prepend">
                                         <span class="input-group-text SLcorreo SCimg" id="inputGroupPrepend2"></span>
                                     </div>
-                                    <input type="text" class="form-control Lcorreo" id="validationDefaultUsername"
+                                    <input type="text" class="form-control Lcorreo" id="apellidos" name="apellidos"
                                         placeholder="Escribe tus apellidos" aria-describedby="inputGroupPrepend2"
                                         required>
                                 </div>
@@ -200,9 +199,8 @@
                                     <div class="input-group-prepend">
                                         <span class="input-group-text SLcorreo SCimg4" id="inputGroupPrepend2"></span>
                                     </div>
-                                    <input type="text" class="form-control Lcorreo" id="validationDefaultUsername"
-                                        placeholder="Escribe tu cumpleaños" aria-describedby="inputGroupPrepend2"
-                                        required>
+                                    <input type="text" class="form-control Lcorreo" id="nacimiento" name="nacimiento"
+                                        for="validationDefault03" aria-describedby="inputGroupPrepend2" required>
                                 </div>
                             </div>
                             <div class="col-10 mt-4 d-flex justify-content-around">
@@ -210,14 +208,14 @@
                                     <div class="input-group-prepend">
                                         <span class="input-group-text SLcorreo SCimg5" id="inputGroupPrepend2"></span>
                                     </div>
-                                    <input type="text" class="form-control Lcorreo" id="validationDefaultUsername"
-                                        placeholder="Escribe tu dui" aria-describedby="inputGroupPrepend2" required>
+                                    <input type="text" class="form-control Lcorreo" id="dui" name="dui"
+                                        placeholder="00000000-0" aria-describedby="inputGroupPrepend2" required>
                                 </div>
                                 <div class="input-group">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text SLcorreo SCimg6" id="inputGroupPrepend2"></span>
                                     </div>
-                                    <input type="text" class="form-control Lcorreo" id="validationDefaultUsername"
+                                    <input type="text" class="form-control Lcorreo" id="direccion" name="direccion"
                                         placeholder="Escribe tu dirreción" aria-describedby="inputGroupPrepend2"
                                         required>
                                 </div>
@@ -227,20 +225,38 @@
                                     <div class="input-group-prepend">
                                         <span class="input-group-text SLcorreo SCimg7" id="inputGroupPrepend2"></span>
                                     </div>
-                                    <input type="text" class="form-control Lcorreo" id="validationDefaultUsername"
+                                    <input type="email" class="form-control Lcorreo" id="correo" name="correo"
                                         placeholder="Escribe tu correo" aria-describedby="inputGroupPrepend2" required>
                                 </div>
                                 <div class="input-group">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text SLcorreo SCimg8" id="inputGroupPrepend2"></span>
                                     </div>
-                                    <input type="text" class="form-control Lcorreo" id="validationDefaultUsername"
+                                    <input type="text" class="form-control Lcorreo" id="alias" name="alias"
+                                        placeholder="Nombre de usuario" aria-describedby="inputGroupPrepend2"
+                                        required>
+                                </div>
+                            </div>
+                            <div class="col-10 mt-4 d-flex justify-content-around">
+                                <div class="input-group LlenarIG">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text SLcorreo SCimg8" id="inputGroupPrepend2"></span>
+                                    </div>
+                                    <input type="password" class="form-control Lcorreo" id="clave" name="clave"
                                         placeholder="Escribe tu contraseña" aria-describedby="inputGroupPrepend2"
+                                        required>
+                                </div>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text SLcorreo SCimg8" id="inputGroupPrepend2"></span>
+                                    </div>
+                                    <input type="password" class="form-control Lcorreo" id="confirmar" name="confirmar"
+                                        placeholder="Confirmar contraseña" aria-describedby="inputGroupPrepend2"
                                         required>
                                 </div>
                             </div>
                             <div class="col-10 mt-4 justify-content-center">
-                                <a href="index.html"><button class="AAceptar"> Continuar</button></a>
+                                <a href="login.html"><button class="AAceptar" type="submit"> Continuar</button></a>
                             </div>
                             <div class="col-10 mt-4 justify-content-center">
                                 <p class="TerminosP2">Al continuar, aceptas las Condiciones de uso y el Aviso de
@@ -255,85 +271,96 @@
                             <div class="col-10 mt-1 justify-content-center">
                                 <a class="Crear2" href="login.html">Ingresar</a>
                             </div>
-                        </div>
+                        </form>
                     </div>
 
                 </div>
-            </div>
-        </main>
-        <!-- FIN DEL MAIN DE LA PÁGINA-->
 
-        <!-- INICIO DEL FOOTER DE LA PÁGINA -->
-        <footer class="text-center text-lg-start bg-light text-muted" id="Fo-rosa">
-            <section class="d-flex align-items-center flex-column">
-                <div class="container-fluid text-center text-md-start mt-4">
-                    <div class="row d-flex justify-content-center">
-                        <div class="col-sm-9 col-md-6 col-lg-5 logopart">
-                            <img src="../../resources/img/index/logo2.png" alt="" id="logo_final">
-                            <p>
-                                Cooké es una tienda online de utensilios de cocina de las mejores
-                                marcas para food lovers, o entusiastas de la buena mesa y la buena cocina.
-                            </p>
-                        </div>
-                        <div class="col-sm-9 col-md-6 col-lg-6" id="partefooter">
-                            <div class="row justify-content-center">
-                                <div class="col Redes-Div">
-                                    <h6 class="text-uppercase fw-bold h6Red ">Redes</h6>
-                                    <p class="d-flex justify-content-center "><a class="nav-link active redes-hover  "
-                                            aria-current="page" href="https://es-la.facebook.com/" target="_blank"></a>
-                                    </p>
-                                    <p class="d-flex justify-content-center "><a class="nav-link active redes-hover2 "
-                                            aria-current="page" href="https://www.instagram.com/?hl=es-la"
-                                            target="_blank"></a></p>
-                                    <p class="d-flex justify-content-center "><a class="nav-link active redes-hover3"
-                                            aria-current="page" href="https://twitter.com/?lang=es" target="_blank"></a>
-                                    </p>
-                                </div>
-                                <div class="col">
-                                    <h6 class="text-uppercase fw-bold mb-4">Contacto</h6>
-                                    <p><a href="mailto:20170573@ricaldone.edu.sv" class="text-reset link"
-                                            target="_blank">Correo</a></p>
-                                    <p><a href="https://api.whatsapp.com/send?phone=76901760&text=Hola,%20%C2%BFen%20que%20puede%20ayudarte%20Cook%C3%A9%20el%20dia%20de%20hoy?"
-                                            class="text-reset link" target="_blank">Teléfono</a></p>
-                                    <p><a href="contactanos.html" class="text-reset link">Contáctanos</a></p>
-                                </div>
-                                <div class="col">
-                                    <h6 class="text-uppercase fw-bold mb-4">Categorías</h6>
-                                    <p><a href="categoria.html" class="text-reset link">Cocina</a></p>
-                                    <p><a href="categoria.html" class="text-reset link">Ofertas</a></p>
-                                    <p><a href="categoria.html" class="text-reset link">Recetas</a></p>
-                                    <p><a href="categoria.html" class="text-reset link">Utensilios</a></p>
-                                    <p><a href="categoria.html" class="text-reset link">Electrodomésticos</a></p>
-                                </div>
-                                <div class="col">
-                                    <h6 class="text-uppercase fw-bold mb-4">Extras</h6>
-                                    <p><a href="cuenta.html" class="text-reset link">Mi cuenta</a></p>
-                                    <p><a href="nosotros.html" class="text-reset link">Sobre nosotros</a></p>
-                                    <p><a href="deseos.html" class="text-reset link">Lista de deseos</a></p>
-                                    <p><a href="gridproductos.html" class="text-reset link">Centro de compras</a>
-                                    </p>
-                                </div>
+            </div>
+    </div>
+    </main>
+    <!-- FIN DEL MAIN DE LA PÁGINA-->
+
+    <!-- INICIO DEL FOOTER DE LA PÁGINA -->
+    <footer class="text-center text-lg-start bg-light text-muted" id="Fo-rosa">
+        <section class="d-flex align-items-center flex-column">
+            <div class="container-fluid text-center text-md-start mt-4">
+                <div class="row d-flex justify-content-center">
+                    <div class="col-sm-9 col-md-6 col-lg-5 logopart">
+                        <img src="../../resources/img/index/logo2.png" alt="" id="logo_final">
+                        <p>
+                            Cooké es una tienda online de utensilios de cocina de las mejores
+                            marcas para food lovers, o entusiastas de la buena mesa y la buena cocina.
+                        </p>
+                    </div>
+                    <div class="col-sm-9 col-md-6 col-lg-6" id="partefooter">
+                        <div class="row justify-content-center">
+                            <div class="col Redes-Div">
+                                <h6 class="text-uppercase fw-bold h6Red ">Redes</h6>
+                                <p class="d-flex justify-content-center "><a class="nav-link active redes-hover  "
+                                        aria-current="page" href="https://es-la.facebook.com/" target="_blank"></a>
+                                </p>
+                                <p class="d-flex justify-content-center "><a class="nav-link active redes-hover2 "
+                                        aria-current="page" href="https://www.instagram.com/?hl=es-la"
+                                        target="_blank"></a></p>
+                                <p class="d-flex justify-content-center "><a class="nav-link active redes-hover3"
+                                        aria-current="page" href="https://twitter.com/?lang=es" target="_blank"></a>
+                                </p>
+                            </div>
+                            <div class="col">
+                                <h6 class="text-uppercase fw-bold mb-4">Contacto</h6>
+                                <p><a href="mailto:20170573@ricaldone.edu.sv" class="text-reset link"
+                                        target="_blank">Correo</a></p>
+                                <p><a href="https://api.whatsapp.com/send?phone=76901760&text=Hola,%20%C2%BFen%20que%20puede%20ayudarte%20Cook%C3%A9%20el%20dia%20de%20hoy?"
+                                        class="text-reset link" target="_blank">Teléfono</a></p>
+                                <p><a href="contactanos.html" class="text-reset link">Contáctanos</a></p>
+                            </div>
+                            <div class="col">
+                                <h6 class="text-uppercase fw-bold mb-4">Categorías</h6>
+                                <p><a href="categoria.html" class="text-reset link">Cocina</a></p>
+                                <p><a href="categoria.html" class="text-reset link">Ofertas</a></p>
+                                <p><a href="categoria.html" class="text-reset link">Recetas</a></p>
+                                <p><a href="categoria.html" class="text-reset link">Utensilios</a></p>
+                                <p><a href="categoria.html" class="text-reset link">Electrodomésticos</a></p>
+                            </div>
+                            <div class="col">
+                                <h6 class="text-uppercase fw-bold mb-4">Extras</h6>
+                                <p><a href="cuenta.html" class="text-reset link">Mi cuenta</a></p>
+                                <p><a href="nosotros.html" class="text-reset link">Sobre nosotros</a></p>
+                                <p><a href="deseos.html" class="text-reset link">Lista de deseos</a></p>
+                                <p><a href="gridproductos.html" class="text-reset link">Centro de compras</a>
+                                </p>
                             </div>
                         </div>
                     </div>
                 </div>
-            </section>
-            <!-- Copyright -->
-            <div class="text-center p-3 CopCo">
-                © 2021 Copyright:
-                <a class="text-reset fw-bold" href="https://github.com/GabyArgu/Cooke/tree/ROscar">Cooké.com</a>
             </div>
-            <!-- Copyright -->
-        </footer>
-        <!-- FIN DEL FOOTER DE LA PÁGINA -->
+        </section>
+        <!-- Copyright -->
+        <div class="text-center p-3 CopCo">
+            © 2021 Copyright:
+            <a class="text-reset fw-bold" href="https://github.com/GabyArgu/Cooke/tree/ROscar">Cooké.com</a>
+        </div>
+        <!-- Copyright -->
+    </footer>
+    <!-- FIN DEL FOOTER DE LA PÁGINA -->
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
-        integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+    
+    <!-- BOOTSTRAP -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
-        integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
-        crossorigin="anonymous"></script>
+
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+    <!-- DATE FLATPICKR  -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
+    <script src="../../controllers/componentes.js"></script>
     <script src="../../controllers/publico/stickynavs.js"></script>
+    <script src="../../controllers/publico/crear.js"></script>
 </body>
 
 </html>
