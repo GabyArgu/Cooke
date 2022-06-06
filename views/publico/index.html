@@ -34,13 +34,13 @@
         <!-- INICIO NAVBAR DE LA PÁGINA-->
         <header>
             <!-- INICIA NAVBAR -->
-            <nav class="navbar fixed-top navbar-expand-lg navbar-light menu" id="navbar-home">
+            <nav class="navbar fixed-top navbar-expand-lg navbar-light menu" id="navbar-page">
                 <div class=" container-fluid">
                     <a class="navbar-brand me-auto" href="index.html"><img src="../../resources/img/index/logo2.png"
                             alt="" id="logo_inicio" class="mx-auto d-block"></a>
                     <button class="navbar-toggler collapsed d-flex d-lg-none flex-column justify-content-around"
                         type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
-                        aria-controls="navbarText" onclick="navbarResponsive()">
+                        aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="toggler-icon top-bar"></span>
                         <span class="toggler-icon middle-bar"></span>
                         <span class="toggler-icon bottom-bar"></span>
@@ -53,10 +53,10 @@
                                     Categorías
                                 </a>
                                 <ul class="dropdown-menu dropdown-categorias" aria-labelledby="navbarDropdownMenuLink">
-                                    <li><a class="dropdown-item categoria-cocina" href="">Cocina</a></li>
-                                    <li><a class="dropdown-item categoria-utensilios" href="">Utensilios</a></li>
-                                    <li><a class="dropdown-item categoria-electrodomesticos" href="">Eléctrodomesticos</a></li>
-                                    <li><a class="dropdown-item categoria-recetas" href="">Recetas</a></li>
+                                    <li><a class="dropdown-item" href="categoria.html">Cocina</a></li>
+                                    <li><a class="dropdown-item" href="categoria.html">Utensilios</a></li>
+                                    <li><a class="dropdown-item" href="categoria.html">Eléctrodomesticos</a></li>
+                                    <li><a class="dropdown-item" href="categoria.html">Recetas</a></li>
                                 </ul>
                             </li>
                             <li class="nav-item textcolor2">
@@ -75,7 +75,18 @@
                             <div class="iconos-navbar">
 
                                 <li class="nav-item textcolor">
-                                    <a class="nav-link active img-hover" aria-current="page" href="login.html"></a>
+                                    <ul class="navbar-nav ms-auto">
+                                        <li class="nav-item dropdown">
+                                            <a class="nav-link dropdown p-0" href="#" id="navbarDropdownMenuLink" role="button"
+                                                data-bs-toggle="dropdown" aria-expanded="false">
+                                                <i class="fa-solid  img-hover"></i>
+                                            </a>
+                                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
+                                                <li><a class="dropdown-item" href="cuenta.html">Cuenta</a></li>
+                                                <li><a class="dropdown-item" onclick="logOut()">Cerrar Sesión</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
                                 </li>
 
                                 <li class="nav-item textcolor">
