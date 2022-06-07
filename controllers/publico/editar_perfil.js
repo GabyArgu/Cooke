@@ -1,6 +1,6 @@
 // Constante para establecer la ruta y parámetros de comunicación con la API.
-const API_CLIENTE = SERVER + 'private/cliente.php?action=';
-const ENDPOINT_AVATAR = SERVER + 'private/avatar.php?action=readAll';
+const API_CLIENTE = SERVER + 'public/cliente.php?action=';
+const ENDPOINT_AVATAR = SERVER + 'public/cliente.php?action=readAvatar';
 
 // Método manejador de eventos que se ejecuta cuando el documento ha cargado.
 document.addEventListener('DOMContentLoaded', function () {
@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', function () {
     $('#nacimiento').flatpickr({
         maxDate: date
     })
-
+    cargarCliente();
 });
 
 // Función para preparar el formulario al momento de modificar un registro.
@@ -40,7 +40,6 @@ function openUpdate() {
                 // Se comprueba si la respuesta es satisfactoria, de lo contrario se muestra un mensaje con la excepción.
                 if (response.status) {
                     // Se inicializan los campos del formulario con los datos del registro seleccionado.
-                    document.getElementById('id').value = response.dataset.idCliente;
                     document.getElementById('nombres').value = response.dataset.nombresCliente;
                     document.getElementById('apellidos').value = response.dataset.apellidosCliente;
                     document.getElementById('correo').value = response.dataset.correoCliente;
@@ -52,7 +51,6 @@ function openUpdate() {
                     fillSelect(ENDPOINT_AVATAR, 'foto', response.dataset.avatar);
                     document.getElementById('imagen-avatar').src = `../../resources/img/avatares/avatar${response.dataset.avatar}.jpg`
                     document.getElementById('imagen-avatar').style.display = 'inline-block'
-                   
                 } else {
                     sweetAlert(2, response.exception, null);
                 }
@@ -72,7 +70,8 @@ document.getElementById('save-form').addEventListener('submit', function (event)
     // Se comprueba si el campo oculto del formulario esta seteado para actualizar, de lo contrario será para crear.
     action = 'update'
     // Se llama a la función para guardar el registro. Se encuentra en el archivo components.js
-    saveRow(API_CLIENTE, action, 'save-form', 'save-modal');
+    saveRow3(API_CLIENTE, action, 'save-form', 'save-modal');
+    cargarCliente();
 });
 
 //Función para cambiar y mostrar el avatar dinámicamente en modals-------------------.
@@ -83,9 +82,9 @@ function changeAvatar() {
     document.getElementById('imagen-avatar').src = `../../resources/img/avatares/${selected}.jpg`;
 }
 // Función para obtener el detalle del pedido (carrito de compras).
-function openShow() {
+function cargarCliente() {
     // Petición para solicitar los datos del pedido en proceso.
-    fetch(API_CLIENTE  + 'readOneShow', {
+    fetch(API_CLIENTE + 'readOneShow', {
         method: 'get'
     }).then(function (request) {
         // Se verifica si la petición es correcta, de lo contrario se muestra un mensaje en la consola indicando el problema.
@@ -94,68 +93,19 @@ function openShow() {
             request.json().then(function (response) {
                 // Se comprueba si la respuesta es satisfactoria, de lo contrario se muestra un mensaje con la excepción.
                 if (response.status) {
-                    // Se declara e inicializa una variable para concatenar las filas de la tabla en la vista.
-                    let content = '';
-                    // Se declara e inicializa una variable para calcular el importe por cada producto.
-                    let subtotal = 0;
-                    // Se declara e inicializa una variable para ir sumando cada subtotal y obtener el monto final a pagar.
-                    let total = 0;
-                    // Se recorre el conjunto de registros (dataset) fila por fila a través del objeto row.
-                    response.dataset.map(function (row) {
-                        subtotal = row.precioUnitario * row.cantidadProducto;
-                        total += subtotal;
-                        // Se crean y concatenan las filas de la tabla con los datos de cada registro.
-                        content = `
-                        <div class="tab-pane fade" id="v-pills-profile" role="tabpanel"
-                        aria-labelledby="v-pills-profile-tab">
-                        <div class="container-fluid justify-content-center align-items-center" id="Cuenta-table">
-                            <div class="row">
-                                <div class="col-sm-12 col-md-6 col-lg-4 usu-img">
-                                    <img src="../../resources/img/usuario/usuario.png" alt="">
-                                </div>
-                                <div
-                                    class="col-sm-12 col-md-6 col-lg-8 mt-4 usu-d d-flex align-items-start justify-content-center flex-column">
-                                    <h5><b>${row.telefonoCliente}</b></h5>
-                                    <h5 class="mt-4"> <b>${row.correoCliente}</b> </h5>
-                                    <h5 class="mt-4"> <b>${row.direccionCliente}</b> 
-                                    </h5>
-                                </div>
-                            </div>
-                            <div class="row mt-4">
-                                <div class="col-sm-12 col-md-6 col-lg-4">
-                                    <h5> <b>${row.aliasCliente}</b></h5>
-                                </div>
-                                <div class="col-sm-12 col-md-6 col-lg-4">
-                                    <h5> <b>${row.nombreCliente}</b></h5>
-                                </div>
-                                <div class="col-sm-12 col-md-6 col-lg-4">
-                                    <h5> <b>${row.apellidoCliente}</b></h5>
-                                </div>
-                            </div>
-                            <div class="row mt-4">
-                                <div class="col-sm-12 col-md-6 col-lg-4">
-                                    <h5> <b>${row.nacimientoCliente}</b></h5>
-                                </div>
-                                <div class="col-sm-12 col-md-6 col-lg-4">
-                                    <h5> <b>${row.duiCliente}</b></h5>
-                                </div>
-                                <div class="col-sm-12 col-md-6 col-lg-4 mt-0">
-                                    <a onclick="openUpdate()" class="a-edi" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
-                                        href="#staticBackdrop"><img src="../../resources/img/usuario/editar.png"
-                                            alt="">
-                                        Editar</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                        `;
-                    });
-                    // Se agregan las filas al cuerpo de la tabla mediante su id para mostrar los registros.
-                    document.getElementById('tbody-rows').innerHTML = content;
-                    // Se muestra el total a pagar con dos decimales.
-                   
+                    // Se inicializan los campos del formulario con los datos del registro seleccionado.
+                    document.getElementById('nombres-cliente').innerText = response.dataset.nombresCliente;
+                    document.getElementById('apellidos-cliente').innerText = response.dataset.apellidosCliente;
+                    document.getElementById('correo-cliente').innerText = response.dataset.correoCliente;
+                    document.getElementById('telefono-cliente').innerText = response.dataset.telefonoCliente;
+                    document.getElementById('direccion-cliente').innerText = response.dataset.direccionCliente;
+                    document.getElementById('alias-cliente').innerText = response.dataset.aliasCliente;
+                    document.getElementById('dui-cliente').innerText = response.dataset.duiCliente;
+                    document.getElementById('nacimiento-cliente').innerText = response.dataset.nacimientoCliente;
+                    document.getElementById('avatar-cliente').src = `../../resources/img/avatares/${response.dataset.avatar}.jpg`
+                    document.getElementById('avatar-cliente').style.display = 'inline-block'
                 } else {
-                    sweetAlert(4, response.exception, 'index.html');
+                    sweetAlert(2, response.exception, null);
                 }
             });
         } else {

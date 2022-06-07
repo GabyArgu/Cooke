@@ -222,41 +222,42 @@
                         </div>
                         <div class="tab-pane fade" id="v-pills-profile" role="tabpanel"
                             aria-labelledby="v-pills-profile-tab">
-                            <div class="container-fluid justify-content-center align-items-center" id="Cuenta-table" onclick="openShow()">
+                            <div class="container-fluid justify-content-center align-items-center" id="Cuenta-table">
                                 <div class="row">
                                     <div class="col-sm-12 col-md-6 col-lg-4 usu-img">
-                                        <img src="../../resources/img/usuario/usuario.png" alt="">
+                                        <img id="avatar-cliente" class="avatar-cliente"
+                                            src="../../resources/img/usuario/usuario.png" alt="">
                                     </div>
                                     <div
                                         class="col-sm-12 col-md-6 col-lg-8 mt-4 usu-d d-flex align-items-start justify-content-center flex-column">
-                                        <h5 ><b>Teléfono:</b> </h5>
-                                        <h5 class="mt-4"> <b></h5>
-                                        <h5 class="mt-4"> <b>Dirección:</b>
+                                        <h5><b>Teléfono: </b><span id="telefono-cliente"></span></h5>
+                                        <h5 class="mt-4"><b>Correo: </b><span id="correo-cliente"></span></h5>
+                                        <h5 class="mt-4"> <b>Dirección: </b><span id="direccion-cliente"></span>
                                         </h5>
                                     </div>
                                 </div>
                                 <div class="row mt-4">
                                     <div class="col-sm-12 col-md-6 col-lg-4">
-                                        <h5> <b>Alias:</b></h5>
+                                        <h5> <b>Alias: </b><span id="alias-cliente"></span></h5>
                                     </div>
                                     <div class="col-sm-12 col-md-6 col-lg-4">
-                                        <h5> <b>Nombres:</b></h5>
+                                        <h5> <b>Nombres: </b><span id="nombres-cliente"></span></h5>
                                     </div>
                                     <div class="col-sm-12 col-md-6 col-lg-4">
-                                        <h5> <b>Apellidos:</b></h5>
+                                        <h5> <b>Apellidos: </b><span id="apellidos-cliente"></span></h5>
                                     </div>
                                 </div>
                                 <div class="row mt-4">
                                     <div class="col-sm-12 col-md-6 col-lg-4">
-                                        <h5> <b>Cumpleaños:</b> </h5>
+                                        <h5> <b>Cumpleaños: </b><span id="nacimiento-cliente"></span> </h5>
                                     </div>
                                     <div class="col-sm-12 col-md-6 col-lg-4">
-                                        <h5> <b>Dui:</b> </h5>
+                                        <h5> <b>Dui: </b><span id="dui-cliente"></span> </h5>
                                     </div>
                                     <div class="col-sm-12 col-md-6 col-lg-4 mt-0">
-                                        <a onclick="openUpdate()" class="a-edi" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
-                                            href="#staticBackdrop"><img src="../../resources/img/usuario/editar.png"
-                                                alt="">
+                                        <a onclick="openUpdate()" class="a-edi" data-bs-toggle="modal"
+                                            data-bs-target="#staticBackdrop" href="#staticBackdrop"><img
+                                                src="../../resources/img/usuario/editar.png" alt="">
                                             Editar</a>
                                     </div>
                                 </div>
@@ -362,26 +363,18 @@
                                                     aria-describedby="inputGroupPrepend2" required>
                                             </div>
                                         </div>
-                                        <div class="col-10 mt-4 d-flex justify-content-around">
-                                            <div class="input-group LlenarIG">
-                                                <div class="input-group-prepend">
-                                                    <span class="input-group-text SLcorreo SCimg8"
-                                                        id="inputGroupPrepend2"></span>
+                                        <div class="col-10 mt-4 d-flex justify-content-center">
+                                                <div class="row">
+                                                    <div class="col col-10">
+                                                        <select class="form-select form-controlcustom-form-select h-100 w-100"
+                                                            aria-label="Default select example" id="foto" name="foto"
+                                                            onchange="changeAvatar()">
+                                                        </select>
+                                                    </div>
+                                                    <div class="col col-2">
+                                                        <img id="imagen-avatar" class="avatar-cliente-modal" src="" alt="">
+                                                    </div>
                                                 </div>
-                                                <input type="password" class="form-control Lcorreo" id="clave"
-                                                    name="clave" placeholder="Escribe tu contraseña"
-                                                    aria-describedby="inputGroupPrepend2" required>
-                                            </div>
-                                            <div class="input-group">
-                                                <select class="form-select custom-form-select"
-                                                    aria-label="Default select example" id="foto" name="foto"
-                                                    onchange="changeAvatar()">
-                                                </select>
-                                            </div>
-                                            <div
-                                                class="col col-12 col-md-2 imagen-avatar d-flex justify-content-center align-items-center my-1">
-                                                <img id="imagen-avatar" src="" alt="">
-                                            </div>
                                         </div>
                                     </form>
                                 </div>

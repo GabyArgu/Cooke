@@ -281,13 +281,22 @@ class Cliente extends Validator
     /* Método para obtener un empleado y mostrarlo en modal de visualizar*/
     public function readOneShow()
     {
-        $sql = 'SELECT "idCliente", "nombresCliente", "apellidosCliente", "duiCliente", "correoCliente", "telefonoCliente", "nacimientoCliente", "direccionCliente", ec."estadoCliente", a.avatar
+        $sql = 'SELECT "idCliente", "nombresCliente", "apellidosCliente", "duiCliente", "correoCliente", "telefonoCliente", "nacimientoCliente", "direccionCliente", ec."estadoCliente", a.avatar, "aliasCliente"
         FROM cliente as c inner join "estadoCliente" as ec on c."estadoCliente" = ec."idEstadoCliente"
 		inner join "avatar" as a on c."avatar" = a."idAvatar" 
         WHERE "idCliente" = ?';
         $params = array($this->id);
         return Database::getRow($sql, $params);
     }
+
+    // Método para leer toda la información de la tabla avatar-------------------------.
+    public function readAvatar()
+    {
+        $sql = 'Select "idAvatar", "avatar" from "avatar"';
+        $params = null;
+        return Database::getRows($sql, $params);
+    }
+
     /*
     *   Métodos para realizar las operaciones SCRUD (search, create, read, update, delete).
     */
