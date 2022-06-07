@@ -34,7 +34,7 @@
         <!-- INICIO NAVBAR DE LA PÁGINA-->
         <header>
 
-            </header>
+        </header>
         <!-- FIN NAVBAR DE LA PÁGINA-->
 
         <!-- INICIO CARRITO DE LA PÁGINA-->
@@ -48,7 +48,7 @@
                 <div id="cd-cart">
                     <h2 id="title-off">CARRITO DE COMPRAS</h2>
                     <ul class="cd-cart-items" id="tbody-rows-off">
-                                
+
                     </ul>
                     <div class="cd-cart-total" id="factura-off">
                         <p class="card-total-line">Subtotal<span id="total-off">$0</span></p>
@@ -205,7 +205,7 @@
                         <hr class="lineaP">
                     </div>
                     <div id="owl0" class="row g-4 my-5 mx-auto owl-carousel owl-theme">
-                        
+
                     </div>
                 </div>
             </section> <!-- FIN PRODUCTOS DESTACADOS -->
@@ -226,8 +226,8 @@
                             <img class="card-img-top imgC" src="../../resources/img/footer/entrega-gratis.png"
                                 alt="Card image cap" data-bs-toggle="modal" data-bs-target="#modal-terminos">
                             <div class="card-body">
-                                <h5 class="card-title about">Envío gratis</h5>
-                                <p class="card-text">Pedidos superiores a $5.00</p>
+                                <h5 class="card-title about">Envío rapido</h5>
+                                <p class="card-text">Todos los envios a $2.00</p>
                             </div>
                         </div>
                         <div class="card Condicion">
@@ -289,11 +289,10 @@
                                                     </p>
                                                     <div class="collapse" id="envios1">
                                                         <div class="card card-body">
-                                                            El cobro de envío gratis se aplica cuando el usuario realiza
-                                                            una
-                                                            compra superando $ 5.00 dólares en cualquiera de nuestros
-                                                            productos de lo contrario
-                                                            se le cobrará en base a su municipio de residencia.
+                                                            El cobro de envío es de $ 2.00 dólares en cualquiera de los
+                                                            pedidos que desee realizar el cliente, sin importa su lugar
+                                                            de residencia, se mantendra el precio y la rapides del
+                                                            envio.
                                                         </div>
                                                     </div>
 
@@ -780,8 +779,7 @@
             <!-- FIN MARCAS -->
 
             <!-- Modal -->
-            <div class="modal fade" id="modal-ver" tabindex="-1" aria-labelledby="exampleModalLabel"
-                aria-hidden="true">
+            <div class="modal fade" id="modal-ver" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered modal-xl">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -792,14 +790,15 @@
                                 <div class="row info-detalle-content">
                                     <div class="col col-5 img-detalle-producto mx-auto">
                                         <div class="main-img">
-                                            <img src="" alt=""
-                                            class="img-fluid d-block mx-auto img0" id="show-img-main">
+                                            <img src="" alt="" class="img-fluid d-block mx-auto img0"
+                                                id="show-img-main">
                                         </div>
                                     </div>
                                     <div class="col col-6 info-detalle-producto mx-auto">
                                         <div class="row">
                                             <span class="detalle-producto-name">
-                                                <h3 id="show-nombre" class="d-inline"></h3><span> </span><h3 class="d-inline" id="show-marca"></h3>
+                                                <h3 id="show-nombre" class="d-inline"></h3><span> </span>
+                                                <h3 class="d-inline" id="show-marca"></h3>
                                             </span>
                                         </div>
                                         <div class="rating-detalle">
@@ -826,15 +825,16 @@
                                                 <span class="precio-before" id="show-precio-before">$52.99</span>
                                             </div>
                                             <div class="disponibilidad-group">
-                                                <span class="disponibilidad ">Disponibilidad:</span> <span
-                                                    class="stock" id="show-estado">En
+                                                <span class="disponibilidad ">Disponibilidad:</span> <span class="stock"
+                                                    id="show-estado">En
                                                     Stock</span>
                                             </div>
                                         </div>
                                         <hr>
                                         <div class="about-producto">
                                             <span class="title-about-producto">Sobre este artículo</span>
-                                            <p class="mt-2" id="show-descripcion">Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                                            <p class="mt-2" id="show-descripcion">Lorem ipsum dolor sit amet
+                                                consectetur, adipisicing elit.
                                                 Quod
                                                 minima optio
                                                 magni officia
@@ -851,28 +851,32 @@
                                                 <span class="mb-2">Cantidad</span>
                                                 <div class="col-12 añadir-boton">
                                                     <div class="input-group ">
-                                                        <button onclick="restarStock()" class="btn btn-outline-warning" type="button"
-                                                            id="res-btn">-</button>
-                                                        <input onchange="validacionInputStock()" onkeypress="return valideKey(event);"
-                                                            id="input-stock" name="input-stock" type="number" min="0"
+                                                        <button onclick="restarStock()" class="btn btn-outline-warning"
+                                                            type="button" id="res-btn">-</button>
+                                                        <input onchange="validacionInputStock()"
+                                                            onkeypress="return valideKey(event);" id="input-stock"
+                                                            name="input-stock" type="number" min="0"
                                                             class="form-control text-center" placeholder=""
-                                                            aria-label="Example text with button addon" aria-describedby="button-addon1"
-                                                            value="1">
-                                                        <button onclick="sumarStock()" class="btn btn-outline-warning" type="button"
-                                                            id="sum-btn">+</button>
+                                                            aria-label="Example text with button addon"
+                                                            aria-describedby="button-addon1" value="1">
+                                                        <button onclick="sumarStock()" class="btn btn-outline-warning"
+                                                            type="button" id="sum-btn">+</button>
                                                     </div>
-                                                    <button type="submit" class="carrito-button mx" id="btn-carrito">Añadir al
+                                                    <button type="submit" class="carrito-button mx"
+                                                        id="btn-carrito">Añadir al
                                                         carrito</button>
-                                                    <span class="destacado-icon heart-icon" data-bs-customClass="custom-tooltip"
-                                                        data-bs-toggle="tooltip" data-bs-placement="right" title="Añadir a WishList">
+                                                    <span class="destacado-icon heart-icon"
+                                                        data-bs-customClass="custom-tooltip" data-bs-toggle="tooltip"
+                                                        data-bs-placement="right" title="Añadir a WishList">
                                                         <i class="far fa-heart wish"></i></span>
                                                 </div>
                                             </div>
-                
+
                                             <div class="row mt-1">
-                                                <span class="left-stock">Queda(n) <span id="show-stock"></span> en stock</span>
+                                                <span class="left-stock">Queda(n) <span id="show-stock"></span> en
+                                                    stock</span>
                                             </div>
-                
+
                                             <div class="colores mt-2">
                                                 <select name="color" id="color" class="w-25 input"></select>
                                                 <!-- <i class="fa-solid fa-square color1"></i>

@@ -230,4 +230,21 @@ class Reseñas extends Validator
         $params = array($this->id);
         return Database::executeRow($sql, $params);
     }
+
+
+
+    public function productReview($value)
+    {
+        $sql = 'SELECT "idResena", c."avatar", c."nombresCliente", c."apellidosCliente", pr."nombreProducto", "tituloResena", "descripcionResena", "puntajeResena", "fechaResena", e."estado"
+                from "resena" as r inner join "cliente" as c using ("idCliente")
+                inner join "estado" as e on r."estado" = e."idEstado"
+                inner join "detallePedido" as dp on r."idDetalle" = dp."idDetallePedido"
+                inner join "colorStock" using ("idColorStock")
+                inner join "producto" as pr using ("idProducto")
+                where "idProducto" = ?
+                AND e.estado = ?
+                order by "fechaResena" desc';
+        $params = array($value, 'Activo');
+        return Database::getRows($sql, $params);
+    }
 }

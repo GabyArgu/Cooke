@@ -16,6 +16,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     //Inicializando tooltips
     $("body").tooltip({ selector: '[data-bs-toggle=tooltip]' });
+    showReviews(ID)
 })
 
 function checkOwlcarousel() {
@@ -364,4 +365,78 @@ function valideKey(evt) {
     } else { // other keys.
         return false;
     }
+}
+
+
+// Función para obtener y mostrar las categorías disponibles.
+function showReviews(id) {
+    const data = new FormData();
+    data.append('idProducto', id);
+    // Petición para solicitar los datos de las categorías.
+    fetch(API_CATALOGO + 'productReview', {
+        method: 'post',
+        body: data
+    }).then(function (request) {
+        // Se verifica si la petición es satisfactoria, de lo contrario se muestra un mensaje en la consola indicando el problema.
+        if (request.ok) {
+            // Se obtiene la respuesta en formato JSON.
+            request.json().then(function (response) {
+                // Se comprueba si la respuesta es correcta, de lo contrario se muestra un mensaje con la excepción.
+                if (response.status) {
+                    let content = '';
+                    // Se recorre el conjunto de registros devuelto por la API (dataset) fila por fila a través del objeto row.
+                    response.dataset.map(function (row) {
+                        // Se crean y concatenan las tarjetas con los datos de cada categoría.
+                        content += `
+                        <div class="detalle-resena-item">
+                            <div class="resena-img-content">
+                                <div class="resena-info p-3">
+                                    <div class="resena-header">
+                                        <div class="img-resena">
+                                            <img src="../../resources/img/reseña/resena4.jpg" alt=""
+                                                class="img d-inline">
+                                        </div>
+                                        <span class="resena-user mx-4">${row.nombresCliente + ' ' + row.apellidosCliente}</span>
+                                        <div class="stars-resena">
+                                            <span>
+                                                <i class="fa fa-star"></i>
+                                            </span>
+                                            <span>
+                                                <i class="fa fa-star"></i>
+                                            </span>
+                                            <span>
+                                                <i class="fa fa-star"></i>
+                                            </span>
+                                            <span>
+                                                <i class="fa fa-star"></i>
+                                            </span>
+                                            <span>
+                                                <i class="fa fa-star"></i>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <span href="#" class="resena-name d-block mt-3">${row.tituloResena}</span>
+                                    <span class="d-block mt-3">
+                                        <p>${row.descripcionResena}</p>
+                                    </span>
+                                    <div class="resena-autor-fecha">
+                                        <span class="resena-fecha"><i
+                                                class="fa-solid fa-calendar-days"></i>${row.fechaResena}</span>
+                                    </div>
+                                </div>
+                            </div>  
+                        </div>
+                        <hr>`;
+                    });
+                    // Se agregan las tarjetas a la etiqueta div mediante su id para mostrar las categorías.
+                    document.getElementById('reviews').innerHTML = content;
+                } else {
+                    // Se asigna al título del contenido un mensaje de error cuando no existen datos para mostrar.
+                    console.log(response.exception);
+                }
+            });
+        } else {
+            console.log(request.status + ' ' + request.statusText);
+        }
+    });
 }
