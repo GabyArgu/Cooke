@@ -369,6 +369,7 @@ body {
 .cd-item-remove {
     display: flex;
     align-items: flex-end;
+    cursor: pointer;
 }
 
 #cd-cart .quantity-badge {
@@ -675,6 +676,11 @@ body {
     position: relative;
     overflow: hidden;
     background-color: var(--marfil);
+}
+
+.product-img img{
+    width: 500px;
+    height: 325px;
 }
 
 .tags {
@@ -3154,13 +3160,14 @@ body {
     margin: auto;
 }
 
-.fa-trash-can {
+.controles button{
     color: var(--rosadoTitulos);
     cursor: pointer;
+    transition: all .2s ease;
 }
 
-.fa-trash-can:hover {
-    color: var(--rosadoOscuro);
+.controles button:hover{
+    color: var(--blanco);
 }
 
 .cart-btns {
@@ -3248,6 +3255,14 @@ firm-btn {
     margin-bottom: 20px;
 }
 
+
+.confirm-btn{
+    background-color: var(--rosadoTitulos);
+    border-radius: 5px;
+    padding: 10px 10px;
+    color: var(--blanco);
+    transition: all .3s ease;
+}
 .confirm-btn:hover {
     background-color: var(--rosadoOscuro);
     color: var(--blanco);

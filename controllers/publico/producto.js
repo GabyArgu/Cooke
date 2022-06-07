@@ -1,6 +1,5 @@
 // Constante para establecer la ruta y parámetros de comunicación con la API.
 const API_PRODUCTO = SERVER + 'public/productos.php?action=';
-const API_PEDIDOS = SERVER + 'public/pedidos.php?action=';
 const API_CATALOGO = SERVER + 'public/catalogo.php?action=';
 const ENDPOINT_COLOR = SERVER + 'public/catalogo.php?action=readColor';
 
@@ -12,22 +11,48 @@ document.addEventListener('DOMContentLoaded', function () {
     // Se llama a la función que muestra el detalle del producto seleccionado previamente.
     readOneProducto(ID);
     // Se llama a la función que muestra los productos destacados.
-    readDestacados();
-    checkOwlcarousel();
 
     //Inicializando tooltips
     $("body").tooltip({ selector: '[data-bs-toggle=tooltip]' });
+    showReviews(ID)
 })
 
-function checkOwlcarousel() {
-    setTimeout(function () {
-        if ($('.owl-carousel .active').is(':visible')) {
-            owlsliderfuction();
+
+
+// Método manejador de eventos que se ejecuta cuando se envía el formulario de agregar un producto al carrito.
+document.getElementById('carritoForm').addEventListener('submit', function (event) {
+    // Se evita recargar la página web después de enviar el formulario.
+    event.preventDefault();
+    // Petición para agregar un producto al pedido.
+    fetch(API_PEDIDOS + 'createDetail', {
+        method: 'post',
+        headers: {
+            "Access-Control-Allow-Origin" : "*", 
+            "Access-Control-Allow-Credentials" : true 
+        },
+        body: new FormData(document.getElementById('carritoForm'))
+    }).then(function (request) {
+        // Se verifica si la petición es correcta, de lo contrario se muestra un mensaje en la consola indicando el problema.
+        if (request.ok) {
+            // Se obtiene la respuesta en formato JSON.
+            request.json().then(function (response) {
+                // Se comprueba si la respuesta es satisfactoria, de lo contrario se constata si el cliente ha iniciado sesión.
+                if (response.status) {
+                    sweetAlert(1, response.message, 'carrito.html');
+                } else {
+                    // Se verifica si el cliente ha iniciado sesión para mostrar la excepción, de lo contrario se direcciona para que se autentique. 
+                    if (response.session) {
+                        sweetAlert(2, response.exception, null);
+                    } else {
+                        sweetAlert(3, response.exception, 'login.html');
+                    }
+                }
+            });
         } else {
-            checkOwlcarousel();
+            console.log(request.status + ' ' + request.statusText);
         }
-    }, 250);
-}
+    })
+});
 
 // Función para obtener y mostrar los datos del producto seleccionado.
 function readOneProducto(id) {
@@ -45,7 +70,8 @@ function readOneProducto(id) {
             request.json().then(function (response) {
                 // Se comprueba si la respuesta es satisfactoria, de lo contrario se muestra un mensaje con la excepción.
                 if (response.status) {
-                    // Se inicializan los campos del formulario con los datos del registro seleccionado.  
+                    // Se inicializan los campos del formulario con los datos del registro seleccionado.
+                    document.getElementById('idProducto').value = response.dataset.idProducto;  
                     document.getElementById('nombre').innerText = response.dataset.nombreProducto;
                     document.getElementById('marca').innerText = response.dataset.nombreMarca;
                     document.getElementById('precio').innerText = "$" + response.dataset.precioProducto;
@@ -64,90 +90,6 @@ function readOneProducto(id) {
                 } else {
                     // Se presenta un mensaje de error cuando no existen datos para mostrar.
                     document.getElementById('title').innerHTML = `${response.exception}`;
-                }
-            });
-        } else {
-            console.log(request.status + ' ' + request.statusText);
-        }
-    });
-}
-
-// Función para obtener y mostrar las categorías disponibles.
-function readDestacados() {
-    // Petición para solicitar los datos de las categorías.
-    fetch(API_PRODUCTO + 'readDestacados', {
-        method: 'get'
-    }).then(function (request) {
-        // Se verifica si la petición es satisfactoria, de lo contrario se muestra un mensaje en la consola indicando el problema.
-        if (request.ok) {
-            // Se obtiene la respuesta en formato JSON.
-            request.json().then(function (response) {
-                // Se comprueba si la respuesta es correcta, de lo contrario se muestra un mensaje con la excepción.
-                if (response.status) {
-                    let content = '';
-                    let url = '';
-                    // Se recorre el conjunto de registros devuelto por la API (dataset) fila por fila a través del objeto row.
-                    response.dataset.map(function (row) {
-                        // Se define una dirección con los datos de cada categoría para mostrar sus productos en otra página web.
-                        url = `producto.html?id=${row.idProducto}&nombre=${row.nombreProducto}`;
-                        // Se crean y concatenan las tarjetas con los datos de cada categoría.
-                        content += `
-                            <div class="col product-item mx-auto">
-                                <div class="product-img-content">
-                                    <div class="product-img">
-                                        <img src="${SERVER}images/productos/${row.imagenPrincipal}"
-                                            class="img-fluid d-block mx-auto">
-                                        <div class="tags">
-                                            <span class="tag-new">DESTACADO</span>
-                                            <span class="tag-discount">${row.descuento}%</span>
-                                        </div>
-                                        <div class="product-icons">
-                                            <span class="destacado-icon heart-icon custom-tooltip" data-bs-customClass="custom-tooltip"
-                                                data-bs-toggle="tooltip" data-bs-placement="left" title="Añadir a WishList">
-                                                <i class="far fa-heart wish"></i>
-                                            </span>
-                                            <span onclick="openShow(${row.idProducto})" type="button" class="destacado-icon custom-tooltip quickview-icon"
-                                                data-bs-toggle="tooltip" data-bs-placement="left" title="Quick View">
-                                                <i class="fa fa-magnifying-glass" type="button" data-bs-toggle="modal"
-                                                    data-bs-target="#modal-ver"></i>
-                                            </span>
-                                        </div>
-                                        <button type="button" class="col-6 py-2 text-center">
-                                            Añadir al carrito
-                                        </button>
-                                    </div>
-
-                                    <div class="product-info p-3">
-                                        <span class="product-name"><a href="producto.html?id=${row.idProducto}">${row.nombreProducto}</a></span>
-                                        <span class="product-price">$ ${row.precioProducto}</span>
-                                        <span class="product-before">$ ${String(parseFloat((row.precioProducto) * ((parseFloat(row.descuento) / 100) + 1.00)).toFixed(2))}</span>
-                                        <div class="rating d-flex mt-1">
-                                            <span>
-                                                <i class="fa fa-star"></i>
-                                            </span>
-                                            <span>
-                                                <i class="fa fa-star"></i>
-                                            </span>
-                                            <span>
-                                                <i class="fa fa-star"></i>
-                                            </span>
-                                            <span>
-                                                <i class="fa fa-star"></i>
-                                            </span>
-                                            <span>
-                                                <i class="fa fa-star"></i>
-                                            </span>
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>`;
-                    });
-                    // Se agregan las tarjetas a la etiqueta div mediante su id para mostrar las categorías.
-                    document.getElementById('owl0').innerHTML = content;
-                } else {
-                    // Se asigna al título del contenido un mensaje de error cuando no existen datos para mostrar.
-                    document.getElementById('destacados-title').innerText = `${response.exception}`;
                 }
             });
         } else {
@@ -194,34 +136,6 @@ function openShow(id) {
 }
 
 
-function owlsliderfuction() {
-    var owl = $('#owl0').owlCarousel({
-        loop: true,
-        margin: 5,
-        responsiveClass: true,
-        autoplay: true,
-        autoplayTimeout: 2500,
-        autoplayHoverPause: true,
-        nav: true,
-        dots: false,
-        responsive: {
-            0: {
-                items: 1,
-            },
-            768: {
-                items: 2,
-            },
-            1100: {
-                items: 3,
-            },
-            1400: {
-                items: 4,
-            }
-        }
-    });
-}
-
-
 
 $(".my-rating").starRating({
     totalStars: 5,
@@ -235,9 +149,10 @@ $(".my-rating").starRating({
     useGradient: false
 });
 
+
+//Funcion para asignar el atributo max del input max dinámicamente
 function setMaxStock(color) {
     let input = document.getElementById("input-stock");
-    let select = document.getElementById("color");
     let params = new URLSearchParams(location.search);
 
     // Se define un objeto con los datos del producto seleccionado.
@@ -267,39 +182,9 @@ function setMaxStock(color) {
             console.log(request.status + ' ' + request.statusText);
         }
     });
-
 }
 
-// Método manejador de eventos que se ejecuta cuando se envía el formulario de agregar un producto al carrito.
-document.getElementById('carrito-form').addEventListener('submit', function (event) {
-    // Se evita recargar la página web después de enviar el formulario.
-    event.preventDefault();
-    // Petición para agregar un producto al pedido.
-    fetch(API_PEDIDOS + 'createDetail', {
-        method: 'post',
-        body: new FormData(document.getElementById('shopping-form'))
-    }).then(function (request) {
-        // Se verifica si la petición es correcta, de lo contrario se muestra un mensaje en la consola indicando el problema.
-        if (request.ok) {
-            // Se obtiene la respuesta en formato JSON.
-            request.json().then(function (response) {
-                // Se comprueba si la respuesta es satisfactoria, de lo contrario se constata si el cliente ha iniciado sesión.
-                if (response.status) {
-                    sweetAlert(1, response.message, 'cart.html');
-                } else {
-                    // Se verifica si el cliente ha iniciado sesión para mostrar la excepción, de lo contrario se direcciona para que se autentique. 
-                    if (response.session) {
-                        sweetAlert(2, response.exception, null);
-                    } else {
-                        sweetAlert(3, response.exception, 'login.html');
-                    }
-                }
-            });
-        } else {
-            console.log(request.status + ' ' + request.statusText);
-        }
-    });
-});
+
 
 
 //Función para cambiar el atributo max del input-stock al cambiar de color en el select
@@ -359,4 +244,78 @@ function valideKey(evt) {
     } else { // other keys.
         return false;
     }
+}
+
+
+// Función para obtener y mostrar las categorías disponibles.
+function showReviews(id) {
+    const data = new FormData();
+    data.append('idProducto', id);
+    // Petición para solicitar los datos de las categorías.
+    fetch(API_CATALOGO + 'productReview', {
+        method: 'post',
+        body: data
+    }).then(function (request) {
+        // Se verifica si la petición es satisfactoria, de lo contrario se muestra un mensaje en la consola indicando el problema.
+        if (request.ok) {
+            // Se obtiene la respuesta en formato JSON.
+            request.json().then(function (response) {
+                // Se comprueba si la respuesta es correcta, de lo contrario se muestra un mensaje con la excepción.
+                if (response.status) {
+                    let content = '';
+                    // Se recorre el conjunto de registros devuelto por la API (dataset) fila por fila a través del objeto row.
+                    response.dataset.map(function (row) {
+                        // Se crean y concatenan las tarjetas con los datos de cada categoría.
+                        content += `
+                        <div class="detalle-resena-item">
+                            <div class="resena-img-content">
+                                <div class="resena-info p-3">
+                                    <div class="resena-header">
+                                        <div class="img-resena">
+                                            <img src="../../resources/img/reseña/resena4.jpg" alt=""
+                                                class="img d-inline">
+                                        </div>
+                                        <span class="resena-user mx-4">${row.nombresCliente + ' ' + row.apellidosCliente}</span>
+                                        <div class="stars-resena">
+                                            <span>
+                                                <i class="fa fa-star"></i>
+                                            </span>
+                                            <span>
+                                                <i class="fa fa-star"></i>
+                                            </span>
+                                            <span>
+                                                <i class="fa fa-star"></i>
+                                            </span>
+                                            <span>
+                                                <i class="fa fa-star"></i>
+                                            </span>
+                                            <span>
+                                                <i class="fa fa-star"></i>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <span href="#" class="resena-name d-block mt-3">${row.tituloResena}</span>
+                                    <span class="d-block mt-3">
+                                        <p>${row.descripcionResena}</p>
+                                    </span>
+                                    <div class="resena-autor-fecha">
+                                        <span class="resena-fecha"><i
+                                                class="fa-solid fa-calendar-days"></i>${row.fechaResena}</span>
+                                    </div>
+                                </div>
+                            </div>  
+                        </div>
+                        <hr>`;
+                    });
+                    // Se agregan las tarjetas a la etiqueta div mediante su id para mostrar las categorías.
+                    document.getElementById('reviews').innerHTML = content;
+                } else {
+                    // Se asigna al título del contenido un mensaje de error cuando no existen datos para mostrar.
+                    console.log(response.exception);
+                }
+            });
+        } else {
+            console.log(request.status + ' ' + request.statusText);
+        }
+    });
 }

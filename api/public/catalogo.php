@@ -5,6 +5,7 @@ require_once('../models/categorias_productos.php');
 require_once('../models/subcategoriapd.php');
 require_once('../models/productos.php');
 require_once('../models/colores.php');
+require_once('../models/resenas.php');
 
 // Se comprueba si existe una acción a realizar, de lo contrario se finaliza el script con un mensaje de error.
 if (isset($_GET['action'])) {
@@ -13,6 +14,7 @@ if (isset($_GET['action'])) {
     $producto = new Productos;
     $subcategoria = new Subcategoriapd;
     $colores = new ColorProducto;
+    $resena = new Reseñas;
     // Se declara e inicializa un arreglo para guardar el resultado que retorna la API.
     $result = array('status' => 0, 'message' => null, 'exception' => null);
     // Se compara la acción a realizar según la petición del controlador.
@@ -48,6 +50,28 @@ if (isset($_GET['action'])) {
                 $result['exception'] = 'No existen productos para mostrar';
             }
             break;
+        case 'search':
+                if (!$producto->setId($_POST['idSubcategoria'])) {
+                $result['exception'] = 'Subcategoría incorrecta';
+                } elseif ($result['dataset'] = $producto->searchRowsPublic($_POST['search'])) {
+                    $result['status'] = 1;
+                } elseif (Database::getException()) {
+                    $result['exception'] = Database::getException();
+                }else {
+                    $result['exception'] = 'No hay coincidencias';
+                }
+                break;
+        case 'filterPrecio':
+                if (!$producto->setId($_POST['idSubcategoria2'])) {
+                $result['exception'] = 'Subcategoría incorrecta';
+                } elseif ($result['dataset'] = $producto->filterPrecio($_POST['precio-min'], $_POST['precio-max'])) {
+                    $result['status'] = 1;
+                } elseif (Database::getException()) {
+                    $result['exception'] = Database::getException();
+                }else {
+                    $result['exception'] = 'No hay coincidencias';
+                }
+                break;
         case 'readOne':
             if (!$producto->setId($_POST['idProducto'])) {
                 $result['exception'] = 'Producto incorrecto';
@@ -81,6 +105,17 @@ if (isset($_GET['action'])) {
                 $result['exception'] = Database::getException();
             } else {
                 $result['exception'] = 'No hay datos registrados';
+            }
+            break;
+        case 'productReview':
+            if (!$resena->setId($_POST['idProducto'])) {
+                $result['exception'] = 'Producto incorrecto';
+            } elseif ($result['dataset'] = $resena->productReview($_POST['idProducto'])) {
+                $result['status'] = 1;
+            } elseif (Database::getException()) {
+                $result['exception'] = Database::getException();
+            } else {
+                $result['exception'] = 'No hay reseñas';
             }
             break;
         default:

@@ -37,7 +37,7 @@ class Marca extends Validator
 
     public function setImagen($file)
     {
-        if ($this->validateImageFile($file, 500, 500)) {
+        if ($this->validateImageFile($file, 1000, 1000)) {
             $this->imagen = $this->getFileName();
             return true;
         } else {
