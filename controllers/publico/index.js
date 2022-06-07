@@ -375,7 +375,6 @@ window.addEventListener('scroll', function () {
         if (window.pageYOffset > 86) {
             navbar.classList.add('shrink', 'shadow');
         } else {
-            console.log(navbar);
             if(!navbar.classList.contains("activado")){
                 navbar.classList.remove('shrink', 'shadow');
             }

@@ -194,16 +194,16 @@ if (isset($_GET['action'])) {
 
             case 'readOneShow':
                 if (!$cliente->setId($_POST['id'])) {
-                         $result['exception'] = 'Cliente incorrecto';
+                        $result['exception'] = 'Cliente incorrecto';
                 } elseif ($result['dataset'] = $cliente->readOneShow()) {
                         $result['status'] = 1;
                 } elseif (Database::getException()) {
-                         $result['exception'] = Database::getException();
+                        $result['exception'] = Database::getException();
                 } else {
                         $result['exception'] = 'Cliente inexistente';
                     }
                     break;   
-                         
+
             case 'logIn':
                 $_POST = $cliente->validateForm($_POST);
                 if (!$cliente->checkUser($_POST['correo'])) {
