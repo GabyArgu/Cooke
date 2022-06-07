@@ -319,7 +319,7 @@ class Cliente extends Validator
         $sql = 'UPDATE cliente
             SET "nombresCliente"=?, "apellidosCliente"=?, "duiCliente"=?, "correoCliente"=?, "telefonoCliente"=?, "nacimientoCliente"=?, "direccionCliente"=?, "estadoCliente"=?, avatar = ?
             WHERE "idCliente"=?;';
-            $params = array($this->nombres, $this->apellidos, $this->dui, $this->correo, $this->telefono, $this->nacimiento, $this->direccion, $this->estado, $this->foto, $this->id);
+            $params = array($this->nombres, $this->apellidos, $this->dui, $this->correo, $this->telefono, $this->nacimiento, $this->direccion, $this->estado, $this->foto, $_SESSION['idCliente']);
         return Database::executeRow($sql, $params);
     }
 
