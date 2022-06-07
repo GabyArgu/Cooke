@@ -360,7 +360,6 @@ $('#owl3').owlCarousel({
 window.addEventListener('scroll', function () {
     let navbar = document.getElementById('navbar-home');
     if (window.pageYOffset > 86) {
-        console.log(navbar);
         navbar.classList.add('shrink', 'shadow');
     } else {
         if(!navbar.classList.contains("activado")){
