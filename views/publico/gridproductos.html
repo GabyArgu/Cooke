@@ -104,21 +104,23 @@
                         </div>
                         <div class="row precio">
                             <h4>Precio</h4>
-                            <div class="col">
-                                <div class="row">
-                                    <div class="col col-5 p-0 ps-2">
-                                        <input type="text" class="form-control form-control-dark w-100 h-100" placeholder="Mín">
-                                    </div>
-                                    <div class="col col-5 p-0 ps-2">
-                                        <input type="text" class="form-control form-control-dark w-100 h-100" placeholder="Max">
-                                    </div>
-                                    <div class="col col-6 p-0 ps-2 d-flex justify-content-start mt-2">
-                                        <button class="btn btn-outline-warning">Reiniciar</button>
-                                        <button class="btn btn-outline-warning ms-2"><i class="fa-solid fa-magnifying-glass"></i></button>
+                            <form id="filterPrecio" method="post">
+                                <div class="col">
+                                    <input type="hidden" id="idSubcategoria2" name="idSubcategoria2">
+                                    <div class="row">
+                                        <div class="col col-5 p-0 ps-2">
+                                            <input id="precio-min" onkeypress="return valideKey(event);" name="precio-min" type="text" class="form-control form-control-dark w-100 h-100" placeholder="Mín">
+                                        </div>
+                                        <div class="col col-5 p-0 ps-2">
+                                            <input id="precio-max" onkeypress="return valideKey(event);" name="precio-max" type="text" class="form-control form-control-dark w-100 h-100" placeholder="Max">
+                                        </div>
+                                        <div class="col col-6 p-0 ps-2 d-flex justify-content-start mt-2">
+                                            <button id="refreshPrecio" type="button" class="btn btn-outline-warning">Reiniciar</button>
+                                            <button type="submit" form="filterPrecio" class="btn btn-outline-warning ms-2"><i class="fa-solid fa-magnifying-glass"></i></button>
+                                        </div>
                                     </div>
                                 </div>
-
-                            </div>
+                            </form>
                         </div>
                         <div class="row">
                             <div class="col-10">
@@ -177,7 +179,7 @@
         </main>
         <!-- FIN DEL MAIN DE LA PÁGINA-->
 
-        <!-- INICIO MODAL DE DETALLE DE EL PRODUCTO -->
+        <!-- Modal -->
         <div class="modal fade" id="modal-ver" tabindex="-1" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-xl">
@@ -242,36 +244,43 @@
                                         quaerat! Cupiditate dolore aut repudiandae asperiores.</p>
                                 </div>
                                 <hr>
-                                <div class="row cantidad-row justify-content-start">
-                                    <span class="mb-2">Cantidad</span>
-                                    <div class="col-12 añadir-boton">
-                                        <div class="input-group ">
-                                            <button class="btn btn-outline-warning" type="button"
-                                                id="button-addon1">-</button>
-                                            <input id="input-stock" type="text" class="form-control text-center" placeholder="1"
-                                                aria-label="Example text with button addon"
-                                                aria-describedby="button-addon1">
-                                            <button class="btn btn-outline-warning" type="button"
-                                                id="button-addon1">+</button>
+                                <form class="row" method="post" id="carritoForm">
+                                    <input type="hidden" id="idProducto" name="idProducto">
+                                    <div class="row cantidad-row justify-content-start">
+                                        <!-- Campo oculto para asignar el id del producto -->
+                                        <span class="mb-2">Cantidad</span>
+                                        <div class="col-12 añadir-boton">
+                                            <div class="input-group ">
+                                                <button onclick="restarStock()" class="btn btn-outline-warning" type="button"
+                                                    id="res-btn">-</button>
+                                                <input onchange="validacionInputStock()" onkeypress="return valideKey(event);"
+                                                    id="input-stock" name="input-stock" type="number" min="0"
+                                                    class="form-control text-center" placeholder=""
+                                                    aria-label="Example text with button addon" aria-describedby="button-addon1"
+                                                    value="1">
+                                                <button onclick="sumarStock()" class="btn btn-outline-warning" type="button"
+                                                    id="sum-btn">+</button>
+                                            </div>
+                                            <button type="submit" class="carrito-button mx" id="btn-carrito">Añadir al
+                                                carrito</button>
+                                            <span class="destacado-icon heart-icon" data-bs-customClass="custom-tooltip"
+                                                data-bs-toggle="tooltip" data-bs-placement="right" title="Añadir a WishList">
+                                                <i class="far fa-heart wish"></i></span>
                                         </div>
-                                        <button class="carrito-button mx">Añadir al carrito</button>
-                                        <span class="destacado-icon heart-icon"
-                                            data-bs-customClass="custom-tooltip" data-bs-toggle="tooltip"
-                                            data-bs-placement="right" title="Añadir a WishList">
-                                            <i class="far fa-heart wish"></i></span>
                                     </div>
-                                </div>
-                                <div class="row mt-1">
-                                    <span class="left-stock">Queda(n) <span id="show-stock"></span> en stock</span>
-                                </div>
-
-                                <div class="colores mt-2">
-                                    <select name="color" id="color" class="w-25 input"></select>
-                                    <!-- <i class="fa-solid fa-square color1"></i>
+        
+                                    <div class="row mt-1">
+                                        <span class="left-stock">Queda(n) <span id="show-stock"></span> en stock</span>
+                                    </div>
+        
+                                    <div class="colores mt-2">
+                                        <select name="color" id="color" class="w-25 input"></select>
+                                        <!-- <i class="fa-solid fa-square color1"></i>
                                     <i class="fa-solid fa-square color2"></i>
                                     <i class="fa-solid fa-square color3"></i>
                                     <i class="fa-solid fa-square color4"></i> -->
-                                </div>
+                                    </div>
+                                </form>
                                 <div class="cat">
                                     <h5>Categorías</h5>
                                     <span id="show-subcategoria"></span>
@@ -283,6 +292,7 @@
             </div>
         </div>
     </div>
+    <!-- FIN Modal -->
         <!-- FIN MODAL DE DETALLE DE EL PRODUCTO -->
 
         <!-- INICIO DEL FOOTER DE LA PÁGINA -->

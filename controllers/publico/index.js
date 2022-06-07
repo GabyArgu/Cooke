@@ -135,6 +135,7 @@ function readDestacados() {
     });
 }
 
+//Método para añadir al carrito sin entrar al producto
 function addToCar(id){
     const data = new FormData();
     data.append('idColorStock', id);
