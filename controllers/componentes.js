@@ -467,7 +467,15 @@ function fillSelectProducto(endpoint, select, selected, id) {
     });
 }
 
-
+//Validacion para que no acepte numeros
+$("input.nombre").bind('keypress', function(event) {
+    var regex = new RegExp("/^[a-zA-ZÀ-ÿ\u00f1\u00d1]+(\s*[a-zA-ZÀ-ÿ\u00f1\u00d1]*)*[a-zA-ZÀ-ÿ\u00f1\u00d1]+$/g;");
+    var key = String.fromCharCode(!event.charCode ? event.which : event.charCode);
+    if (!regex.test(key)) {
+      event.preventDefault();
+      return false;
+    }
+  });
 
 
 // Función para mostrar un mensaje de confirmación al momento de cerrar sesión.
