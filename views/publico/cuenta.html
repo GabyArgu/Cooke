@@ -155,8 +155,8 @@
                                         <h5> <b>Dui: </b><span id="dui-cliente"></span> </h5>
                                     </div>
                                     <div class="col-sm-12 col-md-6 col-lg-4 mt-0">
-                                        <a onclick="openUpdate()" class="a-edi" data-bs-toggle="modal"
-                                            data-bs-target="#staticBackdrop" href="#staticBackdrop"><img
+                                        <a onclick="openUpdate()" class="a-edi" type="button"
+                                        data-bs-toggle="modal" data-bs-target="#save-modal"><img
                                                 src="../../resources/img/usuario/editar.png" alt="">
                                             Editar</a>
                                     </div>
@@ -171,18 +171,18 @@
             </div>
 
             <!-- Modal editar cuenta -->
-            <div class="modal modal-agregar modal-agregar-cliente fade" id="staticBackdrop" data-bs-backdrop="static"
-                data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal modal-agregar modal-agregar-cliente fade" id="save-modal" tabindex="-1"
+            aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered modal-xl">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="staticBackdropLabel">Editar información</h5>
+                            <h5 class="modal-title">Editar información</h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
                             <div class="container">
                                 <div class="row agregar-content">
-                                    <form class="row justify-content-center" id="save-form">
+                                    <form class="row justify-content-center" method="post" id="save-form">
                                         <div class="col-10 mt-4 d-flex justify-content-around">
                                             <div class="input-group LlenarIG">
                                                 <div class="input-group-prepend">
@@ -281,7 +281,7 @@
                             </div>
                         </div>
                         <div class="modal-footer d-flex justify-content-end">
-                            <button class="AAceptar" type="submit" form="save-form">Guardar</i></button>
+                            <button class="AAceptar" type="submit" form="save-form" >Guardar</i></button>
                         </div>
                     </div>
                 </div>

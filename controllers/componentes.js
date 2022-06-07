@@ -221,10 +221,9 @@ function saveRow2(api, action, form, modal) {
                 // Se comprueba si la respuesta es satisfactoria, de lo contrario se muestra un mensaje con la excepción.
                 if (response.status) {
                     // Se cierra la caja de dialogo (modal) del formulario.
-                    //$(modal).modal('hide');
-                    var myModalEl = document.getElementById(modal);
-                    var modalIns = bootstrap.Modal.getInstance(myModalEl)
-                    modalIns.hide();
+                    // $(modal).modal('hide');
+                    
+                    
                     //M.Modal.getInstance(document.getElementById(modal)).close();
                     // Se cargan nuevamente las filas en la tabla de la vista después de guardar un registro y se muestra un mensaje de éxito.
                     readRows2(api);
@@ -250,6 +249,7 @@ function saveRow3(api, action, form, modal) {
             request.json().then(function (response) {
                 // Se comprueba si la respuesta es satisfactoria, de lo contrario se muestra un mensaje con la excepción.
                 if (response.status) {
+                    $(`#${modal}`).modal('hide');
                     sweetAlert(1, response.message, null);
                 } else {
                     sweetAlert(2, response.exception, null);
