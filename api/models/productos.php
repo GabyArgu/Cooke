@@ -271,6 +271,26 @@ class Productos extends Validator
         return Database::getRows($sql, $params);
     }
 
+    public function searchRowsPublic($value)
+    {
+        $sql = 'SELECT Distinct on ("idProducto") "idProducto", "imagenPrincipal", "nombreProducto", "descripcionProducto", "precioProducto", descuento, "estadoProducto", "idColorStock", "idColor", p."idSubCategoriaP"
+        FROM producto as p INNER JOIN "marca" USING("idMarca") INNER JOIN "colorStock" USING("idProducto")
+		WHERE ("nombreProducto" ILIKE ? OR "nombreMarca" ILIKE ?) AND "idSubCategoriaP" = ? AND "estadoProducto" = 1 
+		ORDER BY "idProducto"';
+        $params = array("%$value%", "%$value%", $this->id);
+        return Database::getRows($sql, $params);
+    }
+
+    public function filterPrecio($min, $max)
+    {
+        $sql = 'SELECT Distinct on ("idProducto") "idProducto", "imagenPrincipal", "nombreProducto", "descripcionProducto", "precioProducto", descuento, "estadoProducto", "idColorStock", "idColor", p."idSubCategoriaP"
+        FROM producto as p INNER JOIN "marca" USING("idMarca") INNER JOIN "colorStock" USING("idProducto")
+		WHERE  "idSubCategoriaP" = ? AND "estadoProducto" = 1 AND "precioProducto" BETWEEN ? AND ?
+		ORDER BY "idProducto"';
+        $params = array($this->id, $min, $max);
+        return Database::getRows($sql, $params);
+    }
+
     /* CREATE */
     public function createRow()
     {
@@ -344,9 +364,9 @@ class Productos extends Validator
 
     public function readProductosSubcategoria()
     {
-        $sql = 'SELECT "idProducto", "imagenPrincipal", "nombreProducto", "descripcionProducto", "precioProducto", descuento
-        FROM producto 
-		WHERE "idSubCategoriaP" = ? AND "estadoProducto" = 1
+        $sql = 'SELECT Distinct on ("idProducto") "idProducto", "imagenPrincipal", "nombreProducto", "descripcionProducto", "precioProducto", descuento, ep."estadoProducto", "idColorStock", "idColor", p."idSubCategoriaP"
+        FROM producto as p inner join "estadoProducto" as ep on p."estadoProducto" = ep."idEstadoProducto" INNER JOIN "colorStock" USING("idProducto")
+		WHERE "idSubCategoriaP" = ? AND p."estadoProducto" = 1
 		ORDER BY "idProducto"';
         $params = array($this->id);
         return Database::getRows($sql, $params);
