@@ -678,6 +678,11 @@ body {
     background-color: var(--marfil);
 }
 
+.product-img img{
+    max-width: 500px;
+    max-height: 300px;
+}
+
 .tags {
     position: absolute;
     top: 0;
