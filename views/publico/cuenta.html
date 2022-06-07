@@ -99,9 +99,7 @@
                         <button class="nav-link" id="v-pills-profile-tab" data-bs-toggle="pill"
                             data-bs-target="#v-pills-profile" type="button" role="tab" aria-controls="v-pills-profile"
                             aria-selected="false">INFORMACIÓN</button>
-                        <button class="nav-link" id="v-pills-messages-tab" data-bs-toggle="pill"
-                            data-bs-target="#v-pills-messages" type="button" role="tab" aria-controls="v-pills-messages"
-                            aria-selected="false"> <a href="login.html">CERRAR SESIÓN</a> </button>
+
                     </div>
                     <div class="tab-content" id="v-pills-tabContent">
                         <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel"
@@ -127,38 +125,39 @@
                             <div class="container-fluid justify-content-center align-items-center" id="Cuenta-table">
                                 <div class="row">
                                     <div class="col-sm-12 col-md-6 col-lg-4 usu-img">
-                                        <img src="../../resources/img/usuario/usuario.png" alt="">
+                                        <img id="avatar-cliente" class="avatar-cliente"
+                                            src="../../resources/img/usuario/usuario.png" alt="">
                                     </div>
                                     <div
                                         class="col-sm-12 col-md-6 col-lg-8 mt-4 usu-d d-flex align-items-start justify-content-center flex-column">
-                                        <h5><b>Teléfono:</b> (+503) 7690-1760</h5>
-                                        <h5 class="mt-4"> <b>Correo:</b> 20170573@ricaldone.edu.sv</h5>
-                                        <h5 class="mt-4"> <b>Dirección:</b> Av Santisima Trinidad pol 7 pj 10 casa #3
+                                        <h5><b>Teléfono: </b><span id="telefono-cliente"></span></h5>
+                                        <h5 class="mt-4"><b>Correo: </b><span id="correo-cliente"></span></h5>
+                                        <h5 class="mt-4"> <b>Dirección: </b><span id="direccion-cliente"></span>
                                         </h5>
                                     </div>
                                 </div>
                                 <div class="row mt-4">
                                     <div class="col-sm-12 col-md-6 col-lg-4">
-                                        <h5> <b>Alias:</b> Gabriela Méndez</h5>
+                                        <h5> <b>Alias: </b><span id="alias-cliente"></span></h5>
                                     </div>
                                     <div class="col-sm-12 col-md-6 col-lg-4">
-                                        <h5> <b>Nombres:</b> Gabriela Susana</h5>
+                                        <h5> <b>Nombres: </b><span id="nombres-cliente"></span></h5>
                                     </div>
                                     <div class="col-sm-12 col-md-6 col-lg-4">
-                                        <h5> <b>Apellidos:</b> Méndez Barrera</h5>
+                                        <h5> <b>Apellidos: </b><span id="apellidos-cliente"></span></h5>
                                     </div>
                                 </div>
                                 <div class="row mt-4">
                                     <div class="col-sm-12 col-md-6 col-lg-4">
-                                        <h5> <b>Cumpleaños:</b> 18-08-2003</h5>
+                                        <h5> <b>Cumpleaños: </b><span id="nacimiento-cliente"></span> </h5>
                                     </div>
                                     <div class="col-sm-12 col-md-6 col-lg-4">
-                                        <h5> <b>Dui:</b> 12345678-0</h5>
+                                        <h5> <b>Dui: </b><span id="dui-cliente"></span> </h5>
                                     </div>
                                     <div class="col-sm-12 col-md-6 col-lg-4 mt-0">
-                                        <a class="a-edi" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
-                                            href="#staticBackdrop"><img src="../../resources/img/usuario/editar.png"
-                                                alt="">
+                                        <a onclick="openUpdate()" class="a-edi" data-bs-toggle="modal"
+                                            data-bs-target="#staticBackdrop" href="#staticBackdrop"><img
+                                                src="../../resources/img/usuario/editar.png" alt="">
                                             Editar</a>
                                     </div>
                                 </div>
@@ -190,9 +189,9 @@
                                                     <span class="input-group-text SLcorreo SCimg"
                                                         id="inputGroupPrepend2"></span>
                                                 </div>
-                                                <input type="text" class="form-control Lcorreo" id="nombres"
+                                                <input type="text"  class="form-control Lcorreo" id="nombres"
                                                     name="nombres" placeholder="Escribe tus nombres"
-                                                    aria-describedby="inputGroupPrepend2" required>
+                                                    aria-describedby="inputGroupPrepend2"  pattern="^[a-zA-ZÀ-ÿ\u00f1\u00d1]+(\s*[a-zA-ZÀ-ÿ\u00f1\u00d1]*)*[a-zA-ZÀ-ÿ\u00f1\u00d1]+$" required >
                                             </div>
                                             <div class="input-group">
                                                 <div class="input-group-prepend">
@@ -212,7 +211,7 @@
                                                 </div>
                                                 <input type="text" class="form-control Lcorreo" id="apellidos"
                                                     name="apellidos" placeholder="Escribe tus apellidos"
-                                                    aria-describedby="inputGroupPrepend2" required>
+                                                    aria-describedby="inputGroupPrepend2" pattern="^[a-zA-ZÀ-ÿ\u00f1\u00d1]+(\s*[a-zA-ZÀ-ÿ\u00f1\u00d1]*)*[a-zA-ZÀ-ÿ\u00f1\u00d1]+$" required>
                                             </div>
                                             <div class="input-group">
                                                 <div class="input-group-prepend">
@@ -241,7 +240,7 @@
                                                 </div>
                                                 <input type="text" class="form-control Lcorreo" id="direccion"
                                                     name="direccion" placeholder="Escribe tu dirreción"
-                                                    aria-describedby="inputGroupPrepend2" required>
+                                                    aria-describedby="inputGroupPrepend2" pattern="^[a-zA-ZÀ-ÿ\u00f1\u00d1]+(\s*[a-zA-ZÀ-ÿ\u00f1\u00d1]*)*[a-zA-ZÀ-ÿ\u00f1\u00d1]+$" required>
                                             </div>
                                         </div>
                                         <div class="col-10 mt-4 d-flex justify-content-around">
@@ -264,12 +263,25 @@
                                                     aria-describedby="inputGroupPrepend2" required>
                                             </div>
                                         </div>
-                                        <div class="modal-footer d-flex justify-content-end">
-                                            <button class="AAceptar" type="submit" form="save-form">Guardar</i></button>
+                                        <div class="col-10 mt-4 d-flex justify-content-center">
+                                                <div class="row">
+                                                    <div class="col col-10">
+                                                        <select class="form-select form-controlcustom-form-select h-100 w-100"
+                                                            aria-label="Default select example" id="foto" name="foto"
+                                                            onchange="changeAvatar()">
+                                                        </select>
+                                                    </div>
+                                                    <div class="col col-2">
+                                                        <img id="imagen-avatar" class="avatar-cliente-modal" src="" alt="">
+                                                    </div>
+                                                </div>
                                         </div>
                                     </form>
                                 </div>
                             </div>
+                        </div>
+                        <div class="modal-footer d-flex justify-content-end">
+                            <button class="AAceptar" type="submit" form="save-form">Guardar</i></button>
                         </div>
                     </div>
                 </div>
