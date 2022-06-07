@@ -21,6 +21,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 // Se comprueba si el usuario está autenticado para establecer el encabezado respectivo.
                 if (response.session) {
                     if (archivo.classList.contains("inicio")){
+                        //
                         header = `
                         <nav class="navbar fixed-top navbar-expand-lg navbar-light menu" id="navbar-home">
                         <div class=" container-fluid">
@@ -41,10 +42,10 @@ document.addEventListener('DOMContentLoaded', function () {
                                             Categorías
                                         </a>
                                         <ul class="dropdown-menu dropdown-categorias" aria-labelledby="navbarDropdownMenuLink">
-                                            <li><a class="dropdown-item categoria-cocina" href="">Cocina</a></li>
-                                            <li><a class="dropdown-item categoria-utensilios" href="">Utensilios</a></li>
-                                            <li><a class="dropdown-item categoria-electrodomesticos" href="">Eléctrodomesticos</a></li>
-                                            <li><a class="dropdown-item categoria-recetas" href="">Recetas</a></li>
+                                            <li><a class="dropdown-item categoria-cocina" href="categoria.html?id=1&nombre=Cocina">Cocina</a></li>
+                                            <li><a class="dropdown-item" href="categoria.html?id=2&nombre=Utensilios">Utensilios</a></li>
+                                            <li><a class="dropdown-item" href="categoria.html?id=3&nombre=Electrodomésticos">Eléctrodomesticos</a></li>
+                                            <li><a class="dropdown-item" href="categoria.html?id=4&nombre=Recetas">Recetas</a></li>
                                         </ul>
                                     </li>
                                     <li class="nav-item textcolor2">
@@ -115,10 +116,10 @@ document.addEventListener('DOMContentLoaded', function () {
                                             Categorías
                                         </a>
                                         <ul class="dropdown-menu dropdown-categorias" aria-labelledby="navbarDropdownMenuLink">
-                                            <li><a class="dropdown-item categoria-cocina" href="">Cocina</a></li>
-                                            <li><a class="dropdown-item categoria-utensilios" href="">Utensilios</a></li>
-                                            <li><a class="dropdown-item categoria-electrodomesticos" href="">Eléctrodomesticos</a></li>
-                                            <li><a class="dropdown-item categoria-recetas" href="">Recetas</a></li>
+                                            <li><a class="dropdown-item categoria-cocina" href="categoria.html?id=1&nombre=Cocina">Cocina</a></li>
+                                            <li><a class="dropdown-item" href="categoria.html?id=2&nombre=Utensilios">Utensilios</a></li>
+                                            <li><a class="dropdown-item" href="categoria.html?id=3&nombre=Electrodomésticos">Eléctrodomesticos</a></li>
+                                            <li><a class="dropdown-item" href="categoria.html?id=4&nombre=Recetas">Recetas</a></li>
                                         </ul>
                                     </li>
                                     <li class="nav-item textcolor2">
@@ -192,10 +193,10 @@ document.addEventListener('DOMContentLoaded', function () {
                                             Categorías
                                         </a>
                                         <ul class="dropdown-menu dropdown-categorias" aria-labelledby="navbarDropdownMenuLink">
-                                            <li><a class="dropdown-item categoria-cocina" href="">Cocina</a></li>
-                                            <li><a class="dropdown-item categoria-utensilios" href="">Utensilios</a></li>
-                                            <li><a class="dropdown-item categoria-electrodomesticos" href="">Eléctrodomesticos</a></li>
-                                            <li><a class="dropdown-item categoria-recetas" href="">Recetas</a></li>
+                                            <li><a class="dropdown-item categoria-cocina" href="categoria.html?id=1&nombre=Cocina">Cocina</a></li>
+                                            <li><a class="dropdown-item" href="categoria.html?id=2&nombre=Utensilios">Utensilios</a></li>
+                                            <li><a class="dropdown-item" href="categoria.html?id=3&nombre=Electrodomésticos">Eléctrodomesticos</a></li>
+                                            <li><a class="dropdown-item" href="categoria.html?id=4&nombre=Recetas">Recetas</a></li>
                                         </ul>
                                     </li>
                                     <li class="nav-item textcolor2">
@@ -257,10 +258,10 @@ document.addEventListener('DOMContentLoaded', function () {
                                             Categorías
                                         </a>
                                         <ul class="dropdown-menu dropdown-categorias" aria-labelledby="navbarDropdownMenuLink">
-                                            <li><a class="dropdown-item categoria-cocina" href="">Cocina</a></li>
-                                            <li><a class="dropdown-item categoria-utensilios" href="">Utensilios</a></li>
-                                            <li><a class="dropdown-item categoria-electrodomesticos" href="">Eléctrodomesticos</a></li>
-                                            <li><a class="dropdown-item categoria-recetas" href="">Recetas</a></li>
+                                            <li><a class="dropdown-item categoria-cocina" href="categoria.html?id=1&nombre=Cocina">Cocina</a></li>
+                                            <li><a class="dropdown-item" href="categoria.html?id=2&nombre=Utensilios">Utensilios</a></li>
+                                            <li><a class="dropdown-item" href="categoria.html?id=3&nombre=Electrodomésticos">Eléctrodomesticos</a></li>
+                                            <li><a class="dropdown-item" href="categoria.html?id=4&nombre=Recetas">Recetas</a></li>
                                         </ul>
                                     </li>
                                     <li class="nav-item textcolor2">

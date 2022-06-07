@@ -48,6 +48,28 @@ if (isset($_GET['action'])) {
                 $result['exception'] = 'No existen productos para mostrar';
             }
             break;
+        case 'search':
+                if (!$producto->setId($_POST['idSubcategoria'])) {
+                $result['exception'] = 'Subcategoría incorrecta';
+                } elseif ($result['dataset'] = $producto->searchRowsPublic($_POST['search'])) {
+                    $result['status'] = 1;
+                } elseif (Database::getException()) {
+                    $result['exception'] = Database::getException();
+                }else {
+                    $result['exception'] = 'No hay coincidencias';
+                }
+                break;
+        case 'filterPrecio':
+                if (!$producto->setId($_POST['idSubcategoria2'])) {
+                $result['exception'] = 'Subcategoría incorrecta';
+                } elseif ($result['dataset'] = $producto->filterPrecio($_POST['precio-min'], $_POST['precio-max'])) {
+                    $result['status'] = 1;
+                } elseif (Database::getException()) {
+                    $result['exception'] = Database::getException();
+                }else {
+                    $result['exception'] = 'No hay coincidencias';
+                }
+                break;
         case 'readOne':
             if (!$producto->setId($_POST['idProducto'])) {
                 $result['exception'] = 'Producto incorrecto';

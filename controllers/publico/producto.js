@@ -273,7 +273,6 @@ $(".my-rating").starRating({
 //Funcion para asignar el atributo max del input max dinámicamente
 function setMaxStock(color) {
     let input = document.getElementById("input-stock");
-    let select = document.getElementById("color");
     let params = new URLSearchParams(location.search);
 
     // Se define un objeto con los datos del producto seleccionado.
