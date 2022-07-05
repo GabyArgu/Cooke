@@ -14,7 +14,7 @@ class Database
     {
         // Credenciales para establecer la conexión con la base de datos.
         $server = 'localhost';
-        $database = 'dbCooke';
+        $database = 'dbcooke';
         $username = 'postgres';
         $password = 'admin';
 
@@ -195,7 +195,7 @@ class Database
                 self::$error = 'Nombre de tabla desconocido';
                 break;
             case '23503':
-                self::$error = 'Registro ocupado, no se puede eliminar';
+                self::$error = $message;
                 break;
             default:
                 self::$error;

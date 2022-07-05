@@ -26,10 +26,6 @@ document.getElementById('carritoForm').addEventListener('submit', function (even
     // Petición para agregar un producto al pedido.
     fetch(API_PEDIDOS + 'createDetail', {
         method: 'post',
-        headers: {
-            "Access-Control-Allow-Origin" : "*", 
-            "Access-Control-Allow-Credentials" : true 
-        },
         body: new FormData(document.getElementById('carritoForm'))
     }).then(function (request) {
         // Se verifica si la petición es correcta, de lo contrario se muestra un mensaje en la consola indicando el problema.
@@ -97,6 +93,7 @@ function readOneProducto(id) {
         }
     });
 }
+\
 
 // Función para preparar el formulario al momento de visualizar un registro.
 function openShow(id) {
@@ -319,3 +316,59 @@ function showReviews(id) {
         }
     });
 }
+
+// Función para obtener y mostrar las categorías disponibles.
+function doReview() {
+
+    swal({
+        title: 'Aviso',
+        text: '¿Está seguro de realizar la reseña pedido?',
+        icon: 'info',
+        buttons: ['No', 'Sí'],
+        closeOnClickOutside: false,
+        closeOnEsc: false
+    }).then(function (value) {
+        // Se verifica si fue cliqueado el botón Sí para realizar la petición respectiva, de lo contrario se muestra un mensaje.
+        if (value) {
+            // Se define un objeto con los datos del producto seleccionado.
+            // Petición para finalizar el pedido en proceso.
+            fetch(API_CATALOGO + 'doReview', {
+                method: 'post',
+                body: new FormData(document.getElementById('reviewForm'))
+            }).then(function (request) {
+                // Se verifica si la petición es correcta, de lo contrario se muestra un mensaje en la consola indicando el problema.
+                if (request.ok) {
+                    request.json().then(function (response) {
+                        // Se comprueba si la respuesta es satisfactoria, de lo contrario se muestra un mensaje con la excepción.
+                        if (response.status) {
+                            sweetAlert(1, response.message, null);
+                        } else {
+                            sweetAlert(2, response.exception, null);
+                        }
+                    });
+                } else {
+                    console.log(request.status + ' ' + request.statusText);
+                }
+            });
+        } else {
+            sweetAlert(4, 'Puede seguir comprando', null);
+        }
+    });
+
+}
+
+
+document.getElementById('btnResena').addEventListener('click', function () {
+    let params = new URLSearchParams(location.search);
+    const ID = params.get('id');
+    document.getElementById("idProductoResena").value = ID;
+});
+
+document.getElementById('reviewForm').addEventListener('submit', function (event) {
+    
+    event.preventDefault();
+    // Se obtienen los datos localizados por medio de las variables.
+    
+    doReview();
+    $(`#exampleModal1`).modal('hide');
+});
