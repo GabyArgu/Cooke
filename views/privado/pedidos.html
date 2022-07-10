@@ -163,7 +163,7 @@
                                 <table class="table table-bordered table-pedidos" id="table-pedidos">
                                     <thead>
                                         <tr>
-                                            <th>Identificador</th>
+                                            <th>Pedido No.</th>
                                             <th>Cliente</th>
                                             <th>Fecha</th>
                                             <th>Monto Total</th>
@@ -277,36 +277,36 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body p-5 pt-2">
-                    <form id="update-form" method="post">
-                        <div class="container">
-                            <div class="row info-detalle-content">
-                                <div class="col-12 hijo-detallepedido p-3 mb-5">
-                                    <h3 class="text-center fw-bold" id="title-items-u"></h3>
-                                    <div class="table-responsive mt-3 table-wrapper" id="no-more-tables">
-                                        <table class="table table-bordered table-pedidos">
-                                            <thead>
-                                                <tr>
-                                                    <th>Producto</th>
-                                                    <th>Precio</th>
-                                                    <th>Cantidad</th>
-                                                    <th>Subtotal</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody id="tbody-rows-update">
-                                        </table>
-                                    </div>
+                    <div class="container">
+                        <div class="row info-detalle-content">
+                            <div class="col-12 hijo-detallepedido p-3 mb-5">
+                                <h3 class="text-center fw-bold" id="title-items-u"></h3>
+                                <div class="table-responsive mt-3 table-wrapper" id="no-more-tables">
+                                    <table class="table table-bordered table-pedidos">
+                                        <thead>
+                                            <tr>
+                                                <th>Producto</th>
+                                                <th>Precio</th>
+                                                <th>Cantidad</th>
+                                                <th>Subtotal</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="tbody-rows-update">
+                                    </table>
                                 </div>
                             </div>
+                        </div>
 
-                            <div class="row gx-5">
+                        <div class="row gx-5">
 
-                                <div class="col-12">
-                                    <div class="row row-bottom-pedido">
-                                        <div class="col-lg-4 hijo-detallepedido p-3">
-                                            <h4 class="text-center fw-bold" id="pedido-title-u"></h4>
+                            <div class="col-12">
+                                <div class="row row-bottom-pedido">
+                                    <div class="col-lg-4 hijo-detallepedido p-3">
+                                        <h4 class="text-center fw-bold" id="pedido-title-u"></h4>
+                                        <form id="update-form" method="post">
                                             <div class="cd-cart-total">
-                                                <p class="card-total-line fw-bold">ID Pedido<span class="fw-normal"
-                                                        id="id-u"></span></p>
+                                                <p class="card-total-line fw-bold">ID Pedido<input class="fw-normal text-end bg-transparent border-0"
+                                                        id="id-u" name="id-u" readonly></p>
                                                 <p class="card-total-line fw-bold">Fecha<span class="fw-normal"
                                                         id="fecha-u"></span></p>
                                                 <p class="card-total-line fw-bold">Estado<select
@@ -317,36 +317,36 @@
                                                 <p class="card-total-line fw-bold">Pago<span class="fw-normal"
                                                         id="pago-u"></span></p>
                                             </div> <!-- cd-cart-total -->
-                                        </div>
-                                        <div class="col-lg-4 hijo-detallepedido p-3">
-                                            <h4 class="text-center fw-bold" id="envio-title-u"></h4>
-                                            <div class="cd-cart-total mt-4">
-                                                <p class="card-total-line fw-bold">Cliente<span
-                                                        class="fw-normal text-end" id="cliente-u"></span></p>
-                                                <p class="card-total-line fw-bold">Dirección<span
-                                                        class="fw-normal text-end" id="direccion-u"></span></p>
-                                                <p class="card-total-line fw-bold">Contacto<span
-                                                        class="fw-normal text-end" id="telefono-u"></span></p>
-                                            </div> <!-- cd-cart-total -->
-                                        </div>
-                                        <div class="col-lg-4 hijo-detallepedido p-3 col-resumen-pedido">
-                                            <h4 class="text-center fw-bold" id="resumen-title-u"></h4>
-                                            <div class="cd-cart-total mt-4">
-                                                <p class="card-total-line fw-bold">Subtotal<span class="fw-normal"
-                                                        id="subtotal-u"></span></p>
-                                                <p class="card-total-line fw-bold">Envío<span class="fw-normal"
-                                                        id="envio-u"></span>
-                                                </p>
-                                                <p class="card-total-line fw-bold">Total<span class="fw-normal"
-                                                        id="monto-total-u"></span></p>
-                                            </div> <!-- cd-cart-total -->
-                                        </div>
+                                        </form>
+                                    </div>
+                                    <div class="col-lg-4 hijo-detallepedido p-3">
+                                        <h4 class="text-center fw-bold" id="envio-title-u"></h4>
+                                        <div class="cd-cart-total mt-4">
+                                            <p class="card-total-line fw-bold">Cliente<span class="fw-normal text-end"
+                                                    id="cliente-u"></span></p>
+                                            <p class="card-total-line fw-bold">Dirección<span class="fw-normal text-end"
+                                                    id="direccion-u"></span></p>
+                                            <p class="card-total-line fw-bold">Contacto<span class="fw-normal text-end"
+                                                    id="telefono-u"></span></p>
+                                        </div> <!-- cd-cart-total -->
+                                    </div>
+                                    <div class="col-lg-4 hijo-detallepedido p-3 col-resumen-pedido">
+                                        <h4 class="text-center fw-bold" id="resumen-title-u"></h4>
+                                        <div class="cd-cart-total mt-4">
+                                            <p class="card-total-line fw-bold">Subtotal<span class="fw-normal"
+                                                    id="subtotal-u"></span></p>
+                                            <p class="card-total-line fw-bold">Envío<span class="fw-normal"
+                                                    id="envio-u"></span>
+                                            </p>
+                                            <p class="card-total-line fw-bold">Total<span class="fw-normal"
+                                                    id="monto-total-u">$</span></p>
+                                        </div> <!-- cd-cart-total -->
                                     </div>
                                 </div>
-
                             </div>
+
                         </div>
-                    </form>
+                    </div>
                 </div>
 
                 <div class="modal-footer d-flex justify-content-end">
