@@ -157,15 +157,7 @@
                         <hr>
                         <div class="about-producto">
                             <span class="title-about-producto">Sobre este artículo</span>
-                            <p class="mt-2 descripcion" id="">Lorem ipsum dolor sit amet consectetur, adipisicing
-                                elit.
-                                Quod
-                                minima optio
-                                magni officia
-                                blanditiis culpa illo vitae? Possimus quod, provident ullam facere
-                                necessitatibus
-                                expedita
-                                quaerat! Cupiditate dolore aut repudiandae asperiores.</p>
+                            <p class="mt-2 show-descripcion" id=""></p>
                         </div>
                         <hr>
                         <form class="row" method="post" id="carritoForm">
@@ -232,15 +224,7 @@
                                         class="descripcion-detalle-producto-title d-block my-2">Especificaciones:
                                     </span>
                                     <span class="descripcion-detalle-producto-content">
-                                        <p class="descripcion" id="">Lorem ipsum dolor sit amet consectetur,
-                                            adipisicing elit.
-                                            Quod
-                                            minima optio
-                                            magni officia
-                                            blanditiis culpa illo vitae? Possimus quod, provident ullam facere
-                                            necessitatibus
-                                            expedita
-                                            quaerat! Cupiditate dolore aut repudiandae asperiores.</p>
+                                        <p class="show-descripcion" id=""></p>
                                     </span>
                                 </div>
 
@@ -251,172 +235,17 @@
                                 <div class="detalle-review-title d-flex justify-content-between">
                                     <span class="opiniones-clientes">Opiniones de clientes:</span>
                                     <button class="d-inline flex-end escribir-resena" type="button" id="btnResena"
-                                        data-bs-toggle="modal" data-bs-target="#exampleModal1">Escribir reseña</button>
+                                        data-bs-toggle="modal" data-bs-target="#exampleModal1" onclick="openReview()">Escribir reseña</button>
                                 </div>
 
-                                <div class="rating-detalle d-inline">
-                                    <span>
-                                        <i class="fa fa-star"></i>
-                                    </span>
-                                    <span>
-                                        <i class="fa fa-star"></i>
-                                    </span>
-                                    <span>
-                                        <i class="fa fa-star"></i>
-                                    </span>
-                                    <span>
-                                        <i class="fa fa-star"></i>
-                                    </span>
-                                    <span>
-                                        <i class="fa fa-star"></i>
-                                    </span>
+                                <div class="rating-detalle d-inline" id="puntajeProducto">
                                 </div>
-                                <span>4.8 de 5 (200 reviews)</span>
+                                <span id="numPuntaje">0</span> <span id="numReviews">(0 reseñas)</span>
 
 
                                 <div id="reviews">
                                     <!-- RESEÑA ITEM -->
-                                    <div class="detalle-resena-item">
-                                        <div class="resena-img-content">
-                                            <div class="resena-info p-3">
-                                                <div class="resena-header">
-                                                    <div class="img-resena">
-                                                        <img src="../../resources/img/reseña/resena4.jpg" alt=""
-                                                            class="img d-inline">
-                                                    </div>
-                                                    <span class="resena-user mx-4">Eli_Cat UwU</span>
-                                                    <div class="stars-resena">
-                                                        <span>
-                                                            <i class="fa fa-star"></i>
-                                                        </span>
-                                                        <span>
-                                                            <i class="fa fa-star"></i>
-                                                        </span>
-                                                        <span>
-                                                            <i class="fa fa-star"></i>
-                                                        </span>
-                                                        <span>
-                                                            <i class="fa fa-star"></i>
-                                                        </span>
-                                                        <span>
-                                                            <i class="fa fa-star"></i>
-                                                        </span>
-                                                    </div>
-                                                </div>
-                                                <span href="#" class="resena-name d-block mt-3">¡Amo esta waflera
-                                                    rosa!</span>
-                                                <span class="d-block mt-3">
-                                                    <p>Es preciosa, amo el color rosado y me encato que tuvieran la
-                                                        waflera
-                                                        en este color,
-                                                        es super eficiente, la uso todos los dias para cerle el desayuno
-                                                        a
-                                                        mis 11 hijos, sin esto no
-                                                        tendrian nada para comer, la super recomiendo!</p>
-                                                </span>
-                                                <div class="resena-autor-fecha">
-                                                    <span class="resena-fecha"><i
-                                                            class="fa-solid fa-calendar-days"></i>10/02/2022</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <hr>
-                                    <!-- RESEÑA ITEM -->
-                                    <div class="detalle-resena-item">
-                                        <div class="resena-img-content">
-                                            <div class="resena-info p-3">
-                                                <div class="resena-header">
-                                                    <div class="img-resena">
-                                                        <img src="../../resources/img/reseña/resena3.jpg" alt=""
-                                                            class="img d-inline">
-                                                    </div>
-                                                    <span class="resena-user mx-4">Paquito123</span>
-                                                    <div class="stars-resena">
-                                                        <span>
-                                                            <i class="fa fa-star"></i>
-                                                        </span>
-                                                        <span>
-                                                            <i class="fa fa-star"></i>
-                                                        </span>
-                                                        <span>
-                                                            <i class="fa fa-star"></i>
-                                                        </span>
-                                                        <span>
-                                                            <i class="fa fa-star"></i>
-                                                        </span>
-                                                        <span>
-                                                            <i class="fa fa-star"></i>
-                                                        </span>
-                                                    </div>
-                                                </div>
-                                                <span href="#" class="resena-name d-block mt-3">¡Me encantó este molde
-                                                    de
-                                                    silicon!</span>
-                                                <span class="d-block mt-3">
-                                                    <p>Se hornean bien en un horno tostador, en el microondas e incluso
-                                                        en
-                                                        una freidora (solo uno de
-                                                        estas es probable que quepa). No podría ser más fácil de usar y
-                                                        limpiar. También congelo
-                                                        porciones
-                                                        de sopas en ellas</p>
-                                                </span>
-                                                <div class="resena-autor-fecha">
-                                                    <span class="resena-fecha"><i
-                                                            class="fa-solid fa-calendar-days"></i>10/02/2022</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <hr>
-                                    <!-- RESEÑA ITEM -->
-                                    <div class="detalle-resena-item">
-                                        <div class="resena-img-content">
-                                            <div class="resena-info p-3">
-                                                <div class="resena-header">
-                                                    <div class="img-resena">
-                                                        <img src="../../resources/img/reseña/resena4.jpg" alt=""
-                                                            class="img d-inline">
-                                                    </div>
-                                                    <span class="resena-user mx-4">Vargas :)</span>
-                                                    <div class="stars-resena">
-                                                        <span>
-                                                            <i class="fa fa-star"></i>
-                                                        </span>
-                                                        <span>
-                                                            <i class="fa fa-star"></i>
-                                                        </span>
-                                                        <span>
-                                                            <i class="fa fa-star"></i>
-                                                        </span>
-                                                        <span>
-                                                            <i class="fa fa-star"></i>
-                                                        </span>
-                                                        <span>
-                                                            <i class="fa fa-star"></i>
-                                                        </span>
-                                                    </div>
-                                                </div>
-                                                <span href="#" class="resena-name d-block mt-3">¡Quiero que me batan la
-                                                    vida!</span>
-                                                <span class="d-block mt-3">
-                                                    <p>Las batidoras de esta marca me cambiaron la vida, gracias a ellas
-                                                        ahora tengo espasa e hijos
-                                                        y
-                                                        pude comprar mi primer auto, les agradezco por las batidoras.
-                                                    </p>
-                                                </span>
-                                                <div class="resena-autor-fecha">
-                                                    <span class="resena-fecha"><i
-                                                            class="fa-solid fa-calendar-days"></i>10/02/2022</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <hr>
-                                    <!-- RESEÑA ITEM -->
-                                    <div class="detalle-resena-item">
+                                    <!-- <div class="detalle-resena-item">
                                         <div class="resena-img-content">
                                             <div class="resena-info p-3">
                                                 <div class="resena-header">
@@ -459,7 +288,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <hr>
+                                    <hr> -->
                                 </div>
 
                             </div>
@@ -493,7 +322,7 @@
                                         <label for="exampleFormControlInput1" class="form-label">Titulo de la
                                             reseña</label>
                                         <input type="text" class="form-control" id="titulo" name="titulo"
-                                            placeholder="">
+                                            placeholder="" required>
                                     </div>
                                 </div>
 
@@ -502,8 +331,8 @@
                                 <div class="col-12">
                                     <div class="mb-3">
                                         <label for="exampleFormControlTextarea1" class="form-label">Comentario</label>
-                                        <textarea class="form-control" id="comentario" name="comentario"
-                                            rows="3"></textarea>
+                                        <textarea class="form-control" id="comentario" name="comentario" type="text"
+                                            rows="3" required></textarea>
                                     </div>
                                 </div>
 
@@ -511,12 +340,11 @@
                             <div class="row">
                                 <div class="col d-flex justify-content-start">
                                     <span>Puntuación:</span>
-                                    <!--<div class="valoracion">
+                                    <div class="valoracion">
 
                                         <div class="my-rating"></div>
-                                    </div> -->
-                                    <input type="number" value="1" pattern="[1-5]{1}" required class="form-control" min="1" max="5" id="puntaje" name="puntaje">
-
+                                    </div>
+                                    <input type="hidden" value="1" class="form-control" id="puntaje" name="puntaje">
                                 </div>
                                 <div class="col-3 d-flex justify-content-end">
                                     <button class="enviar-resena" type="submit">
