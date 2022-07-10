@@ -93,7 +93,7 @@ function readOneProducto(id) {
         }
     });
 }
-\
+
 
 // Función para preparar el formulario al momento de visualizar un registro.
 function openShow(id) {

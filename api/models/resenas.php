@@ -251,15 +251,13 @@ class Reseñas extends Validator
     public function doReview()
     {
         $sql = 'INSERT INTO public.resena(
-	"idCliente", "idDetalle", "tituloResena", "descripcionResena", "puntajeResena", "fechaResena", estado)
-	VALUES (?, (SELECT MAX(dp."idDetallePedido")
-                from "resena" as r inner join "cliente" as c using ("idCliente")
-                inner join "estado" as e on r."estado" = e."idEstado"
-                inner join "detallePedido" as dp on r."idDetalle" = dp."idDetallePedido"
-                inner join "colorStock" using ("idColorStock")
-                inner join "producto" as pr using ("idProducto")
-                where "idProducto" = ?
-                AND r."idCliente" = ?), ?, ?, ?, CURRENT_DATE, 1);';
+            "idCliente", "idDetalle", "tituloResena", "descripcionResena", "puntajeResena", "fechaResena", estado)
+            VALUES (?, (SELECT MAX(dp."idDetallePedido")
+                        from "detallePedido" as dp inner join "colorStock" using("idColorStock")
+                        inner join producto using("idProducto")
+                        inner join pedido using("idPedido")
+                        where "idProducto" = ?
+                        AND pedido."idCliente" = ? AND "estadoPedido" = 1), ?, ?, ?, CURRENT_DATE, 1)';
         $params = array($_SESSION['idCliente'], $this->id, $_SESSION['idCliente'], $this->titulo, $this->descripcion, $this->puntaje);
         return Database::executeRow($sql, $params);
     }
