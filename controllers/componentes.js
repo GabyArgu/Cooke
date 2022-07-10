@@ -194,9 +194,7 @@ function saveRow(api, action, form, modal) {
                 if (response.status) {
                     // Se cierra la caja de dialogo (modal) del formulario.
                     //$(modal).modal('hide');
-                    var myModalEl = document.getElementById(modal);
-                    var modalIns = bootstrap.Modal.getInstance(myModalEl)
-                    modalIns.hide();
+                    
                     //M.Modal.getInstance(document.getElementById(modal)).close();
                     // Se cargan nuevamente las filas en la tabla de la vista después de guardar un registro y se muestra un mensaje de éxito.
                     readRows(api);
@@ -223,10 +221,9 @@ function saveRow2(api, action, form, modal) {
                 // Se comprueba si la respuesta es satisfactoria, de lo contrario se muestra un mensaje con la excepción.
                 if (response.status) {
                     // Se cierra la caja de dialogo (modal) del formulario.
-                    //$(modal).modal('hide');
-                    var myModalEl = document.getElementById(modal);
-                    var modalIns = bootstrap.Modal.getInstance(myModalEl)
-                    modalIns.hide();
+                    // $(modal).modal('hide');
+                    
+                    
                     //M.Modal.getInstance(document.getElementById(modal)).close();
                     // Se cargan nuevamente las filas en la tabla de la vista después de guardar un registro y se muestra un mensaje de éxito.
                     readRows2(api);
@@ -240,6 +237,30 @@ function saveRow2(api, action, form, modal) {
         }
     });
 }
+
+function saveRow3(api, action, form, modal) {
+    fetch(api + action, {
+        method: 'post',
+        body: new FormData(document.getElementById(form))
+    }).then(function (request) {
+        // Se verifica si la petición es correcta, de lo contrario se muestra un mensaje en la consola indicando el problema.
+        if (request.ok) {
+            // Se obtiene la respuesta en formato JSON.
+            request.json().then(function (response) {
+                // Se comprueba si la respuesta es satisfactoria, de lo contrario se muestra un mensaje con la excepción.
+                if (response.status) {
+                    $(`#${modal}`).modal('hide');
+                    sweetAlert(1, response.message, null);
+                } else {
+                    sweetAlert(2, response.exception, null);
+                }
+            });
+        } else {
+            console.log(request.status + ' ' + request.statusText);
+        }
+    });
+}
+
 
 /*
 *   Función para eliminar un registro seleccionado en los mantenimientos de tablas (operación delete). Requiere el archivo sweetalert.min.js para funcionar.
@@ -447,7 +468,15 @@ function fillSelectProducto(endpoint, select, selected, id) {
     });
 }
 
-
+//Validacion para que no acepte numeros
+$("input.nombre").bind('keypress', function(event) {
+    var regex = new RegExp("/^[a-zA-ZÀ-ÿ\u00f1\u00d1]+(\s*[a-zA-ZÀ-ÿ\u00f1\u00d1]*)*[a-zA-ZÀ-ÿ\u00f1\u00d1]+$/g;");
+    var key = String.fromCharCode(!event.charCode ? event.which : event.charCode);
+    if (!regex.test(key)) {
+      event.preventDefault();
+      return false;
+    }
+  });
 
 
 // Función para mostrar un mensaje de confirmación al momento de cerrar sesión.

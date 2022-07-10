@@ -250,7 +250,7 @@
 
                                 <div class="detalle-review-title d-flex justify-content-between">
                                     <span class="opiniones-clientes">Opiniones de clientes:</span>
-                                    <button class="d-inline flex-end escribir-resena" type="button"
+                                    <button class="d-inline flex-end escribir-resena" type="button" id="btnResena"
                                         data-bs-toggle="modal" data-bs-target="#exampleModal1">Escribir reseña</button>
                                 </div>
 
@@ -487,12 +487,12 @@
                     <div class="modal-body">
                         <form id="reviewForm" name="reviewForm" class="container">
                             <div class="row">
-                                
+                                <input type="hidden" id="idProductoResena" name="idProductoResena">
                                 <div class="col">
                                     <div class="mb-3">
                                         <label for="exampleFormControlInput1" class="form-label">Titulo de la
                                             reseña</label>
-                                        <input type="email" class="form-control" id="exampleFormControlInput1"
+                                        <input type="text" class="form-control" id="titulo" name="titulo"
                                             placeholder="">
                                     </div>
                                 </div>
@@ -502,7 +502,7 @@
                                 <div class="col-12">
                                     <div class="mb-3">
                                         <label for="exampleFormControlTextarea1" class="form-label">Comentario</label>
-                                        <textarea class="form-control" id="exampleFormControlTextarea1"
+                                        <textarea class="form-control" id="comentario" name="comentario"
                                             rows="3"></textarea>
                                     </div>
                                 </div>
@@ -515,7 +515,7 @@
 
                                         <div class="my-rating"></div>
                                     </div> -->
-                                    <input type="number" value="1" pattern="[1-5]{1}" required class="form-control" min="1" max="5">
+                                    <input type="number" value="1" pattern="[1-5]{1}" required class="form-control" min="1" max="5" id="puntaje" name="puntaje">
 
                                 </div>
                                 <div class="col-3 d-flex justify-content-end">

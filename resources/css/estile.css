@@ -2183,7 +2183,14 @@ body {
     ;
 }
 
+.avatar-cliente{
+    border-radius: 50%;
+}
 
+.avatar-cliente-modal{
+    border-radius: 50%;
+    height: 45px;
+}
 
 /*----------------- Fin Mi cuenta------------ */
 
