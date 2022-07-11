@@ -115,7 +115,7 @@ class CategoriaCP extends Validator
     public function createRow()
     {
         $sql = 'INSERT INTO "categoriaProducto"("nombreCategoriaP", "descripcionCategoria", estado)
-                VALUES (?,?, 1);';
+                VALUES (?, ?, 1);';
         $params = array($this->nombre, $this->descripcion);
         return Database::executeRow($sql, $params);
     }
