@@ -238,9 +238,8 @@ class Productos extends Validator
     public function readProductStock()
     {
         $sql = 'SELECT  stock
-        FROM "colorProducto" as cp inner join "colorStock" as cs on cp."idColor"  = cs."idColor"
-		inner join producto as p on cs."idProducto" = p."idProducto"
-		WHERE p."idProducto" = ? and cp."idColor" = ?';
+        FROM "colorStock"
+		WHERE "idProducto" = ? and "idColor" = ?;';
         $params = array($this->id, $this->color);
         return Database::getRow($sql, $params);
     }
@@ -298,22 +297,20 @@ class Productos extends Validator
         "idSubCategoriaP", "idProveedor", "idMarca", "nombreProducto", "descripcionProducto", "precioProducto", "estadoProducto", "imagenPrincipal", descuento)
         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING "idProducto";';
         $params = array($this->subcategoria, $this->proveedor, $this->marca, $this->nombre, $this->descripcion, $this->precio, $this->estado, $this->imagen, $this->descuento);
-        return Database::executeRow($sql, $params);
+        if ($this->id = Database::getRowId($sql, $params)) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
-    /* Función para obtener el id del último registro ingresado*/
-    public function getLastId()
-    {
-        $sql = 'SELECT MAX("idProducto") as "idProducto" FROM producto ';
-        return Database::getRowId($sql);
-    }
 
-    public function insertStock($lastId)
+    public function insertStock()
     {
         $sql = 'INSERT INTO "colorStock"(
         "idProducto", "idColor", stock, fecha)
         VALUES (?, ?, ?, CURRENT_DATE);';
-        $params = array($lastId, $this->color, $this->stock);
+        $params = array($this->id, $this->color, $this->stock);
         return Database::executeRow($sql, $params);
     }
 
@@ -332,10 +329,27 @@ class Productos extends Validator
 
     public function updateStock()
     {   
-        $sql = 'UPDATE "colorStock"
-            SET "idColor"=?, stock=?, fecha = CURRENT_DATE
-            WHERE "idProducto" = ?;';
-            $params = array($this->color, $this->stock, $this->id);
+        $sql = 'SELECT COUNT (*)
+                FROM "colorStock"
+                WHERE "idColor" = ? and "idProducto" = ?';
+        $params = array($this->color, $this->id);
+
+        if (Database::registerExist($sql, $params)) {
+            $sql = 'UPDATE "colorStock" set stock = ?, fecha = CURRENT_DATE WHERE "idColor" = ? AND "idProducto" = ?;';
+            $params = array($this->stock, $this->color, $this->id);
+            return Database::executeRow($sql, $params);
+        }
+        else{
+            $sql = 'INSERT INTO "colorStock"("idProducto", "idColor", stock, fecha) VALUES(?, ?, ?, CURRENT_DATE)';
+            $params = array($this->id, $this->color, $this->stock);
+            return Database::executeRow($sql, $params);
+        } 
+    }
+    /* Actualizar el estado automaticamente*/
+    public function updateStateProduct()
+    {   
+        $sql = 'CALL actualizarEstadoProducto(?);';
+            $params = array($this->id);
         return Database::executeRow($sql, $params);
     }
     /* DELETE */

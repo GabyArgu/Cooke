@@ -331,6 +331,16 @@ class Pedidos extends Validator
             return Database::executeRow($sql, $params);
         }
 
+        public function updateStockAfterOrder()
+        {
+            $sql = 'UPDATE pedido
+                    SET "estadoPedido" = ?, "fechaPedido" = ?, "montoTotal" = ?
+                    WHERE "idPedido" = ?';
+            $params = array($_SESSION['idPedido'], );
+            return Database::executeRow($sql, $params);
+        }
+
+
         public function newStockProduct()
         {
             // Se establece la zona horaria local para obtener la fecha del servidor.

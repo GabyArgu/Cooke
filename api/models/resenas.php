@@ -50,7 +50,7 @@ class Reseñas extends Validator
 
     public function setTitulo($value)
     {
-        if ($this->validateAlphabetic($value, 1, 50)) {
+        if ($this->validateString($value, 1, 50)) {
             $this->titulo = $value;
             return true;
         } else {
@@ -61,7 +61,7 @@ class Reseñas extends Validator
 
     public function setDescripcion($value)
     {
-        if ($this->validateAlphabetic($value, 1, 350)) {
+        if ($this->validateString($value, 1, 350)) {
             $this->descripcion = $value;
             return true;
         } else {
@@ -260,5 +260,15 @@ class Reseñas extends Validator
                         AND pedido."idCliente" = ? AND "estadoPedido" = 1), ?, ?, ?, CURRENT_DATE, 1)';
         $params = array($_SESSION['idCliente'], $this->id, $_SESSION['idCliente'], $this->titulo, $this->descripcion, $this->puntaje);
         return Database::executeRow($sql, $params);
+    }
+
+    public function puntajeReview()
+    {
+        $sql = 'Select AVG("puntajeResena")::numeric(10,2) as puntaje, count("idResena") as cantidad from resena 
+        inner join "detallePedido" on resena."idDetalle" = "detallePedido"."idDetallePedido"
+        inner join "colorStock" using ("idColorStock")
+        where "idProducto" = ?';
+        $params = array($this->id);
+        return Database::getRow($sql, $params);
     }
 }
