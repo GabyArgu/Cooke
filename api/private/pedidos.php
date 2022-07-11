@@ -34,22 +34,22 @@ if (isset($_GET['action'])) {
                     $result['exception'] = 'No hay coincidencias';
                 }
                 break;
-                case 'update':
-                    //Especificamos los inputs por medio de su atributo name, y los capturamos con el método post
-                    $_POST = $pedido->validateForm($_POST);
-                    if (!$pedido->setId($_POST['id-u'])) {
-                        $result['exception'] = 'Pedido incorrecto';
-                    } elseif (!$pedido->readOne()) {
-                        $result['exception'] = 'Pedido inexistente';
-                    } elseif (!$pedido->setEstado($_POST['estado-pedido'])) {
-                        $result['exception'] = 'Estado inválido';
-                    } elseif ($pedido->updateRow()) {
-                        $result['status'] = 1;
-                        $result['message'] = 'Pedido modificado correctamente';
-                    } else {
-                        $result['exception'] = Database::getException();
-                    }
-                    break;
+            case 'update':
+                //Especificamos los inputs por medio de su atributo name, y los capturamos con el método post
+                $_POST = $pedido->validateForm($_POST);
+                if (!$pedido->setId($_POST['id-u'])) {
+                    $result['exception'] = 'Pedido incorrecto';
+                } elseif (!$pedido->readOne()) {
+                    $result['exception'] = 'Pedido inexistente';
+                } elseif (!$pedido->setEstado($_POST['estado-pedido'])) {
+                    $result['exception'] = 'Estado inválido';
+                } elseif ($pedido->updateRow()) {
+                    $result['status'] = 1;
+                    $result['message'] = 'Pedido modificado correctamente';
+                } else {
+                    $result['exception'] = Database::getException();
+                }
+                break;
             case 'readOne':
                 if (!$pedido->setId($_POST['id-det'])) {
                     $result['exception'] = 'Pedido incorrecto';
@@ -82,6 +82,7 @@ if (isset($_GET['action'])) {
                 } else {
                     $result['exception'] = 'Pedido inexistente';
                 }
+                break;
             default:
                 $result['exception'] = 'Acción no disponible dentro de la sesión';
         }
