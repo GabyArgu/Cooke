@@ -47,7 +47,8 @@ class EstadoPedido extends Validator
 
     public function readAll()
     {
-        $sql = 'SELECT "idEstadoPedido", "estadoPedido" FROM "estadoPedido"';
+        $sql = 'SELECT "idEstadoPedido", "estadoPedido" FROM "estadoPedido" 
+        WHERE "idEstadoPedido" != 2';
         $params = null;
         return Database::getRows($sql, $params);
     }
