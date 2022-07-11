@@ -63,8 +63,7 @@ if (isset($_GET['action'])) {
                 } elseif ($productos->createRow()) {
                     $result['status'] = 1;
                     if ($productos->saveFile($_FILES['archivo'], $productos->getRuta(), $productos->getImagen())) {
-                        
-                        if (!$productos->insertStock($productos->getLastId())) {
+                        if (!$productos->insertStock()) {
                             $result['exception'] = 'Ocurrió un error al insertar el stock';
                         } else {
                             $result['message'] = 'Producto creado correctamente';
@@ -85,6 +84,19 @@ if (isset($_GET['action'])) {
                     $result['exception'] = Database::getException();
                 } else {
                     $result['exception'] = 'Producto inexistente';
+                }
+                break;
+            case 'readStock':
+                if (!$productos->setId($_POST['id'])) {
+                    $result['exception'] = 'Producto incorrecto';
+                } elseif (!$productos->setColor($_POST['color'])) {
+                    $result['exception'] = 'Color incorrecto';
+                } elseif ($result['dataset'] = $productos->readProductStock()) {
+                    $result['status'] = 1;
+                } elseif (Database::getException()) {
+                    $result['exception'] = Database::getException();
+                } else {
+                    $result['exception'] = 'Stock del producto en ese color inexistente';
                 }
                 break;
             case 'readOneShow':
@@ -129,8 +141,12 @@ if (isset($_GET['action'])) {
                     $result['exception'] = 'Ocurrió un error al actualizar el stock';
                 } elseif (!is_uploaded_file($_FILES['archivo']['tmp_name'])) {
                     if ($productos->updateRow($data['imagenPrincipal'])) {
-                        $result['status'] = 1;
+                        if (!$productos->updateStateProduct()) {
+                            $result['exception'] = 'Ocurrió un error al actualizar el estado del producto';
+                        } else {
+                            $result['status'] = 1;
                         $result['message'] = 'Producto modificado correctamente';
+                        }
                     } else {
                         $result['exception'] = Database::getException();
                     }
