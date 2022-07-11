@@ -100,6 +100,9 @@ if (isset($_GET['action'])) {
                 if (!$pedido->setTotal($_POST['montoTotal'])) {
                     $result['exception'] = 'Monto incorrecto';
                 }elseif ($pedido->finishOrder()) {
+                    if(){
+                        
+                    }
                     $result['status'] = 1;
                     $result['message'] = 'Pedido finalizado correctamente';
                 }else {

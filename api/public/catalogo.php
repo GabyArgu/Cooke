@@ -19,9 +19,6 @@ if (isset($_GET['action'])) {
     $resena = new Reseñas;
     // Se declara e inicializa un arreglo para guardar el resultado que retorna la API.
     $result = array('status' => 0, 'message' => null, 'exception' => null);
-    // Se compara la acción a realizar según la petición del controlador.
-    if (isset($_SESSION['idCliente'])) {
-        $result['session'] = 1;
         // Se compara la acción a realizar cuando un administrador ha iniciado sesión.
         switch ($_GET['action']) {
             case 'readAll':
@@ -120,45 +117,68 @@ if (isset($_GET['action'])) {
                 } elseif (Database::getException()) {
                     $result['exception'] = Database::getException();
                 } else {
-                    $result['exception'] = 'No hay reseñas';
+                    $result['exception'] = 'No hay existen reseñas de este producto. ¡Anímate a ser el primero en comentar!';
+                }
+                break;
+            case 'puntajeReview':
+                if (!$resena->setId($_POST['idProducto'])) {
+                    $result['exception'] = 'Producto incorrecto';
+                } elseif ($result['dataset'] = $resena->puntajeReview($_POST['idProducto'])) {
+                    $result['status'] = 1;
+                } elseif (Database::getException()) {
+                    $result['exception'] = Database::getException();
+                } else {
+                    $result['exception'] = 'Producto sin puntaje';
                 }
                 break;
             case 'doReview':
-                if (!$resena->setId($_POST['idProductoResena'])) {
-                    $result['exception'] = 'Producto incorrecto';
-                } elseif(!$resena->setTitulo($_POST['titulo'])) {
-                    $result['exception'] = 'Titulo incorrecto';
-                } elseif(!$resena->setDescripcion($_POST['comentario'])) {
-                    $result['exception'] = 'Comentario incorrecto';
-                } elseif(!$resena->setPuntaje($_POST['puntaje'])) {
-                    $result['exception'] = 'Comentario incorrecto';
-                }elseif ($resena->doReview()) {
-                    $result['status'] = 1;
-                    $result['message'] = 'Reseña realizada correctamente';
-                } else {
-                    $result['exception'] = 'Ocurrió un problema al realizar la reseña';
+                if(isset($_SESSION['idCliente'])){
+                    if (!$resena->setId($_POST['idProductoResena'])) {
+                        $result['exception'] = 'Producto incorrecto';
+                    } elseif(!$resena->setTitulo($_POST['titulo'])) {
+                        $result['exception'] = 'Titulo incorrecto';
+                    } elseif(!$resena->setDescripcion($_POST['comentario'])) {
+                        $result['exception'] = 'Comentario incorrecto';
+                    } elseif(!$resena->setPuntaje($_POST['puntaje'])) {
+                        $result['exception'] = 'Puntaje incorrecto';
+                    }elseif ($resena->doReview()) {
+                        $result['status'] = 1;
+                        $result['message'] = 'Reseña públicada correctamente';
+                    } else {
+                        $result['exception'] = 'Debe de comprar el producto para realizar reseñas de este';
+                    }
+                }
+                else{
+                    switch ($_GET['action']) {
+                        default:
+                            $result['exception'] = 'Debe iniciar sesión para realizar una reseña';
+                    }
                 }
                 break;    
             default:
                 $result['exception'] = 'Acción no disponible';
         }
-        // Se indica el tipo de contenido a mostrar y su respectivo conjunto de caracteres.
-        header('content-type: application/json; charset=utf-8');
-        // Se imprime el resultado en formato JSON y se retorna al controlador.
-        print(json_encode($result));
-    } else {
-        // Se compara la acción a realizar cuando un cliente no ha iniciado sesión.
-        switch ($_GET['action']) {
-            case 'createDetail':
-                $result['exception'] = 'Debe iniciar sesión para agregar el producto al carrito';
-                break;
-            case 'checkProduct':
-                $result['exception'] = 'Debe iniciar sesión para agregar el producto al carrito';
-                break;
-            default:
-                $result['exception'] = 'Acción no disponible fuera de la sesión';
-        }
-    }
+    // Se indica el tipo de contenido a mostrar y su respectivo conjunto de caracteres.
+    header('content-type: application/json; charset=utf-8');
+    // Se imprime el resultado en formato JSON y se retorna al controlador.
+    print(json_encode($result));
 } else {
     print(json_encode('Recurso no disponible'));
+}
+
+
+if(isset($_SESSION['idCliente'])){
+
+}
+else{
+    switch ($_GET['action']) {
+        case 'createDetail':
+            $result['exception'] = 'Debe iniciar sesión para agregar el producto al carrito';
+            break;
+        case 'checkProduct':
+            $result['exception'] = 'Debe iniciar sesión para agregar el producto al carrito';
+            break;
+        default:
+            $result['exception'] = 'Acción no disponible fuera de la sesión';
+    }
 }

@@ -331,14 +331,14 @@ class Pedidos extends Validator
     }
 
     public function newStockProduct()
-    {
-        // Se establece la zona horaria local para obtener la fecha del servidor.
-        $sql = 'UPDATE pedido
+        {
+            // Se establece la zona horaria local para obtener la fecha del servidor.
+            $sql = 'UPDATE pedido
                     SET "estadoPedido" = ?, "fechaPedido" = ?, "montoTotal" = ?
                     WHERE "idPedido" = ?';
-        $params = array($this->estado, $this->total, $_SESSION['idPedido']);
-        return Database::executeRow($sql, $params);
-    }
+            $params = array($this->estado, $this->total, $_SESSION['idPedido']);
+            return Database::executeRow($sql, $params);
+        }
 
     // Método para actualizar la cantidad de un producto agregado al carrito de compras.
     public function updateDetail()
