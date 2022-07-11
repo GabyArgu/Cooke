@@ -4,8 +4,7 @@ const ENDPOINT_COLOR = SERVER + 'public/catalogo.php?action=readColor';
 
 
 document.addEventListener('DOMContentLoaded', function () {
-    // Se llama a la función que asignan los href de las categorias.
-    readCategorias();
+    
     // Se llama a la función que muestra los productos destacados.
     readDestacados();
     checkOwlcarousel();
@@ -14,6 +13,8 @@ document.addEventListener('DOMContentLoaded', function () {
     
     //Inicializando tooltips
     $("body").tooltip({ selector: '[data-bs-toggle=tooltip]' });
+    // Se llama a la función que asignan los href de las categorias.
+    readCategorias();
 });
 
 function checkOwlcarousel() {
@@ -134,6 +135,7 @@ function readDestacados() {
     });
 }
 
+//Método para añadir al carrito sin entrar al producto
 function addToCar(id){
     const data = new FormData();
     data.append('idColorStock', id);
@@ -358,7 +360,6 @@ $('#owl3').owlCarousel({
 window.addEventListener('scroll', function () {
     let navbar = document.getElementById('navbar-home');
     if (window.pageYOffset > 86) {
-        console.log(navbar);
         navbar.classList.add('shrink', 'shadow');
     } else {
         if(!navbar.classList.contains("activado")){
@@ -368,14 +369,19 @@ window.addEventListener('scroll', function () {
 });
 
 
-function navbarResponsive(){
-    navbar.classList.toggle('activado');
-    if(navbar.classList.contains("activado") || window.pageYOffset > 86){
-        navbar.classList.add('shrink');
-    }else{
-        navbar.classList.remove('shrink');
-    }
-}
+window.addEventListener('scroll', function () {
+    setTimeout(() => {
+        let navbar = document.getElementById('navbar-home');
+        if (window.pageYOffset > 86) {
+            navbar.classList.add('shrink', 'shadow');
+        } else {
+            if(!navbar.classList.contains("activado")){
+                navbar.classList.remove('shrink', 'shadow');
+            }
+        }
+    }, 1000);
+});
+
 
 //Función para cambiar el atributo max del input-stock al cambiar de color en el select
 document.getElementById("color").addEventListener("change", function () {

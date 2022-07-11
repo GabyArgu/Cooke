@@ -104,7 +104,7 @@ function openUpdate(id) {
     document.getElementById('pedido-title-u').textContent = 'Información de pedido'
     document.getElementById('envio-title-u').textContent = 'Información de envío'
     document.getElementById('resumen-title-u').textContent = 'Resumen de pedido'
-    document.getElementById('envio-u').textContent = '$0.00';
+    document.getElementById('envio-u').textContent = '$2.00';
     // Se define un objeto con los datos del registro seleccionado.
     const data = new FormData();
     data.append('id-det', id);
@@ -120,13 +120,14 @@ function openUpdate(id) {
                 // Se comprueba si la respuesta es satisfactoria, de lo contrario se muestra un mensaje con la excepción.
                 if (response.status) {
                     // Se inicializan los campos del formulario con los datos del registro seleccionado.
-                    document.getElementById('id-u').textContent = response.dataset.idPedido;
+                    document.getElementById('id-u').value = response.dataset.idPedido;
                     document.getElementById('fecha-u').textContent = response.dataset.fechaPedido;
                     document.getElementById('pago-u').textContent = response.dataset.tipoPago;
                     document.getElementById('cliente-u').textContent = response.dataset.nombresCliente + " " + response.dataset.apellidosCliente;
                     document.getElementById('direccion-u').textContent = response.dataset.direccionCliente;
                     document.getElementById('telefono-u').textContent = response.dataset.telefonoCliente;
-                    document.getElementById('monto-total-u').textContent = response.dataset.montoTotal;
+                    document.getElementById('subtotal-u').textContent =   `$${response.dataset.montoTotal - 2.00}`;
+                    document.getElementById('monto-total-u').textContent = `$${response.dataset.montoTotal}`;
                     fillSelect(ENDPOINT_ESTADO, 'estado-pedido', response.dataset.estadoPedido);
                     readRows3(API_PEDIDOS, data, 'tbody-rows-update')
                 } else {
@@ -147,7 +148,7 @@ function openShow(id) {
     document.getElementById('pedido-title').textContent = 'Información de pedido'
     document.getElementById('envio-title').textContent = 'Información de envío'
     document.getElementById('resumen-title').textContent = 'Resumen de pedido'
-    document.getElementById('envio-det').textContent = '$0.00';
+    document.getElementById('envio-det').textContent = '$2.00';
     // Se define un objeto con los datos del registro seleccionado.
     const data = new FormData();
     data.append('id-det', id);
@@ -170,7 +171,8 @@ function openShow(id) {
                     document.getElementById('cliente-det').textContent = response.dataset.nombresCliente + " " + response.dataset.apellidosCliente;
                     document.getElementById('direccion-det').textContent = response.dataset.direccionCliente;
                     document.getElementById('telefono-det').textContent = response.dataset.telefonoCliente;
-                    document.getElementById('monto-total-det').textContent = response.dataset.montoTotal;
+                    document.getElementById('subtotal-det').textContent = `$${response.dataset.montoTotal - 2.00}`;
+                    document.getElementById('monto-total-det').textContent = `$${response.dataset.montoTotal}`;
                     readRows3(API_PEDIDOS, data, 'tbody-rows-detalle')
                 } else {
                     sweetAlert(2, response.exception, null);
@@ -187,7 +189,13 @@ function openShow(id) {
 document.getElementById('update-form').addEventListener('submit', function (event) {
     // Se evita recargar la página web después de enviar el formulario.
     event.preventDefault();
+    let fecha_pedido = document.getElementById("fecha-u").textContent;
     let action = 'update'
+    // No permitir que un pedido en proceso sea modificado
+    if(fecha_pedido == " ") {
+        sweetAlert(2, "No se puede modificar un pedido en proceso", null);
+    } else {
     // Se llama a la función para guardar el registro. Se encuentra en el archivo components.js
     saveRow(API_PEDIDOS, action, 'update-form', 'modal-update');
+}
 });

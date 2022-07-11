@@ -14,7 +14,7 @@ class Database
     {
         // Credenciales para establecer la conexión con la base de datos.
         $server = 'localhost';
-        $database = 'dbCooke';
+        $database = 'dbcooke';
         $username = 'postgres';
         $password = 'admin';
 
@@ -189,13 +189,22 @@ class Database
                 self::$error = $message;
                 break;
             case '23505':
-                self::$error = 'Dato duplicado, no se puede guardar';
+                $cadena = $message;
+                //strtok corta la cadena en el caracter especificado
+                $token = strtok($cadena, '"'); // Primer token
+                $token = strtok('"'); 
+                $cadena = $token;
+                $token = strtok('('); 
+                $token = strtok(')'); 
+                $campo = $token;
+
+                self::$error = "El campo " . $cadena . "= " . $campo . "\n" . "ya está registrado.";
                 break;
             case '42P01':
                 self::$error = 'Nombre de tabla desconocido';
                 break;
             case '23503':
-                self::$error = 'Registro ocupado, no se puede eliminar';
+                self::$error = $message;
                 break;
             default:
                 self::$error;

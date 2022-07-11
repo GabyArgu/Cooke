@@ -96,7 +96,7 @@ class Productos extends Validator
 
     public function setImagen($file)
     {
-        if ($this->validateImageFile($file, 500, 500)) {
+        if ($this->validateImageFile($file, 1000, 1000)) {
             $this->imagen = $this->getFileName();
             return true;
         } else {
@@ -238,9 +238,8 @@ class Productos extends Validator
     public function readProductStock()
     {
         $sql = 'SELECT  stock
-        FROM "colorProducto" as cp inner join "colorStock" as cs on cp."idColor"  = cs."idColor"
-		inner join producto as p on cs."idProducto" = p."idProducto"
-		WHERE p."idProducto" = ? and cp."idColor" = ?';
+        FROM "colorStock"
+		WHERE "idProducto" = ? and "idColor" = ?;';
         $params = array($this->id, $this->color);
         return Database::getRow($sql, $params);
     }
@@ -271,6 +270,26 @@ class Productos extends Validator
         return Database::getRows($sql, $params);
     }
 
+    public function searchRowsPublic($value)
+    {
+        $sql = 'SELECT Distinct on ("idProducto") "idProducto", "imagenPrincipal", "nombreProducto", "descripcionProducto", "precioProducto", descuento, "estadoProducto", "idColorStock", "idColor", p."idSubCategoriaP"
+        FROM producto as p INNER JOIN "marca" USING("idMarca") INNER JOIN "colorStock" USING("idProducto")
+		WHERE ("nombreProducto" ILIKE ? OR "nombreMarca" ILIKE ?) AND "idSubCategoriaP" = ? AND "estadoProducto" = 1 
+		ORDER BY "idProducto"';
+        $params = array("%$value%", "%$value%", $this->id);
+        return Database::getRows($sql, $params);
+    }
+
+    public function filterPrecio($min, $max)
+    {
+        $sql = 'SELECT Distinct on ("idProducto") "idProducto", "imagenPrincipal", "nombreProducto", "descripcionProducto", "precioProducto", descuento, "estadoProducto", "idColorStock", "idColor", p."idSubCategoriaP"
+        FROM producto as p INNER JOIN "marca" USING("idMarca") INNER JOIN "colorStock" USING("idProducto")
+		WHERE  "idSubCategoriaP" = ? AND "estadoProducto" = 1 AND "precioProducto" BETWEEN ? AND ?
+		ORDER BY "idProducto"';
+        $params = array($this->id, $min, $max);
+        return Database::getRows($sql, $params);
+    }
+
     /* CREATE */
     public function createRow()
     {
@@ -278,22 +297,20 @@ class Productos extends Validator
         "idSubCategoriaP", "idProveedor", "idMarca", "nombreProducto", "descripcionProducto", "precioProducto", "estadoProducto", "imagenPrincipal", descuento)
         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING "idProducto";';
         $params = array($this->subcategoria, $this->proveedor, $this->marca, $this->nombre, $this->descripcion, $this->precio, $this->estado, $this->imagen, $this->descuento);
-        return Database::executeRow($sql, $params);
+        if ($this->id = Database::getRowId($sql, $params)) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
-    /* Función para obtener el id del último registro ingresado*/
-    public function getLastId()
-    {
-        $sql = 'SELECT MAX("idProducto") as "idProducto" FROM producto ';
-        return Database::getRowId($sql);
-    }
 
-    public function insertStock($lastId)
+    public function insertStock()
     {
         $sql = 'INSERT INTO "colorStock"(
         "idProducto", "idColor", stock, fecha)
         VALUES (?, ?, ?, CURRENT_DATE);';
-        $params = array($lastId, $this->color, $this->stock);
+        $params = array($this->id, $this->color, $this->stock);
         return Database::executeRow($sql, $params);
     }
 
@@ -312,10 +329,27 @@ class Productos extends Validator
 
     public function updateStock()
     {   
-        $sql = 'UPDATE "colorStock"
-            SET "idColor"=?, stock=?, fecha = CURRENT_DATE
-            WHERE "idProducto" = ?;';
-            $params = array($this->color, $this->stock, $this->id);
+        $sql = 'SELECT COUNT (*)
+                FROM "colorStock"
+                WHERE "idColor" = ? and "idProducto" = ?';
+        $params = array($this->color, $this->id);
+
+        if (Database::registerExist($sql, $params)) {
+            $sql = 'UPDATE "colorStock" set stock = ?, fecha = CURRENT_DATE WHERE "idColor" = ? AND "idProducto" = ?;';
+            $params = array($this->stock, $this->color, $this->id);
+            return Database::executeRow($sql, $params);
+        }
+        else{
+            $sql = 'INSERT INTO "colorStock"("idProducto", "idColor", stock, fecha) VALUES(?, ?, ?, CURRENT_DATE)';
+            $params = array($this->id, $this->color, $this->stock);
+            return Database::executeRow($sql, $params);
+        } 
+    }
+    /* Actualizar el estado automaticamente*/
+    public function updateStateProduct()
+    {   
+        $sql = 'CALL actualizarEstadoProducto(?);';
+            $params = array($this->id);
         return Database::executeRow($sql, $params);
     }
     /* DELETE */
@@ -344,9 +378,9 @@ class Productos extends Validator
 
     public function readProductosSubcategoria()
     {
-        $sql = 'SELECT "idProducto", "imagenPrincipal", "nombreProducto", "descripcionProducto", "precioProducto", descuento
-        FROM producto 
-		WHERE "idSubCategoriaP" = ? AND "estadoProducto" = 1
+        $sql = 'SELECT Distinct on ("idProducto") "idProducto", "imagenPrincipal", "nombreProducto", "descripcionProducto", "precioProducto", descuento, ep."estadoProducto", "idColorStock", "idColor", p."idSubCategoriaP"
+        FROM producto as p inner join "estadoProducto" as ep on p."estadoProducto" = ep."idEstadoProducto" INNER JOIN "colorStock" USING("idProducto")
+		WHERE "idSubCategoriaP" = ? AND p."estadoProducto" = 1
 		ORDER BY "idProducto"';
         $params = array($this->id);
         return Database::getRows($sql, $params);

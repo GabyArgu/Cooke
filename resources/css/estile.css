@@ -12,7 +12,7 @@ hr {
 }
 
 h1 {
-    font-family: 'Mohave', sans-serif;
+    font-family: "Mohave", sans-serif;
     text-align: center;
 }
 
@@ -27,7 +27,7 @@ body {
 
 /* VARIABLES GLOBALES COLORES */
 :root {
-    --rosadoPalido: #F7DADF;
+    --rosadoPalido: #f7dadf;
     --rosadoFondos: #fcf2f4;
     --rosadoPastel: #d97789;
     --rosadoTitulos: #c34e8b;
@@ -157,7 +157,7 @@ body {
 .textcolor2 a {
     color: var(--rosadoOscuro) !important;
     font-size: 18px;
-    font-family: 'Mohave', sans-serif;
+    font-family: "Mohave", sans-serif;
     border-radius: 15px;
     transition: background-color 0.3s;
 }
@@ -176,7 +176,7 @@ body {
     height: 30px;
     margin-right: 35px;
     position: relative;
-    transition: .5s ease-in-out;
+    transition: 0.5s ease-in-out;
     background: transparent;
 }
 
@@ -202,7 +202,7 @@ body {
     border-radius: 1px;
     left: 0;
     transform: rotate(0deg);
-    transition: .25s ease-in-out;
+    transition: 0.25s ease-in-out;
 }
 
 .middle-bar {
@@ -249,7 +249,6 @@ body {
     background-size: 100%;
 }
 
-
 /* SIDEBAR CARRITO */
 .offcanvas-body {
     padding: 30px;
@@ -261,7 +260,7 @@ body {
 
 #cd-cart>* {
     padding: 0 10px;
-    font-family: 'Mohave', sans-serif;
+    font-family: "Mohave", sans-serif;
     color: var(--rosadoOscuro);
 }
 
@@ -293,11 +292,11 @@ body {
 }
 
 #cd-cart .cd-price {
-    margin-top: .4em;
+    margin-top: 0.4em;
 }
 
 #cd-cart .cd-cart-total {
-    font-family: 'Mohave', sans-serifs;
+    font-family: "Mohave", sans-serifs;
     font-size: 18px;
     color: var(--rosadoOscuro);
     border-bottom: 1px solid var(--rosadoPalido);
@@ -318,11 +317,11 @@ body {
     width: 100%;
     padding: 15px;
     background: var(--rosadoTitulos);
-    color: #FFF;
+    color: #fff;
     text-align: center;
     margin-top: 20px;
     text-decoration: none;
-    font-family: 'Mohave', sans-serif;
+    font-family: "Mohave", sans-serif;
     border-radius: 50px;
     transition: all 0.3s ease;
 }
@@ -396,14 +395,14 @@ body {
 .HCarusel {
     font-size: 35px;
     color: var(--rosadoTitulos);
-    font-family: 'Poppins', sans-serif;
+    font-family: "Poppins", sans-serif;
     text-align: right;
 }
 
 .pCarrusel {
     font-size: 20px;
     color: var(--rosadoOscuro);
-    font-family: 'Mohave', sans-serif;
+    font-family: "Mohave", sans-serif;
     font-weight: lighter;
     text-align: right;
 }
@@ -413,7 +412,7 @@ body {
     text-align: center;
     border-radius: 15px;
     border: none;
-    font-family: 'Mohave', sans-serif;
+    font-family: "Mohave", sans-serif;
     font-size: 20px;
     color: var(--blanco);
     padding-left: 20px;
@@ -423,7 +422,7 @@ body {
 }
 
 .btn-banner {
-    transition: all .3s ease;
+    transition: all 0.3s ease;
 }
 
 .btn-banner:hover {
@@ -431,7 +430,6 @@ body {
     background-color: var(--marfil);
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     transform: scale(1.05);
-
 }
 
 #TextoC2 {
@@ -446,14 +444,14 @@ body {
 .HCarusel2 {
     font-size: 35px;
     color: var(--rosadoTitulos);
-    font-family: 'Poppins', sans-serif;
+    font-family: "Poppins", sans-serif;
     text-align: right;
 }
 
 .pCarrusel2 {
     font-size: 18px;
     color: var(--rosadoOscuro);
-    font-family: 'Mohave', sans-serif;
+    font-family: "Mohave", sans-serif;
     font-weight: lighter;
     text-align: right;
 }
@@ -463,14 +461,13 @@ body {
     text-align: center;
     border-radius: 15px;
     border: none;
-    font-family: 'Mohave', sans-serif;
+    font-family: "Mohave", sans-serif;
     font-size: 20px;
     color: var(--blanco);
     padding-left: 20px;
     padding-right: 20px;
     padding-top: 3px;
     padding-bottom: 3px;
-
 }
 
 #icoC {
@@ -484,20 +481,19 @@ body {
     flex-direction: row;
     justify-content: start;
     transform: translateX(-30px);
-
 }
 
 .HCarusel3 {
     font-size: 35px;
     color: var(--rosadoPastel);
-    font-family: 'Poppins', sans-serif;
+    font-family: "Poppins", sans-serif;
     text-align: left;
 }
 
 .pCarrusel3 {
     font-size: 18px;
     color: var(--rosadoOscuro);
-    font-family: 'Mohave', sans-serif;
+    font-family: "Mohave", sans-serif;
     font-weight: lighter;
     text-align: left;
 }
@@ -507,14 +503,13 @@ body {
     text-align: center;
     border-radius: 15px;
     border: none;
-    font-family: 'Mohave', sans-serif;
+    font-family: "Mohave", sans-serif;
     font-size: 20px;
     color: var(--blanco);
     padding-left: 20px;
     padding-right: 20px;
     padding-top: 3px;
     padding-bottom: 3px;
-
 }
 
 #TextoC4 {
@@ -522,26 +517,22 @@ body {
     display: flex;
     flex-direction: row;
     justify-content: center;
-
 }
 
 .HCarusel4 {
     font-size: 55px;
     color: var(--rosadoPastel);
-    font-family: 'Poppins', sans-serif;
+    font-family: "Poppins", sans-serif;
     text-align: center;
-
-
 }
 
 .pCarrusel4 {
     font-size: 20px;
     color: var(--rosadoOscuro);
-    font-family: 'Mohave', sans-serif;
+    font-family: "Mohave", sans-serif;
     font-weight: lighter;
     text-align: center;
 }
-
 
 /* GRID CATEGORÍAS */
 
@@ -585,7 +576,7 @@ body {
 }
 
 .card-link {
-    font-family: 'Mohave', sans-serif;
+    font-family: "Mohave", sans-serif;
     text-decoration: none;
     border-bottom: 3px solid var(--rosadoTitulos);
     color: var(--rosadoOscuro);
@@ -619,7 +610,7 @@ body {
     position: absolute;
     left: -90%;
     bottom: 0;
-    transition: all .6s ease;
+    transition: all 0.6s ease;
 }
 
 .card-utensilios img {
@@ -628,7 +619,7 @@ body {
     left: 0;
     width: 400px;
     height: 400px;
-    transition: all .6s ease;
+    transition: all 0.6s ease;
 }
 
 .card-electro img {
@@ -637,9 +628,8 @@ body {
     left: 50%;
     width: 450px;
     height: 200px;
-    transition: all .6s ease;
+    transition: all 0.6s ease;
 }
-
 
 .card-recetas img {
     position: absolute;
@@ -647,9 +637,8 @@ body {
     left: 21%;
     width: 350px;
     height: 450px;
-    transition: all .6s ease;
+    transition: all 0.6s ease;
 }
-
 
 /*------------------PRODUCTOS DESTACADOS START------------------*/
 .lineaP {
@@ -678,6 +667,11 @@ body {
     background-color: var(--marfil);
 }
 
+.product-img img {
+    width: 500px;
+    height: 325px;
+}
+
 .tags {
     position: absolute;
     top: 0;
@@ -700,11 +694,10 @@ body {
     margin-left: 5px;
 }
 
-
 /* hover producto */
 .product-img::before,
 .product-img::after {
-    content: '';
+    content: "";
     position: absolute;
     left: 0;
     height: 0%;
@@ -747,10 +740,8 @@ body {
     font-weight: 500;
     border: none;
     border-radius: 25px;
-    background-color: #FFF;
+    background-color: #fff;
     color: rgb(117, 54, 90);
-    ;
-
     transition: all 0.3s ease;
 }
 
@@ -800,7 +791,7 @@ body {
 }
 
 .fa-star {
-    color: #D384AE;
+    color: #d384ae;
 }
 
 .product-info .product-name {
@@ -860,8 +851,6 @@ body {
     opacity: 0;
 }
 
-
-
 /*------------------PRODUCTOS DESTACADOS END------------------*/
 
 /*------------------SOBRE NOSOTROS STAR------------------*/
@@ -884,7 +873,7 @@ body {
 
 .pSobre {
     font-size: 18px;
-    font-family: 'Mohave', sans-serif;
+    font-family: "Mohave", sans-serif;
     color: var(--rosadoOscuro);
 }
 
@@ -894,7 +883,7 @@ body {
     text-align: center;
     border-radius: 15px;
     border: none;
-    font-family: 'Mohave', sans-serif;
+    font-family: "Mohave", sans-serif;
     font-size: 20px;
     color: var(--blanco);
     padding-left: 20px;
@@ -908,7 +897,7 @@ body {
 }
 
 .section-Sobre {
-    background-color: #FCF2F3;
+    background-color: #fcf2f3;
 }
 
 .lineaN {
@@ -932,13 +921,13 @@ body {
 
 .Condicion h5 {
     color: var(--rosadoTitulos);
-    font-family: 'Mohave', sans-serif;
+    font-family: "Mohave", sans-serif;
     font-size: bold 20px !important;
 }
 
 .Condicion p {
     color: var(--rosadoOscuro);
-    font-family: 'Mohave', sans-serif;
+    font-family: "Mohave", sans-serif;
     font-size: bold 15px !important;
 }
 
@@ -963,7 +952,7 @@ body {
 }
 
 .modal-terminos {
-    font-family: 'Mohave', sans-serif;
+    font-family: "Mohave", sans-serif;
     color: var(--rosadoOscuro);
 }
 
@@ -1004,7 +993,6 @@ body {
     border: transparent;
 }
 
-
 /*------------------SOBRE NOSOTROS END------------------*/
 
 /*------------------BLOG START------------------*/
@@ -1028,7 +1016,7 @@ body {
 
 .blog-img::before,
 .blog-img::after {
-    content: '';
+    content: "";
     position: absolute;
     left: 0;
     height: 0%;
@@ -1064,7 +1052,7 @@ body {
     font-weight: 500;
     border: none;
     border-radius: 25px;
-    background-color: #FFF;
+    background-color: #fff;
     color: rgb(117, 54, 90);
 
     transition: all 0.3s ease;
@@ -1106,7 +1094,6 @@ body {
 }
 
 /*------------------BLOG END------------------*/
-
 
 /*------------------RESEÑA START------------------*/
 .inicio .container-resena {
@@ -1151,7 +1138,6 @@ body {
 .inicio .stars-title-resena i {
     margin: 0 5px 0 5px;
     font-size: 20px;
-
 }
 
 .inicio .numero-comentarios {
@@ -1223,13 +1209,11 @@ body {
     background-repeat: no-repeat;
 }
 
-
 /*------------------FOODER START------------------*/
 #Fo-rosa {
     background-color: var(--rosadoPalido) !important;
-    font-family: 'Mohave', sans-serif;
+    font-family: "Mohave", sans-serif;
     text-align: center;
-
 }
 
 #Fo-rosa p {
@@ -1319,13 +1303,12 @@ body {
 
 .CopCo {
     color: white;
-    background-color: #FF80C3 !important;
+    background-color: #ff80c3 !important;
 }
 
 /*------------------FOODER END------------------*/
 
 /* -----------------------------------------------------------------FIN DE INDEX------------------------------------------------------------*/
-
 
 /* ---------------------------------------------------------------INICIO DE CATEGORIA------------------------------------------------------*/
 
@@ -1350,7 +1333,7 @@ body {
 
 .categoria-img::before,
 .categoria-img::after {
-    content: '';
+    content: "";
     position: absolute;
     left: 0;
     height: 0%;
@@ -1386,7 +1369,7 @@ body {
     font-weight: 500;
     border: none;
     border-radius: 25px;
-    background-color: #FFF;
+    background-color: #fff;
     color: rgb(117, 54, 90);
 
     transition: all 0.3s ease;
@@ -1456,7 +1439,6 @@ body {
 
 /* ----------------------------------------------------------------FIN DE CATEGORIA--------------------------------------------------------*/
 
-
 /* --------------------------------------------------------------INICIO DE GRIDPRODUCTO-----------------------------------------------------*/
 
 .contenido {
@@ -1472,11 +1454,10 @@ body {
     color: var(--rosadoTitulos);
 }
 
-
 .breadcumb a {
     text-decoration: none;
     color: var(--rosadoTitulos);
-    font-family: 'Mohave', sans-serif;
+    font-family: "Mohave", sans-serif;
 }
 
 .linea {
@@ -1502,8 +1483,8 @@ body {
 }
 
 .grid-productos hr {
-    background: rgba(195, 78, 139, 0.2)
-        /* pink background with 30% opacity */
+    background: rgba(195, 78, 139, 0.2);
+    /* pink background with 30% opacity */
 }
 
 .filtro-grid a {
@@ -1556,7 +1537,7 @@ body {
 
 .filtros h4 {
     color: var(--rosadoOscuro);
-    font-family: 'Mohave', sans-serif;
+    font-family: "Mohave", sans-serif;
     font-weight: 500;
 }
 
@@ -1595,7 +1576,7 @@ body {
 }
 
 .custom-tooltip.tooltip>.tooltip-inner {
-    background-color: #D384AE;
+    background-color: #d384ae;
 }
 
 .custom-tooltip.tooltip>.tooltip-arrow {
@@ -1618,7 +1599,6 @@ body {
 .pagination>li>span:hover {
     color: white;
     background-color: var(--rosadoTitulos);
-
 }
 
 .pagination>.active>a {
@@ -1647,7 +1627,6 @@ body {
     object-fit: cover;
 }
 
-
 .modal .disponibilidad-group {
     font-size: 18px;
     margin: 15px 0 15px 0;
@@ -1674,19 +1653,19 @@ body {
 }
 
 .modal .color1 {
-    color: #F8D7E8;
+    color: #f8d7e8;
 }
 
 .modal .color2 {
-    color: #BAD5F0;
+    color: #bad5f0;
 }
 
 .modal .color3 {
-    color: #B0ABCB;
+    color: #b0abcb;
 }
 
 .modal .color3 {
-    color: #F0D5BA;
+    color: #f0d5ba;
 }
 
 .modal .precios span {
@@ -1802,7 +1781,6 @@ body {
 
     .grid-productos .col-10 {
         margin: auto;
-
     }
 
     .grid-productos .filtros .row {
@@ -1813,14 +1791,11 @@ body {
     .grid-productos .filtros {
         margin-top: 10px;
     }
-
 }
 
 /* -----------------------------------------------------------------FIN DE GRIDPRODUCTO------------------------------------------------------*/
 
-
 /* -----------------------------------------------------------------INICIO DE NOSOTROS-------------------------------------------------------*/
-
 
 .section-Sobre2 {
     background-color: var(--rosadoFondos);
@@ -1829,7 +1804,7 @@ body {
 }
 
 .title-container {
-    background-color: #F7DAE0;
+    background-color: #f7dae0;
     margin-top: 85px;
     display: flex;
     justify-content: center;
@@ -1841,7 +1816,6 @@ body {
 
 .fondo-title img {
     padding-top: 25px;
-
 }
 
 .MVV1 {
@@ -1853,13 +1827,13 @@ body {
 
 .MVV1 h3 {
     font-size: 40px;
-    font-family: 'Mohave', sans-serif;
+    font-family: "Mohave", sans-serif;
     color: var(--rosadoOscuro);
 }
 
 .MVV1 p {
     font-size: 15px;
-    font-family: 'Mohave', sans-serif;
+    font-family: "Mohave", sans-serif;
     color: var(--rosadoOscuro);
     text-align: justify;
 }
@@ -1885,13 +1859,13 @@ body {
 }
 
 .section-Sobre2 {
-    background-color: #FCF2F3;
+    background-color: #fcf2f3;
 }
 
 .pSobre2 {
     padding-top: 8px;
     font-size: 18px;
-    font-family: 'Mohave', sans-serif;
+    font-family: "Mohave", sans-serif;
     color: var(--rosadoTitulos);
 }
 
@@ -1919,7 +1893,6 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-
 }
 
 .Clientes-img {
@@ -1928,7 +1901,6 @@ body {
     background-color: var(--marfil);
     width: 300px;
     padding: 35px;
-
 }
 
 .ClientesT {
@@ -1942,7 +1914,6 @@ body {
 .Clientes-img-content {
     width: 300px;
 }
-
 
 .tagsN {
     background-image: url(../../resources/img/nosotros/bandera.png);
@@ -1973,7 +1944,7 @@ body {
 }
 
 .C-name:hover {
-    color: #D384AE;
+    color: #d384ae;
 }
 
 .nosotros .owl-prev {
@@ -2000,11 +1971,9 @@ body {
     background-color: transparent;
 }
 
-
 /* -------------------------------------------------------------------FIN DE NOSOTROS-------------------------------------------------------*/
 
 /*----------------Inicio Ordenes----------------*/
-
 
 .table1 {
     margin-top: 70px;
@@ -2012,39 +1981,32 @@ body {
     margin-bottom: 70px;
 }
 
-
 .usuario-top {
     margin-top: 90px;
     margin-left: 1px;
     margin-bottom: 0px;
     margin-top: 100px;
-
 }
 
 .table1 th {
     background-color: #75365a;
     color: #fff;
     text-align: center;
-
 }
-
 
 .table1 .td tr {
     border: 1px solid #d97789;
-    ;
     padding-top: 20px;
     padding-left: 20px;
     padding-right: 70px;
     padding-bottom: 90px;
-    font-family: 'Mohave', sans-serif;
+    font-family: "Mohave", sans-serif;
     color: #75365a;
     margin-top: 100px;
 }
 
-
 .myaccount-tab-menu a {
     border: 1px solid #d97789;
-    ;
     border-bottom: none;
     background-color: var(--rosadoFondos);
     font-weight: 500;
@@ -2056,12 +2018,10 @@ body {
 }
 
 .form-control {
-    font-family: 'Mohave', sans-serif;
-
+    font-family: "Mohave", sans-serif;
 }
 
 .myaccount-tab-menu {
-
     -webkit-box-direction: normal;
     -webkit-flex-direction: column;
     -ms-flex-direction: column;
@@ -2073,7 +2033,6 @@ body {
     padding-bottom: 10px;
     display: flex;
     margin-top: -400px;
-
 }
 
 .myaccount-tab-menu a:hover,
@@ -2092,7 +2051,6 @@ body {
     padding: 20px 20px 20px 20px;
     margin-right: auto;
     margin-left: auto;
-
 }
 
 .img2 {
@@ -2100,7 +2058,6 @@ body {
     padding: 20px 20px 20px 20px;
     margin-right: auto;
     margin-left: auto;
-
 }
 
 /*----------------Fin Ordenes--------------*/
@@ -2109,7 +2066,6 @@ body {
 
 .myaccount-tab-menu a {
     border: 1px solid #d97789;
-    ;
     border-bottom: none;
     background-color: var(--rosadoFondos);
     font-weight: 500;
@@ -2117,13 +2073,11 @@ body {
     display: block;
     padding: 10px 15px;
     text-transform: uppercase;
-    font-family: 'Mohave', sans-serif;
+    font-family: "Mohave", sans-serif;
     color: #75365a;
 }
 
-
 .myaccount-tab-menu {
-
     -webkit-box-direction: normal;
     -webkit-flex-direction: column;
     -ms-flex-direction: column;
@@ -2135,7 +2089,6 @@ body {
     padding-bottom: 10px;
     display: flex;
     margin-top: -500px;
-
 }
 
 .myaccount-tab-menu a:hover,
@@ -2144,7 +2097,6 @@ body {
     border-color: #75365a;
     color: #fff;
 }
-
 
 .img2 {
     width: 70px !important;
@@ -2159,7 +2111,6 @@ body {
     margin-right: auto;
     margin-left: 700px;
     display: flex;
-
 }
 
 .center-user {
@@ -2175,10 +2126,16 @@ body {
 
 .input-group-text {
     background-color: var(--rosadoPalido);
-    ;
 }
 
+.avatar-cliente {
+    border-radius: 50%;
+}
 
+.avatar-cliente-modal {
+    border-radius: 50%;
+    height: 45px;
+}
 
 /*----------------- Fin Mi cuenta------------ */
 
@@ -2203,7 +2160,6 @@ body {
     margin-bottom: 20px;
     height: 525px;
     width: 100%;
-
 }
 
 .detalle-producto-content .disponibilidad-group {
@@ -2220,27 +2176,25 @@ body {
     color: green;
 }
 
-
-
 .detalle-producto-content .fa-square {
     font-size: 25px;
     padding: 5px;
 }
 
 .detalle-producto-content .color1 {
-    color: #F8D7E8;
+    color: #f8d7e8;
 }
 
 .detalle-producto-content .color2 {
-    color: #BAD5F0;
+    color: #bad5f0;
 }
 
 .detalle-producto-content .color3 {
-    color: #B0ABCB;
+    color: #b0abcb;
 }
 
 .detalle-producto-content .color3 {
-    color: #F0D5BA;
+    color: #f0d5ba;
 }
 
 .detalle-producto-content .precios span {
@@ -2255,7 +2209,7 @@ body {
 }
 
 .info-detalle-producto {
-    font-family: 'Mohave', sans-serif;
+    font-family: "Mohave", sans-serif;
 }
 
 .info-detalle-producto h5 {
@@ -2428,7 +2382,6 @@ body {
 .detalle-producto-content .stars-title-resena i {
     margin: 0 5px 0 5px;
     font-size: 20px;
-
 }
 
 .detalle-producto-content .product-item a {
@@ -2513,7 +2466,6 @@ body {
 }
 
 .escribir-resena:hover {
-
     color: var(--marfil);
     background-color: var(--rosadoTitulos);
     transform: scale(1.05);
@@ -2553,7 +2505,7 @@ body {
 }
 
 .modal hr {
-    background: rgba(195, 78, 139, 0.2)
+    background: rgba(195, 78, 139, 0.2);
 }
 
 /*DETALLE PRODUCTO RESPONSIVE*/
@@ -2562,7 +2514,6 @@ body {
         margin-bottom: 20px;
         height: 100%;
         width: 100%;
-
     }
 
     .info-detalle-content {
@@ -2588,7 +2539,6 @@ body {
         margin-bottom: 20px;
         max-height: 95%;
         width: 100%;
-
     }
 }
 
@@ -2616,7 +2566,6 @@ body {
     background-color: transparent;
 }
 
-
 /* ------------------------------------------------------------------FIN DETALLES PRODUCTOS-------------------------------------------------------*/
 
 /* ------------------------------------------------------------------INICIO CONTACTANOS-------------------------------------------------------*/
@@ -2627,7 +2576,6 @@ body {
 
 .formulario-contacto input {
     color: var(--rosadoOscuro);
-
 }
 
 .contacto-redes {
@@ -2663,7 +2611,6 @@ body {
     display: flex;
     align-items: center;
     margin-bottom: 15px;
-
 }
 
 .contactanos span {
@@ -2692,7 +2639,6 @@ body {
 
 /* ------------------------------------------------------------------FIN CONTACTANOS-------------------------------------------------------*/
 
-
 /* --------------------------------------------------------------------INICIO LOGIN--------------------------------------------------------*/
 
 .section-Login {
@@ -2716,7 +2662,7 @@ body {
     width: 470px;
     height: 475px;
     border: solid 5px;
-    border-color: #E6BAD1;
+    border-color: #e6bad1;
 }
 
 .lineaLo {
@@ -2738,7 +2684,7 @@ body {
 
 .Lcorreo {
     height: 50px;
-    background-color: #F8F9F8;
+    background-color: #f8f9f8;
     border: none;
     font-style: italic;
 }
@@ -2749,7 +2695,6 @@ body {
     width: 50px;
     border: none;
 }
-
 
 .SLimg {
     height: 50px;
@@ -2771,7 +2716,7 @@ body {
 .RecuperarA {
     color: var(--rosadoTitulos);
     font-size: 14px;
-    font-family: 'Mohave', sans-serif;
+    font-family: "Mohave", sans-serif;
 }
 
 .RecuperarA:hover {
@@ -2787,7 +2732,7 @@ body {
     border: none;
     width: 100%;
     font-size: 28px;
-    font-family: 'Mohave', sans-serif;
+    font-family: "Mohave", sans-serif;
     color: white;
     background-color: var(--rosadoTitulos);
 }
@@ -2799,14 +2744,14 @@ body {
 
 .TerminosP {
     font-size: 15px;
-    font-family: 'Mohave', sans-serif;
+    font-family: "Mohave", sans-serif;
     color: #707070;
     font-style: italic;
 }
 
 .NuevoP {
     font-size: 18px;
-    font-family: 'Mohave', sans-serif;
+    font-family: "Mohave", sans-serif;
     color: #707070;
     padding-top: 8px;
 }
@@ -2814,9 +2759,9 @@ body {
 .lineaL {
     height: 2px;
     border: none;
-    border-top: 5px solid #E6BAD1;
+    border-top: 5px solid #e6bad1;
     width: 120px;
-    background-color: #E6BAD1;
+    background-color: #e6bad1;
     opacity: 1;
     border-radius: 3px;
 }
@@ -2824,7 +2769,7 @@ body {
 .Crear {
     color: var(--rosadoTitulos);
     font-size: 17px;
-    font-family: 'Mohave', sans-serif;
+    font-family: "Mohave", sans-serif;
 }
 
 .Crear:hover {
@@ -2836,8 +2781,6 @@ body {
 }
 
 /* ---------------------------------------------------------------------FIN LOGIN----------------------------------------------------------*/
-
-
 
 /* --------------------------------------------------------------------INICIO CREAR--------------------------------------------------------*/
 
@@ -2858,7 +2801,6 @@ body {
     height: 35px;
     transform: translateY(26px);
     z-index: 2;
-
 }
 
 .login {
@@ -2874,7 +2816,7 @@ body {
     width: 670px;
     height: 575px;
     border: solid 5px;
-    border-color: #E6BAD1;
+    border-color: #e6bad1;
 }
 
 .LlenarIG {
@@ -2955,17 +2897,16 @@ body {
     padding: 5px;
 }
 
-
 .TerminosP2 {
     font-size: 15px;
-    font-family: 'Mohave', sans-serif;
+    font-family: "Mohave", sans-serif;
     color: #707070;
     font-style: italic;
 }
 
 .NuevoP2 {
     font-size: 18px;
-    font-family: 'Mohave', sans-serif;
+    font-family: "Mohave", sans-serif;
     color: #707070;
     padding-top: 8px;
     text-align: center;
@@ -2975,7 +2916,7 @@ body {
 .Crear2 {
     color: var(--rosadoTitulos);
     font-size: 17px;
-    font-family: 'Mohave', sans-serif;
+    font-family: "Mohave", sans-serif;
     text-align: center !important;
 }
 
@@ -2983,10 +2924,7 @@ body {
     color: var(--rosadoOscuro);
 }
 
-
 /* ---------------------------------------------------------------------FIN CREAR----------------------------------------------------------*/
-
-
 
 /* ------------------------------------------------------------------INICIO RECUPERAR------------------------------------------------------*/
 
@@ -3014,7 +2952,7 @@ body {
     width: 470px;
     height: 350px;
     border: solid 5px;
-    border-color: #E6BAD1;
+    border-color: #e6bad1;
 }
 
 .lineaRe {
@@ -3032,13 +2970,12 @@ body {
 .RecuperarA {
     color: var(--rosadoTitulos);
     font-size: 14px;
-    font-family: 'Mohave', sans-serif;
+    font-family: "Mohave", sans-serif;
 }
-
 
 .PRecu {
     font-size: 17px;
-    font-family: 'Mohave', sans-serif;
+    font-family: "Mohave", sans-serif;
     color: #707070;
     text-align: center;
     align-items: center;
@@ -3068,7 +3005,6 @@ body {
 
 /*------------------CONTRASEÑA------------------*/
 
-
 .Contra-Img {
     padding-top: 50px;
     width: 300px;
@@ -3086,7 +3022,6 @@ body {
     margin-left: auto;
 }
 
-
 .Contra-text {
     background-color: var(--blanco);
     margin-top: 50px;
@@ -3094,11 +3029,9 @@ body {
     width: 470px;
     height: 350px;
     border: solid 5px;
-    border-color: #E6BAD1;
+    border-color: #e6bad1;
     transform: translateY(-50px);
 }
-
-
 
 /* -------------------------------------------------------------------FIN RECUPERAR--------------------------------------------------------*/
 
@@ -3115,7 +3048,7 @@ body {
 
 .table-carrito th {
     text-align: center;
-    font-family: 'Mohave', sans-serif;
+    font-family: "Mohave", sans-serif;
     color: var(--blanco);
     font-size: 20px;
 }
@@ -3128,7 +3061,7 @@ body {
 .table-carrito td {
     vertical-align: middle;
     text-align: center;
-    font-family: 'Mohave', sans-serif;
+    font-family: "Mohave", sans-serif;
     font-size: 18px;
 }
 
@@ -3148,13 +3081,13 @@ body {
     margin: auto;
 }
 
-.controles button{
+.controles button {
     color: var(--rosadoTitulos);
     cursor: pointer;
-    transition: all .2s ease;
+    transition: all 0.2s ease;
 }
 
-.controles button:hover{
+.controles button:hover {
     color: var(--blanco);
 }
 
@@ -3171,7 +3104,7 @@ body {
     color: var(--blanco);
     text-align: center;
     text-decoration: none;
-    font-family: 'Mohave', sans-serif;
+    font-family: "Mohave", sans-serif;
     border-radius: 25px;
     transition: all 0.3s ease;
     font-size: 18px;
@@ -3194,7 +3127,7 @@ body {
 
 .table-monto {
     color: var(--rosadoOscuro);
-    font-family: 'Mohave', sans-serif;
+    font-family: "Mohave", sans-serif;
 }
 
 .table-monto tbody {
@@ -3212,7 +3145,7 @@ body {
 }
 
 .table-monto tr:last-child {
-    border-bottom: 1px solid var(--rosadoFondos)
+    border-bottom: 1px solid var(--rosadoFondos);
 }
 
 .align-right {
@@ -3237,20 +3170,20 @@ firm-btn {
     color: var(--blanco);
     text-align: center;
     text-decoration: none;
-    font-family: 'Mohave', sans-serif;
+    font-family: "Mohave", sans-serif;
     transition: all 0.3s ease;
     font-size: 18px;
     margin-bottom: 20px;
 }
 
-
-.confirm-btn{
+.confirm-btn {
     background-color: var(--rosadoTitulos);
     border-radius: 5px;
     padding: 10px 10px;
     color: var(--blanco);
-    transition: all .3s ease;
+    transition: all 0.3s ease;
 }
+
 .confirm-btn:hover {
     background-color: var(--rosadoOscuro);
     color: var(--blanco);
@@ -3272,7 +3205,7 @@ firm-btn {
         position: absolute;
         left: 50%;
         bottom: -40%;
-        transition: all .3s ease;
+        transition: all 0.3s ease;
     }
 
     .card-cocina>.card-body {
@@ -3376,7 +3309,7 @@ firm-btn {
 
 .table-deseos th {
     text-align: center;
-    font-family: 'Mohave', sans-serif;
+    font-family: "Mohave", sans-serif;
     color: var(--blanco);
     font-size: 20px;
 }
@@ -3389,7 +3322,7 @@ firm-btn {
 .table-deseos td {
     vertical-align: middle;
     text-align: center;
-    font-family: 'Mohave', sans-serif;
+    font-family: "Mohave", sans-serif;
     font-size: 18px;
 }
 
@@ -3412,11 +3345,11 @@ firm-btn {
     color: var(--blanco);
     text-align: center;
     text-decoration: none;
-    font-family: 'Mohave', sans-serif;
+    font-family: "Mohave", sans-serif;
     border-radius: 25px;
     transition: all 0.3s ease;
     font-size: 18px;
-    margin: 0 auto
+    margin: 0 auto;
 }
 
 .deseos-agregar:hover {
@@ -3427,7 +3360,6 @@ firm-btn {
 /* --------------------------------------------------------------FIN DE PÁGINA LISTA DE DESEOS -----------------------------------------------------*/
 
 /* --------------------------------------------------------------INICIO DE PÁGINA CONFIRMAR COMPRA -----------------------------------------------------*/
-
 
 .navbar-checkout {
     height: 100px !important;
@@ -3443,7 +3375,7 @@ firm-btn {
     width: 100%;
     height: 100px;
     background-color: var(--rosadoPalido);
-    opacity: .7;
+    opacity: 0.7;
     position: absolute;
 }
 
@@ -3461,7 +3393,7 @@ firm-btn {
 .form-title span a {
     color: var(--rosadoOscuro) !important;
     font-weight: bold;
-    transition: .3s;
+    transition: 0.3s;
 }
 
 .form-title span a:hover {
@@ -3482,22 +3414,22 @@ firm-btn {
 
 .carrito-back {
     color: var(--rosadoOscuro);
-    font-family: 'Mohave', sans-serif;
+    font-family: "Mohave", sans-serif;
     font-size: 20px;
     display: block;
 }
 
 .carrito-back::after {
-    content: '';
+    content: "";
     height: 2px;
     width: 0%;
     background-color: var(--rosadoOscuro);
-    transition: .3s ease-in-out;
+    transition: 0.3s ease-in-out;
     display: block;
 }
 
 .carrito-back:hover::after {
-    content: '';
+    content: "";
     height: 2px;
     width: 20%;
     background-color: var(--rosadoOscuro);
@@ -3535,9 +3467,9 @@ firm-btn {
 }
 
 .blog-titulo h3 {
-    font-family: 'Mohave', sans-serif;
+    font-family: "Mohave", sans-serif;
     color: var(--rosadoOscuro);
-    opacity: .5;
+    opacity: 0.5;
 }
 
 .blog-autor-fecha {
@@ -3560,7 +3492,7 @@ firm-btn {
 }
 
 .blog-descrip {
-    font-family: 'Mohave', sans-serif;
+    font-family: "Mohave", sans-serif;
     color: var(--rosadoOscuro);
 }
 
@@ -3568,10 +3500,10 @@ firm-btn {
     display: block;
     padding: 10px 30px;
     background: var(--rosadoTitulos);
-    color: #FFF;
+    color: #fff;
     text-align: center;
     text-decoration: none;
-    font-family: 'Mohave', sans-serif;
+    font-family: "Mohave", sans-serif;
     border-radius: 50px;
     transition: all 0.3s ease;
 }
@@ -3590,7 +3522,7 @@ firm-btn {
 }
 
 .texto-entrada {
-    font-family: 'Mohave', sans-serif;
+    font-family: "Mohave", sans-serif;
     color: var(--rosadoOscuro);
     font-size: 18px;
 }
@@ -3693,13 +3625,13 @@ firm-btn {
 }
 
 .last-posts .text-post {
-    font-family: 'Mohave', sans-serif;
+    font-family: "Mohave", sans-serif;
 }
 
 .last-posts .text-post h4 a {
     color: var(--rosadoOscuro);
     font-weight: bold;
-    transition: .3s;
+    transition: 0.3s;
 }
 
 .last-posts .text-post h4 a:hover {
@@ -3708,9 +3640,8 @@ firm-btn {
 
 .last-posts .text-post p {
     color: var(--rosadoOscuro);
-    opacity: .7;
+    opacity: 0.7;
 }
-
 
 .categorias-blog h1 {
     color: var(--rosadoOscuro);
@@ -3719,13 +3650,13 @@ firm-btn {
 
 .categorias-blog .categoria span {
     color: var(--rosadoOscuro);
-    font-family: 'Mohave', sans-serif;
+    font-family: "Mohave", sans-serif;
     font-size: 20px;
 }
 
 .categorias-blog .fa-folder {
     color: var(--rosadoOscuro);
-    opacity: .5;
+    opacity: 0.5;
 }
 
 /* --------------------------------------------------------------INICIO CUENTA -----------------------------------------------------*/
@@ -3752,7 +3683,7 @@ firm-btn {
 
 .table-cuen th {
     text-align: center;
-    font-family: 'Mohave', sans-serif;
+    font-family: "Mohave", sans-serif;
     color: var(--blanco);
     font-size: 20px;
 }
@@ -3765,7 +3696,7 @@ firm-btn {
 .table-cuen td {
     vertical-align: middle;
     text-align: center;
-    font-family: 'Mohave', sans-serif;
+    font-family: "Mohave", sans-serif;
     font-size: 18px;
 }
 
@@ -3786,7 +3717,7 @@ b {
 }
 
 .a-edi {
-    font-family: 'Mohave', sans-serif;
+    font-family: "Mohave", sans-serif;
     font-size: 20px;
 }
 
@@ -3794,7 +3725,7 @@ b {
     height: 25px;
 }
 
-.ver-detalle{
+.ver-detalle {
     color: var(--rosadoTitulos) !important;
 }
 
@@ -3816,12 +3747,12 @@ b {
 
 .I-guar {
     color: white;
-    font-family: 'Mohave', sans-serif;
+    font-family: "Mohave", sans-serif;
 }
 
 .I-guar:hover {
     color: white;
-    font-family: 'Mohave', sans-serif;
+    font-family: "Mohave", sans-serif;
 }
 
 .usu-img input {
@@ -3829,14 +3760,13 @@ b {
     height: 0px;
 }
 
-input[type=number]::-webkit-inner-spin-button,
-input[type=number]::-webkit-outer-spin-button {
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
     -webkit-appearance: none;
     margin: 0;
 }
 
 /* --------------------------------------------------------------FIN CUENTA -----------------------------------------------------*/
-
 
 /*------------------RESPONSIVE GLOBAL------------------*/
 @media (min-width: 476px) and (max-width: 767.98px) {
@@ -3863,13 +3793,11 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 @media (max-width: 575.98px) {
-
     .Fon-Marcas {
         width: 100%;
         height: 450px;
         background-image: url(../../resources/img/marcas/muñeca2.png);
     }
-
 
     #TextoC {
         padding-left: 90px;
@@ -3889,7 +3817,6 @@ input[type=number]::-webkit-outer-spin-button {
 
     .BCarrusel {
         font-size: 8px;
-
     }
 
     #TextoC2 {
@@ -3910,7 +3837,6 @@ input[type=number]::-webkit-outer-spin-button {
 
     .BCarrusel2 {
         font-size: 10px;
-
     }
 
     #icoC {
@@ -3923,7 +3849,6 @@ input[type=number]::-webkit-outer-spin-button {
         display: flex;
         flex-direction: row;
         justify-content: start;
-
     }
 
     .HCarusel3 {
@@ -3936,7 +3861,6 @@ input[type=number]::-webkit-outer-spin-button {
 
     .BCarrusel3 {
         font-size: 10px;
-
     }
 
     #TextoC4 {
@@ -3944,7 +3868,6 @@ input[type=number]::-webkit-outer-spin-button {
         display: flex;
         flex-direction: row;
         justify-content: center;
-
     }
 
     .HCarusel4 {
@@ -3955,7 +3878,6 @@ input[type=number]::-webkit-outer-spin-button {
         font-size: 15px;
     }
 
-
     #logo_final {
         width: 170px !important;
         border: 2px;
@@ -3963,19 +3885,15 @@ input[type=number]::-webkit-outer-spin-button {
 
     .container-Fo {
         margin: 24px !important;
-
     }
 
     .logopart {
         padding-left: 22px;
         padding-bottom: 35px !important;
     }
-
-
 }
 
 @media (min-width: 576px) and (max-width: 767.98px) {
-
     .Fon-Marcas {
         width: 100%;
         height: 350px;
@@ -3999,7 +3917,6 @@ input[type=number]::-webkit-outer-spin-button {
 
     .BCarrusel {
         font-size: 15px;
-
     }
 
     #TextoC2 {
@@ -4020,7 +3937,6 @@ input[type=number]::-webkit-outer-spin-button {
 
     .BCarrusel2 {
         font-size: 15px;
-
     }
 
     #icoC {
@@ -4033,7 +3949,6 @@ input[type=number]::-webkit-outer-spin-button {
         display: flex;
         flex-direction: row;
         justify-content: start;
-
     }
 
     .HCarusel3 {
@@ -4046,7 +3961,6 @@ input[type=number]::-webkit-outer-spin-button {
 
     .BCarrusel3 {
         font-size: 15px;
-
     }
 
     #TextoC4 {
@@ -4054,7 +3968,6 @@ input[type=number]::-webkit-outer-spin-button {
         display: flex;
         flex-direction: row;
         justify-content: center;
-
     }
 
     .HCarusel4 {
@@ -4072,7 +3985,6 @@ input[type=number]::-webkit-outer-spin-button {
 
     .container-Fo {
         margin: 24px !important;
-
     }
 
     .logopart {
@@ -4099,7 +4011,6 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 @media (min-width: 768px) and (max-width: 991.98px) {
-
     #Cuenta-table {
         width: 600px;
     }
@@ -4140,7 +4051,6 @@ input[type=number]::-webkit-outer-spin-button {
 
     .BCarrusel {
         font-size: 15px;
-
     }
 
     #TextoC2 {
@@ -4161,7 +4071,6 @@ input[type=number]::-webkit-outer-spin-button {
 
     .BCarrusel2 {
         font-size: 15px;
-
     }
 
     #icoC {
@@ -4174,7 +4083,6 @@ input[type=number]::-webkit-outer-spin-button {
         display: flex;
         flex-direction: row;
         justify-content: start;
-
     }
 
     .HCarusel3 {
@@ -4193,7 +4101,6 @@ input[type=number]::-webkit-outer-spin-button {
         padding-bottom: 165px;
     }
 
-
     #logo_final {
         width: 270px !important;
         border: 2px;
@@ -4201,7 +4108,6 @@ input[type=number]::-webkit-outer-spin-button {
 
     .container-Fo {
         margin: 24px !important;
-
     }
 
     .logopart {

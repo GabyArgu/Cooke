@@ -16,6 +16,12 @@ if (isset($_GET['action'])) {
         $result['session'] = 1;
         // Se compara la acción a realizar cuando un administrador ha iniciado sesión.
         switch ($_GET['action']) {
+            // if(){
+
+            // }
+            // else{
+
+            // }
             case 'createDetail':
                 $_POST = $pedido->validateForm($_POST);
                 if (!$pedido->setColor($_POST['color'])) {
@@ -133,10 +139,6 @@ if (isset($_GET['action'])) {
             default:
                 $result['exception'] = 'Acción no disponible dentro de la sesión';
         }
-        // Se indica el tipo de contenido a mostrar y su respectivo conjunto de caracteres.
-        header('content-type: application/json; charset=utf-8');
-        // Se imprime el resultado en formato JSON y se retorna al controlador.
-        print(json_encode($result));
     } else {
         // Se compara la acción a realizar cuando un cliente no ha iniciado sesión.
         switch ($_GET['action']) {
@@ -150,6 +152,10 @@ if (isset($_GET['action'])) {
                 $result['exception'] = 'Acción no disponible fuera de la sesión';
         }
     }
+    // Se indica el tipo de contenido a mostrar y su respectivo conjunto de caracteres.
+    header('content-type: application/json; charset=utf-8');
+    // Se imprime el resultado en formato JSON y se retorna al controlador.
+    print(json_encode($result));
 } else {
     print(json_encode('Recurso no disponible'));
 }

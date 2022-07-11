@@ -33,76 +33,6 @@
 
         <!-- INICIO NAVBAR DE LA PÁGINA-->
         <header>
-            <!-- INICIA NAVBAR -->
-            <nav class="navbar fixed-top navbar-expand-lg navbar-light menu" id="navbar-page">
-                <div class=" container-fluid">
-                    <a class="navbar-brand me-auto" href="index.html"><img src="../../resources/img/index/logo2.png"
-                            alt="" id="logo_inicio" class="mx-auto d-block"></a>
-                    <button class="navbar-toggler collapsed d-flex d-lg-none flex-column justify-content-around"
-                        type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
-                        aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="toggler-icon top-bar"></span>
-                        <span class="toggler-icon middle-bar"></span>
-                        <span class="toggler-icon bottom-bar"></span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 textcolor">
-                            <li class="nav-item dropdown textcolor2">
-                                <a class="nav-link dropdown" href="categoria.html" id="navbarDropdownMenuLink"
-                                    role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    Categorías
-                                </a>
-                                <ul class="dropdown-menu dropdown-categorias" aria-labelledby="navbarDropdownMenuLink">
-                                    <li><a class="dropdown-item" href="categoria.html">Cocina</a></li>
-                                    <li><a class="dropdown-item" href="categoria.html">Utensilios</a></li>
-                                    <li><a class="dropdown-item" href="categoria.html">Eléctrodomesticos</a></li>
-                                    <li><a class="dropdown-item" href="categoria.html">Recetas</a></li>
-                                </ul>
-                            </li>
-                            <li class="nav-item textcolor2">
-                                <a class="nav-link active " aria-current="page" href="gridproductos.html">Destacados</a>
-                            </li>
-                            <li class="nav-item textcolor2">
-                                <a class="nav-link active" aria-current="page" href="nosotros.html">Nosotros</a>
-                            </li>
-                            <li class="nav-item textcolor2">
-                                <a class="nav-link active" aria-current="page" href="blog.html">Blog</a>
-                            </li>
-                            <li class="nav-item textcolor2">
-                                <a class="nav-link active" aria-current="page" href="contactanos.html">Contacto</a>
-                            </li>
-
-                            <div class="iconos-navbar">
-
-                                <li class="nav-item textcolor">
-                                    <ul class="navbar-nav ms-auto">
-                                        <li class="nav-item dropdown">
-                                            <a class="nav-link dropdown p-0" href="#" id="navbarDropdownMenuLink" role="button"
-                                                data-bs-toggle="dropdown" aria-expanded="false">
-                                                <i class="fa-solid  img-hover"></i>
-                                            </a>
-                                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
-                                                <li><a class="dropdown-item" href="cuenta.html">Cuenta</a></li>
-                                                <li><a class="dropdown-item" onclick="logOut()">Cerrar Sesión</a></li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-
-                                <li class="nav-item textcolor">
-                                    <a class="nav-link active img-hover2" aria-current="page" href="deseos.html"></a>
-                                </li>
-
-                                <li class="nav-item textcolor nav-carrito">
-                                    <a class="nav-link active img-hover3 nav-carrito" aria-current="page"
-                                        data-bs-toggle="offcanvas" data-bs-target="#sidebarCarrito"
-                                        aria-controls="offcanvasRight"></a>
-                                </li>
-                            </div>
-
-                        </ul>
-                    </div>
-                </div>
-            </nav>
         </header>
         <!-- FIN NAVBAR DE LA PÁGINA-->
 
@@ -115,39 +45,14 @@
                 <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
 
                 <div id="cd-cart">
-                    <h2>CARRITO DE COMPRAS</h2>
-                    <ul class="cd-cart-items">
-
-                        <li class="product-item-cart">
-                            <div class="item">
-                                <span class="top-0 start-100 translate-middle badge quantity-badge">1</span>
-                                <img src="../../resources/img/index/olla.png" alt="" class="cart-img">
-                            </div>
-                            <div class="detail-box">
-                                <div class="cart-product-title">Cacerola Steel Co Healthy</div>
-                                <div class="cart-price">$29.74</div>
-                            </div>
-                            <i class="fa-solid fa-xmark cd-item-remove"></i>
-                        </li>
-
-                        <li class="product-item-cart">
-                            <div class="item">
-                                <span class="top-0 start-100 translate-middle badge quantity-badge">2</span>
-                                <img src="../../resources/img/index/cuchara.png" alt="" class="cart-img">
-                            </div>
-                            <div class="detail-box">
-                                <div class="cart-product-title">Cucharón de madera</div>
-                                <div class="cart-price">$19.80</div>
-                            </div>
-                            <i class="fa-solid fa-xmark cd-item-remove"></i>
-                        </li>
-
+                    <h2 id="title-off">CARRITO DE COMPRAS</h2>
+                    <ul class="cd-cart-items" id="tbody-rows-off">
+                                
                     </ul>
-
-                    <div class="cd-cart-total">
-                        <p class="card-total-line">Subtotal<span>$49.54</span></p>
-                        <p class="card-total-line">Envío<span>$0.00</span></p>
-                        <p class="total card-total-line">Total<span class="total">$49.54</span></p>
+                    <div class="cd-cart-total" id="factura-off">
+                        <p class="card-total-line">Subtotal<span id="total-off">$0</span></p>
+                        <p class="card-total-line">Envío<span id="envio-off">$0</span></p>
+                        <p class="total card-total-line">Total<span class="total" id="pago-off">$0</span></p>
                     </div> <!-- cd-cart-total -->
 
                     <a href="carrito.html" class="checkout-btn">
@@ -156,17 +61,13 @@
                         </span> VER CARRITO
                     </a>
 
-                    <a href="checkout.html" class="checkout-btn">
-                        <span>
-                            <i class="fa-solid fa-arrow-right"></i>
-                        </span> IR A PAGAR
-                    </a>
-
                 </div> <!-- cd-cart -->
 
             </div>
 
         </div>
+        <!-- FIN CARRITO DE LA PÁGINA-->
+
         <!-- FIN CARRITO DE LA PÁGINA-->
 
         <!-- INICIO DEL MAIN DE LA PÁGINA-->
@@ -198,9 +99,7 @@
                         <button class="nav-link" id="v-pills-profile-tab" data-bs-toggle="pill"
                             data-bs-target="#v-pills-profile" type="button" role="tab" aria-controls="v-pills-profile"
                             aria-selected="false">INFORMACIÓN</button>
-                        <button class="nav-link" id="v-pills-messages-tab" data-bs-toggle="pill"
-                            data-bs-target="#v-pills-messages" type="button" role="tab" aria-controls="v-pills-messages"
-                            aria-selected="false"> <a href="login.html">CERRAR SESIÓN</a> </button>
+
                     </div>
                     <div class="tab-content" id="v-pills-tabContent">
                         <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel"
@@ -226,38 +125,39 @@
                             <div class="container-fluid justify-content-center align-items-center" id="Cuenta-table">
                                 <div class="row">
                                     <div class="col-sm-12 col-md-6 col-lg-4 usu-img">
-                                        <img src="../../resources/img/usuario/usuario.png" alt="">
+                                        <img id="avatar-cliente" class="avatar-cliente"
+                                            src="../../resources/img/usuario/usuario.png" alt="">
                                     </div>
                                     <div
                                         class="col-sm-12 col-md-6 col-lg-8 mt-4 usu-d d-flex align-items-start justify-content-center flex-column">
-                                        <h5><b>Teléfono:</b> (+503) 7690-1760</h5>
-                                        <h5 class="mt-4"> <b>Correo:</b> 20170573@ricaldone.edu.sv</h5>
-                                        <h5 class="mt-4"> <b>Dirección:</b> Av Santisima Trinidad pol 7 pj 10 casa #3
+                                        <h5><b>Teléfono: </b><span id="telefono-cliente"></span></h5>
+                                        <h5 class="mt-4"><b>Correo: </b><span id="correo-cliente"></span></h5>
+                                        <h5 class="mt-4"> <b>Dirección: </b><span id="direccion-cliente"></span>
                                         </h5>
                                     </div>
                                 </div>
                                 <div class="row mt-4">
                                     <div class="col-sm-12 col-md-6 col-lg-4">
-                                        <h5> <b>Alias:</b> Gabriela Méndez</h5>
+                                        <h5> <b>Alias: </b><span id="alias-cliente"></span></h5>
                                     </div>
                                     <div class="col-sm-12 col-md-6 col-lg-4">
-                                        <h5> <b>Nombres:</b> Gabriela Susana</h5>
+                                        <h5> <b>Nombres: </b><span id="nombres-cliente"></span></h5>
                                     </div>
                                     <div class="col-sm-12 col-md-6 col-lg-4">
-                                        <h5> <b>Apellidos:</b> Méndez Barrera</h5>
+                                        <h5> <b>Apellidos: </b><span id="apellidos-cliente"></span></h5>
                                     </div>
                                 </div>
                                 <div class="row mt-4">
                                     <div class="col-sm-12 col-md-6 col-lg-4">
-                                        <h5> <b>Cumpleaños:</b> 18-08-2003</h5>
+                                        <h5> <b>Cumpleaños: </b><span id="nacimiento-cliente"></span> </h5>
                                     </div>
                                     <div class="col-sm-12 col-md-6 col-lg-4">
-                                        <h5> <b>Dui:</b> 12345678-0</h5>
+                                        <h5> <b>Dui: </b><span id="dui-cliente"></span> </h5>
                                     </div>
                                     <div class="col-sm-12 col-md-6 col-lg-4 mt-0">
-                                        <a class="a-edi" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
-                                            href="#staticBackdrop"><img src="../../resources/img/usuario/editar.png"
-                                                alt="">
+                                        <a onclick="openUpdate()" class="a-edi" type="button"
+                                        data-bs-toggle="modal" data-bs-target="#save-modal"><img
+                                                src="../../resources/img/usuario/editar.png" alt="">
                                             Editar</a>
                                     </div>
                                 </div>
@@ -271,27 +171,27 @@
             </div>
 
             <!-- Modal editar cuenta -->
-            <div class="modal modal-agregar modal-agregar-cliente fade" id="staticBackdrop" data-bs-backdrop="static"
-                data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal modal-agregar modal-agregar-cliente fade" id="save-modal" tabindex="-1"
+            aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered modal-xl">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="staticBackdropLabel">Editar información</h5>
+                            <h5 class="modal-title">Editar información</h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
                             <div class="container">
                                 <div class="row agregar-content">
-                                    <form class="row justify-content-center" id="save-form">
+                                    <form class="row justify-content-center" method="post" id="save-form">
                                         <div class="col-10 mt-4 d-flex justify-content-around">
                                             <div class="input-group LlenarIG">
                                                 <div class="input-group-prepend">
                                                     <span class="input-group-text SLcorreo SCimg"
                                                         id="inputGroupPrepend2"></span>
                                                 </div>
-                                                <input type="text" class="form-control Lcorreo" id="nombres"
+                                                <input type="text"  class="form-control Lcorreo" id="nombres"
                                                     name="nombres" placeholder="Escribe tus nombres"
-                                                    aria-describedby="inputGroupPrepend2" required>
+                                                    aria-describedby="inputGroupPrepend2"  pattern="^[a-zA-ZÀ-ÿ\u00f1\u00d1]+(\s*[a-zA-ZÀ-ÿ\u00f1\u00d1]*)*[a-zA-ZÀ-ÿ\u00f1\u00d1]+$" required >
                                             </div>
                                             <div class="input-group">
                                                 <div class="input-group-prepend">
@@ -311,7 +211,7 @@
                                                 </div>
                                                 <input type="text" class="form-control Lcorreo" id="apellidos"
                                                     name="apellidos" placeholder="Escribe tus apellidos"
-                                                    aria-describedby="inputGroupPrepend2" required>
+                                                    aria-describedby="inputGroupPrepend2" pattern="^[a-zA-ZÀ-ÿ\u00f1\u00d1]+(\s*[a-zA-ZÀ-ÿ\u00f1\u00d1]*)*[a-zA-ZÀ-ÿ\u00f1\u00d1]+$" required>
                                             </div>
                                             <div class="input-group">
                                                 <div class="input-group-prepend">
@@ -340,7 +240,7 @@
                                                 </div>
                                                 <input type="text" class="form-control Lcorreo" id="direccion"
                                                     name="direccion" placeholder="Escribe tu dirreción"
-                                                    aria-describedby="inputGroupPrepend2" required>
+                                                    aria-describedby="inputGroupPrepend2" pattern="^[a-zA-ZÀ-ÿ\u00f1\u00d1]+(\s*[a-zA-ZÀ-ÿ\u00f1\u00d1]*)*[a-zA-ZÀ-ÿ\u00f1\u00d1]+$" required>
                                             </div>
                                         </div>
                                         <div class="col-10 mt-4 d-flex justify-content-around">
@@ -363,12 +263,25 @@
                                                     aria-describedby="inputGroupPrepend2" required>
                                             </div>
                                         </div>
-                                        <div class="modal-footer d-flex justify-content-end">
-                                            <button class="AAceptar" type="submit" form="save-form">Guardar</i></button>
+                                        <div class="col-10 mt-4 d-flex justify-content-center">
+                                                <div class="row">
+                                                    <div class="col col-10">
+                                                        <select class="form-select form-controlcustom-form-select h-100 w-100"
+                                                            aria-label="Default select example" id="foto" name="foto"
+                                                            onchange="changeAvatar()">
+                                                        </select>
+                                                    </div>
+                                                    <div class="col col-2">
+                                                        <img id="imagen-avatar" class="avatar-cliente-modal" src="" alt="">
+                                                    </div>
+                                                </div>
                                         </div>
                                     </form>
                                 </div>
                             </div>
+                        </div>
+                        <div class="modal-footer d-flex justify-content-end">
+                            <button class="AAceptar" type="submit" form="save-form" >Guardar</i></button>
                         </div>
                     </div>
                 </div>
