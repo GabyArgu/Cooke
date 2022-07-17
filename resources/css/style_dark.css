@@ -16,18 +16,20 @@ a {
 
 body {
   overflow-x: hidden;
-  overflow-y: overlay;
+  overflow-y: overlay; 
 }
 
 /* VARIABLES GLOBALES COLORES */
 :root {
   --rosadoPalido: #F7DADF;
-  --rosadoFondos: #FCF1F3;
+  --rosadoFondos: #D683AD;
   --rosadoPastel: #d97789;
   --rosadoTitulos: #c34e8b;
   --rosadoOscuro: #75365a;
-  --blanco: #fff;
-  --marfil: #f5f5f5;
+  --blanco: #292A3F;
+  --marfil: #201F27;
+  --textbl: white;
+
 }
 
 /* CUSTOM SCROLL BAR */
@@ -58,6 +60,11 @@ body {
 .barra-buscar {
   background-color: transparent !important;
   border-color: transparent !important;
+  color: white !important;
+}
+
+.barra-buscar::placeholder { 
+    color: var(--rosadoPalido) !important; 
 }
 
 /*QUITANDO SOMBRA AZUL DE INPUTS*/
@@ -475,7 +482,7 @@ textarea.form-control:focus {
 
 .Lupa i {
   margin-left: 20px !important;
-  color: var(--rosadoTitulos);
+  color: white;
 }
 
 .Usua-Ico {
@@ -488,7 +495,7 @@ textarea.form-control:focus {
 .Nombre-Usu {
   font-size: 18px;
   font-family: 'Mohave', sans-serif;
-  color: var(--rosadoOscuro);
+  color: white;
   padding-top: 5px;
   margin: 0px;
 }
@@ -536,13 +543,13 @@ textarea.form-control:focus {
   height: 59px;
   border: 2px;
   margin: auto;
-  background-image: url(../../resources/img/index/logo2.png);
+  background-image: url(../../resources/img/index/logo3.png);
   background-size: cover;
   transition: all 0.3s ease;
 }
 
 .Confi-Logo {
-  color: var(--rosadoTitulos);
+  color: white;
   transition: all .3s ease;
   cursor: pointer;
 }
@@ -571,18 +578,22 @@ textarea.form-control:focus {
 }
 
 .grafi {
-  background-color: #fff;
+  background-color: var(--blanco);
   border-radius: 1rem;
   padding-right: 0px !important;
   min-height: 200px;
 }
 
 .grafi2 {
-  background-color: #fff;
+  background-color: var(--blanco);
   background-clip: border-box;
   border-radius: 1rem;
   padding-top: 10px;
   align-items: center;
+}
+
+#myChart{
+    color: white !important;
 }
 
 .card {
@@ -590,10 +601,18 @@ textarea.form-control:focus {
   display: flex;
   flex-direction: column;
   word-wrap: break-word;
-  background-color: #fff;
+  background-color: var(--blanco);
   background-clip: border-box;
   border: 0 solid rgba(0, 0, 0, 0.125);
   border-radius: 1rem !important;
+}
+
+.Bodyp{
+    color: var(--rosadoPalido) !important;
+}
+
+.Bodyp span{
+    color: #F7BFD8 !important;
 }
 
 .card-body {
@@ -604,7 +623,7 @@ textarea.form-control:focus {
 .Title-Cart {
   font-size: 22px;
   font-family: 'Mohave', sans-serif;
-  color: #D889B2;
+  color: var(--rosadoFondos);
   font-weight: 600;
   margin-bottom: 6px;
 }
@@ -612,7 +631,7 @@ textarea.form-control:focus {
 .Monto {
   font-size: 26px;
   font-family: 'Mohave', sans-serif;
-  color: var(--rosadoOscuro);
+  color: white;
   font-weight: 500;
   
 }
@@ -624,15 +643,10 @@ textarea.form-control:focus {
 }
 
 .icon-shape i {
-  color: #D889B2;
+  color: white;
   position: relative;
   right: 10px;
 }
-
-.textoRojo{
-  color:#DE3E44;
-}
-
 
 
 /* -------------------------------------------------------------FIN DASHBOARD CREO XD-----------------------------------------------------------*/
@@ -773,7 +787,7 @@ div.dataTables_wrapper div.dataTables_length label {
   font-weight: normal;
   text-align: left;
   white-space: nowrap;
-  color: var(--rosadoOscuro);
+  color: var(--rosadoPalido);
 }
 
 div.dataTables_wrapper div.dataTables_length select {
@@ -826,7 +840,7 @@ div.dataTables_wrapper div.dataTables_length select {
 
 .header-table input {
   width: 350px;
-  color: var(--rosadoOscuro);
+  color: var(--textbl);
   background-color: rgba(255, 255, 255, .1);
   border-color: rgba(195, 78, 139, 0.2);
   margin-right: 5px;
@@ -840,14 +854,14 @@ div.dataTables_wrapper div.dataTables_length select {
 .table-responsive .table-productos {
   border: transparent;
   border-bottom: 1px solid var(--rosadoPalido);
-  color: var(--rosadoOscuro);
+  color: var(--textbl);
 
 }
 
 .table-productos th {
   text-align: center;
   font-family: 'Mohave', sans-serif;
-  color: var(--rosadoOscuro);
+  color: var(--textbl);
   font-size: 20px;
 
 }
@@ -1427,14 +1441,14 @@ div.dataTables_wrapper div.dataTables_length select {
 .table-responsive .table-categorias {
   border: transparent;
   border-bottom: 1px solid var(--rosadoPalido);
-  color: var(--rosadoOscuro);
+  color: var(--textbl);
 
 }
 
 .table-categorias th {
   text-align: center;
   font-family: 'Mohave', sans-serif;
-  color: var(--rosadoOscuro);
+  color: var(--textbl);
   font-size: 20px;
 
 }
@@ -1491,13 +1505,13 @@ div.dataTables_wrapper div.dataTables_length select {
 .table-responsive .table-pedidos {
   border: transparent;
   border-bottom: 1px solid var(--rosadoPalido);
-  color: var(--rosadoOscuro);
+  color: var(--textbl);
 }
 
 .table-pedidos th {
   text-align: center;
   font-family: 'Mohave', sans-serif;
-  color: var(--rosadoOscuro);
+  color: var(--textbl);
   font-size: 20px;
 
 }
@@ -1584,13 +1598,13 @@ div.dataTables_wrapper div.dataTables_length select {
 .Infor-H5 h5 {
   font-family: 'Mohave', sans-serif;
   font-size: 17px !important;
-  color: var(--rosadoOscuro);
+  color: var(--textbl);
   font-weight: 300;
 }
 
 .Infor-H5 b {
   font-family: 'Mohave', sans-serif;
-  color: var(--rosadoOscuro);
+  color: var(--textbl);
   font-weight: 600;
 }
 
@@ -1650,7 +1664,7 @@ div.dataTables_wrapper div.dataTables_length select {
 .Infor-H3 h5 {
   font-family: 'Mohave', sans-serif;
   font-size: 17px !important;
-  color: var(--rosadoTitulos);
+  color: var(--rosadoPalido);
   font-weight: 300;
 }
 
@@ -1799,8 +1813,8 @@ div.dataTables_wrapper div.dataTables_length select {
 }
 
 .CopCo {
-  color: var(--rosadoOscuro);
-  background-color: var(--rosadoPalido) !important;
+  color: var(--rosadoPalido);
+  background-color: var(--rosadoFondos) !important;
 }
 
 .acciones {
@@ -1828,24 +1842,24 @@ div.dataTables_wrapper div.dataTables_length select {
 }
 
 .texto-modal {
-  color: var(--rosadoOscuro);
+  color: var(--textbl);
   font-size: 18px;
 }
 
 .ver-resena-content .rating-detalle .fa-star{
-  color: var(--rosadoOscuro);
+  color: var(--textbl);
 }
 
 .table-responsive .table-resenas {
   border: transparent;
   border-bottom: 1px solid var(--rosadoPalido);
-  color: var(--rosadoOscuro);
+  color: var(--textbl);
 }
 
 .table-resenas th {
   text-align: center;
   font-family: 'Mohave', sans-serif;
-  color: var(--rosadoOscuro);
+  color: var(--textbl);
   font-size: 20px;
 }
 
