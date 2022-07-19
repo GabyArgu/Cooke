@@ -385,4 +385,26 @@ class Productos extends Validator
         $params = array($this->id);
         return Database::getRows($sql, $params);
     }
+
+    /*
+    *   Métodos para generar gráficas.
+    */
+    public function ventasPorSemana()
+    {
+        $sql = 'SELECT to_char("fechaPedido", \'Day\') as "Día", extract(day from "fechaPedido") as "Fecha", sum("montoTotal") as total FROM pedido 
+                WHERE "fechaPedido" between (select current_date - cast(\'7 days\' as interval))  and (SELECT current_date) and "estadoPedido" = 1
+                group by "fechaPedido" order by "fechaPedido"';
+        $params = null;
+        return Database::getRows($sql, $params);
+    }
+
+    public function estadisticaVentasPorSemana()
+    {
+        $sql = 'SELECT sum("montoTotal") as total from pedido 
+        where "fechaPedido" between (select current_date - cast(\'7 days\' as interval))  and (select current_date)';
+        $params = null;
+        return Database::getRow($sql, $params);
+    }
+
+    
 }
