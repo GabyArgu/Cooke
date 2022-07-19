@@ -194,7 +194,7 @@ function saveRow(api, action, form, modal) {
                 if (response.status) {
                     // Se cierra la caja de dialogo (modal) del formulario.
                     bootstrap.Modal.getInstance(document.getElementById(modal)).hide();
-                    
+
                     //M.Modal.getInstance(document.getElementById(modal)).close();
                     // Se cargan nuevamente las filas en la tabla de la vista después de guardar un registro y se muestra un mensaje de éxito.
                     readRows(api);
@@ -222,8 +222,8 @@ function saveRow2(api, action, form, modal) {
                 if (response.status) {
                     // Se cierra la caja de dialogo (modal) del formulario.
                     // $(modal).modal('hide');
-                    
-                    
+
+
                     //M.Modal.getInstance(document.getElementById(modal)).close();
                     // Se cargan nuevamente las filas en la tabla de la vista después de guardar un registro y se muestra un mensaje de éxito.
                     readRows2(api);
@@ -469,14 +469,14 @@ function fillSelectProducto(endpoint, select, selected, id) {
 }
 
 //Validacion para que no acepte numeros
-$("input.nombre").bind('keypress', function(event) {
+$("input.nombre").bind('keypress', function (event) {
     var regex = new RegExp("/^[a-zA-ZÀ-ÿ\u00f1\u00d1]+(\s*[a-zA-ZÀ-ÿ\u00f1\u00d1]*)*[a-zA-ZÀ-ÿ\u00f1\u00d1]+$/g;");
     var key = String.fromCharCode(!event.charCode ? event.which : event.charCode);
     if (!regex.test(key)) {
-      event.preventDefault();
-      return false;
+        event.preventDefault();
+        return false;
     }
-  });
+});
 
 
 // Función para mostrar un mensaje de confirmación al momento de cerrar sesión.
@@ -511,6 +511,42 @@ function logOut() {
             });
         } else {
             sweetAlert(4, 'Puede continuar con la sesión', null);
+        }
+    });
+}
+
+/*
+*   Función para generar un gráfico de lineas. 
+*
+*   Parámetros: canvas (identificador de la etiqueta canvas), xAxis (datos para el eje X), yAxis (datos para el eje Y), y legend (etiqueta para los datos).
+*
+*   Retorno: ninguno.
+*/
+function lineGraph(canvas, xAxis, yAxis, legend) {
+
+    // Se establece el contexto donde se mostrará el gráfico, es decir, se define la etiqueta canvas a utilizar.
+    const context = document.getElementById(canvas).getContext('2d');
+    // Se crea una instancia para generar el gráfico con los datos recibidos.
+    const chart = new Chart(context, {
+        type: 'line',
+        data: {
+            labels: xAxis,
+            datasets: [{
+                label: legend,
+                data: yAxis,
+                fill: true,
+                borderColor: '#CF71A3',
+                backgroundColor: '#CF71A3',
+                pointBackgroundColor: "#C34E8B",
+                tension: 0.3
+            }]
+        },
+        options: {
+            plugins: {
+                legend: {
+                    display: false,
+                }
+            }
         }
     });
 }
