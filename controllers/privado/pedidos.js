@@ -199,3 +199,10 @@ document.getElementById('update-form').addEventListener('submit', function (even
     saveRow(API_PEDIDOS, action, 'update-form', 'modal-update');
 }
 });
+
+document.getElementById('btn-report').addEventListener('click', function () {
+    // Se establece la ruta del reporte en el servidor.
+    let url = SERVER + 'reports/private/ventas_dia.php';
+    // Se abre el reporte en una nueva pestaña del navegador web.
+    window.open(url);
+});
