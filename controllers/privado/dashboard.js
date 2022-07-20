@@ -51,7 +51,7 @@ function graficoLineasVentasSemanales() {
             request.json().then(function (response) {
                 // Se comprueba si la respuesta es satisfactoria, de lo contrario se muestra un mensaje con la excepción.
                 if (response.status) {
-                    //Le asignamos el valor a la etiqueta del monto
+                    //Validando cuando no hay valores
                     if(isNaN(parseFloat(response.dataset.total))){
                         document.getElementById('e-semana').innerText = "Todavía no hay ventas esta semana";
                     }
