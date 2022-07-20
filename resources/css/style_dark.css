@@ -84,6 +84,11 @@ textarea.form-control:focus {
   -webkit-box-shadow: none;
 }
 
+
+.fa-bars{
+  color: var(--rosadoPalido);
+}
+
 /* --------------------------------------------------------------INICIO LOGIN-----------------------------------------------------------*/
 
 .FondoL {
@@ -534,18 +539,19 @@ textarea.form-control:focus {
 
 .img-logi{
   width: 250px !important;
-  height: 80px !important;
-  
+  height: 100px !important;
+ 
 }
 
 #logo_inicio {
-  width: 190px;
-  height: 59px;
+  width: 200px;
+  height: 62px;
   border: 2px;
   margin: auto;
   background-image: url(../../resources/img/index/logo3.png);
-  background-size: cover;
+  
   transition: all 0.3s ease;
+  list-style: none;
 }
 
 .Confi-Logo {

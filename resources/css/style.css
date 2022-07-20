@@ -527,18 +527,19 @@ textarea.form-control:focus {
 
 .img-logi{
   width: 250px !important;
-  height: 80px !important;
-  
+  height: 100px !important;
+ 
 }
 
 #logo_inicio {
-  width: 190px;
-  height: 59px;
+  width: 200px;
+  height: 63px;
   border: 2px;
   margin: auto;
   background-image: url(../../resources/img/index/logo2.png);
   background-size: cover;
   transition: all 0.3s ease;
+  list-style: none;
 }
 
 .Confi-Logo {

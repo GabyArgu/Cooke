@@ -21,7 +21,8 @@
           backgroundColor: 'transparent',
           borderColor: "#E6006D",
           borderWidth: 4,
-          pointBackgroundColor: "#E6006D"
+          pointBackgroundColor: "#E6006D",
+          lineTension: 0.5
         },
         {
           data: [255, 260, 350, 290, 133, 432, 234],
@@ -30,7 +31,8 @@
           backgroundColor: 'transparent',
           borderColor: "#F794A6",
           borderWidth: 4,
-          pointBackgroundColor: "#F794A6"
+          pointBackgroundColor: "#F794A6",
+          lineTension: 0.5
         },
         {
           data: [210, 200, 150, 220, 303, 332, 204],
@@ -39,7 +41,8 @@
           backgroundColor: 'transparent',
           borderColor: "#F764B2",
           borderWidth: 4,
-          pointBackgroundColor: "#F764B2"
+          pointBackgroundColor: "#F764B2",
+          lineTension: 0.5
         },
         {
           data: [130, 230, 290, 120, 403, 182, 174],
@@ -48,7 +51,8 @@
           backgroundColor: 'transparent',
           borderColor: "#FFCFD3",
           borderWidth: 4,
-          pointBackgroundColor: "#FFCFD3"
+          pointBackgroundColor: "#FFCFD3",
+          lineTension: 0.5
         }
       ],
 
