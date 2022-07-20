@@ -537,7 +537,7 @@ function lineGraph(canvas, xAxis, yAxis, legend) {
                 borderColor: '#CF71A3',
                 backgroundColor: '#CF71A3',
                 pointBackgroundColor: "#C34E8B",
-                tension: 0.3
+                tension: 0.5
             }]
         },
         options: {
