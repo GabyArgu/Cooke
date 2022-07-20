@@ -81,7 +81,6 @@
           display: true,
           labels: {
             color: '#C44E8C'
-
           }
         }
       }

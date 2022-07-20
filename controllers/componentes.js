@@ -523,7 +523,6 @@ function logOut() {
 *   Retorno: ninguno.
 */
 function lineGraph(canvas, xAxis, yAxis, legend) {
-
     // Se establece el contexto donde se mostrará el gráfico, es decir, se define la etiqueta canvas a utilizar.
     const context = document.getElementById(canvas).getContext('2d');
     // Se crea una instancia para generar el gráfico con los datos recibidos.
@@ -550,3 +549,6 @@ function lineGraph(canvas, xAxis, yAxis, legend) {
         }
     });
 }
+
+
+

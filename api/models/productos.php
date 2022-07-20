@@ -405,6 +405,5 @@ class Productos extends Validator
         $params = null;
         return Database::getRow($sql, $params);
     }
-
     
 }

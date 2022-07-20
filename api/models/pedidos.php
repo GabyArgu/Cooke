@@ -368,4 +368,14 @@ class Pedidos extends Validator
         $params = null;
         return Database::getRows($sql, $params);
     }
+
+    public function reportPedidosDelDia()
+    {
+        $sql = 'SELECT getmonto("idPedido") as "montoTotal", "nombresCliente", "apellidosCliente"
+        from pedido as p join cliente as c on p."idCliente" = c."idCliente"
+        where "fechaPedido" between (select current_date - cast(\'1 days\' as interval))  and (select current_date) and "estadoPedido" = 1 order by "montoTotal" DESC
+        ';
+        $params = null;
+        return Database::getRows($sql, $params);
+    }
 }

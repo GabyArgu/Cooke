@@ -2005,3 +2005,17 @@ div.dataTables_wrapper div.dataTables_length select {
     margin-bottom: 50px;
   }
 }
+
+/*Extras*/
+.btn-report{
+  background-color: var(--rosadoTitulos);
+  border: none;
+  padding: 6px 10px 6px 14px;
+  border-radius: 25%;
+  color: var(--blanco);
+  transition: all .3s ease;
+}
+.btn-report:hover{
+  background-color: var(--marfil);
+  color: var(--rosadoTitulos);
+}
