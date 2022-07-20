@@ -1,6 +1,6 @@
 <?php
 require('../../helpers/database.php');
-require('../../helpers/validator.php');
+require('../../helpers/validaciones.php');
 require('../../libraries/fpdf182/fpdf.php');
 
 /**
@@ -29,7 +29,7 @@ class Report extends FPDF
             // Se asigna el título del documento a la propiedad de la clase.
             $this->title = $title;
             // Se establece el título del documento (true = utf-8).
-            $this->setTitle('Dashboard - Reporte', true);
+            $this->setTitle($this->title, true);
             // Se establecen los margenes del documento (izquierdo, superior y derecho).
             $this->setMargins(15, 15, 15);
             // Se añade una nueva página al documento (orientación vertical y formato carta) y se llama al método header()
@@ -50,13 +50,13 @@ class Report extends FPDF
         // Se establece el logo.
         $this->image('../../../resources/img/index/logo.png', 15, 15, 20);
         // Se ubica el título.
-        $this->cell(20);
+
         $this->setFont('Arial', 'B', 15);
-        $this->cell(166, 10, utf8_decode($this->title), 0, 1, 'C');
+        $this->cell(186, 10, utf8_decode($this->title), 0, 1, 'C');
         // Se ubica la fecha y hora del servidor.
-        $this->cell(20);
+
         $this->setFont('Arial', '', 10);
-        $this->cell(166, 10, 'Fecha/Hora: '.date('d-m-Y H:i:s'), 0, 1, 'C');
+        $this->cell(186, 10, 'Fecha/Hora: '.date('d-m-Y H:i:s'), 0, 1, 'C');
         // Se agrega un salto de línea para mostrar el contenido principal del documento.
         $this->ln(10);
     }

@@ -359,23 +359,22 @@ class Pedidos extends Validator
         return Database::executeRow($sql, $params);
     }
 
-    public function readVentasDay()
+
+    public function reportPedidosDelDia()
     {
-        $sql = 'SELECT  "nombresCliente", "apellidosCliente", getmonto("idPedido") as "montoTotal", "fechaPedido"
+        $sql = 'SELECT "idPedido", "nombresCliente", "apellidosCliente", getmonto("idPedido") as "montoTotal", "fechaPedido"
         from pedido as p join cliente as c on p."idCliente" = c."idCliente"
         where "fechaPedido" between (select current_date - cast(\'1 days\' as interval))  and (select current_date) and "estadoPedido" = 1 order by "montoTotal" DESC
         ';
         $params = null;
         return Database::getRows($sql, $params);
     }
-
-    public function reportPedidosDelDia()
+    public function reportPedidosDelDiaEstadistica()
     {
-        $sql = 'SELECT getmonto("idPedido") as "montoTotal", "nombresCliente", "apellidosCliente"
+        $sql = 'SELECT sum(getmonto("idPedido")) as "totalVentas"
         from pedido as p join cliente as c on p."idCliente" = c."idCliente"
-        where "fechaPedido" between (select current_date - cast(\'1 days\' as interval))  and (select current_date) and "estadoPedido" = 1 order by "montoTotal" DESC
-        ';
+        where "fechaPedido" between (select current_date - cast(\'1 days\' as interval))  and (select current_date) and "estadoPedido" = 1';
         $params = null;
-        return Database::getRows($sql, $params);
+        return Database::getRow($sql, $params);
     }
 }
