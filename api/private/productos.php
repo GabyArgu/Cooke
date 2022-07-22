@@ -188,6 +188,34 @@ if (isset($_GET['action'])) {
                     $result['exception'] = 'No hay datos disponibles';
                 }
                 break;
+            case 'ventasEnSemanaCategoria1':
+                if ($result['dataset'] = $productos->ventasPorSemanaCategoria1()) {
+                    $result['status'] = 1;
+                } else {
+                    $result['exception'] = 'No hay datos disponibles';
+                }
+                break;
+            case 'ventasEnSemanaCategoria2':
+                if ($result['dataset'] = $productos->ventasPorSemanaCategoria2()) {
+                    $result['status'] = 1;
+                } else {
+                    $result['exception'] = 'No hay datos disponibles';
+                }
+                break;
+            case 'ventasEnSemanaCategoria3':
+                if ($result['dataset'] = $productos->ventasPorSemanaCategoria3()) {
+                    $result['status'] = 1;
+                } else {
+                    $result['exception'] = 'No hay datos disponibles';
+                }
+                break;
+            case 'ventasEnSemanaCategoria4':
+                if ($result['dataset'] = $productos->ventasPorSemanaCategoria4()) {
+                    $result['status'] = 1;
+                } else {
+                    $result['exception'] = 'No hay datos disponibles';
+                }
+                break;
             default:
                 $result['exception'] = 'Acción no disponible dentro de la sesión';
         }
