@@ -16,7 +16,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap" rel="stylesheet">
-
+    <link id="estilos" rel="stylesheet" href="">
 
     <link rel="icon" type="icon/png" href="../../resources/img/index/logo.png">
     <!-- libreria iconos FONTAWESOME-->
@@ -35,8 +35,9 @@
     <div class="wrapper">
         <!-- INICIO DEL SIDEBAR DE LA PAGINA -->
         <nav id="sidebarMenu" class="sidebar">
-            <a href="dashboard.html" class="sidebar-conent-header d-flex"><img src="../../resources/img/index/logo2.png"
-                    alt="" id="logo_inicio" class="mx-auto d-block"></a>
+            <a href="dashboard.html" class="sidebar-conent-header d-flex justify-content-center img-logi">
+                <li id="logo_inicio"></li>
+            </a>
             <!-- INICIO DEL CONTENIDO DEL SIDEBAR DE LA PAGINA -->
             <div class="sidebar-content">
                 <!-- APARTADO DONDE APARECERA EL AVATAR Y NOMBRE DEL USUARIO -->
@@ -122,9 +123,9 @@
                     </form>
 
                     <div class="opciones-nav d-flex justify-content-center align-items-center">
-                        <div>
+                        <a id="moon">
                             <i class="fa-solid fa-moon fa-2x me-2 Confi-Logo"></i>
-                        </div>
+                        </a>
                         <ul class="navbar-nav ms-auto">
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown" href="#" id="navbarDropdownMenuLink" role="button"
@@ -432,6 +433,7 @@
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="../../controllers/componentes.js"></script>
     <script src="../../controllers/privado/online.js"></script>
+    <script src="../../controllers/privado/dark_mode.js"></script>
     <script src="../../controllers/privado/empleados.js"></script>
 </body>
 
