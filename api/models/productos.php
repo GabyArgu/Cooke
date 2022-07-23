@@ -33,7 +33,7 @@ class Productos extends Validator
         }
     }
 
-    
+
     public function setNombre($value)
     {
         if ($this->validateAlphabetic($value, 1, 50)) {
@@ -44,7 +44,7 @@ class Productos extends Validator
         }
     }
 
-    public function setPrecio($value)//validaciones
+    public function setPrecio($value) //validaciones
     {
         if ($this->validateMoney($value)) {
             $this->precio = $value;
@@ -85,13 +85,12 @@ class Productos extends Validator
 
     public function setDescripcion($value)
     {
-        if($this->validateString($value, 1, 400)) {
+        if ($this->validateString($value, 1, 400)) {
             $this->descripcion = $value;
             return true;
         } else {
             return false;
         }
-        
     }
 
     public function setImagen($file)
@@ -221,7 +220,7 @@ class Productos extends Validator
         FROM producto as p inner join "estadoProducto" as ep on p."estadoProducto" = ep."idEstadoProducto" 
         ORDER BY "idProducto"
         ';
-        
+
         $params = null;
         return Database::getRows($sql, $params);
     }
@@ -316,19 +315,19 @@ class Productos extends Validator
 
     /* UPDATE */
     public function updateRow($current_image)
-    {   
+    {
         // Se verifica si existe una nueva imagen para borrar la actual, de lo contrario se mantiene la actual.
         ($this->imagen) ? $this->deleteFile($this->getRuta(), $current_image) : $this->imagen = $current_image;
 
         $sql = 'UPDATE producto
             SET "idSubCategoriaP"=?, "idProveedor"=?, "idMarca"=?, "nombreProducto"=?, "descripcionProducto"=?, "precioProducto"=?, "estadoProducto"=?, "imagenPrincipal"=?, descuento = ?
             WHERE "idProducto"=?;';
-            $params = array($this->subcategoria, $this->proveedor, $this->marca, $this->nombre, $this->descripcion, $this->precio, $this->estado, $this->imagen, $this->descuento, $this->id);
+        $params = array($this->subcategoria, $this->proveedor, $this->marca, $this->nombre, $this->descripcion, $this->precio, $this->estado, $this->imagen, $this->descuento, $this->id);
         return Database::executeRow($sql, $params);
     }
 
     public function updateStock()
-    {   
+    {
         $sql = 'SELECT COUNT (*)
                 FROM "colorStock"
                 WHERE "idColor" = ? and "idProducto" = ?';
@@ -338,18 +337,17 @@ class Productos extends Validator
             $sql = 'UPDATE "colorStock" set stock = ?, fecha = CURRENT_DATE WHERE "idColor" = ? AND "idProducto" = ?;';
             $params = array($this->stock, $this->color, $this->id);
             return Database::executeRow($sql, $params);
-        }
-        else{
+        } else {
             $sql = 'INSERT INTO "colorStock"("idProducto", "idColor", stock, fecha) VALUES(?, ?, ?, CURRENT_DATE)';
             $params = array($this->id, $this->color, $this->stock);
             return Database::executeRow($sql, $params);
-        } 
+        }
     }
     /* Actualizar el estado automaticamente*/
     public function updateStateProduct()
-    {   
+    {
         $sql = 'CALL actualizarEstadoProducto(?);';
-            $params = array($this->id);
+        $params = array($this->id);
         return Database::executeRow($sql, $params);
     }
     /* DELETE */
@@ -371,7 +369,7 @@ class Productos extends Validator
 		WHERE descuento >=25
         ORDER BY "idProducto"
         ';
-        
+
         $params = null;
         return Database::getRows($sql, $params);
     }
@@ -406,7 +404,8 @@ class Productos extends Validator
         return Database::getRow($sql, $params);
     }
 
-    public function ventasPorSemanaCategoria1(){
+    public function ventasPorSemanaCategoria1()
+    {
         $sql = 'SELECT to_char("fechaPedido", \'Day\') as "Día", extract(day from "fechaPedido") as "Fecha", "nombreCategoriaP", sum(getmonto("idPedido")) as total
         from pedido 
         inner join "detallePedido" using("idPedido")
@@ -421,7 +420,8 @@ class Productos extends Validator
     }
 
     /* Métodos para generar gráfica grande */
-    public function ventasPorSemanaCategoria2(){
+    public function ventasPorSemanaCategoria2()
+    {
         $sql = 'SELECT to_char("fechaPedido", \'Day\') as "Día", extract(day from "fechaPedido") as "Fecha", "nombreCategoriaP", sum(getmonto("idPedido")) as total
         from pedido 
         inner join "detallePedido" using("idPedido")
@@ -435,7 +435,8 @@ class Productos extends Validator
         return Database::getRows($sql, $params);
     }
 
-    public function ventasPorSemanaCategoria3(){
+    public function ventasPorSemanaCategoria3()
+    {
         $sql = 'SELECT to_char("fechaPedido", \'Day\') as "Día", extract(day from "fechaPedido") as "Fecha", "nombreCategoriaP", sum(getmonto("idPedido")) as total
         from pedido 
         inner join "detallePedido" using("idPedido")
@@ -449,7 +450,8 @@ class Productos extends Validator
         return Database::getRows($sql, $params);
     }
 
-    public function ventasPorSemanaCategoria4(){
+    public function ventasPorSemanaCategoria4()
+    {
         $sql = 'SELECT to_char("fechaPedido", \'Day\') as "Día", extract(day from "fechaPedido") as "Fecha", "nombreCategoriaP", sum(getmonto("idPedido")) as total
         from pedido 
         inner join "detallePedido" using("idPedido")
@@ -462,5 +464,15 @@ class Productos extends Validator
         $params = null;
         return Database::getRows($sql, $params);
     }
-    
+
+    public function productosPorMarca()
+    {
+        $sql = 'SELECT count(*) as cantidad, "nombreMarca"
+                from producto
+                inner join marca using("idMarca")
+                where producto."estadoProducto" = 1
+                group by "nombreMarca"';
+        $params = null;
+        return Database::getRows($sql, $params);
+    }
 }
