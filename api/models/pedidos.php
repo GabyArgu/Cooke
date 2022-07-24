@@ -362,8 +362,9 @@ class Pedidos extends Validator
     //Métodos para reportes
     public function reportPedidosDelDia()
     {
-        $sql = 'SELECT "idPedido", "nombresCliente", "apellidosCliente", getmonto("idPedido") as "montoTotal", "fechaPedido"
+        $sql = 'SELECT "idPedido", "nombresCliente", "apellidosCliente", getmonto("idPedido") as "montoTotal", "fechaPedido", "tipoPago"."tipoPago"
         from pedido as p join cliente as c on p."idCliente" = c."idCliente"
+        inner join "tipoPago" on p."tipoPago" = "idTipoPago"
         where "fechaPedido" = current_date and "estadoPedido" = 1 order by "montoTotal" DESC
         ';
         $params = null;
@@ -373,7 +374,13 @@ class Pedidos extends Validator
     {
         $sql = 'SELECT sum(getmonto("idPedido")) as "totalVentas"
         from pedido as p join cliente as c on p."idCliente" = c."idCliente"
-        where "fechaPedido" between (select current_date - cast(\'1 days\' as interval))  and (select current_date) and "estadoPedido" = 1';
+        where "fechaPedido" = current_date and "estadoPedido" = 1';
+        //Consulta en caso de tomar en cuenta los dos dolares de envio por cada pedido
+        /**
+         * SELECT sum(getmonto("idPedido") + (select (Count("idPedido")*2) from pedido  where "fechaPedido" = current_date and "estadoPedido" = 1)) as "totalVentas"
+         * from pedido as p join cliente as c on p."idCliente" = c."idCliente"
+         * where "fechaPedido" = current_date and "estadoPedido" = 1
+         */
         $params = null;
         return Database::getRow($sql, $params);
     }
