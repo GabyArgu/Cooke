@@ -47,7 +47,7 @@ function graficoLineasVentasProductos() {
                         cantidades.push(total);
                     });
                     // Se llama a la función que genera y muestra un gráfico de barras. Se encuentra en el archivo components.js
-                    lineGraph("vprodu", dias, cantidades, "Productos vendidos");
+                    lineGraph2("vprodu", dias, cantidades, "Productos vendidos");
                 } else {
                     document.getElementById("vprodu").remove();
                     console.log(response.exception);
@@ -71,7 +71,7 @@ function graficoLineasVentasProductos() {
                     //Le asignamos el valor a la etiqueta del monto
                     if (isNaN(parseFloat(response.dataset.total))) {
                         document.getElementById("e-produ").innerText =
-                            "Todavía no se han vedido productos esta semana";
+                            "No hay productos vendidos esta semana";
                     } else {
                         document.getElementById("e-produ").innerText = `${parseFloat(
                             response.dataset.total
