@@ -78,9 +78,6 @@ class Report extends FPDF
         $this->cell(0, 10, utf8_decode('Página ').$this->pageNo().'/{nb}', 0, 0, 'C');
     }
 }
-?>
-
-
 /* COLORES
 * márfil: 245, 245, 245
 * rosado pálido plus: 252, 242, 244
@@ -89,3 +86,6 @@ class Report extends FPDF
 * rosado fuerte: 195, 78, 139
 * rosado más oscuro: 117, 54, 90
 */
+?>
+
+
