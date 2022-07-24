@@ -359,12 +359,12 @@ class Pedidos extends Validator
         return Database::executeRow($sql, $params);
     }
 
-
+    //Métodos para reportes
     public function reportPedidosDelDia()
     {
         $sql = 'SELECT "idPedido", "nombresCliente", "apellidosCliente", getmonto("idPedido") as "montoTotal", "fechaPedido"
         from pedido as p join cliente as c on p."idCliente" = c."idCliente"
-        where "fechaPedido" between (select current_date - cast(\'1 days\' as interval))  and (select current_date) and "estadoPedido" = 1 order by "montoTotal" DESC
+        where "fechaPedido" = current_date and "estadoPedido" = 1 order by "montoTotal" DESC
         ';
         $params = null;
         return Database::getRows($sql, $params);
@@ -375,6 +375,39 @@ class Pedidos extends Validator
         from pedido as p join cliente as c on p."idCliente" = c."idCliente"
         where "fechaPedido" between (select current_date - cast(\'1 days\' as interval))  and (select current_date) and "estadoPedido" = 1';
         $params = null;
+        return Database::getRow($sql, $params);
+    }
+
+    //Comprobante de compra
+    public function readInvoice()
+    {
+        $sql = 'SELECT "imagenPrincipal", "nombreProducto", "colorProducto", "detallePedido"."precioUnitario", "detallePedido"."cantidadProducto", ("detallePedido"."precioUnitario"*"detallePedido"."cantidadProducto") as "montoProducto"
+        FROM pedido 
+        INNER JOIN "detallePedido" USING("idPedido") 
+        INNER JOIN "colorStock" USING("idColorStock") 
+        INNER JOIN producto USING ("idProducto") 
+        INNER JOIN "colorProducto" USING("idColor")
+        WHERE "idPedido" = ?
+        ORDER BY "idDetallePedido"';
+        $params = array($_SESSION['idPedido']);
+        return Database::getRows($sql, $params);
+    }
+
+    public function readInfoInvoice()
+    {
+        $sql = 'SELECT "idPedido", "nombresCliente", "apellidosCliente", "duiCliente"
+        FROM cliente 
+        INNER JOIN pedido USING("idCliente")
+        WHERE "idPedido" = ?;';
+        $params = array($_SESSION['idPedido']);
+        return Database::getRow($sql, $params);
+    }
+    public function readMontoInvoice()
+    {
+        $sql = 'SELECT (getmonto("idPedido")) AS monto 
+        FROM pedido
+        WHERE "idPedido" = ?';
+        $params = array($_SESSION['idPedido']);
         return Database::getRow($sql, $params);
     }
 }

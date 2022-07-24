@@ -16,12 +16,6 @@ if (isset($_GET['action'])) {
         $result['session'] = 1;
         // Se compara la acción a realizar cuando un administrador ha iniciado sesión.
         switch ($_GET['action']) {
-            // if(){
-
-            // }
-            // else{
-
-            // }
             case 'createDetail':
                 $_POST = $pedido->validateForm($_POST);
                 if (!$pedido->setColor($_POST['color'])) {
