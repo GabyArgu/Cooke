@@ -157,6 +157,10 @@ function finishOrder() {
                     request.json().then(function (response) {
                         // Se comprueba si la respuesta es satisfactoria, de lo contrario se muestra un mensaje con la excepción.
                         if (response.status) {
+                            // Se establece la ruta del reporte en el servidor.
+                            let url = SERVER + 'reports/public/invoice.php';
+                            // Se abre el reporte en una nueva pestaña del navegador web.
+                            window.open(url);
                             sweetAlert(1, response.message, 'index.html');
                         } else {
                             sweetAlert(2, response.exception, null);

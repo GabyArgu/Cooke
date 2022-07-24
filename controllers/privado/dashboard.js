@@ -120,16 +120,18 @@ function graficoMultiVentasCategoria() {
                     cantidades.push(total);
                 });
                 //Guardamos el array obtenido en el objeto.
-                multi['datos'+col] = cantidades;
+                multi['datos'+(index+1)] = cantidades;
             });
             //Guardamos todos los legend/label a utilizar (nombre de datos asociados a cada array de datos)
             multi.categoria1Legend = "Cocina (USD)";
             multi.categoria2Legend = "Utensilios (USD)";
             multi.categoria3Legend = "Electrodomésticos (USD)";
             multi.categoria4Legend = "Recetas (USD)";
+            console.log(multi);
         }).then(()=>{
             //Una vez se realiza todo lo anterior, se llama la función para generar el gráfico y pasarle los datos.
             multiLineGraph('chart-ventas-categoria', getWeek(), multi.datos1, multi.datos2, multi.datos3, multi.datos4, multi.categoria1Legend, multi.categoria2Legend, multi.categoria3Legend, multi.categoria4Legend);
+            
         })
         .catch(function (error) {
             console.log(error);
