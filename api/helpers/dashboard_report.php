@@ -79,3 +79,13 @@ class Report extends FPDF
     }
 }
 ?>
+
+
+/* COLORES
+* márfil: 245, 245, 245
+* rosado pálido plus: 252, 242, 244
+* rosado pálido: 247, 218, 223
+* rosado: 210, 132, 174
+* rosado fuerte: 195, 78, 139
+* rosado más oscuro: 117, 54, 90
+*/
