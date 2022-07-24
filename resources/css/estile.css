@@ -3180,6 +3180,7 @@ firm-btn {
     background-color: var(--rosadoTitulos);
     border-radius: 5px;
     padding: 10px 10px;
+    cursor: pointer;
     color: var(--blanco);
     transition: all 0.3s ease;
 }
