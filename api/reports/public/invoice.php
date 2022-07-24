@@ -74,8 +74,8 @@ $pedido = new Pedidos;
                 //El parametro B es para poner bordes solo en bottom
                 $pdf->cell(40, 10, $rowFactura['cantidadProducto'], 'B', 0, 'C');
                 $pdf->cell(54, 10, utf8_decode($rowFactura['nombreProducto']), 'B', 0, 'C');
-                $pdf->cell(46, 10, $rowFactura['precioUnitario'], 'B', 0,'C');
-                $pdf->cell(46, 10, $rowFactura['montoProducto'], 'B', 1, 'C');
+                $pdf->cell(46, 10, '$'.$rowFactura['precioUnitario'], 'B', 0,'C');
+                $pdf->cell(46, 10, '$'.$rowFactura['montoProducto'], 'B', 1, 'C');
             }
         }
         $pdf->ln(10);
