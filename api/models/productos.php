@@ -409,7 +409,7 @@ class Productos extends Validator
     //Grafica de lineas pequeñas 2
     public function productosPorSemana()
     {
-        $sql = 'SELECT count(*) as "Cantidad de productos", "fechaPedido" from pedido 
+        $sql = 'SELECT count(*) as "Cantidad", extract(day from "fechaPedido") as "Fecha" from pedido 
         inner join "detallePedido" using("idPedido")
         where "fechaPedido" between (select current_date - cast(\'7 days\' as interval))  and (select current_date- cast(\'1 days\' as interval)) 
         group by "fechaPedido"';
@@ -419,7 +419,7 @@ class Productos extends Validator
 
     public function estadisticaProductosPorSemana()
     {
-        $sql = 'SELECT count(*) as "Cantidad de productos" from pedido 
+        $sql = 'SELECT count(*) as "Cantidad" from pedido 
         inner join "detallePedido" using("idPedido")
         where "fechaPedido" between (select current_date - cast(\'7 days\' as interval))  and (select current_date)';
         $params = null;
