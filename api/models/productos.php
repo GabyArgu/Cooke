@@ -406,6 +406,28 @@ class Productos extends Validator
         return Database::getRow($sql, $params);
     }
 
+    //Grafica de lineas pequeñas 2
+    public function productosPorSemana()
+    {
+        $sql = 'SELECT count(*) as "Cantidad de productos", "fechaPedido" from pedido 
+        inner join "detallePedido" using("idPedido")
+        where "fechaPedido" between (select current_date - cast(\'7 days\' as interval))  and (select current_date- cast(\'1 days\' as interval)) 
+        group by "fechaPedido"';
+        $params = null;
+        return Database::getRows($sql, $params);
+    }
+
+    public function estadisticaProductosPorSemana()
+    {
+        $sql = 'SELECT count(*) as "Cantidad de productos" from pedido 
+        inner join "detallePedido" using("idPedido")
+        where "fechaPedido" between (select current_date - cast(\'7 days\' as interval))  and (select current_date)';
+        $params = null;
+        return Database::getRow($sql, $params);
+    }
+
+    //Grafica grande de ventas por categoria
+
     public function ventasPorSemanaCategoria1(){
         $sql = 'SELECT to_char("fechaPedido", \'Day\') as "Día", extract(day from "fechaPedido") as "Fecha", "nombreCategoriaP", sum(getmonto("idPedido")) as total
         from pedido 

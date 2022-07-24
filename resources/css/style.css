@@ -526,14 +526,14 @@ textarea.form-control:focus {
 }
 
 .img-logi{
-  width: 250px !important;
+  width: 260px !important;
   height: 100px !important;
  
 }
 
 #logo_inicio {
   width: 200px;
-  height: 63px;
+  height: 61px;
   border: 2px;
   margin: auto;
   background-image: url(../../resources/img/index/logo2.png);

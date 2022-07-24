@@ -560,6 +560,44 @@ function lineGraph(canvas, xAxis, yAxis, legend) {
  *
  *   Retorno: ninguno.
  */
+function lineGraph2(canvas, xAxis, yAxis, legend) {
+    // Se establece el contexto donde se mostrará el gráfico, es decir, se define la etiqueta canvas a utilizar.
+    const context = document.getElementById(canvas).getContext("2d");
+    // Se crea una instancia para generar el gráfico con los datos recibidos.
+    const chart = new Chart(context, {
+        type: "line",
+        data: {
+            labels: xAxis,
+            datasets: [
+                {
+                    label: legend,
+                    data: yAxis,
+                    fill: true,
+                    borderColor: "#CF71A3",
+                    backgroundColor: "#CF71A3",
+                    pointBackgroundColor: "#C34E8B",
+                    tension: 0.3,
+                    pointRadius: 2,
+                },
+            ],
+        },
+        options: {
+            plugins: {
+                legend: {
+                    display: false,
+                },
+            },
+        },
+    });
+}
+
+/*
+ *   Función para generar un gráfico de lineas.
+ *
+ *   Parámetros: canvas (identificador de la etiqueta canvas), xAxis (datos para el eje X), yAxis (datos para el eje Y), y legend (etiqueta para los datos).
+ *
+ *   Retorno: ninguno.
+ */
 function multiLineGraph(canvas, xAxis, yAxis1, yAxis2, yAxis3, yAxis4, legend1, legend2, legend3, legend4) {
     // Se establece el contexto donde se mostrará el gráfico, es decir, se define la etiqueta canvas a utilizar.
     const context = document.getElementById(canvas);

@@ -174,6 +174,20 @@ if (isset($_GET['action'])) {
                     $result['exception'] = Database::getException();
                 }
                 break;
+            case 'productosPorSemana':
+                if ($result['dataset'] = $productos->productosPorSemana()) {
+                    $result['status'] = 1;
+                } else {
+                    $result['exception'] = 'No hay datos disponibles';
+                }
+                break;
+            case 'productosPorSemanaEstadistica':
+                if ($result['dataset'] = $productos->estadisticaProductosPorSemana()) {
+                    $result['status'] = 1;
+                } else {
+                    $result['exception'] = 'No hay datos disponibles';
+                }
+                break;
             case 'ventasPorSemana':
                 if ($result['dataset'] = $productos->ventasPorSemana()) {
                     $result['status'] = 1;
