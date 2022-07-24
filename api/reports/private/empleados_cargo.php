@@ -6,15 +6,17 @@ require('../../models/cargo_empleado.php');
 // Se instancia la clase para crear el reporte.
 $pdf = new Report;
 // Se inicia el reporte con el encabezado del documento.
-$pdf->startReport('EMPLEADOS POR CARGO');
+$pdf->startReport('Empleados por cargo');
 
 //Dibujando línea
 $pdf->SetLineWidth(15);
 $pdf->SetDrawColor(195, 78, 139);
 $pdf->Line(0, 0, 215, 0);
+
 $pdf->SetLineWidth(0.2);
+$pdf->SetDrawColor(247, 218, 223);
+$pdf->SetTextColor(117, 54, 90);
 //Saltos de línea
-$pdf->ln(10);
 $pdf->ln(10);
 
 // Se instancia el módelo Categorías para obtener los datos.
