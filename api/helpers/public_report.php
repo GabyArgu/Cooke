@@ -67,8 +67,9 @@ class Report extends FPDF
     */
     public function footer()
     {
-
-        $this->SetLineWidth(0.5);
+        //Dibujamos línea de footer
+        $this->SetDrawColor(195, 78, 139);
+        $this->SetLineWidth(0.3);
         $this->Line(15, 264, 200, 264);
         // Se establece la posición para el número de página (a 15 milimetros del final).
         $this->setY(-15);
