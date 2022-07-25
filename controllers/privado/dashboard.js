@@ -257,7 +257,7 @@ function graficoBarrasCategoriaStock() {
                     response.dataset.map(function (row) {
                         // Se agregan los datos a los arreglos.
                         categorias.push(row.nombreCategoriaP);
-                        cantidades.push(row.cont);
+                        cantidades.push(row.count);
                     });
                     // Se llama a la función que genera y muestra un gráfico de barras. Se encuentra en el archivo components.js
                     barGraph('producto-Stock-Categoria', categorias, cantidades, 'Cantidad de productos', 'Productos en Stock por Categoria');
