@@ -417,4 +417,14 @@ class Pedidos extends Validator
         $params = array($_SESSION['idPedido']);
         return Database::getRow($sql, $params);
     }
+
+    public function reportPedidosDelMes()
+    {
+        $sql = 'SELECT count("idPedido") as "Ventas", sum("montoTotal") as "Ingresos", EXTRACT(DAY FROM "fechaPedido") as "Día"
+        from pedido
+        where "fechaPedido" between (select cast(date_trunc(\'month\', current_date) as date)) and (select current_date) and "estadoPedido" = 1 group by "fechaPedido" order by "fechaPedido"
+        ';
+        $params = null;
+        return Database::getRows($sql, $params);
+    }
 }
