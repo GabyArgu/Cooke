@@ -8,6 +8,7 @@ document.addEventListener("DOMContentLoaded", function () {
     graficoMultiVentasCategoria();
     graficoPastelMarcas();
     graficoLineasVentasProductos();
+    graficoBarrasCategoriaStock();
 });
 
 function getWeek() {
