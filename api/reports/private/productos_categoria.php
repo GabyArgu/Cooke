@@ -6,7 +6,7 @@ require('../../models/categorias_productos.php');
 // Se instancia la clase para crear el reporte.
 $pdf = new Report;
 // Se inicia el reporte con el encabezado del documento.
-$pdf->startReport('Empleados por cargo');
+$pdf->startReport('Productos por categoría');
 
 //Dibujando línea
 $pdf->SetLineWidth(15);// Define el ancho de línea -->
@@ -31,11 +31,11 @@ if ($dataCategoria = $categoria->readAll()) {
     $pdf->addFont('Mohave-Light','','Mohave-Light.php');
     $pdf->setFont('Mohave-Bold','',14);//Establece la fuente utilizada para imprimir cadenas de caracteres-->
     // Se imprimen las celdas con los encabezados.
-    $pdf->cell(62, 10, utf8_decode('Nombre'), 0, 0, 'C', 1);//Imprime una celda (área rectangular) con bordes opcionales, color de fondo y cadena de caracteres-->
+    $pdf->cell(58, 10, utf8_decode('Nombre'), 0, 0, 'C', 1);//Imprime una celda (área rectangular) con bordes opcionales, color de fondo y cadena de caracteres-->
     $pdf->cell(31, 10, utf8_decode('Subcategoria'), 0, 0, 'C', 1);
-    $pdf->cell(31, 10, utf8_decode('Marca'), 0, 0, 'C', 1);
+    $pdf->cell(46, 10, utf8_decode('Marca'), 0, 0, 'C', 1);
     $pdf->cell(31, 10, utf8_decode('Proveedor'), 0, 0, 'C', 1);
-    $pdf->cell(31, 10, utf8_decode('Precio'), 0, 1, 'C', 1);
+    $pdf->cell(20, 10, utf8_decode('Precio'), 0, 1, 'C', 1);
 
     // Se establece un color de relleno para mostrar el nombre de la categoría.
     $pdf->setFillColor(252, 242, 244);
@@ -55,11 +55,11 @@ if ($dataCategoria = $categoria->readAll()) {
                 // Se recorren los registros ($dataProductos) fila por fila ($rowProducto).
                 foreach ($dataProductos as $rowProductos) {
                     // Se imprimen las celdas con los datos de los productos.
-                    $pdf->cell(62, 10, $rowProductos['nombreProducto'], 'B', 0, 'C');
+                    $pdf->cell(58, 10, utf8_decode($rowProductos['nombreProducto']), 'B', 0, 'C');
                     $pdf->cell(31, 10, utf8_decode($rowProductos['nombreSubCategoriaP']), 'B', 0, 'C');
-                    $pdf->cell(31, 10, utf8_decode($rowProductos['nombreMarca']), 'B', 0, 'C');
-                    $pdf->cell(31, 10, $rowProductos['nombreProveedor'], 'B', 0,'C');
-                    $pdf->cell(31, 10, $rowProductos['precioProducto'], 'B', 1, 'C');
+                    $pdf->cell(46, 10, utf8_decode($rowProductos['nombreMarca']), 'B', 0, 'C');
+                    $pdf->cell(31, 10, utf8_decode($rowProductos['nombreProveedor']), 'B', 0,'C');
+                    $pdf->cell(20, 10, $rowProductos['precioProducto'], 'B', 1, 'C');
                     $pdf->ln(5);
                 }
             } else {
