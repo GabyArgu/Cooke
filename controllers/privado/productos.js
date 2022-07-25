@@ -329,3 +329,10 @@ let restarStock = () => {
     }
 
 }
+
+document.getElementById('btn-report').addEventListener('click', function () {
+    // Se establece la ruta del reporte en el servidor.
+    let url = SERVER + 'reports/private/productos_categoria.php';
+    // Se abre el reporte en una nueva pestaña del navegador web.
+    window.open(url);
+});

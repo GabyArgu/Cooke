@@ -691,3 +691,56 @@ function pieGraph(canvas, legends, values, title) {
         }
     });
 }
+
+function barGraph(canvas, xAxis, yAxis, legend, title) {
+    // Se declara un arreglo para guardar códigos de colores en formato hexadecimal.
+    let colors = [];
+    // Se generan códigos hexadecimales de 6 cifras de acuerdo con el número de datos a mostrar y se agregan al arreglo.
+    for (i = 0; i < xAxis.length; i++) {
+        if (colors[i-1] == '#75365A' || i == 0) {
+            colors.push('#C44E8C');
+        }
+        else{
+            colors.push('#75365A');
+        }
+        
+    }
+    // Se establece el contexto donde se mostrará el gráfico, es decir, se define la etiqueta canvas a utilizar.
+    const context = document.getElementById(canvas).getContext('2d');
+    // Se crea una instancia para generar el gráfico con los datos recibidos.
+    const chart = new Chart(context, {
+        type: 'bar',
+        data: {
+            labels: xAxis,
+            datasets: [{
+                label: legend,
+                data: yAxis,
+                borderColor: '#C44E8C',
+                borderWidth: 1,
+                backgroundColor: colors,
+                barPercentage: 1
+            }]
+            
+        },
+        options: {
+            aspectRatio: 1,
+            plugins: {
+                title: {
+                    display: true,
+                    text: title
+                },
+                legend: {
+                    display: false
+                }
+            },
+            scales: {
+                y: {
+                    ticks: {
+                        beginAtZero: true,
+                        stepSize: 0
+                    }
+                }
+            }
+        }
+    });
+}

@@ -145,10 +145,11 @@
                         <h1>Administrar Productos</h1>
                     </div>
                     <div class="row contenido">
-                        <div class="row pt-3 mx-auto header-table">
-                            <div class="col">
+                        <div class="row pt-3 mx-auto header-table d-flex align-items-center">
+                            <div class="col d-flex justify-content-start mx-auto">
                                 <button onclick="openCreate()" class="btn-agregar" type="button" data-bs-toggle="modal"
                                 data-bs-target="#save-modal">Agregar<i class="fa-solid fa-plus"></i></button>
+                                <button class="btn-report ms-2" id="btn-report" ><i class="fa-solid fa-file-export"></i></button>
                             </div>
                             <div class="col d-flex justify-content-end mx-auto">
                                 <form method="post" id="search-form">
@@ -501,6 +502,7 @@
     <script src="../../controllers/componentes.js"></script>
     <script src="../../controllers/privado/online.js"></script>
     <script src="../../controllers/privado/dark_mode.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <script src="../../controllers/privado/productos.js"></script>
 </body>
 
