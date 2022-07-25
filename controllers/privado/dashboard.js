@@ -145,7 +145,7 @@ function graficoLineasVentasProductos() {
                     } else {
                         document.getElementById("e-produ").innerText = `${parseFloat(
                             response.dataset.Cantidad
-                        ).toFixed()} productos vendidos durante la semana`;
+                        ).toFixed()} vendidos durante la semana`;
                     }
                 } else {
                     // Se presenta un mensaje de error cuando no existen datos para mostrar.
