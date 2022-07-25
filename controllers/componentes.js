@@ -697,7 +697,13 @@ function barGraph(canvas, xAxis, yAxis, legend, title) {
     let colors = [];
     // Se generan códigos hexadecimales de 6 cifras de acuerdo con el número de datos a mostrar y se agregan al arreglo.
     for (i = 0; i < xAxis.length; i++) {
-        colors.push('#' + (Math.random().toString(16)).substring(2, 8));
+        if (colors[i-1] == '#75365A' || i == 0) {
+            colors.push('#C44E8C');
+        }
+        else{
+            colors.push('#75365A');
+        }
+        
     }
     // Se establece el contexto donde se mostrará el gráfico, es decir, se define la etiqueta canvas a utilizar.
     const context = document.getElementById(canvas).getContext('2d');
@@ -711,7 +717,7 @@ function barGraph(canvas, xAxis, yAxis, legend, title) {
                 data: yAxis,
                 borderColor: '#C44E8C',
                 borderWidth: 1,
-                backgroundColor: '#C44E8C',
+                backgroundColor: colors,
                 barPercentage: 1
             }]
             
