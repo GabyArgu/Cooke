@@ -389,8 +389,8 @@ class Productos extends Validator
     */
     public function ventasPorSemana()
     {
-        $sql = 'SELECT to_char("fechaPedido", \'Day\') as "Día", extract(day from "fechaPedido") as "Fecha", sum("montoTotal") as total from pedido 
-        where "fechaPedido" between (select current_date - cast(\'7 days\' as interval))  and (select current_date- cast(\'1 days\' as interval)) 
+        $sql = 'SELECT to_char("fechaPedido", \'Day\') as "Día", extract(day from "fechaPedido") as "Fecha", (sum(getMonto("idPedido"))+(2*(select count ("idPedido")))) as total from pedido 
+        where "fechaPedido" between (select current_date - cast(\'7 days\' as interval)) and (select current_date) 
         group by "fechaPedido" order by "fechaPedido"';
         $params = null;
         return Database::getRows($sql, $params);
@@ -398,7 +398,7 @@ class Productos extends Validator
 
     public function estadisticaVentasPorSemana()
     {
-        $sql = 'SELECT sum("montoTotal") as total from pedido 
+        $sql = 'SELECT (sum(getMonto("idPedido"))+(2*(select count ("idPedido")))) as total from pedido 
         where "fechaPedido" between (select current_date - cast(\'7 days\' as interval))  and (select current_date)';
         $params = null;
         return Database::getRow($sql, $params);
@@ -409,7 +409,7 @@ class Productos extends Validator
     {
         $sql = 'SELECT count(*) as "Cantidad", extract(day from "fechaPedido") as "Fecha" from pedido 
         inner join "detallePedido" using("idPedido")
-        where "fechaPedido" between (select current_date - cast(\'7 days\' as interval))  and (select current_date- cast(\'1 days\' as interval)) 
+        where "fechaPedido" between (select current_date - cast(\'7 days\' as interval))  and (select current_date) 
         group by "fechaPedido"';
         $params = null;
         return Database::getRows($sql, $params);
@@ -427,14 +427,14 @@ class Productos extends Validator
     //Grafica grande de ventas por categoria
 
     public function ventasPorSemanaCategoria1(){
-        $sql = 'SELECT to_char("fechaPedido", \'Day\') as "Día", extract(day from "fechaPedido") as "Fecha", "nombreCategoriaP", sum(getmonto("idPedido")) as total
+        $sql = 'SELECT to_char("fechaPedido", \'Day\') as "Día", extract(day from "fechaPedido") as "Fecha", "nombreCategoriaP", sum("montoTotal") as total
         from pedido 
         inner join "detallePedido" using("idPedido")
         inner join "colorStock" using("idColorStock")
         inner join producto using("idProducto")
         inner join "subcategoriaProducto" using("idSubCategoriaP")
         inner join "categoriaProducto" on "subcategoriaProducto"."idCategoriaP" = "categoriaProducto"."idCategoria"
-        where "fechaPedido" between (select current_date - cast(\'7 days\' as interval))  and (select current_date - cast(\'1 days\' as interval)) and "estadoPedido" = 1 and "idCategoria"=1
+        where "fechaPedido" between (select current_date - cast(\'7 days\' as interval))  and (select current_date) and "estadoPedido" = 1 and "idCategoria"=1
         group by "nombreCategoriaP", "fechaPedido"';
         $params = null;
         return Database::getRows($sql, $params);
@@ -443,14 +443,14 @@ class Productos extends Validator
     /* Métodos para generar gráfica grande */
     public function ventasPorSemanaCategoria2()
     {
-        $sql = 'SELECT to_char("fechaPedido", \'Day\') as "Día", extract(day from "fechaPedido") as "Fecha", "nombreCategoriaP", sum(getmonto("idPedido")) as total
+        $sql = 'SELECT to_char("fechaPedido", \'Day\') as "Día", extract(day from "fechaPedido") as "Fecha", "nombreCategoriaP", (sum(getMonto("idPedido"))+(2*(select count ("idPedido")))) as total
         from pedido 
         inner join "detallePedido" using("idPedido")
         inner join "colorStock" using("idColorStock")
         inner join producto using("idProducto")
         inner join "subcategoriaProducto" using("idSubCategoriaP")
         inner join "categoriaProducto" on "subcategoriaProducto"."idCategoriaP" = "categoriaProducto"."idCategoria"
-        where "fechaPedido" between (select current_date - cast(\'7 days\' as interval))  and (select current_date - cast(\'1 days\' as interval)) and "estadoPedido" = 1 and "idCategoria"=2
+        where "fechaPedido" between (select current_date - cast(\'7 days\' as interval))  and (select current_date) and "estadoPedido" = 1 and "idCategoria"=2
         group by "nombreCategoriaP", "fechaPedido"';
         $params = null;
         return Database::getRows($sql, $params);
@@ -458,14 +458,14 @@ class Productos extends Validator
 
     public function ventasPorSemanaCategoria3()
     {
-        $sql = 'SELECT to_char("fechaPedido", \'Day\') as "Día", extract(day from "fechaPedido") as "Fecha", "nombreCategoriaP", sum(getmonto("idPedido")) as total
+        $sql = 'SELECT to_char("fechaPedido", \'Day\') as "Día", extract(day from "fechaPedido") as "Fecha", "nombreCategoriaP", (sum(getMonto("idPedido"))+(2*(select count ("idPedido")))) as total
         from pedido 
         inner join "detallePedido" using("idPedido")
         inner join "colorStock" using("idColorStock")
         inner join producto using("idProducto")
         inner join "subcategoriaProducto" using("idSubCategoriaP")
         inner join "categoriaProducto" on "subcategoriaProducto"."idCategoriaP" = "categoriaProducto"."idCategoria"
-        where "fechaPedido" between (select current_date - cast(\'7 days\' as interval))  and (select current_date - cast(\'1 days\' as interval)) and "estadoPedido" = 1 and "idCategoria"=3
+        where "fechaPedido" between (select current_date - cast(\'7 days\' as interval))  and (select current_date) and "estadoPedido" = 1 and "idCategoria"=3
         group by "nombreCategoriaP", "fechaPedido"';
         $params = null;
         return Database::getRows($sql, $params);
@@ -473,14 +473,14 @@ class Productos extends Validator
 
     public function ventasPorSemanaCategoria4()
     {
-        $sql = 'SELECT to_char("fechaPedido", \'Day\') as "Día", extract(day from "fechaPedido") as "Fecha", "nombreCategoriaP", sum(getmonto("idPedido")) as total
+        $sql = 'SELECT to_char("fechaPedido", \'Day\') as "Día", extract(day from "fechaPedido") as "Fecha", "nombreCategoriaP", (sum(getMonto("idPedido"))+(2*(select count ("idPedido")))) as total
         from pedido 
         inner join "detallePedido" using("idPedido")
         inner join "colorStock" using("idColorStock")
         inner join producto using("idProducto")
         inner join "subcategoriaProducto" using("idSubCategoriaP")
         inner join "categoriaProducto" on "subcategoriaProducto"."idCategoriaP" = "categoriaProducto"."idCategoria"
-        where "fechaPedido" between (select current_date - cast(\'7 days\' as interval))  and (select current_date - cast(\'1 days\' as interval)) and "estadoPedido" = 1 and "idCategoria"=4
+        where "fechaPedido" between (select current_date - cast(\'7 days\' as interval))  and (select current_date) and "estadoPedido" = 1 and "idCategoria"=4
         group by "nombreCategoriaP", "fechaPedido"';
         $params = null;
         return Database::getRows($sql, $params);
