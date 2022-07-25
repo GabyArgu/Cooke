@@ -49,9 +49,8 @@ class Report extends FPDF
     {
         // Se establece el logo.
         $this->image('../../../resources/img/index/logo2.png', 150, 9, 50);
-        // Se ubica el título.
-
-        //Añadimos la fuente poppins externa para el título del reporte
+        
+        //Añadimos la fuente poppins externa para el título del reporte y lo ubicamos
         $this->addFont('Poppins-Bold','','Poppins-Bold.php');
         $this->setFont('Poppins-Bold','',22);
         $this->SetTextColor(117, 54, 90);
@@ -60,8 +59,10 @@ class Report extends FPDF
         // Se ubica la fecha y hora del servidor.
         $this->addFont('Mohave-Light','','Mohave-Light.php');
         $this->setFont('Mohave-Light','',12);
+        $this->cell(93, 15, 'Fecha/Hora: '.date('d-m-Y H:i:s'), 0, 0, 'L');
+        //Mostramos el nombre de usuario que ha generado el reporte
+        $this->cell(93, 15, utf8_decode('Reporte generado por: '.$_SESSION['aliasEmpleado']), 0, 1, 'R');
         // Se agrega un salto de línea para mostrar el contenido principal del documento.
-        $this->cell(186, 10, 'Fecha/Hora: '.date('d-m-Y H:i:s'), 0, 1, 'L');
         $this->ln(10);
     }
 
@@ -71,6 +72,10 @@ class Report extends FPDF
     */
     public function footer()
     {
+        //Dibujamos línea de footer
+        $this->SetDrawColor(195, 78, 139);
+        $this->SetLineWidth(0.3);
+        $this->Line(15, 264, 200, 264);
         // Se establece la posición para el número de página (a 15 milimetros del final).
         $this->setY(-15);
         // Se establece la fuente para el número de página.
