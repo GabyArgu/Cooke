@@ -658,3 +658,36 @@ function multiLineGraph(canvas, xAxis, yAxis1, yAxis2, yAxis3, yAxis4, legend1, 
         },
     });
 }
+
+/*
+*   Función para generar un gráfico de pastel.
+*
+*   Parámetros: canvas (identificador de la etiqueta canvas), legends (valores para las etiquetas), values (valores de los datos) y title (título del gráfico).
+*
+*   Retorno: ninguno.
+*/
+function pieGraph(canvas, legends, values, title) {
+    // Se declara un arreglo para guardar códigos de colores en formato hexadecimal.
+    let colors = ["#c34e8b", "#75365a", "#d97789", "#f7dadf"];
+    // Se establece el contexto donde se mostrará el gráfico, es decir, se define la etiqueta canvas a utilizar.
+    const context = document.getElementById(canvas).getContext('2d');
+    // Se crea una instancia para generar el gráfico con los datos recibidos.
+    const chart = new Chart(context, {
+        type: 'pie',
+        data: {
+            labels: legends,
+            datasets: [{
+                data: values,
+                backgroundColor: colors
+            }]
+        },
+        options: {
+            plugins: {
+                title: {
+                    display: false,
+                    text: title
+                }
+            }
+        }
+    });
+}
