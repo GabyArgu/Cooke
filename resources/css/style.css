@@ -2011,6 +2011,8 @@ div.dataTables_wrapper div.dataTables_length select {
 .btn-report{
   background-color: var(--rosadoTitulos);
   border: none;
+  height: 50px;
+  width: 50px;
   padding: 6px 10px 6px 14px;
   border-radius: 25%;
   color: var(--blanco);
@@ -2019,4 +2021,8 @@ div.dataTables_wrapper div.dataTables_length select {
 .btn-report:hover{
   background-color: var(--marfil);
   color: var(--rosadoTitulos);
+}
+
+.dropdown-toggle::after {
+  content: none;
 }
