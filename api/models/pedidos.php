@@ -372,7 +372,7 @@ class Pedidos extends Validator
     }
     public function reportPedidosDelDiaEstadistica()
     {
-        $sql = 'SELECT sum(getmonto("idPedido")) as "totalVentas"
+        $sql = 'SELECT (sum(getmonto("idPedido"))+(2*(select count("idPedido") from pedido where "fechaPedido" = current_date and "estadoPedido" = 1))) as "totalVentas"
         from pedido as p join cliente as c on p."idCliente" = c."idCliente"
         where "fechaPedido" = current_date and "estadoPedido" = 1';
         //Consulta en caso de tomar en cuenta los dos dolares de envio por cada pedido

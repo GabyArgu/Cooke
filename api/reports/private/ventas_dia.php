@@ -50,19 +50,19 @@ if ($datapedidos = $pedido->reportPedidosDelDia()) {
         $pdf->cell(19, 10, $rowpedido['idPedido'], 'B', 0, 'C');
         $pdf->cell(37, 10, utf8_decode($rowpedido['nombresCliente']), 'B', 0, 'C');
         $pdf->cell(37, 10, utf8_decode($rowpedido['apellidosCliente']), 'B', 0, 'C');
-        $pdf->cell(31, 10, '$'.$rowpedido['montoTotal'], 'B', 0,'C'); //number_format(($rowpedido['montoTotal']+2), 2, '.', "")
+        $pdf->cell(31, 10, '$'.number_format(($rowpedido['montoTotal']+2), 2, '.', ""), 'B', 0,'C'); //
         $pdf->cell(31, 10, utf8_decode($rowpedido['tipoPago']), 'B', 0,'C');
         $pdf->cell(31, 10, $rowpedido['fechaPedido'], 'B', 1, 'C');
     }
-
+    $pdf->cell(93, 10, utf8_decode('Montos totales incluyen el envío'), 0, 0, 'L', 0);
     //Salto de línea
-    $pdf->ln(10);//Realiza un salto de línea-->
+    $pdf->ln(20);
     //Definimos el color del cuadro de totales
     $pdf->setFillColor(245, 245, 245);
     if ($totalVentas = $pedido->reportPedidosDelDiaEstadistica()){
         $pdf->setFont('Mohave-Bold','',12);
         $pdf->cell(93, 10, utf8_decode('Monto total de ventas en el día:'), 0, 0, 'C', 1);
-        $pdf->cell(93, 10, ('$'.$totalVentas['totalVentas']), 0, 0, 'C', 1);
+        $pdf->cell(93, 10, '$'.number_format(($totalVentas['totalVentas']), 2, '.', ""), 0, 0, 'C', 1);
     }
     else{
         $pdf->cell(0, 10, utf8_decode('No hay total de ventas para mostrar'), 1, 1);
