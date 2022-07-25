@@ -389,7 +389,7 @@ class Productos extends Validator
     */
     public function ventasPorSemana()
     {
-        $sql = 'SELECT to_char("fechaPedido", \'Day\') as "Día", extract(day from "fechaPedido") as "Fecha", sum("montoTotal") as total from pedido 
+        $sql = 'SELECT to_char("fechaPedido", \'Day\') as "Día", extract(day from "fechaPedido") as "Fecha", sum(("cantidadProducto"*"precioUnitario")+2) as total from pedido 
         where "fechaPedido" between (select current_date - cast(\'7 days\' as interval))  and (select current_date- cast(\'1 days\' as interval)) 
         group by "fechaPedido" order by "fechaPedido"';
         $params = null;
