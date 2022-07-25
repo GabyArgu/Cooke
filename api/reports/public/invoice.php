@@ -13,6 +13,8 @@ $pdf->SetLineWidth(15);
 $pdf->SetDrawColor(195, 78, 139);
 $pdf->Line(0, 0, 215, 0);
 $pdf->SetLineWidth(0.2);
+//Se establece el color de las líneas de la tabla
+$pdf->SetDrawColor(247, 218, 223);
 //Saltos de línea
 $pdf->ln(10);
 $pdf->ln(10);
@@ -34,12 +36,12 @@ $pedido = new Pedidos;
         $pdf->ln(10);
 
         $pdf->setFont('Mohave-Light','',12);
-        $pdf->cell(70, 10, utf8_decode($infoPedido['nombresCliente']), 0, 0, 'C');
+        $pdf->cell(70, 10, utf8_decode($infoPedido['nombresCliente']), 'B', 0, 'C');
         $pdf->cell(46, 10, "", 0, 0, 'C');
         $pdf->cell(70, 10, date('d-m-Y H:i:s'), 0, 0, 'C');
         $pdf->ln(10);
 
-        $pdf->cell(70, 10, utf8_decode($infoPedido['apellidosCliente']), 0, 0, 'C');
+        $pdf->cell(70, 10, utf8_decode($infoPedido['apellidosCliente']), 'B', 0, 'C');
         $pdf->cell(46, 10, "", 0, 0, 'C');
         $pdf->setFont('Mohave-Bold','',14);
 
@@ -96,7 +98,7 @@ $pedido = new Pedidos;
             //Resaltamos el dato del monto aumentando el tamaño de la fuente 
             $pdf->setFont('Mohave-Bold','',14);
             $pdf->cell(46, 10, "Total", 0, 0, 'C', 1);
-            $pdf->cell(46, 10, ("$".$monto['monto'] + 2), 0, 0, 'C', 1);
+            $pdf->cell(46, 10, ("$".number_format(($monto['monto'] + 2), 2, '.', "")), 0, 0, 'C', 1);
 
             //Restablecemos la fuente que cambiamos para el total
             $pdf->setFont('Mohave-Light','',12);
