@@ -271,4 +271,20 @@ class Reseñas extends Validator
         $params = array($this->id);
         return Database::getRow($sql, $params);
     }
+
+    /*
+        Método para generar reporte de promedio de reseñas
+    */ 
+
+    public function promedioResenas()
+    {
+        $sql = 'SELECT "nombreProducto", AVG("puntajeResena")::numeric(10,2) as puntaje
+                from resena
+                inner join "detallePedido" on resena."idDetalle" = "detallePedido"."idDetallePedido"
+                inner join "colorStock" using ("idColorStock")
+                inner join producto using("idProducto")
+                group by "nombreProducto" order by puntaje desc';
+        $params = null;
+        return Database::getRows($sql, $params);
+    }
 }

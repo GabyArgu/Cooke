@@ -232,3 +232,9 @@ function changeAvatar() {
     document.getElementById('imagen-avatar').src = `../../resources/img/avatares/${selected}.jpg`;
 }
 
+document.getElementById('btn-report').addEventListener('click', function () {
+    // Se establece la ruta del reporte en el servidor.
+    let url = SERVER + 'reports/private/empleados_cargo.php';
+    // Se abre el reporte en una nueva pestaña del navegador web.
+    window.open(url);
+});

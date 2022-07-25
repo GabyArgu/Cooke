@@ -302,4 +302,19 @@ class Usuarios extends Validator
         $params = array($this->id);
         return Database::executeRow($sql, $params);
     }
+
+    /*
+        Método para generar reporte de empleados por cargo
+    */ 
+
+    public function empleadosCargo()
+    {
+        $sql = 'SELECT "nombresEmpleado", "apellidosEmpleado", "correoEmpleado", "telefonoEmpleado", ep."estadoEmpleado"
+                FROM empleado INNER JOIN "cargoEmpleado" on "empleado"."cargoEmpleado" = "cargoEmpleado"."idCargoEmpleado"
+                INNER JOIN "estadoEmpleado" as ep on "empleado"."estadoEmpleado" = ep."idEstadoEmpleado"
+                WHERE "idCargoEmpleado" = ?
+                ORDER BY "nombresEmpleado"';
+        $params = array($this->cargo);
+        return Database::getRows($sql, $params);
+    }
 }

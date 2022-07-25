@@ -59,7 +59,9 @@ class Report extends FPDF
         // Se ubica la fecha y hora del servidor.
         $this->addFont('Mohave-Light','','Mohave-Light.php');
         $this->setFont('Mohave-Light','',12);
-        $this->cell(186, 10, 'Fecha/Hora: '.date('d-m-Y H:i:s'), 0, 1, 'L');
+        $this->cell(93, 15, 'Fecha/Hora: '.date('d-m-Y H:i:s'), 0, 0, 'L');
+        //Mostramos el nombre de usuario que ha generado el reporte
+        $this->cell(93, 15, utf8_decode('Reporte generado por: '.$_SESSION['aliasEmpleado']), 0, 1, 'R');
         // Se agrega un salto de línea para mostrar el contenido principal del documento.
         $this->ln(10);
     }
