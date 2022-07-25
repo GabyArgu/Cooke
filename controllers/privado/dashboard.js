@@ -112,7 +112,6 @@ function graficoLineasVentasProductos() {
                             //Cantidad es el nombre de la columna que cuenta los registros en la consulta
                             total = registro.Cantidad;
                         }
-                        console.log(total);
                         //const total = registro ? registro.total : 0;
                         cantidades.push(total);
                     });
@@ -197,7 +196,6 @@ function graficoMultiVentasCategoria() {
             multi.categoria2Legend = "Utensilios (USD)";
             multi.categoria3Legend = "Electrodomésticos (USD)";
             multi.categoria4Legend = "Recetas (USD)";
-            console.log(multi);
         }).then(()=>{
             //Una vez se realiza todo lo anterior, se llama la función para generar el gráfico y pasarle los datos.
             multiLineGraph('chart-ventas-categoria', getWeek(), multi.datos1, multi.datos2, multi.datos3, multi.datos4, multi.categoria1Legend, multi.categoria2Legend, multi.categoria3Legend, multi.categoria4Legend);
