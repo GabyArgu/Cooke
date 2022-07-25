@@ -417,4 +417,29 @@ class Pedidos extends Validator
         $params = array($_SESSION['idPedido']);
         return Database::getRow($sql, $params);
     }
+
+    public function reportPedidosDelMes()
+    {
+        $sql = 'SELECT count("idPedido") as "Ventas", sum("montoTotal") as "Ingresos", EXTRACT(DAY FROM "fechaPedido") as "Día"
+        from pedido
+        where "fechaPedido" between (select cast(date_trunc(\'month\', current_date) as date)) and (select current_date) and "estadoPedido" = 1 group by "fechaPedido" order by "fechaPedido"
+        ';
+        $params = null;
+        return Database::getRows($sql, $params);
+    }
+
+    public function reportPedidosDelMesEstadistica()
+    {
+        $sql = 'SELECT (sum(getmonto("idPedido"))+(2*(select count("idPedido") from pedido where "fechaPedido" between (select  cast(date_trunc(\'month\', current_date) as date)) and (select current_date) and "estadoPedido" = 1))) as "totalVentas"
+        from pedido as p join cliente as c on p."idCliente" = c."idCliente"
+        where "fechaPedido" between (select  cast(date_trunc(\'month\', current_date) as date)) and (select current_date) and "estadoPedido" = 1';
+        //Consulta en caso de tomar en cuenta los dos dolares de envio por cada pedido
+        /**
+         * SELECT sum(getmonto("idPedido") + (select (Count("idPedido")*2) from pedido  where "fechaPedido" = current_date and "estadoPedido" = 1)) as "totalVentas"
+         * from pedido as p join cliente as c on p."idCliente" = c."idCliente"
+         * where "fechaPedido" = current_date and "estadoPedido" = 1
+         */
+        $params = null;
+        return Database::getRow($sql, $params);
+    }
 }
