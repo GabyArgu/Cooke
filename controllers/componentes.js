@@ -667,8 +667,21 @@ function multiLineGraph(canvas, xAxis, yAxis1, yAxis2, yAxis3, yAxis4, legend1, 
 *   Retorno: ninguno.
 */
 function pieGraph(canvas, legends, values, title) {
-    // Se declara un arreglo para guardar códigos de colores en formato hexadecimal.
-    let colors = ["#c34e8b", "#75365a", "#d97789", "#f7dadf"];
+    // Se declara un array con la paleta de colores.
+    let colorsDefault=["#FF8FC5", "#FD6AB0", "#F681C5", "#F1889B", "#F99AAA", "#FDB4BF", "#CE687C", "#FFC8CB, #c34e8b", "#75365a", "#d97789", "#f7dadf","#FF87C4", "#FFA2CF", "#FFD5E9", "#FF6FB7"];
+    //Se declara el array para guardar los colores
+    let colors = [];
+    // Se agregan los colores de la paleta en el array color dependiendo de la longitud del array de los datos
+    let j = 0;
+    for (i = 0; i < values.length; i++) {
+        //Si las iteraciones llegan a la longitud maxima del array, se reinicia 
+        //la variable j para volver a llenar los colors con el primer valor de colorsDefault
+        if (i==colorsDefault.length) {
+            j = 0;
+        }
+        colors.push(colorsDefault[j]);
+        j++;
+    }
     // Se establece el contexto donde se mostrará el gráfico, es decir, se define la etiqueta canvas a utilizar.
     const context = document.getElementById(canvas).getContext('2d');
     // Se crea una instancia para generar el gráfico con los datos recibidos.
@@ -694,16 +707,17 @@ function pieGraph(canvas, legends, values, title) {
 
 function barGraph(canvas, xAxis, yAxis, legend, title) {
     // Se declara un arreglo para guardar códigos de colores en formato hexadecimal.
+    let colorsDefault=["#FF8FC5", "#FD6AB0", "#F681C5", "#F1889B", "#F99AAA", "#FDB4BF", "#CE687C", "#FFC8CB, #c34e8b", "#75365a", "#d97789", "#f7dadf","#FF87C4", "#FFA2CF", "#FFD5E9", "#FF6FB7"];
     let colors = [];
+
     // Se generan códigos hexadecimales de 6 cifras de acuerdo con el número de datos a mostrar y se agregan al arreglo.
+    let j = 0;
     for (i = 0; i < xAxis.length; i++) {
-        if (colors[i-1] == '#75365A' || i == 0) {
-            colors.push('#C44E8C');
+        if (i==colorsDefault.length) {
+            j = 0;
         }
-        else{
-            colors.push('#75365A');
-        }
-        
+        colors.push(colorsDefault[j]);
+        j++;
     }
     // Se establece el contexto donde se mostrará el gráfico, es decir, se define la etiqueta canvas a utilizar.
     const context = document.getElementById(canvas).getContext('2d');

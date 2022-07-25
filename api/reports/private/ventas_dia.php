@@ -54,7 +54,7 @@ if ($datapedidos = $pedido->reportPedidosDelDia()) {
         $pdf->cell(31, 10, utf8_decode($rowpedido['tipoPago']), 'B', 0,'C');
         $pdf->cell(31, 10, $rowpedido['fechaPedido'], 'B', 1, 'C');
     }
-    $pdf->cell(93, 10, utf8_decode('Los montos totales ya incluyen el envío'), 0, 0, 'L', 0);
+    $pdf->cell(93, 10, utf8_decode('Montos totales incluyen el envío'), 0, 0, 'L', 0);
     //Salto de línea
     $pdf->ln(20);
     //Definimos el color del cuadro de totales
