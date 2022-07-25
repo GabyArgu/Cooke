@@ -47,21 +47,22 @@ class Report extends FPDF
     */
     public function header()
     {
-                // Se establece el logo.
-                $this->image('../../../resources/img/index/logo2.png', 150, 9, 50);
-        
-                //Añadimos la fuente poppins externa para el título del reporte y lo ubicamos
-                $this->addFont('Poppins-Bold','','Poppins-Bold.php');
-                $this->setFont('Poppins-Bold','',22);
-                $this->SetTextColor(117, 54, 90);
-                $this->cell(186, 10, utf8_decode($this->title), 0, 1, 'L');
-        
-                // Se ubica la fecha y hora del servidor.
-                $this->addFont('Mohave-Light','','Mohave-Light.php');
-                $this->setFont('Mohave-Light','',12);
-                $this->cell(186, 10, 'Fecha/Hora: '.date('d-m-Y H:i:s'), 0, 1, 'L');
-                // Se agrega un salto de línea para mostrar el contenido principal del documento.
-                $this->ln(10);
+        // Se establece el logo.
+        $this->image('../../../resources/img/index/logo2.png', 150, 9, 50);
+        // Se ubica el título.
+
+        //Añadimos la fuente poppins externa para el título del reporte
+        $this->addFont('Poppins-Bold','','Poppins-Bold.php');
+        $this->setFont('Poppins-Bold','',22);
+        $this->SetTextColor(117, 54, 90);
+        $this->cell(186, 10, utf8_decode($this->title), 0, 1, 'L');
+
+        // Se ubica la fecha y hora del servidor.
+        $this->addFont('Mohave-Light','','Mohave-Light.php');
+        $this->setFont('Mohave-Light','',12);
+        // Se agrega un salto de línea para mostrar el contenido principal del documento.
+        $this->cell(186, 10, 'Fecha/Hora: '.date('d-m-Y H:i:s'), 0, 1, 'L');
+        $this->ln(10);
     }
 
     /*
