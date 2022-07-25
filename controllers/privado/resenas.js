@@ -179,4 +179,9 @@ document.getElementById('update-form').addEventListener('submit', function (even
     saveRow(API_RESENAS, action, 'update-form', 'modal-editar');
 });
 
-console.log ("hola")
+document.getElementById('btn-report').addEventListener('click', function () {
+    // Se establece la ruta del reporte en el servidor.
+    let url = SERVER + 'reports/private/promedio_resenas.php';
+    // Se abre el reporte en una nueva pestaña del navegador web.
+    window.open(url);
+});
