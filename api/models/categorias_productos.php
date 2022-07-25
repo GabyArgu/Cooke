@@ -142,4 +142,18 @@ class CategoriaCP extends Validator
         $params = array($this->id);
         return Database::executeRow($sql, $params);
     }
+
+
+    public function categoriasProducto()
+    {
+        $sql = 'SELECT "nombreProducto", "nombreSubCategoriaP", "nombreCategoriaP", "nombreMarca", "nombreProveedor", "precioProducto" from producto
+        inner join "subcategoriaProducto" using("idSubCategoriaP")
+        inner join "categoriaProducto" on "subcategoriaProducto"."idCategoriaP" = "categoriaProducto"."idCategoria"
+        inner join marca using("idMarca")
+        inner join proveedor using("idProveedor")
+        where "idCategoria" = ?
+        order by "nombreSubCategoriaP"';
+        $params = array($this->id);
+        return Database::getRows($sql, $params);
+    }
 }
