@@ -389,8 +389,8 @@ class Productos extends Validator
     */
     public function ventasPorSemana()
     {
-        $sql = 'SELECT to_char("fechaPedido", \'Day\') as "Día", extract(day from "fechaPedido") as "Fecha", sum("montoTotal") as total from pedido 
-        where "fechaPedido" between (select current_date - cast(\'7 days\' as interval))  and (select current_date- cast(\'1 days\' as interval)) 
+        $sql = 'SELECT to_char("fechaPedido", \'Day\') as "Día", extract(day from "fechaPedido") as "Fecha", (sum(getMonto("idPedido"))+(2*(select count ("idPedido")))) as total from pedido 
+        where "fechaPedido" between (select current_date - cast(\'7 days\' as interval)) and (select current_date) 
         group by "fechaPedido" order by "fechaPedido"';
         $params = null;
         return Database::getRows($sql, $params);
@@ -398,7 +398,7 @@ class Productos extends Validator
 
     public function estadisticaVentasPorSemana()
     {
-        $sql = 'SELECT sum("montoTotal") as total from pedido 
+        $sql = 'SELECT (sum(getMonto("idPedido"))+(2*(select count ("idPedido")))) as total from pedido 
         where "fechaPedido" between (select current_date - cast(\'7 days\' as interval))  and (select current_date)';
         $params = null;
         return Database::getRow($sql, $params);
@@ -409,7 +409,7 @@ class Productos extends Validator
     {
         $sql = 'SELECT count(*) as "Cantidad", extract(day from "fechaPedido") as "Fecha" from pedido 
         inner join "detallePedido" using("idPedido")
-        where "fechaPedido" between (select current_date - cast(\'7 days\' as interval))  and (select current_date- cast(\'1 days\' as interval)) 
+        where "fechaPedido" between (select current_date - cast(\'7 days\' as interval))  and (select current_date) 
         group by "fechaPedido"';
         $params = null;
         return Database::getRows($sql, $params);

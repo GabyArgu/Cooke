@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", function () {
 function getWeek() {
     let today = new Date();
     let fechas = [];
-    for (let i = 1; i < 8; i++) {
+    for (let i = 0; i < 7; i++) {
         fechas.push(today.getDate() - i);
     }
     return fechas.reverse();
