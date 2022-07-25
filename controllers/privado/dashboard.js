@@ -239,3 +239,35 @@ function graficoPastelMarcas() {
         }
     });
 }
+
+function graficoBarrasCategoriaStock() {
+    // Petición para obtener los datos del gráfico.
+    fetch(API_PRODUCTOS + 'productoStockCategoria', {
+        method: 'get'
+    }).then(function (request) {
+        // Se verifica si la petición es correcta, de lo contrario se muestra un mensaje en la consola indicando el problema.
+        if (request.ok) {
+            request.json().then(function (response) {
+                // Se comprueba si la respuesta es satisfactoria, de lo contrario se remueve la etiqueta canvas.
+                if (response.status) {
+                    // Se declaran los arreglos para guardar los datos a graficar.
+                    let categorias = [];
+                    let cantidades = [];
+                    // Se recorre el conjunto de registros devuelto por la API (dataset) fila por fila a través del objeto row.
+                    response.dataset.map(function (row) {
+                        // Se agregan los datos a los arreglos.
+                        categorias.push(row.nombreCategoriaP);
+                        cantidades.push(row.cont);
+                    });
+                    // Se llama a la función que genera y muestra un gráfico de barras. Se encuentra en el archivo components.js
+                    barGraph('producto-Stock-Categoria', categorias, cantidades, 'Cantidad de productos', 'Productos en Stock por Categoria');
+                } else {
+                    document.getElementById('producto-Stock-Categoria').remove();
+                    console.log(response.exception);
+                }
+            });
+        } else {
+            console.log(request.status + ' ' + request.statusText);
+        }
+    });
+}
