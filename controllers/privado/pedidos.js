@@ -206,3 +206,10 @@ document.getElementById('btn-report').addEventListener('click', function () {
     // Se abre el reporte en una nueva pestaña del navegador web.
     window.open(url);
 });
+
+document.getElementById('btn-reports').addEventListener('click', function () {
+    // Se establece la ruta del reporte en el servidor.
+    let url = SERVER + 'reports/private/ventas_mes.php';
+    // Se abre el reporte en una nueva pestaña del navegador web.
+    window.open(url);
+});
