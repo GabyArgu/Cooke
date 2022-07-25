@@ -48,7 +48,17 @@ if ($datapedidos = $pedido->reportPedidosDelMes()) {
         $pdf->cell(62, 10, utf8_decode($rowpedido['Día']), 'B', 1, 'C');
     }
 
-    
+    $pdf->ln(10);
+    //Definimos el color del cuadro de totales
+    $pdf->setFillColor(245, 245, 245);
+    if ($totalVentas = $pedido->reportPedidosDelMesEstadistica()){
+        $pdf->setFont('Mohave-Bold','',12);
+        $pdf->cell(93, 10, utf8_decode('Monto total de ventas en el mes:'), 0, 0, 'C', 1);
+        $pdf->cell(93, 10, ('$'.$totalVentas['totalVentas']), 0, 0, 'C', 1);
+    }
+    else{
+        $pdf->cell(0, 10, utf8_decode('No hay total de ventas para mostrar'), 1, 1);
+    }
 } else {
     $pdf->cell(0, 10, utf8_decode('No hay ventas para mostrar'), 1, 1);
 }
