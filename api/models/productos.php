@@ -496,4 +496,17 @@ class Productos extends Validator
         $params = null;
         return Database::getRows($sql, $params);
     }
+
+    public function productoStockCategoria()
+    {
+        $sql = 'SELECT count(*), "categoriaProducto"."nombreCategoriaP"
+        from "colorStock"
+        inner join producto using("idProducto")
+        inner join "subcategoriaProducto" using("idSubCategoriaP")
+        inner join "categoriaProducto" on "subcategoriaProducto"."idCategoriaP" = "categoriaProducto"."idCategoria"
+        where producto."estadoProducto" = 1
+        group by "nombreCategoriaP"';
+        $params = null;
+        return Database::getRows($sql, $params);
+    }
 }
