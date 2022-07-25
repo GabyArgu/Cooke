@@ -30,6 +30,10 @@ class Report extends FPDF
             $this->title = $title;
             // Se establece el título del documento (true = utf-8).
             $this->setTitle($this->title, true);
+            //Se establece el nombre de la aplicación que genero el documento
+            $this->setCreator('Cooke' , true);
+            //Se establece el nombre del empleado que genero el documento
+            $this->setAuthor(utf8_decode($_SESSION['aliasEmpleado']) , true);
             // Se establecen los margenes del documento (izquierdo, superior y derecho).
             $this->setMargins(15, 15, 15);
             // Se añade una nueva página al documento (orientación vertical y formato carta) y se llama al método header()
