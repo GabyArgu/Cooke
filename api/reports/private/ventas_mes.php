@@ -64,4 +64,4 @@ if ($datapedidos = $pedido->reportPedidosDelMes()) {
 }
 
 // Se envía el documento al navegador y se llama al método footer()
-$pdf->output('I', 'productos.pdf');//Envía el documento a un destino determinado: navegador, archivo o cadena-->
+$pdf->output('I', 'ventas_mes.pdf');//Envía el documento a un destino determinado: navegador, archivo o cadena-->
