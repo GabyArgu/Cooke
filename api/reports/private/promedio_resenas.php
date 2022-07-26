@@ -40,7 +40,7 @@ if ($dataResenas = $resena->promedioResenas()) {
     // Se recorren los registros ($datapedidos) fila por fila ($rowpedido).
     foreach ($dataResenas as $rowResena) {
         // Se imprimen las celdas con los datos de los productos.
-        $pdf->cell(100, 10, $rowResena['nombreProducto'], 'B', 0, 'C');
+        $pdf->cell(100, 10, utf8_decode($rowResena['nombreProducto']), 'B', 0, 'C');
         $pdf->cell(86, 10, $rowResena['puntaje'], 'B', 0, 'C');
         $pdf->ln();
     }
