@@ -16,8 +16,7 @@ $pdf->Line(0, 0, 215, 0);//Dibuja una línea-->
 $pdf->SetLineWidth(0.2);
 $pdf->SetDrawColor(247, 218, 223);
 $pdf->SetTextColor(117, 54, 90); //Define el color del texto-->
-//Saltos de línea
-$pdf->ln(10);//Realiza un salto de línea-->
+
 
 // Se instancia el módelo Categorías para obtener los datos.
 $cargo = new CargoEmpleado;
